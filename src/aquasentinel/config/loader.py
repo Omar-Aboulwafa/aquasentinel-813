@@ -9,6 +9,7 @@ from aquasentinel.config.models import (
     AquaSentinelConfig,
     RiskBands,
     RiskWeights,
+    STACConfig,
 )
 
 
@@ -60,6 +61,7 @@ def load_config(
                 for key, value in raw["risk"]["oil"]["weights"].items()
             }
         ),
+        catalog=STACConfig(**raw.get("catalog", {})),
     )
 
     config.validate()
