@@ -56,7 +56,7 @@ Completed:
 - AS-002 — Configuration & AOI Model.
 - AS-003 — Provenance Model.
 
-Current continuity work:
+Completed continuity setup and Codex read-only onboarding:
 
 - AS-000C.1 — `AGENTS.md` completed and merged into `main`.
 - AS-000C.2 — `PROJECT_STATE.md` completed and merged into `main`.
@@ -64,10 +64,14 @@ Current continuity work:
 - AS-000C.4 — `DECISIONS.md` completed and merged into `main`.
 - AS-000C.5 — `HANDOFF.md` completed and merged into `main`.
 - AS-000C.6 — `.agent/PLANS.md` completed and merged into `main`.
-- AS-000C.7 — Codex read-only onboarding still pending.
-- AS-000C.8 — AS-101 delegation still pending.
+- AS-000C.7 — Codex read-only onboarding **COMPLETED** on 2 October 2026 at `779069d`.
+- AS-000C.8 — Codex development handoff **PENDING** until AS-101 implementation is explicitly authorized.
 
-Next engineering milestone after continuity setup:
+Current project phase:
+
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 Sentinel-2 STAC Search is next.**
+
+Next engineering milestone, pending explicit implementation authorization:
 
 - AS-101 — Sentinel-2 STAC Search.
 
@@ -388,7 +392,7 @@ Do not:
 
 ## 15. Immediate Next Engineering Task
 
-After continuity setup and Codex onboarding:
+Continuity setup and Codex read-only onboarding are complete. The next engineering task requires explicit implementation authorization:
 
 ### AS-101 — Sentinel-2 STAC Search
 
@@ -422,11 +426,11 @@ Do not yet:
 
 ---
 
-## 16. First Codex Task
+## 16. First Codex Task — COMPLETED
 
-The first Codex task should be read-only.
+The first Codex task was read-only and completed successfully on 2 October 2026 at `779069d`. Repository documentation, architecture, configuration/AOI, provenance, and tests were inspected, and Codex's understanding was verified without modifying repository files.
 
-Suggested prompt:
+Read-only onboarding prompt reference:
 
 ```text
 Read AGENTS.md, docs/PROJECT_STATE.md, docs/DECISIONS.md, docs/HANDOFF.md, and docs/AquaSentinel_813_PRD_v1.0.md.
@@ -449,13 +453,13 @@ Return:
 Do not implement AS-101 yet.
 ```
 
-Review Codex's understanding before allowing code changes.
+Codex onboarding is complete. AS-000C.8 remains pending until AS-101 implementation is explicitly authorized.
 
 ---
 
 ## 17. AS-101 Codex Handoff Rule
 
-Only after the read-only onboarding is accepted should Codex implement AS-101.
+Read-only onboarding has been accepted. Codex must implement AS-101 only after explicit implementation authorization; onboarding completion alone does not authorize code changes.
 
 The AS-101 task should include:
 
@@ -536,11 +540,11 @@ Small implementation details inside approved acceptance criteria do not require 
 
 Current project phase:
 
-**Foundation complete → continuity setup → Codex onboarding → Sentinel-2 integration**
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 Sentinel-2 STAC Search is next.**
 
 Immediate priority:
 
-**Finish repository continuity, validate Codex understanding, then begin AS-101.**
+**Keep AS-000C.8 pending until AS-101 implementation is explicitly authorized, then begin AS-101 on a dedicated feature branch.**
 
 Core constraint:
 
