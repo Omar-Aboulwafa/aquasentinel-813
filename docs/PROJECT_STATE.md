@@ -13,7 +13,7 @@
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 implemented and validated; uncommitted review pending.**
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
 
 Completed engineering foundations:
 
@@ -31,8 +31,8 @@ Continuity setup and Codex read-only onboarding are complete:
 
 Current implementation ready for review:
 
-- AS-101 — Sentinel-2 STAC Search: implemented on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Changes are uncommitted; no push or PR has been made for AS-101.
-- Quality gate: **92 tests passed**, Ruff passed, and `git diff --check` passed.
+- AS-101 — Sentinel-2 STAC Search: implemented on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. The feature branch is pushed; human code review is in progress. No PR has been created, and AS-101 has not been merged into `main`.
+- Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
 - Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
 - AS-102 — Optical Preprocessing is the next planned milestone and has not started. It requires separate authorization.
 
@@ -578,7 +578,7 @@ Status:
 
 **COMPLETED.**
 
-AS-101 was explicitly authorized on 2 October 2026 as the first development task after onboarding. The handoff specified CDSE as the default provider, catalog-only scope, minimal dependencies, provenance integration, offline tests, a real-data smoke test, and uncommitted changes for review. Onboarding alone did not authorize implementation; the separate development instruction did.
+AS-101 was explicitly authorized on 2 October 2026 as the first development task after onboarding. The handoff specified CDSE as the default provider, catalog-only scope, minimal dependencies, provenance integration, offline tests, a real-data smoke test, and initial review before committing. Onboarding alone did not authorize implementation; the separate development instruction did.
 
 ---
 
@@ -631,12 +631,12 @@ Search/catalog integration comes first.
 - Typed metadata candidates sorted by acquisition time and item ID; identical duplicates collapsed and conflicting duplicates rejected.
 - Provider-qualified `SourceRecord` mapping; upstream provenance models remain unchanged.
 - Only new direct dependency: `pystac-client==0.9.0`.
-- **92 tests passed**, including all 17 original tests; Ruff and `git diff --check` passed.
+- **97 tests passed**, including all 17 original tests; Ruff and `git diff --check` passed.
 - Live CDSE smoke test on 2 October 2026 returned **44 scenes**, from `2023-03-04T06:47:51.024Z` through `2023-05-28T06:46:29.024Z`; provenance conversion succeeded for every scene.
 
 Implementation and smoke-test details: `docs/AS_101_STAC_SEARCH.md`.
 
-Changes remain uncommitted for review. No raster imagery was downloaded, and catalog availability does not demonstrate HAB detection or usable water pixels. AS-102 has not started.
+Implementation and documentation are committed, and the feature branch is pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`. No raster imagery was downloaded, and catalog availability does not demonstrate HAB detection or usable water pixels. AS-102 remains unauthorized and has not started.
 
 ---
 
@@ -808,12 +808,12 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-AS-101 is implemented and validated. Review the uncommitted catalog/search changes and recorded evidence before authorizing publication or further development.
+AS-101 is implemented and validated. Implementation and documentation are committed, and the feature branch is pushed. Human code review of the catalog/search changes and recorded evidence is in progress. No PR has been created.
 
 Immediate sequence:
 
 1. Review AS-101's diff, quality-gate results, and live CDSE smoke-test evidence.
-2. Leave the changes uncommitted until a separate commit/push instruction is given.
+2. Keep AS-101 under human code review; PR creation and merging have not been authorized.
 3. AS-102 — Optical Preprocessing is next in the planned sequence; do not begin it without separate authorization.
 
 ---
@@ -827,5 +827,5 @@ At the current point, the project is healthy if:
 - Ruff passes,
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
-- AS-101's uncommitted implementation has passing offline checks and a successful real catalog smoke test,
+- AS-101's committed and pushed implementation has passing offline checks and a successful real catalog smoke test, with human code review in progress,
 - AS-102 remains separate and has not started.

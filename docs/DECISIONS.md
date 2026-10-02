@@ -889,7 +889,6 @@ The following decisions are intentionally not final yet:
 
 Packages such as:
 
-- `pystac-client`,
 - `rasterio`,
 - `rioxarray`,
 - `xarray`,

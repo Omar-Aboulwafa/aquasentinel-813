@@ -1,6 +1,6 @@
 # AS-101 — Sentinel-2 STAC Search
 
-Implemented and validated on 2 October 2026 on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede37e46e6d4a0ac568b90f316f60e1277ba`. Changes remain uncommitted for review.
+Implemented and validated on 2 October 2026 on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede37e46e6d4a0ac568b90f316f60e1277ba`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. The feature branch is pushed; human code review is in progress. No PR has been created, and AS-101 has not been merged into `main`. AS-102 remains unauthorized.
 
 ## Scope and setup
 
@@ -118,6 +118,6 @@ python -m pytest -v
 python -m ruff check .
 ```
 
-Recorded result: **92 tests passed**, Ruff passed, and the diff check passed. All 17 original tests remain intact. New tests exercise configurable settings and legacy loading, request geometry/date/cloud/timeout, GET/POST pagination, later-page errors and cycles, normalization, optional/missing/malformed fields, UTC boundaries, local filter checks, deterministic duplicates, and provenance. Only HTTP responses are replaced for catalog tests; the real client's search and pagination logic executes offline.
+Recorded result: **97 tests passed**, Ruff passed, and the diff check passed. All 17 original tests remain intact. New tests exercise configurable settings and legacy loading, request geometry/date/cloud/timeout, GET/POST pagination, later-page errors and cycles, normalization, optional/missing/malformed fields, UTC boundaries, local filter checks, deterministic duplicates, and provenance. Only HTTP responses are replaced for catalog tests; the real client's search and pagination logic executes offline.
 
 Catalog search proves metadata availability only. Scene cloud cover is not AOI-specific water/cloud masking. Overlapping tiles remain separate products; scene count is not a count of independent acquisition dates. Asset accessibility and raster suitability have not been tested. The analyst-defined Al Raha validation AOI remains distinct from any operational intake. AS-102 has not started.

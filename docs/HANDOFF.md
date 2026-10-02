@@ -69,12 +69,12 @@ Completed continuity setup and Codex read-only onboarding:
 
 Current project phase:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 implemented and validated; uncommitted review pending.**
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
 
 Current implementation and next milestone:
 
-- AS-101 — Sentinel-2 STAC Search is implemented on `feature/as-101-sentinel2-stac` from base `51f4ede`, with uncommitted changes ready for review.
-- **92 tests passed**, Ruff passed, and `git diff --check` passed. A real CDSE query returned 44 scenes and every scene converted to valid provenance.
+- AS-101 — Sentinel-2 STAC Search is implemented on `feature/as-101-sentinel2-stac` from base `51f4ede`. Implementation commit `41a0b0b` and documentation commit `b3f0e9f` are committed and pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`.
+- **97 tests passed**, Ruff passed, and `git diff --check` passed. A real CDSE query returned 44 scenes and every scene converted to valid provenance.
 - See `docs/AS_101_STAC_SEARCH.md` for usage, semantics, and smoke-test evidence.
 - AS-102 — Optical Preprocessing is next in the planned sequence; it has not started and requires separate authorization.
 
@@ -395,7 +395,7 @@ Do not:
 
 ## 15. AS-101 Implementation and Next Engineering Task
 
-AS-101 was explicitly authorized and is now implemented and validated, with changes left uncommitted for review. AS-102 requires separate authorization.
+AS-101 was explicitly authorized and is now implemented and validated. Implementation and documentation are committed, and the feature branch is pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`. AS-102 remains unauthorized.
 
 ### AS-101 — Sentinel-2 STAC Search
 
@@ -543,11 +543,11 @@ Small implementation details inside approved acceptance criteria do not require 
 
 Current project phase:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 implemented and validated; uncommitted review pending.**
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
 
 Immediate priority:
 
-**Review AS-101's uncommitted changes and validation evidence. AS-102 is the next planned milestone and must not start without separate authorization.**
+**Continue human code review of AS-101's committed and pushed changes and validation evidence. No PR has been created. AS-102 remains unauthorized and must not start without separate authorization.**
 
 Core constraint:
 
