@@ -1,0 +1,42 @@
+{
+  "type": "FeatureCollection",
+  "name": "aquasentinel_demo_site",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "raha_validation_aoi",
+        "name": "Al Raha Bay Validation AOI",
+        "role": "validation_aoi",
+        "description": "Analyst-defined area of interest for AquaSentinel HAB validation. This polygon is not an official administrative or environmental boundary.",
+        "crs": "EPSG:4326"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [54.5250, 24.4200],
+            [54.5850, 24.4200],
+            [54.5850, 24.4600],
+            [54.5250, 24.4600],
+            [54.5250, 24.4200]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "raha_reference_point",
+        "name": "Al Raha Bay Reference Point",
+        "role": "validation_reference",
+        "description": "Reference location used to orient the validation AOI. Not a desalination intake location.",
+        "source": "OpenStreetMap-derived public location reference"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [54.5507, 24.4391]
+      }
+    }
+  ]
+}
