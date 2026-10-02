@@ -3,7 +3,7 @@
 **Last updated:** 2 October 2026
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current continuity branch:** `chore/as-000c-codex-continuity`
+**Current branch:** `main`
 **PoC deadline:** 11 October 2026
 **Challenge:** Arab Youth Space Hackathon 2026 — Track 03: Water Security & Marine Environments
 
@@ -21,8 +21,8 @@ Completed engineering foundations:
 
 Continuity/Codex setup is currently in progress:
 
-- AS-000C.1 — `AGENTS.md` committed and pushed on the continuity branch.
-- AS-000C.2 — `docs/PROJECT_STATE.md` committed and pushed on the continuity branch.
+- AS-000C.1 — `AGENTS.md` completed and merged into `main`.
+- AS-000C.2 — `docs/PROJECT_STATE.md` completed and merged into `main`.
 - Repository continuity files are committed and pushed; merge to `main` and Codex onboarding remain.
 
 Next satellite engineering milestone after continuity setup:
@@ -495,7 +495,7 @@ Do not rely on chat memory for critical project decisions.
 
 Status:
 
-**Completed and committed on the continuity branch; pending merge to `main`.**
+**Completed and merged into `main`.**
 
 Purpose:
 
@@ -511,13 +511,13 @@ Purpose:
 
 Status:
 
-**Completed and committed on the continuity branch; pending merge to `main`.**
+**Completed and merged into `main`.**
 
 ### AS-000C.3 — PRD / scope reference
 
 Status:
 
-**Completed and committed on the continuity branch; pending merge to `main`.**
+**Completed and merged into `main`.**
 
 Need to ensure the approved AquaSentinel PRD or an equivalent repository-contained specification is available inside the repo.
 
@@ -525,7 +525,7 @@ Need to ensure the approved AquaSentinel PRD or an equivalent repository-contain
 
 Status:
 
-**Completed and committed on the continuity branch; pending merge to `main`.**
+**Completed and merged into `main`.**
 
 Must capture major decisions and reasons, including:
 
@@ -545,7 +545,7 @@ Must capture major decisions and reasons, including:
 
 Status:
 
-**Completed and committed on the continuity branch; pending merge to `main`.**
+**Completed and merged into `main`.**
 
 Must enable a fresh human or agent to continue with minimal context.
 
@@ -553,7 +553,7 @@ Must enable a fresh human or agent to continue with minimal context.
 
 Status:
 
-**Completed and committed on the continuity branch; pending merge to `main`.**
+**Completed and merged into `main`.**
 
 Will define how longer Codex tasks should be planned and reported.
 
@@ -790,7 +790,7 @@ Complete AS-000C continuity setup before beginning satellite data engineering.
 
 Immediate sequence:
 
-1. Merge continuity setup to `main`.
+1. Commit the final post-merge documentation status.
 2. Re-run tests and Ruff on `main`.
 3. Push updated `main`.
 4. Connect/onboard Codex in read-only mode.

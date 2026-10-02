@@ -3,7 +3,7 @@
 **Last updated:** 2 October 2026
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current continuity branch:** `chore/as-000c-codex-continuity`
+**Current branch:** `main`
 
 This file is the fast handoff document for a new ChatGPT session, Codex task, developer, or second machine.
 
@@ -58,12 +58,12 @@ Completed:
 
 Current continuity work:
 
-- AS-000C.1 — `AGENTS.md` committed and pushed on the continuity branch.
-- AS-000C.2 — `PROJECT_STATE.md` committed and pushed on the continuity branch.
-- AS-000C.3 — PRD committed and pushed under `docs/`.
-- AS-000C.4 — `DECISIONS.md` committed and pushed.
-- AS-000C.5 — `HANDOFF.md` committed and pushed.
-- AS-000C.6 — `.agent/PLANS.md` committed and pushed.
+- AS-000C.1 — `AGENTS.md` completed and merged into `main`.
+- AS-000C.2 — `PROJECT_STATE.md` completed and merged into `main`.
+- AS-000C.3 — PRD completed and merged under `docs/`.
+- AS-000C.4 — `DECISIONS.md` completed and merged into `main`.
+- AS-000C.5 — `HANDOFF.md` completed and merged into `main`.
+- AS-000C.6 — `.agent/PLANS.md` completed and merged into `main`.
 - AS-000C.7 — Codex read-only onboarding still pending.
 - AS-000C.8 — AS-101 delegation still pending.
 
