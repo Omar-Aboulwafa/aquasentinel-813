@@ -858,26 +858,37 @@ Architecture history matters for understanding why the current system exists.
 
 ---
 
+## Decision 038 — Use Configurable CDSE STAC for AS-101
+
+### Decision
+
+On 2 October 2026, the project owner explicitly selected Copernicus Data Space Ecosystem as the default Sentinel-2 Level-2A catalog for AS-101:
+
+- Endpoint: `https://stac.dataspace.copernicus.eu/v1/`
+- Collection: `sentinel-2-l2a`
+
+Both are configurable. `pystac-client==0.9.0` is the only new direct dependency; it provides STAC discovery/search and pagination without introducing raster processing libraries.
+
+### Evidence and consequences
+
+- A real query for the configured Al Raha validation AOI and 1 March–31 May 2023 window returned 44 scenes with cloud cover <= 30%; every candidate converted to valid provenance.
+- A configurable 30-second request timeout bounds network waits. No result cap is imposed; all pagination is consumed or an explicit error is raised.
+- Missing required metadata fails explicitly. Platform is required because the existing `SourceRecord` requires it; platform values are never invented. Optional self URLs and licence metadata remain absent when unavailable.
+- Candidate IDs include a full SHA-256 digest of the catalog endpoint plus escaped collection/item IDs to avoid provider and separator collisions.
+- Only metadata and asset references are retrieved. Catalog availability is not evidence of HABs or usable water pixels, and asset accessibility has not been verified.
+
+Reproduction and detailed evidence: `docs/AS_101_STAC_SEARCH.md`.
+
+---
+
 ## Pending Decisions
 
 The following decisions are intentionally not final yet:
-
-### STAC provider
-
-Must be selected during AS-101 based on:
-
-- reliability,
-- Sentinel-2 L2A coverage,
-- STAC compliance,
-- authentication burden,
-- asset accessibility,
-- reproducibility.
 
 ### Full geospatial dependency stack
 
 Packages such as:
 
-- `pystac-client`,
 - `rasterio`,
 - `rioxarray`,
 - `xarray`,

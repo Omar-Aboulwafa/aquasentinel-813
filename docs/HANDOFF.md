@@ -3,7 +3,7 @@
 **Last updated:** 2 October 2026
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current branch:** `main`
+**Current development branch:** `feature/as-101-sentinel2-stac`
 
 This file is the fast handoff document for a new ChatGPT session, Codex task, developer, or second machine.
 
@@ -65,15 +65,18 @@ Completed continuity setup and Codex read-only onboarding:
 - AS-000C.5 — `HANDOFF.md` completed and merged into `main`.
 - AS-000C.6 — `.agent/PLANS.md` completed and merged into `main`.
 - AS-000C.7 — Codex read-only onboarding **COMPLETED** on 2 October 2026 at `779069d`.
-- AS-000C.8 — Codex development handoff **PENDING** until AS-101 implementation is explicitly authorized.
+- AS-000C.8 — Codex development handoff **COMPLETED** with explicit AS-101 implementation authorization on 2 October 2026.
 
 Current project phase:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 Sentinel-2 STAC Search is next.**
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
 
-Next engineering milestone, pending explicit implementation authorization:
+Current implementation and next milestone:
 
-- AS-101 — Sentinel-2 STAC Search.
+- AS-101 — Sentinel-2 STAC Search is implemented on `feature/as-101-sentinel2-stac` from base `51f4ede`. Implementation commit `41a0b0b` and documentation commit `b3f0e9f` are committed and pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`.
+- **97 tests passed**, Ruff passed, and `git diff --check` passed. A real CDSE query returned 44 scenes and every scene converted to valid provenance.
+- See `docs/AS_101_STAC_SEARCH.md` for usage, semantics, and smoke-test evidence.
+- AS-102 — Optical Preprocessing is next in the planned sequence; it has not started and requires separate authorization.
 
 ---
 
@@ -390,9 +393,9 @@ Do not:
 
 ---
 
-## 15. Immediate Next Engineering Task
+## 15. AS-101 Implementation and Next Engineering Task
 
-Continuity setup and Codex read-only onboarding are complete. The next engineering task requires explicit implementation authorization:
+AS-101 was explicitly authorized and is now implemented and validated. Implementation and documentation are committed, and the feature branch is pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`. AS-102 remains unauthorized.
 
 ### AS-101 — Sentinel-2 STAC Search
 
@@ -406,9 +409,9 @@ Given:
 
 return real Sentinel-2 observations suitable for downstream analysis.
 
-Expected AS-101 scope:
+Implemented AS-101 scope:
 
-- select stable STAC endpoint/provider,
+- use the explicitly selected CDSE default endpoint/provider, with configurable endpoint and collection,
 - search by AOI,
 - search by date interval,
 - filter by cloud cover,
@@ -453,13 +456,13 @@ Return:
 Do not implement AS-101 yet.
 ```
 
-Codex onboarding is complete. AS-000C.8 remains pending until AS-101 implementation is explicitly authorized.
+Codex onboarding is complete. AS-000C.8 was completed by the separate explicit AS-101 development authorization on 2 October 2026.
 
 ---
 
 ## 17. AS-101 Codex Handoff Rule
 
-Read-only onboarding has been accepted. Codex must implement AS-101 only after explicit implementation authorization; onboarding completion alone does not authorize code changes.
+Read-only onboarding was accepted, and AS-101 subsequently received explicit implementation authorization. Onboarding completion alone did not authorize code changes. Future milestones require separate authorization.
 
 The AS-101 task should include:
 
@@ -540,11 +543,11 @@ Small implementation details inside approved acceptance criteria do not require 
 
 Current project phase:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 Sentinel-2 STAC Search is next.**
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
 
 Immediate priority:
 
-**Keep AS-000C.8 pending until AS-101 implementation is explicitly authorized, then begin AS-101 on a dedicated feature branch.**
+**Continue human code review of AS-101's committed and pushed changes and validation evidence. No PR has been created. AS-102 remains unauthorized and must not start without separate authorization.**
 
 Core constraint:
 

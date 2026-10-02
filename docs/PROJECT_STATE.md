@@ -3,7 +3,7 @@
 **Last updated:** 2 October 2026
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current branch:** `main`
+**Current development branch:** `feature/as-101-sentinel2-stac`
 **PoC deadline:** 11 October 2026
 **Challenge:** Arab Youth Space Hackathon 2026 — Track 03: Water Security & Marine Environments
 
@@ -13,7 +13,7 @@
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 Sentinel-2 STAC Search is next.**
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
 
 Completed engineering foundations:
 
@@ -27,11 +27,14 @@ Continuity setup and Codex read-only onboarding are complete:
 - AS-000C.2 — `docs/PROJECT_STATE.md` completed and merged into `main`.
 - AS-000C.3–AS-000C.6 — PRD, decisions, handoff, and execution-plan documentation completed and merged into `main`.
 - AS-000C.7 — Codex read-only onboarding **COMPLETED** on 2 October 2026 at `779069d`.
-- AS-000C.8 — Codex development handoff **PENDING** until AS-101 implementation is explicitly authorized.
+- AS-000C.8 — Codex development handoff **COMPLETED** with explicit AS-101 implementation authorization on 2 October 2026.
 
-Next satellite engineering milestone, pending explicit implementation authorization:
+Current implementation ready for review:
 
-- AS-101 — Sentinel-2 STAC Search.
+- AS-101 — Sentinel-2 STAC Search: implemented on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. The feature branch is pushed; human code review is in progress. No PR has been created, and AS-101 has not been merged into `main`.
+- Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
+- Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
+- AS-102 — Optical Preprocessing is the next planned milestone and has not started. It requires separate authorization.
 
 ---
 
@@ -493,7 +496,7 @@ Do not rely on chat memory for critical project decisions.
 
 ---
 
-## 13. AS-000C — Continuity & Onboarding COMPLETE; Development Handoff PENDING
+## 13. AS-000C — Codex & Continuity Setup — COMPLETE
 
 ### AS-000C.1 — AGENTS.md
 
@@ -573,13 +576,13 @@ Completed on 2 October 2026 at `779069d`. Codex inspected the repository documen
 
 Status:
 
-**PENDING.**
+**COMPLETED.**
 
-AS-101 will be the first planned engineering task delegated to Codex. The development handoff remains pending until AS-101 implementation is explicitly authorized; completed onboarding does not authorize implementation.
+AS-101 was explicitly authorized on 2 October 2026 as the first development task after onboarding. The handoff specified CDSE as the default provider, catalog-only scope, minimal dependencies, provenance integration, offline tests, a real-data smoke test, and initial review before committing. Onboarding alone did not authorize implementation; the separate development instruction did.
 
 ---
 
-## 14. Next Engineering Milestone — AS-101
+## 14. AS-101 — Sentinel-2 STAC Search — IMPLEMENTED AND VALIDATED
 
 ### Name
 
@@ -619,6 +622,21 @@ Do not yet:
 - build the ML risk model.
 
 Search/catalog integration comes first.
+
+### Implementation and validation
+
+- Configurable CDSE STAC endpoint, collection, and per-request timeout.
+- Primary validation Polygon passed as `intersects`; inclusive UTC date window and `eo:cloud_cover <= threshold` query.
+- Full pagination without a result cap; explicit errors for incomplete/cyclic pagination, catalog failures, and missing/malformed item metadata.
+- Typed metadata candidates sorted by acquisition time and item ID; identical duplicates collapsed and conflicting duplicates rejected.
+- Provider-qualified `SourceRecord` mapping; upstream provenance models remain unchanged.
+- Only new direct dependency: `pystac-client==0.9.0`.
+- **97 tests passed**, including all 17 original tests; Ruff and `git diff --check` passed.
+- Live CDSE smoke test on 2 October 2026 returned **44 scenes**, from `2023-03-04T06:47:51.024Z` through `2023-05-28T06:46:29.024Z`; provenance conversion succeeded for every scene.
+
+Implementation and smoke-test details: `docs/AS_101_STAC_SEARCH.md`.
+
+Implementation and documentation are committed, and the feature branch is pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`. No raster imagery was downloaded, and catalog availability does not demonstrate HAB detection or usable water pixels. AS-102 remains unauthorized and has not started.
 
 ---
 
@@ -790,13 +808,13 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-Continuity setup and Codex read-only onboarding are complete. AS-101 — Sentinel-2 STAC Search is the next engineering milestone.
+AS-101 is implemented and validated. Implementation and documentation are committed, and the feature branch is pushed. Human code review of the catalog/search changes and recorded evidence is in progress. No PR has been created.
 
 Immediate sequence:
 
-1. Obtain explicit authorization for AS-101 implementation; AS-000C.8 remains pending until then.
-2. Once authorized, hand off AS-101 with explicit acceptance criteria, minimal dependencies, provenance integration, and test expectations.
-3. Begin AS-101 on a dedicated feature branch and follow the existing quality gate.
+1. Review AS-101's diff, quality-gate results, and live CDSE smoke-test evidence.
+2. Keep AS-101 under human code review; PR creation and merging have not been authorized.
+3. AS-102 — Optical Preprocessing is next in the planned sequence; do not begin it without separate authorization.
 
 ---
 
@@ -809,4 +827,5 @@ At the current point, the project is healthy if:
 - Ruff passes,
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
-- AS-101 can begin without revisiting completed foundation work.
+- AS-101's committed and pushed implementation has passing offline checks and a successful real catalog smoke test, with human code review in progress,
+- AS-102 remains separate and has not started.

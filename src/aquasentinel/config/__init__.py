@@ -5,6 +5,7 @@ from aquasentinel.config.models import (
     AquaSentinelConfig,
     RiskBands,
     RiskWeights,
+    STACConfig,
 )
 
 __all__ = [
@@ -14,6 +15,7 @@ __all__ = [
     "AquaSentinelConfig",
     "RiskBands",
     "RiskWeights",
+    "STACConfig",
     "load_aoi",
     "load_config",
 ]
