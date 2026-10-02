@@ -1,0 +1,51 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Testing / tooling
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# AquaSentinel data caches / large EO files
+data/cache/
+data/raw/
+*.tif
+*.tiff
+*.jp2
+*.hdf
+*.hdf5
+*.nc
+*.zarr/
+*.SAFE/
+
+# Temporary outputs
+tmp/
+temp/
+outputs/
