@@ -11,7 +11,9 @@
 
 ## 1. Current Status
 
-AquaSentinel 813 is in the foundation-complete / satellite-data-integration-next stage.
+AquaSentinel 813 is at the following stage:
+
+**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 Sentinel-2 STAC Search is next.**
 
 Completed engineering foundations:
 
@@ -19,13 +21,15 @@ Completed engineering foundations:
 - AS-002 — Configuration & AOI Model.
 - AS-003 — Provenance Model.
 
-Continuity/Codex setup is currently in progress:
+Continuity setup and Codex read-only onboarding are complete:
 
 - AS-000C.1 — `AGENTS.md` completed and merged into `main`.
 - AS-000C.2 — `docs/PROJECT_STATE.md` completed and merged into `main`.
-- Repository continuity files are committed and pushed; merge to `main` and Codex onboarding remain.
+- AS-000C.3–AS-000C.6 — PRD, decisions, handoff, and execution-plan documentation completed and merged into `main`.
+- AS-000C.7 — Codex read-only onboarding **COMPLETED** on 2 October 2026 at `779069d`.
+- AS-000C.8 — Codex development handoff **PENDING** until AS-101 implementation is explicitly authorized.
 
-Next satellite engineering milestone after continuity setup:
+Next satellite engineering milestone, pending explicit implementation authorization:
 
 - AS-101 — Sentinel-2 STAC Search.
 
@@ -471,7 +475,7 @@ Repository documentation must allow a new ChatGPT session, Codex task, another c
 - `docs/HANDOFF.md`
 - `.agent/PLANS.md`
 
-The first file is already prepared locally.
+All required continuity files are committed and merged into `main`.
 
 ### Agent startup sequence
 
@@ -489,7 +493,7 @@ Do not rely on chat memory for critical project decisions.
 
 ---
 
-## 13. AS-000C — Codex & Continuity Setup — IN PROGRESS
+## 13. AS-000C — Continuity & Onboarding COMPLETE; Development Handoff PENDING
 
 ### AS-000C.1 — AGENTS.md
 
@@ -519,7 +523,7 @@ Status:
 
 **Completed and merged into `main`.**
 
-Need to ensure the approved AquaSentinel PRD or an equivalent repository-contained specification is available inside the repo.
+The approved AquaSentinel PRD is available at `docs/AquaSentinel_813_PRD_v1.0.md`.
 
 ### AS-000C.4 — DECISIONS.md
 
@@ -555,23 +559,23 @@ Status:
 
 **Completed and merged into `main`.**
 
-Will define how longer Codex tasks should be planned and reported.
+Defines how longer Codex tasks should be planned and reported.
 
 ### AS-000C.7 — Codex read-only onboarding
 
 Status:
 
-**Pending.**
+**COMPLETED.**
 
-First Codex task should inspect the repository and summarize its understanding without modifying code.
+Completed on 2 October 2026 at `779069d`. Codex inspected the repository documentation, architecture, configuration/AOI, provenance, and tests, and returned a structured onboarding report without modifying repository files. Repository understanding has been verified.
 
 ### AS-000C.8 — Codex development handoff
 
 Status:
 
-**Pending.**
+**PENDING.**
 
-AS-101 will be the first planned engineering task delegated to Codex after its repository understanding is verified.
+AS-101 will be the first planned engineering task delegated to Codex. The development handoff remains pending until AS-101 implementation is explicitly authorized; completed onboarding does not authorize implementation.
 
 ---
 
@@ -786,16 +790,13 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-Complete AS-000C continuity setup before beginning satellite data engineering.
+Continuity setup and Codex read-only onboarding are complete. AS-101 — Sentinel-2 STAC Search is the next engineering milestone.
 
 Immediate sequence:
 
-1. Commit the final post-merge documentation status.
-2. Re-run tests and Ruff on `main`.
-3. Push updated `main`.
-4. Connect/onboard Codex in read-only mode.
-5. Verify Codex understanding.
-6. Begin AS-101 on a dedicated feature branch.
+1. Obtain explicit authorization for AS-101 implementation; AS-000C.8 remains pending until then.
+2. Once authorized, hand off AS-101 with explicit acceptance criteria, minimal dependencies, provenance integration, and test expectations.
+3. Begin AS-101 on a dedicated feature branch and follow the existing quality gate.
 
 ---
 
