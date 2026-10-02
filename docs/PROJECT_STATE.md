@@ -21,9 +21,9 @@ Completed engineering foundations:
 
 Continuity/Codex setup is currently in progress:
 
-- AS-000C.1 — `AGENTS.md` completed locally.
-- AS-000C.2 — `docs/PROJECT_STATE.md` is being added now.
-- Remaining AS-000C work is listed later in this document.
+- AS-000C.1 — `AGENTS.md` committed and pushed on the continuity branch.
+- AS-000C.2 — `docs/PROJECT_STATE.md` committed and pushed on the continuity branch.
+- Repository continuity files are committed and pushed; merge to `main` and Codex onboarding remain.
 
 Next satellite engineering milestone after continuity setup:
 
@@ -495,7 +495,7 @@ Do not rely on chat memory for critical project decisions.
 
 Status:
 
-**Completed locally; pending continuity-branch commit/merge.**
+**Completed and committed on the continuity branch; pending merge to `main`.**
 
 Purpose:
 
@@ -511,13 +511,13 @@ Purpose:
 
 Status:
 
-**In progress — this document.**
+**Completed and committed on the continuity branch; pending merge to `main`.**
 
 ### AS-000C.3 — PRD / scope reference
 
 Status:
 
-**Pending.**
+**Completed and committed on the continuity branch; pending merge to `main`.**
 
 Need to ensure the approved AquaSentinel PRD or an equivalent repository-contained specification is available inside the repo.
 
@@ -525,7 +525,7 @@ Need to ensure the approved AquaSentinel PRD or an equivalent repository-contain
 
 Status:
 
-**Pending.**
+**Completed and committed on the continuity branch; pending merge to `main`.**
 
 Must capture major decisions and reasons, including:
 
@@ -545,7 +545,7 @@ Must capture major decisions and reasons, including:
 
 Status:
 
-**Pending.**
+**Completed and committed on the continuity branch; pending merge to `main`.**
 
 Must enable a fresh human or agent to continue with minimal context.
 
@@ -553,7 +553,7 @@ Must enable a fresh human or agent to continue with minimal context.
 
 Status:
 
-**Pending.**
+**Completed and committed on the continuity branch; pending merge to `main`.**
 
 Will define how longer Codex tasks should be planned and reported.
 
@@ -790,17 +790,12 @@ Complete AS-000C continuity setup before beginning satellite data engineering.
 
 Immediate sequence:
 
-1. Add this `docs/PROJECT_STATE.md`.
-2. Add approved project scope/PRD to the repository.
-3. Add `docs/DECISIONS.md`.
-4. Add `docs/HANDOFF.md`.
-5. Add `.agent/PLANS.md`.
-6. Run tests and Ruff.
-7. Commit/push the continuity branch.
-8. Merge continuity setup to `main`.
-9. Connect/onboard Codex in read-only mode.
-10. Verify Codex understanding.
-11. Begin AS-101 on a dedicated feature branch.
+1. Merge continuity setup to `main`.
+2. Re-run tests and Ruff on `main`.
+3. Push updated `main`.
+4. Connect/onboard Codex in read-only mode.
+5. Verify Codex understanding.
+6. Begin AS-101 on a dedicated feature branch.
 
 ---
 

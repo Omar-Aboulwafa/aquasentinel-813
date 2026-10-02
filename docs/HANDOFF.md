@@ -58,12 +58,12 @@ Completed:
 
 Current continuity work:
 
-- AS-000C.1 — `AGENTS.md` completed locally.
-- AS-000C.2 — `PROJECT_STATE.md` added locally.
-- AS-000C.3 — PRD moved into `docs/`.
-- AS-000C.4 — `DECISIONS.md` added locally.
-- AS-000C.4B — this `HANDOFF.md`.
-- AS-000C.5 — `.agent/PLANS.md` still pending.
+- AS-000C.1 — `AGENTS.md` committed and pushed on the continuity branch.
+- AS-000C.2 — `PROJECT_STATE.md` committed and pushed on the continuity branch.
+- AS-000C.3 — PRD committed and pushed under `docs/`.
+- AS-000C.4 — `DECISIONS.md` committed and pushed.
+- AS-000C.5 — `HANDOFF.md` committed and pushed.
+- AS-000C.6 — `.agent/PLANS.md` committed and pushed.
 - AS-000C.7 — Codex read-only onboarding still pending.
 - AS-000C.8 — AS-101 delegation still pending.
 
