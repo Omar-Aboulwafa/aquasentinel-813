@@ -27,12 +27,16 @@ def load_config(
 
     root = Path(project_root) if project_root is not None else Path.cwd()
 
+    cloud_cover = raw["analysis"]["max_cloud_cover_percent"]
+    if isinstance(cloud_cover, bool) or not isinstance(cloud_cover, (int, float)):
+        raise TypeError(
+            "max_cloud_cover_percent must be a real numeric value; booleans are not allowed."
+        )
+
     analysis = AnalysisConfig(
         start_date=date.fromisoformat(raw["analysis"]["start_date"]),
         end_date=date.fromisoformat(raw["analysis"]["end_date"]),
-        max_cloud_cover_percent=float(
-            raw["analysis"]["max_cloud_cover_percent"]
-        ),
+        max_cloud_cover_percent=float(cloud_cover),
     )
 
     risk_bands = RiskBands(
