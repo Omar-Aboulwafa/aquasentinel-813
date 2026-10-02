@@ -1,0 +1,32 @@
+[app]
+name = "AquaSentinel 813"
+environment = "development"
+
+[data]
+aoi_file = "data/aoi/demo_site.geojson"
+cache_dir = "data/cache"
+
+[analysis]
+start_date = "2023-03-01"
+end_date = "2023-05-31"
+max_cloud_cover_percent = 30
+
+[risk]
+low_max = 24
+watch_max = 49
+elevated_max = 74
+high_max = 100
+
+[risk.hab.weights]
+spectral_anomaly = 0.35
+chlorophyll_red_edge_signal = 0.20
+persistence = 0.15
+environmental_context = 0.15
+intake_exposure = 0.15
+
+[risk.oil.weights]
+sar_slick_likelihood = 0.45
+persistence = 0.15
+intake_exposure = 0.20
+drift_support = 0.10
+optical_context_confirmation = 0.10
