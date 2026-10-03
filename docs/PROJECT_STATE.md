@@ -1,9 +1,10 @@
 # AquaSentinel 813 — Project State
 
-**Last updated:** 2 October 2026
+**Last updated:** 3 October 2026
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current development branch:** `feature/as-101-sentinel2-stac`
+**Current development branch:** None; no active AS-102 development branch.
+**Documentation closeout branch:** `docs/as-101-post-merge-closeout`
 **PoC deadline:** 11 October 2026
 **Challenge:** Arab Youth Space Hackathon 2026 — Track 03: Water Security & Marine Environments
 
@@ -13,7 +14,7 @@
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
+**Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 Optical Preprocessing is the next planned milestone, but is NOT authorized and has NOT started.**
 
 Completed engineering foundations:
 
@@ -29,9 +30,9 @@ Continuity setup and Codex read-only onboarding are complete:
 - AS-000C.7 — Codex read-only onboarding **COMPLETED** on 2 October 2026 at `779069d`.
 - AS-000C.8 — Codex development handoff **COMPLETED** with explicit AS-101 implementation authorization on 2 October 2026.
 
-Current implementation ready for review:
+Completed AS-101 implementation and next milestone:
 
-- AS-101 — Sentinel-2 STAC Search: implemented on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. The feature branch is pushed; human code review is in progress. No PR has been created, and AS-101 has not been merged into `main`.
+- AS-101 — Sentinel-2 STAC Search: completed on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. AS-101, including the approved review fixes, is merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
 - Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
 - AS-102 — Optical Preprocessing is the next planned milestone and has not started. It requires separate authorization.
@@ -582,7 +583,7 @@ AS-101 was explicitly authorized on 2 October 2026 as the first development task
 
 ---
 
-## 14. AS-101 — Sentinel-2 STAC Search — IMPLEMENTED AND VALIDATED
+## 14. AS-101 — Sentinel-2 STAC Search — COMPLETE AND MERGED
 
 ### Name
 
@@ -636,7 +637,7 @@ Search/catalog integration comes first.
 
 Implementation and smoke-test details: `docs/AS_101_STAC_SEARCH.md`.
 
-Implementation and documentation are committed, and the feature branch is pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`. No raster imagery was downloaded, and catalog availability does not demonstrate HAB detection or usable water pixels. AS-102 remains unauthorized and has not started.
+AS-101 is complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. No raster imagery was downloaded, and catalog availability does not demonstrate HAB detection or usable water pixels. AS-102 remains unauthorized and has not started.
 
 ---
 
@@ -644,7 +645,7 @@ Implementation and documentation are committed, and the feature branch is pushed
 
 Expected sequence:
 
-- AS-101 — Sentinel-2 STAC Search.
+- AS-101 — Sentinel-2 STAC Search (complete and merged via PR #2).
 - AS-102 — Optical Preprocessing.
 - AS-103 — Spectral Feature Extraction.
 - AS-104 — Temporal Baseline.
@@ -808,12 +809,12 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-AS-101 is implemented and validated. Implementation and documentation are committed, and the feature branch is pushed. Human code review of the catalog/search changes and recorded evidence is in progress. No PR has been created.
+AS-101 is complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. AS-102 — Optical Preprocessing is the next planned milestone, but remains unauthorized and has not started. There is no active AS-102 development branch.
 
 Immediate sequence:
 
-1. Review AS-101's diff, quality-gate results, and live CDSE smoke-test evidence.
-2. Keep AS-101 under human code review; PR creation and merging have not been authorized.
+1. Preserve AS-101's passing quality-gate results and live CDSE smoke-test evidence.
+2. Complete the documentation closeout on `docs/as-101-post-merge-closeout`; do not begin new development.
 3. AS-102 — Optical Preprocessing is next in the planned sequence; do not begin it without separate authorization.
 
 ---
@@ -827,5 +828,5 @@ At the current point, the project is healthy if:
 - Ruff passes,
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
-- AS-101's committed and pushed implementation has passing offline checks and a successful real catalog smoke test, with human code review in progress,
+- AS-101 is complete and merged into `main` via PR #2, with passing offline checks and a successful real catalog smoke test,
 - AS-102 remains separate and has not started.

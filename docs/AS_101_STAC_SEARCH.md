@@ -1,6 +1,6 @@
 # AS-101 — Sentinel-2 STAC Search
 
-Implemented and validated on 2 October 2026 on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede37e46e6d4a0ac568b90f316f60e1277ba`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. The feature branch is pushed; human code review is in progress. No PR has been created, and AS-101 has not been merged into `main`. AS-102 remains unauthorized.
+Implemented and validated on 2 October 2026 on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede37e46e6d4a0ac568b90f316f60e1277ba`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. AS-101 is complete and merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2), including the approved review fixes, at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. AS-102 — Optical Preprocessing is the next planned milestone; it remains unauthorized and has not started.
 
 ## Scope and setup
 
