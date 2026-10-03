@@ -1,9 +1,10 @@
 # AquaSentinel 813 — Handoff Guide
 
-**Last updated:** 2 October 2026
+**Last updated:** 3 October 2026
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current development branch:** `feature/as-101-sentinel2-stac`
+**Current development branch:** None; no active AS-102 development branch.
+**Documentation closeout branch:** `docs/as-101-post-merge-closeout`
 
 This file is the fast handoff document for a new ChatGPT session, Codex task, developer, or second machine.
 
@@ -69,11 +70,11 @@ Completed continuity setup and Codex read-only onboarding:
 
 Current project phase:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
+**Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 Optical Preprocessing is the next planned milestone, but is NOT authorized and has NOT started.**
 
 Current implementation and next milestone:
 
-- AS-101 — Sentinel-2 STAC Search is implemented on `feature/as-101-sentinel2-stac` from base `51f4ede`. Implementation commit `41a0b0b` and documentation commit `b3f0e9f` are committed and pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`.
+- AS-101 — Sentinel-2 STAC Search was completed on `feature/as-101-sentinel2-stac` from base `51f4ede`. Implementation commit `41a0b0b`, documentation commit `b3f0e9f`, and the approved review fixes are merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - **97 tests passed**, Ruff passed, and `git diff --check` passed. A real CDSE query returned 44 scenes and every scene converted to valid provenance.
 - See `docs/AS_101_STAC_SEARCH.md` for usage, semantics, and smoke-test evidence.
 - AS-102 — Optical Preprocessing is next in the planned sequence; it has not started and requires separate authorization.
@@ -395,7 +396,7 @@ Do not:
 
 ## 15. AS-101 Implementation and Next Engineering Task
 
-AS-101 was explicitly authorized and is now implemented and validated. Implementation and documentation are committed, and the feature branch is pushed. Human code review is in progress; no PR has been created and AS-101 has not been merged into `main`. AS-102 remains unauthorized.
+AS-101 was explicitly authorized and is now complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. AS-102 — Optical Preprocessing is the next planned milestone; it remains unauthorized and has not started. There is no active AS-102 development branch.
 
 ### AS-101 — Sentinel-2 STAC Search
 
@@ -543,11 +544,11 @@ Small implementation details inside approved acceptance criteria do not require 
 
 Current project phase:
 
-**Foundation complete → continuity setup complete → Codex onboarding complete → AS-101 committed and pushed; human code review in progress.**
+**Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 Optical Preprocessing is the next planned milestone, but is NOT authorized and has NOT started.**
 
 Immediate priority:
 
-**Continue human code review of AS-101's committed and pushed changes and validation evidence. No PR has been created. AS-102 remains unauthorized and must not start without separate authorization.**
+**Complete the AS-101 post-merge documentation closeout, preserving its validation evidence. AS-102 remains unauthorized, has not started, and must not start without separate authorization.**
 
 Core constraint:
 
