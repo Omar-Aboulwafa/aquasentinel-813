@@ -4,6 +4,8 @@
 
 **Evidence-pack update:** 6 October 2026 (Asia/Dubai). The [claim index](evidence/PRESENTATION_EVIDENCE_INDEX.md) and [CDSE](evidence/AS_102_CDSE_ACCESS_PROBE.md) / [Planetary Computer](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md) reports now preserve the owner's supplied reconstruction of earlier investigations. The PC record is the historical checkpoint before a bounded raster read, not a later final-gate result. Original experiment timestamps, raw transcripts, and screenshots remain capture gaps; no live probe was rerun for this update.
 
+**Later gate update:** 6 October 2026 (Asia/Dubai), stage FG-01. The separate [final PC raster-gate report](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md) records the owner's supplied results of a later successful experiment. M09–M13 and the original PC report preserve their earlier checkpoint; M14 adds the later PASS / READY stage. No experiment was rerun for this documentation update, and original experiment timestamps remain unspecified.
+
 **Purpose:** Source of truth for the hackathon presentation narrative and its supporting evidence.
 
 **Repository snapshot:** `cf1ed231348d60feae190cb79a5d94e9bf194c85`; locally available `origin/main`: `acbe2c113006922cfe3ffb9813165b16fa48c75f`. Their tracked file trees are identical.
@@ -36,7 +38,7 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Current repository phase:** Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 Optical Preprocessing next planned, **not authorized and not started**. No active AS-102 development branch is recorded. No AS-103 implementation is present.
 
-**Presentation boundary:** Catalog discovery proves metadata availability. It does not prove usable water pixels, successful reflectance decoding, a detected HAB, petroleum composition, water safety, earlier warning, or avoided plant disruption. The new evidence reports record advertised CDSE scale/offset, its environmental access blocker, PC catalog accessibility/advertised COGs, and the metadata-supported same-acquisition/different-product finding. At the PC checkpoint documented here, signing, decoding, and bounded raster reads remained unverified; EV-014 is PENDING. No provider or scientific decision is changed.
+**Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. No provider or scientific decision is changed; AS-102 remains unimplemented and AS-103 not started.
 
 ## 2. Chronological milestone timeline
 
@@ -300,6 +302,26 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 - **Recommended visual:** Checkpoint readiness matrix with raster reads/decoding marked pending; capture pending.
 - **Candidate slide title:** “What was proved before the first bounded raster read?”
 
+### M14 — Final PC raster-access gate: real bounded pixels and XML-driven decoding
+
+- **Date:** Later experiment stage FG-01 recorded 6 October 2026 (Asia/Dubai); exact original experiment timestamp not supplied. It follows the metadata-only PC checkpoint; product acquisition/generation dates are separate.
+- **Task / milestone ID:** AS-102 raster-access prerequisite; EV-014 later stage and EV-015.
+- **Status:** Recorded access experiment PASS / READY for the tested product/path; AS-102 NOT YET IMPLEMENTED; AS-103 NOT STARTED.
+- **Problem / question:** Can AquaSentinel retrieve real Sentinel-2 pixels without full-scene download or user credentials?
+- **Why it mattered:** Readable pixels and defensible decoding are prerequisites for future optical masks/alignment and feature extraction.
+- **Options considered:** Bounded COG access was tested; no full-product/SAFE fallback was used. No comparative backend benchmark is recorded.
+- **Decision:** Record the successful access prerequisite separately from implementation/provider authorization; Decision 038 and the scientific decisions remain unchanged.
+- **Rationale:** Actual reads and retrieved product metadata resolve access/decoding uncertainties left open by advertised assets, while preserving product-specific provenance.
+- **Implementation / experiment:** GDAL 3.10.3 `/vsicurl/` header inspection and tiny same-footprint reads after temporary credential-free SAS signing; signed product XML retrieved. Results transcribed from the owner's completed experiment; no new network probe in this documentation task.
+- **Evidence:** [Final raster-gate record](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md); [EV-014 progression / EV-015](evidence/PRESENTATION_EVIDENCE_INDEX.md). Item `S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311`, baseline 05.09.
+- **Quantitative result:** **8/8 access gates passed; 4 credential-free HTTP 200 signing operations; 3 bounded reads:** B02 64×64, B05 32×32, SCL 32×32 over a shared approximately 640×640 m footprint. Raw SCL water class **353/1024**. Product XML **53,347 bytes**, quantification **10000**, additive offset **-1000**; XML band IDs B02=1, B05=4. Metadata-derived decoding `(DN - 1000) / 10000`.
+- **Limitation:** Only three raster assets were read; no all-band preprocessing, aquatic atmospheric validation, final valid-water count, or pixel equivalence with CDSE. No exact transferred raster-byte measurement. Original timestamp, command/8-gate checklist, and screenshots still need capture.
+- **Lesson learned:** A tested COG path plus actual product XML can establish access/decoding mechanics without a full-scene download; scientific water usability remains a distinct gate.
+- **Impact on next step:** Raster-access prerequisite READY, not implementation authorization. Future PC-based products must retain the actual PC source identity, grids/nodata/XML decoding metadata, and exclude SAS from provenance/cache/logs. Masks/alignment and AS-103 are not started here.
+- **Presentation takeaway:** “From catalog metadata to real satellite pixels — reproducibly, remotely, and without downloading the full scene.” Apply this to the tested product/path; original reproduction transcript still needs capture.
+- **Recommended visual:** Future pipeline: PC STAC → temporary SAS signing → COG range/window access → product XML → reflectance decoding → future AS-102 masks/alignment; sanitized signing/header/window/XML/SCL captures still needed.
+- **Candidate slide title:** “From catalog references to real, bounded satellite pixels.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Except Decision 038's explicit 2 October selection date, original per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -316,6 +338,7 @@ The decision log is authoritative. Except Decision 038's explicit 2 October sele
 | Explicitly 2 Oct | 038 | Configurable CDSE catalog; `pystac-client==0.9.0` only new direct dependency | Owner selection and tested real discovery without raster scope | AS-101 report and commits; implemented |
 | 3 Oct merge record | No new technical decision | Close AS-101 status after PR #2; preserve AS-102 authorization boundary | Documents must match merged engineering state | `cf1ed23`, PR #3 / `acbe2c1`; completed docs |
 | Investigations recorded 6 Oct; original probe timestamps missing | None adopted | CDSE scale/offset/access blocker, PC catalog/advertised COGs, cross-provider product distinction | Metadata and access findings are documented; backend/processing decisions remain pending | M09–M13; [evidence index](evidence/PRESENTATION_EVIDENCE_INDEX.md); no technical decision changed |
+| Later experiment FG-01 recorded 6 Oct; original timestamp missing | None adopted | Actual PC bounded access and product-XML decoding | Access prerequisite is READY for tested path; no provider switch, canonical-grid/mask approval, or implementation authorization | M14; [final gate](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md); existing decisions preserved |
 
 Pending decisions remain pending: task-required geospatial dependencies, final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -335,6 +358,7 @@ Pending decisions remain pending: task-required geospatial dependencies, final o
 | E10 | PR #2 / `1b83a73`; PR #3 / `acbe2c1` | Implementation merge and post-merge closeout on main | AS-102 authorization or completion |
 | E11 | [.gitignore](../.gitignore), config cache path, Decision 033 | Large EO/cache/secret exclusions and demo-fallback requirement | A completed cached raster demo |
 | E12 | [CDSE report](evidence/AS_102_CDSE_ACCESS_PROBE.md), [PC report](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md), [EV-009–EV-014](evidence/PRESENTATION_EVIDENCE_INDEX.md) | Owner-supplied record of metadata/blocked access/catalog success and product-identity comparison | Successful raster reads/signing/decoding at the documented pre-read checkpoint; later final-gate result |
+| E13 | [Final PC gate](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md), EV-014 later stage / EV-015 | Reported 4 credential-free signings, 3 GDAL bounded reads, XML and B02/B05 decoding; 8/8 gates passed | All-band preprocessing, measured transfer efficiency, aquatic suitability, HAB results, or CDSE pixel equivalence |
 
 Reproduce the engineering quality gate with `git diff --check`, `python -m pytest -v`, and `python -m ruff check .` in the Python 3.11 environment. Record fresh results separately from historical results. Do not rerun a live probe and silently rewrite the original 44-scene observation.
 
@@ -354,6 +378,8 @@ Journal-task validation on 6 October 2026: the existing `.venv` used Python 3.11
 | S08 | [CDSE reflectance metadata](evidence/AS_102_CDSE_ACCESS_PROBE.md#reflectance-scaleoffset-discovery); M09 | Advertised scale 0.0001/offset -0.1 imply `DN * 0.0001 - 0.1`; mask DN=0 first, do not automatically clamp valid negatives | No decoded pixel verification; L2A BOA reflectance is not automatically aquatic remote-sensing reflectance |
 | S09 | [PC identity comparison](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md#cross-provider-identity-finding); M12 | Metadata supports same acquisition but different baseline/product identity | No pixel equivalence; actual raster product needs its own provenance |
 | S10 | [CDSE quality assets](evidence/AS_102_CDSE_ACCESS_PROBE.md#advertised-assets-format-and-grid); [PC inventory](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md#asset-inventory-and-advertised-delivery-path) | SCL available in both; `CLD_20m` observed in CDSE; no separate cloud-probability asset observed in the inspected PC item | No quality-mask performance, usable-water fraction, or collection-wide absence claim |
+| S11 | [Final PC XML / decoding](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md#product-xml-and-metadata-driven-interpretation); EV-015 | Retrieved PC baseline-05.09 XML quantification 10000 and offset -1000 map B02/B05 DN to BOA reflectance | Access/decoding mechanics only; BOA is not automatically aquatic remote-sensing reflectance or chlorophyll concentration |
+| S12 | [Final SCL window](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md#observed-bounded-window-reads) | Raw 32×32 SCL sample has 353 water-class pixels out of 1024 | Not final usable water after masks; no valid-water fraction or HAB evidence |
 
 No measured HAB accuracy, false-positive rate, temporal lead time, intake exposure, or avoided loss is available in the repository. The presentation must distinguish motivation, planned method, measured engineering evidence, and future scientific validation.
 
@@ -366,11 +392,12 @@ No measured HAB accuracy, false-positive rate, temporal lead time, intake exposu
 | Raster access after catalog search | Recorded environmental blocker | [CDSE report](evidence/AS_102_CDSE_ACCESS_PROBE.md): proxy blocked raster/header/window attempts; S3/OIDC route advertised | Separate catalog success, runtime blocking, and provider access requirements | No successful bounded CDSE read or universal provider-denial claim |
 | Reflectance offset discovery | Advertised metadata finding; pixel verification pending | CDSE scale 0.0001/offset -0.1 recorded for selected baseline-05.10 product | Use product-specific metadata; capture sanitized per-band excerpts | Formula is metadata-derived, not an observed decoded-pixel result |
 | Planetary Computer / allowlist / signing | Recorded catalog success and historical asset-host blocker | [PC report](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md): HTTP 200; additional blob-host allowlist needed | Advertised COG path remains viable; signing/decoding/read still pending at this stage | No provider pivot, successful signing, or successful raster read claimed |
+| PC final access gate — later stage | Reported successful access/decoding experiment | [FG-01](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md): 4 HTTP 200 credential-free signings, 3 windows, XML read, 8/8 gates passed | Preserve the earlier blocker/PENDING history; use actual PC product identity | Not all-band preprocessing, scientific validation, a provider decision, or exact byte-efficiency evidence |
 | Same observation, different processing product | Metadata-supported finding | Acquisition/platform/tile/orbit match; CDSE 05.10/Aug 2024 versus PC 05.09/Apr 2023 | Preserve actual product identity if provider supplies pixels | Same acquisition does not imply pixel equivalence |
 | Live services, cloud, labels, SAR look-alikes | Anticipated risks, not necessarily observed failures | PRD risk register and Project State §18 | Cached fallback, conservative claims, transparent baselines, false-positive review | Keep planned mitigations distinct from completed work |
 | PRD calendar versus current delivery | Schedule plan versus actual state | Planned 3 Oct preprocessing does not override recorded AS-102 not-started status | Use commits and state docs for the completed timeline | Do not present the entire planned calendar as achieved |
 
-No provider-to-provider architecture pivot is adopted. The new reports preserve the historical access/metadata findings, while bounded reads, PC decoding, and later final-gate evidence remain outside the documented checkpoint. Missing raw transcripts/timestamps/screenshots are capture gaps, not claims that the investigations never occurred.
+No provider-to-provider architecture pivot is adopted. The historical reports preserve their access/metadata boundaries; the separate FG-01 report now records later bounded reads and XML-driven PC decoding. Original transcripts/timestamps/screenshots remain capture gaps, not missing outcomes. Access success does not establish complete preprocessing or scientific performance.
 
 ## 7. Metrics and quantitative results
 
@@ -395,9 +422,14 @@ No provider-to-provider architecture pivot is adopted. The new reports preserve 
 | PC advertised probe assets | B02 10 m; B05 and SCL 20 m COG; nine reflectance bands available | PC item-inspection record | No native header or bounded read verified at this point |
 | Cross-provider processing versions | CDSE 05.10/Aug 2024; PC 05.09/Apr 2023 | PC identity comparison | Same acquisition/platform/tile/orbit; different processed product |
 | Bounded PC raster read | PENDING | EV-014; pre-read evidence point | No window/DN result; any later gate requires a separate dated record |
+| Later PC final access gate | PASS / READY; 8/8 gates passed | [FG-01 record](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md); original experiment timestamp missing | Later stage; historical PENDING row retained |
+| Credential-free signing | 4 HTTP 200 operations: B02, B05, SCL, product-metadata | FG-01 | No user credentials/subscription key; tokens transient, not recorded |
+| Successful bounded reads | 3: B02 64×64; B05/SCL 32×32 | FG-01, GDAL 3.10.3 | Shared approximately 640×640 m; no full-scene download |
+| Raw SCL sample | Class 4=58, 5=540, 6=353, 7=73; total 1024 | FG-01 | 353 water-class pixels are not final usable-water pixels |
+| Product XML / PC decoding | 53,347 bytes; baseline 05.09; quantification 10000; offset -1000 | FG-01 / EV-015 | XML size, not raster-transfer bytes; formula `(DN - 1000) / 10000`; B02/B05 mapping from XML |
 | PoC deadline | 11 October 2026 | PRD | Delivery target, not evidence of readiness |
 
-Unavailable metrics: successful bounded raster reads, transfer bytes, reflectance sample checks, valid-water counts/fractions, preprocessing runtime, accuracy/false positives, warning lead time, buyer validation, or avoided operating cost. Do not fabricate these to fill slides.
+Unavailable metrics: exact raster-transfer bytes, final valid-water counts/fractions, all-band preprocessing runtime, aquatic radiometric validation, accuracy/false positives, warning lead time, buyer validation, or avoided operating cost. Successful PC window reads and metadata-derived sample decoding are now recorded for the tested assets, not complete AS-102 or scientific validation.
 
 ## 8. Presentation visual / screenshot inventory
 
@@ -417,6 +449,8 @@ No presentation screenshot/image assets are tracked in the inspected repository.
 | V10 | CDSE/PC access and product-identity comparison | M10–M12; [PC report](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md) | Comparison table available; rendered visual/original response capture pending; raster read still pending at this checkpoint; never show SAS URLs/tokens |
 | V11 | Before/event/after water evidence and mask map | PRD §§11, 17; AS-108 plan | Future scientific validation; no actual result available |
 | V12 | Separate HAB/oil evidence and monitoring-priority panels | PRD §§13, 17 | Future dashboard/demo; do not present mockups as implemented software |
+| V13 | PC STAC → temporary SAS → COG windows → XML → decoding → future masks/alignment | M14; [final gate](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md) | Pipeline visual and sanitized signing/GDAL/XML/decoding captures still needed; no signed URLs/tokens; last step explicitly future |
+| V14 | 32×32 SCL raw class distribution and shared probe footprint | M14 / S12 | Visual pending; show 353/1024 as raw water-class pixels, never final usable-water count |
 
 For every captured visual, record its path, date, evidence IDs, source/product identity where relevant, caption, licence/attribution, and limitations. Large rasters and runtime caches remain excluded from Git; screenshots must contain no credentials or private operational information.
 
@@ -432,8 +466,9 @@ These are interpretations supported by the reconstructed evidence, not new techn
 6. **Validate input meaning before conversion.** The cloud boolean fix preserves the user's configured threshold and adds explicit pre-network evidence.
 7. **Software evidence and scientific evidence answer different questions.** 97 passing tests and 44 catalog candidates do not establish water-pixel usability or hazard performance.
 8. **Minimal dependencies protect scope.** AS-101 adds a STAC client only; the broader PRD tool list is not a mandate to install everything.
-9. **A presentation needs an evidence trail too.** Probe records now preserve product identity and reported findings; original commands/timestamps, pixel verification, and visuals remain explicit gaps. Advertised COGs and a matching acquisition do not prove readable or identical pixels.
+9. **A presentation needs an evidence trail too.** Historical probes and later FG-01 now preserve separate evidence stages. Bounded PC reads and XML-driven decoding are established for tested assets; original commands/timestamps and visuals still need capture. Access mechanics do not establish aquatic suitability or pixel equivalence.
 10. **Plans are not completion records.** AS-101's merge is evidenced; planned optical, feature, hazard, risk, and UI milestones remain future work.
+11. **Use the actual product's metadata.** PC decoding came from retrieved baseline-05.09 XML and band mapping, not an assumed DN/10000 formula or borrowed CDSE offset; the successful mechanism still needs future masking/alignment and scientific validation.
 
 ## 10. Final-presentation slide candidates
 
@@ -445,11 +480,11 @@ This is a proposed 7-slide spine, consistent with the PRD's 5–7-slide target. 
 | 2 | “The right sensor for each hazard” — S2 biology, S1 slick candidates, optional hyperspectral | Decisions 005–015; V02 | Scope supported; hazard results not built |
 | 3 | “Build the evidence trail first” — config/AOI, provenance, recoverable handoffs | M02–M05; V03–V05 | Engineering supported; visuals pending |
 | 4 | “44 real candidates, every source traceable” — real CDSE query and its limits | M06–M07; E05–E07; V06–V07 | Live metadata evidence supported |
-| 5 | “Public data access must work at the pixel level” — proxy blocker, advertised offset/COGs, same acquisition but different product | M09–M13; EV-009–EV-014; V09–V10 | Historical metadata/access story supported by reports; captures pending; no successful bounded read at this evidence point |
+| 5 | “From catalog metadata to real satellite pixels” — historical blockers/PENDING → credential-free signing, bounded COG windows, product XML decoding | M09–M14; EV-009–EV-015; V09–V10, V13–V14 | Later gate PASS / READY for tested product/path; capture visuals pending; masks/alignment remain future |
 | 6 | “From usable water pixels to a defensible anomaly” — masks, before/event/after, false positives, exposure | PRD §§6, 11, 17; V11–V12 | Future work; no AS-102/103 or event result claim |
 | 7 | “Monitoring priority with evidence and limits” — intended workflow, 97-test baseline, reproducibility, next steps | M08; S01–S08; V08 | Engineering supported; end-to-end demo and impact evidence outstanding |
 
-For a presentation made from this evidence pack, slide 5 must label provider-advertised versus observed/inferred findings and preserve EV-014's PENDING state at the historical checkpoint. Slide 6 must describe future work or be omitted. Never replace missing real scientific evidence with an unlabelled simulation. Business subscriptions/licences in PRD §23 are hypotheses, not validated pricing or revenue.
+For a presentation made from this evidence pack, slide 5 must label observed versus metadata-derived/inferred findings and show EV-014's historical PENDING → later PASS / READY progression. Do not show 353 raw SCL water-class pixels as a valid-water count or claim exact transferred-byte efficiency. Slide 6 must describe future work or be omitted. Never replace missing real scientific evidence with an unlabelled simulation. Business subscriptions/licences in PRD §23 are hypotheses, not validated pricing or revenue.
 
 ## 11. Outstanding evidence still needed
 
@@ -457,9 +492,9 @@ For a presentation made from this evidence pack, slide 5 must label provider-adv
 |---|---|---|
 | Immediate capture | CDSE reflectance metadata verification | Formula/baseline now in [CDSE report](evidence/AS_102_CDSE_ACCESS_PROBE.md); still need original per-band metadata excerpt, timestamp, and actual decoded sample verification |
 | Access verification / capture | CDSE raster investigation follow-up | Proxy blocker and advertised route recorded; still need original commands/hosts/tool context and bounded transport/header/window result |
-| Access verification / capture | Planetary Computer follow-up | HTTP 200 and advertised assets recorded; still need original timestamp/metadata capture, signing evidence, product-metadata decoding, and bounded read |
+| Capture / future all-band validation | Planetary Computer final gate | FG-01 now records signing, three raster reads, XML and B02/B05 decoding; original timestamp/command/8-gate checklist, metadata excerpts/screenshots, and remaining band reads still needed |
 | Identity capture | Same acquisition / different processing product | Comparison now in [PC report](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md#cross-provider-identity-finding); original metadata excerpts/rendered comparison pending; pixel equivalence unverified |
-| Access verification | Later AS-102 final access gate | EV-014 remains PENDING at the recorded pre-read point; any later result needs separately dated methods/results, without rewriting the earlier checkpoint |
+| Capture / scope verification | Later AS-102 final access gate | EV-014 historical PENDING retained; later FG-01 PASS / READY now in its own report. Exact transfer bytes not measured; no all-band preprocessing, final valid-water count, or scientific performance yet |
 | P0 implementation evidence | AS-102 optical preprocessing | Separate explicit authorization, approved contract, tests, real-data acceptance, masks/alignment/valid-water result, derived provenance; not started here |
 | P0 scientific evidence | HAB and oil historical validation | Cited event references, usable observations, before/during/after, false-positive review, uncertainty, temporally separated evaluation |
 | P0 product evidence | Operational site and decision demo | Defensible public site/intake source; clearly separated validation AOI; working hazard-specific evidence/priority workflow |
@@ -468,7 +503,7 @@ For a presentation made from this evidence pack, slide 5 must label provider-adv
 | Scientific/impact claim | Lead time, accuracy, operational benefit | Measurement method, reference labels/timing, limitations; omit claims until supported |
 | P1 only | Hyperspectral/environmental enhancement | Demonstrated usable data and measurable contribution; must not block core P0 |
 
-The new probe records were created before this journal update and transcribe the owner's supplied evidence. They resolve earlier blanket “no report” gaps only for the findings actually supplied. Remaining capture/verification gaps do not assert that later experiments failed or never happened. No source/test/configuration or decision-log change is made by this documentation task.
+The historical probe records and separate later FG-01 record transcribe the owner's supplied evidence. The later report was created before this journal update; it resolves access/decoding outcome gaps only for the tested product/path/assets. Original historical entries remain intact. Remaining capture/scientific gaps do not assert that experiments failed or never happened. No source/test/configuration or decision-log change is made by this documentation task.
 
 ## 12. Reusable milestone-entry template
 
