@@ -12,7 +12,7 @@
 
 **Current closeout update:** 8 October 2026 (Asia/Dubai), M16 / EV-018. AS-102 is COMPLETE AND MERGED through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6), implementation `fe3d27046c40600010753957ee8921d57071ec48`, merge `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`. Final reviewed baseline: 265 tests passed, Ruff/diff checks passed; six non-blocking Rasterio warnings. No configured/reported GitHub CI checks. M15 / EV-016–EV-017 preserve the earlier implementation acceptance and its 213-test result; historical reconstruction entries and probe reports remain preserved.
 
-**Scope:** Historical documentation reconstruction plus a separately authorized AS-102 implementation/evidence update. This journal records decisions and experiments; it does not grant AS-103 or Git publication authorization.
+**Scope:** Historical reconstruction plus separately authorized AS-102 and AS-103 implementation/evidence updates. This journal records decisions and experiments; it does not grant AS-103 or Git publication authorization.
 
 This journal indexes repository evidence. It does not replace the [project state](PROJECT_STATE.md), [decision log](DECISIONS.md), [handoff](HANDOFF.md), or [PRD](AquaSentinel_813_PRD_v1.0.md). Those documents govern scope and authorization. Code/tests and Git history establish implementation history; a recorded live result establishes only the experiment it describes.
 
@@ -28,6 +28,8 @@ Status labels used throughout:
 
 Dates follow the source documents when they describe an event. Git dates retain their timezone when precision matters: AS-101 commits dated 2 October in UTC fall on 3 October in UAE time. The PRD delivery calendar is a plan, not a completion record. Lessons and presentation takeaways below are retrospective interpretations of the cited evidence, not claims of measured operational impact.
 
+**AS-103 implementation update:** 8 October 2026, M17 / EV-019–EV-020: six candidate features, 7,963 valid pixels each, two unclipped NDCI-like out-of-range values, verified immediate-parent lineage and 348-test branch baseline. Uncommitted/unpushed/unmerged; AS-104 unauthorized.
+
 ## 1. Executive project story
 
 **Product thesis / current decisions:** AquaSentinel 813 competes in Track 03 — Water Security & Marine Environments. It targets the Desalination Plant Water Quality / Operations Manager and the question: **Where and when should monitoring or field verification be prioritized?** The intended value is offshore awareness before a threat reaches an intake, with evidence, confidence, exposure, and human verification. Sources: Decisions 001–004 and PRD sections 1–5 and 22.
@@ -38,9 +40,9 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Recorded experiment:** A 2 October CDSE metadata search returned 44 unique candidate scenes for the analyst-defined Al Raha validation polygon, 1 March–31 May 2023, with scene cloud cover <= 30%. Provenance conversion/serialization succeeded for 44/44. The recorded quality baseline is 97 tests, Ruff passed, and `git diff --check` passed. Source: [AS-101 report](AS_101_STAC_SEARCH.md).
 
-**Current repository phase:** Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 next planned, NOT authorized and NOT started. See M16 / EV-018 and Decisions 039–045; Codex development handoff remains complete.
+**Current repository phase:** Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 implemented/validated on feature branch (uncommitted, unpushed, not merged) → AS-104 next planned, NOT authorized and NOT started. See M16–M17 / EV-018–EV-020 and Decisions 039–046; Codex development handoff remains complete.
 
-**Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; AS-103 remains not started. These new mask outcomes also do not establish the scientific/operational claims above.
+**Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; AS-103 is now separately authorized; M17 / EV-019–EV-020 records its later candidate-feature acceptance. These mask outcomes also do not establish the scientific/operational claims above.
 
 ## 2. Chronological milestone timeline
 
@@ -364,6 +366,26 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 - **Recommended visual:** V17: sanitized PR #6 merge/commit and 265-test/Ruff/diff-check card, explicitly marked local checks; capture pending.
 - **Candidate slide title:** “From tested pixels to reviewed, merged preprocessing.”
 
+### M17 — AS-103: candidate spectral features, numerical diagnostics and parent lineage
+
+- **Date:** 8 October 2026; cached experiment `2026-10-08T09:52:47.133486+00:00` UTC / `2026-10-08T13:52:47.133486+04:00` Asia/Dubai, completed `2026-10-08T09:52:47.209734+00:00` UTC.
+- **Task / milestone ID:** AS-103 — Spectral Feature Extraction; EV-019/EV-020.
+- **Status:** Explicitly authorized; implementation acceptance complete on uncommitted/unpushed/unmerged feature branch. AS-104 NOT authorized and NOT started.
+- **Problem / question:** Can verified water reflectance become explainable candidate spectral signals without losing numeric support or parent-product lineage?
+- **Why it mattered:** Signed BOA/denominator cancellation can create misleading extremes; mutable arrays can undermine parent-only identity; feature correlations can be overcounted scientifically.
+- **Options considered:** Pure NumPy recomputation versus another disk cache; signed output/diagnostics versus clipping; immediate parent plus content fingerprint versus raw-source shortcut/parent-only hash; declared nominal wavelengths/k=1.0 versus claiming official SNAP MCI.
+- **Decision:** Explicitly authorized Decision 046: six fixed candidate features, numerical-only guards, preserved parent support, finite metadata, consumed-content identity, immediate derived parent and no new cache/dependencies/config.
+- **Rationale:** AS-104 may later use these per-scene signals; numerical support and scientific limits must remain visible before any temporal interpretation.
+- **Implementation / experiment:** New features model/spectral modules and 83 offline cases; one existing-cache acceptance with no retrieval/raster writes; four independent scalar pixel checks and blocked-I/O repeated extraction.
+- **Evidence:** [AS-103 plan](AS_103_SPECTRAL_FEATURES.md), [EV-019/EV-020 acceptance](evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md); branch `feature/as-103-spectral-features`, base main `642a469414f096b4ac7cd96de895aa38f7da42ec`.
+- **Quantitative result:** 7,963 valid pixels per feature, all (228,310), float32; zero denominator/nonfinite exclusions in this scene; two NDCI-like outputs below −1 retained; 491 negative-input pixels for B06-inclusive features. Full suite 348 passed, Ruff/diff check passed; six existing Rasterio warnings. Input unchanged; repeat/identity/registry lineage exact.
+- **Limitation:** Single cached scene, not temporal anomaly or HAB/chlorophyll/toxin/safety/risk/lead-time evidence. BOA is not Rrs; coastal/sediment/glint/correction/SCL limitations remain. Reference-page retrieval HTTP 403; no live literature-fetch success claimed.
+- **Lesson learned:** Retaining negative and out-of-range values with explicit support/diagnostics preserves the evidence better than clipping; source lineage needs the actual processing parent.
+- **Impact on next step:** Review uncommitted AS-103; separate authorization required for publication or AS-104. No temporal work started.
+- **Presentation takeaway:** “Six traceable candidate signals, with numerical exclusions and scientific limits explicit.”
+- **Recommended visual:** V18 candidate feature/support/diagnostic maps, V19 formula/fingerprint/PC→AS-102→AS-103 card; captures pending, no hazard interpretation.
+- **Candidate slide title:** “Candidate spectral signals before temporal interpretation.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -383,6 +405,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | Later experiment FG-01 recorded 6 Oct; original timestamp missing | None adopted | Actual PC bounded access and product-XML decoding | Access prerequisite is READY for tested path; no provider switch, canonical-grid/mask approval, or implementation authorization | M14; [final gate](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md); existing decisions preserved |
 | 6 Oct implementation authorization / timestamped acceptance | 039–045 | CDSE discovery + actual PC pixels; XML; fixed 20 m grid; conservative SCL/support; NumPy/Rasterio; transient SAS and verified AOI cache | Pixel meaning, attribution, spatial alignment and quality are prerequisites for future science | M15; EV-016/EV-017; historical 6 Oct feature-branch acceptance (213 tests); later review/merge in M16 / EV-018 |
 | 8 Oct final review / merge | No new technical decision | Targeted security/cache/provenance hardening; merge existing AS-102 contract | Verified publication closes preprocessing while preserving scientific/authorization limits | M16 / EV-018; PR #6, merge `627b6ae`; 265 tests, local Ruff/diff checks; no GitHub CI reported |
+| 8 Oct AS-103 authorization/acceptance | 046 | Six candidate features, declared wavelengths, signed numeric guards and fingerprinted immediate-parent lineage; no extra cache/dependency | Per-scene signals precede future temporal science | M17; EV-019/EV-020; uncommitted feature-branch acceptance |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -405,6 +428,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E13 | [Final PC gate](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md), EV-014 later stage / EV-015 | Reported 4 credential-free signings, 3 GDAL bounded reads, XML and B02/B05 decoding; 8/8 gates passed | All-band preprocessing, measured transfer efficiency, aquatic suitability, HAB results, or CDSE pixel equivalence |
 | E14 | [AS-102 implementation/validation](evidence/AS_102_OPTICAL_PREPROCESSING_VALIDATION.md), [plan](AS_102_OPTICAL_PREPROCESSING.md), new source/tests | Nine-band real AOI alignment, XML/masks, actual-PC provenance, 213-test baseline and verified offline cache | Aquatic radiometric validation, HAB/operational performance or merged release |
 | E15 | PR #6; feature `fe3d270`; merge `627b6ae`; M16 / EV-018 | Final reviewed AS-102 publication; 265 tests, Ruff/diff checks and targeted security/cache/provenance review | GitHub CI pass, HAB/scientific/operational performance |
+| E16 | [AS-103 contract](AS_103_SPECTRAL_FEATURES.md), [validation](evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md), feature source/tests; M17 / EV-019–EV-020 | Six deterministic candidate features, guarded support, fingerprinted identity, immediate-parent lineage and 348-test branch baseline | Merged release, temporal anomalies, HAB/scientific/operational validation |
 
 Reproduce the engineering quality gate with `git diff --check`, `python -m pytest -v`, and `python -m ruff check .` in the Python 3.11 environment. Record fresh results separately from historical results. Do not rerun a live probe and silently rewrite the original 44-scene observation.
 
@@ -427,6 +451,7 @@ Journal-task validation on 6 October 2026: the existing `.venv` used Python 3.11
 | S11 | [Final PC XML / decoding](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md#product-xml-and-metadata-driven-interpretation); EV-015 | Retrieved PC baseline-05.09 XML quantification 10000 and offset -1000 map B02/B05 DN to BOA reflectance | Access/decoding mechanics only; BOA is not automatically aquatic remote-sensing reflectance or chlorophyll concentration |
 | S12 | [Final SCL window](evidence/AS_102_PLANETARY_COMPUTER_RASTER_GATE.md#observed-bounded-window-reads) | Raw 32×32 SCL sample has 353 water-class pixels out of 1024 | Not final usable water after masks; no valid-water fraction or HAB evidence |
 | S13 | [AS-102 full-AOI evidence](evidence/AS_102_OPTICAL_PREPROCESSING_VALIDATION.md); EV-016 | Actual XML-decoded BOA, nine aligned bands, conservative mask statistics and retained negative reflectance | Mask-accepted water is not independent coastal-water truth, aquatic Rrs, HAB/chlorophyll/toxin or safety evidence |
+| S14 | [AS-103 candidate-feature evidence](evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md); Decision 046; EV-019 | Six signed-BOA spectral features with declared nominal wavelengths, numerical guards and retained out-of-range diagnostics | BOA is not aquatic Rrs; no calibrated chlorophyll, event/HAB threshold or independent evidence from correlated NDCI-like/B05:red features |
 
 No measured HAB accuracy, false-positive rate, temporal lead time, intake exposure, or avoided loss is available in the repository. The presentation must distinguish motivation, planned method, measured engineering evidence, and future scientific validation.
 
@@ -482,8 +507,8 @@ No provider pivot was adopted by the historical probe/evidence tasks. The separa
 | AS-102 mask counts | AOI 67,449; valid data 65,166; candidate water 10,211; valid water 7,963 | M15 / EV-016 | Mask-accepted water, not verified water/HAB |
 | AS-102 fractions/loss | AOI 11.805957%; retention 77.984526%; excluded water 2,248 | M15 / EV-016 | Explicit denominators and conservative loss |
 | Historical 6 Oct AS-102 quality/cache | 213 tests passed (97 retained +116 added); Ruff/diff check passed; checksum/offline replay equivalent | M15 / EV-017 | No accuracy/lead-time/service-availability claim |
-
 | AS-102 final reviewed/merged baseline | 265 tests passed; Ruff/diff check passed; six non-blocking Rasterio warnings | M16 / EV-018; 8 Oct; PR #6 / `627b6ae` | Local checks; no configured/reported GitHub CI, no scientific accuracy claim |
+| AS-103 candidate feature acceptance | 6 arrays; 7,963 valid pixels each; 2 NDCI-like out-of-range values; repeat/lineage exact; 348 tests | M17 / EV-019–EV-020; 8 Oct cached experiment | No anomaly/event or scientific validation claim |
 
 Unavailable metrics: exact raster-transfer bytes, aquatic radiometric validation, accuracy/false positives, warning lead time, buyer validation or avoided operating cost. AS-102 preprocessing and valid-water mask statistics are now observed for one real scene. The exact experiment start/completion interval is recorded, but it is not a standalone preprocessing benchmark or network-throughput measure.
 
@@ -510,6 +535,8 @@ No presentation screenshot/image assets are tracked in the inspected repository.
 | V15 | Al Raha AOI, SCL candidate water, retained water and support exclusions | M15 / EV-016 | Real arrays exist in ignored AOI cache; map/screenshot still pending; label mask eligibility, not HAB |
 | V16 | XML decoding, actual-PC lineage and offline-cache validation card | M15 / EV-017; Decisions 039–045 | Capture pending; no SAS; separate CDSE discovery product and actual PC pixel product |
 | V17 | Final review/merge and local 265-test quality card | M16 / EV-018; PR #6 / `627b6ae` | Capture pending; distinguish local checks from absent GitHub CI; no scientific-result claim |
+| V18 | Six candidate feature maps, support and numeric diagnostics | M17 / EV-019 | Capture pending; label candidate signed-BOA signals, not HAB/anomaly |
+| V19 | Formula, input fingerprint and PC→AS-102→AS-103 lineage | M17 / EV-020; Decision 046 | Capture pending; show immediate parent and numerical-only epsilon |
 
 For every captured visual, record its path, date, evidence IDs, source/product identity where relevant, caption, licence/attribution, and limitations. Large rasters and runtime caches remain excluded from Git; screenshots must contain no credentials or private operational information.
 
@@ -526,7 +553,7 @@ These are interpretations supported by the reconstructed evidence, not new techn
 7. **Software evidence and scientific evidence answer different questions.** 97 passing tests and 44 catalog candidates do not establish water-pixel usability or hazard performance.
 8. **Minimal dependencies protect scope.** AS-101 adds a STAC client only; the broader PRD tool list is not a mandate to install everything.
 9. **A presentation needs an evidence trail too.** Historical probes and later FG-01 now preserve separate evidence stages. Bounded PC reads and XML-driven decoding are established for tested assets; original commands/timestamps and visuals still need capture. Access mechanics do not establish aquatic suitability or pixel equivalence.
-10. **Plans are not completion records.** AS-101's merge is evidenced; M15 preserves historical AS-102 feature-branch acceptance, and M16 / EV-018 separately establishes final review/merge. Feature extraction, hazard/risk and UI milestones remain future work.
+10. **Plans are not completion records.** AS-101's merge is evidenced; M15 preserves historical AS-102 feature-branch acceptance, and M16 / EV-018 separately establishes final review/merge. M17 / EV-019–EV-020 records separately authorized AS-103 feature-branch acceptance. Temporal/anomaly, hazard/risk and UI milestones remain future work.
 11. **Use the actual product's metadata.** PC decoding came from retrieved baseline-05.09 XML and band mapping, not an assumed DN/10000 formula or borrowed CDSE offset; the successful mechanism needed masking/alignment (now addressed separately by M15); independent scientific validation remains future.
 
 12. **Track interpolation contributors, not just target labels.** M15 rejects land/cloud/nodata support across all nine bands and quantifies lost candidate water instead of quietly retaining mixed pixels.
@@ -543,10 +570,10 @@ This is a proposed 7-slide spine, consistent with the PRD's 5–7-slide target. 
 | 3 | “Build the evidence trail first” — config/AOI, provenance, recoverable handoffs | M02–M05; V03–V05 | Engineering supported; visuals pending |
 | 4 | “44 real candidates, every source traceable” — real CDSE query and its limits | M06–M07; E05–E07; V06–V07 | Live metadata evidence supported |
 | 5 | “From catalog metadata to real satellite pixels” — historical blockers/PENDING → credential-free signing, bounded COG windows, product XML decoding | M09–M14; EV-009–EV-015; V09–V10, V13–V14 | Later gate PASS / READY for tested product/path; capture visuals pending; M15 separately records later masks/alignment |
-| 6 | “7,963 conservatively masked water pixels, every source traceable” — XML, fixed grid, contributor support and cached replay | M15–M16; EV-016–EV-018; V15–V17 | AS-102 complete/merged through PR #6; AS-103/anomaly/event science remains future |
+| 6 | “7,963 conservatively masked water pixels, every source traceable” — XML, fixed grid, contributor support and cached replay | M15–M16; EV-016–EV-018; V15–V17 | AS-102 complete/merged through PR #6; AS-103 candidate features accepted on unmerged branch; AS-104/anomaly/event science remains future |
 | 7 | “Monitoring priority with evidence and limits” — intended workflow, AS-101 97 / AS-102 final 265 test baselines (historical M15: 213), reproducibility, next steps | M08/M15/M16; S01–S08; V08/V16/V17 | Engineering supported; end-to-end demo and impact evidence outstanding |
 
-For a presentation made from this evidence pack, slide 5 must label observed versus metadata-derived/inferred findings and show EV-014's historical PENDING → later PASS / READY progression. Do not show 353 raw SCL water-class pixels as a valid-water count or claim exact transferred-byte efficiency. Slide 6 may show the separately validated AS-102 mask/lineage/cache result; feature extraction, anomalies and event validation must remain labelled future work. Never replace missing real scientific evidence with an unlabelled simulation. Business subscriptions/licences in PRD §23 are hypotheses, not validated pricing or revenue.
+For a presentation made from this evidence pack, slide 5 must label observed versus metadata-derived/inferred findings and show EV-014's historical PENDING → later PASS / READY progression. Do not show 353 raw SCL water-class pixels as a valid-water count or claim exact transferred-byte efficiency. Slide 6 may show the separately validated AS-102 mask/lineage/cache result and M17 candidate features, labelled unmerged feature-branch acceptance; anomalies and event validation remain future work. Never replace missing real scientific evidence with an unlabelled simulation. Business subscriptions/licences in PRD §23 are hypotheses, not validated pricing or revenue.
 
 ## 11. Outstanding evidence still needed
 
@@ -558,6 +585,7 @@ For a presentation made from this evidence pack, slide 5 must label observed ver
 | Identity capture | Same acquisition / different processing product | Comparison now in [PC report](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md#cross-provider-identity-finding); original metadata excerpts/rendered comparison pending; pixel equivalence unverified |
 | Historical gate capture | Later AS-102 final access gate | EV-014 historical PENDING and later FG-01 PASS/READY retained unchanged; M15 separately supplies all-band arrays/mask counts. Original FG-01 timestamps/captures and exact transfer bytes remain missing; scientific performance unverified |
 | AS-102 presentation capture | Optical preprocessing implementation | M15 / EV-016–EV-017 preserve the 213-test/full-AOI acceptance; M16 / EV-018 records final review/merge with 265 tests. Sanitized map, merge and quality captures remain pending |
+| AS-103 review / capture | Candidate spectral features | M17 / EV-019–EV-020 supported; code review, sanitized V18/V19 captures pending; no AS-104 authorization |
 | P0 scientific evidence | HAB and oil historical validation | Cited event references, usable observations, before/during/after, false-positive review, uncertainty, temporally separated evaluation |
 | P0 product evidence | Operational site and decision demo | Defensible public site/intake source; clearly separated validation AOI; working hazard-specific evidence/priority workflow |
 | P0 reproducibility | Clean-environment/full-product demo | AS-102 AOI cache replay verified by EV-017; second-machine cache provisioning and full hazard/decision demo remain future; no raw scenes or secrets in Git |
