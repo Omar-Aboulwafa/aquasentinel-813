@@ -34,6 +34,14 @@ Dates follow the source documents when they describe an event. Git dates retain 
 
 ## 1. Executive project story
 
+**Current Decision 048 update — 8 October 2026:** The owner separately authorized
+AS-104, whose uncommitted work and real-acceptance blocker are preserved in its
+original worktree. This separate upstream fix uses M20/E20/EV-024. M19/E18–E19/
+EV-022–EV-023 and Decision 047 remain only in that worktree, reserved and not copied
+here per owner clarification. Prior AS-103-closeout authorization statements
+above/below describe their historical checkpoints; this update governs current
+state. The fix is uncommitted for review; AS-104 acceptance is still BLOCKED.
+
 **Product thesis / current decisions:** AquaSentinel 813 competes in Track 03 — Water Security & Marine Environments. It targets the Desalination Plant Water Quality / Operations Manager and the question: **Where and when should monitoring or field verification be prioritized?** The intended value is offshore awareness before a threat reaches an intake, with evidence, confidence, exposure, and human verification. Sources: Decisions 001–004 and PRD sections 1–5 and 22.
 
 The P0 product vision contains two separately interpretable hazards: Sentinel-2 HAB-like biological anomalies first, and Sentinel-1 oil-slick candidates second. Hyperspectral characterization, SST, currents, wind, and advanced drift are P1 enhancements. Transparent anomaly/risk logic precedes fitted ML; risk weights are hypotheses. These are design commitments, not delivered hazard capabilities. Sources: Decisions 005–015 and 034.
@@ -42,7 +50,7 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Recorded experiment:** A 2 October CDSE metadata search returned 44 unique candidate scenes for the analyst-defined Al Raha validation polygon, 1 March–31 May 2023, with scene cloud cover <= 30%. Provenance conversion/serialization succeeded for 44/44. The recorded quality baseline is 97 tests, Ruff passed, and `git diff --check` passed. Source: [AS-101 report](AS_101_STAC_SEARCH.md).
 
-**Current repository phase:** Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 complete and merged → AS-104 next planned, NOT authorized and NOT started. See M16–M18 / EV-018–EV-021 and Decisions 039–046; Codex development handoff remains complete.
+**Current repository phase:** Foundation/continuity complete → AS-101/AS-102/AS-103 complete and merged → AS-104 authorized, uncommitted/preserved and real acceptance BLOCKED → Decision 048 source-resolution fix uncommitted for review → AS-105+ unauthorized and unstarted. See M20/E20/EV-024; earlier M16–M18 checkpoints remain historical.
 
 **Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; M17 / EV-019–EV-020 records the later candidate-feature acceptance; M18 / EV-021 separately records final review and merge through PR #8. AS-104 remains NOT authorized and NOT started. These mask outcomes also do not establish the scientific/operational claims above.
 
@@ -408,6 +416,26 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 - **Recommended visual:** V20 sanitized PR #8/commit/local-348-test review card, alongside V18/V19 candidate-feature/formula/lineage captures; all captures pending, no signed URLs or scientific-result claim.
 - **Candidate slide title:** “From candidate signals to reviewed, merged feature engineering.”
 
+### M20 — Explicit PC processing baseline without a hidden heuristic
+
+- **Date:** 8 October 2026 (Asia/Dubai); resolver smoke 13:38:26.730440–13:38:48.970146 UTC / 17:38:26.730440–17:38:48.970146 +04:00.
+- **Task / milestone ID:** AS-102 required-PC-baseline upstream fix; Decision 048 / E20 / EV-024. M19 is reserved for preserved AS-104 work, not imported here.
+- **Status:** Implemented and offline/metadata validated, uncommitted for review; not pushed/merged, no PR. AS-104 real acceptance BLOCKED.
+- **Problem / question:** March observations each have 05.09 and 05.10 PC processing products; unchanged AS-102 correctly refused ambiguity before reference asset access.
+- **Why it mattered:** Acquisition identity does not identify a processing product; temporal comparison must not silently mix delivered processing baselines.
+- **Options considered:** Explicit required baseline; matching CDSE generation/baseline; arbitrary latest/earliest generation; mixed delivered baselines.
+- **Decision:** Owner-authorized optional baseline constraint after validating structured exact-observation matches, still requiring exactly one product. No fallback; no new pixel/cache identity dimension.
+- **Rationale:** The five predeclared March dates each have one complete 05.09 product, matching the accepted April PC target's baseline. CDSE 05.10 remains separate discovery context, as permitted by Decision 039.
+- **Implementation / experiment:** Three keyword-only API additions, shared early selector validation, validated-match filtering, and checks on both cache-return paths. Separate worktree from exact main base c6accab; main's 348 tests retained. Then six metadata-only resolver calls with signing/XML/raster/preprocessing/cache entry points blocked; separate read-only accepted-April-cache verification.
+- **Evidence:** [Fix plan/API](AS_102_REQUIRED_PC_BASELINE_FIX.md), [timestamped validation](evidence/AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md), Decision 048, source/tests on `fix/as-102-required-pc-baseline`.
+- **Quantitative result:** **421 passed** (348 retained +73 new), Ruff/diff pass, same six Rasterio warnings. Fresh CDSE search 44 candidates; **5/5 March +1/1 target** uniquely resolved at 05.09; eleven required assets each; **0** forbidden smoke calls. Existing target cache accepts 05.09, rejects 05.10 and keeps exact identity/provenance/file hashes.
+- **Limitation:** Metadata resolution only; March XML/raster readability, decoding/native-grid compatibility and per-pixel valid-water history are untested. No AS-104 temporal product or scientific/operational result; no GitHub CI claim.
+- **Lesson learned:** Make ambiguity constraints explicit and test failure on zero/multiple; selecting the same actual product must not duplicate cache identity.
+- **Impact on next step:** Review/merge the isolated fix before separately rerunning the unchanged AS-104 target/March-period/minimum-five experiment. Preserve its uncommitted work; do not resume it in this task or start AS-105+.
+- **Presentation takeaway:** “One observation can have several processing products; choose explicitly and preserve lineage.”
+- **Recommended visual:** Sanitized two-product table → explicit 05.09 constraint → exactly-one result; 421-test / 6-of-6 metadata card and unchanged-cache identity. Capture pending, never include signing material.
+- **Candidate slide title:** “Resolve processing ambiguity without changing the science.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -429,6 +457,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | 8 Oct final review / merge | No new technical decision | Targeted security/cache/provenance hardening; merge existing AS-102 contract | Verified publication closes preprocessing while preserving scientific/authorization limits | M16 / EV-018; PR #6, merge `627b6ae`; 265 tests, local Ruff/diff checks; no GitHub CI reported |
 | 8 Oct AS-103 authorization/acceptance | 046 | Six candidate features, declared wavelengths, signed numeric guards and fingerprinted immediate-parent lineage; no extra cache/dependency | Per-scene signals precede future temporal science | M17; EV-019/EV-020; uncommitted feature-branch acceptance |
 | 8 Oct AS-103 final review / merge | No new technical decision | Final model/arithmetic/numerical/identity/lineage and real-evidence review; publish existing Decision 046 contract | Separate reviewed publication from the earlier experiment without extending scientific scope | M18 / EV-021; PR #8, merge `b770d056`; 348 tests, local Ruff/diff checks; no configured/reported GitHub CI |
+| 8 Oct isolated upstream authorization | 048 | Optional explicit PC baseline after validated exact matching; zero/multiple fail; selector is not a cache identity dimension | Homogeneous delivered processing without generation heuristics or changed pixel processing | M20/E20/EV-024; Decision 047 remains in preserved AS-104 worktree |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -453,6 +482,10 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E15 | PR #6; feature `fe3d270`; merge `627b6ae`; M16 / EV-018 | Final reviewed AS-102 publication; 265 tests, Ruff/diff checks and targeted security/cache/provenance review | GitHub CI pass, HAB/scientific/operational performance |
 | E16 | [AS-103 contract](AS_103_SPECTRAL_FEATURES.md), [validation](evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md), feature source/tests; M17 / EV-019–EV-020 | Six deterministic candidate features, guarded support, fingerprinted identity, immediate-parent lineage and 348-test branch baseline | Merged release, temporal anomalies, HAB/scientific/operational validation |
 | E17 | Implementation `5638bc8`; [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8); merge `b770d056`; M18 / EV-021 | Final reviewed/merged AS-103 engineering, deterministic per-scene features and reproducible identity/immediate-parent lineage; 348 tests, Ruff/diff checks | GitHub CI success, temporal anomaly, HAB/chlorophyll/species/toxins, water safety, exposure/risk/lead-time or scientific accuracy |
+| E20 | [Required-PC-baseline plan](AS_102_REQUIRED_PC_BASELINE_FIX.md), [validation](evidence/AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md); M20/EV-024 | Strict optional selector, constrained cache returns, unchanged actual-product identity, 421 tests, 6/6 real metadata resolutions and zero forbidden calls | Merged fix, March asset/decoding/support success, AS-104 acceptance, scientific hazard or operational accuracy |
+
+E18–E19 remain reserved for the preserved uncommitted AS-104 worktree and are not
+duplicated here. Historical E01–E17 remain unchanged.
 
 Reproduce the engineering quality gate with `git diff --check`, `python -m pytest -v`, and `python -m ruff check .` in the Python 3.11 environment. Record fresh results separately from historical results. Do not rerun a live probe and silently rewrite the original 44-scene observation.
 

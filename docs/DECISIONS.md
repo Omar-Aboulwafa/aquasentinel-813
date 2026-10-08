@@ -1017,6 +1017,73 @@ Observed acceptance: [AS-103 evidence](evidence/AS_103_SPECTRAL_FEATURES_VALIDAT
 
 ---
 
+## Decision 048 — Explicit Planetary Computer Processing-Baseline Selection
+
+**Date:** 8 October 2026 (Asia/Dubai).
+**Status:** Explicitly authorized.
+
+### Decision
+
+AS-102 may optionally receive an explicitly required Planetary Computer
+processing baseline when resolving a known Sentinel-2 observation.
+
+Resolution order is:
+
+1. Validate each returned Planetary Computer item's existing structured
+   metadata and processing metadata.
+2. Identify items matching the expected observation exactly by acquisition
+   timestamp, platform, MGRS tile and relative orbit.
+3. If no required processing baseline is supplied, preserve the existing
+   behavior exactly: require exactly one observation match.
+4. If a required processing baseline IS supplied, filter the exact observation
+   matches by that baseline.
+5. Require EXACTLY ONE remaining product.
+6. Zero remaining products: explicit failure.
+7. More than one remaining product: explicit failure.
+
+There is NO earliest-generation fallback, latest-generation fallback, implicit
+preference for CDSE generation, automatic baseline preference or mixed-baseline
+fallback. The constraint is explicit and caller-controlled.
+
+The actual selected Planetary Computer product remains authoritative for pixels.
+The selected actual PC source ID, processing baseline, generation time, provider
+metadata and unsigned asset references remain recorded through the existing
+AS-102 identity/provenance. The separate CDSE discovery product remains
+discovery/matching context.
+
+The required-baseline selector itself is a SOURCE-RESOLUTION CONSTRAINT, not a
+new pixel-processing identity dimension. Therefore, if the same actual PC product
+is selected, product/cache identity remains the existing identity of that actual
+product. Do not create a second cache identity merely because the caller supplied
+the selector explicitly. Do not change cache schema or rewrite old cache manifests.
+
+However, all cache-return paths MUST enforce a supplied constraint: a cached
+AS-102 scene must not be returned when its recorded `pc_processing_baseline`
+conflicts with `required_processing_baseline`.
+
+This extends Decision 039. It does not change reflectance decoding, grid
+construction, masks, resampling, actual-source provenance, AS-103 or AS-104
+algorithms.
+
+### Cross-worktree coordination and evidence
+
+At base `c6accab2c5753734466a6375d1b3ce1762e99bed`, merged main ends at Decision
+046. Decision 047 remains only in the separately authorized, uncommitted AS-104
+worktree on `feature/as-104-temporal-baseline`; it is deliberately not copied or
+renumbered here, as explicitly instructed by the owner. Decision 048 keeps its
+assigned number. M19 / E18–E19 / EV-022–EV-023 are reserved for that preserved
+work; this separate fix uses M20 / E20 / EV-024.
+
+AS-104 exposed the two-product ambiguity before reference XML/raster access.
+Metadata investigation found one complete 05.09 product for each of the five
+frozen March observations. The fix is a source-resolution extension only, left
+uncommitted for review. AS-104 remains uncommitted and its real acceptance BLOCKED
+until this upstream fix is reviewed/merged and acceptance is separately rerun.
+See [fix plan/API](AS_102_REQUIRED_PC_BASELINE_FIX.md) and
+[validation evidence](evidence/AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md).
+
+---
+
 ## Pending Decisions
 
 The following decisions are intentionally not final yet:

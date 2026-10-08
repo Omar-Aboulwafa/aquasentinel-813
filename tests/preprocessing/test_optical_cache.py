@@ -6,7 +6,9 @@ import numpy as np
 import pytest
 from rasterio import Affine
 
-from aquasentinel.ingestion.sentinel2_assets import BANDS, NATIVE_RESOLUTION
+from aquasentinel.catalog.stac import CatalogResult
+from aquasentinel.ingestion import sentinel2_assets
+from aquasentinel.ingestion.sentinel2_assets import BANDS, NATIVE_RESOLUTION, ObservationMatchError
 from aquasentinel.preprocessing import optical
 from aquasentinel.preprocessing.alignment import NativeRasterWindow, analysis_grid
 from aquasentinel.preprocessing.cache import (
@@ -16,6 +18,7 @@ from aquasentinel.preprocessing.cache import (
     load_cache,
     write_cache,
 )
+from aquasentinel.preprocessing.metadata import ReflectanceMetadataError
 from aquasentinel.provenance.serialization import derived_product_to_dict
 from aquasentinel.runtime import build_runtime_context
 
@@ -26,10 +29,11 @@ def pipeline(monkeypatch, tmp_path, resolved, product_xml):
     context = replace(context, config=replace(context.config, cache_dir=tmp_path / "cache"))
     geometry = {"type": "Polygon", "coordinates": context.primary_validation_aoi.coordinates}
     grid = analysis_grid(geometry, context.config.optical)
-    calls = {"resolve": 0, "sign": 0, "xml": 0, "raster": []}
+    calls = {"resolve": 0, "sign": 0, "xml": 0, "raster": [], "required_baselines": []}
 
-    def resolve(*args):
+    def resolve(*args, **kwargs):
         calls["resolve"] += 1
+        calls["required_baselines"].append(kwargs["required_processing_baseline"])
         return resolved
 
     def sign(*args):
@@ -309,3 +313,167 @@ def test_cache_provenance_created_at_is_not_identity(pipeline, cdse_candidate):
     cached = load_cache(context.config.cache_dir, scene.cache_id)
     assert cached.cache_id == scene.cache_id
     assert cached.provenance.created_at.isoformat() == "2026-10-08T12:00:00+00:00"
+
+
+@pytest.mark.parametrize("baseline", [None, "05.09"])
+@pytest.mark.parametrize("with_candidate", [False, True])
+def test_known_cache_enforces_baseline_without_access_or_mutation(
+    pipeline, cdse_candidate, monkeypatch, baseline, with_candidate
+):
+    context, _ = pipeline
+    original = optical.preprocess_optical_scene(context, cdse_candidate)
+    directory = context.config.cache_dir / "as102" / original.cache_id
+    before = {path.name: path.read_bytes() for path in directory.iterdir()}
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("Known cache must not perform external access or writes")
+
+    for name in ("resolve_optical_source", "sign_asset", "read_bytes", "read_native_asset",
+                 "write_cache"):
+        monkeypatch.setattr(optical, name, forbidden)
+    cached = optical.preprocess_optical_scene(
+        context, cdse_candidate if with_candidate else None, known_cache_id=original.cache_id,
+        required_processing_baseline=baseline,
+    )
+    assert cached.cache_id == original.cache_id
+    assert cached.provenance == original.provenance
+    assert cached.processing_parameters == original.processing_parameters
+    assert cached.resolved_source == original.resolved_source
+    assert {path.name: path.read_bytes() for path in directory.iterdir()} == before
+    with pytest.raises(ObservationMatchError, match="Cached PC processing baseline"):
+        optical.preprocess_optical_scene(
+            context, cdse_candidate if with_candidate else None, known_cache_id=original.cache_id,
+            required_processing_baseline="05.10",
+        )
+    assert {path.name: path.read_bytes() for path in directory.iterdir()} == before
+
+
+def test_known_cache_still_checks_discovery_candidate_with_constraint(pipeline, cdse_candidate):
+    context, _ = pipeline
+    original = optical.preprocess_optical_scene(context, cdse_candidate)
+    with pytest.raises(ValueError, match="discovery candidate"):
+        optical.preprocess_optical_scene(
+            context, replace(cdse_candidate, item_id=cdse_candidate.item_id.replace(
+                "20240831", "20240901"
+            )),
+            known_cache_id=original.cache_id, required_processing_baseline="05.09",
+        )
+
+
+@pytest.mark.parametrize("baseline", ["", " 05.09", "5.9", "0509", 5.09, True])
+@pytest.mark.parametrize("known_cache", [False, True])
+def test_invalid_selector_fails_before_cache_or_access(
+    pipeline, cdse_candidate, monkeypatch, baseline, known_cache
+):
+    context, _ = pipeline
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("Invalid selector must fail before cache loading or access/writes")
+
+    for name in ("load_cache", "resolve_optical_source", "sign_asset", "read_bytes",
+                 "read_native_asset", "write_cache"):
+        monkeypatch.setattr(optical, name, forbidden)
+    with pytest.raises(ObservationMatchError, match="NN.NN"):
+        optical.preprocess_optical_scene(
+            context, cdse_candidate, known_cache_id="a" * 64 if known_cache else None,
+            required_processing_baseline=baseline,
+        )
+    assert not context.config.cache_dir.exists()
+
+
+@pytest.mark.parametrize("baseline", [None, "05.09"])
+def test_regular_resolution_forwards_selector_exactly(pipeline, cdse_candidate, baseline):
+    context, calls = pipeline
+    scene = optical.preprocess_optical_scene(
+        context, cdse_candidate, required_processing_baseline=baseline
+    )
+    assert calls["required_baselines"] == [baseline]
+    assert scene.processing_parameters["identity"]["pc_processing_baseline"] == "05.09"
+    assert b"required_processing_baseline" not in canonical_json(scene.processing_parameters)
+
+
+def test_explicit_constraint_reuses_same_actual_product_cache(pipeline, cdse_candidate, monkeypatch):
+    context, calls = pipeline
+    original = optical.preprocess_optical_scene(context, cdse_candidate)
+    raster_calls = list(calls["raster"])
+    directory = context.config.cache_dir / "as102" / original.cache_id
+    before = {path.name: path.read_bytes() for path in directory.iterdir()}
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("Same-product cache reuse must not read rasters or write cache")
+
+    monkeypatch.setattr(optical, "read_native_asset", forbidden)
+    monkeypatch.setattr(optical, "write_cache", forbidden)
+    cached = optical.preprocess_optical_scene(
+        context, cdse_candidate, required_processing_baseline="05.09"
+    )
+    assert calls["required_baselines"] == [None, "05.09"]
+    assert calls["raster"] == raster_calls
+    assert cached.cache_id == original.cache_id
+    assert cached.provenance == original.provenance
+    assert cached.processing_parameters == original.processing_parameters
+    assert cached.resolved_source == original.resolved_source
+    assert b"required_processing_baseline" not in canonical_json(cached.processing_parameters)
+    assert {path.name: path.read_bytes() for path in directory.iterdir()} == before
+    assert list((context.config.cache_dir / "as102").iterdir()) == [directory]
+
+
+def test_regular_cache_return_checks_recorded_baseline(pipeline, cdse_candidate, monkeypatch):
+    context, _ = pipeline
+    original = optical.preprocess_optical_scene(context, cdse_candidate)
+    # Isolate the orchestration check; the real loader independently rejects
+    # inconsistent manifests. Even a loader result must satisfy the caller constraint.
+    parameters = {**original.processing_parameters, "identity": {
+        **original.processing_parameters["identity"], "pc_processing_baseline": "05.10"
+    }}
+    monkeypatch.setattr(optical, "load_cache", lambda *a: replace(
+        original, processing_parameters=parameters
+    ))
+    with pytest.raises(ObservationMatchError, match="Cached PC processing baseline"):
+        optical.preprocess_optical_scene(
+            context, cdse_candidate, required_processing_baseline="05.09"
+        )
+
+
+@pytest.mark.parametrize("baseline,count", [(None, 2), ("05.09", 2), ("05.10", 0)])
+def test_failed_resolution_stops_before_signed_access_or_writes(
+    pipeline, cdse_candidate, pc_item, monkeypatch, baseline, count
+):
+    context, _ = pipeline
+    monkeypatch.setattr(optical, "resolve_optical_source", sentinel2_assets.resolve_optical_source)
+    monkeypatch.setattr(sentinel2_assets, "search_catalog", lambda *a, **k: CatalogResult(
+        (pc_item, pc_item), None
+    ))
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("Resolution failure must precede signed access and cache writes")
+
+    for name in ("sign_asset", "read_bytes", "read_native_asset", "write_cache"):
+        monkeypatch.setattr(optical, name, forbidden)
+    with pytest.raises(ObservationMatchError, match=f"found {count}"):
+        optical.preprocess_optical_scene(
+            context, cdse_candidate, required_processing_baseline=baseline
+        )
+    assert not context.config.cache_dir.exists()
+
+
+def test_explicit_baseline_does_not_relax_xml_validation(
+    pipeline, cdse_candidate, resolved, monkeypatch
+):
+    context, calls = pipeline
+    # Resolver output establishes expected 05.10; fixture XML still declares 05.09.
+    monkeypatch.setattr(optical, "resolve_optical_source", lambda *a, **k: replace(
+        resolved, processing_baseline="05.10"
+    ))
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("Conflicting XML must fail before rasters or cache writes")
+
+    monkeypatch.setattr(optical, "read_native_asset", forbidden)
+    monkeypatch.setattr(optical, "write_cache", forbidden)
+    with pytest.raises(ReflectanceMetadataError, match="baseline"):
+        optical.preprocess_optical_scene(
+            context, cdse_candidate, required_processing_baseline="05.10"
+        )
+    assert calls["sign"] == calls["xml"] == 1
+    assert not context.config.cache_dir.exists()

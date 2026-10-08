@@ -31,6 +31,14 @@ class ObservationMatchError(ValueError):
     """Missing, conflicting or ambiguous observation identity."""
 
 
+def validate_required_processing_baseline(baseline: str | None) -> None:
+    """Validate a caller constraint without coercion or metadata/network access."""
+    if baseline is not None and (
+        not isinstance(baseline, str) or not re.fullmatch(r"\d{2}\.\d{2}", baseline)
+    ):
+        raise ObservationMatchError("Required PC processing baseline must be None or NN.NN.")
+
+
 @dataclass(frozen=True)
 class ObservationIdentity:
     acquired_at: datetime
@@ -165,7 +173,9 @@ def match_and_resolve(
     settings: OpticalConfig,
     *,
     license_name: str | None = None,
+    required_processing_baseline: str | None = None,
 ) -> ResolvedOpticalSource:
+    validate_required_processing_baseline(required_processing_baseline)
     settings.validate()
     expected, discovery_processing = discovery_identity(candidate)
     matches = []
@@ -173,6 +183,8 @@ def match_and_resolve(
         identity, baseline, generated = _pc_identity(item)
         if identity == expected:
             matches.append((item, identity, baseline, generated))
+    if required_processing_baseline is not None:
+        matches = [match for match in matches if match[2] == required_processing_baseline]
     if len(matches) != 1:
         raise ObservationMatchError(
             f"Expected exactly one PC observation match; found {len(matches)}."
@@ -246,8 +258,13 @@ def match_and_resolve(
 
 
 def resolve_optical_source(
-    candidate: Sentinel2Candidate, geometry: dict[str, Any], settings: OpticalConfig
+    candidate: Sentinel2Candidate,
+    geometry: dict[str, Any],
+    settings: OpticalConfig,
+    *,
+    required_processing_baseline: str | None = None,
 ) -> ResolvedOpticalSource:
+    validate_required_processing_baseline(required_processing_baseline)
     expected, _ = discovery_identity(candidate)
     start, end = (
         expected.acquired_at - timedelta(seconds=1),
@@ -259,4 +276,10 @@ def resolve_optical_source(
         datetime_interval=f"{start.isoformat()}/{end.isoformat()}",
         max_cloud_cover_percent=100,
     )
-    return match_and_resolve(candidate, result.items, settings, license_name=result.license_name)
+    return match_and_resolve(
+        candidate,
+        result.items,
+        settings,
+        license_name=result.license_name,
+        required_processing_baseline=required_processing_baseline,
+    )
