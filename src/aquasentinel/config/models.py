@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from math import isfinite
@@ -97,6 +98,61 @@ class AnalysisConfig:
             raise ValueError("Cloud cover must be between 0 and 100.")
 
 
+def _is_hostname(host: object) -> bool:
+    return (
+        isinstance(host, str)
+        and 0 < len(host) <= 253
+        and "." in host
+        and all(
+            re.fullmatch(r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?", label)
+            for label in host.split(".")
+        )
+    )
+
+
+@dataclass(frozen=True)
+class OpticalConfig:
+    """Planetary Computer raster delivery and a fixed metric analysis grid."""
+
+    endpoint: str = "https://planetarycomputer.microsoft.com/api/stac/v1/"
+    collection: str = "sentinel-2-l2a"
+    signing_endpoint: str = "https://planetarycomputer.microsoft.com/api/sas/v1/sign"
+    allowed_asset_hosts: tuple[str, ...] = ("sentinel2l2a01.blob.core.windows.net",)
+    target_crs: str = "EPSG:32640"
+    target_resolution: float = 20.0
+    timeout_seconds: float = 30.0
+
+    def validate(self) -> None:
+        from rasterio.crs import CRS
+
+        for url in (self.endpoint, self.signing_endpoint):
+            STACConfig(url, self.collection, self.timeout_seconds).validate()
+            if urlsplit(url).scheme != "https" or not _is_hostname(urlsplit(url).hostname):
+                raise ValueError("Optical service URLs must use HTTPS and valid DNS hostnames.")
+        if not isinstance(self.allowed_asset_hosts, (tuple, list)) or not self.allowed_asset_hosts:
+            raise ValueError("Optical allowed_asset_hosts must be a non-empty sequence.")
+        for host in self.allowed_asset_hosts:
+            if not _is_hostname(host):
+                raise ValueError("Optical asset hosts must be exact lowercase hostnames.")
+        if len(set(self.allowed_asset_hosts)) != len(self.allowed_asset_hosts):
+            raise ValueError("Optical asset hosts must be unique.")
+        if (
+            isinstance(self.target_resolution, bool)
+            or not isinstance(self.target_resolution, (int, float))
+            or not isfinite(self.target_resolution)
+            or self.target_resolution <= 0
+        ):
+            raise ValueError("Optical target_resolution must be finite and positive.")
+        try:
+            if not isinstance(self.target_crs, str) or not self.target_crs.startswith("EPSG:"):
+                raise ValueError
+            crs = CRS.from_string(self.target_crs)
+            if not crs.is_projected or crs.linear_units != "metre":
+                raise ValueError
+        except (ValueError, TypeError) as exc:
+            raise ValueError("Optical target_crs must be a projected metric EPSG CRS.") from exc
+
+
 @dataclass(frozen=True)
 class AquaSentinelConfig:
     app_name: str
@@ -108,6 +164,7 @@ class AquaSentinelConfig:
     hab_weights: RiskWeights
     oil_weights: RiskWeights
     catalog: STACConfig = field(default_factory=STACConfig)
+    optical: OpticalConfig = field(default_factory=OpticalConfig)
 
     def validate(self) -> None:
         if not self.app_name.strip():
@@ -118,6 +175,7 @@ class AquaSentinelConfig:
         self.hab_weights.validate()
         self.oil_weights.validate()
         self.catalog.validate()
+        self.optical.validate()
 
         if not self.aoi_file.exists():
             raise FileNotFoundError(f"AOI file not found: {self.aoi_file}")
