@@ -2,11 +2,13 @@
 
 **Created:** 6 October 2026 (Asia/Dubai).
 
-**Purpose:** Compact claim-to-evidence index for the [presentation journal](../PRESENTATION_JOURNAL.md). This pack preserves the CDSE investigation, the **historical Planetary Computer metadata-only checkpoint**, and the [later successful final raster gate](AS_102_PLANETARY_COMPUTER_RASTER_GATE.md). Historical records do not themselves certify perpetual external-service availability or authorize implementation. The separately authorized M15 update adds actual AS-102 implementation evidence EV-016/EV-017 and Decisions 039–045; AS-103 remains unauthorized/unimplemented. AS-102 changes are uncommitted/unpushed/unmerged.
+**Purpose:** Compact claim-to-evidence index for the [presentation journal](../PRESENTATION_JOURNAL.md). This pack preserves the CDSE investigation, the **historical Planetary Computer metadata-only checkpoint**, and the [later successful final raster gate](AS_102_PLANETARY_COMPUTER_RASTER_GATE.md). Historical records do not themselves certify perpetual external-service availability or authorize implementation. The separately authorized M15 update adds actual AS-102 implementation evidence EV-016/EV-017 and Decisions 039–045; AS-103 remains unauthorized/unimplemented. AS-102 is COMPLETE AND MERGED through PR #6; EV-018 records the final reviewed/merged stage while EV-016/EV-017 preserve their historical acceptance checkpoint.
 
 **Later evidence stage recorded:** 6 October 2026 (Asia/Dubai), FG-01. Original experiment timestamp not supplied; this is a later experiment than the preserved metadata-only checkpoint, not a new probe run by this documentation task.
 
 **New implementation evidence:** EV-016/EV-017, fresh experiment started `2026-10-06T10:07:14.660936+00:00` UTC / `2026-10-06T14:07:14.660936+04:00` Asia/Dubai. Base `0867708ea62676dcbcd0f5f83577cc120d633f26`, branch `feature/as-102-optical-preprocessing`. This new experiment has exact timestamps, typed processing evidence and offline tests, unlike the original supplied historical reconstructions.
+
+**Final review/merge update:** 8 October 2026 (Asia/Dubai), EV-018. Feature `fe3d27046c40600010753957ee8921d57071ec48`; [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6); merge `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac` at `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00`. Final reviewed baseline: 265 tests passed, Ruff/diff checks passed; six non-blocking Rasterio warnings. No configured/reported GitHub CI/workflow checks. AS-103 NOT authorized and NOT started.
 
 ## Evidence standard and temporal boundary
 
@@ -15,6 +17,8 @@ The historical probe reports and later raster-gate report transcribe the project
 Use these classifications: **directly observed evidence**, **provider/STAC-advertised metadata**, **inference**, **blocker**, **recommendation**, and **unverified claim**. An advertised format or grid does not prove a successful raster read. A provider recommendation is not an approved technical decision. A pending result must remain pending until a separately recorded experiment supports it.
 
 EV-001–EV-008 index existing repository evidence. EV-009–EV-013 preserve the historical investigations. **EV-014 progresses from historical PENDING to later FG-01 PASS / READY**; both stages appear below, and the original PENDING row is preserved. EV-015 separates metadata-driven PC decoding from raster-access success. Record creation date, acquisition date, processing date, and experiment date must remain distinct.
+
+EV-016/EV-017 retain the 6 October experiment and feature-branch status at that date. Their uncommitted/unmerged/review-pending wording is historical; **EV-018 supersedes that Git status** without changing the original experiment or its 213-test baseline.
 
 ## Claim index
 
@@ -38,6 +42,7 @@ EV-001–EV-008 index existing repository evidence. EV-009–EV-013 preserve the
 | EV-015 | Metadata-driven PC reflectance decoding | Observed XML and DN samples; metadata-derived interpretation | XML 53,347 bytes; baseline 05.09; quantification 10000; offset -1000; B02 bandId 1/B05 bandId 4; `(DN - 1000) / 10000` | [XML and decoding evidence](AS_102_PLANETARY_COMPUTER_RASTER_GATE.md#product-xml-and-metadata-driven-interpretation) | Explain modern-baseline offsets with actual product metadata | Yes: XML field/band-map excerpt and sample table | Mechanics established for tested bands; aquatic suitability, quality masking, and pixel equivalence not established |
 | EV-016 | Full-AOI AS-102 optical preprocessing | **PASS — implemented/validated on uncommitted feature branch** | 9 float32 bands + uint8 SCL/masks, (228,310), 20 m EPSG:32640; AOI 67,449; valid data 65,166; candidate water 10,211; valid water 7,963; AOI fraction 11.805957%, retention 77.984526%, excluded 2,248 | [Timestamped real validation](AS_102_OPTICAL_PREPROCESSING_VALIDATION.md); journal M15 | Real pixel/grid/mask evidence without hazard claims | Yes: AOI/candidate/retained/excluded map | Independent aquatic/HAB scientific validation remains future |
 | EV-017 | Actual-PC lineage, verified AOI cache and quality gate | **PASS — implementation acceptance; not merged** | PC-only pixel lineage; CDSE discovery separate; SHA-256/canonical atomic cache; array/source/provenance-equivalent known-ID reload with catalog/signing/XML/raster calls blocked; 213 tests passed (97 retained), Ruff/diff check passed | [Cache/quality evidence](AS_102_OPTICAL_PREPROCESSING_VALIDATION.md); Decisions 039–045 | Reproducible, traceable inputs for future features | Yes: lineage/checksum/test card | Clean-machine/full-product demo and Git review remain pending |
+| EV-018 | AS-102 final security/cache/provenance review and merge | **COMPLETE AND MERGED — 8 October 2026** | Final reviewed implementation `fe3d27046c40600010753957ee8921d57071ec48`; PR #6; merge `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`; 265 tests passed, Ruff/diff checks passed; canonical HTTPS/redirect protections, transient SAS containment, strict matching/asset rejection, bounded reads, conservative support and cache/provenance tamper checks; six non-blocking Rasterio warnings | [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6); [journal M16](../PRESENTATION_JOURNAL.md#m16--as-102-code-review-security-hardening-merge-and-closeout); committed source/tests | Reviewed/merged preprocessing and engineering reproducibility only; does NOT support HAB confirmation, chlorophyll concentration, toxin detection, water safety, desalination shutdown, warning lead time or operational risk accuracy | Yes: sanitized merge/commit/local-quality card | No configured/reported GitHub CI checks; independent science and full-product validation remain outstanding |
 
 ### EV-014 evidence progression
 
@@ -58,7 +63,7 @@ No visual is claimed to exist merely because it is suggested here. A metadata in
 - Complete per-provider inventories and field provenance; no cross-provider pixel-equivalence result.
 - Exact raster-transfer bytes were not measured; compressed blocks may exceed the requested pixel window. No byte-efficiency claim is supported.
 - EV-016/EV-017 now records one real scene’s aligned optical arrays, mask/fraction statistics, actual-PC lineage and offline cache replay. Historical HAB/oil validation, false positives, operational demo site, full product/demo fallback and measured impact remain future evidence.
-- AS-102 contract/provider choice and implementation were separately authorized and recorded by Decisions 039–045 / M15. Git review/publication and presentation captures remain pending; no AS-103 work is authorized by this pack.
+- AS-102 contract/provider choice and implementation were separately authorized and recorded by Decisions 039–045 / M15. Final Git review/publication is recorded separately by EV-018 / M16 and PR #6. Presentation captures remain pending; no AS-103 work is authorized by this pack.
 
 ## Presentation capture rule
 
