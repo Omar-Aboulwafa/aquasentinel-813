@@ -1,10 +1,11 @@
 # AquaSentinel 813 — Handoff Guide
 
-**Last updated:** 6 October 2026 (Asia/Dubai)
+**Last updated:** 8 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current development branch:** `feature/as-102-optical-preprocessing` (uncommitted implementation for review).
-**Latest approved base:** `0867708ea62676dcbcd0f5f83577cc120d633f26` (`origin/main`, merged PR #5).
+**Current active development branch:** none. AS-102 development is closed. AS-103 is NOT authorized and NOT started.
+**Closeout preparation branch:** This closeout was prepared on `docs/as-102-post-merge-closeout`.
+**AS-102 implementation merge commit:** `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac` (merged via PR #6).
 
 This file is the fast handoff document for a new ChatGPT session, Codex task, developer, or second machine.
 
@@ -70,14 +71,14 @@ Completed continuity setup and Codex read-only onboarding:
 
 Current project phase:
 
-**Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 implemented and validated on its feature branch (uncommitted, unpushed, not merged) → AS-103 next planned, NOT authorized and NOT started.**
+**Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 next planned, NOT authorized and NOT started.**
 
 Current implementation and next milestone:
 
 - AS-101 — Sentinel-2 STAC Search was completed on `feature/as-101-sentinel2-stac` from base `51f4ede`. Implementation commit `41a0b0b`, documentation commit `b3f0e9f`, and the approved review fixes are merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - **97 tests passed**, Ruff passed, and `git diff --check` passed. A real CDSE query returned 44 scenes and every scene converted to valid provenance.
 - See `docs/AS_101_STAC_SEARCH.md` for usage, semantics, and smoke-test evidence.
-- AS-102 was explicitly authorized on 6 October 2026 and is implemented/validated on `feature/as-102-optical-preprocessing`, based on merged PR #5 / `0867708ea62676dcbcd0f5f83577cc120d633f26`. Changes remain uncommitted, unpushed and unmerged; no PR was created. AS-103 is next planned but NOT authorized and NOT started. See §22 for usage and validation evidence.
+- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is next planned but NOT authorized and NOT started. See §22 for usage and validation evidence.
 
 ---
 
@@ -317,7 +318,7 @@ Observation
 → Monitoring Priority
 → Human Decision
 
-Existing implemented foundations (plus AS-102 on the unmerged feature branch):
+Existing implemented foundations (including AS-102 merged through PR #6):
 
 ### Configuration and AOI
 
@@ -396,7 +397,7 @@ Do not:
 
 ## 15. AS-101 Implementation and Next Engineering Task
 
-AS-101 was explicitly authorized and is now complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. AS-102 was explicitly authorized on 6 October 2026 and is implemented/validated on `feature/as-102-optical-preprocessing`, based on merged PR #5 / `0867708ea62676dcbcd0f5f83577cc120d633f26`. Changes remain uncommitted, unpushed and unmerged; no PR was created. AS-103 is next planned but NOT authorized and NOT started.
+AS-101 was explicitly authorized and is now complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is next planned but NOT authorized and NOT started.
 
 ### AS-101 — Sentinel-2 STAC Search
 
@@ -544,28 +545,28 @@ Small implementation details inside approved acceptance criteria do not require 
 
 Current project phase:
 
-**Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 implemented and validated on its feature branch (uncommitted, unpushed, not merged) → AS-103 next planned, NOT authorized and NOT started.**
+**Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 next planned, NOT authorized and NOT started.**
 
 Immediate priority:
 
-**Review the uncommitted AS-102 feature branch and its real-data evidence. Do not commit/push without authorization. AS-103 is not authorized and must not start.**
+**AS-102 is closed. Prepare/define AS-103 only after separate explicit authorization. AS-103 is NOT authorized and NOT started.**
 
 Core constraint:
 
 **Protect scientific credibility and P0 delivery before sophistication.**
 
 
-## 22. AS-102 Implementation Handoff
+## 22. AS-102 Merged Implementation Handoff
 
-AS-102 was explicitly authorized on 6 October 2026 and is implemented/validated on `feature/as-102-optical-preprocessing`, based on merged PR #5 / `0867708ea62676dcbcd0f5f83577cc120d633f26`. Changes remain uncommitted, unpushed and unmerged; no PR was created. AS-103 is next planned but NOT authorized and NOT started.
+AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is next planned but NOT authorized and NOT started.
 
 - CDSE discovery is preserved; Planetary Computer supplies the actual raster product, with strict time/platform/tile/orbit matching and independent product provenance.
 - Nine native reflectance bands plus SCL and product XML; XML-driven offsets/quantification, bounded COG reads, fixed 20 m EPSG:32640 AOI grid (310 × 228), bilinear reflectance/nearest SCL, and all-band conservative interpolation/water support.
 - Fresh real acceptance began `2026-10-06T10:07:14.660936+00:00` / `2026-10-06T14:07:14.660936+04:00` Asia/Dubai. CDSE returned 44 candidates; known April 28 observation matched PC baseline 05.09 separately from CDSE 05.10.
 - AOI 67,449 pixels; valid data 65,166; candidate water 10,211; retained valid water 7,963; AOI water fraction 0.11805957093507688 (11.805957%); water retention 0.7798452649103907 (77.984526%). Excluded candidate water: 2,248. These are mask outcomes, not confirmed water/HAB or aquatic suitability.
 - AOI cache/checksum reload is equivalent and uses no network/signing/raster work when the cache ID is known. Runtime cache material remains ignored.
-- Current quality baseline: **213 tests passed** (all prior 97 retained), Ruff passed, `git diff --check` passed. Python 3.11.16 / NumPy 2.2.6 / Rasterio 1.4.3 / GDAL 3.9.3 in this cloud run. Two transitive Affine deprecation warnings are reported, with no failures.
-- Decisions 039–045 record the newly authorized contract. EV-016/EV-017 and journal M15 record real implementation evidence; historical EV-014 PENDING and later FG-01 PASS/READY plus EV-015 remain preserved.
+- Current final reviewed quality baseline: **265 tests passed**, Ruff passed, `git diff --check` passed. Six Rasterio deprecation warnings remain non-blocking. The historical 6 October implementation acceptance was **213 tests passed** (all prior 97 retained), with two transitive Affine warnings. Python 3.11.16 / NumPy 2.2.6 / Rasterio 1.4.3 / GDAL 3.9.3 in that cloud run. GitHub reported clean/mergeable before merge and no configured/reported CI/workflow checks; no GitHub CI pass is claimed.
+- Decisions 039–045 record the newly authorized contract. EV-016/EV-017 and journal M15 preserve the 6 October implementation evidence; EV-018 and journal M16 record final review/merge. Historical EV-014 PENDING and later FG-01 PASS/READY plus EV-015 remain preserved.
 - L2A BOA reflectance is not aquatic Rrs; coastal/turbid/mixed-water SCL errors remain. No indices, chlorophyll, HAB/toxin/water-safety/intake-risk or lead-time conclusions were computed.
 
 ### Resume/reproduce
