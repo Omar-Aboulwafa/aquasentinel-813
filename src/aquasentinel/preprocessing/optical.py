@@ -11,7 +11,12 @@ import rasterio
 
 from aquasentinel.ingestion.planetary_computer import read_bytes, sign_asset
 from aquasentinel.ingestion.sentinel2 import Sentinel2Candidate, _polygon_geometry
-from aquasentinel.ingestion.sentinel2_assets import BANDS, resolve_optical_source
+from aquasentinel.ingestion.sentinel2_assets import (
+    BANDS,
+    ObservationMatchError,
+    resolve_optical_source,
+    validate_required_processing_baseline,
+)
 from aquasentinel.preprocessing.alignment import (
     analysis_grid,
     aoi_grid_mask,
@@ -41,14 +46,28 @@ from aquasentinel.runtime import RuntimeContext
 PROCESSING_VERSION = "as102-v1"
 
 
+def _enforce_cached_baseline(
+    scene: PreprocessedOpticalScene, required_processing_baseline: str | None
+) -> None:
+    if (
+        required_processing_baseline is not None
+        and scene.processing_parameters["identity"]["pc_processing_baseline"]
+        != required_processing_baseline
+    ):
+        raise ObservationMatchError("Cached PC processing baseline conflicts with required constraint.")
+
+
 def preprocess_optical_scene(
     context: RuntimeContext,
     candidate: Sentinel2Candidate | None = None,
     *,
     known_cache_id: str | None = None,
+    required_processing_baseline: str | None = None,
 ) -> PreprocessedOpticalScene:
+    validate_required_processing_baseline(required_processing_baseline)
     if known_cache_id is not None:
         scene = load_cache(context.config.cache_dir, known_cache_id)
+        _enforce_cached_baseline(scene, required_processing_baseline)
         geometry = _polygon_geometry(context.primary_validation_aoi)
         grid = analysis_grid(geometry, context.config.optical)
         if (
@@ -69,7 +88,9 @@ def preprocess_optical_scene(
     settings = context.config.optical
     geometry = _polygon_geometry(context.primary_validation_aoi)
     grid = analysis_grid(geometry, settings)
-    resolved = resolve_optical_source(candidate, geometry, settings)
+    resolved = resolve_optical_source(
+        candidate, geometry, settings, required_processing_baseline=required_processing_baseline
+    )
     signed = sign_asset(resolved.asset("product-metadata").href, settings)
     try:
         body = read_bytes(
@@ -113,7 +134,9 @@ def preprocess_optical_scene(
     cache_id = cache_identity(identity)
     destination = context.config.cache_dir / "as102" / cache_id
     if destination.exists():
-        return load_cache(context.config.cache_dir, cache_id)
+        scene = load_cache(context.config.cache_dir, cache_id)
+        _enforce_cached_baseline(scene, required_processing_baseline)
+        return scene
     native_scl = read_native_asset(resolved.asset("SCL"), grid, settings)
     scl = warp_array(native_scl.data, native_scl, grid, categorical=True, nodata=native_scl.nodata)
     aoi = aoi_grid_mask(geometry, grid)

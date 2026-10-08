@@ -3,11 +3,21 @@
 **Last updated:** 8 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current active development branch:** none. AS-103 development is closed. AS-104 is NOT authorized and NOT started.
+**Current fix branch:** `fix/as-102-required-pc-baseline`, in separate worktree `/workspace/aquasentinel-813-as102-baseline-fix`; uncommitted for review.
+**Preserved development branch:** `feature/as-104-temporal-baseline`; AS-104 explicitly authorized, uncommitted and real acceptance BLOCKED. AS-105+ NOT authorized and NOT started.
 **Closeout preparation branch:** This closeout was prepared on `docs/as-103-post-merge-closeout`.
 **AS-103 implementation merge commit:** `b770d0561da9ac2b81ca2d4b8e784adff66ee231` (merged via PR #8).
 **AS-102 closeout preparation branch:** The AS-102 closeout was prepared on `docs/as-102-post-merge-closeout`.
 **AS-102 implementation merge commit:** `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac` (merged via PR #6).
+
+**Current-state update — Decision 048 (8 October 2026, Asia/Dubai):** The small
+AS-102 required-PC-baseline source-resolution extension is implemented/tested in
+the separate fix worktree only. The original AS-104 work is preserved byte-for-byte;
+its 460-test offline result is separate from this fix's 348-test main baseline and
+421-test fix gate. All six required-05.09 metadata resolutions passed. AS-104 real
+acceptance remains BLOCKED until upstream review/merge and a separate rerun.
+Earlier AS-103-closeout authorization statements below are historical checkpoints;
+this update governs current authorization. No commit, push, PR or merge for this fix.
 **PoC deadline:** 11 October 2026
 **Challenge:** Arab Youth Space Hackathon 2026 — Track 03: Water Security & Marine Environments
 
@@ -17,7 +27,7 @@
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 complete and merged → AS-104 next planned, NOT authorized and NOT started.**
+**Foundation complete → continuity complete → AS-101/AS-102/AS-103 complete and merged → AS-104 authorized, uncommitted/preserved and real acceptance BLOCKED → Decision 048 upstream fix uncommitted for review → AS-105+ unauthorized and unstarted.**
 
 Completed engineering foundations:
 
@@ -817,6 +827,13 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
+Review the isolated Decision 048 source-resolution fix and its
+[evidence](evidence/AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md). It requires
+separate review/merge before the frozen AS-104 real acceptance is rerun. Do not
+resume AS-104, alter its worktree, or start AS-105+ in this task.
+
+The following AS-103-closeout next-action checkpoint is preserved historically:
+
 AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 remains NOT authorized and NOT started.
 
 Immediate sequence:
@@ -895,3 +912,26 @@ Read [AS-103 execution plan/API](AS_103_SPECTRAL_FEATURES.md) and
 Use `extract_spectral_features(parent)` after the existing verified AS-102 cache reload;
 no feature cache or network is required. AS-103 implementation is complete and merged; see journal M18 / EV-021 for final review/publication.
 AS-104 — Temporal Baseline remains NEXT PLANNED only, NOT authorized and NOT started.
+
+## 25. Decision 048 — Required PC Baseline Source-Resolution Fix — IN REVIEW
+
+- Explicitly authorized 8 October 2026; base `c6accab2c5753734466a6375d1b3ce1762e99bed`.
+- Separate branch/worktree; no AS-104 file copied, changed, staged or committed.
+- Optional keyword-only `required_processing_baseline` in matching, resolution
+  and optical entry points. None preserves strict existing behavior; explicit
+  NN.NN filters validated exact matches then still requires exactly one.
+- Known-ID and ordinary cache returns enforce recorded actual baseline. The
+  selector is not a new identity dimension; schema, manifests, pixels and lineage
+  stay unchanged. Existing April cache accepts 05.09/rejects 05.10 without writes.
+- **421 tests passed** (348 retained +73 new); Ruff/diff passed; same six historical
+  Rasterio warnings. Real metadata smoke March 4/9/14/24/29 plus April 28: **6/6**
+  resolved the exact expected 05.09 products with forbidden access/write calls **0**.
+- Source resolution only: no March XML/raster/support or AS-104 success claim.
+- Decision 047 and M19/E18–E19/EV-022–EV-023 remain in the original AS-104 worktree;
+  owner-approved cross-worktree numbering uses M20/E20/EV-024 here. Decisions 039
+  and all prior milestone/evidence entries remain unchanged.
+- [Plan/API](AS_102_REQUIRED_PC_BASELINE_FIX.md),
+  [validation](evidence/AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md).
+- Fix uncommitted/unpushed/unmerged; no PR. AS-104 uncommitted/preserved, real
+  acceptance BLOCKED pending upstream review/merge and separate rerun; AS-105+
+  NOT authorized/NOT started.
