@@ -1,10 +1,10 @@
 # AquaSentinel 813 — Project State
 
-**Last updated:** 3 October 2026
+**Last updated:** 6 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current development branch:** None; no active AS-102 development branch.
-**Documentation closeout branch:** `docs/as-101-post-merge-closeout`
+**Current development branch:** `feature/as-102-optical-preprocessing` (uncommitted implementation for review).
+**Latest approved base:** `0867708ea62676dcbcd0f5f83577cc120d633f26` (`origin/main`, merged PR #5).
 **PoC deadline:** 11 October 2026
 **Challenge:** Arab Youth Space Hackathon 2026 — Track 03: Water Security & Marine Environments
 
@@ -14,7 +14,7 @@
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 Optical Preprocessing is the next planned milestone, but is NOT authorized and has NOT started.**
+**Foundation complete → continuity complete → Codex development handoff complete → AS-101 complete and merged → AS-102 implemented and validated on its feature branch (uncommitted, unpushed, not merged) → AS-103 next planned, NOT authorized and NOT started.**
 
 Completed engineering foundations:
 
@@ -35,7 +35,7 @@ Completed AS-101 implementation and next milestone:
 - AS-101 — Sentinel-2 STAC Search: completed on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. AS-101, including the approved review fixes, is merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
 - Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
-- AS-102 — Optical Preprocessing is the next planned milestone and has not started. It requires separate authorization.
+- AS-102 was explicitly authorized on 6 October 2026 and is implemented/validated on `feature/as-102-optical-preprocessing`, based on merged PR #5 / `0867708ea62676dcbcd0f5f83577cc120d633f26`. Changes remain uncommitted, unpushed and unmerged; no PR was created. AS-103 is next planned but NOT authorized and NOT started. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
 
 ---
 
@@ -380,6 +380,8 @@ AS-003 merge commit:
 
 ## 9. Current Test / Quality Status
 
+Current AS-102 branch quality baseline: **213 tests passed**, Ruff passed, and `git diff --check` passed. See §23 for the live acceptance and cache evidence. This is separate from the historical baselines below.
+
 At the completion of AS-003:
 
 - pytest: **17 passed**
@@ -637,7 +639,7 @@ Search/catalog integration comes first.
 
 Implementation and smoke-test details: `docs/AS_101_STAC_SEARCH.md`.
 
-AS-101 is complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. No raster imagery was downloaded, and catalog availability does not demonstrate HAB detection or usable water pixels. AS-102 remains unauthorized and has not started.
+AS-101 is complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. No raster imagery was downloaded, and catalog availability does not demonstrate HAB detection or usable water pixels. AS-102 is now independently authorized and validated on its uncommitted feature branch; see §23.
 
 ---
 
@@ -646,8 +648,8 @@ AS-101 is complete and merged into `main` via PR #2 at merge commit `1b83a732155
 Expected sequence:
 
 - AS-101 — Sentinel-2 STAC Search (complete and merged via PR #2).
-- AS-102 — Optical Preprocessing.
-- AS-103 — Spectral Feature Extraction.
+- AS-102 — Optical Preprocessing (implemented/validated on feature branch; not merged).
+- AS-103 — Spectral Feature Extraction (next planned; unauthorized, not started).
 - AS-104 — Temporal Baseline.
 - AS-105 — HAB Anomaly Geometry.
 - AS-106 — Persistence.
@@ -809,13 +811,13 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-AS-101 is complete and merged into `main` via PR #2 at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`. AS-102 — Optical Preprocessing is the next planned milestone, but remains unauthorized and has not started. There is no active AS-102 development branch.
+AS-102 was explicitly authorized on 6 October 2026 and is implemented/validated on `feature/as-102-optical-preprocessing`, based on merged PR #5 / `0867708ea62676dcbcd0f5f83577cc120d633f26`. Changes remain uncommitted, unpushed and unmerged; no PR was created. AS-103 is next planned but NOT authorized and NOT started.
 
 Immediate sequence:
 
-1. Preserve AS-101's passing quality-gate results and live CDSE smoke-test evidence.
-2. Complete the documentation closeout on `docs/as-101-post-merge-closeout`; do not begin new development.
-3. AS-102 — Optical Preprocessing is next in the planned sequence; do not begin it without separate authorization.
+1. Review the uncommitted AS-102 implementation, tests, Decisions 039–045 and EV-016/EV-017 evidence.
+2. Preserve the passing quality gates, signed-material exclusion and ignored AOI cache. Commit/push/PR work requires explicit authorization.
+3. AS-103 remains a separate future authorization; do not start feature extraction or hazard analysis.
 
 ---
 
@@ -829,4 +831,20 @@ At the current point, the project is healthy if:
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
 - AS-101 is complete and merged into `main` via PR #2, with passing offline checks and a successful real catalog smoke test,
-- AS-102 remains separate and has not started.
+- AS-102 meets its authorized implementation acceptance on the isolated feature branch; its changes are explicitly uncommitted/unmerged and AS-103 has not started.
+
+
+## 23. AS-102 — Optical Preprocessing Implementation Acceptance
+
+AS-102 was explicitly authorized on 6 October 2026 and is implemented/validated on `feature/as-102-optical-preprocessing`, based on merged PR #5 / `0867708ea62676dcbcd0f5f83577cc120d633f26`. Changes remain uncommitted, unpushed and unmerged; no PR was created. AS-103 is next planned but NOT authorized and NOT started.
+
+- CDSE discovery is preserved; Planetary Computer supplies the actual raster product, with strict time/platform/tile/orbit matching and independent product provenance.
+- Nine native reflectance bands plus SCL and product XML; XML-driven offsets/quantification, bounded COG reads, fixed 20 m EPSG:32640 AOI grid (310 × 228), bilinear reflectance/nearest SCL, and all-band conservative interpolation/water support.
+- Fresh real acceptance began `2026-10-06T10:07:14.660936+00:00` / `2026-10-06T14:07:14.660936+04:00` Asia/Dubai. CDSE returned 44 candidates; known April 28 observation matched PC baseline 05.09 separately from CDSE 05.10.
+- AOI 67,449 pixels; valid data 65,166; candidate water 10,211; retained valid water 7,963; AOI water fraction 0.11805957093507688 (11.805957%); water retention 0.7798452649103907 (77.984526%). Excluded candidate water: 2,248. These are mask outcomes, not confirmed water/HAB or aquatic suitability.
+- AOI cache/checksum reload is equivalent and uses no network/signing/raster work when the cache ID is known. Runtime cache material remains ignored.
+- Current quality baseline: **213 tests passed** (all prior 97 retained), Ruff passed, `git diff --check` passed. Python 3.11.16 / NumPy 2.2.6 / Rasterio 1.4.3 / GDAL 3.9.3 in this cloud run. Two transitive Affine deprecation warnings are reported, with no failures.
+- Decisions 039–045 record the newly authorized contract. EV-016/EV-017 and journal M15 record real implementation evidence; historical EV-014 PENDING and later FG-01 PASS/READY plus EV-015 remain preserved.
+- L2A BOA reflectance is not aquatic Rrs; coastal/turbid/mixed-water SCL errors remain. No indices, chlorophyll, HAB/toxin/water-safety/intake-risk or lead-time conclusions were computed.
+
+Plan/API/limits: `docs/AS_102_OPTICAL_PREPROCESSING.md`. Real evidence: `docs/evidence/AS_102_OPTICAL_PREPROCESSING_VALIDATION.md`. No source cache, raw scene or signing credentials belong in Git.

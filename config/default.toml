@@ -35,3 +35,12 @@ persistence = 0.15
 intake_exposure = 0.20
 drift_support = 0.10
 optical_context_confirmation = 0.10
+
+[optical]
+endpoint = "https://planetarycomputer.microsoft.com/api/stac/v1/"
+collection = "sentinel-2-l2a"
+signing_endpoint = "https://planetarycomputer.microsoft.com/api/sas/v1/sign"
+allowed_asset_hosts = ["sentinel2l2a01.blob.core.windows.net"]
+target_crs = "EPSG:32640"
+target_resolution = 20
+timeout_seconds = 30

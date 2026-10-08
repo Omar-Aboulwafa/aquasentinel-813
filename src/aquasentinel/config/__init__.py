@@ -3,6 +3,7 @@ from aquasentinel.config.loader import load_config
 from aquasentinel.config.models import (
     AnalysisConfig,
     AquaSentinelConfig,
+    OpticalConfig,
     RiskBands,
     RiskWeights,
     STACConfig,
@@ -13,6 +14,7 @@ __all__ = [
     "AOIFeature",
     "AnalysisConfig",
     "AquaSentinelConfig",
+    "OpticalConfig",
     "RiskBands",
     "RiskWeights",
     "STACConfig",

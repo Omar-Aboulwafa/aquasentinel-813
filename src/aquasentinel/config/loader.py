@@ -7,6 +7,7 @@ from pathlib import Path
 from aquasentinel.config.models import (
     AnalysisConfig,
     AquaSentinelConfig,
+    OpticalConfig,
     RiskBands,
     RiskWeights,
     STACConfig,
@@ -46,6 +47,10 @@ def load_config(
         high_max=int(raw["risk"]["high_max"]),
     )
 
+    optical = dict(raw.get("optical", {}))
+    if isinstance(optical.get("allowed_asset_hosts"), list):
+        optical["allowed_asset_hosts"] = tuple(optical["allowed_asset_hosts"])
+
     config = AquaSentinelConfig(
         app_name=raw["app"]["name"],
         environment=raw["app"]["environment"],
@@ -66,6 +71,7 @@ def load_config(
             }
         ),
         catalog=STACConfig(**raw.get("catalog", {})),
+        optical=OpticalConfig(**optical),
     )
 
     config.validate()

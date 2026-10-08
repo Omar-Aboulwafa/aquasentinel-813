@@ -881,6 +881,106 @@ Reproduction and detailed evidence: `docs/AS_101_STAC_SEARCH.md`.
 
 ---
 
+## Decision 039 — Preserve CDSE Discovery; Use Planetary Computer Raster Delivery
+
+**Date:** 6 October 2026. **Status:** Explicitly authorized for AS-102.
+
+### Decision
+
+AS-101 remains the CDSE metadata workflow. AS-102 strictly matches its candidate to Planetary Computer and uses the anonymous STAC / credential-free HREF-signing / native COG path. Do not rewrite AS-101 or fall back to whole products.
+
+### Why and consequence
+
+FG-01 established bounded access where the prior CDSE environment probe was blocked. Match full acquisition timestamp, normalized platform, MGRS tile and relative orbit; reject zero/ambiguous/conflicting matches. Parse the structured CDSE ID when provider-specific fields are absent. PC `s2:mgrs_tile`, `s2:generation_time`, processing baseline and optional SAFE product identity are independently checked. Current PC and CDSE products have different baselines/generation dates; no pixel equivalence is asserted.
+
+---
+
+## Decision 040 — Attribute Pixels to the Actual PC Product
+
+**Date:** 6 October 2026. **Status:** Explicitly authorized for AS-102.
+
+### Decision
+
+The actual PC raster product receives the existing provider-qualified STAC `SourceRecord` pattern. `ResolvedOpticalSource` retains observation/processing identity, unsigned assets, observed native grids/nodata and XML decoding. The preprocessed `DerivedProductRecord.source_ids` contains only this PC source; CDSE is retained as discovery/matching context in parameters.
+
+### Why and consequence
+
+Same acquisition is not the same processed product. Generic source/provenance models and AS-101 remain unchanged. Deterministic processing identity and JSON-only parameters preserve reproducibility without arrays or signing credentials.
+
+---
+
+## Decision 041 — Decode BOA Reflectance from the Delivered Product XML
+
+**Date:** 6 October 2026. **Status:** Explicitly authorized for AS-102.
+
+### Decision
+
+Read bounded `product-metadata` XML and validate baseline, quantification, unique physicalBand/bandId mapping and every required additive offset. Decode `(DN + band_offset) / quantification`; mask source nodata before decoding, output float32, and retain negative/zero/unclipped values. Missing, malformed, duplicate, nonfinite or conflicting metadata fails explicitly.
+
+### Why and consequence
+
+Modern Sentinel-2 processing baselines make DN/10000 unsafe. The observed PC baseline-05.09 XML establishes quantification 10000 and offset -1000 for all nine required bands, including B8A; these values are parsed, not constants copied from CDSE. BOA reflectance is not automatically aquatic remote-sensing reflectance.
+
+---
+
+## Decision 042 — Use One Fixed 20 m Analysis Grid per AOI
+
+**Date:** 6 October 2026. **Status:** Explicitly authorized for AS-102.
+
+### Decision
+
+Transform the configured WGS84 polygon envelope to a configured metric CRS, densify bounds, and snap outward to a stable 20 m lattice. The Al Raha default is EPSG:32640: bounds `[249020,2702860,255220,2707420]`, width 310, height 228, affine `[20,0,249020,0,-20,2707420]`. Polygon membership uses pixel centres.
+
+### Why and consequence
+
+Native 10/20 m bands and scenes from different UTM zones must share a single analysis grid. Read native assets with a bounded four-pixel halo; reflectance uses bilinear, SCL nearest. Bilinear downsampling is not an area average. Cross-CRS synthetic coverage includes EPSG:32639 → EPSG:32640; no per-tile target-grid fallback.
+
+---
+
+## Decision 043 — Conservative SCL and All-Band Water Support
+
+**Date:** 6 October 2026. **Status:** Explicitly authorized for AS-102.
+
+### Decision
+
+Invalid classes are `{0,1,2,3,7,8,9,10,11}` plus unknowns; class 2 retains the provider meaning dark-area pixels. Classes 4/5 are valid non-water, class 6 candidate water. Export separate AOI, valid-data, water, valid-water and interpolation-support masks.
+
+Map SCL to each native reflectance grid and remove invalid/nodata contributors before bilinear reprojection. Erode native water/nodata support by a 3×3 NumPy neighbourhood, bilinearly project the resulting binary support with zero treated as actual invalid support, and require a support value exactly 1 across all nine bands. Do not renormalize bad support away. Final water also requires AOI membership, valid target SCL and finite reflectance in every band.
+
+### Why and consequence
+
+Land/cloud/shadow/nodata interpolation must not manufacture usable water. The extra neighbourhood is deliberately conservative, particularly near shorelines. Report excluded counts and retention. Zero surviving water is valid; no silent mask relaxation. SCL is imperfect coastal/shallow/turbid-water truth, and separate cloud-probability assets remain outside AS-102 P0.
+
+---
+
+## Decision 044 — Add Only NumPy and Rasterio for AS-102
+
+**Date:** 6 October 2026. **Status:** Explicitly authorized for AS-102.
+
+### Decision
+
+Add direct pins `numpy==2.2.6` and `rasterio==1.4.3`, compatible with Python 3.11; retain `pystac-client==0.9.0`. NumPy handles masks/arrays and Rasterio/GDAL handles bounded COG access, CRS transformation and resampling. Standard-library urllib/JSON/ElementTree handles signing and XML.
+
+### Why and consequence
+
+No SciPy, SDK, additional direct HTTP library or overlapping geospatial stack is needed. The validated environment resolves Python 3.11.16, NumPy 2.2.6, Rasterio 1.4.3 and bundled GDAL 3.9.3. Transitive wheel dependencies are not a new direct project stack. The earlier GDAL 3.10.3 access probe remains a separate historical environment/result.
+
+---
+
+## Decision 045 — Keep SAS Material Transient and Stable Cache Evidence Unsigned
+
+**Date:** 6 October 2026. **Status:** Explicitly authorized for AS-102.
+
+### Decision
+
+Use the official configured HREF signing endpoint immediately before access. Permit only exact configured HTTPS asset hosts, validate the signed response points to the same object, reject cross-host metadata redirects, suppress/sanitize Rasterio diagnostics and exception chains, and never persist signed URLs/SAS/credentials. Stable JSON serialization rejects credentialled/query-bearing URLs.
+
+### Why and consequence
+
+Temporary access credentials must not become product identity or presentation evidence. Cache only AOI-sized arrays/masks under `data/cache/as102/<cache_id>/`, with deterministic identity, atomic directory publication, canonical manifest JSON and SHA-256 verification. Corrupt caches fail explicitly. Known-ID reload uses no catalog/signing/XML/raster work; it validates the configured AOI/grid and retains original processing lineage.
+
+---
+
 ## Pending Decisions
 
 The following decisions are intentionally not final yet:
@@ -889,7 +989,6 @@ The following decisions are intentionally not final yet:
 
 Packages such as:
 
-- `rasterio`,
 - `rioxarray`,
 - `xarray`,
 - `geopandas`,
