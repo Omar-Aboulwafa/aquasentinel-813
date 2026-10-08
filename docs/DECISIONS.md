@@ -981,6 +981,42 @@ Temporary access credentials must not become product identity or presentation ev
 
 ---
 
+## Decision 046 — AS-103 Candidate Spectral Features with Signed BOA and Parent Lineage
+
+**Date:** 8 October 2026 (Asia/Dubai). **Status:** Explicitly authorized for AS-103;
+implemented on uncommitted feature branch for review.
+
+### Decision
+
+Freeze exactly ndci_like, mci_like, B05/B04, B06/B04, B03/B04 and B03/B02 in the
+canonical order defined by the AS-103 contract. Candidate signals only; no event
+threshold/classification or temporal baseline. Preserve authoritative AS-102
+valid-water support and signed BOA. Float64 arithmetic returns float32; numerical
+rejection is inclusive `abs(d) <= max(1e-4,1e-6*(|a|+|b|))`; nonfinite intermediate
+or float32 results are masked NaN. Record per-feature diagnostics and finite
+JSON-safe summaries, including unclipped NDCI-like out-of-range counts.
+
+Use nominal MCI B04/B05/B06 at 665/705/740 nm with k=1.0 (not SNAP's 1.005),
+coefficient 8/15, metadata-declared convention rather than provider XML wavelengths.
+BOA is not aquatic Rrs. NDCI-like and B05/red ratio share an evidence family and
+must not later be treated as independent biological evidence.
+
+### Why and consequence
+
+Pure NumPy feature extraction from verified AS-102 output is cheap and explainable;
+no new dependency, configuration, disk cache, retrieval, signing or resampling is
+needed. The AS-103 identity includes canonical formulas/policies/grid/parent and a
+versioned fingerprint of the full mask plus five consumed bands on water support,
+because frozen dataclasses do not make NumPy arrays immutable. Creation time and
+feature summaries do not define identity. Registry lineage is actual PC source →
+AS-102 derived product → AS-103 derived product; no raw-source shortcut or generic
+schema change. AS-104 remains separately unauthorized and not started.
+
+Contract/references: [AS-103 plan/API](AS_103_SPECTRAL_FEATURES.md).
+Observed acceptance: [AS-103 evidence](evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md).
+
+---
+
 ## Pending Decisions
 
 The following decisions are intentionally not final yet:
