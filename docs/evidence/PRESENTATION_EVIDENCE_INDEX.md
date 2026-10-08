@@ -2,7 +2,7 @@
 
 **Created:** 6 October 2026 (Asia/Dubai).
 
-**Purpose:** Compact claim-to-evidence index for the [presentation journal](../PRESENTATION_JOURNAL.md). This pack preserves the CDSE investigation, the **historical Planetary Computer metadata-only checkpoint**, and the [later successful final raster gate](AS_102_PLANETARY_COMPUTER_RASTER_GATE.md). Historical records do not themselves certify perpetual external-service availability or authorize implementation. The separately authorized M15 update adds actual AS-102 implementation evidence EV-016/EV-017 and Decisions 039–045; AS-103 is now separately authorized and implemented for feature-branch review; EV-019/EV-020 record that later stage. AS-102 is COMPLETE AND MERGED through PR #6; EV-018 records the final reviewed/merged stage while EV-016/EV-017 preserve their historical acceptance checkpoint.
+**Purpose:** Compact claim-to-evidence index for the [presentation journal](../PRESENTATION_JOURNAL.md). This pack preserves the CDSE investigation, the **historical Planetary Computer metadata-only checkpoint**, and the [later successful final raster gate](AS_102_PLANETARY_COMPUTER_RASTER_GATE.md). Historical records do not themselves certify perpetual external-service availability or authorize implementation. The separately authorized M15 update adds actual AS-102 implementation evidence EV-016/EV-017 and Decisions 039–045; AS-103 is COMPLETE AND MERGED through PR #8; EV-019/EV-020 preserve its earlier feature-branch acceptance stage, and EV-021 records the later final code-review/publication stage. AS-102 is COMPLETE AND MERGED through PR #6; EV-018 records the final reviewed/merged stage while EV-016/EV-017 preserve their historical acceptance checkpoint.
 
 **Later evidence stage recorded:** 6 October 2026 (Asia/Dubai), FG-01. Original experiment timestamp not supplied; this is a later experiment than the preserved metadata-only checkpoint, not a new probe run by this documentation task.
 
@@ -10,7 +10,9 @@
 
 **Final review/merge update:** 8 October 2026 (Asia/Dubai), EV-018. Feature `fe3d27046c40600010753957ee8921d57071ec48`; [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6); merge `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac` at `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00`. Final reviewed baseline: 265 tests passed, Ruff/diff checks passed; six non-blocking Rasterio warnings. No configured/reported GitHub CI/workflow checks. At the AS-102 merge checkpoint AS-103 was NOT authorized and NOT started; the later AS-103 authorization/acceptance is recorded separately below.
 
-**AS-103 acceptance update:** 8 October 2026, EV-019/EV-020; explicitly authorized candidate-feature implementation, uncommitted/unpushed/unmerged. Six features, 7,963 valid pixels each; 348-test branch baseline. AS-104 NOT authorized and NOT started.
+**Historical AS-103 acceptance checkpoint:** 8 October 2026, EV-019/EV-020; explicitly authorized candidate-feature implementation, uncommitted/unpushed/unmerged. Six features, 7,963 valid pixels each; 348-test branch baseline. AS-104 NOT authorized and NOT started.
+
+**Current AS-103 final review/merge update:** 8 October 2026 (Asia/Dubai), M18 / EV-021. AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation `5638bc8b4ab06f235f908642f714a7cc83b35709`; AS-103 implementation merge commit `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai. Final reviewed baseline: 348 tests passed, Ruff/diff checks passed; six existing non-blocking Rasterio PendingDeprecationWarnings only, no new AS-103 warnings. No GitHub Actions/workflow CI run was configured/reported; no GitHub CI success is claimed. AS-103 development is closed. AS-104 — Temporal Baseline is NEXT PLANNED only, NOT authorized and NOT started. No real-scene experiment was rerun during merge review or this documentation closeout.
 
 ## Evidence standard and temporal boundary
 
@@ -21,6 +23,8 @@ Use these classifications: **directly observed evidence**, **provider/STAC-adver
 EV-001–EV-008 index existing repository evidence. EV-009–EV-013 preserve the historical investigations. **EV-014 progresses from historical PENDING to later FG-01 PASS / READY**; both stages appear below, and the original PENDING row is preserved. EV-015 separates metadata-driven PC decoding from raster-access success. Record creation date, acquisition date, processing date, and experiment date must remain distinct.
 
 EV-016/EV-017 retain the 6 October experiment and feature-branch status at that date. Their uncommitted/unmerged/review-pending wording is historical; **EV-018 supersedes that Git status** without changing the original experiment or its 213-test baseline.
+
+EV-019/EV-020 and journal M17 retain the original AS-103 feature-branch acceptance state and experiment timestamp. Their uncommitted/not-merged statuses are intentional historical truth; **EV-021 / M18 supersedes that Git status** with a separately dated final review/merge checkpoint, preserving the 348-test baseline and all real-scene evidence.
 
 ## Claim index
 
@@ -47,6 +51,36 @@ EV-016/EV-017 retain the 6 October experiment and feature-branch status at that 
 | EV-018 | AS-102 final security/cache/provenance review and merge | **COMPLETE AND MERGED — 8 October 2026** | Final reviewed implementation `fe3d27046c40600010753957ee8921d57071ec48`; PR #6; merge `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`; 265 tests passed, Ruff/diff checks passed; canonical HTTPS/redirect protections, transient SAS containment, strict matching/asset rejection, bounded reads, conservative support and cache/provenance tamper checks; six non-blocking Rasterio warnings | [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6); [journal M16](../PRESENTATION_JOURNAL.md#m16--as-102-code-review-security-hardening-merge-and-closeout); committed source/tests | Reviewed/merged preprocessing and engineering reproducibility only; does NOT support HAB confirmation, chlorophyll concentration, toxin detection, water safety, desalination shutdown, warning lead time or operational risk accuracy | Yes: sanitized merge/commit/local-quality card | No configured/reported GitHub CI checks; independent science and full-product validation remain outstanding |
 | EV-019 | Per-scene AS-103 candidate spectral features and numerical diagnostics | **PASS — authorized feature-branch acceptance, uncommitted** | 6 float32 arrays/masks (228,310); 7,963 valid pixels each; no denominator/nonfinite exclusions; two NDCI-like outputs below −1 retained; 491 negative-input pixels for B06 features | [Timestamped AS-103 evidence](AS_103_SPECTRAL_FEATURES_VALIDATION.md); journal M17 | Explain candidate signals and numerical support before temporal science | Yes: V18 sanitized maps | No HAB, chlorophyll concentration, toxins, species, safety, risk or lead-time claim; independent science remains future |
 | EV-020 | AS-103 content identity, immediate-parent lineage and offline quality | **PASS — authorized feature-branch acceptance, not merged** | Versioned mask/five-band fingerprint; deterministic repeat; exact PC→AS-102→AS-103 registry chain; four scalar pixel checks; no access/write calls; 348 tests (265 retained +83 new), Ruff/diff pass, six existing Rasterio warnings | [AS-103 validation](AS_103_SPECTRAL_FEATURES_VALIDATION.md); [contract](../AS_103_SPECTRAL_FEATURES.md); Decision 046 | Reproducible candidate inputs for future AS-104 | Yes: V19 lineage/formula card | Code review/publication pending; no AS-104 authorization or GitHub CI/science claim |
+| EV-021 | AS-103 final code review and merge | **COMPLETE AND MERGED — 8 October 2026** | Implementation `5638bc8b4ab06f235f908642f714a7cc83b35709`; PR #8; merge `b770d0561da9ac2b81ca2d4b8e784adff66ee231` at `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai; 348 tests passed, Ruff/diff checks passed; six existing non-blocking Rasterio warnings only, no new AS-103 warnings; typed model/arithmetic, inclusive denominator guards, NaN/support, consumed-content fingerprint/identity and immediate-parent lineage reviewed; real-scene evidence independently reviewed | [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8); [journal M18](../PRESENTATION_JOURNAL.md#m18--as-103-code-review-merge-and-closeout); committed source/tests and historical AS-103 acceptance evidence | Reviewed/merged spectral feature engineering, deterministic per-scene feature generation and reproducible lineage/identity only; does NOT support temporal anomaly, HAB confirmation, chlorophyll concentration, species/toxin identification, water safety, intake exposure, operational risk accuracy or warning lead time | Yes: V20 sanitized merge/local-quality card | No configured/reported GitHub Actions/workflow CI run or CI-success claim; independent science remains future; AS-104 NOT authorized and NOT started |
+
+### EV-021 final AS-103 review and merge
+
+This later checkpoint records the owner-approved final implementation and real-scene
+acceptance review, followed by verified publication/PR #8 merge. Review evidence:
+
+- Typed model invariants (`models.py`) and feature arithmetic (`spectral.py`): PASS.
+- Inclusive denominator epsilon guards and NaN/feature-support behavior: reviewed/tested PASS.
+- Input fingerprint and consumed B02–B06 identity sensitivity: reviewed/tested PASS.
+- Unconsumed B07/B08/B8A/B11 identity independence and timestamp-independent identity: reviewed/tested PASS.
+- Exact PC→AS-102→AS-103 immediate-parent lineage and direct raw-source shortcut rejection: reviewed/tested PASS.
+- M17 real-scene acceptance evidence, including independent scalar checks: review PASS.
+
+M17's experiment began `2026-10-08T09:52:47.133486+00:00` UTC /
+`2026-10-08T13:52:47.133486+04:00` Asia/Dubai. The later merge occurred at
+`2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai.
+The scene was not rerun during merge review or this documentation closeout.
+EV-019/EV-020 remain unchanged, including their historical statuses and 348-test baseline.
+The preserved scene has six candidate features, 7,963 pixels each (100% parent water),
+two below-−1 NDCI-like values retained/diagnosed and signed BOA preserved.
+
+BOA is not aquatic Rrs; ndci_like is not calibrated chlorophyll; mci_like is an
+analogue. Correlated NDCI-like/B05-red features are not independent biological
+evidence. No event threshold, HAB/event classification, temporal baseline/anomaly,
+species/toxins, safe/unsafe certification, autonomous plant action, intake exposure,
+operational risk, persistence, warning lead-time accuracy or scientific accuracy is
+established. AS-104 is NEXT PLANNED only, NOT authorized and NOT started.
+No GitHub Actions/workflow CI run was configured/reported; local quality checks do
+not imply GitHub CI success.
 
 ### EV-014 evidence progression
 
@@ -67,7 +101,7 @@ No visual is claimed to exist merely because it is suggested here. A metadata in
 - Complete per-provider inventories and field provenance; no cross-provider pixel-equivalence result.
 - Exact raster-transfer bytes were not measured; compressed blocks may exceed the requested pixel window. No byte-efficiency claim is supported.
 - EV-016/EV-017 now records one real scene’s aligned optical arrays, mask/fraction statistics, actual-PC lineage and offline cache replay. Historical HAB/oil validation, false positives, operational demo site, full product/demo fallback and measured impact remain future evidence. EV-019/EV-020 adds candidate features only, not temporal/scientific interpretation.
-- AS-102 contract/provider choice and implementation were separately authorized and recorded by Decisions 039–045 / M15. Final Git review/publication is recorded separately by EV-018 / M16 and PR #6. Presentation captures remain pending; the separate AS-103 authorization is recorded in Decision 046 / M17, not granted by this pack. AS-104 remains unauthorized.
+- AS-102 contract/provider choice and implementation were separately authorized and recorded by Decisions 039–045 / M15. Final Git review/publication is recorded separately by EV-018 / M16 and PR #6. Presentation captures remain pending; the separate AS-103 authorization is recorded in Decision 046 / M17, not granted by this pack. EV-021 / M18 and PR #8 separately record AS-103 final review/merge. AS-104 remains NOT authorized and NOT started.
 
 ## Presentation capture rule
 

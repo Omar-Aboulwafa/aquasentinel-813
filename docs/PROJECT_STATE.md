@@ -3,8 +3,10 @@
 **Last updated:** 8 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current active development branch:** `feature/as-103-spectral-features` (uncommitted implementation for review). AS-102 development is closed; AS-104 is NOT authorized and NOT started.
-**Closeout preparation branch:** This closeout was prepared on `docs/as-102-post-merge-closeout`.
+**Current active development branch:** none. AS-103 development is closed. AS-104 is NOT authorized and NOT started.
+**Closeout preparation branch:** This closeout was prepared on `docs/as-103-post-merge-closeout`.
+**AS-103 implementation merge commit:** `b770d0561da9ac2b81ca2d4b8e784adff66ee231` (merged via PR #8).
+**AS-102 closeout preparation branch:** The AS-102 closeout was prepared on `docs/as-102-post-merge-closeout`.
 **AS-102 implementation merge commit:** `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac` (merged via PR #6).
 **PoC deadline:** 11 October 2026
 **Challenge:** Arab Youth Space Hackathon 2026 — Track 03: Water Security & Marine Environments
@@ -15,7 +17,7 @@
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 implemented/validated on feature branch (uncommitted, unpushed, not merged) → AS-104 next planned, NOT authorized and NOT started.**
+**Foundation complete → continuity complete → AS-101 complete and merged → AS-102 complete and merged → AS-103 complete and merged → AS-104 next planned, NOT authorized and NOT started.**
 
 Completed engineering foundations:
 
@@ -36,7 +38,8 @@ Completed AS-101 implementation and next milestone:
 - AS-101 — Sentinel-2 STAC Search: completed on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. AS-101, including the approved review fixes, is merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
 - Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
-- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is now separately authorized and implemented for feature-branch review; AS-104 remains NOT authorized and NOT started. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
+- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 remains NOT authorized and NOT started. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
+- AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation commit: `5638bc8b4ab06f235f908642f714a7cc83b35709`. AS-103 implementation merge commit: `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai. See §24 and journal M18 / EV-021 for final review/merge and preserved acceptance evidence.
 
 ---
 
@@ -381,7 +384,7 @@ AS-003 merge commit:
 
 ## 9. Current Test / Quality Status
 
-Current AS-103 feature-branch baseline: **348 tests passed**, Ruff/diff check passed; six existing Rasterio warnings. No new dependency; no AS-104 work.
+Current merged AS-103 reviewed baseline: **348 tests passed**, Ruff/diff check passed; six existing non-blocking Rasterio PendingDeprecationWarnings only, with no new AS-103 warnings. No configured/reported GitHub Actions/workflow CI run; no GitHub CI pass is claimed. No new dependency; AS-104 NOT authorized and NOT started.
 
 Historical merged AS-102 quality baseline: **265 tests passed**, Ruff passed, and `git diff --check` passed, with six non-blocking Rasterio deprecation warnings. The historical 6 October implementation acceptance was **213 tests passed**; see §23 for live acceptance/cache evidence and final review/merge. The historical baselines below remain distinct.
 
@@ -652,7 +655,7 @@ Expected sequence:
 
 - AS-101 — Sentinel-2 STAC Search (complete and merged via PR #2).
 - AS-102 — Optical Preprocessing (COMPLETE AND MERGED through PR #6).
-- AS-103 — Spectral Feature Extraction (implemented/validated on feature branch; uncommitted/unmerged).
+- AS-103 — Spectral Feature Extraction (COMPLETE AND MERGED through PR #8).
 - AS-104 — Temporal Baseline (next planned; unauthorized, not started).
 - AS-105 — HAB Anomaly Geometry.
 - AS-106 — Persistence.
@@ -814,11 +817,11 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is now separately authorized and implemented for feature-branch review; AS-104 remains NOT authorized and NOT started.
+AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 remains NOT authorized and NOT started.
 
 Immediate sequence:
 
-1. Review the uncommitted AS-103 feature implementation and evidence before publication.
+1. AS-103 is closed after PR #8. AS-104 — Temporal Baseline is next planned only; await separate explicit authorization before any implementation.
 2. Preserve the passing quality gates, signed-material exclusion, ignored AOI cache and documented scientific limits.
 3. AS-104 is NOT authorized and NOT started; do not start temporal baseline or hazard analysis.
 
@@ -834,26 +837,36 @@ At the current point, the project is healthy if:
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
 - AS-101 is complete and merged into `main` via PR #2, with passing offline checks and a successful real catalog smoke test,
-- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is independently authorized and implemented for review; AS-104 remains NOT authorized and NOT started.
+- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is COMPLETE AND MERGED through PR #8 with reviewed feature/identity/lineage evidence; AS-104 remains NOT authorized and NOT started.
 
 
 ## 23. AS-102 — Optical Preprocessing — COMPLETE AND MERGED
 
-AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is now separately authorized and implemented for feature-branch review; AS-104 remains NOT authorized and NOT started.
+AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 remains NOT authorized and NOT started.
 
 - CDSE discovery is preserved; Planetary Computer supplies the actual raster product, with strict time/platform/tile/orbit matching and independent product provenance.
 - Nine native reflectance bands plus SCL and product XML; XML-driven offsets/quantification, bounded COG reads, fixed 20 m EPSG:32640 AOI grid (310 × 228), bilinear reflectance/nearest SCL, and all-band conservative interpolation/water support.
 - Fresh real acceptance began `2026-10-06T10:07:14.660936+00:00` / `2026-10-06T14:07:14.660936+04:00` Asia/Dubai. CDSE returned 44 candidates; known April 28 observation matched PC baseline 05.09 separately from CDSE 05.10.
 - AOI 67,449 pixels; valid data 65,166; candidate water 10,211; retained valid water 7,963; AOI water fraction 0.11805957093507688 (11.805957%); water retention 0.7798452649103907 (77.984526%). Excluded candidate water: 2,248. These are mask outcomes, not confirmed water/HAB or aquatic suitability.
 - AOI cache/checksum reload is equivalent and uses no network/signing/raster work when the cache ID is known. Runtime cache material remains ignored.
-- Current final reviewed quality baseline: **265 tests passed**, Ruff passed, `git diff --check` passed. Six Rasterio deprecation warnings remain non-blocking. The historical 6 October implementation acceptance was **213 tests passed** (all prior 97 retained), with two transitive Affine warnings. Python 3.11.16 / NumPy 2.2.6 / Rasterio 1.4.3 / GDAL 3.9.3 in that cloud run. GitHub reported clean/mergeable before merge and no configured/reported CI/workflow checks; no GitHub CI pass is claimed.
+- AS-102 final reviewed quality baseline: **265 tests passed**, Ruff passed, `git diff --check` passed. Six Rasterio deprecation warnings remain non-blocking. The historical 6 October implementation acceptance was **213 tests passed** (all prior 97 retained), with two transitive Affine warnings. Python 3.11.16 / NumPy 2.2.6 / Rasterio 1.4.3 / GDAL 3.9.3 in that cloud run. GitHub reported clean/mergeable before merge and no configured/reported CI/workflow checks; no GitHub CI pass is claimed.
 - Decisions 039–045 record the newly authorized contract. EV-016/EV-017 and journal M15 preserve the 6 October implementation evidence; EV-018 and journal M16 record final review/merge. Historical EV-014 PENDING and later FG-01 PASS/READY plus EV-015 remain preserved.
 - L2A BOA reflectance is not aquatic Rrs; coastal/turbid/mixed-water SCL errors remain. No indices, chlorophyll, HAB/toxin/water-safety/intake-risk or lead-time conclusions were computed.
 
 Plan/API/limits: `docs/AS_102_OPTICAL_PREPROCESSING.md`. Real evidence: `docs/evidence/AS_102_OPTICAL_PREPROCESSING_VALIDATION.md`. No source cache, raw scene or signing credentials belong in Git.
 
 
-## 24. AS-103 — Spectral Feature Extraction — Implementation Acceptance
+## 24. AS-103 — Spectral Feature Extraction — COMPLETE AND MERGED
+
+AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation commit: `5638bc8b4ab06f235f908642f714a7cc83b35709`. AS-103 implementation merge commit: `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai.
+
+Final reviewed baseline: **348 tests passed**, Ruff passed and `git diff --check` passed; six existing non-blocking Rasterio PendingDeprecationWarnings only, with no new AS-103 warnings. No GitHub Actions/workflow CI run was configured/reported; no GitHub CI success is claimed.
+
+AS-103 development is closed. AS-104 — Temporal Baseline is NEXT PLANNED only, NOT authorized and NOT started; a future agent must obtain separate explicit authorization before implementing it. The completed stage produces candidate per-scene BOA spectral signals only, not temporal anomalies, HAB presence, chlorophyll concentration, species, toxins, water safety, intake exposure, operational risk, persistence or warning lead time.
+
+### Historical implementation/acceptance checkpoint — M17 / EV-019–EV-020
+
+The following records the initial feature-branch acceptance state. Its uncommitted/unpushed/unmerged wording is historical; the later review/publication stage is M18 / EV-021. The cached real-scene experiment was not rerun during merge review or this documentation closeout.
 
 AS-103 was explicitly authorized on 8 October 2026 and is implemented/validated on `feature/as-103-spectral-features`, based on main `642a469414f096b4ac7cd96de895aa38f7da42ec`. Changes remain uncommitted, unpushed and unmerged for code review; no PR. AS-104 is next planned but NOT authorized and NOT started.
 
@@ -880,5 +893,5 @@ AS-103 was explicitly authorized on 8 October 2026 and is implemented/validated 
 Read [AS-103 execution plan/API](AS_103_SPECTRAL_FEATURES.md) and
 [acceptance evidence](evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md).
 Use `extract_spectral_features(parent)` after the existing verified AS-102 cache reload;
-no feature cache or network is required. Do not commit/push/create a PR until authorized;
-AS-104 remains NOT authorized and NOT started.
+no feature cache or network is required. AS-103 implementation is complete and merged; see journal M18 / EV-021 for final review/publication.
+AS-104 — Temporal Baseline remains NEXT PLANNED only, NOT authorized and NOT started.
