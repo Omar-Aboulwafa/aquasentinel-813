@@ -3,8 +3,26 @@
 **Last updated:** 9 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current active development branch:** `feature/as-104-temporal-baseline`; integrated base `2006df7a70a4f48c66933aed96f4464d8d03084e`. AS-104 authorized and uncommitted; platform fix and cached real acceptance PASS / READY FOR REVIEW. AS-105+ NOT authorized/NOT started.
-**Current platform-fix / cached acceptance checkpoint — 9 October 2026 (Asia/Dubai):**
+**Current active development branch:** `feature/as-104-temporal-baseline`; integrated base `2006df7a70a4f48c66933aed96f4464d8d03084e`. AS-104 implementation/real acceptance PASS; feature commit 09b38bd committed and pushed, clean publication worktree; PR review next, not merged. AS-105+ NOT authorized/NOT started.
+**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+Implementation and real acceptance **PASS**; feature commit
+`09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
+parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+Branch `feature/as-104-temporal-baseline`; remote/upstream
+`origin/feature/as-104-temporal-baseline`. Feature publication verified equal
+local/remote SHA and a **clean worktree**. This reconciliation is documentation only.
+**PR NOT YET CREATED; merge NOT YET PERFORMED.** Review the published commit and
+open a PR if review passes and creation is authorized; this task creates no PR.
+M23/E23/EV-027 remains historically BLOCKED; M24–M25/E24–E25/EV-028–EV-029 remain
+acceptance-time PASS. Their earlier stop states below are historical, not current
+Git status. M26/E26/EV-030 separates later publication from acceptance completion.
+No Decision 050; both stashes/recovery artifacts retained; AS-105+ and P1 05.10
+**NOT STARTED**. No science, source/tests, caches or experiment timestamps changed.
+Exact publication metadata/times and unchanged acceptance evidence are in
+[validation §8](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026).
+
+**Historical platform-fix / cached acceptance checkpoint — before feature publication, 9 October 2026 (Asia/Dubai):**
+
 The owner-authorized consistency predicate now compares `.casefold()` values only.
 It does not strip punctuation/whitespace, map aliases, or rewrite stored platform
 strings, source records, products, fingerprints or caches. Acquisition and all
@@ -152,7 +170,7 @@ No commit/push/PR; no AS-105+ authorization. See the AS-104 section below.
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation/continuity complete → AS-101/AS-102/AS-103 merged → Decisions 048/049 merged → platform consistency fix PASS → frozen AS-104 real acceptance PASS → AS-104 UNCOMMITTED / READY FOR REVIEW → AS-105+ unauthorized/unstarted; P1 05.10 robustness NOT STARTED.**
+**Foundation/continuity complete → AS-101/AS-102/AS-103 merged → Decisions 048/049 merged → AS-104 implementation PASS → AS-104 real acceptance PASS → AS-104 feature commit 09b38bd pushed → PR review is next → AS-105+ NOT STARTED; P1 05.10 robustness NOT STARTED.**
 
 Completed engineering foundations:
 
@@ -173,7 +191,7 @@ Completed AS-101 implementation and next milestone:
 - AS-101 — Sentinel-2 STAC Search: completed on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. AS-101, including the approved review fixes, is merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
 - Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
-- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 is explicitly authorized, with its implementation uncommitted for review and frozen real acceptance PASS; AS-105+ is unauthorized and unstarted. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
+- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 is explicitly authorized, with its implementation and frozen real acceptance PASS, feature commit 09b38bd pushed for PR review (PR not yet created; not merged); AS-105+ is unauthorized and unstarted. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
 - AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation commit: `5638bc8b4ab06f235f908642f714a7cc83b35709`. AS-103 implementation merge commit: `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai. See §24 and journal M18 / EV-021 for final review/merge and preserved acceptance evidence.
 
 ---
@@ -519,7 +537,7 @@ AS-003 merge commit:
 
 ## 9. Current Test / Quality Status
 
-Current uncommitted AS-104 platform-fix baseline: **663 tests passed**, Ruff/diff
+Current published AS-104 reviewed baseline: **663 tests passed**, Ruff/diff
 PASS, six existing Rasterio warnings. Frozen cached real acceptance and 18 scalar,
 synthetic causal and repeat checks PASS. No GitHub CI-success claim; AS-105+
 and P1 05.10 remain unstarted. Earlier merged baselines below are historical.
@@ -797,7 +815,7 @@ Expected sequence:
 - AS-101 — Sentinel-2 STAC Search (complete and merged via PR #2).
 - AS-102 — Optical Preprocessing (COMPLETE AND MERGED through PR #6).
 - AS-103 — Spectral Feature Extraction (COMPLETE AND MERGED through PR #8).
-- AS-104 — Temporal Baseline (explicitly authorized; implementation and frozen real acceptance PASS, uncommitted for review).
+- AS-104 — Temporal Baseline (explicitly authorized; implementation and frozen real acceptance PASS, feature commit 09b38bd pushed; PR not yet created, not merged).
 - AS-105 — HAB Anomaly Geometry.
 - AS-106 — Persistence.
 - AS-107 — HAB Risk & Confidence.
@@ -958,12 +976,14 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-Review the uncommitted AS-104 implementation, one-line platform consistency fix
-(M24/E24/EV-028) and cached five-reference real acceptance (M25/E25/EV-029).
-Both offline and real gates passed. Preserve the exact five March 05.09 inputs,
-minimum five and conservative support. Both safety stashes and recovery backups
-remain retained. Commit/push/PR require separate authorization. Do not start
-AS-105+ or the P1 homogeneous-05.10 experiment.
+Review published AS-104 feature commit
+`09b38bd9c312470e948b1f17165ec5335cfc149d` and M26/E26/EV-030, alongside
+the preserved fix/real acceptance M24–M25/E24–E25/EV-028–EV-029. Implementation,
+offline and real gates passed; commit is pushed to origin on the existing
+feature branch. Open a PR if review passes and PR creation is authorized.
+PR has not yet been created; merge has not occurred. Preserve both stashes,
+recovery artifacts and the frozen scientific contract. Do not start AS-105+
+or P1 homogeneous-05.10 robustness.
 
 ---
 
@@ -977,10 +997,14 @@ At the current point, the project is healthy if:
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
 - AS-101 is complete and merged into `main` via PR #2, with passing offline checks and a successful real catalog smoke test,
-- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is COMPLETE AND MERGED through PR #8 with reviewed feature/identity/lineage evidence; AS-104 is explicitly authorized, with its implementation uncommitted for review and frozen real acceptance PASS; AS-105+ is unauthorized and unstarted.
+- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is COMPLETE AND MERGED through PR #8 with reviewed feature/identity/lineage evidence; AS-104 is explicitly authorized, with its implementation and frozen real acceptance PASS, feature commit 09b38bd pushed for PR review (PR not yet created; not merged); AS-105+ is unauthorized and unstarted.
 
 
 ## 23. AS-102 — Optical Preprocessing — COMPLETE AND MERGED
+
+The AS-102/AS-103 handoffs below preserve their merge-time checkpoints, including
+the then-current AS-104 authorization status. M26 above and the final publication
+handoff supersede those next-step instructions; their historical bodies are retained.
 
 AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 remains NOT authorized and NOT started.
 
@@ -1191,7 +1215,7 @@ minimum five, change dates/masks, add scenes, mix baselines or patch provenance
 in memory to obtain a result. Review the target platform comparison first.
 No AS-105+, P1 study, commit/push/PR or new scientific decision.
 
-## Platform consistency fix and cached real acceptance — M24–M25 / EV-028–EV-029
+## Historical platform consistency fix and cached real acceptance — M24–M25 / EV-028–EV-029
 
 The earlier M23 handoff above is preserved as the blocked checkpoint. The
 case-only fix and cache-only acceptance are now PASS; owner review is next.
@@ -1203,3 +1227,15 @@ The fix's pre-state patch/inventory are
 Both safety stashes remain untouched. See the current header and validation
 §§6–7 for exact IDs, temporal support, lineage and independent checks.
 No AS-104 commit/push/PR/merge; no AS-105+ or P1 05.10 work.
+
+## Current AS-104 publication handoff — M26 / E26 / EV-030
+
+Feature implementation/evidence commit `09b38bd9c312470e948b1f17165ec5335cfc149d`
+is published on `origin/feature/as-104-temporal-baseline` from parent/base
+`2006df7a70a4f48c66933aed96f4464d8d03084e`. Exactly fifteen paths were committed;
+663 tests/Ruff/diff PASS before commit. Feature publication verified local/remote
+equality and a clean worktree. This later reconciliation is documentation only.
+Review the published commit and open a PR if review passes and creation is
+authorized. PR NOT YET CREATED; merge NOT YET PERFORMED. Both stashes and recovery
+artifacts retained. AS-105+ and P1 05.10 NOT STARTED. Earlier stop states above
+remain historical, not instructions to recommit the implementation.

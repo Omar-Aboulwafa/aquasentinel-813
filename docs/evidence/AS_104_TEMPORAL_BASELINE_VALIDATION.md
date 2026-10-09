@@ -1,5 +1,25 @@
 # AS-104 — Temporal Baseline Validation Evidence
 
+**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+Implementation and real acceptance **PASS**; feature commit
+`09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
+parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+Branch `feature/as-104-temporal-baseline`; remote/upstream
+`origin/feature/as-104-temporal-baseline`. Feature publication verified equal
+local/remote SHA and a **clean worktree**. This reconciliation is documentation only.
+**PR NOT YET CREATED; merge NOT YET PERFORMED.** Review the published commit and
+open a PR if review passes and creation is authorized; this task creates no PR.
+M23/E23/EV-027 remains historically BLOCKED; M24–M25/E24–E25/EV-028–EV-029 remain
+acceptance-time PASS. Their earlier stop states below are historical, not current
+Git status. M26/E26/EV-030 separates later publication from acceptance completion.
+No Decision 050; both stashes/recovery artifacts retained; AS-105+ and P1 05.10
+**NOT STARTED**. No science, source/tests, caches or experiment timestamps changed.
+Exact publication metadata/times and unchanged acceptance evidence are in
+[validation §8](AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026).
+
+The original planning/dated execution records below retain their then-current
+stop-state instructions unchanged. Their uncommitted/no-push language is historical.
+
 **Recorded:** 8 October 2026 (Asia/Dubai).
 **Branch:** `feature/as-104-temporal-baseline`.
 **Base main:** `c6accab2c5753734466a6375d1b3ce1762e99bed`.
@@ -4852,3 +4872,57 @@ No live signed URL/token was printed or persisted. Both stashes and all five
 old/new recovery artifacts remain available. HEAD/origin-main and branch remain
 unchanged; index empty, no conflicts, work intentionally uncommitted. No
 commit/push/PR/merge, AS-105+ or P1 homogeneous-05.10 robustness experiment.
+
+## 8. AS-104 feature publication — 9 October 2026
+
+**M26 / E26 / EV-030 — COMMITTED AND PUSHED for PR review.**
+
+This is a later Git publication checkpoint, not a rerun or alteration of §§1–7.
+M23/E23/EV-027 remains the BLOCKED representation attempt; M24/E24/EV-028
+remains case-only fix PASS; M25/E25/EV-029 remains accepted real experiment PASS.
+Their original implementation-time uncommitted/no-push instructions remain
+historical. The current published implementation is no longer uncommitted.
+
+### Git publication facts and separate timestamps
+
+- Branch: `feature/as-104-temporal-baseline`.
+- Feature commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+- Parent/base: `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+- Message: `feat: implement AS-104 temporal baseline`.
+- Exactly **15** reviewed implementation/test/documentation/evidence paths.
+- Pushed to `origin/feature/as-104-temporal-baseline`; upstream configured,
+  local/remote SHA equality and clean worktree verified. No runtime caches,
+  credentials, external patches/inventories/stashes or temporary scripts included.
+- Pre-feature-commit validation: **663 passed, 6 warnings in 17.49s**;
+  Ruff, diff and untracked whitespace checks PASS. Six historical Rasterio
+  PendingDeprecationWarnings only; no GitHub CI-success claim.
+- Acceptance completed **2026-10-09T08:01:51.327507+00:00 UTC** /
+  **2026-10-09T12:01:51.327507+04:00 Asia/Dubai**.
+- Later feature commit at **2026-10-09T08:50:47+00:00 UTC** /
+  **2026-10-09T12:50:47+04:00 Asia/Dubai**, from Git commit metadata.
+- Remote publication confirmed by tracking-ref fetch at
+  **2026-10-09T08:52:09+00:00 UTC** /
+  **2026-10-09T12:52:09+04:00 Asia/Dubai**. Exact push-completion second is not
+  independently recorded; this is a verification timestamp, not experiment time.
+- Remote HEAD reconfirmed for reconciliation at **2026-10-09T09:09:07+00:00 UTC** /
+  **2026-10-09T13:09:07+04:00 Asia/Dubai**.
+
+### Acceptance and limitations preserved
+
+Temporal product remains
+`temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`;
+identity digest `e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`;
+target semantic fingerprint
+`0195eb2c019109f0d5217cda7ea492cc73e68d35708758535f5df92aa8d00662`.
+Eligible counts in approved feature order remain **792 / 802 / 801 / 801 / 801 / 797**.
+Scalar **18/18 PASS**, synthetic future causal check PASS, deterministic repeat
+PASS; all six AS-103 IDs and all twelve AS-102 cache-file hashes unchanged.
+Roughly 10% of each feature's 7,963 target-valid pixels has all five histories.
+This is not failure or statistical sufficiency. Small positive scales can
+produce large robust-z magnitudes. Every scientific value, experiment timestamp,
+guardrail and original safe JSON block above is unchanged. No EO processing rerun.
+
+PR NOT YET CREATED; merge NOT YET PERFORMED. Current priority is review of the
+published commit and opening a PR if review passes and creation is authorized.
+Both safety stashes/recovery artifacts remain retained. No Decision 050,
+AS-105+ or P1 homogeneous-05.10 robustness experiment.

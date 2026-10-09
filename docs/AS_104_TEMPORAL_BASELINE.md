@@ -1,5 +1,25 @@
 # AS-104 — Temporal Baseline
 
+**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+Implementation and real acceptance **PASS**; feature commit
+`09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
+parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+Branch `feature/as-104-temporal-baseline`; remote/upstream
+`origin/feature/as-104-temporal-baseline`. Feature publication verified equal
+local/remote SHA and a **clean worktree**. This reconciliation is documentation only.
+**PR NOT YET CREATED; merge NOT YET PERFORMED.** Review the published commit and
+open a PR if review passes and creation is authorized; this task creates no PR.
+M23/E23/EV-027 remains historically BLOCKED; M24–M25/E24–E25/EV-028–EV-029 remain
+acceptance-time PASS. Their earlier stop states below are historical, not current
+Git status. M26/E26/EV-030 separates later publication from acceptance completion.
+No Decision 050; both stashes/recovery artifacts retained; AS-105+ and P1 05.10
+**NOT STARTED**. No science, source/tests, caches or experiment timestamps changed.
+Exact publication metadata/times and unchanged acceptance evidence are in
+[validation §8](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026).
+
+The original planning/dated execution records below retain their then-current
+stop-state instructions unchanged. Their uncommitted/no-push language is historical.
+
 ## Task
 
 Explicitly authorized on 8 October 2026 (Asia/Dubai). Branch:
@@ -222,3 +242,15 @@ Prior M23/E23/EV-027 remains the factual blocked checkpoint. The entire AS-104
 worktree stays uncommitted for owner review. No commit/push/PR/merge, Decision
 050, AS-105+ or P1 05.10 experiment. Engineering PASS does not establish HAB,
 concentration, toxins/species, safety, risk, persistence, alerts or lead time.
+
+## Current Final Publication Status — M26 / E26 / EV-030
+
+AS-104 implementation and real acceptance PASS. Implementation/evidence committed
+as `09b38bd9c312470e948b1f17165ec5335cfc149d` and pushed to
+`origin/feature/as-104-temporal-baseline`. Feature publication worktree verified
+clean. PR NOT YET CREATED; merge NOT YET PERFORMED. Review published commit and
+open PR if review passes and creation is authorized. AS-105+ and P1 05.10 NOT STARTED.
+The original instruction to leave implementation uncommitted and earlier
+BLOCKED/PASS execution stop states remain historical. This later publication
+does not rerun EO processing, alter scientific values/math or establish detection
+accuracy. See validation §8 for acceptance versus publication timestamps.
