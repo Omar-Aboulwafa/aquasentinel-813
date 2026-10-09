@@ -1,23 +1,32 @@
 # AquaSentinel 813 — Handoff Guide
 
-**Last updated:** 8 October 2026 (Asia/Dubai)
+**Last updated:** 9 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current fix branch:** `fix/as-102-required-pc-baseline`, in separate worktree `/workspace/aquasentinel-813-as102-baseline-fix`; uncommitted for review.
+**Current fix branch:** `fix/as-102-reusable-pc-sas-token`, in separate worktree `/workspace/aquasentinel-813-pc-sas-token-fix`; uncommitted for review.
+**Decision 048 implementation merge commit:** `39f2aee90c727fc151886efbdea44daec0e3f9b4` (PR #10); exact Decision 049 fix base.
 **Preserved development branch:** `feature/as-104-temporal-baseline`; AS-104 explicitly authorized, uncommitted and real acceptance BLOCKED. AS-105+ NOT authorized and NOT started.
 **Closeout preparation branch:** This closeout was prepared on `docs/as-103-post-merge-closeout`.
 **AS-103 implementation merge commit:** `b770d0561da9ac2b81ca2d4b8e784adff66ee231` (merged via PR #8).
 **AS-102 closeout preparation branch:** The AS-102 closeout was prepared on `docs/as-102-post-merge-closeout`.
 **AS-102 implementation merge commit:** `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac` (merged via PR #6).
 
-**Current-state update — Decision 048 (8 October 2026, Asia/Dubai):** AS-104
-discovered PC processing-product ambiguity. Its uncommitted worktree remains
-byte-for-byte preserved. Only the separate AS-102 required-baseline fix is active
-here: 421 tests (348 retained +73 new), Ruff/diff pass, same six Rasterio warnings,
-6/6 metadata-only resolutions at 05.09. Real AS-104 acceptance remains BLOCKED
-until this upstream fix is reviewed/merged and acceptance separately rerun.
-Earlier AS-103-closeout authorization language below is historical; this update
-governs current authorization. No commit/push/PR/merge; AS-105+ remains unstarted.
+**Current-state update — Decision 049 (9 October 2026, Asia/Dubai):** Decision
+048 is merged via PR #10. Resumed AS-104 then encountered intermittent PC `/sign`
+HTTP 504s. Only the separate reusable-account/container-token transport fix is
+active here; no AS-104 algorithm work or real acceptance was resumed in this task.
+Fix gate: **531 tests passed** (421 main baseline +110 net new transport cases),
+Ruff/diff PASS, same six historical Rasterio warnings. Fresh March-4 smoke:
+**1** anonymous token HTTP attempt/acquisition, **11/11** signed assets, bounded
+XML/TIFF reads **1,024/4,096 bytes** via HTTP **206**, and **0** additional token
+requests for B03/SCL/XML reuse. This is transport evidence only.
+Original AS-104 status, 83 file hashes, accepted cache hashes and retained safety
+stash remain unchanged. Decision 047/M19/E18–E19/EV-022–EV-023 and M21/E21/EV-025
+remain only there; their bodies are not copied here. Decision 049/M22/E22/EV-026
+belong to this isolated fix. Earlier Decision 048/AS-103 status wording below is
+historical; this update governs current state. AS-104 real acceptance remains
+BLOCKED pending Decision 049 review/merge. No commit/push/PR/merge; AS-105+ and
+P1 homogeneous-05.10 robustness study NOT started.
 
 This file is the fast handoff document for a new ChatGPT session, Codex task, developer, or second machine.
 
@@ -83,7 +92,7 @@ Completed continuity setup and Codex read-only onboarding:
 
 Current project phase:
 
-**Foundation complete → continuity complete → AS-101/AS-102/AS-103 complete and merged → AS-104 authorized, uncommitted/preserved and real acceptance BLOCKED → Decision 048 upstream fix uncommitted for review → AS-105+ unauthorized and unstarted.**
+**Foundation complete → continuity complete → AS-101/AS-102/AS-103 complete and merged → Decision 048 merged via PR #10 → AS-104 resumed, uncommitted/preserved and real acceptance BLOCKED by SAS transport → Decision 049 transport fix uncommitted for review → AS-105+ unauthorized and unstarted.**
 
 Current implementation and next milestone:
 
@@ -668,3 +677,39 @@ real acceptance BLOCKED until this fix is reviewed/merged and the unchanged
 target/March period/minimum-five experiment separately rerun. Metadata success
 does not prove XML, raster, water support, temporal acceptance or a hazard.
 AS-105+ NOT authorized and NOT started.
+
+## 25. Decision 049 — Reusable PC SAS Transport Fix — IN REVIEW
+
+Plan: [AS-102 reusable-token fix](AS_102_REUSABLE_PC_SAS_TOKEN_FIX.md).
+Evidence: [EV-026 validation](evidence/AS_102_REUSABLE_PC_SAS_TOKEN_FIX_VALIDATION.md).
+Branch/worktree/base are recorded in the header. Decision 049 is explicitly
+owner-authorized; implementation and documentation remain uncommitted for review.
+
+`sign_asset(href, settings)` preserves its public API and strict unsigned-HREF
+allowlist. Derive validated Azure account/container and official token route from
+the configured HTTPS SAS issuer; no hardcoded asset scope, API key, SDK, new
+config or dependency. Private process-memory tokens are reused across assets/
+scenes while >60 seconds remain and refreshed at <=60 seconds. At most five
+acquisition attempts for HTTP 429/500/502/503/504 or typed transient connection/
+timeouts, with 0.8/1.6/3.2/6.4-second delays. Invalid payload/security/type errors
+and other HTTP statuses are terminal. Never persist/log token or signed HREF.
+
+Stable unsigned source/provenance/cache identity remains unchanged. Existing
+bounded HTTP reader/redirect/security checks and all XML/raster callers remain
+unchanged, with no generic provenance/schema/decoding/grid/mask/resampling or
+AS-103/AS-104 algorithm change. No new raster/cache product was created.
+
+**531 passed**, Ruff/diff PASS, six unchanged Rasterio warnings. Real March-4
+05.09 smoke at 06:44:49–06:44:51 UTC / 10:44:49–10:44:51 Asia/Dubai on 9 October:
+one anonymous token HTTP 200, eleven transient signs from one scope, XML 1,024
+bytes and B02 TIFF header 4,096 bytes (both 206), three reuse signs with zero
+additional token requests. No full processing or AS-104 acceptance claim.
+
+Preserve original `/workspace/aquasentinel-813` on
+`feature/as-104-temporal-baseline` at `39f2aee90c727fc151886efbdea44daec0e3f9b4`:
+never switch/stash/apply/drop/reset/clean/stage/commit/format/edit it for this fix.
+Safety stash `f93950aab6fdfb40bb100158915ef12692aa1665` stays intact. Cross-worktree
+history belongs to its existing owner; this fix uses only Decision 049/M22/E22/
+EV-026, preserving Decision 048/M20/E20/EV-024 history. Next gate is owner review
+and merge of this fix before separately rerunning AS-104 real acceptance.
+No AS-105+, P1 05.10 study or GitHub CI-success claim.

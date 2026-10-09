@@ -34,13 +34,15 @@ Dates follow the source documents when they describe an event. Git dates retain 
 
 ## 1. Executive project story
 
-**Current Decision 048 update — 8 October 2026:** The owner separately authorized
-AS-104, whose uncommitted work and real-acceptance blocker are preserved in its
-original worktree. This separate upstream fix uses M20/E20/EV-024. M19/E18–E19/
-EV-022–EV-023 and Decision 047 remain only in that worktree, reserved and not copied
-here per owner clarification. Prior AS-103-closeout authorization statements
-above/below describe their historical checkpoints; this update governs current
-state. The fix is uncommitted for review; AS-104 acceptance is still BLOCKED.
+**Current Decision 049 update — 9 October 2026:** Decision 048 is merged via
+PR #10 at `39f2aee90c727fc151886efbdea44daec0e3f9b4`. Resumed AS-104 encountered
+intermittent per-asset authentication HTTP 504s. This later, separately authorized
+transport fix uses Decision 049/M22/E22/EV-026; it remains uncommitted for review.
+The unchanged AS-104 worktree owns Decision 047/M19/E18–E19/EV-022–EV-023 and
+M21/E21/EV-025; their record bodies are not imported or renumbered here. Historical
+M01–M20/E01–E20/EV-001–EV-024 retain checkpoint meaning. AS-104 real acceptance
+remains BLOCKED pending transport-fix review/merge; AS-105+ and P1 homogeneous-
+05.10 experiment NOT started.
 
 **Product thesis / current decisions:** AquaSentinel 813 competes in Track 03 — Water Security & Marine Environments. It targets the Desalination Plant Water Quality / Operations Manager and the question: **Where and when should monitoring or field verification be prioritized?** The intended value is offshore awareness before a threat reaches an intake, with evidence, confidence, exposure, and human verification. Sources: Decisions 001–004 and PRD sections 1–5 and 22.
 
@@ -50,7 +52,7 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Recorded experiment:** A 2 October CDSE metadata search returned 44 unique candidate scenes for the analyst-defined Al Raha validation polygon, 1 March–31 May 2023, with scene cloud cover <= 30%. Provenance conversion/serialization succeeded for 44/44. The recorded quality baseline is 97 tests, Ruff passed, and `git diff --check` passed. Source: [AS-101 report](AS_101_STAC_SEARCH.md).
 
-**Current repository phase:** Foundation/continuity complete → AS-101/AS-102/AS-103 complete and merged → AS-104 authorized, uncommitted/preserved and real acceptance BLOCKED → Decision 048 source-resolution fix uncommitted for review → AS-105+ unauthorized and unstarted. See M20/E20/EV-024; earlier M16–M18 checkpoints remain historical.
+**Current repository phase:** Foundation/continuity complete → AS-101/AS-102/AS-103 merged → Decision 048 merged → AS-104 resumed then blocked by SAS transport → Decision 049 transport fix uncommitted for review → AS-105+ unauthorized/unstarted. See M22/E22/EV-026; earlier checkpoints, including M20/E20/EV-024, remain historical.
 
 **Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; M17 / EV-019–EV-020 records the later candidate-feature acceptance; M18 / EV-021 separately records final review and merge through PR #8. AS-104 remains NOT authorized and NOT started. These mask outcomes also do not establish the scientific/operational claims above.
 
@@ -436,6 +438,26 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 - **Recommended visual:** Sanitized two-product table → explicit 05.09 constraint → exactly-one result; 421-test / 6-of-6 metadata card and unchanged-cache identity. Capture pending, never include signing material.
 - **Candidate slide title:** “Resolve processing ambiguity without changing the science.”
 
+### M22 — Reuse authorization without changing scientific identity
+
+- **Date:** 9 October 2026 (Asia/Dubai); live smoke 06:44:49.076690–06:44:51.406274 UTC / 10:44:49–10:44:51 +04:00.
+- **Task / milestone ID:** AS-102 reusable PC SAS token transport; Decision 049 / E22 / EV-026.
+- **Status:** Implemented and offline/bounded transport smoke PASS; uncommitted for review, no push/PR/merge.
+- **Problem / question:** After Decision 048 merged, resumed AS-104 was blocked by intermittent per-asset `/sign` HTTP 504s; a cold scene used eleven authentication calls.
+- **Why it mattered:** Repeated authorization increased external-service exposure before real temporal acceptance; transport credentials must remain outside reproducible scientific identity.
+- **Options considered:** Keep per-asset `/sign`; reuse official account/container tokens; install full PC SDK; add subscription key; broaden raster retries.
+- **Decision:** Explicitly authorized reusable anonymous issuer/account/container tokens, process memory only, existing `sign_asset` API, bounded acquisition retries only.
+- **Rationale:** Official SDK/OpenAPI and the preceding corrected anonymous-token diagnostic support scoped reuse. Reduce authentication calls without adding dependencies/secrets or changing pixels/lineage.
+- **Implementation / experiment:** Validate unsigned assets/scope/issuer and actual token/expiry schema; refresh at <=60 seconds; at most five attempts for 429/500/502/503/504 or typed transient failures, exponential 0.8/1.6/3.2/6.4-second delays. Offline fixtures then fresh March-4 05.09 eleven-asset signing, tiny XML/TIFF reads and three cache-reuse signs.
+- **Evidence:** [Plan](AS_102_REUSABLE_PC_SAS_TOKEN_FIX.md), [EV-026 validation](evidence/AS_102_REUSABLE_PC_SAS_TOKEN_FIX_VALIDATION.md), Decision 049, transport source/tests. Original AS-104 blocker bodies remain only in their preserved worktree.
+- **Quantitative result:** **531 passed** (421 main +110 net new); Ruff/diff PASS; six unchanged warnings. **1** anonymous HTTP 200 token attempt, **11/11** signs, XML **1,024 bytes** and B02 TIFF header **4,096 bytes**, both HTTP 206; **0** extra token requests for B03/SCL/XML reuse. **0** live-credential matches in repository scan; original 83 files/status/stash and accepted-cache hashes unchanged.
+- **Limitation:** Header/transport evidence only; no full XML decoding/raster pixels/preprocessing or AS-104 acceptance. No induced live retry, availability guarantee, cross-process sharing or concurrent single-flight promise; no GitHub CI success.
+- **Lesson learned:** Separate ephemeral authorization from stable assets and scientific identity. Do not infer rate limiting from observed 504s or impose undocumented `sp == r` restrictions.
+- **Impact on next step:** Review/merge isolated transport fix before separately resuming AS-104 real acceptance. No AS-104 algorithm work, AS-105+ or P1 05.10 study here.
+- **Presentation takeaway:** “Eleven assets, one scoped authorization, unchanged scientific identity.”
+- **Recommended visual:** Safe issuer/account/container → private token → eleven unsigned assets diagram; one-request/eleven-signs card and 1,024/4,096-byte bounds. Capture pending; never show SAS material.
+- **Candidate slide title:** “Make access reliable without changing the science.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -458,6 +480,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | 8 Oct AS-103 authorization/acceptance | 046 | Six candidate features, declared wavelengths, signed numeric guards and fingerprinted immediate-parent lineage; no extra cache/dependency | Per-scene signals precede future temporal science | M17; EV-019/EV-020; uncommitted feature-branch acceptance |
 | 8 Oct AS-103 final review / merge | No new technical decision | Final model/arithmetic/numerical/identity/lineage and real-evidence review; publish existing Decision 046 contract | Separate reviewed publication from the earlier experiment without extending scientific scope | M18 / EV-021; PR #8, merge `b770d056`; 348 tests, local Ruff/diff checks; no configured/reported GitHub CI |
 | 8 Oct isolated upstream authorization | 048 | Optional explicit PC baseline after validated exact matching; zero/multiple fail; selector is not a cache identity dimension | Homogeneous delivered processing without generation heuristics or changed pixel processing | M20/E20/EV-024; Decision 047 remains in preserved AS-104 worktree |
+| 9 Oct isolated upstream transport authorization | 049 | Reusable anonymous account/container SAS, memory-only expiry-aware cache and bounded token-only retries; retain public API | Fewer authentication calls without dependency/key/identity changes | M22/E22/EV-026; 531 tests and fresh one-request/eleven-signs smoke; uncommitted for review |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -483,6 +506,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E16 | [AS-103 contract](AS_103_SPECTRAL_FEATURES.md), [validation](evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md), feature source/tests; M17 / EV-019–EV-020 | Six deterministic candidate features, guarded support, fingerprinted identity, immediate-parent lineage and 348-test branch baseline | Merged release, temporal anomalies, HAB/scientific/operational validation |
 | E17 | Implementation `5638bc8`; [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8); merge `b770d056`; M18 / EV-021 | Final reviewed/merged AS-103 engineering, deterministic per-scene features and reproducible identity/immediate-parent lineage; 348 tests, Ruff/diff checks | GitHub CI success, temporal anomaly, HAB/chlorophyll/species/toxins, water safety, exposure/risk/lead-time or scientific accuracy |
 | E20 | [Required-PC-baseline plan](AS_102_REQUIRED_PC_BASELINE_FIX.md), [validation](evidence/AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md); M20/EV-024 | Strict optional selector, constrained cache returns, unchanged actual-product identity, 421 tests, 6/6 real metadata resolutions and zero forbidden calls | Merged fix, March asset/decoding/support success, AS-104 acceptance, scientific hazard or operational accuracy |
+| E22 | [Reusable-token plan](AS_102_REUSABLE_PC_SAS_TOKEN_FIX.md), [transport validation](evidence/AS_102_REUSABLE_PC_SAS_TOKEN_FIX_VALIDATION.md); M22/EV-026 | 531 tests, one anonymous token HTTP request/eleven signs, bounded XML/TIFF reads and zero additional reuse requests; unchanged cache/files/identity | Full processing, AS-104 acceptance, five usable histories, scientific/operational accuracy, perpetual availability or GitHub CI success |
 
 E18–E19 remain reserved for the preserved uncommitted AS-104 worktree and are not
 duplicated here. Historical E01–E17 remain unchanged.
