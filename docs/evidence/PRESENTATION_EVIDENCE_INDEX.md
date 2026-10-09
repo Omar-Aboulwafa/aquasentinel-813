@@ -1,6 +1,94 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
+**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+Implementation and real acceptance **PASS**; feature commit
+`09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
+parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+Branch `feature/as-104-temporal-baseline`; remote/upstream
+`origin/feature/as-104-temporal-baseline`. Feature publication verified equal
+local/remote SHA and a **clean worktree**. This reconciliation is documentation only.
+**PR NOT YET CREATED; merge NOT YET PERFORMED.** Review the published commit and
+open a PR if review passes and creation is authorized; this task creates no PR.
+M23/E23/EV-027 remains historically BLOCKED; M24–M25/E24–E25/EV-028–EV-029 remain
+acceptance-time PASS. Their earlier stop states below are historical, not current
+Git status. M26/E26/EV-030 separates later publication from acceptance completion.
+No Decision 050; both stashes/recovery artifacts retained; AS-105+ and P1 05.10
+**NOT STARTED**. No science, source/tests, caches or experiment timestamps changed.
+Exact publication metadata/times and unchanged acceptance evidence are in
+[validation §8](AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026).
+
+**Historical platform-fix / cached acceptance checkpoint — before feature publication, 9 October 2026 (Asia/Dubai):**
+The owner-authorized consistency predicate now compares `.casefold()` values only.
+It does not strip punctuation/whitespace, map aliases, or rewrite stored platform
+strings, source records, products, fingerprints or caches. Acquisition and all
+other provenance/compatibility checks remain unchanged. Only
+`temporal/baseline.py` and `tests/temporal/test_identity_lineage.py` changed in
+source/tests: one predicate and 20 regression cases. The reverse-case unit case
+isolates this predicate; the existing descriptor schema still requires lowercase
+observation platforms. Full-API tests use the real lowercase-observation /
+mixed-case-source pattern for both Sentinel-2A and Sentinel-2B.
+
+M24/E24/EV-028 records the bug fix, with **132 temporal tests PASS** and the
+pre-rerun combined **663 passed**, Ruff/diff PASS, six historical Rasterio warnings.
+M25/E25/EV-029 records **real acceptance PASS**, reusing all six known-ID 05.09
+AS-102 caches with no network or imagery reprocessing. Unchanged AS-103
+reconstruction reproduced all six accepted IDs/content fingerprints. All 12
+cache-file hashes remain identical. The exact five March acquisitions, April-28
+target, March half-open window and minimum five were retained.
+
+Cached rerun: **08:01:50.383608–08:01:51.327507 UTC** /
+**12:01:50.383608–12:01:51.327507 +04:00 Asia/Dubai**. On the unchanged 20 m
+EPSG:32640 310×228 grid, all features have 7,963 target-supported pixels.
+Baseline/z/rank counts in approved feature order are
+**792 / 802 / 801 / 801 / 801 / 797**; insufficient counts are
+**7,171 / 7,161 / 7,162 / 7,162 / 7,162 / 7,166**. Zero MAD and both numerical
+rejection counts are zero for every feature. Sparse history remains masked;
+five scenes are not five valid observations at every pixel.
+
+**18/18 independent scalar checks PASS**, synthetic later-scene addition/mutation
+causal check PASS, deterministic repeat PASS, input immutability PASS.
+Product: `temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`.
+Immediate provenance parents are target AS-103 first, then R1–R5 chronologically;
+each branch retains actual PC → AS-102 → AS-103 → AS-104 lineage. The future
+control is synthetic and excluded, not evidence of future EO availability.
+Full counts, summaries, fingerprints, parents and scalar records are in
+[validation §§6–7](AS_104_TEMPORAL_BASELINE_VALIDATION.md).
+
+M23/E23/EV-027 remains the earlier **BLOCKED** platform-casing attempt; its body
+and all prior checkpoint/decision bodies remain preserved. No Decision 050.
+Both retained stashes and old/new external recovery artifacts remain available.
+AS-104 stays **UNCOMMITTED / READY FOR REVIEW**. Owner review is the next gate;
+no commit/push/PR/merge, AS-105+, or P1 homogeneous-05.10 experiment. PASS is
+engineering acceptance of temporal candidate BOA signals, not biological or
+operational accuracy, risk, persistence, alert or warning-lead-time validation.
+Earlier dated checkpoint statements below are historical; this update governs
+current state. Final quality/security verification is recorded in validation §7.
+
 **Created:** 6 October 2026 (Asia/Dubai).
+
+**Historical PR #10 integration checkpoint — 9 October 2026 (Asia/Dubai):** Decision 048 is
+merged through PR #10 at `39f2aee90c727fc151886efbdea44daec0e3f9b4` (fix commit
+`c9a415b65a101319e9c9f2fef21ad0dcd44c9347`). The existing AS-104 branch was
+fast-forwarded from `c6accab2c5753734466a6375d1b3ce1762e99bed`, then its retained
+safety stash was applied. Genuine documentation conflicts were reconciled;
+all ten restored AS-104 files matched the pre-integration SHA-256 inventory.
+Temporal source/tests remain byte-for-byte unchanged. The combined offline gate
+passed: **533 tests**, Ruff/diff checks, the same six Rasterio warnings.
+The original Decision 047 → 048, M19 → M20, E18 → E19 → E20 and
+EV-022 → EV-023 → EV-024 bodies/statuses are preserved in order. Their
+cross-worktree/pending-merge wording describes the original dated checkpoints.
+The frozen April 28 / exactly-five March / minimum-five / delivered-05.09 real
+acceptance was resumed in three separately timestamped attempts. All stopped at
+March 4 asset signing; a bounded diagnostic observed intermittent HTTP 504 and
+successful responses for the same assets. The third attempt read SCL but
+exhausted five attempts signing B02. **Real acceptance remains BLOCKED**: zero
+completed reference scenes and no real temporal product. No scientific/mask/math/
+grid contract was relaxed. Implementation remains uncommitted; see
+[resumed evidence](AS_104_TEMPORAL_BASELINE_VALIDATION.md) / M21/E21/EV-025.
+**P1 Processing Baseline Robustness Experiment — NOT STARTED**: homogeneous
+05.09 versus homogeneous 05.10 requires separate authorization and is not
+accuracy validation. AS-105+ is NOT authorized and NOT started. No commit,
+push or PR in this integration task; retain the verified safety stash.
 
 **Purpose:** Compact claim-to-evidence index for the [presentation journal](../PRESENTATION_JOURNAL.md). This pack preserves the CDSE investigation, the **historical Planetary Computer metadata-only checkpoint**, and the [later successful final raster gate](AS_102_PLANETARY_COMPUTER_RASTER_GATE.md). Historical records do not themselves certify perpetual external-service availability or authorize implementation. The separately authorized M15 update adds actual AS-102 implementation evidence EV-016/EV-017 and Decisions 039–045; AS-103 is COMPLETE AND MERGED through PR #8; EV-019/EV-020 preserve its earlier feature-branch acceptance stage, and EV-021 records the later final code-review/publication stage. AS-102 is COMPLETE AND MERGED through PR #6; EV-018 records the final reviewed/merged stage while EV-016/EV-017 preserve their historical acceptance checkpoint.
 
@@ -12,11 +100,64 @@
 
 **Historical AS-103 acceptance checkpoint:** 8 October 2026, EV-019/EV-020; explicitly authorized candidate-feature implementation, uncommitted/unpushed/unmerged. Six features, 7,963 valid pixels each; 348-test branch baseline. AS-104 NOT authorized and NOT started.
 
-**Current AS-103 final review/merge update:** 8 October 2026 (Asia/Dubai), M18 / EV-021. AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation `5638bc8b4ab06f235f908642f714a7cc83b35709`; AS-103 implementation merge commit `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai. Final reviewed baseline: 348 tests passed, Ruff/diff checks passed; six existing non-blocking Rasterio PendingDeprecationWarnings only, no new AS-103 warnings. No GitHub Actions/workflow CI run was configured/reported; no GitHub CI success is claimed. AS-103 development is closed. AS-104 — Temporal Baseline is NEXT PLANNED only, NOT authorized and NOT started. No real-scene experiment was rerun during merge review or this documentation closeout.
+**Historical AS-103 final review/merge update:** 8 October 2026 (Asia/Dubai), M18 / EV-021. AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation `5638bc8b4ab06f235f908642f714a7cc83b35709`; AS-103 implementation merge commit `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai. Final reviewed baseline: 348 tests passed, Ruff/diff checks passed; six existing non-blocking Rasterio PendingDeprecationWarnings only, no new AS-103 warnings. No GitHub Actions/workflow CI run was configured/reported; no GitHub CI success is claimed. AS-103 development is closed. AS-104 — Temporal Baseline is NEXT PLANNED only, NOT authorized and NOT started. No real-scene experiment was rerun during merge review or this documentation closeout.
+
+**Historical AS-104 checkpoint — 8 October 2026 (Asia/Dubai):** Decision 047 explicitly
+authorized implementation; M19 / E18–E19 / EV-022–EV-023 records an uncommitted
+offline PASS and BLOCKED real multi-scene attempt. This supersedes older AS-104
+status wording while preserving EV-001–EV-021 as historical records. No new merge,
+GitHub CI, HAB/event or operational-performance claim. AS-105+ remains unstarted.
 
 ## Evidence standard and temporal boundary
 
-**Current upstream fix update — 9 October 2026:** Decision 048 is merged via PR
+**Historical PR #11 acceptance checkpoint — 9 October 2026 (Asia/Dubai):**
+Decision 049 is merged through PR #11 at
+`2006df7a70a4f48c66933aed96f4464d8d03084e` (fix commit
+`9181e0da40898f5c729b8596367bb3e4719317d0`). The branch was fast-forwarded and
+its NEW safety stash applied without dropping either stash. Four genuine
+documentation conflicts were reconciled; all eight temporal source/test hashes
+remain unchanged. Combined offline gate: **643 passed**, Ruff/diff PASS, six
+existing Rasterio warnings. Decisions 046→047→048→049, milestones M18–M22,
+engineering E17–E22 and detailed evidence EV-021–EV-026 coexist in order without
+renumbering or duplicated bodies; earlier statuses remain historical.
+
+The frozen 05.09 April-28 / exactly-five March / minimum-five real experiment ran
+07:31:08.630215–07:31:57.353103 UTC / 11:31:08.630215–11:31:57.353103 Dubai.
+**5/5 March AS-102 and AS-103 scenes completed** with normal production transport,
+unchanged EPSG:32640 310×228 grid and masks. Valid-water counts:
+8,674 / 2,092 / 7,350 / 3,834 / 6,156. Accepted April cache/feature IDs remain
+unchanged; target supports 7,963 pixels per feature. March 4 has 52 denominator
+exclusions in B04-denominator features; March 14 has 20 green/blue exclusions.
+
+**AS-104 real acceptance is BLOCKED**, now at its target provenance guard:
+`observation_match.platform` is `sentinel-2b`, but actual PC `SourceRecord.platform`
+is `Sentinel-2B`. All three target acquisition timestamps agree. The unchanged
+case-sensitive comparison at `temporal/baseline.py:105–110` rejects the target
+before numerical reduction. March products have the corresponding same casing
+mismatch. Transport succeeded; this is a representation/validation blocker, not
+measured zero temporal support. No history distributions, temporal summaries,
+AS-104 fingerprints/ID/lineage, scalar checks, future control or deterministic
+repeat were produced/run. No code/test/cache-contract change or workaround.
+
+M23/E23/EV-027 records this factual attempt, with full safe scene statistics,
+IDs/fingerprints, support and diagnostic metadata in
+[AS-104 validation](AS_104_TEMPORAL_BASELINE_VALIDATION.md#5-pr-11-integration-and-five-reference-0509-attempt--9-october-2026).
+Owner review/authorization of a targeted platform-representation fix and realistic
+metadata tests is the next gate; do not mutate source records or accepted caches
+to bypass it. AS-104 remains uncommitted for review. No new Decision 050, commit,
+push, PR or GitHub merge; only the required local ff-only integration occurred.
+AS-105+ and P1 homogeneous-05.10 study NOT started. No hazard, science accuracy,
+operational risk, persistence, alert or warning-lead-time claim.
+
+**Historical upstream fix checkpoint — 8 October 2026:** Decision 048 / M20 / E20 /
+EV-024 adds separately authorized source disambiguation, uncommitted for review.
+AS-104 was explicitly authorized and remains uncommitted/preserved in its original
+worktree; real acceptance is still BLOCKED pending upstream review/merge and a
+separate rerun. Decision 047 and M19/E18–E19/EV-022–EV-023 remain there only, per
+owner clarification; their numbers are reserved, not reused. Earlier AS-103
+closeout authorization statements retain their historical checkpoint meaning.
+
+**Historical Decision 049 fix checkpoint — 9 October 2026:** Decision 048 is merged via PR
 #10 at `39f2aee90c727fc151886efbdea44daec0e3f9b4`. AS-104 resumed and then hit
 intermittent per-asset SAS HTTP 504s. Decision 049/M22/E22/EV-026 now records a
 separate, uncommitted reusable-token transport fix and fresh bounded smoke.
@@ -36,6 +177,9 @@ EV-016/EV-017 retain the 6 October experiment and feature-branch status at that 
 EV-019/EV-020 and journal M17 retain the original AS-103 feature-branch acceptance state and experiment timestamp. Their uncommitted/not-merged statuses are intentional historical truth; **EV-021 / M18 supersedes that Git status** with a separately dated final review/merge checkpoint, preserving the 348-test baseline and all real-scene evidence.
 
 ## Claim index
+
+Earlier evidence rows retain their recorded checkpoint statuses. EV-030
+supersedes AS-104 publication status without rewriting EV-027–EV-029.
 
 | Evidence ID | Claim | Status | Metric/result | Source document | Suggested presentation use | Visual still needed? | Final validation needed? |
 |---|---|---|---|---|---|---|---|
@@ -63,30 +207,9 @@ EV-019/EV-020 and journal M17 retain the original AS-103 feature-branch acceptan
 | EV-021 | AS-103 final code review and merge | **COMPLETE AND MERGED — 8 October 2026** | Implementation `5638bc8b4ab06f235f908642f714a7cc83b35709`; PR #8; merge `b770d0561da9ac2b81ca2d4b8e784adff66ee231` at `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai; 348 tests passed, Ruff/diff checks passed; six existing non-blocking Rasterio warnings only, no new AS-103 warnings; typed model/arithmetic, inclusive denominator guards, NaN/support, consumed-content fingerprint/identity and immediate-parent lineage reviewed; real-scene evidence independently reviewed | [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8); [journal M18](../PRESENTATION_JOURNAL.md#m18--as-103-code-review-merge-and-closeout); committed source/tests and historical AS-103 acceptance evidence | Reviewed/merged spectral feature engineering, deterministic per-scene feature generation and reproducible lineage/identity only; does NOT support temporal anomaly, HAB confirmation, chlorophyll concentration, species/toxin identification, water safety, intake exposure, operational risk accuracy or warning lead time | Yes: V20 sanitized merge/local-quality card | No configured/reported GitHub Actions/workflow CI run or CI-success claim; independent science remains future; AS-104 NOT authorized and NOT started |
 | EV-024 | Explicit PC processing-baseline source resolution and unchanged cache identity | **PASS — isolated fix offline/metadata gates; uncommitted, not merged** | 421 tests (348 retained +73 added), Ruff/diff pass, same six warnings; 5/5 frozen March references plus April target resolve at 05.09 with all eleven required assets and 0 forbidden signing/XML/raster/preprocessing/cache calls; accepted target cache retains identity/provenance/bytes and rejects 05.10 | [Timestamped fix validation](AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md); [plan/API](../AS_102_REQUIRED_PC_BASELINE_FIX.md); Decision 048; M20/E20 | Explain acquisition versus processing-product ambiguity and explicit failure-safe selection | Yes: sanitized ambiguity/constraint/quality card, pending | Upstream code review/merge and separate frozen AS-104 acceptance rerun; no March asset/decoding/support, temporal/HAB, operational accuracy or GitHub CI-success claim |
 | EV-026 | Reusable transient PC account/container SAS transport | **PASS — offline/bounded transport smoke; UNCOMMITTED / READY FOR REVIEW** | 531 tests (421 main +110 net new), Ruff/diff PASS, six unchanged warnings; fresh March-4 05.09 all-eleven same-scope signs with 1 anonymous HTTP 200 token attempt, XML 1,024 bytes/B02 4,096 bytes via 206, zero additional acquisition for reuse; original worktree/cache hashes and stash preserved | [Timestamped validation](AS_102_REUSABLE_PC_SAS_TOKEN_FIX_VALIDATION.md); [plan](../AS_102_REUSABLE_PC_SAS_TOKEN_FIX.md); Decision 049; M22/E22 | Scoped credential reuse without changing scientific source identity | Yes: sanitized one-request/eleven-assets card; capture pending | No full processing, AS-104 acceptance, five usable histories, science/operational accuracy, availability guarantee or GitHub CI-success claim; review/merge remains next |
-
-### EV-024 required-PC-baseline upstream fix
-
-New metadata smoke: `2026-10-08T13:38:26.730440+00:00`–
-`2026-10-08T13:38:48.970146+00:00` UTC, or
-`2026-10-08T17:38:26.730440+04:00`–`2026-10-08T17:38:48.970146+04:00`
-Asia/Dubai. The exact predeclared March products and accepted April product resolve
-at 05.09 using the new optional constraint; no XML/rasters were accessed and no
-cache was created. Separate offline loading of the accepted April cache verified
-matching/contradicting constraints without altering its files or provenance.
-This fixes ambiguity at metadata level only, not AS-104 real acceptance.
-EV-022–EV-023 remain reserved in the untouched AS-104 worktree. All historical
-EV-001–EV-021 rows remain unchanged, including EV-014 PENDING/later PASS progression.
-
-### EV-026 reusable-token transport — later stage
-
-Fresh transport experiment: `2026-10-09T06:44:49.076690+00:00`–
-`2026-10-09T06:44:51.406274+00:00` UTC / 10:44:49–10:44:51 Asia/Dubai.
-One token HTTP 200, eleven signs on the actual March-4 05.09 account/container,
-two tiny HTTP 206 prefix/header reads, then zero extra acquisition requests for
-three cache-reuse signs. Report contains safe counters/status/latency/bytes only.
-No SAS credentials, product cache or full preprocessing created. EV-026 does not
-supersede EV-024's historical metadata experiment; it records a new transport
-stage after PR #10. EV-025 remains only in the preserved AS-104 worktree.
+| EV-028 | AS-104 case-only platform consistency fix | **PASS — UNCOMMITTED / READY FOR REVIEW** | One equality predicate, 20 regression cases, 132 temporal and 663 full tests/Ruff/diff PASS; stored values/identities unchanged | [Validation §6](AS_104_TEMPORAL_BASELINE_VALIDATION.md#6-targeted-platform-case-representation-fix--9-october-2026); M24/E24 | Fix representation compatibility while preserving scientific identity | Yes: before/after predicate card; capture pending | No aliases, science change, Decision 050, publication or accuracy claim |
+| EV-029 | AS-104 cached five-reference 05.09 acceptance rerun | **PASS — UNCOMMITTED / READY FOR REVIEW** | Six known-ID cache reloads/unchanged AS-103 IDs; 792–802 eligible pixels from 7,963 target support; 18 scalar checks, synthetic causal exclusion, repeat PASS; zero network | [Validation §7](AS_104_TEMPORAL_BASELINE_VALIDATION.md#7-cached-five-reference-0509-real-acceptance-rerun--9-october-2026); M25/E25 | Honest sparse temporal support and reproducible lineage | Yes: history-count/support card; capture pending | Five scenes are not statistical sufficiency; no HAB, concentration, safety, operational risk, persistence, alerts/lead time or CI-success claim |
+| EV-030 | AS-104 reviewed implementation/evidence publication | **COMMITTED AND PUSHED — PR NOT YET CREATED, NOT MERGED** | Feature `09b38bd`, parent `2006df7`, 15 paths; pre-commit 663 tests/Ruff/diff PASS, six warnings; remote SHA equality/clean worktree, accepted identities/hashes/history preserved | [Publication §8](AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026); M26/E26 | Separate measured acceptance from reviewable Git publication | Yes: acceptance → commit → branch → pending review diagram; capture pending | No new EO experiment, merge, GitHub CI success, statistical sufficiency or hazard/operational validation |
 
 ### EV-021 final AS-103 review and merge
 
@@ -116,6 +239,108 @@ operational risk, persistence, warning lead-time accuracy or scientific accuracy
 established. AS-104 is NEXT PLANNED only, NOT authorized and NOT started.
 No GitHub Actions/workflow CI run was configured/reported; local quality checks do
 not imply GitHub CI success.
+
+### EV-022 — AS-104 offline temporal engineering
+
+**Status:** PASS — authorized implementation, uncommitted for review.
+**Date:** 8 October 2026 (Asia/Dubai).
+**Claim:** Causal target-ID selection, per-feature/pixel median/MAD/signed deviation,
+positive-scale standardized anomaly, exact midrank, semantic target-support input
+fingerprints, typed masks/counts/summaries, immediate-AS-103 multi-parent provenance
+and blocked IO/immutability. 460 tests passed (348 +112), Ruff/diff PASS; six existing
+Rasterio warnings. No dependency/config/cache-format/provenance-schema changes.
+**Evidence:** [AS-104 plan/API](../AS_104_TEMPORAL_BASELINE.md), Decision 047,
+[validation](AS_104_TEMPORAL_BASELINE_VALIDATION.md), journal M19 / E18.
+**Limits:** Offline math/provenance evidence, not real multi-scene acceptance,
+biological/event validation, risk, confidence/probability or warning lead time.
+No commit/push/PR; AS-105+ unauthorized/unstarted.
+
+### EV-023 — AS-104 fixed-window real acceptance blocked by provider ambiguity
+
+**Status:** BLOCKED — real multi-scene acceptance NOT complete.
+**Date:** 8 October 2026 (Asia/Dubai); actual attempt UTC
+12:28:07.712335–12:28:29.564367 / Dubai 16:28:07.712335–16:28:29.564367.
+**Claim:** Existing April 28 cache/AS-103 target reused (7,963 valid pixels/feature).
+AS-101 returned 44 candidates; five March dates match tile 40RBN/orbit 20. The first
+reference, March 4, has two PC products with the exact same acquisition/platform/
+tile/orbit but baselines 05.09 and 05.10. Unchanged AS-102 exactly-one matching
+raises ObservationMatchError; experiment stops before reference raster reads.
+**Evidence:** [Timestamped AS-104 validation/blocker](AS_104_TEMPORAL_BASELINE_VALIDATION.md),
+journal M19 / E19; stable product IDs, fixed bounds and metadata-only diagnosis.
+**Limits:** Zero processed references; real support/summaries, temporal fingerprints/
+ID/lineage, scalar checks and future-real-scene check NOT produced/run. No silent
+selection workaround, window widening, minimum lowering, baseline mixing or mask
+relaxation. Separately authorize any upstream selection-policy investigation.
+No HAB/event, science accuracy or operational availability/lead-time claim.
+**Visual:** V21 blocker/causal-contract card planned, no screenshot/anomaly map exists.
+
+### EV-024 required-PC-baseline upstream fix
+
+New metadata smoke: `2026-10-08T13:38:26.730440+00:00`–
+`2026-10-08T13:38:48.970146+00:00` UTC, or
+`2026-10-08T17:38:26.730440+04:00`–`2026-10-08T17:38:48.970146+04:00`
+Asia/Dubai. The exact predeclared March products and accepted April product resolve
+at 05.09 using the new optional constraint; no XML/rasters were accessed and no
+cache was created. Separate offline loading of the accepted April cache verified
+matching/contradicting constraints without altering its files or provenance.
+This fixes ambiguity at metadata level only, not AS-104 real acceptance.
+EV-022–EV-023 remain reserved in the untouched AS-104 worktree. All historical
+EV-001–EV-021 rows remain unchanged, including EV-014 PENDING/later PASS progression.
+
+### EV-025 — PR #10 integration and frozen AS-104 signing-access blocker
+
+**Status:** Integration/preservation/offline PASS; real acceptance BLOCKED.
+**Date:** 9 October 2026 (Asia/Dubai); exact three attempt times in validation §4.
+**Claim:** Exact merged main `39f2aee90c727fc151886efbdea44daec0e3f9b4` integrated
+ff-only; retained verified stash restored; four documentation conflicts reconciled;
+Decision 047→048, M19→M20, E18–E20 and EV-022–EV-024 preserved without renumbering
+or rewriting historical statuses. Eight temporal source/test files byte-identical;
+533 tests, Ruff/diff PASS; six existing warnings. Frozen delivered-05.09 attempts
+resolved March 4 product, read XML/SCL, then signing prevented completion;
+last B02 signing exhausted five bounded attempts. Diagnostic observed intermittent
+HTTP 504/200. Zero completed March references; accepted target 7,963 pixels/feature.
+**Evidence:** [Timestamped resumed validation](AS_104_TEMPORAL_BASELINE_VALIDATION.md#4-decision-048-integration-and-resumed-frozen-acceptance--9-october-2026),
+PR #10, journal M21 / E21, retained recovery/hash inventories and safety stash.
+**Limits:** No real temporal support/counts/statistics/fingerprints/product/lineage,
+scalar, future-scene or repeat result. Support is unknown, not measured zero;
+not HAB, calibrated chlorophyll, biological/operational accuracy or GitHub CI.
+**Next:** Retry identical 05.09 contract when signing is available; do not widen
+bounds, reduce minimum, mix processing or relax masks. Keep changes uncommitted;
+stash retained. P1 05.10 comparison and AS-105+ NOT STARTED.
+**Visual:** V22 sanitized gate chronology/HTTP status card planned, no anomaly map.
+
+### EV-026 reusable-token transport — later stage
+
+Fresh transport experiment: `2026-10-09T06:44:49.076690+00:00`–
+`2026-10-09T06:44:51.406274+00:00` UTC / 10:44:49–10:44:51 Asia/Dubai.
+One token HTTP 200, eleven signs on the actual March-4 05.09 account/container,
+two tiny HTTP 206 prefix/header reads, then zero extra acquisition requests for
+three cache-reuse signs. Report contains safe counters/status/latency/bytes only.
+No SAS credentials, product cache or full preprocessing created. EV-026 does not
+supersede EV-024's historical metadata experiment; it records a new transport
+stage after PR #10. EV-025 remains only in the preserved AS-104 worktree.
+
+### EV-027 — PR #11 integration and real five-reference 05.09 acceptance attempt
+
+**Status:** Integration/preservation/offline and AS-102/103 references PASS;
+AS-104 real acceptance **BLOCKED**. Uncommitted for review.
+**Date:** 9 October 2026; exact experiment UTC 07:31:08.630215–07:31:57.353103 /
+Dubai 11:31:08.630215–11:31:57.353103 +04:00.
+**Claim:** Exact ff-only PR #11 integration; second retained stash and external
+recovery artifacts; eight temporal source/test hashes preserved. Combined suite
+643 passed, Ruff/diff PASS, six existing warnings. Normal production transport
+completed five predeclared actual 05.09 March AS-102/103 scenes, identical target
+grid, and retained target cache identity/bytes. AS-104 target provenance guard
+rejects lower-case observation `sentinel-2b` against source label `Sentinel-2B`.
+Timestamps match; no temporal reduction occurred.
+**Evidence:** [Validation §5](AS_104_TEMPORAL_BASELINE_VALIDATION.md#5-pr-11-integration-and-five-reference-0509-attempt--9-october-2026), M23/E23, PR #11 / 2006df7;
+full safe per-scene IDs/fingerprints/statistics/support and diagnosis.
+**Limits:** No real temporal distributions/arrays/masks/statistics, semantic
+fingerprints/ID/lineage, scalar checks, causal future control or repeat result;
+missing outputs are unmeasured, not zero. No new Decision 050, algorithm change,
+cache rewrite, contract relaxation, hazard/accuracy/operational or GitHub CI claim.
+**Visual:** Five-reference support table and sanitized platform-label guard card;
+capture pending, no temporal anomaly screenshot.
 
 ### EV-014 evidence progression
 
@@ -154,3 +379,59 @@ For every important experiment, future agents must record:
 Do **not** store credentials, SAS tokens, signed URLs, or secrets. Use sanitized unsigned references and metadata excerpts. Do not commit full EO scenes or runtime caches as presentation evidence.
 
 After an evidence record exists, update the journal and affected EV entries. Preserve the old dated checkpoint when adding a later successful or failed gate; never rewrite a metadata-only stage as if it already contained pixel evidence. Scientific/provider decisions continue to be governed by the existing decision log and explicit authorization.
+
+### EV-028 — Targeted platform case-representation consistency fix
+
+**Status:** PASS — uncommitted for owner review. Date: 9 October 2026 (Asia/Dubai).
+**Finding:** Only `_descriptor`'s platform equality changes to `.casefold()`.
+No aliases, punctuation/space stripping, stored value normalization or identity
+rewrite. Acquisition, lineage and every other compatibility rule are unchanged.
+**Validation:** 20 added regressions; 132 temporal / 663 full tests, Ruff/diff PASS;
+six historical Rasterio warnings. Reverse-case unit test isolates the predicate;
+the existing lowercase observation descriptor schema remains unchanged.
+**Evidence:** [Validation §6](AS_104_TEMPORAL_BASELINE_VALIDATION.md#6-targeted-platform-case-representation-fix--9-october-2026), M24/E24, source/test delta and external pre-fix patch/hash inventory.
+**Limit:** Bug fix under Decision 047; no Decision 050 or new scientific result.
+
+### EV-029 — Cached real five-reference 05.09 temporal acceptance rerun
+
+**Status:** PASS — uncommitted for owner review. Date: 9 October 2026 (Asia/Dubai).
+**Experiment:** 08:01:50.383608–08:01:51.327507 UTC /
+12:01:50.383608–12:01:51.327507 +04:00. Exactly five fixed March references and
+accepted April-28 target, March half-open window and minimum five. Six existing
+known-ID 05.09 caches reused; unchanged AS-103 reconstruction reproduced exact
+IDs; all 12 cache-file hashes preserved. Zero network attempts or raster writes.
+**Result:** Six features each have target support 7,963. Baseline/z/rank counts
+792/802/801/801/801/797; insufficient counts 7,171/7,161/7,162/7,162/7,162/7,166.
+Zero MAD/numerical rejection counts zero. 18/18 independent scalar checks,
+synthetic future addition/mutation exclusion, deterministic repeat and input
+immutability PASS. Target-first/R1–R5 immediate parents and full upstream lineage.
+**Product:** `temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`.
+**Evidence:** [Validation §7](AS_104_TEMPORAL_BASELINE_VALIDATION.md#7-cached-five-reference-0509-real-acceptance-rerun--9-october-2026), M25/E25, complete safe JSON distributions/summaries/fingerprints/parents/scalar records.
+**Limit:** Engineering acceptance only; rank is not probability/confidence/
+severity and five observations are not statistical sufficiency. No aquatic Rrs,
+HAB, concentration, species/toxins, safety, intake risk, persistence, alert,
+warning lead-time or GitHub CI-success claim. Synthetic control is not a real
+future observation. M23/E23/EV-027 remains historically BLOCKED; no publication,
+AS-105+ or P1 homogeneous-05.10 experiment.
+
+### EV-030 — AS-104 implementation and accepted evidence committed and pushed
+
+**Status:** COMMITTED AND PUSHED for PR review; PR NOT YET CREATED, NOT MERGED.
+**Date:** 9 October 2026 (Asia/Dubai), after M25 acceptance. Git commit
+12:50:47 +04:00; remote publication verified by tracking-ref fetch at
+12:52:09 +04:00. Exact push-completion second is not recorded.
+**Publication:** Branch `feature/as-104-temporal-baseline`; feature commit
+`09b38bd9c312470e948b1f17165ec5335cfc149d`, parent/base
+`2006df7a70a4f48c66933aed96f4464d8d03084e`, message
+`feat: implement AS-104 temporal baseline`, exactly **15 paths**. Pushed to
+`origin/feature/as-104-temporal-baseline`; SHA equality/upstream/clean worktree
+verified. No cache, credentials, external recovery or temporary scripts committed.
+**Validation:** Before feature commit, 663 tests/Ruff/diff PASS with six existing
+Rasterio warnings. M25/E25/EV-029 real acceptance, scalar 18/18, synthetic causal
+and repeat checks PASS; all twelve cache hashes and six AS-103 IDs unchanged.
+**Evidence:** [Publication §8](AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026), M26/E26 and exact Git commit/remote metadata.
+**Limit:** No new EO processing or scientific values. M23/E23/EV-027 remains
+BLOCKED, M24–M25/E24–E25/EV-028–EV-029 remain acceptance-time PASS with original
+stop states. Roughly 10% support is not failure/statistical sufficiency; small
+positive scales can yield large z. No Decision 050, merge, GitHub CI success,
+AS-105+ or P1 05.10 study. Review published commit and open PR only when authorized.

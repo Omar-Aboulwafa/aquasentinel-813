@@ -1,5 +1,25 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
+**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+Implementation and real acceptance **PASS**; feature commit
+`09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
+parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+Branch `feature/as-104-temporal-baseline`; remote/upstream
+`origin/feature/as-104-temporal-baseline`. Feature publication verified equal
+local/remote SHA and a **clean worktree**. This reconciliation is documentation only.
+**PR NOT YET CREATED; merge NOT YET PERFORMED.** Review the published commit and
+open a PR if review passes and creation is authorized; this task creates no PR.
+M23/E23/EV-027 remains historically BLOCKED; M24–M25/E24–E25/EV-028–EV-029 remain
+acceptance-time PASS. Their earlier stop states below are historical, not current
+Git status. M26/E26/EV-030 separates later publication from acceptance completion.
+No Decision 050; both stashes/recovery artifacts retained; AS-105+ and P1 05.10
+**NOT STARTED**. No science, source/tests, caches or experiment timestamps changed.
+Exact publication metadata/times and unchanged acceptance evidence are in
+[validation §8](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026).
+
+The original planning/dated execution records below retain their then-current
+stop-state instructions unchanged. Their uncommitted/no-push language is historical.
+
 **Last updated:** 2 October 2026
 **Status:** Active decision log
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
@@ -1017,6 +1037,110 @@ Observed acceptance: [AS-103 evidence](evidence/AS_103_SPECTRAL_FEATURES_VALIDAT
 
 ---
 
+## Decision 047 — AS-104 Causal Per-Pixel Temporal Feature Baselines
+
+**Date:** 8 October 2026 (Asia/Dubai).
+**Status:** Explicitly authorized for AS-104.
+
+### Decision
+
+AS-104 is a causal, target-specific, per-feature, per-pixel temporal comparison
+over validated AS-103 SpectralFeatureScene objects. For one target observation,
+use explicitly bounded strictly-prior observations only. No target self-inclusion.
+No future observations. No symmetric before/after baseline in as104-v1.
+
+For every feature/pixel:
+
+- historical centre = median
+- MAD = median(abs(history - median))
+- scale = 1.4826 * MAD
+- signed deviation = target - centre
+- standardized anomaly = deviation / scale when scale > 0
+- empirical rank uses exact-tie midrank
+
+Minimum history is an explicit API parameter. For P0 real acceptance use
+`minimum_observations = 5`. Five is a P0 engineering/scientific starting rule,
+not a claim of statistical sufficiency.
+
+Zero MAD:
+
+- centre remains valid
+- scale = 0 remains valid
+- signed deviation remains valid
+- empirical rank remains valid
+- standardized anomaly is invalid / NaN
+- no epsilon
+- no fallback scale estimator
+- no clipping
+
+AS-104 never combines features. Preserve feature-family metadata, including the
+shared `red_edge_b5_vs_red` family for `ndci_like` and `red_edge_red_ratio`.
+These must not later be interpreted as independent biological evidence.
+
+AS-104 outputs are temporal spectral anomalies, candidate feature deviations,
+observational anomalies and baseline-relative signals. They are NOT HAB detections,
+bloom detections, calibrated chlorophyll, species/toxin evidence, water-safety
+evidence, intake exposure, persistence, risk score, alert level, monitoring
+recommendation or warning lead-time proof.
+
+### Frozen owner modifications and implementation contract
+
+Use semantic `as104-input-v1` fingerprints. Target: full valid-water mask, all six
+feature masks, supported feature values. Selected references: feature validity
+restricted to target feature support and values only on the target/reference
+support intersection. Exclude reference pixels outside target support, invalid
+NaN payloads, future and out-of-period scenes. Use length-delimited canonical
+headers, C-order masks and little-endian float32 payloads. Copy relevant inputs;
+no concurrent-copy guarantee. Selected parent IDs/times remain in identity and
+provenance even when a parent contributes no valid values. Do not implement
+`precision_limited_scale_count` or any float32-epsilon pseudo noise floor.
+
+Primary API: `compute_temporal_anomaly(scenes, *, target_product_id,
+reference_start, reference_end=None, minimum_observations, registry)`.
+Use start <= reference acquisition < effective end <= target acquisition;
+normalize UTC, default effective end to target time, sort selected references by
+acquisition then product ID. Reject duplicate products/times/observations,
+malformed inputs, incompatible selected grids/feature/processing contracts and
+unresolved/inconsistent upstream lineage. P0 uses the same tile, relative orbit
+and delivered PC processing baseline; Sentinel-2A/B may coexist. Generation
+times differ and are recorded. Minimum is an integer 3 through uint32 maximum;
+booleans are rejected and there is no hidden default. Sparse/empty support is a
+valid empty result, not an exception.
+
+Float64 arithmetic, centre, scale and deviation; float32 standardized anomaly and
+rank; uint32 counts, zero outside target feature support; boolean masks, all
+subsets of target feature support. Positive scale is used directly; mask nonfinite
+or non-representable float32 standardized results. Exact rank is
+`(count(history < target) + 0.5*count(history == target))/n`, range [0,1], same
+minimum; rank is not probability, p-value, confidence or severity. No interpolation,
+trend fitting, seasonality correction, pooling, winsorization or outlier deletion.
+
+Identity `temporal:<SHA-256(canonical identity)>`, version `as104-v1`, includes
+selected parents/times, semantic fingerprints, grid, feature/family/compatibility
+contracts, effective bounds, minimum, numerical/support/statistics/dtype policies
+and Python/NumPy versions. Creation time and calculated summaries are excluded.
+Immediate provenance parents are target AS-103 first, then chronological selected
+references: PC -> AS-102 -> AS-103 -> AS-104. Registry is read-only during
+computation; caller may register the result afterward. No generic schema change,
+new dependency, config field or disk cache.
+
+### Validation and scope
+
+Pass offline independent arithmetic, support, numerical, causality, semantic
+identity, model corruption, exact multi-parent lineage and blocked-IO tests before
+real work. Predeclare April 28 target, March 1–April 1 UTC reference period and
+minimum 5. Use unchanged AS-101/102/103 and ignored AS-102 caches; record actual
+support and blockers without widening dates, lowering minimum, relaxing masks,
+mixing processing or selecting by anomalies. Preserve all historical evidence.
+
+No AS-105/106/107/108, ML, environmental/oil context, exposure, risk/alerts,
+recommendations or dashboard. Positive is not dangerous; negative is not safe;
+BOA is not aquatic Rrs. Acquisition-causal retrospective comparison does not
+establish historical operational availability or warning lead time. Contract:
+[AS-104 plan/API](AS_104_TEMPORAL_BASELINE.md).
+
+---
+
 ## Decision 048 — Explicit Planetary Computer Processing-Baseline Selection
 
 **Date:** 8 October 2026 (Asia/Dubai).
@@ -1081,6 +1205,19 @@ uncommitted for review. AS-104 remains uncommitted and its real acceptance BLOCK
 until this upstream fix is reviewed/merged and acceptance is separately rerun.
 See [fix plan/API](AS_102_REQUIRED_PC_BASELINE_FIX.md) and
 [validation evidence](evidence/AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md).
+
+### Post-merge integration checkpoint — 9 October 2026 (Asia/Dubai)
+
+PR #10 merged the source-selection fix at
+`39f2aee90c727fc151886efbdea44daec0e3f9b4` (feature fix
+`c9a415b65a101319e9c9f2fef21ad0dcd44c9347`). Decision 047 and 048 now coexist
+in order; the preceding cross-worktree/pending-review text is the original
+8 October fix checkpoint, preserved verbatim. AS-104 source/tests were restored
+byte-identically and the combined gate passed 533 tests, Ruff/diff checks and
+six existing warnings. Frozen 05.09 real acceptance was resumed but stopped at
+March 4 signing (HTTP 504 observed), not observation ambiguity. No selector,
+processing/cache identity, numerical rule or scientific decision changed.
+See M21/E21/EV-025 and the separately dated AS-104 validation evidence.
 
 ---
 
@@ -1187,3 +1324,26 @@ Before making a change that contradicts one of these decisions:
 4. update this document if the change is approved.
 
 The purpose of this file is to prevent accidental architectural drift and loss of project reasoning.
+
+## Historical AS-104 Execution Note — Case Representation and Cached Acceptance
+
+9 October 2026 (Asia/Dubai): the owner-authorized M24/E24/EV-028 bug fix changes
+one AS-104 provenance consistency equality to `.casefold()` comparison only.
+It introduces no aliases, stored platform normalization or identity rewrite;
+all other validation and Decision 047's scientific contract remain unchanged.
+No Decision 050 is created. Decisions 047–049 and historical M23/E23/EV-027
+remain preserved. M25/E25/EV-029 records the frozen cached 05.09 real acceptance
+PASS, with minimum five, sparse support, scalar/causal/repeat verification and
+unchanged AS-102/AS-103 identity. See the AS-104 validation §§6–7 for evidence.
+These are execution checkpoints, not a new architectural/scientific decision.
+AS-104 remains uncommitted for review; no AS-105+ or P1 05.10 study.
+
+## AS-104 Publication Execution Note — M26 / E26 / EV-030
+
+AS-104 feature commit `09b38bd9c312470e948b1f17165ec5335cfc149d` is committed
+and pushed on the existing feature branch from parent `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+This publishes the already accepted implementation/evidence; it is not a new
+scientific/architectural decision and does not create Decision 050. Current
+publication status supersedes the earlier execution stop state above, while
+Decisions 047–049 and M23–M25 remain historically intact. PR not yet created;
+not merged. Review published commit next; no AS-105+ or P1 05.10 study.
