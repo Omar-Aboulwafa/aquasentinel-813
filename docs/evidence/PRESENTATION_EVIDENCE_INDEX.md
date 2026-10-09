@@ -1,6 +1,24 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+**AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
+**AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
+Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+Publication documentation commit / final PR head: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+Merged **2026-10-09T09:26:08Z** / **2026-10-09T13:26:08+04:00 Asia/Dubai**.
+Real acceptance **PASS**; no unresolved AS-104 P0 blocker. Known scientific and
+coverage limitations remain documented. Current active development branch: **none**;
+AS-104 development is closed. This closeout was prepared on `docs/as-104-closeout`.
+Next step: owner review of the next milestone/AS-105 design before implementation;
+separate authorization is required. AS-105+ and P1 homogeneous 05.10 **NOT STARTED**.
+M23–M26/E23–E26/EV-027–EV-030 retain their dated historical blocker, fix, acceptance
+and publication states, including then-pending PR/merge language. M27/E27/EV-031
+records the later merge/closeout; it is an execution/history event, not Decision 050.
+Both safety stashes and external recovery artifacts are retained historical recovery
+material. No EO experiment rerun or source/test/math/cache changes in this closeout.
+See [merge/closeout evidence §9](AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026).
+
+**Historical AS-104 publication status — before PR #12 merge, 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
 Implementation and real acceptance **PASS**; feature commit
 `09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
 parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
@@ -178,8 +196,9 @@ EV-019/EV-020 and journal M17 retain the original AS-103 feature-branch acceptan
 
 ## Claim index
 
-Earlier evidence rows retain their recorded checkpoint statuses. EV-030
-supersedes AS-104 publication status without rewriting EV-027–EV-029.
+Earlier evidence rows retain their recorded checkpoint statuses. EV-030 records
+publication; EV-031 records the later PR #12 merge/closeout without rewriting
+EV-027–EV-030. Their pending PR/merge instructions are historical.
 
 | Evidence ID | Claim | Status | Metric/result | Source document | Suggested presentation use | Visual still needed? | Final validation needed? |
 |---|---|---|---|---|---|---|---|
@@ -210,6 +229,7 @@ supersedes AS-104 publication status without rewriting EV-027–EV-029.
 | EV-028 | AS-104 case-only platform consistency fix | **PASS — UNCOMMITTED / READY FOR REVIEW** | One equality predicate, 20 regression cases, 132 temporal and 663 full tests/Ruff/diff PASS; stored values/identities unchanged | [Validation §6](AS_104_TEMPORAL_BASELINE_VALIDATION.md#6-targeted-platform-case-representation-fix--9-october-2026); M24/E24 | Fix representation compatibility while preserving scientific identity | Yes: before/after predicate card; capture pending | No aliases, science change, Decision 050, publication or accuracy claim |
 | EV-029 | AS-104 cached five-reference 05.09 acceptance rerun | **PASS — UNCOMMITTED / READY FOR REVIEW** | Six known-ID cache reloads/unchanged AS-103 IDs; 792–802 eligible pixels from 7,963 target support; 18 scalar checks, synthetic causal exclusion, repeat PASS; zero network | [Validation §7](AS_104_TEMPORAL_BASELINE_VALIDATION.md#7-cached-five-reference-0509-real-acceptance-rerun--9-october-2026); M25/E25 | Honest sparse temporal support and reproducible lineage | Yes: history-count/support card; capture pending | Five scenes are not statistical sufficiency; no HAB, concentration, safety, operational risk, persistence, alerts/lead time or CI-success claim |
 | EV-030 | AS-104 reviewed implementation/evidence publication | **COMMITTED AND PUSHED — PR NOT YET CREATED, NOT MERGED** | Feature `09b38bd`, parent `2006df7`, 15 paths; pre-commit 663 tests/Ruff/diff PASS, six warnings; remote SHA equality/clean worktree, accepted identities/hashes/history preserved | [Publication §8](AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026); M26/E26 | Separate measured acceptance from reviewable Git publication | Yes: acceptance → commit → branch → pending review diagram; capture pending | No new EO experiment, merge, GitHub CI success, statistical sufficiency or hazard/operational validation |
+| EV-031 | AS-104 merged through PR #12 and formally closed | **COMPLETE AND MERGED — REAL ACCEPTANCE PASS** | Merge `472edc7`, final head `703af11`, two commits/fifteen paths, 663-test reviewed baseline, six historical warnings; preserved 18/18 scalar/causal/repeat evidence, identities/hashes and recovery | [Closeout §9](AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026); M27/E27; PR #12 | Distinguish acceptance/publication/merge; disclose sparse support and authorization boundaries | Yes: milestone timeline/support/merge card; capture pending | No new scientific experiment, HAB/operational claim, statistical sufficiency or GitHub CI success; future design requires authorization |
 
 ### EV-021 final AS-103 review and merge
 
@@ -435,3 +455,28 @@ BLOCKED, M24–M25/E24–E25/EV-028–EV-029 remain acceptance-time PASS with or
 stop states. Roughly 10% support is not failure/statistical sufficiency; small
 positive scales can yield large z. No Decision 050, merge, GitHub CI success,
 AS-105+ or P1 05.10 study. Review published commit and open PR only when authorized.
+
+### EV-031 — AS-104 PR #12 merge and formal closeout
+
+**Status:** AS-104 COMPLETE AND MERGED; real acceptance PASS; no unresolved AS-104
+P0 blocker. Known scientific/coverage limitations remain documented.
+**Date:** 9 October 2026, **2026-10-09T13:26:08+04:00 Asia/Dubai** /
+**2026-10-09T09:26:08Z** merge; distinct from M25 acceptance and M26 publication.
+**Merge:** PR #12, title `feat: implement AS-104 temporal baseline`; base `main`
+at `2006df7a70a4f48c66933aed96f4464d8d03084e`, head `feature/as-104-temporal-baseline` at
+`703af1176aeaf9ba38d31c53648907c3b1792aec`, merge `472edc737847dc8581290a372c5da28f71fc48f0`. Two commits/fifteen changed
+paths: implementation `09b38bd9c312470e948b1f17165ec5335cfc149d` plus publication docs `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+**Evidence:** [Merge/closeout §9](AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026), M27/E27 and verified Git merge metadata.
+**Validation:** Final pre-merge 663 tests, Ruff/diff PASS, six existing Rasterio
+warnings; accepted scalar 18/18, synthetic causal and repeat PASS. Temporal
+product/fingerprint, eligible counts and all accepted AS-102 cache hashes /
+AS-103 identities are preserved. This docs-only closeout does not rerun EO.
+**Limit:** About 10% five-history support is retained, not hidden or relaxed.
+Five observations are not statistical sufficiency; small positive scales can
+yield large z. Rank is not probability/confidence/severity. No HAB/bloom,
+chlorophyll, species/toxins, safety, intake risk, persistence, alerts, lead-time
+or GitHub CI-success claim. EV-027 blocker, EV-028 fix, EV-029 acceptance and
+EV-030 PR-pending publication remain historical. No Decision 050.
+**Next:** Owner review of next milestone/AS-105 design before implementation;
+separate authorization required. Both safety stashes/recovery artifacts retained;
+AS-105+ and P1 homogeneous 05.10 NOT STARTED. No closeout PR or new merge in this task.

@@ -3,8 +3,26 @@
 **Last updated:** 9 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current active development branch:** `feature/as-104-temporal-baseline`; integrated base `2006df7a70a4f48c66933aed96f4464d8d03084e`. AS-104 implementation/real acceptance PASS; feature commit 09b38bd committed and pushed, clean publication worktree; PR review next, not merged. AS-105+ NOT authorized/NOT started.
-**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+**Current active development branch:** none. AS-104 development is closed; AS-105+ is NOT authorized and NOT started. This closeout was prepared on `docs/as-104-closeout`.
+**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+**AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
+**AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
+Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+Publication documentation commit / final PR head: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+Merged **2026-10-09T09:26:08Z** / **2026-10-09T13:26:08+04:00 Asia/Dubai**.
+Real acceptance **PASS**; no unresolved AS-104 P0 blocker. Known scientific and
+coverage limitations remain documented. Current active development branch: **none**;
+AS-104 development is closed. This closeout was prepared on `docs/as-104-closeout`.
+Next step: owner review of the next milestone/AS-105 design before implementation;
+separate authorization is required. AS-105+ and P1 homogeneous 05.10 **NOT STARTED**.
+M23–M26/E23–E26/EV-027–EV-030 retain their dated historical blocker, fix, acceptance
+and publication states, including then-pending PR/merge language. M27/E27/EV-031
+records the later merge/closeout; it is an execution/history event, not Decision 050.
+Both safety stashes and external recovery artifacts are retained historical recovery
+material. No EO experiment rerun or source/test/math/cache changes in this closeout.
+See [merge/closeout evidence §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026).
+
+**Historical AS-104 publication status — before PR #12 merge, 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
 Implementation and real acceptance **PASS**; feature commit
 `09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
 parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
@@ -170,7 +188,7 @@ No commit/push/PR; no AS-105+ authorization. See the AS-104 section below.
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation/continuity complete → AS-101/AS-102/AS-103 merged → Decisions 048/049 merged → AS-104 implementation PASS → AS-104 real acceptance PASS → AS-104 feature commit 09b38bd pushed → PR review is next → AS-105+ NOT STARTED; P1 05.10 robustness NOT STARTED.**
+**Foundation/continuity complete → AS-101/AS-102/AS-103 merged → Decisions 048/049 merged → AS-104 implementation PASS → AS-104 real acceptance PASS → PR #12 merged → AS-104 COMPLETE → next engineering stage requires separate authorization → AS-105+ NOT STARTED; P1 05.10 NOT STARTED.**
 
 Completed engineering foundations:
 
@@ -191,7 +209,7 @@ Completed AS-101 implementation and next milestone:
 - AS-101 — Sentinel-2 STAC Search: completed on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. AS-101, including the approved review fixes, is merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
 - Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
-- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 is explicitly authorized, with its implementation and frozen real acceptance PASS, feature commit 09b38bd pushed for PR review (PR not yet created; not merged); AS-105+ is unauthorized and unstarted. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
+- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 is COMPLETE AND MERGED through PR #12 at 472edc7, with implementation and frozen real acceptance PASS; AS-105+ is unauthorized and unstarted. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
 - AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation commit: `5638bc8b4ab06f235f908642f714a7cc83b35709`. AS-103 implementation merge commit: `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai. See §24 and journal M18 / EV-021 for final review/merge and preserved acceptance evidence.
 
 ---
@@ -537,7 +555,7 @@ AS-003 merge commit:
 
 ## 9. Current Test / Quality Status
 
-Current published AS-104 reviewed baseline: **663 tests passed**, Ruff/diff
+Current merged AS-104 reviewed baseline: **663 tests passed**, Ruff/diff
 PASS, six existing Rasterio warnings. Frozen cached real acceptance and 18 scalar,
 synthetic causal and repeat checks PASS. No GitHub CI-success claim; AS-105+
 and P1 05.10 remain unstarted. Earlier merged baselines below are historical.
@@ -815,7 +833,7 @@ Expected sequence:
 - AS-101 — Sentinel-2 STAC Search (complete and merged via PR #2).
 - AS-102 — Optical Preprocessing (COMPLETE AND MERGED through PR #6).
 - AS-103 — Spectral Feature Extraction (COMPLETE AND MERGED through PR #8).
-- AS-104 — Temporal Baseline (explicitly authorized; implementation and frozen real acceptance PASS, feature commit 09b38bd pushed; PR not yet created, not merged).
+- AS-104 — Temporal Baseline (COMPLETE AND MERGED through PR #12; implementation and real acceptance PASS).
 - AS-105 — HAB Anomaly Geometry.
 - AS-106 — Persistence.
 - AS-107 — HAB Risk & Confidence.
@@ -976,14 +994,12 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-Review published AS-104 feature commit
-`09b38bd9c312470e948b1f17165ec5335cfc149d` and M26/E26/EV-030, alongside
-the preserved fix/real acceptance M24–M25/E24–E25/EV-028–EV-029. Implementation,
-offline and real gates passed; commit is pushed to origin on the existing
-feature branch. Open a PR if review passes and PR creation is authorized.
-PR has not yet been created; merge has not occurred. Preserve both stashes,
-recovery artifacts and the frozen scientific contract. Do not start AS-105+
-or P1 homogeneous-05.10 robustness.
+Owner review of the next milestone/AS-105 design before implementation. AS-104
+is COMPLETE AND MERGED via PR #12; implementation and real acceptance PASS,
+with no unresolved AS-104 P0 blocker. Further engineering requires separate
+explicit authorization. Retain both safety stashes and recovery artifacts;
+preserve scientific limits and the frozen accepted evidence. AS-105+ and
+P1 homogeneous-05.10 robustness remain NOT STARTED.
 
 ---
 
@@ -997,13 +1013,13 @@ At the current point, the project is healthy if:
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
 - AS-101 is complete and merged into `main` via PR #2, with passing offline checks and a successful real catalog smoke test,
-- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is COMPLETE AND MERGED through PR #8 with reviewed feature/identity/lineage evidence; AS-104 is explicitly authorized, with its implementation and frozen real acceptance PASS, feature commit 09b38bd pushed for PR review (PR not yet created; not merged); AS-105+ is unauthorized and unstarted.
+- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is COMPLETE AND MERGED through PR #8 with reviewed feature/identity/lineage evidence; AS-104 is COMPLETE AND MERGED through PR #12 at 472edc7, with implementation and frozen real acceptance PASS; AS-105+ is unauthorized and unstarted.
 
 
 ## 23. AS-102 — Optical Preprocessing — COMPLETE AND MERGED
 
 The AS-102/AS-103 handoffs below preserve their merge-time checkpoints, including
-the then-current AS-104 authorization status. M26 above and the final publication
+the then-current AS-104 authorization status. M27 above and the final closeout
 handoff supersede those next-step instructions; their historical bodies are retained.
 
 AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 remains NOT authorized and NOT started.
@@ -1228,7 +1244,7 @@ Both safety stashes remain untouched. See the current header and validation
 §§6–7 for exact IDs, temporal support, lineage and independent checks.
 No AS-104 commit/push/PR/merge; no AS-105+ or P1 05.10 work.
 
-## Current AS-104 publication handoff — M26 / E26 / EV-030
+## Historical AS-104 publication handoff — M26 / E26 / EV-030 (before PR #12 merge)
 
 Feature implementation/evidence commit `09b38bd9c312470e948b1f17165ec5335cfc149d`
 is published on `origin/feature/as-104-temporal-baseline` from parent/base
@@ -1239,3 +1255,26 @@ Review the published commit and open a PR if review passes and creation is
 authorized. PR NOT YET CREATED; merge NOT YET PERFORMED. Both stashes and recovery
 artifacts retained. AS-105+ and P1 05.10 NOT STARTED. Earlier stop states above
 remain historical, not instructions to recommit the implementation.
+
+## Current AS-104 merged closeout handoff — M27 / E27 / EV-031
+
+AS-104: **COMPLETE AND MERGED** through PR #12; real acceptance **PASS**.
+Implementation merge commit: `472edc737847dc8581290a372c5da28f71fc48f0`.
+Feature implementation: `09b38bd9c312470e948b1f17165ec5335cfc149d`; final head / publication docs:
+`703af1176aeaf9ba38d31c53648907c3b1792aec`. Merge time: **2026-10-09T13:26:08+04:00 Asia/Dubai**
+(**2026-10-09T09:26:08Z**), separately from acceptance and feature publication.
+Current active development branch: none; this closeout was prepared on
+`docs/as-104-closeout`. No unresolved AS-104 P0 blocker; known limitations remain.
+Reproducible temporal spectral anomaly / baseline-relative comparisons over
+BOA-derived features are supported. This does not establish HAB detection, bloom
+confirmation, chlorophyll concentration, species, toxins, water safety, intake
+risk, persistence, alerts or warning lead time. L2A BOA is not aquatic Rrs.
+Five historical observations are not statistical sufficiency; approximately 10%
+five-history support remains a documented limitation, not a failure or reason to
+relax support. Small positive scales can produce large robust-z magnitudes.
+Rank is not probability, confidence or severity.
+
+Owner review of the next milestone/AS-105 design before implementation is next;
+separate authorization required. Both safety stashes and all external recovery
+artifacts are retained historical recovery material. No Decision 050, EO rerun,
+AS-105+ or P1 05.10 experiment. M23–M26 historical bodies remain preserved.

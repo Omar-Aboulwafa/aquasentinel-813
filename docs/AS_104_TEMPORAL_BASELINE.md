@@ -1,6 +1,24 @@
 # AS-104 — Temporal Baseline
 
-**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+**AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
+**AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
+Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+Publication documentation commit / final PR head: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+Merged **2026-10-09T09:26:08Z** / **2026-10-09T13:26:08+04:00 Asia/Dubai**.
+Real acceptance **PASS**; no unresolved AS-104 P0 blocker. Known scientific and
+coverage limitations remain documented. Current active development branch: **none**;
+AS-104 development is closed. This closeout was prepared on `docs/as-104-closeout`.
+Next step: owner review of the next milestone/AS-105 design before implementation;
+separate authorization is required. AS-105+ and P1 homogeneous 05.10 **NOT STARTED**.
+M23–M26/E23–E26/EV-027–EV-030 retain their dated historical blocker, fix, acceptance
+and publication states, including then-pending PR/merge language. M27/E27/EV-031
+records the later merge/closeout; it is an execution/history event, not Decision 050.
+Both safety stashes and external recovery artifacts are retained historical recovery
+material. No EO experiment rerun or source/test/math/cache changes in this closeout.
+See [merge/closeout evidence §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026).
+
+**Historical AS-104 publication status — before PR #12 merge, 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
 Implementation and real acceptance **PASS**; feature commit
 `09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
 parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
@@ -243,7 +261,7 @@ worktree stays uncommitted for owner review. No commit/push/PR/merge, Decision
 050, AS-105+ or P1 05.10 experiment. Engineering PASS does not establish HAB,
 concentration, toxins/species, safety, risk, persistence, alerts or lead time.
 
-## Current Final Publication Status — M26 / E26 / EV-030
+## Historical Final Publication Status — M26 / E26 / EV-030 (before PR #12 merge)
 
 AS-104 implementation and real acceptance PASS. Implementation/evidence committed
 as `09b38bd9c312470e948b1f17165ec5335cfc149d` and pushed to
@@ -254,3 +272,27 @@ The original instruction to leave implementation uncommitted and earlier
 BLOCKED/PASS execution stop states remain historical. This later publication
 does not rerun EO processing, alter scientific values/math or establish detection
 accuracy. See validation §8 for acceptance versus publication timestamps.
+
+## Current Final Closeout Status — M27 / E27 / EV-031
+
+AS-104: **COMPLETE AND MERGED** via PR #12. Real acceptance **PASS**; no unresolved
+AS-104 P0 blocker. Merge commit `472edc737847dc8581290a372c5da28f71fc48f0`, merged
+**2026-10-09T13:26:08+04:00 Asia/Dubai** / **2026-10-09T09:26:08Z**.
+Feature implementation `09b38bd9c312470e948b1f17165ec5335cfc149d` and publication docs/final head
+`703af1176aeaf9ba38d31c53648907c3b1792aec` are the two merged commits across fifteen changed paths.
+The accepted temporal product and scientific measurements are unchanged;
+see validation §9 for merge metadata and separate acceptance/publication times.
+Reproducible temporal spectral anomaly / baseline-relative comparisons over
+BOA-derived features are supported. This does not establish HAB detection, bloom
+confirmation, chlorophyll concentration, species, toxins, water safety, intake
+risk, persistence, alerts or warning lead time. L2A BOA is not aquatic Rrs.
+Five historical observations are not statistical sufficiency; approximately 10%
+five-history support remains a documented limitation, not a failure or reason to
+relax support. Small positive scales can produce large robust-z magnitudes.
+Rank is not probability, confidence or severity.
+
+The original plan and BLOCKED/PASS/publication checkpoint instructions remain
+historical. This closeout changes documentation only and does not rerun EO.
+Owner review of next milestone/AS-105 design precedes any implementation;
+separate authorization required. AS-105+ and P1 05.10 NOT STARTED. Both safety
+stashes/recovery artifacts retained. No Decision 050 or new merge in this task.

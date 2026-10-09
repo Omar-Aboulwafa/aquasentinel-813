@@ -1,6 +1,24 @@
 # AS-104 — Temporal Baseline Validation Evidence
 
-**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+**AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
+**AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
+Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+Publication documentation commit / final PR head: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+Merged **2026-10-09T09:26:08Z** / **2026-10-09T13:26:08+04:00 Asia/Dubai**.
+Real acceptance **PASS**; no unresolved AS-104 P0 blocker. Known scientific and
+coverage limitations remain documented. Current active development branch: **none**;
+AS-104 development is closed. This closeout was prepared on `docs/as-104-closeout`.
+Next step: owner review of the next milestone/AS-105 design before implementation;
+separate authorization is required. AS-105+ and P1 homogeneous 05.10 **NOT STARTED**.
+M23–M26/E23–E26/EV-027–EV-030 retain their dated historical blocker, fix, acceptance
+and publication states, including then-pending PR/merge language. M27/E27/EV-031
+records the later merge/closeout; it is an execution/history event, not Decision 050.
+Both safety stashes and external recovery artifacts are retained historical recovery
+material. No EO experiment rerun or source/test/math/cache changes in this closeout.
+See [merge/closeout evidence §9](AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026).
+
+**Historical AS-104 publication status — before PR #12 merge, 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
 Implementation and real acceptance **PASS**; feature commit
 `09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
 parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
@@ -4875,6 +4893,9 @@ commit/push/PR/merge, AS-105+ or P1 homogeneous-05.10 robustness experiment.
 
 ## 8. AS-104 feature publication — 9 October 2026
 
+**Historical publication checkpoint, before the PR #12 merge in §9.** The PR-pending
+status and next-step language below describe that publication time.
+
 **M26 / E26 / EV-030 — COMMITTED AND PUSHED for PR review.**
 
 This is a later Git publication checkpoint, not a rerun or alteration of §§1–7.
@@ -4926,3 +4947,84 @@ PR NOT YET CREATED; merge NOT YET PERFORMED. Current priority is review of the
 published commit and opening a PR if review passes and creation is authorized.
 Both safety stashes/recovery artifacts remain retained. No Decision 050,
 AS-105+ or P1 homogeneous-05.10 robustness experiment.
+
+## 9. PR #12 merge and AS-104 closeout — 9 October 2026
+
+**M27 / E27 / EV-031 — AS-104 COMPLETE AND MERGED; real acceptance PASS.**
+No unresolved AS-104 P0 blocker. This is a Git merge/documentation closeout event,
+not a new scientific/architectural decision or a rerun of the real EO experiment.
+Earlier §§1–8 remain dated historical checkpoints with unchanged scientific data.
+
+### Official merge metadata
+
+- PR: [#12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12), **MERGED**.
+- Title: `feat: implement AS-104 temporal baseline`.
+- Base: `main`; base before merge: `2006df7a70a4f48c66933aed96f4464d8d03084e`.
+- Head: `feature/as-104-temporal-baseline`; final head: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+- Commits: **2**; changed files: **15**.
+- Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+- Publication documentation commit: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+- AS-104 implementation merge commit: `472edc737847dc8581290a372c5da28f71fc48f0`.
+- Merged at **2026-10-09T09:26:08Z** / **2026-10-09T13:26:08+04:00 Asia/Dubai**.
+- Fetched `origin/main` verified exactly at this merge; Git merge message,
+  parents, timestamp, two feature commits and fifteen-path scope agree.
+  No GitHub CI success is claimed.
+- This isolated closeout was prepared on `docs/as-104-closeout` directly from
+  that origin/main baseline. Current active development branch: **none**.
+
+### Separate acceptance, publication and merge times
+
+Experiment acceptance completed **2026-10-09T08:01:51.327507+00:00 UTC** /
+**2026-10-09T12:01:51.327507+04:00 Asia/Dubai** (M25/E25/EV-029).
+Feature commit occurred **2026-10-09T08:50:47+00:00 UTC** /
+**2026-10-09T12:50:47+04:00 Asia/Dubai**; remote publication was confirmed by
+tracking-ref fetch at **08:52:09 UTC / 12:52:09 +04:00**, with exact push-completion
+second not independently recorded (M26/E26/EV-030). PR merge was later at
+**09:26:08 UTC / 13:26:08 +04:00**. None is a replacement experiment timestamp.
+Publication reconciliation gate: **663 passed, 6 warnings in 19.21s**, Ruff/diff
+PASS. Final pre-merge baseline remains **663 passed**, Ruff/diff PASS,
+six historical Rasterio PendingDeprecationWarnings.
+
+### Accepted scientific evidence and limitations retained
+
+Temporal product:
+`temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`.
+Identity digest: `e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`.
+Target semantic fingerprint:
+`0195eb2c019109f0d5217cda7ea492cc73e68d35708758535f5df92aa8d00662`.
+
+| Feature | Five-history eligible support |
+|---|---:|
+| ndci_like | 792 |
+| mci_like | 802 |
+| red_edge_red_ratio | 801 |
+| red_edge2_red_ratio | 801 |
+| green_red_ratio | 801 |
+| green_blue_ratio | 797 |
+
+Independent scalar validation **18/18 PASS**; synthetic future-scene causal
+check **PASS**; deterministic repeat **PASS**. All six accepted AS-103 product
+identities and twelve accepted AS-102 cache-file hashes remain unchanged.
+Reproducible temporal spectral anomaly / baseline-relative comparisons over
+BOA-derived features are supported. This does not establish HAB detection, bloom
+confirmation, chlorophyll concentration, species, toxins, water safety, intake
+risk, persistence, alerts or warning lead time. L2A BOA is not aquatic Rrs.
+Five historical observations are not statistical sufficiency; approximately 10%
+five-history support remains a documented limitation, not a failure or reason to
+relax support. Small positive scales can produce large robust-z magnitudes.
+Rank is not probability, confidence or severity.
+
+M23/E23/EV-027 remains BLOCKED on representation; M24/E24/EV-028 case-only fix
+PASS; M25/E25/EV-029 real acceptance PASS; M26/E26/EV-030 published for PR review.
+The merged platform guard remains only
+`observation["platform"].casefold() != source.platform.casefold()`; no alias or
+punctuation normalization. Source/test hash preservation and fresh closeout
+quality gates are verified separately, without EO processing or cache writes.
+Safety stashes `f93950aab6fdfb40bb100158915ef12692aa1665` and
+`d979a433a5ab8ae600282048f184eb5fd06a8f17` and all five external recovery artifacts
+are retained historical recovery material; neither stash was applied or dropped.
+
+AS-104: **COMPLETE AND MERGED**; real acceptance **PASS**; known limitations
+retained. Next step is owner review of the next milestone/AS-105 design before
+implementation, requiring separate authorization. No Decision 050, closeout PR,
+merge during this task, AS-105+ or P1 homogeneous-05.10 experiment.
