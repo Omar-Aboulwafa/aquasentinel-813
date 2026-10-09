@@ -16,13 +16,14 @@
 
 ## Evidence standard and temporal boundary
 
-**Current upstream fix update — 8 October 2026:** Decision 048 / M20 / E20 /
-EV-024 adds separately authorized source disambiguation, uncommitted for review.
-AS-104 was explicitly authorized and remains uncommitted/preserved in its original
-worktree; real acceptance is still BLOCKED pending upstream review/merge and a
-separate rerun. Decision 047 and M19/E18–E19/EV-022–EV-023 remain there only, per
-owner clarification; their numbers are reserved, not reused. Earlier AS-103
-closeout authorization statements retain their historical checkpoint meaning.
+**Current upstream fix update — 9 October 2026:** Decision 048 is merged via PR
+#10 at `39f2aee90c727fc151886efbdea44daec0e3f9b4`. AS-104 resumed and then hit
+intermittent per-asset SAS HTTP 504s. Decision 049/M22/E22/EV-026 now records a
+separate, uncommitted reusable-token transport fix and fresh bounded smoke.
+Decision 047/M19/E18–E19/EV-022–EV-023 and M21/E21/EV-025 stay only in the
+preserved uncommitted AS-104 worktree; their bodies are not copied. Historical
+EV-001–EV-024 rows remain unchanged. AS-104 acceptance is still BLOCKED pending
+Decision 049 review/merge. AS-105+ and P1 homogeneous-05.10 study NOT started.
 
 The historical probe reports and later raster-gate report transcribe the project owner's supplied factual reconstruction of completed investigations. “Directly observed” refers to those reported observations, not a new live probe performed when writing these documents. Original command logs, full STAC responses, exact experiment timestamps, and screenshots are not attached. Their absence is explicitly retained as a capture limitation.
 
@@ -61,6 +62,7 @@ EV-019/EV-020 and journal M17 retain the original AS-103 feature-branch acceptan
 | EV-020 | AS-103 content identity, immediate-parent lineage and offline quality | **PASS — authorized feature-branch acceptance, not merged** | Versioned mask/five-band fingerprint; deterministic repeat; exact PC→AS-102→AS-103 registry chain; four scalar pixel checks; no access/write calls; 348 tests (265 retained +83 new), Ruff/diff pass, six existing Rasterio warnings | [AS-103 validation](AS_103_SPECTRAL_FEATURES_VALIDATION.md); [contract](../AS_103_SPECTRAL_FEATURES.md); Decision 046 | Reproducible candidate inputs for future AS-104 | Yes: V19 lineage/formula card | Code review/publication pending; no AS-104 authorization or GitHub CI/science claim |
 | EV-021 | AS-103 final code review and merge | **COMPLETE AND MERGED — 8 October 2026** | Implementation `5638bc8b4ab06f235f908642f714a7cc83b35709`; PR #8; merge `b770d0561da9ac2b81ca2d4b8e784adff66ee231` at `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai; 348 tests passed, Ruff/diff checks passed; six existing non-blocking Rasterio warnings only, no new AS-103 warnings; typed model/arithmetic, inclusive denominator guards, NaN/support, consumed-content fingerprint/identity and immediate-parent lineage reviewed; real-scene evidence independently reviewed | [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8); [journal M18](../PRESENTATION_JOURNAL.md#m18--as-103-code-review-merge-and-closeout); committed source/tests and historical AS-103 acceptance evidence | Reviewed/merged spectral feature engineering, deterministic per-scene feature generation and reproducible lineage/identity only; does NOT support temporal anomaly, HAB confirmation, chlorophyll concentration, species/toxin identification, water safety, intake exposure, operational risk accuracy or warning lead time | Yes: V20 sanitized merge/local-quality card | No configured/reported GitHub Actions/workflow CI run or CI-success claim; independent science remains future; AS-104 NOT authorized and NOT started |
 | EV-024 | Explicit PC processing-baseline source resolution and unchanged cache identity | **PASS — isolated fix offline/metadata gates; uncommitted, not merged** | 421 tests (348 retained +73 added), Ruff/diff pass, same six warnings; 5/5 frozen March references plus April target resolve at 05.09 with all eleven required assets and 0 forbidden signing/XML/raster/preprocessing/cache calls; accepted target cache retains identity/provenance/bytes and rejects 05.10 | [Timestamped fix validation](AS_102_REQUIRED_PC_BASELINE_FIX_VALIDATION.md); [plan/API](../AS_102_REQUIRED_PC_BASELINE_FIX.md); Decision 048; M20/E20 | Explain acquisition versus processing-product ambiguity and explicit failure-safe selection | Yes: sanitized ambiguity/constraint/quality card, pending | Upstream code review/merge and separate frozen AS-104 acceptance rerun; no March asset/decoding/support, temporal/HAB, operational accuracy or GitHub CI-success claim |
+| EV-026 | Reusable transient PC account/container SAS transport | **PASS — offline/bounded transport smoke; UNCOMMITTED / READY FOR REVIEW** | 531 tests (421 main +110 net new), Ruff/diff PASS, six unchanged warnings; fresh March-4 05.09 all-eleven same-scope signs with 1 anonymous HTTP 200 token attempt, XML 1,024 bytes/B02 4,096 bytes via 206, zero additional acquisition for reuse; original worktree/cache hashes and stash preserved | [Timestamped validation](AS_102_REUSABLE_PC_SAS_TOKEN_FIX_VALIDATION.md); [plan](../AS_102_REUSABLE_PC_SAS_TOKEN_FIX.md); Decision 049; M22/E22 | Scoped credential reuse without changing scientific source identity | Yes: sanitized one-request/eleven-assets card; capture pending | No full processing, AS-104 acceptance, five usable histories, science/operational accuracy, availability guarantee or GitHub CI-success claim; review/merge remains next |
 
 ### EV-024 required-PC-baseline upstream fix
 
@@ -74,6 +76,17 @@ matching/contradicting constraints without altering its files or provenance.
 This fixes ambiguity at metadata level only, not AS-104 real acceptance.
 EV-022–EV-023 remain reserved in the untouched AS-104 worktree. All historical
 EV-001–EV-021 rows remain unchanged, including EV-014 PENDING/later PASS progression.
+
+### EV-026 reusable-token transport — later stage
+
+Fresh transport experiment: `2026-10-09T06:44:49.076690+00:00`–
+`2026-10-09T06:44:51.406274+00:00` UTC / 10:44:49–10:44:51 Asia/Dubai.
+One token HTTP 200, eleven signs on the actual March-4 05.09 account/container,
+two tiny HTTP 206 prefix/header reads, then zero extra acquisition requests for
+three cache-reuse signs. Report contains safe counters/status/latency/bytes only.
+No SAS credentials, product cache or full preprocessing created. EV-026 does not
+supersede EV-024's historical metadata experiment; it records a new transport
+stage after PR #10. EV-025 remains only in the preserved AS-104 worktree.
 
 ### EV-021 final AS-103 review and merge
 

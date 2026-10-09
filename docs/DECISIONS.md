@@ -1084,6 +1084,70 @@ See [fix plan/API](AS_102_REQUIRED_PC_BASELINE_FIX.md) and
 
 ---
 
+## Decision 049 — Reusable Planetary Computer Account/Container SAS Token Transport
+
+**Date:** 9 October 2026 (Asia/Dubai)
+**Status:** Explicitly authorized.
+
+AquaSentinel shall replace repeated per-asset Planetary Computer `/sign`
+authentication for supported Azure Blob assets with transient reusable
+SAS tokens scoped to the validated Planetary Computer storage
+account/container.
+
+The actual stable unsigned asset HREF remains authoritative for:
+
+- source metadata
+- provenance
+- processing identity
+- cache identity
+- cache manifests
+- reproducibility records
+
+SAS tokens and signed URLs are TRANSPORT-ONLY ephemeral credentials.
+
+They MUST NEVER be written into:
+
+- provenance
+- product identity
+- processing parameters
+- cache manifests
+- repository files
+- logs
+- exception messages
+- evidence documents
+
+The public `sign_asset(href, settings)` behavior remains:
+
+unsigned stable HREF in
+→ transient signed HREF out
+
+The caller must not need to know whether authorization used a cached or
+newly acquired token.
+
+No AS-102 caller API change is required.
+
+### Cross-worktree coordination and implementation boundary
+
+Decision 048 was merged via PR #10 at
+`39f2aee90c727fc151886efbdea44daec0e3f9b4`. Resumed AS-104 then encountered
+intermittent per-asset authentication HTTP 504s; Decision 049 follows that failure.
+Decision 047/M19/E18–E19/EV-022–EV-023 and M21/E21/EV-025 remain only in the
+preserved, uncommitted AS-104 worktree; their bodies are not copied or renumbered.
+This separate fix uses M22/E22/EV-026. Decision 048/M20/E20/EV-024 retain their
+historical meanings.
+
+Use the configured HTTPS issuer, official account/container token route and
+actual `token` / `msft:expiry` response schema. Refresh at remaining lifetime
+<=60 seconds. Token acquisition alone permits at most five attempts with
+0.8/1.6/3.2/6.4-second backoffs for HTTP 429/500/502/503/504 or typed transient
+connection/timeouts. No subscription key, SDK, dependency/config change, caller
+change, pixel-processing change, provenance change or cache-schema change.
+AS-104 real acceptance remains blocked pending fix review/merge.
+See [plan](AS_102_REUSABLE_PC_SAS_TOKEN_FIX.md) and
+[validation](evidence/AS_102_REUSABLE_PC_SAS_TOKEN_FIX_VALIDATION.md).
+
+---
+
 ## Pending Decisions
 
 The following decisions are intentionally not final yet:
