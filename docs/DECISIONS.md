@@ -1,6 +1,24 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+**AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
+**AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
+Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+Publication documentation commit / final PR head: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+Merged **2026-10-09T09:26:08Z** / **2026-10-09T13:26:08+04:00 Asia/Dubai**.
+Real acceptance **PASS**; no unresolved AS-104 P0 blocker. Known scientific and
+coverage limitations remain documented. Current active development branch: **none**;
+AS-104 development is closed. This closeout was prepared on `docs/as-104-closeout`.
+Next step: owner review of the next milestone/AS-105 design before implementation;
+separate authorization is required. AS-105+ and P1 homogeneous 05.10 **NOT STARTED**.
+M23–M26/E23–E26/EV-027–EV-030 retain their dated historical blocker, fix, acceptance
+and publication states, including then-pending PR/merge language. M27/E27/EV-031
+records the later merge/closeout; it is an execution/history event, not Decision 050.
+Both safety stashes and external recovery artifacts are retained historical recovery
+material. No EO experiment rerun or source/test/math/cache changes in this closeout.
+See [merge/closeout evidence §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026).
+
+**Historical AS-104 publication status — before PR #12 merge, 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
 Implementation and real acceptance **PASS**; feature commit
 `09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
 parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
@@ -1338,7 +1356,7 @@ unchanged AS-102/AS-103 identity. See the AS-104 validation §§6–7 for eviden
 These are execution checkpoints, not a new architectural/scientific decision.
 AS-104 remains uncommitted for review; no AS-105+ or P1 05.10 study.
 
-## AS-104 Publication Execution Note — M26 / E26 / EV-030
+## Historical AS-104 Publication Execution Note — M26 / E26 / EV-030 (before PR #12 merge)
 
 AS-104 feature commit `09b38bd9c312470e948b1f17165ec5335cfc149d` is committed
 and pushed on the existing feature branch from parent `2006df7a70a4f48c66933aed96f4464d8d03084e`.
@@ -1347,3 +1365,17 @@ scientific/architectural decision and does not create Decision 050. Current
 publication status supersedes the earlier execution stop state above, while
 Decisions 047–049 and M23–M25 remain historically intact. PR not yet created;
 not merged. Review published commit next; no AS-105+ or P1 05.10 study.
+
+## AS-104 Merge/Closeout Execution Note — M27 / E27 / EV-031
+
+AS-104 is COMPLETE AND MERGED via PR #12 at `472edc737847dc8581290a372c5da28f71fc48f0`,
+merged **2026-10-09T13:26:08+04:00 Asia/Dubai** / **2026-10-09T09:26:08Z**.
+The two reviewed commits are implementation `09b38bd9c312470e948b1f17165ec5335cfc149d` and publication
+documentation/final feature head `703af1176aeaf9ba38d31c53648907c3b1792aec`. Real acceptance PASS;
+accepted math, identities, measurements and scientific guardrails are unchanged.
+M23–M26 and Decisions 001–049 remain historical records. This is an execution/
+history event under the existing decisions, not a new Decision 050.
+No unresolved AS-104 P0 blocker; known coverage/scientific limits remain. Owner
+review of the next milestone/AS-105 design before implementation requires separate
+authorization. Both stashes/recovery artifacts retained; no EO rerun, new merge,
+AS-105+ or P1 homogeneous-05.10 experiment.

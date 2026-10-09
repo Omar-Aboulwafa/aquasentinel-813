@@ -1,6 +1,24 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-**Current AS-104 publication status — 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
+**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+**AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
+**AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
+Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
+Publication documentation commit / final PR head: `703af1176aeaf9ba38d31c53648907c3b1792aec`.
+Merged **2026-10-09T09:26:08Z** / **2026-10-09T13:26:08+04:00 Asia/Dubai**.
+Real acceptance **PASS**; no unresolved AS-104 P0 blocker. Known scientific and
+coverage limitations remain documented. Current active development branch: **none**;
+AS-104 development is closed. This closeout was prepared on `docs/as-104-closeout`.
+Next step: owner review of the next milestone/AS-105 design before implementation;
+separate authorization is required. AS-105+ and P1 homogeneous 05.10 **NOT STARTED**.
+M23–M26/E23–E26/EV-027–EV-030 retain their dated historical blocker, fix, acceptance
+and publication states, including then-pending PR/merge language. M27/E27/EV-031
+records the later merge/closeout; it is an execution/history event, not Decision 050.
+Both safety stashes and external recovery artifacts are retained historical recovery
+material. No EO experiment rerun or source/test/math/cache changes in this closeout.
+See [merge/closeout evidence §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026).
+
+**Historical AS-104 publication status — before PR #12 merge, 9 October 2026 (Asia/Dubai), M26/E26/EV-030:**
 Implementation and real acceptance **PASS**; feature commit
 `09b38bd9c312470e948b1f17165ec5335cfc149d` is **COMMITTED AND PUSHED**,
 parent/base `2006df7a70a4f48c66933aed96f4464d8d03084e`.
@@ -193,14 +211,15 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Recorded experiment:** A 2 October CDSE metadata search returned 44 unique candidate scenes for the analyst-defined Al Raha validation polygon, 1 March–31 May 2023, with scene cloud cover <= 30%. Provenance conversion/serialization succeeded for 44/44. The recorded quality baseline is 97 tests, Ruff passed, and `git diff --check` passed. Source: [AS-101 report](AS_101_STAC_SEARCH.md).
 
-**Current repository phase:** Foundation/continuity complete → AS-101/AS-102/AS-103 merged → Decisions 048/049 merged → AS-104 implementation PASS → AS-104 real acceptance PASS → AS-104 feature commit 09b38bd pushed → PR review is next → AS-105+ NOT STARTED; P1 05.10 robustness NOT STARTED.
+**Current repository phase:** Foundation/continuity complete → AS-101/AS-102/AS-103 merged → Decisions 048/049 merged → AS-104 implementation PASS → AS-104 real acceptance PASS → PR #12 merged → AS-104 COMPLETE → next engineering stage requires separate authorization → AS-105+ NOT STARTED; P1 05.10 NOT STARTED.
 
 **Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; M17 / EV-019–EV-020 records the later candidate-feature acceptance; M18 / EV-021 separately records final review and merge through PR #8. At that AS-103 closeout checkpoint, AS-104 was NOT authorized and NOT started; M25–M26 separately record its later accepted and published implementation. These mask outcomes also do not establish the scientific/operational claims above.
 
 ## 2. Chronological milestone timeline
 
 Each milestone preserves its status and next-step instructions at the recorded
-time. M26 separately supersedes the earlier AS-104 publication stop states.
+time. M26 separately records publication; M27 records the later PR #12 merge
+and closeout. Their earlier next-step instructions remain historical.
 
 ### M01 — Track 03 selection and product thesis
 
@@ -721,6 +740,26 @@ time. M26 separately supersedes the earlier AS-104 publication stop states.
 - **Recommended visual:** Acceptance → 15-path reviewed commit → pushed branch → pending PR/merge diagram; capture pending, no screenshot claimed.
 - **Candidate slide title:** “Publish the evidence without rewriting its history.”
 
+### M27 — AS-104 merged through PR #12 and formally closed
+
+- **Date:** 9 October 2026 (Asia/Dubai). PR merged 13:26:08 +04:00 / 09:26:08Z; separate from M25 acceptance at 12:01:51.327507 +04:00 and M26 feature commit/publication verification at 12:50:47 / 12:52:09 +04:00.
+- **Task / milestone ID:** AS-104 post-merge documentation closeout; E27 / EV-031.
+- **Status:** AS-104 COMPLETE AND MERGED through PR #12; real acceptance PASS; no unresolved AS-104 P0 blocker. Known limitations retained.
+- **Problem / question:** How should current project status close the merged temporal milestone while preserving earlier failures, accepted measurements and publication history?
+- **Why it mattered:** A published branch and an accepted experiment are distinct from a merged milestone; the next agent needs accurate authorization and scientific boundaries.
+- **Options considered:** Update current status with a later merge record while keeping M23–M26 intact; rewriting earlier pending/blocker states would lose chronology.
+- **Decision:** Owner-authorized documentation-only closeout of the existing AS-104 implementation through PR #12. Execution/history event, not Decision 050.
+- **Rationale:** Align handoff with verified main without altering algorithms, data, provenance identities or scientific claims.
+- **Implementation / experiment:** Fetch and verify exact merged main; create isolated `docs/as-104-closeout`; inspect merged code/tests and case-only guard; reconcile seven authorized documents; preserve hashes/stashes/recovery material and run local quality gates. No EO experiment rerun.
+- **Evidence:** [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12), title `feat: implement AS-104 temporal baseline`; main base `2006df7a70a4f48c66933aed96f4464d8d03084e`; feature head `703af1176aeaf9ba38d31c53648907c3b1792aec`; merge `472edc737847dc8581290a372c5da28f71fc48f0`. [Closeout evidence §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026).
+- **Quantitative result:** Two commits (`09b38bd9c312470e948b1f17165ec5335cfc149d` implementation, `703af1176aeaf9ba38d31c53648907c3b1792aec` publication docs), fifteen PR paths. Final pre-merge 663 tests/Ruff/diff PASS, six existing Rasterio warnings. M25 scalar 18/18, causal check and repeat PASS; six AS-103 identities and twelve AS-102 cache-file hashes unchanged.
+- **Limitation:** About 10% of 7,963 target-valid pixels per feature has five histories: 792/802/801/801/801/797. Five observations are not statistical sufficiency; small positive scales can produce large z. Rank is not probability/confidence/severity. Merge does not establish HAB/bloom, chlorophyll, species/toxins, safety, intake risk, persistence, alerts or warning lead time; no GitHub CI-success claim.
+- **Lesson learned:** Record acceptance, publication and merge as distinct dated evidence-bearing checkpoints; close engineering work without overstating scientific validation.
+- **Impact on next step:** Owner review of the next milestone/AS-105 design before implementation, with separate authorization. AS-105+ and P1 05.10 NOT STARTED. Retain both stashes and all external recovery artifacts.
+- **Presentation takeaway:** “The reproducible temporal comparison is merged, with honest coverage and explicit scientific limits.”
+- **Recommended visual:** M23 blocker → M24 fix → M25 accepted experiment → M26 publication → M27 merge timeline with sparse-support/guardrail card; capture pending, no screenshot claimed.
+- **Candidate slide title:** “Close the temporal milestone without hiding its limits.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -746,6 +785,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 
 | 8 Oct isolated upstream authorization | 048 | Optional explicit PC baseline after validated exact matching; zero/multiple fail; selector is not a cache identity dimension | Homogeneous delivered processing without generation heuristics or changed pixel processing | M20/E20/EV-024; Decision 047 remains in preserved AS-104 worktree |
 | 9 Oct isolated upstream transport authorization | 049 | Reusable anonymous account/container SAS, memory-only expiry-aware cache and bounded token-only retries; retain public API | Fewer authentication calls without dependency/key/identity changes | M22/E22/EV-026; 531 tests and fresh one-request/eleven-signs smoke; uncommitted for review |
+| 9 Oct AS-104 merge / closeout | No new decision | PR #12 merges the existing temporal contract and accepted evidence; close current status while retaining M23–M26 | Acceptance, publication and merge remain separate; no Decision 050 or future-stage authorization | M27/E27/EV-031; merge `472edc7` |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -780,6 +820,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E24 | [Platform fix validation §6](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#6-targeted-platform-case-representation-fix--9-october-2026); M24/EV-028 | Case-only consistency predicate; 20 regressions; 132 temporal/663 full tests; unchanged stored identity/math | Alias normalization, rewritten products, new scientific decision or merged release |
 | E25 | [Cached real validation §7](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#7-cached-five-reference-0509-real-acceptance-rerun--9-october-2026); M25/EV-029 | Six verified real caches/AS-103 IDs; sparse five-history support; 18 scalar checks; synthetic causal exclusion/repeat; no network | Detection accuracy, statistical sufficiency, real future availability, hazard/operational claims or GitHub CI success |
 | E26 | Feature `09b38bd`; parent `2006df7`; [publication §8](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026); M26/EV-030 | Exactly 15 reviewed paths committed/pushed, 663-test pre-commit gate, clean worktree and remote SHA equality; preserves M23–M25 | Merge, PR creation, new scientific experiment, detection accuracy or GitHub CI success |
+| E27 | [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12); merge `472edc7`; [closeout §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026); M27/EV-031 | AS-104 complete/merged; two commits/fifteen paths, 663-test reviewed baseline; source/test and accepted-evidence preservation, explicit next-stage authorization | New EO experiment, biological/operational validation, statistical sufficiency or GitHub CI success |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
@@ -932,10 +973,10 @@ This is a proposed 7-slide spine, consistent with the PRD's 5–7-slide target. 
 | 3 | “Build the evidence trail first” — config/AOI, provenance, recoverable handoffs | M02–M05; V03–V05 | Engineering supported; visuals pending |
 | 4 | “44 real candidates, every source traceable” — real CDSE query and its limits | M06–M07; E05–E07; V06–V07 | Live metadata evidence supported |
 | 5 | “From catalog metadata to real satellite pixels” — historical blockers/PENDING → credential-free signing, bounded COG windows, product XML decoding | M09–M14; EV-009–EV-015; V09–V10, V13–V14 | Later gate PASS / READY for tested product/path; capture visuals pending; M15 separately records later masks/alignment |
-| 6 | “7,963 conservatively masked water pixels, every source traceable” — XML, fixed grid, contributor support and cached replay | M15–M16; EV-016–EV-018; V15–V17 | AS-102 complete/merged through PR #6; AS-103 complete/merged through PR #8 (M18 / EV-021); AS-104 temporal comparisons passed real acceptance (M25 / EV-029) and are published for PR review (M26 / EV-030), not merged |
+| 6 | “7,963 conservatively masked water pixels, every source traceable” — XML, fixed grid, contributor support and cached replay | M15–M16; EV-016–EV-018; V15–V17 | AS-102 complete/merged through PR #6; AS-103 complete/merged through PR #8 (M18 / EV-021); AS-104 temporal comparisons passed real acceptance (M25 / EV-029), were published (M26 / EV-030) and are COMPLETE AND MERGED through PR #12 (M27 / EV-031) |
 | 7 | “Monitoring priority with evidence and limits” — intended workflow, AS-101 97 / AS-102 final 265 test baselines (historical M15: 213), reproducibility, next steps | M08/M15/M16; S01–S08; V08/V16/V17 | Engineering supported; end-to-end demo and impact evidence outstanding |
 
-For a presentation made from this evidence pack, slide 5 must label observed versus metadata-derived/inferred findings and show EV-014's historical PENDING → later PASS / READY progression. Do not show 353 raw SCL water-class pixels as a valid-water count or claim exact transferred-byte efficiency. Slide 6 may show the separately validated AS-102 mask/lineage/cache result and AS-103 candidate features complete/merged through PR #8. Distinguish M17 historical acceptance from M18 final review/merge; AS-104 temporal comparisons passed real acceptance (M25 / EV-029) and are published for PR review (M26 / EV-030), not merged. Event/scientific validation remains future work. Never replace missing real scientific evidence with an unlabelled simulation. Business subscriptions/licences in PRD §23 are hypotheses, not validated pricing or revenue.
+For a presentation made from this evidence pack, slide 5 must label observed versus metadata-derived/inferred findings and show EV-014's historical PENDING → later PASS / READY progression. Do not show 353 raw SCL water-class pixels as a valid-water count or claim exact transferred-byte efficiency. Slide 6 may show the separately validated AS-102 mask/lineage/cache result and AS-103 candidate features complete/merged through PR #8. Distinguish M17 historical acceptance from M18 final review/merge; AS-104 temporal comparisons passed real acceptance (M25 / EV-029), were published (M26 / EV-030) and are COMPLETE AND MERGED through PR #12 (M27 / EV-031). Event/scientific validation remains future work. Never replace missing real scientific evidence with an unlabelled simulation. Business subscriptions/licences in PRD §23 are hypotheses, not validated pricing or revenue.
 
 ## 11. Outstanding evidence still needed
 
@@ -947,14 +988,14 @@ For a presentation made from this evidence pack, slide 5 must label observed ver
 | Identity capture | Same acquisition / different processing product | Comparison now in [PC report](evidence/AS_102_PLANETARY_COMPUTER_PROBE.md#cross-provider-identity-finding); original metadata excerpts/rendered comparison pending; pixel equivalence unverified |
 | Historical gate capture | Later AS-102 final access gate | EV-014 historical PENDING and later FG-01 PASS/READY retained unchanged; M15 separately supplies all-band arrays/mask counts. Original FG-01 timestamps/captures and exact transfer bytes remain missing; scientific performance unverified |
 | AS-102 presentation capture | Optical preprocessing implementation | M15 / EV-016–EV-017 preserve the 213-test/full-AOI acceptance; M16 / EV-018 records final review/merge with 265 tests. Sanitized map, merge and quality captures remain pending |
-| AS-103 presentation capture / future science | Candidate spectral features and final review/merge | M17 / EV-019–EV-020 preserve acceptance; M18 / EV-021 records final code-review/merge through PR #8. Sanitized V18–V20 captures and independent scientific validation remain pending; later AS-104 acceptance/publication is separately recorded by M25–M26 / EV-029–EV-030 |
+| AS-103 presentation capture / future science | Candidate spectral features and final review/merge | M17 / EV-019–EV-020 preserve acceptance; M18 / EV-021 records final code-review/merge through PR #8. Sanitized V18–V20 captures and independent scientific validation remain pending; later AS-104 acceptance/publication/merge is separately recorded by M25–M27 / EV-029–EV-031 |
 | P0 scientific evidence | HAB and oil historical validation | Cited event references, usable observations, before/during/after, false-positive review, uncertainty, temporally separated evaluation |
 | P0 product evidence | Operational site and decision demo | Defensible public site/intake source; clearly separated validation AOI; working hazard-specific evidence/priority workflow |
 | P0 reproducibility | Clean-environment/full-product demo | AS-102 AOI cache replay verified by EV-017; second-machine cache provisioning and full hazard/decision demo remain future; no raw scenes or secrets in Git |
 | P0 presentation | Captured visuals, demo recording, attribution | Real screenshots/figures linked to evidence IDs, metadata/licences, limitations, dated 90–180-second recording |
 | Scientific/impact claim | Lead time, accuracy, operational benefit | Measurement method, reference labels/timing, limitations; omit claims until supported |
 | P1 only | Hyperspectral/environmental enhancement | Demonstrated usable data and measurable contribution; must not block core P0 |
-| AS-104 acceptance/publication capture and future science | Temporal observational comparisons | Earlier provider/transport/platform blockers remain historical (M19/M21/M23); M25 / EV-029 acceptance PASS and M26 / EV-030 publication recorded. Sanitized support/lineage/publication visuals and independent scientific validation remain pending; PR not yet created, not merged |
+| AS-104 acceptance/publication capture and future science | Temporal observational comparisons | Earlier provider/transport/platform blockers remain historical (M19/M21/M23); M25 / EV-029 acceptance PASS, M26 / EV-030 publication and M27 / EV-031 merge/closeout recorded. Sanitized support/lineage/merge visuals and independent scientific validation remain pending; AS-104 COMPLETE AND MERGED through PR #12 |
 
 The historical probe records and separate later FG-01 record transcribe the owner's supplied evidence. The later report was created before this journal update; it resolves access/decoding outcome gaps only for the tested product/path/assets. Original historical entries remain intact. Remaining capture/scientific gaps do not assert that experiments failed or never happened. Those historical documentation tasks changed no source/tests/configuration/decisions. The separately authorized M15 implementation now adds source/tests/configuration and Decisions 039–045, with its own dated evidence and scope.
 
