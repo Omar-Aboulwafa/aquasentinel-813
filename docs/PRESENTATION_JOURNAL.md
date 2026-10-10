@@ -1,6 +1,30 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-107 M37 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M38 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED** via
+PR #22, implementation base `49f5276b1ad372725b21cdb2085815225c98eed4`.
+**M38 / E38 / EV-042: IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION PASS.**
+AS-107 implements the frozen explainable availability-aware observational
+screening-risk policy and passes synthetic/adversarial engineering validation.
+No real HAB risk score or band exists; no accepted real parents were loaded/scored.
+Current active development branch: `feature/as-107-hab-risk`; worktree
+`/workspace/aquasentinel-813-as107-m38`. Implementation publication is on this
+feature branch, not merged into main. Owner-authorized commit/push is for review;
+no PR created and no merge performed by M38. Next: owner review of the published
+implementation. M39 real acceptance and M40 closeout require separate authorization.
+M39/M40 and AS-108 NOT STARTED; future AS-105 policy validation NOT RUN;
+P1 homogeneous 05.10 robustness NOT STARTED.
+
+Actual M38 quality: **292 focused risk tests PASS (44.93s);
+1285 full tests PASS (117.57s), six existing Rasterio warnings;
+Ruff/diff/security/preservation PASS.** Engineering evidence only, not real/biological
+validation. Zero dependency/config/upstream changes; Decisions 050/051/052 unchanged.
+See [M38 evidence](evidence/AS_107_IMPLEMENTATION_VALIDATION.md).
+All earlier dated M36/M37/current-status sections below are historical checkpoints;
+their unimplemented/unstarted wording does not describe current M38.
+
+## Historical AS-107 M37 design freeze — before PR #22 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-106: COMPLETE / CLOSED** through PR #21 merge
 `6b22d32f078ef80158b2f2d7aac4f3dd07925038` (official design baseline).
@@ -1402,6 +1426,24 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Five-driver contribution/availability layout beside completeness factors; proposed visual only, no real scoring graphic.
 - **Candidate slide title:** “An explainable score — with its missing evidence visible.”
 
+### M38 — AS-107 offline implementation and adversarial engineering validation — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M38 / E38 / EV-042; PR #22 base `49f5276b1ad372725b21cdb2085815225c98eed4`.
+- **Problem / question:** Implement the frozen availability-aware risk policy without inferring missing context or interpreting a real outcome.
+- **Why it mattered:** Explanations, support denominators and provenance must remain auditable under manipulation.
+- **Options considered:** Frozen M37 alternatives are unchanged; reuse parent validators and a pure scalar kernel rather than add IO/providers/cache or upstream refactors.
+- **Decision:** Execute Decision 052 unchanged. No Decision 053; implementation authorization is not real-acceptance authorization.
+- **Rationale:** Separate score/band from evidence completeness, retain unknown inputs, and validate from authoritative typed parents rather than trusting stored hashes.
+- **Implementation / experiment:** Four risk modules; synthetic fixtures only; exact regional counting, drivers, site summary, identity/fingerprints and full regeneration validation.
+- **Evidence:** [M38 validation](evidence/AS_107_IMPLEMENTATION_VALIDATION.md), `src/aquasentinel/risk/`, `tests/risk/`; E38 / EV-042.
+- **Quantitative result:** 292 focused tests PASS; 1285 full tests PASS; six existing Rasterio warnings; Ruff/diff/preservation PASS. These counts are engineering results, not measured real risk.
+- **Limitation:** No real AS-107 score/band, biological accuracy/calibration, missing context/exposure implementation or operational risk claim.
+- **Lesson learned:** Rehashed attacker output still needs independent authoritative-parent regeneration; low completeness qualifies a High synthetic score without changing its stored band.
+- **Impact on next step:** Owner implementation review; M39 real acceptance and M40 closeout remain separately gated/NOT STARTED.
+- **Presentation takeaway:** “Explainable” includes missing reasons, exact denominators, correlated inputs and tamper-resistant lineage.
+- **Recommended visual:** Synthetic-only five-driver/completeness and tamper-rejection diagram; proposed, capture pending, no real score graphic.
+- **Candidate slide title:** “The score can explain itself — and prove where it came from.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1476,6 +1518,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E35 | [M35 closeout](evidence/AS_106_CLOSEOUT.md); [JSON](evidence/AS_106_CLOSEOUT.json); M35/EV-039; PR #16–#20 chain | Accepted AS-106 result consolidated; publication/closeout prepared, official closure effective on merge | No new science/Decision; zero retained, engineering versus biological claims separated; AS-107 separately authorized |
 | E36 | [Prior M36 audit](evidence/AS_107_DESIGN_FREEZE.md#m36--e36--ev-040--prior-read-only-audit-complete); M36/EV-040 | Typed AS-105/106 feasibility and missing-component alternatives reviewed; owner-approved revisions followed in M37 | Prior read-only audit recorded retrospectively, no real score/implementation |
 | E37 | [M37 freeze](evidence/AS_107_DESIGN_FREEZE.md); [Decision 052](DECISIONS.md#decision-052--as-107-explainable-availability-aware-hab-risk-and-evidence-completeness); EV-041 | Owner-approved scoring/completeness/qualification/lineage/test contract frozen before real scoring | Design only; M38–M40/AS-108 NOT STARTED; no scientific result or calibrated confidence |
+| E38 | [M38 evidence](evidence/AS_107_IMPLEMENTATION_VALIDATION.md); EV-042 | Frozen as107-v1 implementation; 292 focused/1285 full tests; exact scalar/identity/lineage/tamper/side-effect controls PASS | Synthetic engineering only; no real score or M39/M40/AS-108; Decision 052 unchanged |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 

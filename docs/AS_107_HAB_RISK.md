@@ -1,5 +1,31 @@
 # AS-107 — HAB Risk and Evidence Completeness: Frozen Design
 
+## Current AS-107 M38 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED** via
+PR #22, implementation base `49f5276b1ad372725b21cdb2085815225c98eed4`.
+**M38 / E38 / EV-042: IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION PASS.**
+AS-107 implements the frozen explainable availability-aware observational
+screening-risk policy and passes synthetic/adversarial engineering validation.
+No real HAB risk score or band exists; no accepted real parents were loaded/scored.
+Current active development branch: `feature/as-107-hab-risk`; worktree
+`/workspace/aquasentinel-813-as107-m38`. Implementation publication is on this
+feature branch, not merged into main. Owner-authorized commit/push is for review;
+no PR created and no merge performed by M38. Next: owner review of the published
+implementation. M39 real acceptance and M40 closeout require separate authorization.
+M39/M40 and AS-108 NOT STARTED; future AS-105 policy validation NOT RUN;
+P1 homogeneous 05.10 robustness NOT STARTED.
+
+Actual M38 quality: **292 focused risk tests PASS (44.93s);
+1285 full tests PASS (117.57s), six existing Rasterio warnings;
+Ruff/diff/security/preservation PASS.** Engineering evidence only, not real/biological
+validation. Zero dependency/config/upstream changes; Decisions 050/051/052 unchanged.
+See [M38 evidence](evidence/AS_107_IMPLEMENTATION_VALIDATION.md).
+All earlier dated M36/M37/current-status sections below are historical checkpoints;
+their unimplemented/unstarted wording does not describe current M38.
+
+## Historical M37 frozen design and future plan — preserved unchanged
+
 **Date:** 10 October 2026 (Asia/Dubai). **Decision 052: FINAL / FROZEN DESIGN — NOT IMPLEMENTED.**
 M36 read-only feasibility/design audit COMPLETE. M37 design-freeze documentation only;
 no real AS-107 score, scientific product, source/test/config edit or implementation.
@@ -335,3 +361,46 @@ results are in [M37 evidence](evidence/AS_107_DESIGN_FREEZE.md), distinct from t
 historical 993-test baseline. No AS-107 software is validated by those existing tests.
 Owner review and separately authorized design PR/merge precede M38 authorization.
 M37 may commit/push docs after gates; no PR/merge, implementation or real scoring.
+
+## M38 execution record — implemented offline
+
+Goal: implement Decision 052 using validated AS-105 geometry, AS-106 persistence,
+complete geometry sequence, typed AS-104 witnesses and HABRiskPolicy. Outputs:
+immutable region/site/driver/completeness records, deterministic identity and
+DerivedProductRecord. Files: four risk modules, six focused test/helper paths and
+seven continuity/evidence documents. Dependencies: existing NumPy and standard
+library only; no new installation or config/schema/cache/upstream change.
+
+Acceptance: unchanged full parent validation, exact regional denominators/formulas,
+provisional qualification, continuous bands, reconstructable drivers, availability
+semantics, separate completeness, deterministic ordering/identity, strong regeneration
+and adversarial/side-effect gates. All actual results are in the M38 evidence.
+
+Public compute_hab_risk matches the frozen typed signature. Risk scene validation
+also requires the explicit authoritative policy and all typed parents/witnesses;
+it regenerates every semantic result and compares exact typed binary64 payloads,
+both fingerprints, product identity, provenance and parameters. It does not accept
+self-consistent attacker hashes as scientific authority. Parent internal validator
+regeneration remains mandatory; public upstream extraction and external IO forbidden.
+
+The scored site has no additional empty-support status (status=None); its explicit
+assessment_status carries the qualification. Empty sites use the frozen
+no_candidate_regions status. Under fully validated Decision 050 every candidate
+has >=2 family votes including red-edge, hence mandatory support is guaranteed for
+nonempty regions. Impossible missing-mandatory candidate invariants are rejected;
+no new unscorable-site policy string is invented. Missing-mandatory/zero-score
+boundaries are tested in the pure arithmetic kernel only. Context/exposure future
+arithmetic is also kernel-only, with no public provider hooks.
+
+All scientific records are frozen/slotted and use canonical tuples; mutable
+processing/provenance dictionaries are defensively copied independently, consistent
+with existing repository conventions. Metadata edits are caught by validation.
+There are no output arrays, raster writer or AS-107 disk cache. Site selection copies
+all evidence from one authoritative region; geometry IDs/labels/counts/area/bounds
+remain tied to the unchanged AS-105 parent. Timing/streak explains, never changes score.
+
+Risks/guardrails remain those of the original freeze: missing context/exposure,
+correlated red-edge emphasis, sparse/shared histories, exact-pixel/gap limitations,
+candidate-conditioned maximum and uncalibrated hypotheses. No real score, outcome
+prediction, biological calibration or operational risk completeness is established.
+Non-goals: M39/M40, EO retrieval or real upstream rerun, AS-108, policy study or 05.10.
