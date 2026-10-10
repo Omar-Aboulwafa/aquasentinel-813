@@ -1,6 +1,26 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
+## Current AS-106 design freeze — 10 October 2026 (Asia/Dubai)
+
+**Decision 051: OWNER-APPROVED / FROZEN DESIGN ONLY.** AS-105 remains COMPLETE
+AND MERGED; Decisions 001–050 and completed M01–M30 history are preserved.
+**AS-106 IMPLEMENTATION: NOT STARTED; no implementation authorization here.**
+Prepared on `docs/as-106-design-freeze`, from approved main
+`b1b5147d9973d8cf23d575985319bf94a55a03d4` (PR #15).
+Real AS-106 acceptance: **BLOCKED ON FUTURE DATA PREPARATION**; earlier-April
+eligible inventory remains unknown and no verified earlier-April cache exists.
+M31–M35 / E31–E35 / EV-035–EV-039 are **future reservations, all NOT STARTED**.
+Owner review of the published frozen design, then explicit M31 implementation
+authorization, is next. Metadata-only M32 and upstream-data M33 are separate gates.
+AS-107+ and P1 05.10: **NOT STARTED**; future AS-105 policy validation **REQUIRED /
+NOT RUN**. No source/test/config/dependency change, real EO processing, EO-service
+query, imagery download, PR or merge in this design-freeze task.
+See [AS-106 frozen design](AS_106_PERSISTENCE.md) and Decision 051.
+
+The dated AS-105 closeout and earlier checkpoint text below retains its historical
+next-step/authorization meaning; it does not authorize or describe current AS-106 work.
+
+## Historical AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
 
 **AS-105: COMPLETE AND MERGED** via [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14).
 **M30 / E30 / EV-034:** merge/publication closeout only; frozen Decision 050
@@ -340,7 +360,7 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Recorded experiment:** A 2 October CDSE metadata search returned 44 unique candidate scenes for the analyst-defined Al Raha validation polygon, 1 March–31 May 2023, with scene cloud cover <= 30%. Provenance conversion/serialization succeeded for 44/44. The recorded quality baseline is 97 tests, Ruff passed, and `git diff --check` passed. Source: [AS-101 report](AS_101_STAC_SEARCH.md).
 
-**Current repository phase:** Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 implementation/adversarial PASS → AS-105 M29 real engineering acceptance PASS → PR #14 MERGED → AS-105 COMPLETE AND MERGED → next milestone requires separate owner design review/authorization → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
+**Current repository phase:** Foundation/continuity complete → AS-101/102/103/104/105 COMPLETE AND MERGED → Decision 051 AS-106 DESIGN FROZEN → M31 offline implementation awaits explicit authorization → real April sequence BLOCKED ON FUTURE DATA PREPARATION → AS-106 implementation / AS-107+ NOT STARTED; future AS-105 policy validation REQUIRED / NOT RUN; P1 05.10 NOT STARTED.
 
 **Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; M17 / EV-019–EV-020 records the later candidate-feature acceptance; M18 / EV-021 separately records final review and merge through PR #8. At that AS-103 closeout checkpoint, AS-104 was NOT authorized and NOT started; M25–M26 separately record its later accepted and published implementation. These mask outcomes also do not establish the scientific/operational claims above.
 
@@ -969,6 +989,19 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** PR merge/timeline card beside evaluable-support and scientific-boundary cards; capture pending, no screenshot claimed.
 - **Candidate slide title:** “Reviewed, reproducible, merged — with limits preserved.”
 
+### AS-106 Decision 051 design freeze — planning only, 10 October 2026
+
+- **Date / scope:** 10 October 2026 (Asia/Dubai); owner-approved documentation-only design freeze at base `b1b5147d9973d8cf23d575985319bf94a55a03d4`, branch `docs/as-106-design-freeze`.
+- **Problem / why:** Distinguish recurrence from biological continuity, and make invalid-observation and sparse-history denominators explicit before implementation.
+- **Options / decision:** Retain parent-aware validator rather than weaken validation or trust a mutable wrapper; exact-pixel recurrence rather than spatial matching; record real timing rather than invent a gap cutoff. Decision 051 freezes the accepted design; Decision 050 remains unchanged.
+- **Rationale:** A valid non-candidate refutes the current streak; unsupported observations remain unknown. Temporal parents are integrity witnesses while AS-105 products are immediate provenance parents.
+- **Implementation / experiment:** Design documentation only. No implementation, EO-service query, imagery read/download, new real processing or validation experiment. Existing AS-105 validator regeneration is explicitly allowed for future integrity checks.
+- **Evidence / quantitative result:** [Frozen design](AS_106_PERSISTENCE.md), Decision 051 and owner authorization. Six accepted optical cache dates are March 4/9/14/24/29 and April 28; no verified earlier-April cache, exact earlier-April inventory unknown. These are prerequisite inventory facts, not recurrence results.
+- **Limitation:** Real AS-106 acceptance BLOCKED ON FUTURE DATA PREPARATION. No observed recurrence result, biological inference, risk/confidence or statistical independence claim.
+- **Lesson / next step:** Freeze comparison context and sequence-selection rules before outputs. Review published design, then explicitly authorize M31. M32–M35 are reserved future work, not executed milestone entries.
+- **Presentation takeaway / candidate slide:** “Unknown is not absence: recurrence over valid observations.” Explain P/C/Q and honest candidate-history denominators; do not show fabricated real recurrence.
+- **Recommended visual:** Conceptual timeline for candidate / unknown / valid non-candidate, labelled DESIGN ONLY; capture pending, no screenshot created.
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -996,6 +1029,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | 9 Oct isolated upstream transport authorization | 049 | Reusable anonymous account/container SAS, memory-only expiry-aware cache and bounded token-only retries; retain public API | Fewer authentication calls without dependency/key/identity changes | M22/E22/EV-026; 531 tests and fresh one-request/eleven-signs smoke; uncommitted for review |
 | 9 Oct AS-104 merge / closeout | No new decision | PR #12 merges the existing temporal contract and accepted evidence; close current status while retaining M23–M26 | Acceptance, publication and merge remain separate; no Decision 050 or future-stage authorization | M27/E27/EV-031; merge `472edc7` |
 | 9 Oct AS-105 offline authorization | 050 | Frozen rank/direction family-aware P0 candidate geometry; explicit support denominator, exact pixel polygons and parent lineage | Explainable heuristic before separately authorized real acceptance/policy comparison | M28/E28/EV-032; synthetic-only PASS, uncommitted |
+| 10 Oct owner-approved design freeze | 051 | Consecutive-valid exact-pixel recurrence; invalid UNKNOWN, noncandidate breaks; no gap cutoff | Preserve AS-105 integrity validation, immediate geometry lineage, explicit history denominators and predeclared fixed-March April selection | [Frozen AS-106 design](AS_106_PERSISTENCE.md); DESIGN ONLY, implementation and M31–M35 NOT STARTED |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -1211,8 +1245,9 @@ M29 appendix slide candidate: “Seven candidate pixels, an honest denominator, 
 AS-105 M28 COMPLETE / COMMITTED / PUSHED; M29 real engineering acceptance and
 owner review PASS. Exact real metrics and canonical geometry are now recorded
 in EV-033 and the external local bundle, NOT tracked in Git. Sanitized map/slide
-capture remains pending. AS-105 is COMPLETE AND MERGED through PR #14; owner
-review of the next milestone / AS-106 design before implementation is next.
+capture remains pending. AS-105 is COMPLETE AND MERGED through PR #14;
+Decision 051 freezes AS-106 design only. Owner review of the published design
+and explicit M31 implementation authorization are next; no AS-106 implementation.
 Future comparative policy validation, including
 predeclared history-depth sensitivity, is REQUIRED / NOT RUN. No known-April-event
 comparison or accuracy/biological claim. Synthetic visuals remain labelled;
