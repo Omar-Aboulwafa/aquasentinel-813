@@ -401,5 +401,334 @@
     "credential_scan": "PASS",
     "preservation": "PASS",
     "GitHub_CI_success_claim": false
+  },
+  "failure_localization": {
+    "semantic": {
+      "scope": "M49 / E49 / EV-053 Failure localization only; original FAIL preserved",
+      "prior_evidence_commit": "37331736d2278bf93dc3e91bdfc30d5e96bdd0c5",
+      "implementation_base": "392603b5b074d515eb6c137e33395c7f0b1256ac",
+      "failure_stage": "D_CLIENT_SEARCH_CONSTRUCTION",
+      "failing_operation": "pystac_client.item_search.BaseSearch._format_intersects -> copy.deepcopy(intersects) -> FrozenJSON.__setitem__/_deny",
+      "underlying_exception_class": "builtins.TypeError",
+      "underlying_sanitized_exception_text": "AS-201 metadata is immutable.",
+      "public_wrapper_exception_class": "aquasentinel.catalog.stac.CatalogMetadataError",
+      "public_wrapper_sanitized_exception_text": "Malformed catalog metadata: AS-201 metadata is immutable.",
+      "wrapper_message_evidence": "Derived exactly from unchanged search_catalog TypeError handler; no full acceptance replay.",
+      "origin": "Our FrozenJSON reconstruction rejects deepcopy requested by pystac-client, before network search.",
+      "root_cause_classification": "OUR_OVERLY_STRICT_INTERNAL_IMMUTABLE_GEOMETRY_INTEROPERABILITY_CONTRACT",
+      "provider_offending_JSON_field": null,
+      "offending_internal_argument_path": "client.search(intersects=ENVELOPE_GEOMETRY)",
+      "internal_value_summary": {
+        "python_type": "aquasentinel.ingestion.sentinel1_policy.FrozenJSON",
+        "JSON_type": "Polygon",
+        "coordinates_python_type": "tuple",
+        "canonical_envelope_bbox": [
+          49.6,
+          28.6,
+          50.7,
+          29.6
+        ]
+      },
+      "parser_expected_contract": "dict-compatible GeoJSON geometry whose Python object can be deep-copied; ordinary mutable dict/list reconstruction is supported.",
+      "provider_JSON_validity": {
+        "root": "STRICT_JSON_OBJECT_PASS",
+        "collection": "STRICT_JSON_OBJECT_PASS",
+        "raw_pystac_Collection_from_dict": "PASS",
+        "collection_license": "other",
+        "collection_license_type": "str",
+        "collection_license_validation": "PASS"
+      },
+      "collection_top_level_keys": [
+        "assets",
+        "auth:schemes",
+        "description",
+        "extent",
+        "id",
+        "item_assets",
+        "keywords",
+        "license",
+        "links",
+        "providers",
+        "sci:citation",
+        "stac_extensions",
+        "stac_version",
+        "storage:schemes",
+        "summaries",
+        "title",
+        "type"
+      ],
+      "collection_structure": {
+        "assets": {
+          "keys": [
+            "thumbnail"
+          ],
+          "type": "dict"
+        },
+        "auth:schemes": {
+          "keys": [
+            "oidc",
+            "s3"
+          ],
+          "type": "dict"
+        },
+        "description": {
+          "type": "str"
+        },
+        "extent": {
+          "keys": [
+            "spatial",
+            "temporal"
+          ],
+          "type": "dict"
+        },
+        "id": {
+          "type": "str"
+        },
+        "item_assets": {
+          "keys": [
+            "Product",
+            "hh",
+            "hv",
+            "safe_manifest",
+            "schema-calibration-hh",
+            "schema-calibration-hv",
+            "schema-calibration-vh",
+            "schema-calibration-vv",
+            "schema-noise-hh",
+            "schema-noise-hv",
+            "schema-noise-vh",
+            "schema-noise-vv",
+            "schema-product-hh",
+            "schema-product-hv",
+            "schema-product-vh",
+            "schema-product-vv",
+            "thumbnail",
+            "vh",
+            "vv"
+          ],
+          "type": "dict"
+        },
+        "keywords": {
+          "length": 11,
+          "type": "list"
+        },
+        "license": {
+          "type": "str"
+        },
+        "links": {
+          "length": 6,
+          "type": "list"
+        },
+        "providers": {
+          "length": 3,
+          "type": "list"
+        },
+        "sci:citation": {
+          "type": "str"
+        },
+        "stac_extensions": {
+          "length": 10,
+          "type": "list"
+        },
+        "stac_version": {
+          "type": "str"
+        },
+        "storage:schemes": {
+          "keys": [
+            "cdse-s3",
+            "creodias-s3"
+          ],
+          "type": "dict"
+        },
+        "summaries": {
+          "keys": [
+            "constellation",
+            "instruments",
+            "platform",
+            "processing:level",
+            "processing:version",
+            "product:timeliness",
+            "product:timeliness_category",
+            "product:type",
+            "sar:center_frequency",
+            "sar:frequency_band",
+            "sar:instrument_mode",
+            "sar:observation_direction",
+            "sar:polarizations",
+            "sat:orbit_state",
+            "sat:platform_international_designator",
+            "view:incidence_angle"
+          ],
+          "type": "dict"
+        },
+        "title": {
+          "type": "str"
+        },
+        "type": {
+          "type": "str"
+        }
+      },
+      "stages": [
+        {
+          "outcome": "PASS",
+          "stage": "fetch_decode_root",
+          "strict_JSON_object": true
+        },
+        {
+          "outcome": "PASS",
+          "stage": "fetch_decode_collection",
+          "strict_JSON_object": true
+        },
+        {
+          "outcome": "PASS",
+          "stage": "raw_pystac_Collection_from_dict"
+        },
+        {
+          "outcome": "PASS",
+          "stage": "A_Client_open_captured_root"
+        },
+        {
+          "outcome": "PASS",
+          "stage": "B_client_get_collection_captured_response"
+        },
+        {
+          "outcome": "PASS",
+          "stage": "C_collection_license_access"
+        },
+        {
+          "exception_class": "builtins.TypeError",
+          "frames": [
+            {
+              "filename": "localize.py",
+              "function": "attempt",
+              "line": 63
+            },
+            {
+              "filename": "localize.py",
+              "function": "<lambda>",
+              "line": 111
+            },
+            {
+              "filename": "client.py",
+              "function": "search",
+              "line": 616
+            },
+            {
+              "filename": "item_search.py",
+              "function": "__init__",
+              "line": 725
+            },
+            {
+              "filename": "item_search.py",
+              "function": "__init__",
+              "line": 169
+            },
+            {
+              "filename": "item_search.py",
+              "function": "_format_intersects",
+              "line": 564
+            },
+            {
+              "filename": "copy.py",
+              "function": "deepcopy",
+              "line": 172
+            },
+            {
+              "filename": "copy.py",
+              "function": "_reconstruct",
+              "line": 298
+            },
+            {
+              "filename": "sentinel1_policy.py",
+              "function": "_deny",
+              "line": 25
+            }
+          ],
+          "outcome": "FAIL",
+          "sanitized_exception_text": "AS-201 metadata is immutable.",
+          "stage": "D_client_search_construction_only"
+        }
+      ],
+      "provider_requests": [
+        {
+          "bytes": 3670,
+          "document": "root",
+          "sha256": "2665e1c0ebd3bd0a47ecc82902237d5797abcfcd95dab73eaa024fc4db3890d4",
+          "status": 200
+        },
+        {
+          "bytes": 11989,
+          "document": "collection",
+          "sha256": "d0f82ec0a132ebc0c48543f25e1fa0a0de4d6f8c5279936a7907c90160806246",
+          "status": 200
+        }
+      ],
+      "response_bytes_semantics": "Response-body bytes delivered to HTTP client; excludes headers/wire framing.",
+      "diagnostic_request_count": 2,
+      "diagnostic_response_bytes": 15659,
+      "original_M49_plus_diagnostic_CDSE_request_count": 4,
+      "original_M49_plus_diagnostic_provider_bytes": 31318,
+      "captured_response_hashes_equal_original_M49": true,
+      "library_versions": {
+        "pystac": "1.15.2",
+        "pystac-client": "0.9.0"
+      },
+      "dependency_contract": {
+        "pystac-client": "Direct project pin ==0.9.0",
+        "pystac": "Indirect requirement pystac[validation]>=1.10.0; no direct project pin",
+        "dependency_changes": 0
+      },
+      "boundaries": {
+        "search_requests": 0,
+        "PC_requests": 0,
+        "token_requests": 0,
+        "TIFF_requests": 0,
+        "XML_requests": 0,
+        "SAR_pixel_reads": 0,
+        "SAR_pixel_bytes": 0,
+        "scientific_SAR_compute_calls": 0,
+        "full_live_acceptance_retry": false,
+        "production_changes": 0,
+        "test_changes": 0,
+        "config_dependency_changes": 0,
+        "AS202": "NOT_STARTED",
+        "Decision_055": "ABSENT"
+      },
+      "raw_provider_response_policy": "Captured temporarily outside repository and removed after diagnosis; neither raw response committed.",
+      "correction_options_ranked": [
+        {
+          "rank": 1,
+          "option": "Serialize/thaw frozen envelope once into independent ordinary JSON dict/lists at SAR search boundary; pass to both existing provider searches.",
+          "production_files": [
+            "src/aquasentinel/ingestion/sentinel1_resolver.py"
+          ],
+          "regression_tests": [
+            "tests/ingestion/test_sentinel1_contract.py"
+          ],
+          "Sentinel2_impact": "None expected; optical search path unchanged.",
+          "Decision054_semantics_changed": false,
+          "required_tests": "Real pystac-client constructor against captured/synthetic root and collection with frozen envelope; both provider queries retain exact geometry/window/no-cloud contract; original frozen geometry and identities unchanged."
+        },
+        {
+          "rank": 2,
+          "option": "Normalize intersects into an ordinary finite JSON dict/list copy at shared catalog-client boundary.",
+          "production_files": [
+            "src/aquasentinel/catalog/stac.py"
+          ],
+          "regression_tests": [
+            "tests/catalog/test_stac_non_optical.py",
+            "tests/catalog/test_stac.py"
+          ],
+          "Sentinel2_impact": "Shared search boundary affected; optical AOI, cloud query, pagination and identity regressions required.",
+          "Decision054_semantics_changed": false,
+          "required_tests": "Immutable/ordinary geometries, finite input, caller immutability, real client construction and S2 cloud/page behavior."
+        }
+      ],
+      "non_recommended_option": "Change FrozenJSON deepcopy semantics globally: broader immutability/aliasing surface than necessary; not required for minimal boundary correction.",
+      "recommended_next_action": "Owner authorize option 1 with focused offline regression and full engineering gates, followed by separate authorization for the full M49 live retry."
+    },
+    "semantic_sha256": "ed1bc8499c08b03df714caad32d8ab3c4ae6ab900cb93d8dd1a785f709ef557f",
+    "accessed_at": "2026-10-10T22:03:56.386478+00:00",
+    "canonicalization": "SHA256 of failure_localization.semantic; original acceptance semantic and hash unchanged; access timestamp excluded."
   }
 }

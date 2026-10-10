@@ -136,3 +136,101 @@ failure localization and any subsequent correction/retry. Do not proceed to
 AS-202 or relax source/policy checks on the basis of offline tests alone.
 No calibrated backscatter, oil candidate, petroleum/source confirmation,
 water safety or shutdown conclusion follows from this attempt.
+
+## Failure localization — M49 / E49 / EV-053 diagnostic sub-step
+
+**Later localization: stage D, `client.search(...)` construction. Original
+AS201_LIVE_ACCEPTANCE = FAIL is preserved above; no full live retry or fix.**
+The baseline remains merged implementation `392603b5b074d515eb6c137e33395c7f0b1256ac`;
+the preceding evidence commit is `37331736d2278bf93dc3e91bdfc30d5e96bdd0c5`.
+This diagnostic does not allocate another milestone/evidence ID.
+
+### Minimum traffic and captured-document replay
+
+Exactly **two CDSE GETs / 15,659 response-body bytes**: root 3,670 bytes and
+sentinel-1-grd collection 11,989 bytes, both HTTP200. Their SHA256 values exactly
+match the original M49 request hashes in the table above. Raw provider documents
+were captured only in a temporary directory outside the repository and removed
+after diagnosis; not committed.
+Both parse as strict JSON objects, with duplicate-key/nonfinite checks.
+The safe top-level key/type/shape inventory is in the localization JSON.
+Provider collection `extent` has ordinary spatial/temporal objects; `license`
+is the non-empty string **`other`**. No provider JSON field caused this failure.
+
+After those two reads, client operations replayed the captured documents locally.
+An exact-URL guard refused every network request except those root/collection GETs;
+replay IO refused uncaptured links and search pages.
+
+| Stage | Operation | Result |
+|---|---|---|
+| Preliminary | `pystac.Collection.from_dict(captured_collection)` | PASS |
+| A | `Client.open(...)` using captured root | PASS |
+| B | `client.get_collection("sentinel-1-grd")` using captured response | PASS |
+| C | `collection.license` and existing string validation | PASS: `other` |
+| **D** | `client.search(intersects=ENVELOPE_GEOMETRY, ...)`, no consumption | **FAIL before any search request** |
+
+### Exact operation, exception and origin
+
+Pystac-client's `BaseSearch._format_intersects` sees a dict and calls
+`copy.deepcopy(value)`. `ENVELOPE_GEOMETRY` is AquaSentinel's **FrozenJSON dict
+subclass**, with tuple coordinates. Python deepcopy reconstructs the mapping by
+assigning entries; `FrozenJSON.__setitem__`, aliased to `_deny`, rejects assignment.
+Standalone `copy.deepcopy(ENVELOPE_GEOMETRY)` reproduces the same exception offline.
+
+- Underlying exception: **`builtins.TypeError`**.
+- Exact safe text: **`AS-201 metadata is immutable.`**
+- Public outer exception: **`aquasentinel.catalog.stac.CatalogMetadataError`**.
+- Outer text from the unchanged `search_catalog` TypeError handler:
+  **`Malformed catalog metadata: AS-201 metadata is immutable.`**
+- Offending internal argument: **`client.search(intersects=ENVELOPE_GEOMETRY)`**.
+- Offending provider JSON field/path: **none**.
+- Expected Python contract: copyable dict-compatible GeoJSON, ordinarily dict/list
+  reconstruction; the geographical Polygon values themselves are not rejected.
+- Classification: **our internal immutable-geometry/library interoperability
+  contract is too strict at the search boundary**. Not a CDSE metadata defect,
+  not a collection parser/version problem, not our license/page validation.
+
+The outer message is traced directly to the unchanged catch-and-wrap code; the
+full public acceptance path was not rerun to print it. The diagnostic frames
+and installed library source identify the exact failing operation.
+
+### Versions and smallest correction options — not implemented
+
+Installed **pystac 1.15.2 / pystac-client 0.9.0**. The latter matches the direct
+project pin; it requires `pystac[validation]>=1.10.0` indirectly. No direct PySTAC
+project pin, installation or upgrade occurred. Collection parsing succeeds in
+both libraries, so changing versions is not justified by this evidence.
+
+1. **Recommended minimal correction:** in
+   `src/aquasentinel/ingestion/sentinel1_resolver.py`, thaw/serialize the frozen
+   envelope once into independent ordinary finite JSON dict/lists and use that
+   value in both existing searches. Keep the policy/model immutable. No Sentinel-2
+   path or Decision054 selection/geometry semantics need change. Add a regression
+   in `tests/ingestion/test_sentinel1_contract.py` exercising the real client
+   constructor rather than mocking away the copy, exact geometry/window/no-cloud
+   query for both providers and unchanged original geometry/identities.
+2. **Alternative shared correction:** normalize `intersects` at the external
+   client boundary in `src/aquasentinel/catalog/stac.py`. This touches Sentinel-2
+   too; require catalog tests for optical AOI/cloud filtering/pagination, finite
+   inputs and caller immutability as well as frozen SAR geometry construction.
+   Decision054 semantics would still be unchanged if values are preserved exactly.
+
+Changing `FrozenJSON` globally has a broader immutability/aliasing impact and is
+not necessary for the smallest fix. None of these corrections is implemented.
+
+### Accounting, preservation and next authorization
+
+Diagnostic search requests **0**; PC **0**; signing **0**; TIFF/XML **0**;
+SAR pixel reads/bytes **0/0**; scientific SAR compute **0**. Combined original
+M49 plus localization traffic: **4 CDSE requests / 31,318 response-body bytes**.
+The earlier M49 two-request accounting remains historical and unchanged.
+
+Only this MD and its JSON localization append changed. Original FAIL semantic
+payload/hash and MD prefix are unchanged. Production/tests/config/dependencies,
+Decisions 050–054, all other accepted evidence, protected external hashes/modes
+and full stash inventory are preserved. JSON/digest, credential and whitespace
+checks pass; no raw provider response, SAS, header or cookie is committed.
+
+**Next:** owner authorization for the minimal SAR boundary correction and focused
+offline regression, then separate authorization for a full M49 live retry.
+AS-202 NOT STARTED; Decision 055 ABSENT. No PR or merge performed.
