@@ -1,0 +1,1750 @@
+{
+  "AS201": "NOT STARTED",
+  "M44": "NOT STARTED",
+  "PR": "NONE CREATED",
+  "canonicalization": "Existing canonical_json: sorted keys, compact separators, allow_nan=False, UTF-8, ensure_ascii default True, trailing newline; arrays canonical ordered; no volatile request timestamps/signatures or pixels",
+  "counts": {
+    "N_acquisition_timestamps": 13,
+    "N_distinct_acquisitions": 26,
+    "N_metadata_eligible": null,
+    "N_metadata_eligible_before_pc": 4,
+    "N_metadata_eligible_note": "Full compatibility count unknown: only frozen earliest CDSE candidate was queried on PC; three unselected CDSE-eligible acquisitions not PC-assessed. CDSE-level eligible count is 4; no compatible selection was confirmed.",
+    "N_metadata_eligible_unique_pc_compatibility_confirmed": 0,
+    "N_provider_records": 26,
+    "N_selected": 0,
+    "PC_compatibility_not_queried_for_unselected_acquisitions": 3
+  },
+  "decision053_status": "FINAL / FROZEN DESIGN / MERGED",
+  "engineering_entry": "E43",
+  "engineering_quality_gates": {
+    "CI": "No GitHub CI success claimed",
+    "credential_signed_URL_scan": "PASS",
+    "diff_and_new_file_whitespace": "PASS",
+    "engineering_test_network_attempts": 0,
+    "preservation_and_digest": "PASS",
+    "pytest_command": "python -m pytest -v",
+    "pytest_passed": 1285,
+    "pytest_seconds": 106.24,
+    "ruff": "PASS",
+    "ruff_command": "python -m ruff check .",
+    "status": "PASS",
+    "warning_count": 6,
+    "warning_type": "Existing Rasterio PendingDeprecationWarnings"
+  },
+  "evidence_id": "EV-047",
+  "interpretation": {
+    "biological_negative_label": false,
+    "fallback_used": false,
+    "later_acquisition_queried_on_PC": false,
+    "meaning": "The existing resolver query for the frozen earliest acquisition returned a successful empty page; no uniquely compatible PC product selected. This does not establish absence anywhere in the PC catalog.",
+    "next_step": "Owner review of M43 UNAVAILABLE evidence; then separately authorize M44 retrospective case-study reporting from accepted PRE/EVENT evidence with POST explicitly UNAVAILABLE. Any optional additional metadata-only compatibility investigation requires separate authorization. M44 is not authorized or started here.",
+    "observational_consistency_category": null,
+    "pixel_evaluability": "NOT ASSESSED",
+    "reason": "ZERO_EXACT_PC_05_09_MATCHES",
+    "recovery_claim": false,
+    "scientific_validation_execution": "NOT STARTED",
+    "selection_completed_before_pixels": true,
+    "selection_status": "UNAVAILABLE"
+  },
+  "merge": "NONE PERFORMED",
+  "milestone": "M43",
+  "network_audit": {
+    "EO_asset_requests": 0,
+    "EO_bytes_downloaded": 0,
+    "blocked_operations": 0,
+    "pages": [
+      {
+        "feature_count": 5,
+        "has_next": true,
+        "item_ids": [
+          "S2B_MSIL2A_20230531T065629_N0510_R063_T40RBN_20240908T012259",
+          "S2B_MSIL2A_20230531T065629_N0510_R063_T39RZH_20240908T012259",
+          "S2B_MSIL2A_20230528T064629_N0510_R020_T40RBN_20240908T011647",
+          "S2B_MSIL2A_20230528T064629_N0510_R020_T39RZH_20240908T011647",
+          "S2A_MSIL2A_20230526T065621_N0510_R063_T40RBN_20240907T073145"
+        ],
+        "next_link_count": 1,
+        "numberMatched": null,
+        "numberReturned": 5,
+        "operation": "CDSE_MAY_INVENTORY",
+        "page_number": 1,
+        "reported_context": {}
+      },
+      {
+        "feature_count": 5,
+        "has_next": true,
+        "item_ids": [
+          "S2A_MSIL2A_20230526T065621_N0510_R063_T39RZH_20240907T073145",
+          "S2A_MSIL2A_20230523T064631_N0510_R020_T40RBN_20240907T084524",
+          "S2A_MSIL2A_20230523T064631_N0510_R020_T39RZH_20240907T084524",
+          "S2B_MSIL2A_20230521T065629_N0510_R063_T40RBN_20240904T210158",
+          "S2B_MSIL2A_20230521T065629_N0510_R063_T39RZH_20240904T210158"
+        ],
+        "next_link_count": 1,
+        "numberMatched": null,
+        "numberReturned": 5,
+        "operation": "CDSE_MAY_INVENTORY",
+        "page_number": 2,
+        "reported_context": {}
+      },
+      {
+        "feature_count": 5,
+        "has_next": true,
+        "item_ids": [
+          "S2B_MSIL2A_20230518T064629_N0510_R020_T40RBN_20240905T010301",
+          "S2B_MSIL2A_20230518T064629_N0510_R020_T39RZH_20240905T010301",
+          "S2A_MSIL2A_20230516T065621_N0510_R063_T40RBN_20240905T075051",
+          "S2A_MSIL2A_20230516T065621_N0510_R063_T39RZH_20240905T075051",
+          "S2A_MSIL2A_20230513T064621_N0510_R020_T40RBN_20240907T025331"
+        ],
+        "next_link_count": 1,
+        "numberMatched": null,
+        "numberReturned": 5,
+        "operation": "CDSE_MAY_INVENTORY",
+        "page_number": 3,
+        "reported_context": {}
+      },
+      {
+        "feature_count": 5,
+        "has_next": true,
+        "item_ids": [
+          "S2A_MSIL2A_20230513T064621_N0510_R020_T39RZH_20240907T025331",
+          "S2B_MSIL2A_20230511T065629_N0510_R063_T40RBN_20240905T131833",
+          "S2B_MSIL2A_20230511T065629_N0510_R063_T39RZH_20240905T131833",
+          "S2B_MSIL2A_20230508T064629_N0510_R020_T40RBN_20240908T033402",
+          "S2B_MSIL2A_20230508T064629_N0510_R020_T39RZH_20240908T033402"
+        ],
+        "next_link_count": 1,
+        "numberMatched": null,
+        "numberReturned": 5,
+        "operation": "CDSE_MAY_INVENTORY",
+        "page_number": 4,
+        "reported_context": {}
+      },
+      {
+        "feature_count": 5,
+        "has_next": true,
+        "item_ids": [
+          "S2A_MSIL2A_20230506T065621_N0510_R063_T40RBN_20240901T194431",
+          "S2A_MSIL2A_20230506T065621_N0510_R063_T39RZH_20240901T194431",
+          "S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841",
+          "S2A_MSIL2A_20230503T064621_N0510_R020_T39RZH_20240903T135841",
+          "S2B_MSIL2A_20230501T065629_N0510_R063_T40RBN_20240831T132114"
+        ],
+        "next_link_count": 1,
+        "numberMatched": null,
+        "numberReturned": 5,
+        "operation": "CDSE_MAY_INVENTORY",
+        "page_number": 5,
+        "reported_context": {}
+      },
+      {
+        "feature_count": 1,
+        "has_next": false,
+        "item_ids": [
+          "S2B_MSIL2A_20230501T065629_N0510_R063_T39RZH_20240831T132114"
+        ],
+        "next_link_count": 0,
+        "numberMatched": null,
+        "numberReturned": 1,
+        "operation": "CDSE_MAY_INVENTORY",
+        "page_number": 6,
+        "reported_context": {}
+      },
+      {
+        "feature_count": 0,
+        "has_next": false,
+        "item_ids": [],
+        "next_link_count": 0,
+        "numberMatched": null,
+        "numberReturned": 0,
+        "operation": "PC_EARLIEST_RESOLUTION",
+        "page_number": 1,
+        "reported_context": {}
+      }
+    ],
+    "requests": [
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/",
+        "status": 200
+      },
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/collections/sentinel-2-l2a",
+        "status": 200
+      },
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "hostname": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "CDSE_MAY_INVENTORY",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "hostname": "planetarycomputer.microsoft.com",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "PC_EARLIEST_RESOLUTION",
+        "path": "/api/stac/v1/",
+        "status": 200
+      },
+      {
+        "hostname": "planetarycomputer.microsoft.com",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "PC_EARLIEST_RESOLUTION",
+        "path": "/api/stac/v1/collections/sentinel-2-l2a",
+        "status": 200
+      },
+      {
+        "hostname": "planetarycomputer.microsoft.com",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "PC_EARLIEST_RESOLUTION",
+        "path": "/api/stac/v1/search",
+        "status": 200
+      }
+    ],
+    "scientific_compute_calls": 0
+  },
+  "network_counts_at_metadata_freeze": {
+    "CDSE_metadata_requests": 8,
+    "COG_HEAD_range_open_requests": 0,
+    "EO_asset_requests": 0,
+    "EO_bytes_downloaded": 0,
+    "PC_metadata_requests": 3,
+    "git_count_unit": "Executed Git network operations through selection; final push/remote verification reported separately",
+    "git_network_requests": 1,
+    "scientific_compute_calls": 0,
+    "signing_requests": 0
+  },
+  "preservation": {
+    "accepted_evidence_and_M42": "Must remain byte-identical to baseline",
+    "frozen_decision_section_sha256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea"
+    },
+    "protected_external_hash_count": 44,
+    "protected_mode_count": 57,
+    "safety_stashes": "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration\nf93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration\n",
+    "scientific_cache_created": false,
+    "status": "PASS; protected tracked hashes, frozen body hashes, external hashes/modes and safety stashes identical",
+    "tracked_snapshot_count": 137
+  },
+  "recorded_at": "2026-10-10T16:17:21.657015Z",
+  "scientific_execution_status": "NOT STARTED",
+  "selection_payload": {
+    "all_distinct_acquisitions": [
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-01T06:56:29.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230501T065629_N0510_R063_T39RZH_20240831T132114"
+        ],
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230501T065629_N0510_R063_T39RZH_20240831T132114"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-01T06:56:29.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230501T065629_N0510_R063_T40RBN_20240831T132114"
+        ],
+        "rejection_reasons": [
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230501T065629_N0510_R063_T40RBN_20240831T132114"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-03T06:46:21.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2a",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230503T064621_N0510_R020_T39RZH_20240903T135841"
+        ],
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230503T064621_N0510_R020_T39RZH_20240903T135841"
+      },
+      {
+        "disposition": "UNAVAILABLE_PC_COMPATIBILITY",
+        "eligible_before_pc": true,
+        "observation_identity": {
+          "acquired_at": "2023-05-03T06:46:21.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2a",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841"
+        ],
+        "rejection_reasons": [],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-06T06:56:21.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2a",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230506T065621_N0510_R063_T39RZH_20240901T194431"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230506T065621_N0510_R063_T39RZH_20240901T194431"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-06T06:56:21.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2a",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230506T065621_N0510_R063_T40RBN_20240901T194431"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230506T065621_N0510_R063_T40RBN_20240901T194431"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-08T06:46:29.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2b",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230508T064629_N0510_R020_T39RZH_20240908T033402"
+        ],
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230508T064629_N0510_R020_T39RZH_20240908T033402"
+      },
+      {
+        "disposition": "NOT_SELECTED_METADATA_RULE",
+        "eligible_before_pc": true,
+        "observation_identity": {
+          "acquired_at": "2023-05-08T06:46:29.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2b",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230508T064629_N0510_R020_T40RBN_20240908T033402"
+        ],
+        "rejection_reasons": [],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230508T064629_N0510_R020_T40RBN_20240908T033402"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-11T06:56:29.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230511T065629_N0510_R063_T39RZH_20240905T131833"
+        ],
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230511T065629_N0510_R063_T39RZH_20240905T131833"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-11T06:56:29.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230511T065629_N0510_R063_T40RBN_20240905T131833"
+        ],
+        "rejection_reasons": [
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230511T065629_N0510_R063_T40RBN_20240905T131833"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-13T06:46:21.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2a",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230513T064621_N0510_R020_T39RZH_20240907T025331"
+        ],
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230513T064621_N0510_R020_T39RZH_20240907T025331"
+      },
+      {
+        "disposition": "NOT_SELECTED_METADATA_RULE",
+        "eligible_before_pc": true,
+        "observation_identity": {
+          "acquired_at": "2023-05-13T06:46:21.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2a",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230513T064621_N0510_R020_T40RBN_20240907T025331"
+        ],
+        "rejection_reasons": [],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230513T064621_N0510_R020_T40RBN_20240907T025331"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-16T06:56:21.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2a",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230516T065621_N0510_R063_T39RZH_20240905T075051"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230516T065621_N0510_R063_T39RZH_20240905T075051"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-16T06:56:21.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2a",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230516T065621_N0510_R063_T40RBN_20240905T075051"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230516T065621_N0510_R063_T40RBN_20240905T075051"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-18T06:46:29.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2b",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230518T064629_N0510_R020_T39RZH_20240905T010301"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230518T064629_N0510_R020_T39RZH_20240905T010301"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-18T06:46:29.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2b",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230518T064629_N0510_R020_T40RBN_20240905T010301"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230518T064629_N0510_R020_T40RBN_20240905T010301"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-21T06:56:29.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230521T065629_N0510_R063_T39RZH_20240904T210158"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230521T065629_N0510_R063_T39RZH_20240904T210158"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-21T06:56:29.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230521T065629_N0510_R063_T40RBN_20240904T210158"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230521T065629_N0510_R063_T40RBN_20240904T210158"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-23T06:46:31.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2a",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230523T064631_N0510_R020_T39RZH_20240907T084524"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230523T064631_N0510_R020_T39RZH_20240907T084524"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-23T06:46:31.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2a",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230523T064631_N0510_R020_T40RBN_20240907T084524"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230523T064631_N0510_R020_T40RBN_20240907T084524"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-26T06:56:21.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2a",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230526T065621_N0510_R063_T39RZH_20240907T073145"
+        ],
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230526T065621_N0510_R063_T39RZH_20240907T073145"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-26T06:56:21.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2a",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2A_MSIL2A_20230526T065621_N0510_R063_T40RBN_20240907T073145"
+        ],
+        "rejection_reasons": [
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2A_MSIL2A_20230526T065621_N0510_R063_T40RBN_20240907T073145"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-28T06:46:29.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2b",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230528T064629_N0510_R020_T39RZH_20240908T011647"
+        ],
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230528T064629_N0510_R020_T39RZH_20240908T011647"
+      },
+      {
+        "disposition": "NOT_SELECTED_METADATA_RULE",
+        "eligible_before_pc": true,
+        "observation_identity": {
+          "acquired_at": "2023-05-28T06:46:29.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2b",
+          "relative_orbit": 20
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230528T064629_N0510_R020_T40RBN_20240908T011647"
+        ],
+        "rejection_reasons": [],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230528T064629_N0510_R020_T40RBN_20240908T011647"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-31T06:56:29.024000Z",
+          "mgrs_tile": "39RZH",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230531T065629_N0510_R063_T39RZH_20240908T012259"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230531T065629_N0510_R063_T39RZH_20240908T012259"
+      },
+      {
+        "disposition": "REJECTED_METADATA",
+        "eligible_before_pc": false,
+        "observation_identity": {
+          "acquired_at": "2023-05-31T06:56:29.024000Z",
+          "mgrs_tile": "40RBN",
+          "platform": "sentinel-2b",
+          "relative_orbit": 63
+        },
+        "provider_record_ids": [
+          "S2B_MSIL2A_20230531T065629_N0510_R063_T40RBN_20240908T012259"
+        ],
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "representative_cdse_item_id": "S2B_MSIL2A_20230531T065629_N0510_R063_T40RBN_20240908T012259"
+      }
+    ],
+    "all_provider_records": [
+      {
+        "acquired_at": "2023-05-01T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230501T065629_N0510_R063_T39RZH_20240831T132114",
+        "cloud_cover_percent": 18.32,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-08-31T13:21:14Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-03-31T22:51:43.958000Z",
+          "published": "2025-04-16T02:09:46.765717Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "045590b313bcf6fa75d88f7e81930ba51502dbc424f56c6a147f39c1687afaac",
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-01T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230501T065629_N0510_R063_T40RBN_20240831T132114",
+        "cloud_cover_percent": 20.78,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-08-31T13:21:14Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-03-31T22:51:44.290000Z",
+          "published": "2025-04-16T02:24:05.790289Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "c3b02cff46a1e6145d5e0b3fae9bf0fb121ecb58fc7cc3e4a743bb669ca28748",
+        "rejection_reasons": [
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-03T06:46:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230503T064621_N0510_R020_T39RZH_20240903T135841",
+        "cloud_cover_percent": 0.73,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-03T13:58:41Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-10T12:07:06.304000Z",
+          "published": "2025-04-28T03:20:26.202965Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "c93d782d619c66c561fe8ba260e0f29359695b25bb6dcb448ce0eed1a379bc23",
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-03T06:46:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841",
+        "cloud_cover_percent": 0.57,
+        "collection": "sentinel-2-l2a",
+        "disposition": "UNAVAILABLE_PC_COMPATIBILITY",
+        "generation_time": "2024-09-03T13:58:41Z",
+        "metadata_eligible_before_pc": true,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "UNAVAILABLE_ZERO_EXACT_05_09_MATCHES",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-10T12:07:07.445000Z",
+          "published": "2025-04-28T03:20:45.482775Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "3829d12c30590845d5e89d23378aa2250d6846765ba86430b58d418b253f9b7c",
+        "rejection_reasons": [],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-06T06:56:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230506T065621_N0510_R063_T39RZH_20240901T194431",
+        "cloud_cover_percent": 71.05,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-01T19:44:31Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-11T01:46:08.534000Z",
+          "published": "2025-04-28T19:03:14.046744Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "30a95a150119c3bf3db7530287ccea9283c1fd755cdcbc947080c9d02fa05be8",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-06T06:56:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230506T065621_N0510_R063_T40RBN_20240901T194431",
+        "cloud_cover_percent": 73.13,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-01T19:44:31Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-11T01:46:08.670000Z",
+          "published": "2025-04-28T19:03:22.938774Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "63a9ffb3904e4c5e753a2da4a28670c314cff18f74d1fb95a40459449fd4576b",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-08T06:46:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230508T064629_N0510_R020_T39RZH_20240908T033402",
+        "cloud_cover_percent": 16.21,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-08T03:34:02Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-11T08:38:41.884000Z",
+          "published": "2025-04-29T06:08:57.301536Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "41931dca36375088a32549143a5e7d20b55a0d0fb2f39b9096219777faf1b6d3",
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-08T06:46:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230508T064629_N0510_R020_T40RBN_20240908T033402",
+        "cloud_cover_percent": 15.6,
+        "collection": "sentinel-2-l2a",
+        "disposition": "NOT_SELECTED_METADATA_RULE",
+        "generation_time": "2024-09-08T03:34:02Z",
+        "metadata_eligible_before_pc": true,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_QUERIED_NOT_SELECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-11T08:38:42.856000Z",
+          "published": "2025-04-29T06:30:31.715938Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "560505fc5a202f01bc39984caaa03515ba03499bbd3067eb0af77244e7304454",
+        "rejection_reasons": [],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-11T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230511T065629_N0510_R063_T39RZH_20240905T131833",
+        "cloud_cover_percent": 18.68,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-05T13:18:33Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-24T14:49:13.318000Z",
+          "published": "2025-06-30T19:32:20.175013Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "e9c486854680510d1d1278c594dfdcc4f696960353e536c439226771651890e2",
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-11T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230511T065629_N0510_R063_T40RBN_20240905T131833",
+        "cloud_cover_percent": 19.74,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-05T13:18:33Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-24T14:49:13.562000Z",
+          "published": "2025-06-30T19:30:13.984955Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "33c5864dc5ef7148b82938d109b4e345804c149dd7cb56ad7cb2b5390cf5b10d",
+        "rejection_reasons": [
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-13T06:46:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230513T064621_N0510_R020_T39RZH_20240907T025331",
+        "cloud_cover_percent": 0.23,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-07T02:53:31Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-24T18:39:39.549000Z",
+          "published": "2025-05-10T16:10:40.112294Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "69396a4ae05fef515fa6b9d709c55ccf170204c88c052d307425e1bcbf5fac3e",
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-13T06:46:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230513T064621_N0510_R020_T40RBN_20240907T025331",
+        "cloud_cover_percent": 0.19,
+        "collection": "sentinel-2-l2a",
+        "disposition": "NOT_SELECTED_METADATA_RULE",
+        "generation_time": "2024-09-07T02:53:31Z",
+        "metadata_eligible_before_pc": true,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_QUERIED_NOT_SELECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-24T18:39:40.370000Z",
+          "published": "2025-05-10T16:10:15.195712Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "e0a544b8176d1b13f7204219c3d6ffa830fa40c287e6dc11f5c287a111070296",
+        "rejection_reasons": [],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-16T06:56:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230516T065621_N0510_R063_T39RZH_20240905T075051",
+        "cloud_cover_percent": 70.65,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-05T07:50:51Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-25T04:45:32.338000Z",
+          "published": "2025-05-11T10:14:51.220275Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "fb6c04c2aeb113b40e606763c25aca6a768713e3e7d1156fc49260c65c42f2f4",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-16T06:56:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230516T065621_N0510_R063_T40RBN_20240905T075051",
+        "cloud_cover_percent": 71.39,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-05T07:50:51Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-25T04:45:32.566000Z",
+          "published": "2025-05-11T10:14:48.181493Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "7c1f5580a9332427418bb1a236b3314474af7852a0455468fc1dc9ff1536489d",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-18T06:46:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230518T064629_N0510_R020_T39RZH_20240905T010301",
+        "cloud_cover_percent": 89.62,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-05T01:03:01Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-21T04:18:59.252000Z",
+          "published": "2025-02-14T05:36:44.215693Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "8c3ba41c369a72c7f9e53aff50d077043ca6c713a2540c777af74b88c7084dec",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-18T06:46:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230518T064629_N0510_R020_T40RBN_20240905T010301",
+        "cloud_cover_percent": 89.77,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-05T01:03:01Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-21T04:19:01.506000Z",
+          "published": "2025-02-14T05:37:19.454679Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "aebe6abe25a4c9cd4a4374d5e2da39c2c35c0369ba7160b53bc6093699bd1608",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-21T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230521T065629_N0510_R063_T39RZH_20240904T210158",
+        "cloud_cover_percent": 90.96,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-04T21:01:58Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-25T16:49:20.688000Z",
+          "published": "2025-05-12T09:28:12.045281Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "b5b3c6f49def41528587a9f0d4bd9bd0d4fafc69156ce96f10701127256c2490",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-21T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230521T065629_N0510_R063_T40RBN_20240904T210158",
+        "cloud_cover_percent": 92.12,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-04T21:01:58Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-25T16:49:20.915000Z",
+          "published": "2025-05-12T09:28:11.210706Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "93f9a00b67449234c7200e26eaaf1310edccfac03929ad3e5b7bdd8616f5374f",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-23T06:46:31.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230523T064631_N0510_R020_T39RZH_20240907T084524",
+        "cloud_cover_percent": 39.95,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-07T08:45:24Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-25T20:42:20.822000Z",
+          "published": "2025-05-12T20:21:16.950055Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "a20e8648e1022e294e166cccc10b86d5c10793835cff91d33084343c34c0a328",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-23T06:46:31.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230523T064631_N0510_R020_T40RBN_20240907T084524",
+        "cloud_cover_percent": 38.79,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-07T08:45:24Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-25T20:42:21.630000Z",
+          "published": "2025-05-12T20:17:44.701844Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "52c6cd60ccbe1e20c6184091277b91b1d7ec21084c0039c4dbcabd092496a79d",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-26T06:56:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230526T065621_N0510_R063_T39RZH_20240907T073145",
+        "cloud_cover_percent": 12.89,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-07T07:31:45Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-29T13:04:57.550000Z",
+          "published": "2025-02-24T00:13:41.483389Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "9ec9fae38f319f8fb52b4947522fd65e039bf2bc135ac6854d8a57e41a535c95",
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-26T06:56:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230526T065621_N0510_R063_T40RBN_20240907T073145",
+        "cloud_cover_percent": 13.41,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-07T07:31:45Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-29T13:04:58.513000Z",
+          "published": "2025-02-24T00:23:03.570145Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "29c1287db148c69986e04efe333f929418ee1a396a0a7cbb34333ba90aeca48b",
+        "rejection_reasons": [
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-28T06:46:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230528T064629_N0510_R020_T39RZH_20240908T011647",
+        "cloud_cover_percent": 19.3,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-08T01:16:47Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-30T00:35:28.579000Z",
+          "published": "2025-02-25T18:34:05.381727Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "76e3690f7a825673f1a6429ec9d958410fd551827b0f12cf0bae0a8218dd1490",
+        "rejection_reasons": [
+          "MGRS_TILE_NOT_40RBN"
+        ],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-28T06:46:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230528T064629_N0510_R020_T40RBN_20240908T011647",
+        "cloud_cover_percent": 19.46,
+        "collection": "sentinel-2-l2a",
+        "disposition": "NOT_SELECTED_METADATA_RULE",
+        "generation_time": "2024-09-08T01:16:47Z",
+        "metadata_eligible_before_pc": true,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_QUERIED_NOT_SELECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-30T00:35:30.094000Z",
+          "published": "2025-02-25T18:34:23.451136Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "993beb05b486b08ff37773c6d6a1a6a248797a4fcd486bbb57ec315f028b024b",
+        "rejection_reasons": [],
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-31T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230531T065629_N0510_R063_T39RZH_20240908T012259",
+        "cloud_cover_percent": 31.9,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-08T01:22:59Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "39RZH",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-30T17:10:13.959000Z",
+          "published": "2025-02-26T16:32:14.336627Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "39bedd669ef9a56c93a46205f7c86ab8dffe1869d6b2f118dd15f9be3a35488a",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "MGRS_TILE_NOT_40RBN",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      },
+      {
+        "acquired_at": "2023-05-31T06:56:29.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2B_MSIL2A_20230531T065629_N0510_R063_T40RBN_20240908T012259",
+        "cloud_cover_percent": 33.7,
+        "collection": "sentinel-2-l2a",
+        "disposition": "REJECTED_METADATA",
+        "generation_time": "2024-09-08T01:22:59Z",
+        "metadata_eligible_before_pc": false,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "NOT_APPLICABLE_METADATA_REJECTED",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-01-30T17:10:14.644000Z",
+          "published": "2025-02-26T16:34:14.126904Z",
+          "sat:relative_orbit": 63
+        },
+        "provider_record_metadata_sha256": "b1089f65e0dd934d98da2f574828e630465446f884aece9abc4e59f735175dd9",
+        "rejection_reasons": [
+          "CDSE_CLOUD_METADATA_GT_30_PERCENT",
+          "RELATIVE_ORBIT_NOT_20"
+        ],
+        "relative_orbit": 63
+      }
+    ],
+    "aoi": {
+      "feature_id": "raha_validation_aoi",
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              54.525,
+              24.42
+            ],
+            [
+              54.585,
+              24.42
+            ],
+            [
+              54.585,
+              24.46
+            ],
+            [
+              54.525,
+              24.46
+            ],
+            [
+              54.525,
+              24.42
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "geometry_sha256": "a0fdb745672b246f569400574aa299ae4e233b8012ef54e970cdacba56687c2a",
+      "source_file": "data/aoi/demo_site.geojson"
+    },
+    "cdse_inventory_scope": {
+      "AOI_intersects_query": true,
+      "eligibility_cloud_lte_percent": 30,
+      "half_open_window_rechecked_locally": true,
+      "page_size_requested": 5,
+      "pages": [
+        {
+          "feature_count": 5,
+          "has_next": true,
+          "item_ids": [
+            "S2B_MSIL2A_20230531T065629_N0510_R063_T40RBN_20240908T012259",
+            "S2B_MSIL2A_20230531T065629_N0510_R063_T39RZH_20240908T012259",
+            "S2B_MSIL2A_20230528T064629_N0510_R020_T40RBN_20240908T011647",
+            "S2B_MSIL2A_20230528T064629_N0510_R020_T39RZH_20240908T011647",
+            "S2A_MSIL2A_20230526T065621_N0510_R063_T40RBN_20240907T073145"
+          ],
+          "next_link_count": 1,
+          "numberMatched": null,
+          "numberReturned": 5,
+          "operation": "CDSE_MAY_INVENTORY",
+          "page_number": 1,
+          "reported_context": {}
+        },
+        {
+          "feature_count": 5,
+          "has_next": true,
+          "item_ids": [
+            "S2A_MSIL2A_20230526T065621_N0510_R063_T39RZH_20240907T073145",
+            "S2A_MSIL2A_20230523T064631_N0510_R020_T40RBN_20240907T084524",
+            "S2A_MSIL2A_20230523T064631_N0510_R020_T39RZH_20240907T084524",
+            "S2B_MSIL2A_20230521T065629_N0510_R063_T40RBN_20240904T210158",
+            "S2B_MSIL2A_20230521T065629_N0510_R063_T39RZH_20240904T210158"
+          ],
+          "next_link_count": 1,
+          "numberMatched": null,
+          "numberReturned": 5,
+          "operation": "CDSE_MAY_INVENTORY",
+          "page_number": 2,
+          "reported_context": {}
+        },
+        {
+          "feature_count": 5,
+          "has_next": true,
+          "item_ids": [
+            "S2B_MSIL2A_20230518T064629_N0510_R020_T40RBN_20240905T010301",
+            "S2B_MSIL2A_20230518T064629_N0510_R020_T39RZH_20240905T010301",
+            "S2A_MSIL2A_20230516T065621_N0510_R063_T40RBN_20240905T075051",
+            "S2A_MSIL2A_20230516T065621_N0510_R063_T39RZH_20240905T075051",
+            "S2A_MSIL2A_20230513T064621_N0510_R020_T40RBN_20240907T025331"
+          ],
+          "next_link_count": 1,
+          "numberMatched": null,
+          "numberReturned": 5,
+          "operation": "CDSE_MAY_INVENTORY",
+          "page_number": 3,
+          "reported_context": {}
+        },
+        {
+          "feature_count": 5,
+          "has_next": true,
+          "item_ids": [
+            "S2A_MSIL2A_20230513T064621_N0510_R020_T39RZH_20240907T025331",
+            "S2B_MSIL2A_20230511T065629_N0510_R063_T40RBN_20240905T131833",
+            "S2B_MSIL2A_20230511T065629_N0510_R063_T39RZH_20240905T131833",
+            "S2B_MSIL2A_20230508T064629_N0510_R020_T40RBN_20240908T033402",
+            "S2B_MSIL2A_20230508T064629_N0510_R020_T39RZH_20240908T033402"
+          ],
+          "next_link_count": 1,
+          "numberMatched": null,
+          "numberReturned": 5,
+          "operation": "CDSE_MAY_INVENTORY",
+          "page_number": 4,
+          "reported_context": {}
+        },
+        {
+          "feature_count": 5,
+          "has_next": true,
+          "item_ids": [
+            "S2A_MSIL2A_20230506T065621_N0510_R063_T40RBN_20240901T194431",
+            "S2A_MSIL2A_20230506T065621_N0510_R063_T39RZH_20240901T194431",
+            "S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841",
+            "S2A_MSIL2A_20230503T064621_N0510_R020_T39RZH_20240903T135841",
+            "S2B_MSIL2A_20230501T065629_N0510_R063_T40RBN_20240831T132114"
+          ],
+          "next_link_count": 1,
+          "numberMatched": null,
+          "numberReturned": 5,
+          "operation": "CDSE_MAY_INVENTORY",
+          "page_number": 5,
+          "reported_context": {}
+        },
+        {
+          "feature_count": 1,
+          "has_next": false,
+          "item_ids": [
+            "S2B_MSIL2A_20230501T065629_N0510_R063_T39RZH_20240831T132114"
+          ],
+          "next_link_count": 0,
+          "numberMatched": null,
+          "numberReturned": 1,
+          "operation": "CDSE_MAY_INVENTORY",
+          "page_number": 6,
+          "reported_context": {}
+        }
+      ],
+      "pagination_complete": true,
+      "query_interval": "2023-05-01T00:00:00Z/2023-06-01T00:00:00Z",
+      "server_side_cloud_filter": null
+    },
+    "decision053_body_sha256": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea",
+    "final_selection_status": "UNAVAILABLE",
+    "fixed_post_window": {
+      "end_exclusive": "2023-06-01T00:00:00Z",
+      "start_inclusive": "2023-05-01T00:00:00Z"
+    },
+    "frozen_metadata_filters": {
+      "aoi": "raha_validation_aoi; unchanged analyst-defined Al Raha Polygon",
+      "aoi_geometry_digest": "a0fdb745672b246f569400574aa299ae4e233b8012ef54e970cdacba56687c2a",
+      "cloud_cover_lte_percent": 30,
+      "cloud_metadata_provider": "CDSE discovery; do not substitute broad PC matching query",
+      "collection": "sentinel-2-l2a",
+      "exact_pc_product_match_count": 1,
+      "fallback": "NONE; selected-scene retrieval/processing failure is UNAVAILABLE with reason, not substitution",
+      "freeze_before_pixels": [
+        "CDSE/PC IDs",
+        "acquisition",
+        "platform",
+        "tile",
+        "orbit",
+        "processing baseline",
+        "generation history",
+        "AOI/grid/contract identities",
+        "selection inventory and digest"
+      ],
+      "future_authorization": "Separate metadata-only selection authorization; later retrieval/processing authorization; NO EO request in M42",
+      "grid": "Existing deterministic EPSG:32640 20 m, 310 x 228 AnalysisGrid and full upstream compatibility contract",
+      "metadata_failures": "Retain all dispositions; incomplete pagination/transport failure means selection UNAVAILABLE; malformed/ambiguous identity stops selection, never silently choose a convenient record",
+      "mgrs_tile": "40RBN",
+      "ordering": "UTC acquisition ascending, then CDSE item ID; distinct observation key=(acquisition,platform,tile,relative_orbit); reject unresolved duplicate/ambiguous products",
+      "pc_processing_baseline": "05.09",
+      "platforms": [
+        "sentinel-2a",
+        "sentinel-2b"
+      ],
+      "provider_matching": "Exact timezone-aware acquisition, platform under existing rules, MGRS tile and relative orbit; no ID-only/fuzzy/alias fallback",
+      "relative_orbit": 20,
+      "rule": "EARLIEST metadata-eligible compatible acquisition in full fixed May interval; exact matched PC product required before selection",
+      "scientific_failures": "Retain selected identity, failure stage and reason; no support/mask/history relaxation",
+      "selected_observations": 1,
+      "unselected_eligible_candidates": "NOT_SELECTED_METADATA_RULE; not processing failures or biological negatives",
+      "window": "2023-05-01 <= acquisition < 2023-06-01 UTC"
+    },
+    "official_base": "8bb56f12f2cd683d4a96f069c5d049bf4a39799e",
+    "ordered_cdse_metadata_eligible_acquisitions": [
+      {
+        "acquired_at": "2023-05-03T06:46:21.024000Z",
+        "mgrs_tile": "40RBN",
+        "platform": "sentinel-2a",
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-08T06:46:29.024000Z",
+        "mgrs_tile": "40RBN",
+        "platform": "sentinel-2b",
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-13T06:46:21.024000Z",
+        "mgrs_tile": "40RBN",
+        "platform": "sentinel-2a",
+        "relative_orbit": 20
+      },
+      {
+        "acquired_at": "2023-05-28T06:46:29.024000Z",
+        "mgrs_tile": "40RBN",
+        "platform": "sentinel-2b",
+        "relative_orbit": 20
+      }
+    ],
+    "ordering": "UTC acquisition ascending then CDSE item ID; distinct key=(acquisition,platform,tile,relative_orbit)",
+    "pc_match_cardinality": {
+      "exact_observation_all_baselines": 0,
+      "exact_observation_required_05_09": 0,
+      "returned_before_strict_filter": 0
+    },
+    "pc_metadata_inventory": [],
+    "pc_metadata_query": {
+      "cloud_query_lte_percent": 100,
+      "cloud_query_semantics": "Existing resolver broad matching query only; CDSE eligibility remains <=30%",
+      "collection": "sentinel-2-l2a",
+      "intersects": {
+        "coordinates": [
+          [
+            [
+              54.525,
+              24.42
+            ],
+            [
+              54.585,
+              24.42
+            ],
+            [
+              54.585,
+              24.46
+            ],
+            [
+              54.525,
+              24.46
+            ],
+            [
+              54.525,
+              24.42
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "match_and_resolve_called": false,
+      "max_items": null,
+      "not_called_reason": "Zero search items; zero strict/05.09 matches can be established without asset validation or scientific execution",
+      "page_size_requested": 5,
+      "pages": [
+        {
+          "feature_count": 0,
+          "has_next": false,
+          "item_ids": [],
+          "next_link_count": 0,
+          "numberMatched": null,
+          "numberReturned": 0,
+          "operation": "PC_EARLIEST_RESOLUTION",
+          "page_number": 1,
+          "reported_context": {}
+        }
+      ],
+      "pagination_complete": true,
+      "query_interval": "2023-05-03T06:46:20.024000Z/2023-05-03T06:46:22.024000Z",
+      "strict_match_implementation": "src/aquasentinel/ingestion/sentinel2_assets.py: discovery_identity, _pc_identity, match_and_resolve; no raw item-ID equality fallback"
+    },
+    "provider_record_hash_fields": [
+      "cdse_item_id",
+      "acquired_at",
+      "platform",
+      "mgrs_tile",
+      "relative_orbit",
+      "collection",
+      "product_type",
+      "cloud_cover_percent",
+      "processing_baseline",
+      "generation_time",
+      "catalog_aoi_intersects_match",
+      "provider_metadata_fields"
+    ],
+    "providers": {
+      "CDSE": {
+        "collection": "sentinel-2-l2a",
+        "endpoint": "https://stac.dataspace.copernicus.eu/v1/"
+      },
+      "PC": {
+        "collection": "sentinel-2-l2a",
+        "endpoint": "https://planetarycomputer.microsoft.com/api/stac/v1/"
+      }
+    },
+    "resolved_metadata": null,
+    "schema_version": "as108-m43-post-selection-v1",
+    "selected_cdse_identity": {
+      "acquired_at": "2023-05-03T06:46:21.024000Z",
+      "catalog_aoi_intersects_match": true,
+      "cdse_item_id": "S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841",
+      "cloud_cover_percent": 0.57,
+      "collection": "sentinel-2-l2a",
+      "disposition": "UNAVAILABLE_PC_COMPATIBILITY",
+      "generation_time": "2024-09-03T13:58:41Z",
+      "metadata_eligible_before_pc": true,
+      "mgrs_tile": "40RBN",
+      "pc_compatibility_status": "UNAVAILABLE_ZERO_EXACT_05_09_MATCHES",
+      "platform": "sentinel-2a",
+      "processing_baseline": "05.10",
+      "product_type": "MSIL2A (strict product ID)",
+      "provider_metadata_fields": {
+        "created": "2025-04-10T12:07:07.445000Z",
+        "published": "2025-04-28T03:20:45.482775Z",
+        "sat:relative_orbit": 20
+      },
+      "provider_record_metadata_sha256": "3829d12c30590845d5e89d23378aa2250d6846765ba86430b58d418b253f9b7c",
+      "rejection_reasons": [],
+      "relative_orbit": 20
+    },
+    "selected_pc_identity": null,
+    "selection_sequence": "CDSE eligibility first; earliest acquisition fixed before sole PC lookup. PC compatibility mandatory for final selection. Zero/multiple matches => UNAVAILABLE, never advance to another acquisition.",
+    "unavailable_reason": "ZERO_EXACT_PC_05_09_MATCHES",
+    "upstream_grid_reference": {
+      "grid": {
+        "bounds": [
+          249020.0,
+          2702860.0,
+          255220.0,
+          2707420.0
+        ],
+        "crs": "EPSG:32640",
+        "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+        "height": 228,
+        "resolution": 20.0,
+        "transform": [
+          20.0,
+          0.0,
+          249020.0,
+          0.0,
+          -20.0,
+          2707420.0
+        ],
+        "width": 310
+      },
+      "source": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json#/as102/grid",
+      "verification": "Copied accepted grid reference only; selected May native raster headers/pixels NOT verified"
+    }
+  },
+  "selection_sha256": "df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de"
+}
