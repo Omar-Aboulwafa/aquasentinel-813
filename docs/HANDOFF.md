@@ -1,6 +1,61 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-107 M39 real engineering acceptance — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M40 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+
+**AS-107: CLOSEOUT READY. M40 / E40 / EV-044: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
+This is the pre-merge closeout preparation state, not a claim that AS-107 is
+already COMPLETE / CLOSED. **The future closeout PR merge itself is the durable
+closure event:** after that merge, AS-107 is **COMPLETE / CLOSED** and M40 is
+**COMPLETE / MERGED / PUBLICATION-CLOSEOUT**. No extra documentation loop or
+invented future merge SHA is required merely to record that event.
+
+Verified implementation/acceptance baseline: `2bfbbd63cb5fee8e1d18a0b1099335b924e5ed9d`.
+AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED via
+PR #22 (`49f5276b1ad372725b21cdb2085815225c98eed4`). M38: IMPLEMENTED /
+SYNTHETIC-ADVERSARIAL VALIDATION COMPLETE / MERGED via PR #23
+(`7f304bb44af93d2b3a1a3e6982fefad05fb8f452`). M39: REAL ENGINEERING
+ACCEPTANCE PASS / MERGED via PR #24 (`2bfbbd63cb5fee8e1d18a0b1099335b924e5ed9d`).
+Actual Git parents, ancestor relationships and merge/head tree equality were
+verified, rather than inferred from these status statements.
+
+Current active development branch: none. This closeout was prepared on
+`docs/as-107-closeout`, in `/workspace/aquasentinel-813-as107-m40`, directly from
+that verified main. Immediate next step: owner review of the published M40
+closeout; PR creation and merge need separate authorization. No M40 PR or merge
+was performed in this task. AS-108 NOT STARTED; future AS-105 policy validation
+NOT STARTED; P1 homogeneous 05.10 robustness NOT STARTED. Decision 053 ABSENT.
+
+Accepted as107-v1 product: `hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb`.
+Input fingerprint: `084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91`.
+Output fingerprint: `25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae`.
+**Watch = 29.52380952380953**, evidence completeness **0.7**, component coverage
+**0.7**, assessment `provisional_observational_screening`; recommendation:
+**Review on the next valid acquisition**. Seven pixels / 2,800 m²; spectral
+14/35 = 40.0; red-edge family evidence breadth 7/21 = 33.333333333333336;
+available persistence A/B/C = 7/7/0; C/B = 0/7 = 0.0; context/exposure unavailable.
+No same-pixel candidate recurrence was observed among the 7 target candidate
+pixels with valid prior observational history. This does not establish no HAB,
+no biological persistence, safe water or zero environmental risk.
+
+M40 publishes existing accepted evidence without recomputing real scoring or
+upstream science. Decision 050/051/052 bodies and M39 MD/JSON remain byte-identical;
+sealed bundles, caches, handoffs, recovery files, modes and both safety stashes
+are retained. M40 engineering quality: **1285 full tests PASS (104.18s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/new-file whitespace/credential/preservation PASS**. Local checks only;
+no GitHub CI success claim. Scientific/external-data requests and EO bytes: **0**.
+
+Policy was frozen before real scoring; no outcome tuning followed Watch. Missing
+operational components were not fabricated. This is not HAB/absence confirmation,
+measured chlorophyll, species/toxins, probability/calibrated confidence, water safety,
+shutdown advice, complete intake risk, accuracy or lead-time validation. Exact-grid
+recurrence, no motion compensation, the 25-day + 8-second gap, sparse/shared five-history
+support, BOA rather than aquatic Rrs, correlated red-edge evidence and candidate-conditioned
+maximum remain limitations. Al Raha is a validation AOI, not a confirmed intake.
+
+See [M40 closeout](evidence/AS_107_CLOSEOUT.md) and [machine-readable closeout](evidence/AS_107_CLOSEOUT.json).
+All earlier dated current-status and M36–M39 records below describe historical
+checkpoints; their original unstarted/unpublished/unmerged wording is retained.
+
+## Historical AS-107 M39 real engineering acceptance — before PR #24 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED.
 M38: IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION COMPLETE / MERGED** through

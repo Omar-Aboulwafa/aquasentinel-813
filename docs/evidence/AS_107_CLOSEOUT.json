@@ -1,0 +1,394 @@
+{
+  "schema_version": "as107-m40-closeout-v1",
+  "milestone": "M40",
+  "engineering_entry": "E40",
+  "evidence_id": "EV-044",
+  "documentation_prepared_at": "2026-10-10T13:37:26.433011+00:00",
+  "scope": "Documentation/evidence publication and closeout preparation only; no real scientific computation or parent reconstruction",
+  "status": "PUBLICATION / CLOSEOUT PASS — READY FOR PR",
+  "closeout_effective_on_merge": true,
+  "current_premerge_state": "AS-107 CLOSEOUT READY",
+  "postmerge_state": "AS-107 COMPLETE / CLOSED",
+  "postmerge_M40_state": "COMPLETE / MERGED / PUBLICATION-CLOSEOUT",
+  "closure_event": "Future closeout PR merge itself; no extra post-merge documentation loop required merely to record its SHA",
+  "official_baseline": "2bfbbd63cb5fee8e1d18a0b1099335b924e5ed9d",
+  "branch": "docs/as-107-closeout",
+  "worktree": "/workspace/aquasentinel-813-as107-m40",
+  "pre_edit_worktree": "clean",
+  "publication_chain": [
+    {
+      "pr": 22,
+      "merge_commit": "49f5276b1ad372725b21cdb2085815225c98eed4",
+      "parents": [
+        "6b22d32f078ef80158b2f2d7aac4f3dd07925038",
+        "5430383611437e939cebce89608c001889eea487"
+      ],
+      "subject": "Merge pull request #22 from Omar-Aboulwafa/docs/as-107-design-freeze",
+      "git_committer_timestamp": "2026-10-10T16:15:17+04:00",
+      "tree": "ab66ce6c0d7e74f73ce1c72131773ac98d371ca8",
+      "merged_tree_equals_head_tree": true,
+      "ancestor_of_official_main": true
+    },
+    {
+      "pr": 23,
+      "merge_commit": "7f304bb44af93d2b3a1a3e6982fefad05fb8f452",
+      "parents": [
+        "49f5276b1ad372725b21cdb2085815225c98eed4",
+        "55533467393f394d6cb3f856b439f41fde4b0148"
+      ],
+      "subject": "Merge pull request #23 from Omar-Aboulwafa/feature/as-107-hab-risk",
+      "git_committer_timestamp": "2026-10-10T16:55:09+04:00",
+      "tree": "193724933aaa6cb508320371f863aa5dc64d37b8",
+      "merged_tree_equals_head_tree": true,
+      "ancestor_of_official_main": true
+    },
+    {
+      "pr": 24,
+      "merge_commit": "2bfbbd63cb5fee8e1d18a0b1099335b924e5ed9d",
+      "parents": [
+        "7f304bb44af93d2b3a1a3e6982fefad05fb8f452",
+        "6f2d3d88df6d395f2f2da69a33e30e8163196ca3"
+      ],
+      "subject": "Merge pull request #24 from Omar-Aboulwafa/data/as-107-real-acceptance",
+      "git_committer_timestamp": "2026-10-10T17:26:55+04:00",
+      "tree": "827f75b887c056e179447fe2bc3d0e3d3a222e59",
+      "merged_tree_equals_head_tree": true,
+      "ancestor_of_official_main": true
+    }
+  ],
+  "publication_chain_verification": "Exact parents, merged ancestors and merge/head tree equality; timestamps are Git committer timestamps, not claimed GitHub API timestamps",
+  "milestone_states": {
+    "AS106": "COMPLETE / CLOSED",
+    "M37_Decision052": "FINAL / FROZEN / MERGED",
+    "M38": "IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION COMPLETE / MERGED",
+    "M39": "REAL ENGINEERING ACCEPTANCE PASS / MERGED",
+    "M40_before_task": "NOT STARTED",
+    "M40_current": "PUBLICATION / CLOSEOUT PASS — READY FOR PR",
+    "AS108": "NOT STARTED",
+    "future_AS105_policy_validation": "NOT STARTED",
+    "P1_0510": "NOT STARTED",
+    "Decision053": "ABSENT"
+  },
+  "accepted_M39": {
+    "version": "as107-v1",
+    "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+    "input_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+    "output_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+    "assessment_status": "provisional_observational_screening",
+    "recommendation": "Review on the next valid acquisition",
+    "region_pixel_count": 7,
+    "region_area_m2": 2800.0,
+    "region_area_km2": 0.0028,
+    "accepted_integer_binary64_oracle": {
+      "A_B_C": [
+        7,
+        7,
+        0
+      ],
+      "F_all": 1.0,
+      "F_red": 1.0,
+      "H": 1.0,
+      "band": "Watch",
+      "canonical_weights": [
+        0.35,
+        0.2,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "completeness": 0.7,
+      "completeness_hex": "0x1.6666666666666p-1",
+      "contribution_hex": [
+        "0x1.4000000000000p+4",
+        "0x1.30c30c30c30c4p+3",
+        "0x0.0p+0",
+        null,
+        null
+      ],
+      "contributions": [
+        20.0,
+        9.523809523809526,
+        0.0,
+        null,
+        null
+      ],
+      "coverage": 0.7,
+      "coverage_hex": "0x1.6666666666666p-1",
+      "denominators": [
+        35,
+        21,
+        7,
+        null,
+        null
+      ],
+      "effective_weights": [
+        0.5,
+        0.28571428571428575,
+        0.2142857142857143,
+        0.0,
+        0.0
+      ],
+      "explanation_order": [
+        "spectral_anomaly",
+        "chlorophyll_red_edge_signal",
+        "persistence",
+        "environmental_context",
+        "intake_exposure"
+      ],
+      "family_a": [
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "family_v": [
+        0,
+        7,
+        0,
+        7,
+        0
+      ],
+      "flags": [
+        "incomplete_evidence"
+      ],
+      "numerators": [
+        14,
+        7,
+        0,
+        null,
+        null
+      ],
+      "raw_weights": [
+        0.35,
+        0.2,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+      "score": 29.52380952380953,
+      "score_hex": "0x1.d861861861863p+4",
+      "value_hex": [
+        "0x1.4000000000000p+5",
+        "0x1.0aaaaaaaaaaabp+5",
+        "0x0.0p+0",
+        null,
+        null
+      ],
+      "values": [
+        40.0,
+        33.333333333333336,
+        0.0,
+        null,
+        null
+      ]
+    },
+    "evidence_completeness_expression": "min(0.7, 1.0, 1.0, 1.0) = 0.7",
+    "red_edge_scientific_label": "red-edge family evidence breadth; NOT measured chlorophyll concentration",
+    "unavailable_components": {
+      "environmental_context": {
+        "value": null,
+        "status": "unavailable",
+        "reason": "not_implemented"
+      },
+      "intake_exposure": {
+        "value": null,
+        "status": "unavailable",
+        "reason": "not_implemented"
+      }
+    },
+    "flags": [
+      "incomplete_evidence"
+    ],
+    "limited_evidence_completeness": "NOT added; 0.7 is above frozen administrative 0.50 threshold",
+    "site_semantics": "Candidate-conditioned maximum; sole region; observational screening, not complete intake risk"
+  },
+  "persistence_interpretation": "No same-pixel candidate recurrence was observed among the 7 target candidate pixels with valid prior observational history.",
+  "persistence_non_inference": [
+    "No HAB",
+    "No biological persistence",
+    "Zero environmental risk",
+    "Safe water"
+  ],
+  "scientific_interpretation": "AquaSentinel produced a Watch observational screening result under frozen AS-107 policy; provisional_observational_screening only",
+  "limitations": [
+    "Provisional observational screening only; no HAB confirmation or HAB absence confirmation.",
+    "No species/toxin identification, measured chlorophyll concentration, biological probability, calibrated confidence or clinical/environmental truth.",
+    "No water-safety certification, desalination operational safety determination, intake shutdown instruction or complete operational risk.",
+    "No historical accuracy, sensitivity, specificity, false-positive-rate or warning-lead-time validation.",
+    "Exact same-grid persistence only; no motion/current compensation; only the frozen April eligible observations.",
+    "Long observation gap of 25 days + 8 seconds; two observations do not establish continuous biological persistence.",
+    "Five shared historical references are not independent confirmation; sparse/shared historical support is not statistical sufficiency.",
+    "BOA reflectance is not aquatic Rrs; correlated red-edge evidence is not independent corroboration.",
+    "Environmental context and intake exposure are not implemented; only 70% of configured component weight is available.",
+    "Candidate-conditioned site maximum is an observational screening summary, not a complete intake assessment.",
+    "Al Raha is an analyst-defined validation AOI, NOT a confirmed desalination intake."
+  ],
+  "anti_outcome_tuning": [
+    "Decision 052 was frozen before M38 implementation and before M39 real scoring.",
+    "M38 implemented and synthetic/adversarially validated that unchanged frozen policy.",
+    "M39 consumed unchanged accepted AS-104/AS-105/AS-106 evidence.",
+    "The first real result was preserved before inspection and independent oracle validation.",
+    "The accepted real outcome was Watch = 29.52380952380953.",
+    "No weight, band, threshold, family definition, candidate policy, recurrence rule or recommendation was changed after seeing the result.",
+    "Environmental context and intake exposure remained unavailable, rather than being fabricated as zero-valued scientific evidence.",
+    "The actual outcome was retained, not tuned to create a stronger hackathon demo; reproducibility and scientific restraint are part of the product."
+  ],
+  "historical_M39_integrity": {
+    "status": "PASS; historical acceptance, not rerun in M40",
+    "independent_arithmetic_and_fingerprints": "PASS",
+    "deterministic_repeat": "PASS",
+    "caller_order_permutation": "PASS",
+    "creation_time_exclusion": "PASS",
+    "parent_aware_validation": "PASS",
+    "ordinary_tamper_controls_rejected": 13,
+    "attacker_rehashed_controls_rejected": 3,
+    "immutability_and_non_aliasing": "PASS",
+    "sealed_fresh_process_reconstruction": "PASS",
+    "scientific_network_requests": 0,
+    "registry_cache_mutation": 0,
+    "focused_tests": 292,
+    "full_tests": 1285,
+    "warnings": 6,
+    "M39_first_call": {
+      "completed_at": "2026-10-10T13:04:58.732346+00:00",
+      "first_result_file": "/tmp/as107-m39-first-result.json",
+      "first_result_sha256": "2bd6c2b10cdca85114ecb63011fbeab684cb173e3b61096dbc51fbb7598a5474",
+      "guards": {
+        "cache": 0,
+        "network": 0,
+        "public_upstream": 0,
+        "registry_mutation": 0,
+        "transport": 0
+      },
+      "parent_snapshot_after": "b5401a7219d9d58090d8aefa71dade8ff45e81e7bcd98e406f26c215c2696e52",
+      "parent_snapshot_before": "b5401a7219d9d58090d8aefa71dade8ff45e81e7bcd98e406f26c215c2696e52",
+      "policy_sha256_after": "f1a9291ba47250a66283a0d352496cc7e60fbdb853ad197b0e56bd3192123c07",
+      "policy_sha256_before": "f1a9291ba47250a66283a0d352496cc7e60fbdb853ad197b0e56bd3192123c07",
+      "public_call": 1,
+      "started_at": "2026-10-10T13:04:58.495566+00:00"
+    },
+    "M39_final_quality_gates": {
+      "CI": "No GitHub CI success claimed",
+      "Ruff": "PASS",
+      "credential_scan": "PASS",
+      "diff": "PASS",
+      "focused": {
+        "passed": 292,
+        "seconds": 43.61,
+        "warnings": 0
+      },
+      "full": {
+        "passed": 1285,
+        "seconds": 103.96,
+        "warnings": 6
+      },
+      "status": "PASS",
+      "warnings": "six existing Rasterio PendingDeprecationWarnings only"
+    }
+  },
+  "external_M39_bundle": {
+    "locally_verified": true,
+    "verification_method": "Read-only SHA-256 and stat; no chmod, rewrite, reconstruction or science",
+    "inventory": {
+      "directory": "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+      "directory_mode": "0555",
+      "files": {
+        "SHA256SUMS.txt": {
+          "bytes": 167,
+          "mode": "0o444",
+          "sha256": "b71ca40555544202df9a735984901377bd373f625eeb36332807455ce61aa1ab"
+        },
+        "execution.log": {
+          "bytes": 660,
+          "mode": "0o444",
+          "sha256": "d77c6307df5363cf43fa62b86e7cc4e6fa224cce4fac7bbe9dda02e34457d54c"
+        },
+        "real_acceptance.json": {
+          "bytes": 121988,
+          "mode": "0o444",
+          "sha256": "4473db7e589ee80b2e62209d59a7e16c2381a3f4783e5ebba166ccc778af0133"
+        }
+      }
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "tracked_files_snapshotted": 132,
+    "protected_external_files": 44,
+    "protected_permission_records": 57,
+    "Decision050_051_052_section_sha256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5"
+    },
+    "M39_repository_files_sha256": {
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.md": "344da2c7b9b1ee521dcde273b167a39d4e452f435dfe80036a8af196ff3b3f3f",
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.json": "dc97694a9fb1090e30add0d697431bfa9c1eaead783eed7a94050713967cd4c2"
+    },
+    "stashes": "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration\nf93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration\n",
+    "source_test_config_dependency_changes": 0,
+    "protected_caches_handoffs_recovery_bundles": "44 protected external files and 57 mode records unchanged; read-only comparison PASS",
+    "historical_sections": "Preserved; prior current M39 header relabelled historical only",
+    "untouched_tracked_files": 126,
+    "source_files_byte_identical": 41,
+    "test_files_byte_identical": 46
+  },
+  "M40_quality_gates": {
+    "status": "PASS",
+    "commands": [
+      "python -m pytest -v",
+      "python -m ruff check .",
+      "git diff --check"
+    ],
+    "full": {
+      "passed": 1285,
+      "warnings": 6,
+      "seconds": 104.18
+    },
+    "focused": "Not rerun in M40; historical M39 292 retained separately",
+    "warnings": "six existing Rasterio PendingDeprecationWarnings only",
+    "Ruff": "PASS",
+    "diff": "PASS",
+    "new_file_whitespace": "PASS",
+    "credential_stable_metadata_scan": "PASS; all eight authorized paths; no signed href, SAS token, Authorization credential or live secret",
+    "preservation": "PASS",
+    "test_network_guard": {
+      "blocked_external_network": true,
+      "observed_attempts": 0
+    },
+    "CI": "No GitHub CI success claimed"
+  },
+  "network_boundary": {
+    "scientific_external_data_requests": 0,
+    "EO_bytes_downloaded": 0,
+    "real_scoring_calls": 0,
+    "upstream_processing_calls": 0,
+    "parent_reconstructions": 0,
+    "administrative_git": "Initial fetch and final authorized Git push only"
+  },
+  "final_presentation_handoff": {
+    "problem": "A single satellite anomaly can be scientifically ambiguous and operationally misleading",
+    "design": "Freeze policy before real scoring; separate risk score from evidence completeness; represent missing operational components explicitly",
+    "real_result": "Watch = 29.52380952380953; evidence completeness = 0.7; component coverage = 0.7",
+    "credibility": "Policy preceded real result, lineage is reconstructable, tampering is rejected and missing components are not fabricated",
+    "operational_meaning": "Review on the next valid acquisition",
+    "scientific_restraint": "Provisional observational screening only; field verification remains the path for biological/operational confirmation",
+    "deliverables": [
+      "Deterministic availability-aware observational screening",
+      "Regional and site screening score with a continuous risk band",
+      "Reconstructable five-driver explanation and explicit unavailable components",
+      "Separate evidence completeness and component coverage",
+      "Observational persistence evidence",
+      "Deterministic identity, fingerprints and provenance",
+      "Tamper-detectable parent-aware validation",
+      "Accepted real Watch screening example"
+    ],
+    "recommended_visual": "Proposed five-driver explanation table, separate screening/completeness cards and verified publication chain; no existing visual/screenshot claimed"
+  },
+  "AS108_boundary": "NOT STARTED; any validation work needs separate owner authorization",
+  "PR": "NONE CREATED in M40",
+  "merge": "NONE PERFORMED in M40",
+  "auto_merge": "NOT enabled in M40"
+}
