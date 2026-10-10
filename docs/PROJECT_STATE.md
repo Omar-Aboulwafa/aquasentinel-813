@@ -1,6 +1,43 @@
 # AquaSentinel 813 — Project State
 
-## Current AS-108 M43 POST metadata selection — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M44 retrospective case study — 10 October 2026 (Asia/Dubai)
+
+**AS-107 COMPLETE / CLOSED. Decision 053/M42 FINAL / FROZEN DESIGN / MERGED.**
+M43 metadata selection COMPLETE / MERGED via PR #27 at `865cd14398c6bcdbeaed6a19210f5615beb638e6`.
+**M44 / E44 / EV-048: RETROSPECTIVE CASE-STUDY REPORTING COMPLETE.**
+**AS-108 P0: RETROSPECTIVE OBSERVATIONAL-CONSISTENCY CASE STUDY COMPLETE WITH POST UNAVAILABLE.**
+Decision 053 category: **PARTIALLY_CONSISTENT**, from accepted evidence and unchanged
+criteria: five descriptive PRE records evaluable; April 3 AS-105 P = 794 / candidates = 88,
+April 28 P = 802 / candidates = 7 plus accepted Watch = 29.52380952380953; required POST
+geometry endpoint absent. PRE is not independently scored or biologically negative.
+April 3 AS-106/107 remains missing; no score fabricated.
+
+April 28 accepted completeness/coverage = 0.7/0.7, provisional_observational_screening,
+Review on the next valid acquisition, exact-grid persistence A/B/C = 7/7/0 remain
+unchanged. No same-pixel recurrence is not proof of no HAB or biological persistence.
+POST provisional May 3 identity retained: no exact PC 05.09 match, no pixels,
+no scientific product/risk/negative/recovery label; no May 8/13/28 query/substitution.
+M43 digest `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de` unchanged.
+
+This is a retrospective month/area observational-consistency case, not blind,
+prospective, independent April preregistration, biological accuracy, species/toxin/
+chlorophyll confirmation, probability, calibrated confidence, water safety or
+shutdown advice. April outcomes were known before Decision 053; categories frozen
+before May metadata, unavailable POST preserved. Exact onset-relative lead time
+NOT ESTIMABLE. Scientific processing/EO/documentary requests in M44: **zero**.
+Prepared on `data/as-108-case-study`; current active scientific development branch:
+none. No Decision 054. AS-201, future AS-105 policy validation and P1 05.10 NOT STARTED.
+
+Case SHA-256: `ccc5f04f304a8b4bb8a367331069a5ca54776433e7c0fea0c67d662e68e0772a`.
+Engineering gates: **1285 full tests PASS (100.78s)**; six existing Rasterio
+PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS; strict finite
+JSON, independent digest/repeat, predicate, credential and preservation checks PASS.
+Engineering fixtures attempted no external network; no GitHub CI success claimed.
+Immediate next step: owner review → separately authorized M44 PR/merge → separate
+AS-201 Sentinel-1 retrieval/design authorization. No PR created or merge performed.
+See [case report](evidence/AS_108_HISTORICAL_CASE_STUDY.md) and [JSON](evidence/AS_108_HISTORICAL_CASE_STUDY.json). Earlier checkpoints retain their original historical facts.
+
+## Historical AS-108 M43 POST metadata selection — before PR #27 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: COMPLETE / CLOSED. Decision 053 / M42: FINAL / FROZEN DESIGN / MERGED**
 via PR #26 at `8bb56f12f2cd683d4a96f069c5d049bf4a39799e` (parents
