@@ -1,6 +1,31 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-201 M50 — offline geometry interoperability correction
+## Current AS-201 M51 — controlled live acceptance retry — FAIL
+
+**M51 / E51 / EV-055: AS201_LIVE_ACCEPTANCE_RETRY = FAIL.**
+One top-level merged public search/access-validation run from main `e137795686d8f97bbd8ba6bc0465616783586ae0`,
+PR #32. M49 historical FAIL and M50 merged offline correction remain unchanged.
+CDSE/PC catalog search and complete pagination succeed; the corrected client
+construction is reached live. Stage I rejects all six CDSE records:
+`properties.product:type="IW_GRDH_1S"` is outside the resolver's GRD/GRDH literals.
+All six final slots: **UNAVAILABLE / DISCOVERY_IDENTITY_INVALID**; ready=false.
+J1–J6 preserve unavailable slots without asset access; final assembly reaches K.
+
+Accounting: **8 HTTP200 requests / 671,449 body bytes**; CDSE 3 search pages,
+PC 1. Signing/TIFF/XML/ZIP/image-block requests **0**; SAR pixel reads/bytes
+**0/0**; scientific SAR compute **0**. No production fix or full restart.
+Unavailable-state fingerprints exist; normalized sources/derived provenance null,
+coverage incomplete empty lower bound. Header/XML validation NOT EVALUATED.
+Engineering: **136 focused / 1434 full tests PASS**, six existing Rasterio PendingDeprecationWarnings; Ruff/diff/JSON/digest/security/preservation PASS.
+
+Prepared on `validation/as-201-live-acceptance-retry`; Decision 054 unchanged.
+Next: owner review → separately authorize SAR product-type interoperability fix
+and offline tests → separately authorize live acceptance. **AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR/merge; no oil-detection or live-readiness claim.
+Evidence: [EV-055 MD](AS_201_LIVE_ACCEPTANCE_RETRY.md) and
+[JSON](AS_201_LIVE_ACCEPTANCE_RETRY.json).
+
+## Historical AS-201 M50 — offline correction before PR #32 merge / M51 retry
 
 **M50 / E50 / EV-054: OFFLINE INTEROPERABILITY CORRECTION COMPLETE.**
 Baseline: PR #31 merge `29b7b46edc877a50645865aad4a1e9f62d34d6f5`.
@@ -1682,3 +1707,12 @@ requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.
 - M49 FAIL and localization evidence byte-identical; full live retry NOT RUN.
 - Provider requests 0; SAR pixels/bytes 0/0; scientific SAR compute 0.
 - AS-202 NOT STARTED; Decision 055 ABSENT. Offline interoperability, not live readiness.
+
+### EV-055 — AS-201 M51 one controlled six-source live retry
+
+- **M51 / E51**; evidence ID only; Decision 055 remains absent.
+- [MD](AS_201_LIVE_ACCEPTANCE_RETRY.md) and [JSON](AS_201_LIVE_ACCEPTANCE_RETRY.json).
+- **FAIL:** stage I CDSE product:type IW_GRDH_1S rejected by GRD/GRDH contract.
+- Both catalogs/pagination pass; 8 requests / 671,449 body bytes; six UNAVAILABLE slots.
+- Assets/header/XML not accessed; SAR pixel reads/bytes 0/0; scientific SAR compute 0.
+- M49 FAIL and M50 correction evidence unchanged; no fix, restart, AS-202 or CI claim.

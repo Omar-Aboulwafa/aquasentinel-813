@@ -1,6 +1,31 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M50 — offline geometry interoperability correction
+## Current AS-201 M51 — controlled live acceptance retry — FAIL
+
+**M51 / E51 / EV-055: AS201_LIVE_ACCEPTANCE_RETRY = FAIL.**
+One top-level merged public search/access-validation run from main `e137795686d8f97bbd8ba6bc0465616783586ae0`,
+PR #32. M49 historical FAIL and M50 merged offline correction remain unchanged.
+CDSE/PC catalog search and complete pagination succeed; the corrected client
+construction is reached live. Stage I rejects all six CDSE records:
+`properties.product:type="IW_GRDH_1S"` is outside the resolver's GRD/GRDH literals.
+All six final slots: **UNAVAILABLE / DISCOVERY_IDENTITY_INVALID**; ready=false.
+J1–J6 preserve unavailable slots without asset access; final assembly reaches K.
+
+Accounting: **8 HTTP200 requests / 671,449 body bytes**; CDSE 3 search pages,
+PC 1. Signing/TIFF/XML/ZIP/image-block requests **0**; SAR pixel reads/bytes
+**0/0**; scientific SAR compute **0**. No production fix or full restart.
+Unavailable-state fingerprints exist; normalized sources/derived provenance null,
+coverage incomplete empty lower bound. Header/XML validation NOT EVALUATED.
+Engineering: **136 focused / 1434 full tests PASS**, six existing Rasterio PendingDeprecationWarnings; Ruff/diff/JSON/digest/security/preservation PASS.
+
+Prepared on `validation/as-201-live-acceptance-retry`; Decision 054 unchanged.
+Next: owner review → separately authorize SAR product-type interoperability fix
+and offline tests → separately authorize live acceptance. **AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR/merge; no oil-detection or live-readiness claim.
+Evidence: [EV-055 MD](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.json).
+
+## Historical AS-201 M50 — offline correction before PR #32 merge / M51 retry
 
 **M50 / E50 / EV-054: OFFLINE INTEROPERABILITY CORRECTION COMPLETE.**
 Baseline: PR #31 merge `29b7b46edc877a50645865aad4a1e9f62d34d6f5`.
@@ -2008,6 +2033,23 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Conceptual frozen-policy → plain JSON → client diagram; no screenshot created.
 - **Candidate slide title:** “Fix the boundary, preserve the evidence.”
 
+### M51 — A corrected boundary is not a completed live gate — 11 October 2026
+
+- **Task / ID:** AS-201 M51 / E51 / EV-055; one controlled public-path live retry.
+- **Problem / question:** Does merged M50 permit all six real sources to pass retrieval acceptance?
+- **Why it mattered:** Offline interoperability does not establish source/asset readiness.
+- **Options considered:** Preserve exact policy and outcome; patch while probing; or substitute sources.
+- **Decision / rationale:** One unchanged run, no repair/restart; retain all unavailable slots and exact stage diagnosis.
+- **Implementation / experiment:** Public search and access validator, delegated stage/request instrumentation; both catalogs paginated completely.
+- **Evidence:** [EV-055 MD](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.md) and [JSON](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.json).
+- **Quantitative result:** 8 HTTP200 requests / 671,449 body bytes; 3 CDSE + 1 PC pages; 6/6 slots discovery-identity invalid; zero assets/pixels/science.
+- **Limitation:** CDSE product:type IW_GRDH_1S rejected by GRD/GRDH literal check; header/XML/PC identity not accepted; retrieval not ready.
+- **Lesson learned:** Crossing one library boundary does not prove provider metadata normalization or live access.
+- **Impact on next step:** Separate owner review and authorization for the localized SAR-only metadata correction.
+- **Presentation takeaway:** Preserve each failed gate rather than claiming readiness from catalog success.
+- **Recommended visual:** Catalog success → six identity rejections → zero asset access; proposed, no screenshot created.
+- **Candidate slide title:** “Catalog access is not source acceptance.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2130,6 +2172,13 @@ claim, no SAR science. Exact error field remains unlocalized; no hidden retry/pa
 only the SAR boundary receives ordinary JSON. Original deepcopy failure reproduced,
 corrected constructor and complete synthetic pagination pass. M49 historical FAIL
 unchanged; zero real provider/pixel/scientific work; no live-readiness claim.
+
+### E51 — Controlled retry reaches the next strict identity gate
+
+[EV-055](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.md): M50 construction now succeeds
+live; both catalogs complete. Six CDSE product-type representation failures leave
+all slots UNAVAILABLE, readiness false, no normalized sources/derived provenance.
+No signing/header/XML/pixel/science request and no production correction.
 
 ## 5. Scientific evidence index
 

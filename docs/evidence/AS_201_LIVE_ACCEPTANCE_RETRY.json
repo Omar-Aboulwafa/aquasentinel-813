@@ -1,0 +1,1730 @@
+{
+  "schema_version": "as201-m51-live-acceptance-retry-v1",
+  "semantic": {
+    "schema_version": "as201-m51-live-acceptance-retry-v1",
+    "milestone": "M51",
+    "engineering_entry": "E51",
+    "evidence_id": "EV-055",
+    "base_sha": "e137795686d8f97bbd8ba6bc0465616783586ae0",
+    "branch": "validation/as-201-live-acceptance-retry",
+    "AS201_LIVE_ACCEPTANCE_RETRY": "FAIL",
+    "public_execution": {
+      "top_level_live_runs": 1,
+      "search_sentinel1_calls": 1,
+      "validate_retrieval_access_calls": 1,
+      "normal_SARConfig": {
+        "access_collection": "sentinel-1-grd",
+        "access_endpoint": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+        "allowed_asset_hosts": [
+          "sentinel1euwest.blob.core.windows.net"
+        ],
+        "discovery_collection": "sentinel-1-grd",
+        "discovery_endpoint": "https://stac.dataspace.copernicus.eu/v1/",
+        "signing_endpoint": "https://planetarycomputer.microsoft.com/api/sas/v1/sign",
+        "timeout_seconds": 30.0
+      },
+      "stage_reached": "K",
+      "failure_stage": "I",
+      "manual_full_restart": false,
+      "normal_transport_retries_observed": 0,
+      "all_six_final_states": "UNAVAILABLE",
+      "retrieval_ready": false
+    },
+    "catalogs": {
+      "CDSE": {
+        "root": "PASS",
+        "collection": "PASS",
+        "search_construction": "PASS",
+        "pagination": "COMPLETE",
+        "pages": 3,
+        "page_feature_counts": [
+          10,
+          10,
+          6
+        ],
+        "provider_records_returned": 26,
+        "final_page_has_next": false
+      },
+      "PC": {
+        "root": "PASS",
+        "collection": "PASS",
+        "search_construction": "PASS",
+        "pagination": "COMPLETE",
+        "pages": 1,
+        "page_feature_counts": [
+          24
+        ],
+        "provider_records_returned": 24,
+        "final_page_has_next": false
+      },
+      "six_source_identity_acceptance": "FAIL",
+      "exact_frozen_ID_presence_is_not_identity_or_access_acceptance": true
+    },
+    "failure_localization": {
+      "function": "aquasentinel.ingestion.sentinel1_resolver._normalize_item",
+      "operation": "product not in {\"GRD\", \"GRDH\"}",
+      "exception_class": "Sentinel1RetrievalError",
+      "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+      "offending_field": "properties.product:type",
+      "provider_value": "IW_GRDH_1S",
+      "provider_value_type": "string",
+      "higher_priority_fields_absent": [
+        "sar:product_type",
+        "s1:product_type"
+      ],
+      "expected_literals": [
+        "GRD",
+        "GRDH"
+      ],
+      "affected_CDSE_slots": 6,
+      "classification": "CDSE_PRODUCT_TYPE_REPRESENTATION_REJECTED_BY_RESOLVER",
+      "provider_metadata_defect_established": false,
+      "production_fix_attempted": false,
+      "PC_normalization_and_asset_resolution": "NOT_REACHED_FOR_ANY_SLOT"
+    },
+    "slots": [
+      {
+        "availability": "UNAVAILABLE",
+        "fingerprint": "d2cd93d5fd800b8789bdd1dc0ab6b1559d665afe43d89d38fa462ecc16da5b49",
+        "header": null,
+        "metadata": null,
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "role": "REFERENCE",
+        "slice_order": 1,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+        "policy": {
+          "absolute_orbit": 64223,
+          "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+          "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "width": 25835
+        },
+        "CDSE_product_type_field": "properties.product:type",
+        "CDSE_product_type_value": "IW_GRDH_1S",
+        "CDSE_product_type_value_type": "string",
+        "header_validation": "NOT_EVALUATED",
+        "manifest_validation": "NOT_EVALUATED",
+        "product_XML_validation": "NOT_EVALUATED",
+        "calibration_XML_validation": "NOT_EVALUATED",
+        "noise_XML_validation": "NOT_EVALUATED",
+        "PC_identity_assets_validated": false
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "fingerprint": "c3e1791f24a8efa3693bf51f95ea62590b29caf25e2e6d3c7c304776fb518bc1",
+        "header": null,
+        "metadata": null,
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "role": "REFERENCE",
+        "slice_order": 2,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+        "policy": {
+          "absolute_orbit": 64223,
+          "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+          "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "width": 25842
+        },
+        "CDSE_product_type_field": "properties.product:type",
+        "CDSE_product_type_value": "IW_GRDH_1S",
+        "CDSE_product_type_value_type": "string",
+        "header_validation": "NOT_EVALUATED",
+        "manifest_validation": "NOT_EVALUATED",
+        "product_XML_validation": "NOT_EVALUATED",
+        "calibration_XML_validation": "NOT_EVALUATED",
+        "noise_XML_validation": "NOT_EVALUATED",
+        "PC_identity_assets_validated": false
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "fingerprint": "0b4b73cff22b439aa20b900b33037cad4f4c9c3c1192117d924ab81750d741dc",
+        "header": null,
+        "metadata": null,
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 1,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+        "policy": {
+          "absolute_orbit": 64398,
+          "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+          "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "width": 25835
+        },
+        "CDSE_product_type_field": "properties.product:type",
+        "CDSE_product_type_value": "IW_GRDH_1S",
+        "CDSE_product_type_value_type": "string",
+        "header_validation": "NOT_EVALUATED",
+        "manifest_validation": "NOT_EVALUATED",
+        "product_XML_validation": "NOT_EVALUATED",
+        "calibration_XML_validation": "NOT_EVALUATED",
+        "noise_XML_validation": "NOT_EVALUATED",
+        "PC_identity_assets_validated": false
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "fingerprint": "8258ef17cc77a810395b22789aa777b35d1af42da1d86a375ed3b23f1652aa6b",
+        "header": null,
+        "metadata": null,
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 2,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+        "policy": {
+          "absolute_orbit": 64398,
+          "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+          "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "width": 25842
+        },
+        "CDSE_product_type_field": "properties.product:type",
+        "CDSE_product_type_value": "IW_GRDH_1S",
+        "CDSE_product_type_value_type": "string",
+        "header_validation": "NOT_EVALUATED",
+        "manifest_validation": "NOT_EVALUATED",
+        "product_XML_validation": "NOT_EVALUATED",
+        "calibration_XML_validation": "NOT_EVALUATED",
+        "noise_XML_validation": "NOT_EVALUATED",
+        "PC_identity_assets_validated": false
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "fingerprint": "329c2bf08c08595280c3a6531b37d2a10936d9b340dd0ac5789347d8e25bc797",
+        "header": null,
+        "metadata": null,
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 1,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+        "policy": {
+          "absolute_orbit": 64573,
+          "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+          "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "width": 25836
+        },
+        "CDSE_product_type_field": "properties.product:type",
+        "CDSE_product_type_value": "IW_GRDH_1S",
+        "CDSE_product_type_value_type": "string",
+        "header_validation": "NOT_EVALUATED",
+        "manifest_validation": "NOT_EVALUATED",
+        "product_XML_validation": "NOT_EVALUATED",
+        "calibration_XML_validation": "NOT_EVALUATED",
+        "noise_XML_validation": "NOT_EVALUATED",
+        "PC_identity_assets_validated": false
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "fingerprint": "c5f51913366e825e56fbef79ee6c647a31b057317c5246471dbf5598f1145ade",
+        "header": null,
+        "metadata": null,
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 2,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+        "policy": {
+          "absolute_orbit": 64573,
+          "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+          "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "height": 16733,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "width": 25843
+        },
+        "CDSE_product_type_field": "properties.product:type",
+        "CDSE_product_type_value": "IW_GRDH_1S",
+        "CDSE_product_type_value_type": "string",
+        "header_validation": "NOT_EVALUATED",
+        "manifest_validation": "NOT_EVALUATED",
+        "product_XML_validation": "NOT_EVALUATED",
+        "calibration_XML_validation": "NOT_EVALUATED",
+        "noise_XML_validation": "NOT_EVALUATED",
+        "PC_identity_assets_validated": false
+      }
+    ],
+    "retrieval": {
+      "fingerprint": "fbdcf8ff01b4ea21ec8046c374c02188d182f72192fe00008fc7ce7eb43cfad7",
+      "limitations": [
+        "RAW_GRD_HANDOFF_NOT_SCIENTIFIC_BACKSCATTER",
+        "FOOTPRINT_SUPPORT_NOT_PIXEL_EVALUABILITY",
+        "REFERENCE_NOT_PETROLEUM_NEGATIVE_FOLLOW_UP_NOT_RECOVERY",
+        "NO_PETROLEUM_SOURCE_WATER_SAFETY_OR_SHUTDOWN_INFERENCE"
+      ],
+      "parameters": {
+        "common_support": {
+          "coverage_gaps": {
+            "coordinates": [
+              [
+                [
+                  [
+                    49.6,
+                    28.6
+                  ],
+                  [
+                    50.7,
+                    28.6
+                  ],
+                  [
+                    50.7,
+                    29.6
+                  ],
+                  [
+                    49.6,
+                    29.6
+                  ],
+                  [
+                    49.6,
+                    28.6
+                  ]
+                ]
+              ]
+            ],
+            "type": "MultiPolygon"
+          },
+          "footprint_inventory_complete": false,
+          "geometry_crs": "EPSG:4326",
+          "is_lower_bound": true,
+          "missing_support": "NODATA_OR_UNAVAILABLE_NEVER_ZERO_ANOMALY",
+          "source_support": {
+            "coordinates": [],
+            "type": "MultiPolygon"
+          }
+        },
+        "comparison_support": "COMMON_THREE_DATE_METADATA_SUPPORT",
+        "decision": "054",
+        "envelope_bbox": [
+          49.6,
+          28.6,
+          50.7,
+          29.6
+        ],
+        "envelope_geometry": {
+          "coordinates": [
+            [
+              [
+                49.6,
+                28.6
+              ],
+              [
+                50.7,
+                28.6
+              ],
+              [
+                50.7,
+                29.6
+              ],
+              [
+                49.6,
+                29.6
+              ],
+              [
+                49.6,
+                28.6
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "envelope_id": "KHARG_P0_VALIDATION_ENVELOPE",
+        "frozen_sources": [
+          {
+            "absolute_orbit": 64223,
+            "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+            "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+            "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+            "height": 16732,
+            "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+            "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+            "role": "REFERENCE",
+            "slice_order": 1,
+            "width": 25835
+          },
+          {
+            "absolute_orbit": 64223,
+            "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+            "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+            "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+            "height": 16732,
+            "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+            "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+            "role": "REFERENCE",
+            "slice_order": 2,
+            "width": 25842
+          },
+          {
+            "absolute_orbit": 64398,
+            "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+            "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+            "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+            "height": 16732,
+            "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+            "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+            "role": "DOCUMENTARY_EVENT",
+            "slice_order": 1,
+            "width": 25835
+          },
+          {
+            "absolute_orbit": 64398,
+            "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+            "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+            "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+            "height": 16732,
+            "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+            "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+            "role": "DOCUMENTARY_EVENT",
+            "slice_order": 2,
+            "width": 25842
+          },
+          {
+            "absolute_orbit": 64573,
+            "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+            "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+            "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+            "height": 16732,
+            "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+            "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+            "role": "LATE_FOLLOW_UP",
+            "slice_order": 1,
+            "width": 25836
+          },
+          {
+            "absolute_orbit": 64573,
+            "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+            "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+            "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+            "height": 16733,
+            "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+            "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+            "role": "LATE_FOLLOW_UP",
+            "slice_order": 2,
+            "width": 25843
+          }
+        ],
+        "groups": [
+          "a5f3041ee02b27d5fc7991f676c9c8ab33e3afdd5371c9f1b6c916229d31c963",
+          "cf098727de461be722c2349765845da885d6b6ab42ffbfdb8afa4243da709eae",
+          "f55d3732ae262b988a1e13a56b08e9f4f1fde0b7f950132799413e1045203de6"
+        ],
+        "policy_version": "as201-v1",
+        "representation": "RAW_GRD_AMPLITUDE",
+        "source_records": [
+          {
+            "assets": [],
+            "availability": "UNAVAILABLE",
+            "bbox": null,
+            "discovery_source": null,
+            "footprint": null,
+            "header": null,
+            "metadata": null,
+            "policy": {
+              "absolute_orbit": 64223,
+              "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+              "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+              "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+              "height": 16732,
+              "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+              "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+              "role": "REFERENCE",
+              "slice_order": 1,
+              "width": 25835
+            },
+            "provider_metadata": {},
+            "reason": "DISCOVERY_IDENTITY_INVALID",
+            "representation": "RAW_GRD_AMPLITUDE",
+            "source": null
+          },
+          {
+            "assets": [],
+            "availability": "UNAVAILABLE",
+            "bbox": null,
+            "discovery_source": null,
+            "footprint": null,
+            "header": null,
+            "metadata": null,
+            "policy": {
+              "absolute_orbit": 64223,
+              "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+              "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+              "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+              "height": 16732,
+              "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+              "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+              "role": "REFERENCE",
+              "slice_order": 2,
+              "width": 25842
+            },
+            "provider_metadata": {},
+            "reason": "DISCOVERY_IDENTITY_INVALID",
+            "representation": "RAW_GRD_AMPLITUDE",
+            "source": null
+          },
+          {
+            "assets": [],
+            "availability": "UNAVAILABLE",
+            "bbox": null,
+            "discovery_source": null,
+            "footprint": null,
+            "header": null,
+            "metadata": null,
+            "policy": {
+              "absolute_orbit": 64398,
+              "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+              "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+              "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+              "height": 16732,
+              "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+              "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+              "role": "DOCUMENTARY_EVENT",
+              "slice_order": 1,
+              "width": 25835
+            },
+            "provider_metadata": {},
+            "reason": "DISCOVERY_IDENTITY_INVALID",
+            "representation": "RAW_GRD_AMPLITUDE",
+            "source": null
+          },
+          {
+            "assets": [],
+            "availability": "UNAVAILABLE",
+            "bbox": null,
+            "discovery_source": null,
+            "footprint": null,
+            "header": null,
+            "metadata": null,
+            "policy": {
+              "absolute_orbit": 64398,
+              "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+              "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+              "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+              "height": 16732,
+              "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+              "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+              "role": "DOCUMENTARY_EVENT",
+              "slice_order": 2,
+              "width": 25842
+            },
+            "provider_metadata": {},
+            "reason": "DISCOVERY_IDENTITY_INVALID",
+            "representation": "RAW_GRD_AMPLITUDE",
+            "source": null
+          },
+          {
+            "assets": [],
+            "availability": "UNAVAILABLE",
+            "bbox": null,
+            "discovery_source": null,
+            "footprint": null,
+            "header": null,
+            "metadata": null,
+            "policy": {
+              "absolute_orbit": 64573,
+              "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+              "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+              "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+              "height": 16732,
+              "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+              "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+              "role": "LATE_FOLLOW_UP",
+              "slice_order": 1,
+              "width": 25836
+            },
+            "provider_metadata": {},
+            "reason": "DISCOVERY_IDENTITY_INVALID",
+            "representation": "RAW_GRD_AMPLITUDE",
+            "source": null
+          },
+          {
+            "assets": [],
+            "availability": "UNAVAILABLE",
+            "bbox": null,
+            "discovery_source": null,
+            "footprint": null,
+            "header": null,
+            "metadata": null,
+            "policy": {
+              "absolute_orbit": 64573,
+              "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+              "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+              "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+              "height": 16733,
+              "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+              "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+              "role": "LATE_FOLLOW_UP",
+              "slice_order": 2,
+              "width": 25843
+            },
+            "provider_metadata": {},
+            "reason": "DISCOVERY_IDENTITY_INVALID",
+            "representation": "RAW_GRD_AMPLITUDE",
+            "source": null
+          }
+        ]
+      },
+      "product_id": "sentinel1_retrieval:fbdcf8ff01b4ea21ec8046c374c02188d182f72192fe00008fc7ce7eb43cfad7",
+      "provenance": null,
+      "ready": false,
+      "schema_version": "as201-retrieval-v1"
+    },
+    "fingerprint_interpretation": {
+      "six_slice_and_three_group_and_set_fingerprints_generated": true,
+      "identity_scope": "DETERMINISTIC_UNAVAILABLE_STATE_NOT_LIVE_READY_HANDOFF",
+      "normalized_source_records": 0,
+      "derived_provenance": null,
+      "coverage": "EMPTY_LOWER_BOUND_WITH_INCOMPLETE_FOOTPRINT_INVENTORY",
+      "empty_support_is_not_zero_geographic_coverage_or_zero_oil": true
+    },
+    "request_accounting": {
+      "CDSE_ROOT_requests": 1,
+      "CDSE_ROOT_bytes": 3670,
+      "CDSE_COLLECTION_requests": 1,
+      "CDSE_COLLECTION_bytes": 11989,
+      "CDSE_SEARCH_PAGE_requests": 3,
+      "CDSE_SEARCH_PAGE_bytes": 436326,
+      "PC_ROOT_requests": 1,
+      "PC_ROOT_bytes": 2135,
+      "PC_COLLECTION_requests": 1,
+      "PC_COLLECTION_bytes": 11147,
+      "PC_SEARCH_PAGE_requests": 1,
+      "PC_SEARCH_PAGE_bytes": 206182,
+      "TOKEN_requests": 0,
+      "TOKEN_bytes": 0,
+      "TIFF_requests": 0,
+      "TIFF_bytes": 0,
+      "MANIFEST_requests": 0,
+      "MANIFEST_bytes": 0,
+      "PRODUCT_requests": 0,
+      "PRODUCT_bytes": 0,
+      "CALIBRATION_requests": 0,
+      "CALIBRATION_bytes": 0,
+      "NOISE_requests": 0,
+      "NOISE_bytes": 0,
+      "CDSE_search_pages": 3,
+      "PC_search_pages": 1,
+      "SAR_pixel_bytes": 0,
+      "SAR_pixel_read_calls": 0,
+      "image_block_requests": 0,
+      "product_ZIP_requests": 0,
+      "scientific_SAR_compute_calls": 0,
+      "total_provider_requests": 8,
+      "total_response_body_bytes": 671449
+    },
+    "request_evidence": [
+      {
+        "body_sha256": "2665e1c0ebd3bd0a47ecc82902237d5797abcfcd95dab73eaa024fc4db3890d4",
+        "bytes": 3670,
+        "category": "CDSE_ROOT",
+        "hostname": "stac.dataspace.copernicus.eu",
+        "method": "GET",
+        "operation": "CDSE Client.open/root",
+        "path": "/v1/",
+        "slot": null,
+        "stage": "A",
+        "status": 200
+      },
+      {
+        "body_sha256": "d0f82ec0a132ebc0c48543f25e1fa0a0de4d6f8c5279936a7907c90160806246",
+        "bytes": 11989,
+        "category": "CDSE_COLLECTION",
+        "hostname": "stac.dataspace.copernicus.eu",
+        "method": "GET",
+        "operation": "CDSE get_collection/license",
+        "path": "/v1/collections/sentinel-1-grd",
+        "slot": null,
+        "stage": "B",
+        "status": 200
+      },
+      {
+        "body_sha256": "428c5b7f8b83569f8a90c329d626532e2368b3845eb985b6681d536483d3a32b",
+        "bytes": 167532,
+        "category": "CDSE_SEARCH_PAGE",
+        "feature_count": 10,
+        "has_next": true,
+        "hostname": "stac.dataspace.copernicus.eu",
+        "method": "POST",
+        "operation": "CDSE search pages/pagination",
+        "path": "/v1/search",
+        "slot": null,
+        "stage": "D",
+        "status": 200
+      },
+      {
+        "body_sha256": "85a0f20f77fc6daac0e0da30b007095be7b6ffdf823301851e36e64ab108781e",
+        "bytes": 167978,
+        "category": "CDSE_SEARCH_PAGE",
+        "feature_count": 10,
+        "has_next": true,
+        "hostname": "stac.dataspace.copernicus.eu",
+        "method": "POST",
+        "operation": "CDSE search pages/pagination",
+        "path": "/v1/search",
+        "slot": null,
+        "stage": "D",
+        "status": 200
+      },
+      {
+        "body_sha256": "503e9d19e0602abd0b2ce2802db7075ec1c04a512dcb4eded286f8303c3594c0",
+        "bytes": 100816,
+        "category": "CDSE_SEARCH_PAGE",
+        "feature_count": 6,
+        "has_next": false,
+        "hostname": "stac.dataspace.copernicus.eu",
+        "method": "POST",
+        "operation": "CDSE search pages/pagination",
+        "path": "/v1/search",
+        "slot": null,
+        "stage": "D",
+        "status": 200
+      },
+      {
+        "body_sha256": "e83a5af67db300f76f1c11cc8bb619a95c51d768725bb56afc7f83832cc4137a",
+        "bytes": 2135,
+        "category": "PC_ROOT",
+        "hostname": "planetarycomputer.microsoft.com",
+        "method": "GET",
+        "operation": "PC Client.open/root",
+        "path": "/api/stac/v1/",
+        "slot": null,
+        "stage": "E",
+        "status": 200
+      },
+      {
+        "body_sha256": "ec4748d7911c49ad00fe49ad46527dee84410b8a150f4710e763d6c337b39d1b",
+        "bytes": 11147,
+        "category": "PC_COLLECTION",
+        "hostname": "planetarycomputer.microsoft.com",
+        "method": "GET",
+        "operation": "PC get_collection/license",
+        "path": "/api/stac/v1/collections/sentinel-1-grd",
+        "slot": null,
+        "stage": "F",
+        "status": 200
+      },
+      {
+        "body_sha256": "5c185f450526bd5938592479a6e1cfff295d37d6832c8df69936426a0ac4df0e",
+        "bytes": 206182,
+        "category": "PC_SEARCH_PAGE",
+        "feature_count": 24,
+        "has_next": false,
+        "hostname": "planetarycomputer.microsoft.com",
+        "method": "POST",
+        "operation": "PC search pages/pagination",
+        "path": "/api/stac/v1/search",
+        "slot": null,
+        "stage": "H",
+        "status": 200
+      }
+    ],
+    "stage_transitions": [
+      {
+        "operation": "CDSE Client.open/root",
+        "slot": null,
+        "stage": "A",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "CDSE Client.open/root",
+        "slot": null,
+        "stage": "A",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "CDSE get_collection/license",
+        "slot": null,
+        "stage": "B",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "CDSE get_collection/license",
+        "slot": null,
+        "stage": "B",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "CDSE client.search construction",
+        "slot": null,
+        "stage": "C",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "CDSE client.search construction",
+        "slot": null,
+        "stage": "C",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "CDSE search pages/pagination",
+        "slot": null,
+        "stage": "D",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "CDSE search pages/pagination",
+        "slot": null,
+        "stage": "D",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "PC Client.open/root",
+        "slot": null,
+        "stage": "E",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "PC Client.open/root",
+        "slot": null,
+        "stage": "E",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "PC get_collection/license",
+        "slot": null,
+        "stage": "F",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "PC get_collection/license",
+        "slot": null,
+        "stage": "F",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "PC client.search construction",
+        "slot": null,
+        "stage": "G",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "PC client.search construction",
+        "slot": null,
+        "stage": "G",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "PC search pages/pagination",
+        "slot": null,
+        "stage": "H",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "PC search pages/pagination",
+        "slot": null,
+        "stage": "H",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "six frozen-source resolution/identity",
+        "slot": null,
+        "stage": "I",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "six frozen-source resolution/identity",
+        "slot": null,
+        "stage": "I",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "per-slice signing/header/XML validation",
+        "slot": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "stage": "J1",
+        "transition": "ENTER"
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "operation": "per-slice signing/header/XML validation",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "slot": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "stage": "J1",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "per-slice signing/header/XML validation",
+        "slot": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "stage": "J2",
+        "transition": "ENTER"
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "operation": "per-slice signing/header/XML validation",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "slot": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "stage": "J2",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "per-slice signing/header/XML validation",
+        "slot": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "stage": "J3",
+        "transition": "ENTER"
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "operation": "per-slice signing/header/XML validation",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "slot": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "stage": "J3",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "per-slice signing/header/XML validation",
+        "slot": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "stage": "J4",
+        "transition": "ENTER"
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "operation": "per-slice signing/header/XML validation",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "slot": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "stage": "J4",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "per-slice signing/header/XML validation",
+        "slot": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "stage": "J5",
+        "transition": "ENTER"
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "operation": "per-slice signing/header/XML validation",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "slot": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "stage": "J5",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "per-slice signing/header/XML validation",
+        "slot": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "stage": "J6",
+        "transition": "ENTER"
+      },
+      {
+        "availability": "UNAVAILABLE",
+        "operation": "per-slice signing/header/XML validation",
+        "reason": "DISCOVERY_IDENTITY_INVALID",
+        "slot": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "stage": "J6",
+        "transition": "COMPLETE"
+      },
+      {
+        "operation": "final retrieval readiness/fingerprints/provenance",
+        "slot": null,
+        "stage": "K",
+        "transition": "ENTER"
+      },
+      {
+        "operation": "final retrieval readiness/fingerprints/provenance",
+        "slot": null,
+        "stage": "K",
+        "transition": "COMPLETE"
+      }
+    ],
+    "safe_errors": [
+      {
+        "exception_class": "Sentinel1RetrievalError",
+        "operation": "normalize S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+        "slot": null,
+        "stage": "I"
+      },
+      {
+        "exception_class": "Sentinel1RetrievalError",
+        "operation": "normalize S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+        "slot": null,
+        "stage": "I"
+      },
+      {
+        "exception_class": "Sentinel1RetrievalError",
+        "operation": "normalize S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+        "slot": null,
+        "stage": "I"
+      },
+      {
+        "exception_class": "Sentinel1RetrievalError",
+        "operation": "normalize S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+        "slot": null,
+        "stage": "I"
+      },
+      {
+        "exception_class": "Sentinel1RetrievalError",
+        "operation": "normalize S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+        "slot": null,
+        "stage": "I"
+      },
+      {
+        "exception_class": "Sentinel1RetrievalError",
+        "operation": "normalize S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+        "slot": null,
+        "stage": "I"
+      }
+    ],
+    "frozen_provider_metadata": {
+      "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E": {
+        "bbox": [
+          48.994766,
+          26.987164,
+          51.89065199999999,
+          28.911589
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.994766,
+                28.494915
+              ],
+              [
+                49.32580200000001,
+                26.987164
+              ],
+              [
+                51.89065199999999,
+                27.406626
+              ],
+              [
+                51.59602699999999,
+                28.911589
+              ],
+              [
+                48.994766,
+                28.494915
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "properties": {
+          "datetime": "2026-04-24T14:42:17.649531Z",
+          "end_datetime": "2026-04-24T14:42:30.148548Z",
+          "platform": "sentinel-1a",
+          "proj:shape": [
+            25835,
+            16732
+          ],
+          "s1:product_identifier": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10,
+          "sar:pixel_spacing_range": 10,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sar:product_type": "GRD",
+          "sat:absolute_orbit": 64223,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-04-24T14:42:05.150515Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG": {
+        "bbox": [
+          48.994766,
+          26.987164,
+          51.890652,
+          28.911589
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.994766,
+                28.494915
+              ],
+              [
+                49.325802,
+                26.987164
+              ],
+              [
+                51.890652,
+                27.406626
+              ],
+              [
+                51.596027,
+                28.911589
+              ],
+              [
+                48.994766,
+                28.494915
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+        "properties": {
+          "datetime": "2026-04-24T14:42:05.150515Z",
+          "end_datetime": "2026-04-24T14:42:30.148548Z",
+          "platform": "sentinel-1a",
+          "product:type": "IW_GRDH_1S",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10.0,
+          "sar:pixel_spacing_range": 10.0,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sat:absolute_orbit": 64223,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-04-24T14:42:05.150515Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E": {
+        "bbox": [
+          48.66001499999999,
+          28.495005,
+          51.59671800000001,
+          30.416348
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.66001499999999,
+                30.002216
+              ],
+              [
+                48.99474699999999,
+                28.495005
+              ],
+              [
+                51.59671800000001,
+                28.911785
+              ],
+              [
+                51.301231,
+                30.416348
+              ],
+              [
+                48.66001499999999,
+                30.002216
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "properties": {
+          "datetime": "2026-04-24T14:42:42.649058Z",
+          "end_datetime": "2026-04-24T14:42:55.148075Z",
+          "platform": "sentinel-1a",
+          "proj:shape": [
+            25842,
+            16732
+          ],
+          "s1:product_identifier": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10,
+          "sar:pixel_spacing_range": 10,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sar:product_type": "GRD",
+          "sat:absolute_orbit": 64223,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-04-24T14:42:30.150042Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG": {
+        "bbox": [
+          48.660015,
+          28.495005,
+          51.596718,
+          30.416348
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.660015,
+                30.002216
+              ],
+              [
+                48.994747,
+                28.495005
+              ],
+              [
+                51.596718,
+                28.911785
+              ],
+              [
+                51.301231,
+                30.416348
+              ],
+              [
+                48.660015,
+                30.002216
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+        "properties": {
+          "datetime": "2026-04-24T14:42:30.150042Z",
+          "end_datetime": "2026-04-24T14:42:55.148075Z",
+          "platform": "sentinel-1a",
+          "product:type": "IW_GRDH_1S",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10.0,
+          "sar:pixel_spacing_range": 10.0,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sat:absolute_orbit": 64223,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-04-24T14:42:30.150042Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09": {
+        "bbox": [
+          48.99678,
+          26.987175,
+          51.892639,
+          28.911552
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.99678,
+                28.494928
+              ],
+              [
+                49.327785000000006,
+                26.987175
+              ],
+              [
+                51.892639,
+                27.406588
+              ],
+              [
+                51.59805299999999,
+                28.911552
+              ],
+              [
+                48.99678,
+                28.494928
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "properties": {
+          "datetime": "2026-05-06T14:42:17.037696Z",
+          "end_datetime": "2026-05-06T14:42:29.536703Z",
+          "platform": "sentinel-1a",
+          "proj:shape": [
+            25835,
+            16732
+          ],
+          "s1:product_identifier": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10,
+          "sar:pixel_spacing_range": 10,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sar:product_type": "GRD",
+          "sat:absolute_orbit": 64398,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-06T14:42:04.538690Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG": {
+        "bbox": [
+          48.99678,
+          26.987175,
+          51.892639,
+          28.911552
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.99678,
+                28.494928
+              ],
+              [
+                49.327785,
+                26.987175
+              ],
+              [
+                51.892639,
+                27.406588
+              ],
+              [
+                51.598053,
+                28.911552
+              ],
+              [
+                48.99678,
+                28.494928
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+        "properties": {
+          "datetime": "2026-05-06T14:42:04.538690Z",
+          "end_datetime": "2026-05-06T14:42:29.536703Z",
+          "platform": "sentinel-1a",
+          "product:type": "IW_GRDH_1S",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10.0,
+          "sar:pixel_spacing_range": 10.0,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sat:absolute_orbit": 64398,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-06T14:42:04.538690Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09": {
+        "bbox": [
+          48.66206399999999,
+          28.49502,
+          51.59874300000001,
+          30.416315
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.66206399999999,
+                30.002235
+              ],
+              [
+                48.99676099999999,
+                28.49502
+              ],
+              [
+                51.59874300000001,
+                28.911749
+              ],
+              [
+                51.303291,
+                30.416315
+              ],
+              [
+                48.66206399999999,
+                30.002235
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "properties": {
+          "datetime": "2026-05-06T14:42:42.037217Z",
+          "end_datetime": "2026-05-06T14:42:54.536224Z",
+          "platform": "sentinel-1a",
+          "proj:shape": [
+            25842,
+            16732
+          ],
+          "s1:product_identifier": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10,
+          "sar:pixel_spacing_range": 10,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sar:product_type": "GRD",
+          "sat:absolute_orbit": 64398,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-06T14:42:29.538209Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG": {
+        "bbox": [
+          48.662064,
+          28.49502,
+          51.598743,
+          30.416315
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.662064,
+                30.002235
+              ],
+              [
+                48.996761,
+                28.49502
+              ],
+              [
+                51.598743,
+                28.911749
+              ],
+              [
+                51.303291,
+                30.416315
+              ],
+              [
+                48.662064,
+                30.002235
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+        "properties": {
+          "datetime": "2026-05-06T14:42:29.538209Z",
+          "end_datetime": "2026-05-06T14:42:54.536224Z",
+          "platform": "sentinel-1a",
+          "product:type": "IW_GRDH_1S",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10.0,
+          "sar:pixel_spacing_range": 10.0,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sat:absolute_orbit": 64398,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-06T14:42:29.538209Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235": {
+        "bbox": [
+          48.99678399999999,
+          26.987049,
+          51.89270400000001,
+          28.91139
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.99678399999999,
+                28.49481
+              ],
+              [
+                49.327740000000006,
+                26.987049
+              ],
+              [
+                51.89270400000001,
+                27.406422
+              ],
+              [
+                51.598164,
+                28.91139
+              ],
+              [
+                48.99678399999999,
+                28.49481
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "properties": {
+          "datetime": "2026-05-18T14:42:16.739349Z",
+          "end_datetime": "2026-05-18T14:42:29.238414Z",
+          "platform": "sentinel-1a",
+          "proj:shape": [
+            25836,
+            16732
+          ],
+          "s1:product_identifier": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10,
+          "sar:pixel_spacing_range": 10,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sar:product_type": "GRD",
+          "sat:absolute_orbit": 64573,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-18T14:42:04.240283Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG": {
+        "bbox": [
+          48.996784,
+          26.987049,
+          51.892704,
+          28.91139
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.996784,
+                28.49481
+              ],
+              [
+                49.32774,
+                26.987049
+              ],
+              [
+                51.892704,
+                27.406422
+              ],
+              [
+                51.598164,
+                28.91139
+              ],
+              [
+                48.996784,
+                28.49481
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+        "properties": {
+          "datetime": "2026-05-18T14:42:04.240283Z",
+          "end_datetime": "2026-05-18T14:42:29.238414Z",
+          "platform": "sentinel-1a",
+          "product:type": "IW_GRDH_1S",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10.0,
+          "sar:pixel_spacing_range": 10.0,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sat:absolute_orbit": 64573,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-18T14:42:04.240283Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235": {
+        "bbox": [
+          48.662093999999996,
+          28.4949,
+          51.59885400000002,
+          30.416246
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.662093999999996,
+                30.002211
+              ],
+              [
+                48.99676500000001,
+                28.4949
+              ],
+              [
+                51.59885400000002,
+                28.911587
+              ],
+              [
+                51.303436000000005,
+                30.416246
+              ],
+              [
+                48.662093999999996,
+                30.002211
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "properties": {
+          "datetime": "2026-05-18T14:42:41.739721Z",
+          "end_datetime": "2026-05-18T14:42:54.239534Z",
+          "platform": "sentinel-1a",
+          "proj:shape": [
+            25843,
+            16733
+          ],
+          "s1:product_identifier": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10,
+          "sar:pixel_spacing_range": 10,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sar:product_type": "GRD",
+          "sat:absolute_orbit": 64573,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-18T14:42:29.239908Z"
+        }
+      },
+      "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG": {
+        "bbox": [
+          48.662094,
+          28.4949,
+          51.598854,
+          30.416246
+        ],
+        "collection": "sentinel-1-grd",
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                48.662094,
+                30.002211
+              ],
+              [
+                48.996765,
+                28.4949
+              ],
+              [
+                51.598854,
+                28.911587
+              ],
+              [
+                51.303436,
+                30.416246
+              ],
+              [
+                48.662094,
+                30.002211
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+        "properties": {
+          "datetime": "2026-05-18T14:42:29.239908Z",
+          "end_datetime": "2026-05-18T14:42:54.239534Z",
+          "platform": "sentinel-1a",
+          "product:type": "IW_GRDH_1S",
+          "sar:instrument_mode": "IW",
+          "sar:pixel_spacing_azimuth": 10.0,
+          "sar:pixel_spacing_range": 10.0,
+          "sar:polarizations": [
+            "VV",
+            "VH"
+          ],
+          "sat:absolute_orbit": 64573,
+          "sat:orbit_state": "ascending",
+          "sat:relative_orbit": 101,
+          "start_datetime": "2026-05-18T14:42:29.239908Z"
+        }
+      }
+    },
+    "history": {
+      "M49": "HISTORICAL_FAIL_UNCHANGED",
+      "M50": "MERGED_OFFLINE_CORRECTION_VIA_PR_32",
+      "M50_merge_sha": "e137795686d8f97bbd8ba6bc0465616783586ae0",
+      "M51": "ONE_LIVE_RETRY_FAIL"
+    },
+    "scientific_boundary": {
+      "AS_202": "NOT_STARTED",
+      "Decision_055": "ABSENT",
+      "oil_detection": false,
+      "petroleum_confirmation": false,
+      "spill_confirmation": false,
+      "source_attribution": false,
+      "water_safety_certification": false,
+      "shutdown_recommendation": false
+    }
+  },
+  "semantic_sha256": "d255801335110cc74f11e1d045a1c5cdf7cabb37c085fbcf890512feb11bc336",
+  "execution_time": {
+    "started_at_UTC": "2026-10-10T23:03:49.124630+00:00",
+    "completed_at_UTC": "2026-10-10T23:04:03.461471+00:00"
+  },
+  "external_observation_record_SHA256": "8ff0420463072aac51b4db29fe9e616ef721883124445a040a07836530e9208c",
+  "canonicalization": "semantic only; sorted keys; compact UTF-8; ensure_ascii=false; allow_nan=false; fixed ordered slots; execution/creation times and future commit SHA excluded",
+  "engineering_quality_gates": {
+    "focused_pytest": {
+      "passed": 136,
+      "seconds": 0.9
+    },
+    "full_pytest": {
+      "passed": 1434,
+      "seconds": 35.71,
+      "existing_Rasterio_PendingDeprecationWarnings": 6
+    },
+    "ruff": "PASS",
+    "diff_whitespace_JSON_digest_security_preservation": "PASS",
+    "GitHub_CI_success_claimed": false
+  },
+  "preservation": {
+    "production_tests_config_dependencies_byte_identical": true,
+    "Decisions_050_through_054_byte_identical": true,
+    "M49_and_M50_evidence_byte_identical": true,
+    "all_prior_accepted_evidence_except_continuity_index_unchanged": true,
+    "protected_external_hashes": 44,
+    "protected_modes": 57,
+    "complete_three_stash_inventory_unchanged": true,
+    "scientific_cache_products_created": 0,
+    "external_recovery_artifacts_retained": true
+  }
+}
