@@ -1,6 +1,49 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-## Current AS-105 M29 status — 10 October 2026 (Asia/Dubai)
+## Current AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
+
+**AS-105: COMPLETE AND MERGED** via [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14).
+**M30 / E30 / EV-034:** merge/publication closeout only; frozen Decision 050
+implementation and M29 real engineering acceptance are now on official main.
+**M28 implementation/adversarial validation PASS; M29 real engineering acceptance PASS.**
+Decision 050 is **MERGED / unchanged**; no Decision 051 is created.
+**AS-105 implementation merge commit:** `24a260cff130238c731f7cb62fc47eb74230b4dc`.
+Merged **2026-10-10T06:24:09Z / 2026-10-10T10:24:09+04:00 Asia/Dubai**.
+Implementation commit `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`;
+M29 documentation commit / final feature head `1ac9fab9db48cca5625ead20e7133c79101a46d8`.
+
+Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 implementation/adversarial PASS → AS-105 M29 real engineering acceptance PASS → PR #14 MERGED → AS-105 COMPLETE AND MERGED → next milestone requires separate owner design review/authorization → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
+
+Current active development branch: **none**. AS-105 development is closed.
+This closeout was prepared on `docs/as-105-closeout`; AS-106+ is not authorized
+and **NOT STARTED**. Immediate next step: **Owner review of the next milestone /
+AS-106 design before implementation.** Future comparative policy validation:
+**REQUIRED / NOT RUN**. P1 05.10 robustness: **NOT STARTED**.
+
+Accepted M29 evidence is unchanged: target water **7,963**, P **802 / 10.071581%**,
+**7 candidates / 0.872818% of P**, descriptive candidates/water **0.087907%**;
+**projected-grid candidate area 2,800 m² / 0.0028 km²**. One region, zero one-pixel
+regions, one MultiPolygon with three parts; F2/F4 votes, family counts **0, 7, 0, 7, 0**.
+The corrected red_edge_red_ratio rank-.4/.6 counts remain **240/92**, not the earlier
+238/93 chat transcription. No scientific identity, measurement or experiment time changed.
+
+This proves reproducible candidate spectral anomaly geometry under frozen v1 only,
+not HAB/bloom confirmation, concentration/species/toxins, causation, sensitivity,
+specificity/accuracy/false-positive rate, persistence, risk/confidence, water safety,
+intake exposure, alert or warning lead time. Rank is not probability/confidence/
+significance/severity; families are not statistically independent. Five histories
+are not statistical sufficiency; ~10% evaluable support is a material limitation.
+No historical-event comparison or new real geometry/upstream processing was run.
+
+All earlier M01–M29 / E01–E29 / EV-001–EV-033 and Decisions 001–050 are preserved.
+The dated M28/M29 status blocks, milestone/evidence entries and their pre-merge
+publication wording below are **historical checkpoints**, not current status.
+Both safety stashes and external recovery artifacts remain retained; read-only
+AS-104 handoff, M29 bundle and twelve accepted AS-102 cache hashes remain unchanged.
+This closeout creates no PR and performs no merge. Local test results are not
+GitHub CI success or scientific accuracy.
+
+## Historical AS-105 M29 status — before PR #14 merge, 10 October 2026 (Asia/Dubai)
 
 **M28: COMPLETE / COMMITTED / PUSHED**, implementation `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`,
 branch `feature/as-105-hab-anomaly-geometry`, remote

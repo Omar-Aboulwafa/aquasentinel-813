@@ -1,6 +1,49 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-105 M29 status — 10 October 2026 (Asia/Dubai)
+## Current AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
+
+**AS-105: COMPLETE AND MERGED** via [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14).
+**M30 / E30 / EV-034:** merge/publication closeout only; frozen Decision 050
+implementation and M29 real engineering acceptance are now on official main.
+**M28 implementation/adversarial validation PASS; M29 real engineering acceptance PASS.**
+Decision 050 is **MERGED / unchanged**; no Decision 051 is created.
+**AS-105 implementation merge commit:** `24a260cff130238c731f7cb62fc47eb74230b4dc`.
+Merged **2026-10-10T06:24:09Z / 2026-10-10T10:24:09+04:00 Asia/Dubai**.
+Implementation commit `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`;
+M29 documentation commit / final feature head `1ac9fab9db48cca5625ead20e7133c79101a46d8`.
+
+Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 implementation/adversarial PASS → AS-105 M29 real engineering acceptance PASS → PR #14 MERGED → AS-105 COMPLETE AND MERGED → next milestone requires separate owner design review/authorization → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
+
+Current active development branch: **none**. AS-105 development is closed.
+This closeout was prepared on `docs/as-105-closeout`; AS-106+ is not authorized
+and **NOT STARTED**. Immediate next step: **Owner review of the next milestone /
+AS-106 design before implementation.** Future comparative policy validation:
+**REQUIRED / NOT RUN**. P1 05.10 robustness: **NOT STARTED**.
+
+Accepted M29 evidence is unchanged: target water **7,963**, P **802 / 10.071581%**,
+**7 candidates / 0.872818% of P**, descriptive candidates/water **0.087907%**;
+**projected-grid candidate area 2,800 m² / 0.0028 km²**. One region, zero one-pixel
+regions, one MultiPolygon with three parts; F2/F4 votes, family counts **0, 7, 0, 7, 0**.
+The corrected red_edge_red_ratio rank-.4/.6 counts remain **240/92**, not the earlier
+238/93 chat transcription. No scientific identity, measurement or experiment time changed.
+
+This proves reproducible candidate spectral anomaly geometry under frozen v1 only,
+not HAB/bloom confirmation, concentration/species/toxins, causation, sensitivity,
+specificity/accuracy/false-positive rate, persistence, risk/confidence, water safety,
+intake exposure, alert or warning lead time. Rank is not probability/confidence/
+significance/severity; families are not statistically independent. Five histories
+are not statistical sufficiency; ~10% evaluable support is a material limitation.
+No historical-event comparison or new real geometry/upstream processing was run.
+
+All earlier M01–M29 / E01–E29 / EV-001–EV-033 and Decisions 001–050 are preserved.
+The dated M28/M29 status blocks, milestone/evidence entries and their pre-merge
+publication wording below are **historical checkpoints**, not current status.
+Both safety stashes and external recovery artifacts remain retained; read-only
+AS-104 handoff, M29 bundle and twelve accepted AS-102 cache hashes remain unchanged.
+This closeout creates no PR and performs no merge. Local test results are not
+GitHub CI success or scientific accuracy.
+
+## Historical AS-105 M29 status — before PR #14 merge, 10 October 2026 (Asia/Dubai)
 
 **M28: COMPLETE / COMMITTED / PUSHED**, implementation `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`,
 branch `feature/as-105-hab-anomaly-geometry`, remote
@@ -297,7 +340,7 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Recorded experiment:** A 2 October CDSE metadata search returned 44 unique candidate scenes for the analyst-defined Al Raha validation polygon, 1 March–31 May 2023, with scene cloud cover <= 30%. Provenance conversion/serialization succeeded for 44/44. The recorded quality baseline is 97 tests, Ruff passed, and `git diff --check` passed. Source: [AS-101 report](AS_101_STAC_SEARCH.md).
 
-**Current repository phase:** Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 COMPLETE / COMMITTED / PUSHED → AS-105 M29 REAL ENGINEERING ACCEPTANCE PASS → owner review of M29 documentation/publication followed by PR preparation → AS-105 FEATURE NOT YET PR-MERGED → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
+**Current repository phase:** Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 implementation/adversarial PASS → AS-105 M29 real engineering acceptance PASS → PR #14 MERGED → AS-105 COMPLETE AND MERGED → next milestone requires separate owner design review/authorization → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
 
 **Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; M17 / EV-019–EV-020 records the later candidate-feature acceptance; M18 / EV-021 separately records final review and merge through PR #8. At that AS-103 closeout checkpoint, AS-104 was NOT authorized and NOT started; M25–M26 separately record its later accepted and published implementation. These mask outcomes also do not establish the scientific/operational claims above.
 
@@ -906,6 +949,26 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Capture pending: labelled P-versus-water support map, seven-pixel candidate/three-piece overlay, F2/F4 evidence card and five-history rank ladder. Do not present as HAB/event confirmation; no screenshot created by this documentation task.
 - **Candidate slide title:** “Seven candidate pixels, an honest denominator, reproducible geometry.”
 
+### M30 — AS-105 merged via PR #14 and formally closed
+
+- **Date:** 10 October 2026; merge 06:24:09 UTC / 10:24:09+04:00 Asia/Dubai, after M29 acceptance and documentation publication.
+- **Task / milestone ID:** AS-105 merge/publication closeout; M30 / E30 / EV-034.
+- **Status:** COMPLETE AND MERGED; M28 offline/adversarial PASS and M29 real engineering PASS.
+- **Problem / question:** How can the current handoff reflect official main without rewriting earlier blockers, publication states or scientific limitations?
+- **Why it mattered:** Future agents need durable completed status and an explicit authorization boundary for the next milestone.
+- **Options considered:** Update current status and append a separate merge checkpoint, or overwrite earlier pre-merge records. Preserve the original checkpoints.
+- **Decision:** Record verified PR #14 merge/closeout as execution history; Decision 050 unchanged, no Decision 051.
+- **Rationale:** A merge publishes reviewed evidence; it does not create new scientific validation or prove the policy optimal.
+- **Implementation / experiment:** Fetched official main, verified GitHub merge metadata, created isolated documentation closeout worktree, reconciled current status and preserved historical entries. No real EO/geometry rerun or policy experiment.
+- **Evidence:** [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14); [merge metadata and preservation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m30--pr-14-merge-and-as-105-closeout--10-october-2026); merge `24a260cff130238c731f7cb62fc47eb74230b4dc`, previous main `4e322df220f8cab2805fccf9a2b32dd825f29218`, implementation `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`, final head/M29 docs `1ac9fab9db48cca5625ead20e7133c79101a46d8`.
+- **Quantitative result:** PR contained 2 commits, 18 files, 3,315 additions and 30 deletions. M29 unchanged: P=802/7,963, 7 candidates, 2,800 m² projected-grid candidate area, 1 MultiPolygon/3 parts; local baseline 803 tests PASS, Ruff/diff PASS, six existing Rasterio warnings.
+- **Limitation:** Merge is not HAB/biological/accuracy/risk/confidence or CI validation. Five histories and ~10% support remain material limitations; future comparative policy validation REQUIRED / NOT RUN.
+- **Lesson learned:** Preserve engineering acceptance, scientific validation and Git publication as separate evidence events.
+- **Impact on next step:** Owner review of the next milestone / AS-106 design before implementation. AS-106+ is not authorized and NOT STARTED; P1 05.10 NOT STARTED.
+- **Presentation takeaway:** Frozen-policy engineering evidence is now on official main with its scientific limits intact.
+- **Recommended visual:** PR merge/timeline card beside evaluable-support and scientific-boundary cards; capture pending, no screenshot claimed.
+- **Candidate slide title:** “Reviewed, reproducible, merged — with limits preserved.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -970,6 +1033,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E27 | [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12); merge `472edc7`; [closeout §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026); M27/EV-031 | AS-104 complete/merged; two commits/fifteen paths, 663-test reviewed baseline; source/test and accepted-evidence preservation, explicit next-stage authorization | New EO experiment, biological/operational validation, statistical sufficiency or GitHub CI success |
 | E28 | [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md), [offline validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md); M28/EV-032; Decision 050 | Frozen family policy, exact support/components/polygons/area, consumed-bit identity, immediate lineage; 140 geometry/803 total tests and controls A–E PASS | Real geometry metrics, HAB accuracy/biological causation, probability/confidence/risk, persistence, alerts, lead time or GitHub CI success |
 | E29 | [M29 real acceptance](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026); M29/EV-033; external checksummed bundle, NOT tracked | Frozen real-parent masks/components/areas/polygons, 27/27 repeat, 61/61 parent immutability, 140 focused/803 full tests and zero real network/upstream/cache-load attempts PASS | HAB/event/accuracy/causation/probability/confidence/risk/persistence/alert/lead-time validation; policy comparison, merge or GitHub CI success |
+| E30 | PR #14; M30/EV-034; [merge closeout](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m30--pr-14-merge-and-as-105-closeout--10-october-2026) | AS-105 implementation and accepted real engineering evidence merged at `24a260cff130238c731f7cb62fc47eb74230b4dc`; original source/tests, external artifacts and historical records preserved | New scientific validation, optimized policy, HAB detection, CI success or next-milestone authorization |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
@@ -1147,8 +1211,9 @@ M29 appendix slide candidate: “Seven candidate pixels, an honest denominator, 
 AS-105 M28 COMPLETE / COMMITTED / PUSHED; M29 real engineering acceptance and
 owner review PASS. Exact real metrics and canonical geometry are now recorded
 in EV-033 and the external local bundle, NOT tracked in Git. Sanitized map/slide
-capture remains pending; owner review of M29 documentation/publication followed
-by PR preparation is next. Future comparative policy validation, including
+capture remains pending. AS-105 is COMPLETE AND MERGED through PR #14; owner
+review of the next milestone / AS-106 design before implementation is next.
+Future comparative policy validation, including
 predeclared history-depth sensitivity, is REQUIRED / NOT RUN. No known-April-event
 comparison or accuracy/biological claim. Synthetic visuals remain labelled;
 AS-106+ and P1 05.10 NOT STARTED.
