@@ -1,6 +1,35 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M48 implementation — 11 October 2026 (Asia/Dubai)
+## Current AS-201 M49 live provider acceptance — 11 October 2026 (Asia/Dubai)
+
+M48 implementation is **MERGED via PR #30** at
+`392603b5b074d515eb6c137e33395c7f0b1256ac`; Decision 054 remains FINAL / FROZEN / MERGED.
+**M49 / E49 / EV-053: AS201_LIVE_ACCEPTANCE = FAIL — catalog metadata contract
+rejection, field/cause not localized.** The unchanged public search raised
+`CatalogMetadataError` after CDSE root/collection HTTP200 responses, before
+returning a retrieval set. Six-source access validation was not reached.
+All six frozen slots remain NOT EVALUATED; no alternate source or patch was used.
+
+Actual provider accounting: **2 CDSE requests / 15,659 response-body bytes**;
+PC/token/TIFF/XML requests **0**. ZIP/image-block/pixel reads/bytes/scientific
+SAR compute **0**. Coverage, six source/three group/set fingerprints and retrieval
+provenance remain unavailable, not invented from M46 or M48 fixtures.
+Diagnostic limitation: only exception class and request status/path/body hashes
+were retained; exact offending field or code-vs-provider cause is not established.
+See [EV-053 MD](evidence/AS_201_LIVE_ACCEPTANCE.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE.json).
+
+Prepared on `validation/as-201-live-acceptance`; no active scientific development.
+Engineering gate: **1432 tests PASS**, six existing Rasterio warnings; Ruff,
+diff/JSON/digest/security/preservation PASS. Production/tests/config/dependencies,
+Decisions 050–054, accepted evidence, external hashes/modes and stashes preserved.
+**AS-202 NOT STARTED; Decision 055 ABSENT.** No M49 PR/merge or CI-success claim.
+Immediate next step: owner review → separately authorize catalog failure
+localization/correction/retry. No provider probes continued after the failure.
+AS-107 COMPLETE / CLOSED and AS-108 qualified P0 case study remain unchanged.
+Future AS-105 policy validation and P1 05.10 NOT STARTED.
+
+## Historical AS-201 M48 implementation — before PR #30 merge — 11 October 2026 (Asia/Dubai)
 
 **Decision 054 / M47 FINAL / FROZEN DESIGN / MERGED**, via PR #29 at
 `1d2d994c7a04cca712485ce53dc9132db50615a8`. **M48 / E48 / EV-052: AS-201 RAW-GRD
@@ -1920,6 +1949,24 @@ capture pending, not a real anomaly map or validation result.
   derived retrieval lineage; proposed only, no screenshot created.
 - **Candidate slide title:** “Know the source before interpreting the signal.”
 
+### M49 — A stopped live gate is not a scientific pass — 11 October 2026
+
+- **Task / ID:** AS-201 M49 / E49 / EV-053, new live acceptance after merged M48.
+- **Problem / question:** Do the offline-validated contracts succeed against today's six real sources?
+- **Why it mattered:** Synthetic success cannot replace live source availability proof.
+- **Options considered:** Run the unchanged public path; silently patch/substitute; or retain failures.
+- **Decision:** Execute once, stop on failure, retain exact observed evidence; no new policy decision.
+- **Rationale:** Source freeze and honest missingness precede any SAR science.
+- **Implementation / experiment:** External transport observers; merged `search_sentinel1` aborted with `CatalogMetadataError`; access validator not reached.
+- **Evidence:** [EV-053 MD](evidence/AS_201_LIVE_ACCEPTANCE.md) and [JSON](evidence/AS_201_LIVE_ACCEPTANCE.json), status/path/body hashes.
+- **Quantitative result:** 2 CDSE requests / 15,659 response-body bytes; zero PC/signing/TIFF/XML/image blocks/pixels/scientific SAR calls; 1432 engineering tests PASS.
+- **Limitation:** Six sources not validated; observer did not retain raw bodies/exception text, so exact offending field and cause remain unlocalized.
+- **Lesson learned:** Retain sanitized structured diagnostics without confusing HTTP200, offline tests or an initial coarse error label with live readiness.
+- **Impact on next step:** Owner review and separately authorized failure localization; no AS-202.
+- **Presentation takeaway:** A failed gate protects against treating incomplete source access as scientific evidence.
+- **Recommended visual:** Stopped discovery → six untested slots diagram, proposed only; no screenshot created.
+- **Candidate slide title:** “Live readiness must be earned.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2029,6 +2076,12 @@ Journal-task validation on 6 October 2026: the existing `.venv` used Python 3.11
 [EV-052](evidence/AS_201_IMPLEMENTATION_VALIDATION.md): review of preserved WIP,
 strict matching/header/XML, source/group/set support identities and registry lineage.
 No SAR scientific result, live provider probe or CI success claim.
+
+### E49 — Live acceptance stopped before six-source resolution
+
+[EV-053](evidence/AS_201_LIVE_ACCEPTANCE.md): actual public-path catalog metadata
+failure; CDSE HTTP200 status/body hashes retained. No PC/source/header/XML readiness
+claim, no SAR science. Exact error field remains unlocalized; no hidden retry/patch.
 
 ## 5. Scientific evidence index
 

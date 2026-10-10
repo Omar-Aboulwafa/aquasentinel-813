@@ -1,6 +1,35 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-201 M48 implementation — 11 October 2026 (Asia/Dubai)
+## Current AS-201 M49 live provider acceptance — 11 October 2026 (Asia/Dubai)
+
+M48 implementation is **MERGED via PR #30** at
+`392603b5b074d515eb6c137e33395c7f0b1256ac`; Decision 054 remains FINAL / FROZEN / MERGED.
+**M49 / E49 / EV-053: AS201_LIVE_ACCEPTANCE = FAIL — catalog metadata contract
+rejection, field/cause not localized.** The unchanged public search raised
+`CatalogMetadataError` after CDSE root/collection HTTP200 responses, before
+returning a retrieval set. Six-source access validation was not reached.
+All six frozen slots remain NOT EVALUATED; no alternate source or patch was used.
+
+Actual provider accounting: **2 CDSE requests / 15,659 response-body bytes**;
+PC/token/TIFF/XML requests **0**. ZIP/image-block/pixel reads/bytes/scientific
+SAR compute **0**. Coverage, six source/three group/set fingerprints and retrieval
+provenance remain unavailable, not invented from M46 or M48 fixtures.
+Diagnostic limitation: only exception class and request status/path/body hashes
+were retained; exact offending field or code-vs-provider cause is not established.
+See [EV-053 MD](AS_201_LIVE_ACCEPTANCE.md) and
+[JSON](AS_201_LIVE_ACCEPTANCE.json).
+
+Prepared on `validation/as-201-live-acceptance`; no active scientific development.
+Engineering gate: **1432 tests PASS**, six existing Rasterio warnings; Ruff,
+diff/JSON/digest/security/preservation PASS. Production/tests/config/dependencies,
+Decisions 050–054, accepted evidence, external hashes/modes and stashes preserved.
+**AS-202 NOT STARTED; Decision 055 ABSENT.** No M49 PR/merge or CI-success claim.
+Immediate next step: owner review → separately authorize catalog failure
+localization/correction/retry. No provider probes continued after the failure.
+AS-107 COMPLETE / CLOSED and AS-108 qualified P0 case study remain unchanged.
+Future AS-105 policy validation and P1 05.10 NOT STARTED.
+
+## Historical AS-201 M48 implementation — before PR #30 merge — 11 October 2026 (Asia/Dubai)
 
 **Decision 054 / M47 FINAL / FROZEN DESIGN / MERGED**, via PR #29 at
 `1d2d994c7a04cca712485ce53dc9132db50615a8`. **M48 / E48 / EV-052: AS-201 RAW-GRD
@@ -1607,3 +1636,15 @@ requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.
   backscatter, oil candidate detection, petroleum composition or operational safety.
 - Scientific requests/compute/pixel reads/bytes: zero. AS-202 NOT STARTED.
 - Publication: feature branch for owner review; no M48 PR/merge performed.
+
+### EV-053 — AS-201 M49 live six-source acceptance attempt
+
+- **M49 / E49**; Decision 054 unchanged, Decision 055 absent.
+- Sources: [MD](AS_201_LIVE_ACCEPTANCE.md) / [JSON](AS_201_LIVE_ACCEPTANCE.json).
+- **FAIL:** public discovery raised `CatalogMetadataError`; six required slots
+  NOT EVALUATED, access validator not reached, field/cause unlocalized.
+- Actual metadata: 2 CDSE requests / 15,659 response-body bytes; no PC/token/
+  TIFF/XML request, image block, SAR pixel or scientific processing.
+- Historical M48 offline tests and M46 access proof retained; no live PASS,
+  coverage/product fingerprint, oil detection or calibrated backscatter claimed.
+- Owner review and separate diagnostic authorization next; AS-202 NOT STARTED.
