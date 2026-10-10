@@ -154,6 +154,68 @@ class OpticalConfig:
 
 
 @dataclass(frozen=True)
+class SARConfig:
+    """Sentinel-1 discovery/access configuration; no numerical SAR processing policy."""
+
+    discovery_endpoint: str = "https://stac.dataspace.copernicus.eu/v1/"
+    discovery_collection: str = "sentinel-1-grd"
+    access_endpoint: str = "https://planetarycomputer.microsoft.com/api/stac/v1/"
+    access_collection: str = "sentinel-1-grd"
+    signing_endpoint: str = "https://planetarycomputer.microsoft.com/api/sas/v1/sign"
+    allowed_asset_hosts: tuple[str, ...] = ("sentinel1euwest.blob.core.windows.net",)
+    timeout_seconds: float = 30.0
+
+    def validate(self) -> None:
+        for endpoint, collection in (
+            (self.discovery_endpoint, self.discovery_collection),
+            (self.access_endpoint, self.access_collection),
+        ):
+            STACConfig(endpoint, collection, self.timeout_seconds).validate()
+            parsed = urlsplit(endpoint)
+            if parsed.scheme != "https" or not _is_hostname(parsed.hostname):
+                raise ValueError("SAR catalog/access endpoints must use HTTPS DNS hostnames.")
+
+        if (
+            not isinstance(self.signing_endpoint, str)
+            or self.discovery_endpoint.rstrip("/") != "https://stac.dataspace.copernicus.eu/v1"
+            or self.access_endpoint.rstrip("/") != "https://planetarycomputer.microsoft.com/api/stac/v1"
+            or self.signing_endpoint.rstrip("/") != "https://planetarycomputer.microsoft.com/api/sas/v1/sign"
+        ):
+            raise ValueError("AS-201 requires the frozen CDSE/PC provider endpoints.")
+
+        try:
+            signing = urlsplit(self.signing_endpoint)
+            _ = signing.port
+        except (TypeError, ValueError) as exc:
+            raise ValueError("SAR signing endpoint has an invalid host or port.") from exc
+        if (
+            not isinstance(self.signing_endpoint, str)
+            or self.signing_endpoint != self.signing_endpoint.strip()
+            or any(character.isspace() for character in self.signing_endpoint)
+            or signing.scheme != "https"
+            or not _is_hostname(signing.hostname)
+            or signing.username is not None
+            or signing.port not in (None, 443)
+            or signing.path.rstrip("/") != "/api/sas/v1/sign"
+            or signing.password is not None
+            or signing.query
+            or signing.fragment
+        ):
+            raise ValueError("SAR signing endpoint must be a credential-free HTTPS URL.")
+        if not isinstance(self.allowed_asset_hosts, (tuple, list)) or not self.allowed_asset_hosts:
+            raise ValueError("SAR allowed_asset_hosts must be a non-empty sequence.")
+        if tuple(self.allowed_asset_hosts) != ("sentinel1euwest.blob.core.windows.net",):
+            raise ValueError("AS-201 requires the frozen Planetary Computer GRD host.")
+        if self.discovery_collection != "sentinel-1-grd" or self.access_collection != "sentinel-1-grd":
+            raise ValueError("AS-201 requires frozen sentinel-1-grd collections.")
+        for host in self.allowed_asset_hosts:
+            if not _is_hostname(host):
+                raise ValueError("SAR asset hosts must be exact lowercase hostnames.")
+        if len(set(self.allowed_asset_hosts)) != len(self.allowed_asset_hosts):
+            raise ValueError("SAR asset hosts must be unique.")
+
+
+@dataclass(frozen=True)
 class AquaSentinelConfig:
     app_name: str
     environment: str
@@ -165,6 +227,7 @@ class AquaSentinelConfig:
     oil_weights: RiskWeights
     catalog: STACConfig = field(default_factory=STACConfig)
     optical: OpticalConfig = field(default_factory=OpticalConfig)
+    sar: SARConfig = field(default_factory=SARConfig)
 
     def validate(self) -> None:
         if not self.app_name.strip():
@@ -176,6 +239,7 @@ class AquaSentinelConfig:
         self.oil_weights.validate()
         self.catalog.validate()
         self.optical.validate()
+        self.sar.validate()
 
         if not self.aoi_file.exists():
             raise FileNotFoundError(f"AOI file not found: {self.aoi_file}")

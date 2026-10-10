@@ -44,3 +44,12 @@ allowed_asset_hosts = ["sentinel2l2a01.blob.core.windows.net"]
 target_crs = "EPSG:32640"
 target_resolution = 20
 timeout_seconds = 30
+
+[sar]
+discovery_endpoint = "https://stac.dataspace.copernicus.eu/v1/"
+discovery_collection = "sentinel-1-grd"
+access_endpoint = "https://planetarycomputer.microsoft.com/api/stac/v1/"
+access_collection = "sentinel-1-grd"
+signing_endpoint = "https://planetarycomputer.microsoft.com/api/sas/v1/sign"
+allowed_asset_hosts = ["sentinel1euwest.blob.core.windows.net"]
+timeout_seconds = 30

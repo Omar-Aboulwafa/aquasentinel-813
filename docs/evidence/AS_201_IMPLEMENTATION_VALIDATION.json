@@ -1,0 +1,235 @@
+{
+  "schema_version": "as201-implementation-validation-v1",
+  "semantic": {
+    "schema_version": "as201-implementation-validation-v1",
+    "milestone": "M48",
+    "engineering_entry": "E48",
+    "evidence_id": "EV-052",
+    "official_base": "1d2d994c7a04cca712485ce53dc9132db50615a8",
+    "preserved_existing_WIP": "d6f89ce07eaf6216308f39087ce094877d2bfd02",
+    "branch": "feature/as-201-sentinel1-retrieval",
+    "status": "IMPLEMENTED_OFFLINE_VALIDATED_PENDING_OWNER_REVIEW",
+    "frozen_design_reference": "docs/evidence/AS_201_DESIGN_FREEZE.json",
+    "decision": "054",
+    "policy_version": "as201-v1",
+    "representation": "RAW_GRD_AMPLITUDE",
+    "frozen_decision_055": "ABSENT",
+    "reviewed_original_paths": [
+      [
+        "config/default.toml",
+        "Minimal SAR service settings retained; no AS-202 numerics."
+      ],
+      [
+        "src/aquasentinel/catalog/stac.py",
+        "Optional no-cloud query and all-page semantics retained; offline pagination test added."
+      ],
+      [
+        "src/aquasentinel/config/__init__.py",
+        "SAR export retained; no unrelated exports changed."
+      ],
+      [
+        "src/aquasentinel/config/loader.py",
+        "SAR section/host tuple loading retained; default/legacy load tests added."
+      ],
+      [
+        "src/aquasentinel/config/models.py",
+        "Frozen provider/collection/host and HTTPS configuration validated."
+      ],
+      [
+        "src/aquasentinel/ingestion/sentinel1.py",
+        "Focused public exports retained, complete models/access API exposed."
+      ],
+      [
+        "src/aquasentinel/ingestion/sentinel1_policy.py",
+        "Deep immutable metadata, source/group/set fingerprints, coverage and derived registry lineage added."
+      ],
+      [
+        "src/aquasentinel/ingestion/sentinel1_resolver.py",
+        "Native product checks, duplicate/ambiguous records, same-source paths and footprint normalization hardened."
+      ],
+      [
+        "src/aquasentinel/ingestion/sentinel1_metadata.py",
+        "Chained overview IFDs, exact ranges/budgets, schema/identity/nonempty XML structures hardened."
+      ],
+      [
+        "tests/catalog/test_stac_non_optical.py",
+        "No-cloud query retained; real client consumes synthetic paginated pages."
+      ],
+      [
+        "tests/config/test_sar.py",
+        "Frozen endpoints/hosts/collection, timeout and TOML defaults tested."
+      ],
+      [
+        "tests/ingestion/test_sentinel1.py",
+        "Weak empty XML/SubIFD fixtures replaced with valid nonempty structures/chained directories; original behaviors retained."
+      ]
+    ],
+    "architecture": [
+      "sentinel1_policy",
+      "sentinel1_resolver",
+      "sentinel1_metadata",
+      "sentinel1_coverage",
+      "shared_structural_PC_transport_settings"
+    ],
+    "dependency": {
+      "name": "shapely",
+      "version": "2.1.2",
+      "purpose": "metadata Polygon/MultiPolygon topology only",
+      "unrelated_upgrades": 0
+    },
+    "coverage": {
+      "date": "envelope intersect union of both source footprints",
+      "common": "intersection of three date supports",
+      "crs": "EPSG:4326",
+      "pixel_evaluability": false,
+      "gaps": "retained, never zero scientific evidence",
+      "incomplete_inventory": "lower bound"
+    },
+    "identity": {
+      "source": "full stable source payload including header/XML summary and unsigned assets",
+      "group": "canonical ordered source fingerprints, date support/gaps/missingness",
+      "set": "as201-v1 frozen sources/envelope, groups/common support, source metadata",
+      "canonicalization": "sorted keys, compact UTF-8 JSON, allow_nan=false",
+      "creation_time_in_identity": false,
+      "signed_transport_in_identity": false
+    },
+    "provenance": {
+      "type": "sentinel1_retrieval",
+      "product_id": "sentinel1_retrieval:<SHA256>",
+      "parents": "distinct CDSE then PC SourceRecords per ordered source slot",
+      "generic_schema_changed": false,
+      "all_missing": "no fabricated derived lineage",
+      "disk_cache_schema_added": false,
+      "registry_replay": "canonical stable semantics; tuple/list and creation-time differences do not overwrite/conflict with original record; semantic conflicts rejected"
+    },
+    "execution_boundary": {
+      "live_CDSE_metadata_requests": 0,
+      "live_PC_metadata_requests": 0,
+      "live_signing_requests": 0,
+      "live_XML_requests": 0,
+      "live_TIFF_range_requests": 0,
+      "EO_asset_requests": 0,
+      "EO_bytes_downloaded": 0,
+      "SAR_pixel_reads": 0,
+      "SAR_pixel_bytes": 0,
+      "scientific_SAR_compute_calls": 0,
+      "real_provider_acceptance_run": false
+    },
+    "limitations": [
+      "OFFLINE_ENGINEERING_NOT_LIVE_SIX_SOURCE_ACCEPTANCE",
+      "METADATA_FOOTPRINT_SUPPORT_NOT_PIXEL_EVALUABILITY",
+      "NO_CALIBRATED_BACKSCATTER_OR_OIL_INFERENCE",
+      "VH_AUXILIARY_NO_SCIENTIFIC_PROCESSING",
+      "NO_AS202_NUMERICS_FROZEN"
+    ],
+    "AS202": "NOT_STARTED",
+    "PR_created": false,
+    "merge_performed": false,
+    "integration_regressions_corrected": [
+      {
+        "path": "tests/config/test_catalog.py",
+        "change": "Optical fixture replaces only the optical endpoint; separate frozen SAR endpoint retained."
+      },
+      {
+        "path": "tests/preprocessing/test_transport.py",
+        "change": "Expected annotation becomes AssetTransportSettings; all functional/security assertions unchanged."
+      }
+    ],
+    "preserved_related_remote_commit": "2abbe5a64e4017b8fc30ba243e3fe4c30f509a3c",
+    "remote_advance_handling": {
+      "history": "fast-forward only; no merge commit/rebase/rewrites",
+      "overlapping_paths": [
+        "src/aquasentinel/ingestion/sentinel1_resolver.py",
+        "tests/ingestion/test_sentinel1.py"
+      ],
+      "work_preservation": "external 22-file backup; temporary recovery stash retained; 20 non-overlapping files restored byte-identically; matching conflict resolved preserving both behaviors",
+      "temporary_recovery_stash": "d128ae2a00e61e28db274f682666e21361a69efb"
+    },
+    "frozen_design_sha256": "6b0cf1b151024cdbb493aa9eddc9ec4ce0ba02a598fe0cd84a31ad9e46c97250"
+  },
+  "engineering_quality_gates": {
+    "focused_AS201": {
+      "passed": 147,
+      "seconds": 0.88
+    },
+    "full_pytest": {
+      "passed": 1432,
+      "seconds": 35.58,
+      "warnings": 6,
+      "warning_type": "existing Rasterio PendingDeprecationWarning"
+    },
+    "Ruff": "PASS",
+    "git_diff_check": "PASS",
+    "new_file_whitespace": "PASS",
+    "strict_JSON_finite_no_duplicate_keys": "PASS",
+    "independent_identity_reconstruction": "PASS",
+    "deterministic_repeat": "PASS",
+    "credential_signed_URL_scan": "PASS; synthetic malicious references in tests only",
+    "GitHub_CI": "NOT_CLAIMED",
+    "prior_diagnostic_full_gate": {
+      "failed": 2,
+      "passed": 1427,
+      "seconds": 36.99,
+      "cause": "new SAR endpoint fixture coupling and shared transport annotation assertion; corrected without weakening functional/security tests"
+    },
+    "prior_pre_remote_integration_gate": {
+      "passed": 1429,
+      "warnings": 6,
+      "seconds": 37.21
+    },
+    "prior_pre_registry_replay_gate": {
+      "passed": 1431,
+      "warnings": 6,
+      "seconds": 36.02
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "tracked_snapshot_count": 151,
+    "authorized_followup_paths": [
+      "docs/AS_201_SENTINEL1_RETRIEVAL.md",
+      "docs/DECISIONS.md",
+      "docs/HANDOFF.md",
+      "docs/PRESENTATION_JOURNAL.md",
+      "docs/PROJECT_STATE.md",
+      "docs/evidence/AS_201_IMPLEMENTATION_VALIDATION.json",
+      "docs/evidence/AS_201_IMPLEMENTATION_VALIDATION.md",
+      "docs/evidence/PRESENTATION_EVIDENCE_INDEX.md",
+      "pyproject.toml",
+      "src/aquasentinel/config/models.py",
+      "src/aquasentinel/ingestion/planetary_computer.py",
+      "src/aquasentinel/ingestion/sentinel1.py",
+      "src/aquasentinel/ingestion/sentinel1_coverage.py",
+      "src/aquasentinel/ingestion/sentinel1_metadata.py",
+      "src/aquasentinel/ingestion/sentinel1_policy.py",
+      "src/aquasentinel/ingestion/sentinel1_resolver.py",
+      "tests/catalog/test_stac_non_optical.py",
+      "tests/config/test_catalog.py",
+      "tests/config/test_sar.py",
+      "tests/ingestion/test_sentinel1.py",
+      "tests/ingestion/test_sentinel1_contract.py",
+      "tests/preprocessing/test_transport.py"
+    ],
+    "non_authorized_tracked_byte_identical": true,
+    "frozen_decision_section_SHA256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea",
+      "054": "62d8bf08c6f13774ec91ae4b1c7c93109a7ebbd3a45bb3ea79b9d4e672123df8"
+    },
+    "prior_evidence_byte_identical_count": 32,
+    "protected_external_hash_count": 44,
+    "protected_mode_count": 57,
+    "protected_external_hashes_modes_unchanged": true,
+    "original_stash_inventory_preserved": true,
+    "additional_temporary_recovery_stash": "d128ae2a00e61e28db274f682666e21361a69efb",
+    "both_known_safety_stashes_retained": true,
+    "no_new_raster_cache_artifact": true,
+    "file_modes": "non-executable workspace files; Git 100644, local 0600/0644",
+    "credential_scan": "PASS; synthetic hostile URLs only in tests",
+    "new_file_whitespace": "PASS"
+  },
+  "semantic_SHA256": "b644156c028badf29778828b88e1cf5b7d417d3c2c7d14b8f787b7882f9bfda9",
+  "canonicalization": "SHA-256 over semantic object only; sorted keys, compact UTF-8 JSON, allow_nan=false; engineering elapsed time and preservation inventory excluded"
+}

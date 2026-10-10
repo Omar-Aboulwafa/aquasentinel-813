@@ -6,6 +6,7 @@ from aquasentinel.config.models import (
     OpticalConfig,
     RiskBands,
     RiskWeights,
+    SARConfig,
     STACConfig,
 )
 
@@ -17,6 +18,7 @@ __all__ = [
     "OpticalConfig",
     "RiskBands",
     "RiskWeights",
+    "SARConfig",
     "STACConfig",
     "load_aoi",
     "load_config",

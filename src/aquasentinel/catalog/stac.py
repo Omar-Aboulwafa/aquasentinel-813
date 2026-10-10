@@ -35,7 +35,6 @@ class _SearchIO(StacApiIO):
             payload = super().read_json(source, *args, **kwargs)
         except ValueError as exc:
             raise CatalogMetadataError("Catalog response is not valid JSON.") from exc
-
         if not isinstance(payload, dict):
             raise CatalogMetadataError("Catalog response must be a JSON object.")
         if self.validate_search_pages:
@@ -72,10 +71,18 @@ def search_catalog(
     *,
     intersects: dict[str, Any],
     datetime_interval: str,
-    max_cloud_cover_percent: float,
+    max_cloud_cover_percent: float | None = None,
+    query: dict[str, Any] | None = None,
 ) -> CatalogResult:
-    """Consume all search pages. API/network errors propagate to the caller."""
+    """Consume all pages; callers may use optical cloud query or a non-optical query."""
     settings.validate()
+    if max_cloud_cover_percent is not None and query is not None:
+        raise ValueError("Provide max_cloud_cover_percent or query, not both.")
+    if max_cloud_cover_percent is not None:
+        query = {"eo:cloud_cover": {"lte": max_cloud_cover_percent}}
+    if query is not None and not isinstance(query, dict):
+        raise TypeError("STAC query must be a dictionary or None.")
+
     io = _SearchIO(timeout=settings.timeout_seconds)
     try:
         client = Client.open(settings.endpoint, stac_io=io, timeout=settings.timeout_seconds)
@@ -85,13 +92,15 @@ def search_catalog(
             not isinstance(license_name, str) or not license_name.strip()
         ):
             raise CatalogMetadataError("Collection license must be a non-empty string.")
-        search = client.search(
-            collections=[settings.collection],
-            intersects=intersects,
-            datetime=datetime_interval,
-            query={"eo:cloud_cover": {"lte": max_cloud_cover_percent}},
-            max_items=None,
-        )
+        search_kwargs: dict[str, Any] = {
+            "collections": [settings.collection],
+            "intersects": intersects,
+            "datetime": datetime_interval,
+            "max_items": None,
+        }
+        if query is not None:
+            search_kwargs["query"] = query
+        search = client.search(**search_kwargs)
         io.validate_search_pages = True
         items = tuple(search.items_as_dicts())
     except CatalogMetadataError:

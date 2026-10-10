@@ -1,6 +1,41 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M47 design freeze — 11 October 2026 (Asia/Dubai)
+## Current AS-201 M48 implementation — 11 October 2026 (Asia/Dubai)
+
+**Decision 054 / M47 FINAL / FROZEN DESIGN / MERGED**, via PR #29 at
+`1d2d994c7a04cca712485ce53dc9132db50615a8`. **M48 / E48 / EV-052: AS-201 RAW-GRD
+RETRIEVAL / SOURCE IMPLEMENTATION COMPLETE; OFFLINE ENGINEERING VALIDATION PASS.**
+This is source/header/XML engineering, not SAR preprocessing or oil detection.
+AS-107 COMPLETE / CLOSED; AS-108 P0 case study COMPLETE / MERGED with POST
+UNAVAILABLE and PARTIALLY_CONSISTENT remain unchanged.
+
+Active implementation branch: `feature/as-201-sentinel1-retrieval`.
+Existing WIP `d6f89ce07eaf6216308f39087ce094877d2bfd02` is preserved without rewriting.
+Related remote correction `2abbe5a64e4017b8fc30ba243e3fe4c30f509a3c` was also
+reviewed and preserved as an ancestor before the final completion commit.
+Its twelve original paths were reviewed; follow-up corrections complete footprint
+support/gaps, immutable models, group/set identities and derived retrieval lineage,
+and harden raw TIFF/XML/transport validation. Both source slots/date and all six
+slots remain explicit on failure. Missing footprint support is a lower bound,
+never zero anomaly; metadata support does not establish pixel evaluability.
+
+Engineering gates/results and review findings are in
+[EV-052 implementation evidence](evidence/AS_201_IMPLEMENTATION_VALIDATION.md) and [JSON](evidence/AS_201_IMPLEMENTATION_VALIDATION.json).
+Final M48 gate: **147 focused / 1432 full tests PASS**, six existing Rasterio
+warnings; Ruff/diff/strict JSON/credential/preservation checks PASS.
+No new real-provider probe, SAR pixels, scientific compute or scientific product.
+M46 access evidence is historical and is not a six-slice live M48 acceptance claim.
+Frozen Decisions 050–054, accepted HAB evidence, caches, stashes and recovery
+material remain preserved. Shapely 2.1.2 is used only for metadata polygon topology.
+
+**AS-202 NOT STARTED; Decision 055 ABSENT.** Calibration/noise correction, dB,
+reprojection, resampling, mosaicking, speckle filtering, masking and oil detection
+remain outside AS-201. Future AS-105 policy validation and P1 05.10 NOT STARTED.
+Immediate next step: owner review of published M48 implementation → separately
+authorized PR/merge. Any six-slice provider metadata acceptance or AS-202 design
+requires separate owner direction. No M48 PR or merge performed; no CI claim.
+
+## Historical AS-201 M47 design freeze — before PR #29 merge — 11 October 2026 (Asia/Dubai)
 
 **AS-107 COMPLETE / CLOSED. AS-108 P0 RETROSPECTIVE OBSERVATIONAL-CONSISTENCY
 CASE STUDY COMPLETE / MERGED with POST UNAVAILABLE**, via PR #28 at
@@ -1856,6 +1891,35 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Three-role timeline plus envelope/support diagram; proposed, no screenshot/figure claimed to exist.
 - **Candidate slide title:** “Before looking for dark pixels.”
 
+### M48 — Review and complete raw Sentinel-1 source engineering — 11 October 2026
+
+- **Date:** 11 October 2026 (Asia/Dubai); implementation, not a new scientific decision.
+- **Task / ID:** AS-201 M48 / E48 / EV-052 under merged Decision 054.
+- **Problem:** existing twelve-path WIP lacked coverage, group/set provenance and
+  robust native header/XML checks; its existence did not constitute acceptance.
+- **Why it mattered:** unknown support and provider packaging defects must not
+  become false scientific evidence downstream.
+- **Options:** rewrite WIP, accept it as-is, or preserve/review/complete it. Owner
+  authorized the third; d6f89ce remains intact.
+- **Decision:** implement frozen raw-GRD handoff only; no Decision 055 or SAR science.
+- **Rationale:** strict source engineering precedes numerical interpretation.
+- **Implementation:** exact six slots, defensive XML, chained TIFF directories,
+  footprint support/gaps, immutable hashes and source/derived registry lineage.
+- **Evidence:** EV-052 MD/JSON; offline catalog/header/XML/provenance/security tests.
+- **Quantitative result:** all six synthetic slots retain identity and order; real
+  provider requests, SAR pixel reads/bytes and scientific compute are all zero.
+  Actual test totals are recorded in EV-052, separately from historical M47 gates.
+- **Limitation:** no M48 live six-source acceptance or oil result; metadata footprint
+  overlap is not valid-pixel support. M46 representative access remains historical.
+- **Lesson:** a COG packaging label cannot establish radiometric representation;
+  metadata roles and native identity must be checked explicitly.
+- **Next step:** owner code review → separate PR/merge authorization; AS-202 needs
+  its own design authorization.
+- **Presentation takeaway:** provenance and honest missingness before dark pixels.
+- **Recommended visual:** source → header/XML → three metadata support groups →
+  derived retrieval lineage; proposed only, no screenshot created.
+- **Candidate slide title:** “Know the source before interpreting the signal.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1959,6 +2023,12 @@ Journal-task validation on 6 October 2026: the existing `.venv` used Python 3.11
 | E45 | M47 historical predecessor record; EV-049 | Metadata-only Kharg feasibility, no repository writing at M45 | No pixel or petroleum claim |
 | E46 | M47 historical predecessor record; EV-050 | GRD header/XML/access PASS without pixels; defects/failures retained | No SAR calibration/detection |
 | E47 | [Design freeze](evidence/AS_201_DESIGN_FREEZE.md); EV-051; Decision054 | Exact six-source policy, coverage and security/digest/preservation contract | Not implemented; no scientific result or CI claim |
+
+### E48 — Raw-GRD source implementation, offline validation
+
+[EV-052](evidence/AS_201_IMPLEMENTATION_VALIDATION.md): review of preserved WIP,
+strict matching/header/XML, source/group/set support identities and registry lineage.
+No SAR scientific result, live provider probe or CI success claim.
 
 ## 5. Scientific evidence index
 
