@@ -1,6 +1,32 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-108 M44 retrospective case study — 10 October 2026 (Asia/Dubai)
+## Current AS-201 M47 design freeze — 11 October 2026 (Asia/Dubai)
+
+**AS-107 COMPLETE / CLOSED. AS-108 P0 RETROSPECTIVE OBSERVATIONAL-CONSISTENCY
+CASE STUDY COMPLETE / MERGED with POST UNAVAILABLE**, via PR #28 at
+`9a8a15c489a6aa3e678b642d2ccf5160affc56bd`. M44 PARTIALLY_CONSISTENT and all accepted scientific evidence
+remain unchanged. M45/E45/EV-049 and M46/E46/EV-050 are now recorded historically
+as completed read-only predecessor audits; PC_GRD_ACCESS_GATE PASS.
+**Decision 054 / M47 / E47 / EV-051: FINAL / FROZEN DESIGN / NOT IMPLEMENTED.**
+
+Frozen Kharg envelope EPSG:4326 [49.60,28.60,50.70,29.60], explicit source gaps and
+common three-date comparison support; Apr24 REFERENCE → May6 DOCUMENTARY_EVENT →
+May18 LATE_FOLLOW_UP, same S1A IW ascending orbit101 VV/VH, both slices/date.
+CDSE discovery → exact PC GRD access mapping; RAW_GRD_AMPLITUDE; runtime-only
+tokens; no provider fallback. Actual headers/XML roles govern provider defects.
+SIGMA0_ELLIPSOID is a candidate, NOT FROZEN; AS-202 numerics/downstream rules remain
+unfrozen. No pixels, SAR science, petroleum/source confirmation or intake invented.
+
+Current active scientific development branch: none. This design was prepared on
+`docs/as-201-design-freeze`. **AS-201 implementation and AS-202 NOT STARTED;
+Decision 055 ABSENT.** Future AS-105 policy validation and P1 05.10 NOT STARTED.
+Immediate next step: owner review → separately authorized M47 PR/merge → separate
+AS-201 implementation authorization. No M47 PR or merge performed.
+See [contract](AS_201_SENTINEL1_RETRIEVAL.md), [freeze evidence](evidence/AS_201_DESIGN_FREEZE.md)
+and [JSON](evidence/AS_201_DESIGN_FREEZE.json). Engineering results are recorded in
+the freeze evidence; historical checkpoints below retain their original states.
+
+## Historical AS-108 M44 reporting — before PR #28 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107 COMPLETE / CLOSED. Decision 053/M42 FINAL / FROZEN DESIGN / MERGED.**
 M43 metadata selection COMPLETE / MERGED via PR #27 at `865cd14398c6bcdbeaed6a19210f5615beb638e6`.

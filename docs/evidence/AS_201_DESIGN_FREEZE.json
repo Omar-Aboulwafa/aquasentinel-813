@@ -1,0 +1,1067 @@
+{
+  "schema_version": "as201-m47-design-freeze-v1",
+  "milestone": "M47",
+  "engineering_entry": "E47",
+  "evidence_id": "EV-051",
+  "baseline": {
+    "main_sha": "9a8a15c489a6aa3e678b642d2ccf5160affc56bd",
+    "PR": 28,
+    "parents": [
+      "865cd14398c6bcdbeaed6a19210f5615beb638e6",
+      "83d18db82d818cfe43710ffcc43839c241be7142"
+    ]
+  },
+  "design": {
+    "schema_version": "as201-m47-design-freeze-v1",
+    "decision": "054",
+    "policy_version": "as201-v1",
+    "status": "FINAL / FROZEN DESIGN / NOT IMPLEMENTED",
+    "objective": "Reproducible historical surface-slick candidate demonstration; external documentary event and satellite results remain separate evidence domains.",
+    "external_event_reference": {
+      "publisher": "Data Desk",
+      "title": "May 2026 Kharg oil slick",
+      "publication_date": "2026-05-19",
+      "source_reference": "https://research.datadesk.eco/kharg-slick/",
+      "verification_provenance": "EXTERNALLY_VERIFIED_PUBLIC_SOURCE_FACTS_SUPPLIED_IN_AUTHORIZATION",
+      "codex_independent_retrieval_in_m47": false,
+      "source_accessed_at": null,
+      "area": "Kharg Island / Persian Gulf",
+      "first_documented_radar_witness": {
+        "date": "2026-05-06",
+        "approximate_time_UTC": "14:42",
+        "platform": "sentinel-1a"
+      },
+      "documentary_geography": [
+        "Progression south/southwest of Kharg",
+        "11 May: displaced visible sheen around 28.75 N, approximately 55 km south of Kharg",
+        "13 May: SAR interpretation around 28.75–28.95 N",
+        "18 May: remaining dark patches roughly 45 km southwest of Kharg"
+      ],
+      "interpretation_domain": "EXTERNAL_DOCUMENTARY_REFERENCE_NOT_AQUASENTINEL_OUTPUT",
+      "pixel_level_petroleum_ground_truth": false
+    },
+    "analysis_envelope": {
+      "id": "KHARG_P0_VALIDATION_ENVELOPE",
+      "crs": "EPSG:4326",
+      "bbox": [
+        49.6,
+        28.6,
+        50.7,
+        29.6
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.6,
+              28.6
+            ],
+            [
+              50.7,
+              28.6
+            ],
+            [
+              50.7,
+              29.6
+            ],
+            [
+              49.6,
+              29.6
+            ],
+            [
+              49.6,
+              28.6
+            ]
+          ]
+        ]
+      },
+      "selected_before_sar_pixels": true,
+      "status": "ANALYST_VALIDATION_ENVELOPE_NOT_INCIDENT_INTAKE_OR_PETROLEUM_GROUND_TRUTH",
+      "rejected_narrow_bbox": [
+        49.6,
+        28.92,
+        50.7,
+        29.6
+      ],
+      "rejection_reason": "Would exclude documentary southern geography around 28.75 N"
+    },
+    "coverage": {
+      "per_date_source_support": "intersection(envelope, union(all frozen source-slice footprints for date))",
+      "common_three_date_support": "intersection(REFERENCE support, DOCUMENTARY_EVENT support, LATE_FOLLOW_UP support)",
+      "date_specific_products": "retain date-specific support",
+      "direct_temporal_comparison": "common_three_date_support unless later frozen algorithm defines pair-specific support",
+      "missing_support": "NODATA_OR_UNAVAILABLE_NEVER_NORMAL_OR_ZERO_ANOMALY",
+      "fill_extrapolate_or_outcome_derived_geometry": false
+    },
+    "roles": {
+      "REFERENCE": {
+        "date": "2026-04-24",
+        "meaning": "same-track pre-event observational reference, not verified petroleum-negative"
+      },
+      "DOCUMENTARY_EVENT": {
+        "date": "2026-05-06",
+        "meaning": "first externally documented radar witness retained for P0, not verified peak"
+      },
+      "LATE_FOLLOW_UP": {
+        "date": "2026-05-18",
+        "meaning": "externally documented late radar follow-up, not recovery"
+      }
+    },
+    "sources": [
+      {
+        "role": "REFERENCE",
+        "slice_order": 1,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+        "acquisition_start": "2026-04-24T14:42:05.150515Z",
+        "acquisition_end": "2026-04-24T14:42:30.148548Z",
+        "platform": "sentinel-1a",
+        "instrument_mode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "orbit_state": "ascending",
+        "relative_orbit": 101,
+        "absolute_orbit": 64223,
+        "product_type": "GRDH",
+        "pc_exact_match_count": 1
+      },
+      {
+        "role": "REFERENCE",
+        "slice_order": 2,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+        "acquisition_start": "2026-04-24T14:42:30.150042Z",
+        "acquisition_end": "2026-04-24T14:42:55.148075Z",
+        "platform": "sentinel-1a",
+        "instrument_mode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "orbit_state": "ascending",
+        "relative_orbit": 101,
+        "absolute_orbit": 64223,
+        "product_type": "GRDH",
+        "pc_exact_match_count": 1
+      },
+      {
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 1,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+        "acquisition_start": "2026-05-06T14:42:04.538690Z",
+        "acquisition_end": "2026-05-06T14:42:29.536703Z",
+        "platform": "sentinel-1a",
+        "instrument_mode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "orbit_state": "ascending",
+        "relative_orbit": 101,
+        "absolute_orbit": 64398,
+        "product_type": "GRDH",
+        "pc_exact_match_count": 1
+      },
+      {
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 2,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+        "acquisition_start": "2026-05-06T14:42:29.538209Z",
+        "acquisition_end": "2026-05-06T14:42:54.536224Z",
+        "platform": "sentinel-1a",
+        "instrument_mode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "orbit_state": "ascending",
+        "relative_orbit": 101,
+        "absolute_orbit": 64398,
+        "product_type": "GRDH",
+        "pc_exact_match_count": 1
+      },
+      {
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 1,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+        "acquisition_start": "2026-05-18T14:42:04.240283Z",
+        "acquisition_end": "2026-05-18T14:42:29.238414Z",
+        "platform": "sentinel-1a",
+        "instrument_mode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "orbit_state": "ascending",
+        "relative_orbit": 101,
+        "absolute_orbit": 64573,
+        "product_type": "GRDH",
+        "pc_exact_match_count": 1
+      },
+      {
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 2,
+        "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+        "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+        "acquisition_start": "2026-05-18T14:42:29.239908Z",
+        "acquisition_end": "2026-05-18T14:42:54.239534Z",
+        "platform": "sentinel-1a",
+        "instrument_mode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "orbit_state": "ascending",
+        "relative_orbit": 101,
+        "absolute_orbit": 64573,
+        "product_type": "GRDH",
+        "pc_exact_match_count": 1
+      }
+    ],
+    "provider_architecture": {
+      "discovery": {
+        "provider": "CDSE",
+        "endpoint": "https://stac.dataspace.copernicus.eu/v1/",
+        "collection": "sentinel-1-grd"
+      },
+      "raster_XML": {
+        "provider": "Microsoft Planetary Computer",
+        "endpoint": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+        "collection": "sentinel-1-grd",
+        "storage_hostname": "sentinel1euwest.blob.core.windows.net",
+        "container": "s1-grd"
+      },
+      "source_mapping": "Exactly one PC representation of each exact frozen CDSE/native source product; no acquisition replacement",
+      "fallback": "NONE; unavailable PC GRD means UNAVAILABLE / ACCESS_BLOCKED; RTC or Sentinel Hub requires separate frozen decision"
+    },
+    "search": {
+      "sentinel1_specific_path_required": true,
+      "Sentinel2_cloud_filter_allowed": false,
+      "collection": "sentinel-1-grd",
+      "platform": "sentinel-1a",
+      "mode": "IW",
+      "product": "GRDH / equivalent normalized identity",
+      "polarizations": [
+        "VV",
+        "VH"
+      ],
+      "orbit_state": "ascending",
+      "relative_orbit": 101,
+      "generic_search_complete_pagination": true,
+      "kharg_selection": "EXACT_FROZEN_SIX_PRODUCTS"
+    },
+    "representation": {
+      "classification": "RAW_GRD_AMPLITUDE",
+      "product": "Sentinel-1 Level-1 IW GRDH",
+      "measurement": [
+        "detected",
+        "multi-look",
+        "ground-range"
+      ],
+      "dtype": "uint16",
+      "bands_per_polarization_asset": 1,
+      "nodata": 0,
+      "sample_spacing_range_metres": 10,
+      "sample_spacing_azimuth_metres": 10,
+      "independent_resolution": "COARSER_THAN_10_METRE_SAMPLING",
+      "verified_header_contract": [
+        "classic little-endian TIFF",
+        "ZSTD",
+        "1024x1024 blocks",
+        "six reduced-resolution overview levels",
+        "header-only HTTP range access",
+        "geographic tiepoints/geolocation metadata"
+      ],
+      "native_affine_from_STAC_allowed": false
+    },
+    "metadata_defenses": {
+      "proj_shape": "Inspected PC [width,height] reverses usual [height,width]; actual header dimensions govern",
+      "representation": "Collection/source-product contract plus actual header/XML identity govern; contradictory asset prose is insufficient",
+      "product_XML": "schema-product-vv was RFI, not product annotation; provider annotation/iw-vv.xml validated; old manifest names may 404",
+      "resolver_required_checks": [
+        "XML root/schema role",
+        "native source product identity",
+        "polarization",
+        "acquisition interval",
+        "platform/mode/orbit",
+        "dimensions against measurement header"
+      ],
+      "resolver_policy": "Known same-product normalized path only; never arbitrary date/product fallback; incorrect role or identity makes slice unavailable"
+    },
+    "polarization": {
+      "selection": "dual VV+VH source product required",
+      "VV": "measurement + SAFE manifest + product annotation + calibration XML + noise XML REQUIRED",
+      "VH": "auxiliary available polarization; preserve identity/access metadata; no required scientific use in first AS-201 implementation",
+      "AS203_scientific_use": "NOT_FROZEN"
+    },
+    "metadata_handoff": {
+      "validate_every_slice": true,
+      "missing_mismatched_required_metadata": "SLICE_UNAVAILABLE_NO_DATE_REPLACEMENT",
+      "noise_state": "Validate per-slice metadata; representative event VV has thermalNoiseCorrectionPerformed=false; never assume already denoised",
+      "required_structures": [
+        "product geolocation/incidence",
+        "applicable calibration LUTs beta0/sigma0/gamma/DN",
+        "range AND azimuth noise structures per applicable schema/version"
+      ],
+      "representative_vector_counts_not_universal": true
+    },
+    "multi_slice": {
+      "required_per_date": 2,
+      "all_six_mandatory": true,
+      "ordering": [
+        "acquisition_start_UTC_ascending",
+        "stable_provider_item_ID_ascending"
+      ],
+      "retain": [
+        "each source ID",
+        "interval",
+        "footprint",
+        "access/provenance",
+        "date union footprint"
+      ],
+      "pixel_mosaic_in_AS201": false,
+      "darkest_brightest_overlap_selection": false
+    },
+    "AS201_responsibility": [
+      "discover",
+      "normalize metadata",
+      "apply frozen source policy",
+      "resolve exact provider identities",
+      "validate access/representation metadata",
+      "group required slices",
+      "stable provenance/asset references",
+      "handoff without scientific pixel transformation"
+    ],
+    "AS201_excludes": [
+      "calibration",
+      "noise removal",
+      "dB conversion",
+      "pixel reprojection",
+      "pixel mosaicking",
+      "water masking",
+      "speckle filtering",
+      "slick detection"
+    ],
+    "typed_output": {
+      "immutable": true,
+      "implementation_names_may_follow_style": true,
+      "types": {
+        "Sentinel1SliceSource": [
+          "SourceRecord",
+          "provider",
+          "collection",
+          "stable_item_id",
+          "platform",
+          "acquisition_start",
+          "acquisition_end",
+          "instrument_mode",
+          "polarizations",
+          "orbit_state",
+          "relative_orbit",
+          "absolute_orbit_if_available",
+          "product_type",
+          "resolution_class",
+          "sampling_metadata",
+          "source_footprint",
+          "documentary_role",
+          "stable_unsigned_measurement_assets",
+          "manifest_reference",
+          "product_annotation_reference",
+          "calibration_reference",
+          "noise_reference",
+          "representation",
+          "thermal_noise_correction_metadata_state",
+          "semantic_fingerprint"
+        ],
+        "Sentinel1AcquisitionGroup": [
+          "role",
+          "canonical_acquisition_identity",
+          "required_ordered_slices",
+          "date_union_support_geometry",
+          "missingness_diagnostics",
+          "semantic_fingerprint"
+        ],
+        "Sentinel1RetrievalSet": [
+          "policy_version",
+          "analysis_envelope",
+          "REFERENCE_group",
+          "DOCUMENTARY_EVENT_group",
+          "LATE_FOLLOW_UP_group",
+          "common_support_geometry",
+          "discovery_provider_provenance",
+          "raster_access_provider_provenance",
+          "limitations",
+          "semantic_fingerprint"
+        ]
+      },
+      "coverage_fields": [
+        "analysis_envelope_geometry",
+        "per_slice_footprints",
+        "per_date_source_support_geometry",
+        "common_three_date_support_geometry",
+        "coverage_missingness_diagnostics"
+      ]
+    },
+    "identity": {
+      "version": "as201-v1",
+      "derived_namespace": "sentinel1_retrieval",
+      "inputs": [
+        "Decision054 policy/version",
+        "envelope",
+        "six CDSE identities",
+        "six PC identities",
+        "roles",
+        "slice order",
+        "orbit/mode/polarization",
+        "provider collections",
+        "representation",
+        "coverage geometries",
+        "metadata availability states"
+      ],
+      "exclude": [
+        "SAS/token/signature",
+        "signed href query",
+        "expiry",
+        "request timestamps",
+        "local cache paths",
+        "file mtimes",
+        "creation time"
+      ],
+      "lineage": "Register distinct CDSE discovery and PC access SourceRecords; deterministic retrieval DerivedProductRecord references registered sources in canonical slice order, retaining association rather than equating IDs"
+    },
+    "security": {
+      "allowed_asset_hostname": "sentinel1euwest.blob.core.windows.net",
+      "HTTPS_only": true,
+      "effective_port": 443,
+      "userinfo_fragments_malformed_URLs": "REJECT",
+      "unexpected_host_redirects": "REJECT",
+      "signed_URLs": "RUNTIME_ONLY",
+      "logs_errors": "SANITIZED_NO_QUERY_VALUES; scoped logger suppression where signed access is present",
+      "durable_references": "stable unsigned identity/path only",
+      "access": "bounded HTTP ranges preferred; no full Product ZIP P0"
+    },
+    "cache": {
+      "allowed": [
+        "stable STAC metadata",
+        "sanitized source identities",
+        "appropriate metadata XML",
+        "canonical retrieval product/evidence"
+      ],
+      "forbidden": [
+        "SAS tokens",
+        "signed URLs",
+        "Authorization headers",
+        "cookies"
+      ],
+      "large_raw_rasters_committed": false,
+      "future_AS202": "bounded/windowed measurement access wherever practical"
+    },
+    "AS202": {
+      "ownership": "scientific SAR preprocessing; no algorithm frozen by Decision054",
+      "inputs": [
+        "raw GRD amplitude",
+        "product annotation",
+        "calibration LUT",
+        "thermal-noise LUT",
+        "geolocation/incidence",
+        "source support"
+      ],
+      "invariants": {
+        "RAW_GRD_AMPLITUDE": "eligible for explicit documented noise/calibration exactly once",
+        "PROVIDER_CALIBRATED_BACKSCATTER": "never recalibrate as raw amplitude/DN",
+        "RTC_GAMMA0": "never second calibration/RTC",
+        "UNKNOWN_REPRESENTATION": "reject/unavailable"
+      },
+      "coefficient_candidate": "SIGMA0_ELLIPSOID",
+      "coefficient_status": "CURRENT RECOMMENDED CANDIDATE / NOT YET FROZEN",
+      "rationale": "Transparent ellipsoid-area same-track open-water contract avoids unnecessary terrain-normalization complexity",
+      "official_processing_basis": "Applicable official Sentinel-1 product specification and actual XML schema/version define calibration/noise LUT semantics; modern products include range and azimuth noise; no invented simplified 1D model"
+    },
+    "downstream_not_frozen": {
+      "AS-202": [
+        "noise_LUT_2D_interpolation",
+        "clipping_implementation",
+        "calibration_equation",
+        "backscatter_coefficient",
+        "target_CRS_grid",
+        "output_resolution",
+        "resampling_kernel",
+        "speckle_filter",
+        "land_water_mask_source",
+        "pixel_overlap_mosaic_rule"
+      ],
+      "AS-203": [
+        "low_backscatter_thresholds",
+        "spatial_detection_rule",
+        "scientific_polarization_use"
+      ],
+      "AS-204": [
+        "geometry_lookalike_filters"
+      ],
+      "AS-205": [
+        "temporal_comparison_persistence_policy"
+      ],
+      "AS-206": [
+        "oil_risk_scoring_execution"
+      ],
+      "AS-207": [
+        "validation_classification"
+      ]
+    },
+    "oil_weights": {
+      "status": "UNCHANGED_CONFIGURATION_HYPOTHESES_NOT_VALIDATED_CONSTANTS",
+      "sar_slick_likelihood": 0.45,
+      "persistence": 0.15,
+      "intake_exposure": 0.2,
+      "drift_support": 0.1,
+      "optical_context_confirmation": 0.1
+    },
+    "anti_cherry_picking": [
+      "selected from documentary timing plus metadata before SAR pixel inspection",
+      "retain April24 reference, May6 event, May18 late follow-up regardless of outcome",
+      "retain all two slices/date",
+      "retain missing/unavailable outcomes",
+      "no result-based date/provider/orbit/polarization substitution"
+    ],
+    "unavailable_conditions": [
+      "frozen CDSE source absent",
+      "zero PC exact source matches",
+      "multiple unresolved PC exact source matches",
+      "platform/orbit/mode/polarization mismatch",
+      "required VV missing",
+      "required manifest/product/calibration/noise identity mismatch",
+      "unknown representation",
+      "access blocked"
+    ],
+    "validation": {
+      "primary_unit": "documented_event_case",
+      "secondary_units": [
+        "acquisition",
+        "candidate_region",
+        "pixel_support"
+      ],
+      "pixels_independent_petroleum_labels": false,
+      "one_case_accuracy_metrics_supported": false
+    },
+    "lookalikes": [
+      "calm water",
+      "low wind",
+      "wind shadow",
+      "rain cells",
+      "biological surfactants",
+      "current fronts",
+      "ship wakes",
+      "coastal/infrastructure effects",
+      "thermal/border noise",
+      "incidence-angle variation",
+      "speckle"
+    ],
+    "exposure": {
+      "real_intake_geometry": null,
+      "later_demo_zone": "explicit user-defined demonstration geometry only unless independently documented"
+    },
+    "claim_boundary": {
+      "allowed": [
+        "oil-slick candidate",
+        "low-backscatter surface anomaly",
+        "surface-slick observational evidence",
+        "observational risk",
+        "monitoring priority",
+        "field verification recommended"
+      ],
+      "forbidden": [
+        "confirmed oil/petroleum",
+        "petroleum chemistry",
+        "known discharge source/responsible infrastructure/vessel",
+        "oil probability",
+        "safe/unsafe water",
+        "shutdown recommendation",
+        "sensitivity/specificity/FPR/precision/recall/ROC-AUC/population accuracy from one case"
+      ],
+      "lookalikes_already_filtered": false,
+      "candidate_detected_in_M47": false
+    }
+  },
+  "semantic_SHA256": "11ce3efc96f62a539be899162b418718cd5ece9a8438cb44a1a4dce356a6f7f2",
+  "canonicalization": "UTF-8 JSON of design only; sorted keys, compact separators, ensure_ascii=false, allow_nan=false; fixed semantic array order; SHA-256",
+  "historical_predecessors": {
+    "M45": {
+      "status": "HISTORICAL_READ_ONLY_NOT_REPOSITORY_WRITING",
+      "numbering": [
+        "M45",
+        "E45",
+        "EV-049"
+      ],
+      "provenance": "Accepted predecessor facts supplied in owner M47 authorization; prior temporary files are not repository artifacts"
+    },
+    "M46": {
+      "status": "HISTORICAL_READ_ONLY_ACCESS_HEADER_XML_PASS",
+      "numbering": [
+        "M46",
+        "E46",
+        "EV-050"
+      ],
+      "provenance": "Accepted facts supplied in M47 authorization and read-only local M46 continuation record; compact accepted metadata transcribed, not new probes",
+      "access_gate": "PASS",
+      "counts": {
+        "git_fetch": 1,
+        "PC_fixed_item_metadata_requests": 8,
+        "GRD_token_requests": 4,
+        "raster_header_requests": 224,
+        "raster_header_bytes": 115563,
+        "manifest_requests": 1,
+        "product_XML_requests": 4,
+        "calibration_XML_requests": 1,
+        "noise_XML_requests": 1,
+        "total_XML_bytes": 3298504,
+        "pixel_read_calls": 0,
+        "pixel_bytes": 0,
+        "scientific_compute_calls": 0,
+        "RTC_requests": 0,
+        "SentinelHub_requests": 0,
+        "CDSE_requests": 0,
+        "Product_ZIP_downloads": 0
+      },
+      "headers": [
+        {
+          "width": 25835,
+          "height": 16732,
+          "dtype": "uint16",
+          "nodata": "0",
+          "band_count": 1,
+          "tiepoint_count": 210,
+          "affine_transform": null,
+          "directory_count": 7,
+          "metadata_request_count": 32,
+          "header_bytes": 16509
+        },
+        {
+          "width": 25842,
+          "height": 16732,
+          "dtype": "uint16",
+          "nodata": "0",
+          "band_count": 1,
+          "tiepoint_count": 210,
+          "affine_transform": null,
+          "directory_count": 7,
+          "metadata_request_count": 32,
+          "header_bytes": 16509
+        },
+        {
+          "width": 25835,
+          "height": 16732,
+          "dtype": "uint16",
+          "nodata": "0",
+          "band_count": 1,
+          "tiepoint_count": 210,
+          "affine_transform": null,
+          "directory_count": 7,
+          "metadata_request_count": 32,
+          "header_bytes": 16509
+        },
+        {
+          "width": 25842,
+          "height": 16732,
+          "dtype": "uint16",
+          "nodata": "0",
+          "band_count": 1,
+          "tiepoint_count": 210,
+          "affine_transform": null,
+          "directory_count": 7,
+          "metadata_request_count": 32,
+          "header_bytes": 16509
+        },
+        {
+          "width": 25836,
+          "height": 16732,
+          "dtype": "uint16",
+          "nodata": "0",
+          "band_count": 1,
+          "tiepoint_count": 210,
+          "affine_transform": null,
+          "directory_count": 7,
+          "metadata_request_count": 32,
+          "header_bytes": 16509
+        },
+        {
+          "width": 25843,
+          "height": 16733,
+          "dtype": "uint16",
+          "nodata": "0",
+          "band_count": 1,
+          "tiepoint_count": 210,
+          "affine_transform": null,
+          "directory_count": 7,
+          "metadata_request_count": 32,
+          "header_bytes": 16509
+        },
+        {
+          "width": 25842,
+          "height": 16732,
+          "dtype": "uint16",
+          "nodata": "0",
+          "band_count": 1,
+          "tiepoint_count": 210,
+          "affine_transform": null,
+          "directory_count": 7,
+          "metadata_request_count": 32,
+          "header_bytes": 16509
+        }
+      ],
+      "representative_XML": [
+        {
+          "key": "safe-manifest",
+          "root": "XFDU",
+          "bytes": 25275,
+          "sha256": "b3d0e23e1f02269789f9a19d98f010f4cdfdc07fc8cd95727cddc6ba084c7dbb",
+          "structural_counts": {
+            "geolocationGridPoint": 0,
+            "incidenceAngle": 0,
+            "calibrationVector": 0,
+            "sigmaNought": 0,
+            "betaNought": 0,
+            "gamma": 0,
+            "dn": 0,
+            "noiseVector": 0,
+            "noiseRangeVector": 0,
+            "noiseAzimuthVector": 0,
+            "noiseRangeLut": 0,
+            "noiseAzimuthLut": 0,
+            "line": 0,
+            "pixel": 0,
+            "azimuthTime": 0
+          }
+        },
+        {
+          "key": "schema-product-vv",
+          "root": "rfi",
+          "bytes": 47858,
+          "sha256": "9ccec6ae89d6147fce8076e8a0593a1214980b3c773100c1079b7da343177a7d",
+          "structural_counts": {
+            "geolocationGridPoint": 0,
+            "incidenceAngle": 0,
+            "calibrationVector": 0,
+            "sigmaNought": 0,
+            "betaNought": 0,
+            "gamma": 0,
+            "dn": 0,
+            "noiseVector": 0,
+            "noiseRangeVector": 0,
+            "noiseAzimuthVector": 0,
+            "noiseRangeLut": 0,
+            "noiseAzimuthLut": 0,
+            "line": 0,
+            "pixel": 0,
+            "azimuthTime": 33
+          }
+        },
+        {
+          "key": "schema-calibration-vv",
+          "root": "calibration",
+          "bytes": 1016401,
+          "sha256": "df98609a5c185bec761091986bb12d2efffcbca38a8199fb01e4d269569c7ad0",
+          "structural_counts": {
+            "geolocationGridPoint": 0,
+            "incidenceAngle": 0,
+            "calibrationVector": 27,
+            "sigmaNought": 27,
+            "betaNought": 27,
+            "gamma": 27,
+            "dn": 27,
+            "noiseVector": 0,
+            "noiseRangeVector": 0,
+            "noiseAzimuthVector": 0,
+            "noiseRangeLut": 0,
+            "noiseAzimuthLut": 0,
+            "line": 27,
+            "pixel": 27,
+            "azimuthTime": 27
+          }
+        },
+        {
+          "key": "schema-noise-vv",
+          "root": "noise",
+          "bytes": 426785,
+          "sha256": "04c062f89e6671eb665927a41c7343ec4d960997b2a70f3c9d1c3bba5ef6cb15",
+          "structural_counts": {
+            "geolocationGridPoint": 0,
+            "incidenceAngle": 0,
+            "calibrationVector": 0,
+            "sigmaNought": 0,
+            "betaNought": 0,
+            "gamma": 0,
+            "dn": 0,
+            "noiseVector": 0,
+            "noiseRangeVector": 27,
+            "noiseAzimuthVector": 3,
+            "noiseRangeLut": 27,
+            "noiseAzimuthLut": 3,
+            "line": 30,
+            "pixel": 27,
+            "azimuthTime": 27
+          }
+        },
+        {
+          "key": "provider-normalized-product-annotation-vv",
+          "root": "product",
+          "bytes": 1782185,
+          "sha256": "52e997603e8aa7c6fbfbd425422efbf7f2bbf4f52668593301d76cc34b6eb398",
+          "structural_counts": {
+            "geolocationGridPoint": 210,
+            "incidenceAngle": 237,
+            "calibrationVector": 0,
+            "sigmaNought": 0,
+            "betaNought": 0,
+            "gamma": 0,
+            "dn": 0,
+            "noiseVector": 0,
+            "noiseRangeVector": 0,
+            "noiseAzimuthVector": 0,
+            "noiseRangeLut": 0,
+            "noiseAzimuthLut": 0,
+            "line": 210,
+            "pixel": 210,
+            "azimuthTime": 988
+          }
+        }
+      ],
+      "historical_failures": [
+        "Before host allowlist update: GRD raster access blocked, later PASS",
+        "schema-product-vv returned RFI",
+        "Original SAFE product annotation filename 404",
+        "rfi-prefixed normalized filename 404",
+        "Same-product annotation/iw-vv.xml validated successfully"
+      ],
+      "coverage_approximate_metadata_km2": {
+        "envelope": 11868.26,
+        "common_support": 11865.19,
+        "uncovered": 3.07
+      },
+      "coverage_is_petroleum_area": false,
+      "VV_metadata_scope": "representative May6 A43B only",
+      "VH_XML_LUT_verified": false
+    }
+  },
+  "preservation": {
+    "status": "PASS",
+    "pre_edit_tracked_file_count": 141,
+    "unchanged_non_authorized_tracked_files": 136,
+    "frozen_decision_SHA256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea"
+    },
+    "AS107_M42_M43_M44_accepted_evidence_byte_identical": true,
+    "source_tests_config_dependencies_unchanged": true,
+    "external_file_hashes_unchanged": 30,
+    "external_modes_unchanged": 44,
+    "stash_inventory_unchanged": true,
+    "protected_paths": [
+      {
+        "path": "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt",
+        "SHA256": "5380195b14c84d5d4d5c7365efa12226dbebd93ab726590575b1c0cc0c55b65b",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as105/m29/execution.log",
+        "SHA256": "f356d435b915fd763ac041526f1228cf2a6de30928cfd2dec52bb0340314844a",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json",
+        "SHA256": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz",
+        "SHA256": "f17e346a9ea3bc29b84e4c568986c8b4d335664dc603ac25b3fab61a66338705",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/SHA256SUMS.txt",
+        "SHA256": "793f29341bbdc057b9198ffd65c7714829e8373c901ea39fd5a7c773584c674d",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/execution.log",
+        "SHA256": "f8ed67c9198c6b415a9369a4659ec5527dc18a2f262a92f7087f44bdaf4c80c7",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/real_acceptance.json",
+        "SHA256": "feb7b974126b2e5ad518febc053494db6d1824badf2fe0db04103e83ecb72d90",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/scientific_arrays.npz",
+        "SHA256": "6ba3d54f056717e9fe4f11f8c58ef649555d781792edd9ac49a40571b442fc19",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/SHA256SUMS.txt",
+        "SHA256": "b71ca40555544202df9a735984901377bd373f625eeb36332807455ce61aa1ab",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/execution.log",
+        "SHA256": "d77c6307df5363cf43fa62b86e7cc4e6fa224cce4fac7bbe9dda02e34457d54c",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/real_acceptance.json",
+        "SHA256": "4473db7e589ee80b2e62209d59a7e16c2381a3f4783e5ebba166ccc778af0133",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt",
+        "SHA256": "66fb164d8c86d55fb71fa43d4d2866fa531f75cf6ad522b081ba1ae1af518a21",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz",
+        "SHA256": "14122d08baea3025d84127b7e6f55635a7fd12652319230c36ccf0d26df94902",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json",
+        "SHA256": "985ce7ca4df818b46fdb641afc08e65df621be0d91cad1c355b7a3017ff30433",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt",
+        "SHA256": "ea33a3aee348a30b006ceaa17fb4685b351a13f9812cb14ad01f2e4c63c19d90",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz",
+        "SHA256": "c7ca935af29f760623f13dc2350302521de5847390e699a405882f472ed92e21",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json",
+        "SHA256": "add610b9c52fd94a46f5b118dbe9bddec9dae9b11420e65798b748ce03b94475",
+        "mode_octal": "0o444"
+      },
+      {
+        "path": "/workspace/as104-after-pr10-restoration-sha256.json",
+        "SHA256": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-platform-case-fix-sha256.json",
+        "SHA256": "3ea8280d96d33ffcf488690fbc13933607a1ce46c81a93c00ddbe119ec36ab3e",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-platform-case-fix.patch",
+        "SHA256": "b16a6c31e49b009e26c6bc4080bf10b9a283744c3d0fb4faeba3987c6013ea0e",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr10-as104-hashes.json",
+        "SHA256": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr10-integration.patch",
+        "SHA256": "6248d9caa9b28320e076f2d12bf5e09ff692251585b4997485b854c52d58702d",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr10-sha256.json",
+        "SHA256": "056aa2cc5e29656eb37765b5f85387fe971b29b3f22abe0c0d25b605f25530f5",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr10-status.txt",
+        "SHA256": "70064c1534947bd06d9c08d0209c564bc76e7822a2ad171a5dbaea9b12baad93",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr10-untracked.tar.gz",
+        "SHA256": "840084aebaa72633a8c721765677947c45fad6df2d9a36b3cba69fb6220c15dc",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr11-integration.patch",
+        "SHA256": "2b7aff9495797a60303a105fe0e320e5bf180c9549a654ae695e3132628f8631",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr11-sha256.json",
+        "SHA256": "5163e3ff7ea013f0074feb97cfe42b0f2b5a5177b168447fffefdd17e282197f",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-before-pr11-untracked.tar.gz",
+        "SHA256": "f801e58be285cce0a2df0d3fb9dc267f4b1aef3ea231b2bc8c7717db3a6333db",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-final-source-test-sha256.json",
+        "SHA256": "cb32eebc106599a7c61a6061e547e7273ab032423369574c94513b862eba6418",
+        "mode_octal": "0o600"
+      },
+      {
+        "path": "/workspace/as104-history-preservation.json",
+        "SHA256": "96592e2158e2402e8b1e2385d0ef4d550a89945c51becf939968c57b9ed65cda",
+        "mode_octal": "0o600"
+      }
+    ],
+    "no_scientific_cache_product_in_closeout_worktree": true,
+    "accepted_external_inventory_against_M44": {
+      "source": "docs/evidence/AS_108_HISTORICAL_CASE_STUDY.json#/preservation",
+      "file_hashes_verified": 44,
+      "modes_verified": 57,
+      "accepted_AS102_cache_files": 14,
+      "status": "PASS"
+    }
+  },
+  "engineering_quality_gates": {
+    "pytest": {
+      "passed": 1285,
+      "warnings": 6,
+      "warning_type": "existing Rasterio PendingDeprecationWarnings",
+      "elapsed_seconds": 36.4
+    },
+    "Ruff": "PASS",
+    "git_diff_check": "PASS",
+    "new_file_whitespace": "PASS",
+    "strict_JSON_no_duplicates_no_nonfinite": "PASS",
+    "independent_design_digest": "PASS",
+    "deterministic_repeat": "PASS",
+    "credential_SAS_signed_URL_scan": "PASS",
+    "changed_path_audit": "PASS",
+    "frozen_decision_evidence_external_mode_stash_audit": "PASS",
+    "GitHub_CI": "NOT_CLAIMED"
+  },
+  "execution_boundary": {
+    "EO_metadata_requests": 0,
+    "EO_asset_requests": 0,
+    "EO_bytes_downloaded": 0,
+    "SAR_pixel_reads": 0,
+    "scientific_compute_calls": 0,
+    "new_scientific_product": false
+  },
+  "publication": {
+    "branch": "docs/as-201-design-freeze",
+    "PR_created": false,
+    "merge_performed": false,
+    "AS201_implementation": "NOT STARTED",
+    "AS202": "NOT STARTED",
+    "Decision055": "ABSENT"
+  }
+}
