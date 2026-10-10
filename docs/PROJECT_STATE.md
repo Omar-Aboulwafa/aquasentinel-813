@@ -1,6 +1,30 @@
 # AquaSentinel 813 — Project State
 
-## Current AS-201 M49 live provider acceptance — 11 October 2026 (Asia/Dubai)
+## Current AS-201 M50 — offline geometry interoperability correction
+
+**M50 / E50 / EV-054: OFFLINE INTEROPERABILITY CORRECTION COMPLETE.**
+Baseline: PR #31 merge `29b7b46edc877a50645865aad4a1e9f62d34d6f5`.
+M49 localization identified FrozenJSON deepcopy rejection at `client.search(...)`,
+not a provider metadata defect. The SAR resolver now gives both catalog clients
+plain independent finite JSON; frozen Decision-054 envelope and internal guards
+remain unchanged. Shared STAC, optical behavior and dependencies are unchanged.
+
+Offline gates: **136 focused / 1434 full tests PASS**, six existing Rasterio
+warnings; Ruff/diff/strict JSON/digest/security/preservation PASS. Real client
+construction and three synthetic pages per provider pass. Provider requests **0**;
+SAR pixel reads/bytes **0/0**; scientific SAR compute **0**.
+
+M49 historical **AS201_LIVE_ACCEPTANCE = FAIL** and its localization evidence are
+byte-identical and merged via PR #31. Full live acceptance **NOT RETRIED**;
+six-source live readiness is not established by this offline correction.
+Prepared on `fix/as-201-stac-geometry-boundary`.
+Next: owner review → separately authorized fix PR/merge → separately authorized
+controlled live retry. **AS-202 NOT STARTED; Decision 055 ABSENT.**
+No PR/merge or GitHub CI-success claim in M50.
+Evidence: [EV-054 MD](evidence/AS_201_STAC_GEOMETRY_BOUNDARY_FIX.md) and
+[JSON](evidence/AS_201_STAC_GEOMETRY_BOUNDARY_FIX.json).
+
+## Historical AS-201 M49 live provider acceptance — before M50 correction — 11 October 2026 (Asia/Dubai)
 
 M48 implementation is **MERGED via PR #30** at
 `392603b5b074d515eb6c137e33395c7f0b1256ac`; Decision 054 remains FINAL / FROZEN / MERGED.

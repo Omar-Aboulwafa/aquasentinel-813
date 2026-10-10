@@ -8,8 +8,10 @@ from datetime import UTC, datetime, timedelta
 from hashlib import sha256
 
 import pytest
+from pystac_client import Client
 from test_sentinel1 import _all_items, _item, _tiff_blob, _xml_bundle
 
+from aquasentinel.catalog.stac import CatalogResult
 from aquasentinel.config import SARConfig
 from aquasentinel.ingestion import planetary_computer as pc
 from aquasentinel.ingestion import sentinel1 as s1
@@ -31,6 +33,116 @@ def no_network(monkeypatch):
 
 def retrieval():
     return s1.build_retrieval_set(_all_items("cdse"), _all_items("pc"), SARConfig())
+
+
+def test_search_geometry_is_independent_plain_json_for_both_providers(monkeypatch):
+    expected = {
+        "type": "Polygon",
+        "coordinates": [
+            [[49.60, 28.60], [50.70, 28.60], [50.70, 29.60], [49.60, 29.60], [49.60, 28.60]]
+        ],
+    }
+    original = json.dumps(policy.ENVELOPE_GEOMETRY, allow_nan=False)
+    calls = []
+
+    def assert_plain(value):
+        assert not isinstance(value, (policy.FrozenJSON, tuple))
+        if type(value) is dict:
+            assert all(type(key) is str for key in value)
+            for child in value.values():
+                assert_plain(child)
+        elif type(value) is list:
+            for child in value:
+                assert_plain(child)
+        else:
+            assert type(value) in (str, int, float, bool, type(None))
+
+    def search(settings, **kwargs):
+        geometry = kwargs["intersects"]
+        assert type(geometry) is dict
+        assert_plain(geometry)
+        assert geometry == expected
+        assert json.dumps(geometry, allow_nan=False) == original
+        assert geometry is not policy.ENVELOPE_GEOMETRY
+        assert kwargs["query"] is None
+        assert "eo:cloud_cover" not in repr(kwargs)
+        calls.append((settings.endpoint, geometry))
+        return CatalogResult(items=(), license_name="fixture-license")
+
+    monkeypatch.setattr(resolver, "search_catalog", search)
+    settings = SARConfig()
+    s1.search_sentinel1(settings)
+    assert [endpoint for endpoint, _ in calls] == [
+        settings.discovery_endpoint,
+        settings.access_endpoint,
+    ]
+    for _, geometry in calls:
+        geometry["coordinates"][0][0][0] = 0
+        geometry["type"] = "Changed"
+    assert json.dumps(policy.ENVELOPE_GEOMETRY, allow_nan=False) == original
+    with pytest.raises(TypeError, match="AS-201 metadata is immutable"):
+        policy.ENVELOPE_GEOMETRY["type"] = "Point"
+    with pytest.raises(TypeError):
+        policy.ENVELOPE_GEOMETRY["coordinates"][0][0][0] = 0
+
+
+def test_search_geometry_real_client_construction_and_pagination_offline(stac_server):
+    responses, calls = stac_server
+    fixture_endpoint = next(iter(responses))
+    root = responses[fixture_endpoint]
+    collection = responses[fixture_endpoint + "collections/sentinel-2-l2a"]
+    settings = SARConfig()
+    for provider, endpoint in (
+        ("cdse", settings.discovery_endpoint),
+        ("pc", settings.access_endpoint),
+    ):
+        responses[endpoint] = json.loads(json.dumps(root).replace(fixture_endpoint, endpoint))
+        responses[endpoint + "collections/sentinel-1-grd"] = {
+            **collection,
+            "id": "sentinel-1-grd",
+        }
+        items = _all_items(provider)
+        for index in range(3):
+            url = endpoint + ("search" if index == 0 else f"page{index}")
+            responses[url] = {
+                "type": "FeatureCollection",
+                "features": list(items[index * 2 : (index + 1) * 2]),
+                "links": (
+                    [{
+                        "rel": "next",
+                        "href": endpoint + f"page{index + 1}",
+                        "method": "POST",
+                        "merge": True,
+                        "body": {"cursor": str(index + 1)},
+                    }]
+                    if index < 2
+                    else []
+                ),
+            }
+
+    # Reproduce the exact library construction failure, with synthetic root metadata.
+    client = Client.open(settings.discovery_endpoint)
+    with pytest.raises(TypeError, match="AS-201 metadata is immutable"):
+        client.search(intersects=policy.ENVELOPE_GEOMETRY)
+    calls.clear()
+
+    # Only the HTTP request layer is replaced: real Client.search/deepcopy and IO run.
+    result = s1.search_sentinel1(settings)
+    assert len(result.slices) == 6
+    assert all(source.availability == "RESOLVED_NOT_ACCESSED" for source in result.slices)
+    expected = json.loads(json.dumps(policy.ENVELOPE_GEOMETRY))
+    for endpoint in (settings.discovery_endpoint, settings.access_endpoint):
+        assert [href for href, _, _, _ in calls if href.startswith(endpoint)] == [
+            endpoint,
+            endpoint + "collections/sentinel-1-grd",
+            endpoint + "search",
+            endpoint + "page1",
+            endpoint + "page2",
+        ]
+    parameters = [kwargs for _, _, kwargs, _ in calls if kwargs]
+    assert len(parameters) == 6
+    assert all(kwargs["intersects"] == expected for kwargs in parameters)
+    assert all("query" not in kwargs and "eo:cloud_cover" not in repr(kwargs) for kwargs in parameters)
 
 
 @pytest.mark.parametrize(

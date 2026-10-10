@@ -1,6 +1,30 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M49 live provider acceptance — 11 October 2026 (Asia/Dubai)
+## Current AS-201 M50 — offline geometry interoperability correction
+
+**M50 / E50 / EV-054: OFFLINE INTEROPERABILITY CORRECTION COMPLETE.**
+Baseline: PR #31 merge `29b7b46edc877a50645865aad4a1e9f62d34d6f5`.
+M49 localization identified FrozenJSON deepcopy rejection at `client.search(...)`,
+not a provider metadata defect. The SAR resolver now gives both catalog clients
+plain independent finite JSON; frozen Decision-054 envelope and internal guards
+remain unchanged. Shared STAC, optical behavior and dependencies are unchanged.
+
+Offline gates: **136 focused / 1434 full tests PASS**, six existing Rasterio
+warnings; Ruff/diff/strict JSON/digest/security/preservation PASS. Real client
+construction and three synthetic pages per provider pass. Provider requests **0**;
+SAR pixel reads/bytes **0/0**; scientific SAR compute **0**.
+
+M49 historical **AS201_LIVE_ACCEPTANCE = FAIL** and its localization evidence are
+byte-identical and merged via PR #31. Full live acceptance **NOT RETRIED**;
+six-source live readiness is not established by this offline correction.
+Prepared on `fix/as-201-stac-geometry-boundary`.
+Next: owner review → separately authorized fix PR/merge → separately authorized
+controlled live retry. **AS-202 NOT STARTED; Decision 055 ABSENT.**
+No PR/merge or GitHub CI-success claim in M50.
+Evidence: [EV-054 MD](evidence/AS_201_STAC_GEOMETRY_BOUNDARY_FIX.md) and
+[JSON](evidence/AS_201_STAC_GEOMETRY_BOUNDARY_FIX.json).
+
+## Historical AS-201 M49 live provider acceptance — before M50 correction — 11 October 2026 (Asia/Dubai)
 
 M48 implementation is **MERGED via PR #30** at
 `392603b5b074d515eb6c137e33395c7f0b1256ac`; Decision 054 remains FINAL / FROZEN / MERGED.
@@ -1967,6 +1991,23 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Stopped discovery → six untested slots diagram, proposed only; no screenshot created.
 - **Candidate slide title:** “Live readiness must be earned.”
 
+### M50 — Keep scientific policy frozen; adapt the client boundary — 11 October 2026
+
+- **Task / ID:** AS-201 M50 / E50 / EV-054, offline interoperability correction.
+- **Problem / question:** Can an immutable envelope safely cross a client that deep-copies dicts?
+- **Why it mattered:** M49 failed before search traffic; live readiness remained unproved.
+- **Options considered:** Weaken FrozenJSON; change shared STAC/dependencies; or convert only at the SAR boundary.
+- **Decision / rationale:** Local JSON conversion preserves scientific immutability and isolates library compatibility; no new scientific decision.
+- **Implementation / experiment:** Resolver-only conversion; real pystac-client constructor and pagination exercised with synthetic HTTP responses.
+- **Evidence:** [EV-054 MD](evidence/AS_201_STAC_GEOMETRY_BOUNDARY_FIX.md) and [JSON](evidence/AS_201_STAC_GEOMETRY_BOUNDARY_FIX.json).
+- **Quantitative result:** 2 new regressions; 136 focused / 1434 full tests PASS, 6 historical warnings; 3 pages/provider; provider/pixel/science access zero.
+- **Limitation:** Offline success does not prove current six-source access; M49 FAIL unchanged, live retry not run.
+- **Lesson learned:** An immutable domain model may need an explicit mutable-library boundary representation.
+- **Impact on next step:** Review the fix before separately authorized publication and live retry.
+- **Presentation takeaway:** Preserve a failed gate and correct its cause without changing the scientific contract.
+- **Recommended visual:** Conceptual frozen-policy → plain JSON → client diagram; no screenshot created.
+- **Candidate slide title:** “Fix the boundary, preserve the evidence.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2082,6 +2123,13 @@ No SAR scientific result, live provider probe or CI success claim.
 [EV-053](evidence/AS_201_LIVE_ACCEPTANCE.md): actual public-path catalog metadata
 failure; CDSE HTTP200 status/body hashes retained. No PC/source/header/XML readiness
 claim, no SAR science. Exact error field remains unlocalized; no hidden retry/patch.
+
+### E50 — Real client construction, offline provider fixtures
+
+[EV-054](evidence/AS_201_STAC_GEOMETRY_BOUNDARY_FIX.md): immutable policy retained;
+only the SAR boundary receives ordinary JSON. Original deepcopy failure reproduced,
+corrected constructor and complete synthetic pagination pass. M49 historical FAIL
+unchanged; zero real provider/pixel/scientific work; no live-readiness claim.
 
 ## 5. Scientific evidence index
 
