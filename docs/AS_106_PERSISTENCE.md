@@ -1,6 +1,73 @@
 # AS-106 — Persistence: Frozen Design
 
-## Current AS-106 M34 real engineering acceptance — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M35 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+
+**M35 / E35 / EV-039: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
+**AS-106 before this closeout merge: CLOSEOUT READY.** Official real-acceptance
+baseline merged via PR #20: `82e30c00a30ed893ad47c44c5a1e363661370d35`.
+M31/M32/M33/M34 are **COMPLETE AND MERGED** via PR #17/#18/#19/#20;
+M34 real engineering acceptance PASS. Decision 051 is FINAL / FROZEN / MERGED via
+PR #16; its original dated design/scientific body and Decision 050 are unchanged.
+No Decision 052.
+
+**Durable closure rule:** AS-106 closure becomes official when this closeout branch
+is merged to main. That merge itself makes **AS-106 COMPLETE / CLOSED** and
+**M35 COMPLETE / MERGED / PUBLICATION-CLOSEOUT**. No extra post-merge documentation
+loop is required merely to record that future merge SHA. Until then, M35 preparation
+is complete and official closure is pending merge; this note records that preparation.
+Current active development branch: none. This closeout was prepared on
+`docs/as-106-closeout`. AS-107+ is NOT STARTED / NOT AUTHORIZED; owner design review
+and separate authorization are required.
+
+Accepted `as106-v1` product:
+`hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb`.
+Input fingerprint: `2f8f6f1c37bd9f8a236109ab821e6e426f222840c4a74f623d2e78bd76529ab7`.
+Output fingerprint: `7739a3f97c0e88113a17629678a0ef31bdb14594400f0568c0dfdfdb5dabafef`.
+Frozen April sequence: `2023-04-03T06:46:21.024000Z` →
+`2023-04-28T06:46:29.024000Z`; unchanged M32 selection digest:
+`570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`.
+**P802 / Q793 / A7 / B7 / C0; history coverage 7/7=1.0; recurrence 0/7=0.0;
+streak 1→7; exact observation gap 2,160,008,000,000 µs (25 days + 8 seconds).**
+
+**No same-pixel candidate recurrence was observed among the 7 target candidate
+pixels with valid prior observational history.** Exact-pixel observation only:
+no neighborhood/motion/current compensation; unsupported history is UNKNOWN.
+Two eligible dates retained; shared March references are not independent confirmation,
+five histories are not statistical sufficiency, and the long gap proves neither
+continuous biological presence nor absence. April 3's ~13% upstream policy coverage
+is separate from target-candidate history 7/7. No species/toxin/HAB/absence-of-HAB,
+risk/confidence/probability/water-safety/operational decision claim.
+
+Anti-cherry-picking record: metadata froze all eligible dates before recurrence
+inspection; both dates used the same contract; April 3 had 88 AS-105 candidates,
+April 28 had 7, recurrence was 0, and zero was retained. No date, threshold, family
+rule, connectivity or spatial tolerance was changed to strengthen the demo.
+M34's four typed parents/common contract, 9/9 arrays/dtypes, Boolean/global/time/region
+oracles, validator, same/reverse repeats, identity/fingerprints/time exclusion,
+immutability/non-aliasing, seven tamper controls including rehash and sealed bundle
+roundtrip all PASS. These are accepted engineering integrity results, not biology
+or accuracy validation; they were not rerun during M35.
+
+M35 changes only eight docs/evidence paths. No new science, upstream rerun, EO/data
+network or download. Accepted bundle rehashed locally read-only and preserved;
+caches/handoffs/M29/M32/M33/M34, modes, safety stashes and recovery files retained.
+M35 final pytest/Ruff/diff/security results are recorded in the closeout evidence;
+no GitHub CI-success claim. Historical M34 baseline is 993 tests/six Rasterio warnings.
+
+Next: owner review of this prepared closeout and separately authorized PR/merge.
+AS-107 may later consume observational recurrence, history coverage, exact timing
+and provenance; it must not reinterpret them as biological truth. AS-107 design/
+implementation remains separate. Future AS-105 policy validation REQUIRED / NOT RUN;
+P1 05.10 NOT STARTED. No PR or merge performed in this task.
+
+See [M35 closeout](evidence/AS_106_CLOSEOUT.md) and
+[normalized closeout](evidence/AS_106_CLOSEOUT.json).
+All older dated execution/design/evidence sections below are historical: their
+M34/M35 unstarted, missing-stage, authorization and not-closed states remain intact
+and do not describe current M35. The immutable Decision 051 design-freeze status
+is its original historical checkpoint, not a current implementation-status claim.
+
+## Historical AS-106 M34 real engineering acceptance — before PR #20 merge — 10 October 2026 (Asia/Dubai)
 
 **M31 / M32 / M33: COMPLETE AND MERGED** via PR #17 / #18 / #19.
 Official M34 base (PR #19 merge): `4cde14ee448079163c2a08f3951f8dac294f8dac`.
@@ -459,7 +526,7 @@ AS-106 software that does not exist yet. No PR or merge in this task.
 Owner review of the published design documentation, followed by explicit M31
 implementation authorization, is next. M32–M35 require their separate staged gates.
 
-## M31 implemented contract and execution plan — offline only
+## Historical M31 implemented contract and execution plan — offline only
 
 **Task/goal:** Implement frozen Decision 051 as deterministic recurrence evidence.
 **Inputs:** Fully validated synthetic AS-105 geometry scenes and temporal witnesses.
@@ -499,7 +566,7 @@ See [M31 engineering evidence](evidence/AS_106_PERSISTENCE_VALIDATION.md) for te
 coverage and the clearly labelled synthetic product. No real acceptance was run.
 Owner feature review is next; M32–M35 remain NOT STARTED / separately authorized.
 
-## M32 executed metadata inventory — separate from frozen design
+## Historical M32 executed metadata inventory — separate from frozen design
 
 Goal: freeze every eligible April acquisition without imagery/scientific processing.
 Inputs: unchanged Al Raha geometry, exact owner-approved interval, CDSE cloud
@@ -525,7 +592,7 @@ acceptance NOT RUN; AS-107+/P1 05.10 NOT STARTED; future policy validation NOT R
 No recurrence/scientific output, raster/cache modification, Decision 052, PR or
 merge is part of M32. The earlier design/M31 body remains historical and unchanged.
 
-## M33 executed upstream preparation — separate from frozen design
+## Historical M33 executed upstream preparation — separate from frozen design
 
 Goal: prepare only the missing frozen April 3 observation through unchanged
 AS-102→103→104→105 and verify a read-only typed handoff for future M34. Inputs:
@@ -546,7 +613,7 @@ See M33 evidence/JSON for exact IDs, scientific values, audit bounds, hashes and
 external adapter recovery. M33 complete; M34 INPUTS READY, separately authorized
 real recurrence NOT RUN; M34/M35 NOT STARTED. No Decision 052, PR or merge.
 
-## M34 executed real recurrence engineering acceptance — frozen contract unchanged
+## Historical M34 executed real recurrence engineering acceptance — frozen contract unchanged
 
 Goal: first real as106-v1 acceptance on predeclared April 3→April 28, entirely
 offline. Inputs: checksum/mode-verified typed M33 and accepted April 28 temporal/
@@ -569,3 +636,20 @@ coverage, distinct from April 3 upstream support. No biological/event/accuracy/
 risk/confidence/absence-of-HAB claim. Decision 050/051 unchanged; no Decision 052.
 M34 COMPLETE; AS-106 not fully closed. M35 review/publication/closeout separately
 authorized and NOT STARTED; no PR/merge or AS-107+/policy study/P1 05.10.
+
+## M35 publication / closeout preparation — durable execution record
+
+Task/goal: publish the accepted as106-v1 result and prepare formal state closure
+without new science. Inputs: merged M31–M34 history, unchanged decisions and accepted
+evidence/bundle. Outputs: M35/E35/EV-039, normalized closeout and consistent current
+status in eight docs paths. Dependencies/source/tests/config changes: NONE.
+Acceptance: exact product/fingerprints/P802-Q793-A7-B7-C0, honest 7/7 coverage and
+0/7 recurrence, frozen dates/policy, M34 integrity evidence/limitations/history,
+protected hashes/modes/stashes and local pytest/Ruff/diff/security gates.
+
+M35 preparation PASS / READY FOR PR; official AS-106 closure becomes effective on
+this branch's merge, which itself yields COMPLETE / CLOSED and M35 COMPLETE /
+MERGED. No additional post-merge SHA documentation loop. Owner review/authorized
+PR and merge next; none performed here. AS-107+ separate design/authorization,
+NOT STARTED; future AS-105 policy study NOT RUN; P1 05.10 NOT STARTED.
+See closeout evidence/JSON; original design/earlier execution bodies remain historical.
