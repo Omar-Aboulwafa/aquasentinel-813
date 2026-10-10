@@ -1,6 +1,37 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-106 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M31 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**M31 / E31 / EV-035: OFFLINE IMPLEMENTATION + SYNTHETIC/ADVERSARIAL VALIDATION PASS.**
+Decision 051 is merged through PR #16 at official base
+`57185444f0cc963cc899a25cd8179d7a31f12119`; its scientific body is unchanged.
+Feature branch: `feature/as-106-persistence`; isolated worktree
+`/workspace/aquasentinel-813-as106`. Owner authorized implementation and final
+commit/push with `feat: implement AS-106 persistence`; owner feature review is next.
+**PR NOT CREATED; FEATURE NOT MERGED.** These are local engineering checks, not CI.
+
+**190 focused persistence tests / 993 full tests PASS**; Ruff and tracked/new-file
+whitespace checks PASS. Focused suite has no warnings; full suite retains only
+six existing Rasterio PendingDeprecationWarnings. No dependency or upstream
+source/test/config/provenance-schema/cache-format change.
+
+Pure recurrence over validated AS-105 parents; UNKNOWN skipped, supported
+noncandidate breaks, exact pixels only, UTC int64 microseconds, honest B/A and
+C/B fractions. Existing AS-105 validator regeneration is permitted integrity
+verification, not new extraction. Immediate lineage parents are AS-105 only.
+Real artifacts remain preserved and were not used for AS-106 computation.
+
+**REAL AS-106 ACCEPTANCE: NOT RUN / BLOCKED ON FUTURE DATA PREPARATION.**
+**REAL APRIL SEQUENCE PREPARATION: NOT STARTED.** M32 metadata inventory, M33
+upstream preparation, M34 real acceptance and M35 publication/closeout remain
+**NOT STARTED** and separately gated. No EO/service network attempts or imagery
+downloads. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+See [AS-106 specification](../AS_106_PERSISTENCE.md) and [M31 validation](AS_106_PERSISTENCE_VALIDATION.md).
+
+Earlier dated design-freeze/publication/merge checkpoints below are historical;
+their old implementation/authorization states do not describe current M31.
+
+## Historical AS-106 design freeze — 10 October 2026 (Asia/Dubai)
 
 **Decision 051: OWNER-APPROVED / FROZEN DESIGN ONLY.** AS-105 remains COMPLETE
 AND MERGED; Decisions 001–050 and completed M01–M30 history are preserved.
@@ -382,6 +413,7 @@ EV-027–EV-030. Their pending PR/merge instructions are historical.
 | EV-032 | AS-105 frozen-policy offline candidate anomaly geometry | **PASS — SYNTHETIC / OWNER-RECONCILED / PUBLICATION AUTHORIZED** | 140 geometry/803 total tests, all 55 adversarial requirements and controls A–E; Ruff/diff/whitespace PASS, six existing warnings; exact threshold/family/support/polygons/lineage and protected hashes | [M28 validation](AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md); [contract](../AS_105_HAB_ANOMALY_GEOMETRY.md); Decision 050; M28/E28 | Explainable predeclared rule, honest support and exact candidate geometry | Yes: labelled synthetic vote/threshold/round-trip card, capture pending | Real geometry metrics UNKNOWN; no real acceptance, future policy comparison, HAB accuracy, biological causation, probability/confidence/risk, alerts, persistence or CI-success claim |
 | EV-033 | AS-105 M29 real geometry engineering acceptance | **PASS — OWNER-REVIEWED; NOT YET PR-MERGED** | P 802 / water 7,963; 7 candidates, 7/802=0.872818%; projected-grid candidate area 2,800 m²; one eight-connected MultiPolygon region/three pieces, F2/F4 votes; independent checks/repeat/immutability/bundle PASS; 140 focused/803 full tests | [M29 validation](AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026); M29/E29; external local checksummed bundle NOT tracked | Reproducible frozen candidate anomaly geometry with explicit sparse support | V23 capture pending; no screenshot claimed | No HAB/event/biological/accuracy/risk/confidence/persistence/alert/lead-time or CI-success claim; future comparative policy validation REQUIRED / NOT RUN |
 | EV-034 | AS-105 PR #14 merge and formal closeout | **COMPLETE AND MERGED** | Actual merge `24a260cff130238c731f7cb62fc47eb74230b4dc`, 10 Oct 2026 06:24:09 UTC / 10:24:09 Dubai; 2 commits / 18 files; M28/M29 PASS unchanged | [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14); [merge closeout](AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m30--pr-14-merge-and-as-105-closeout--10-october-2026); M30/E30 | Reviewed frozen-policy engineering evidence on official main | Merge/timeline/support card capture pending | Publication event only; no new scientific validation/CI claim; future policy validation REQUIRED / NOT RUN; AS-106+ and P1 05.10 NOT STARTED |
+| EV-035 | AS-106 M31 offline implementation + synthetic/adversarial validation | **OFFLINE PASS; REAL NOT RUN** | 190 focused/993 full tests; six retained full-suite warnings; Ruff/diff/whitespace PASS; no EO/service network/download | [M31 validation](AS_106_PERSISTENCE_VALIDATION.md); M31/E31; Decision 051 | Reproducible recurrence, timing/denominators/regions, canonical identity, parent integrity and lineage on synthetic inputs | Synthetic timeline/denominator visual pending | No real recurrence, biological persistence, HAB/accuracy/risk/confidence or CI claim; M32–M35 NOT STARTED |
 
 ### EV-021 final AS-103 review and merge
 
@@ -736,7 +768,7 @@ predeclared dimensions. Merge/support-boundary visual capture pending.
 AS-106+ is not authorized and **NOT STARTED**; P1 05.10 **NOT STARTED**.
 This documentation closeout creates no PR and performs no merge.
 
-## AS-106 design freeze and future evidence reservations — 10 October 2026
+## Historical AS-106 design freeze and future evidence reservations — 10 October 2026
 
 Decision 051 is owner-approved/frozen design only; [specification](../AS_106_PERSISTENCE.md).
 This is not AS-106 implementation or real validation evidence. Historical
@@ -757,3 +789,20 @@ before anomaly inspection, unchanged 05.09/grid/tile/orbit/cloud contracts and
 the same accepted March references. Sparse/zero-candidate dates are not removed.
 No recurrence measurement or biological/risk/confidence claim is supplied here.
 AS-107+ / P1 05.10 NOT STARTED; AS-105 policy validation REQUIRED / NOT RUN.
+
+### EV-035 — AS-106 M31 offline implementation and synthetic/adversarial validation
+
+**Date:** 10 October 2026 (Asia/Dubai). **Status:** OFFLINE ENGINEERING PASS.
+**Branch/base:** `feature/as-106-persistence` / `57185444f0cc963cc899a25cd8179d7a31f12119`.
+**Evidence:** [M31 validation](AS_106_PERSISTENCE_VALIDATION.md); M31/E31;
+Decision 051 unchanged. 190 focused / 993 full tests, Ruff/diff/new-file whitespace
+PASS. No focused/new warnings; six retained Rasterio warnings in full suite.
+Twelve randomized synthetic sequences have independent per-pixel scalar checks;
+rehashed tampering, immutable parents, exact timing/medians, canonical identity,
+AS-105-only immediate lineage and no-IO/upstream-extraction guards PASS.
+No accepted real artifacts consumed for recurrence; hashes/modes retained.
+No EO network/download, real April output, biological/risk/confidence/accuracy,
+GitHub CI success, PR or merge claim. Real acceptance BLOCKED ON FUTURE DATA
+PREPARATION; M32/E32/EV-036 through M35/E35/EV-039 NOT STARTED. Their original
+historical design reservations above remain preserved. Future AS-105 policy
+validation NOT RUN; AS-107+ / P1 05.10 NOT STARTED. Synthetic visual capture pending.
