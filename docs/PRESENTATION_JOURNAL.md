@@ -1,6 +1,64 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-106 M33 upstream preparation — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M34 real engineering acceptance — 10 October 2026 (Asia/Dubai)
+
+**M31 / M32 / M33: COMPLETE AND MERGED** via PR #17 / #18 / #19.
+Official M34 base (PR #19 merge): `4cde14ee448079163c2a08f3951f8dac294f8dac`.
+**M34 / E34 / EV-038: REAL AS-106 ENGINEERING ACCEPTANCE PASS / COMPLETE.**
+Prepared on `data/as-106-real-acceptance`; no algorithm development. Decisions
+050/051 scientific bodies unchanged; Decision 052 absent.
+
+Frozen sequence: `2023-04-03T06:46:21.024000Z` → April 28 target
+`2023-04-28T06:46:29.024000Z`. M32 selection digest unchanged:
+`570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`.
+Four accepted typed AS-104/105 objects reconstructed from read-only, checksum-verified
+handoffs. No metadata/raster/XML retrieval or public upstream processing. All shared
+grid/comparison/policy contracts and known input counts validated before computation.
+
+Real `as106-v1` product:
+`hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb`.
+**Target P=802; Q=793; A=7; B=7; C=0.** Candidate-history coverage **7/7 = 1.0**;
+recurrence fraction **0/7 = 0.0**; no target candidates lack prior history. Streak
+histogram on A: **1→7**. Previous-valid gap: **2,160,008,000,000 µs** wherever Q,
+-1 elsewhere; all target candidate spans 0 µs, -1 outside candidates. The single
+AS-105 target region/labels are preserved; no recurrent span exists (regional
+recurrent-span summaries are None).
+
+**No same-pixel candidate recurrence was observed among the 7 target candidate
+pixels with valid prior observational history.** This is observational engineering
+acceptance, not biological/event validation or absence of HAB. April 3's ~13%
+upstream policy coverage is a separate denominator, not target-history coverage.
+Shared five March references are not independent confirmation/statistical sufficiency;
+exact pixels cannot track motion; the 25-day+8-second gap does not establish continuous
+biological presence or absence. No risk/confidence/probability/accuracy/safety claim.
+
+Independent Boolean/global/region/time oracles and **9/9 exact arrays/dtypes PASS**;
+parent-aware validation, same/reverse-order repeat, creation-time identity exclusion,
+input immutability/output non-aliasing and seven tamper controls (including rehash)
+PASS. External four-file acceptance bundle is read-only (files 0444, directory 0555);
+fresh offline typed bundle roundtrip PASS. Scientific network/public upstream/transport
+attempts **0**. Integrity validators' internal regeneration is the approved exception.
+
+**190 focused persistence / 993 full tests PASS; Ruff/diff/whitespace/security PASS**;
+six existing full-suite Rasterio warnings. Local checks, not GitHub CI. Only eight
+docs/evidence paths change; source/tests/config/dependencies unchanged. All pre-existing
+accepted caches/handoffs/M29/M32/M33, recovery files, modes and both safety stashes
+preserved. New M34 bundle stays outside Git.
+
+Foundation/continuity complete → AS-101/102/103/104/105 merged → AS-106 M31 offline
+implementation merged → M32 frozen inventory merged → M33 upstream handoff merged →
+**M34 real engineering acceptance complete** → **owner review and separately gated
+M35 publication/closeout next**. AS-106 is **not fully closed**.
+**M35: NOT STARTED.** AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation
+NOT RUN. No PR or merge in this task; this owner-authorized M34 evidence commit/push
+is not M35 formal publication/closeout.
+
+See [M34 evidence](evidence/AS_106_REAL_ACCEPTANCE.md) and
+[normalized evidence](evidence/AS_106_REAL_ACCEPTANCE.json).
+Older dated M33/M32/M31/design states below are historical and remain intact;
+their earlier authorization/unstarted/readiness statements are not current status.
+
+## Historical AS-106 M33 upstream preparation — before PR #19 merge — 10 October 2026 (Asia/Dubai)
 
 **M31: COMPLETE / MERGED via PR #17. M32: COMPLETE / MERGED via PR #18.**
 Official M33 base: `200affdb7fb6f8801744a192511e4200cc0d100d`. **M33 / E33 / EV-037:
@@ -1184,6 +1242,24 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Two-date stage-readiness diagram with support denominators and handoff checksum card; capture pending, no screenshot claimed.
 - **Candidate slide title:** “Two frozen observations, verified inputs — recurrence still gated.”
 
+### M34 — Real exact-pixel recurrence engineering acceptance — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M34 / E34 / EV-038; PR #19 main `4cde14ee448079163c2a08f3951f8dac294f8dac`; branch `data/as-106-real-acceptance`. Scientific execution, bundle sealing and later Git publication are distinct.
+- **Problem / question:** What does the frozen two-observation sequence establish about exact-pixel recurrence at April 28 target candidates?
+- **Why it mattered:** Valid prior support must define the fraction denominator; unknown must not become absence, and zero outcomes must not trigger tuning/date changes.
+- **Options considered:** Verified offline typed handoffs versus unnecessary upstream reruns/network; exact-pixel frozen policy versus motion/region matching; retain zero result versus unauthorized tuning. Existing contract and complete sequence retained.
+- **Decision:** Execute the owner-authorized real as106-v1 API and independent two-date oracle; no new architecture/science Decision.
+- **Rationale:** Separate reproducible engineering recurrence from biological/event validation and prove actual support/identity/timing.
+- **Implementation / experiment:** Four typed parents/hash/mode/policy/common-contract guards; first production recurrence, direct Boolean/scalar/time/global/region oracles, same/reversed caller repeats, seven in-memory tamper controls; read-only nine-array acceptance bundle/fresh typed offline audit. No public upstream processing.
+- **Evidence:** [M34 acceptance](evidence/AS_106_REAL_ACCEPTANCE.md), [JSON](evidence/AS_106_REAL_ACCEPTANCE.json), E34/EV-038; unchanged M32 digest and M33/April 28 artifacts.
+- **Quantitative result:** Target P802 / Q793 / A7 / B7 / C0; history coverage 7/7=100%; recurrence 0/7=0.0; all seven singleton streaks. Gap 25 days+8 seconds, exactly 2,160,008,000,000 µs; regional recurrent spans None. Nine arrays/dtypes PASS; 190 focused/993 full tests PASS, six existing warnings; Ruff/diff/security PASS; scientific network zero.
+- **Limitation:** No same-pixel recurrence among seven history-supported targets does not establish absence of HAB. Long observation gap, movement, shared five March references, sparse upstream support and unvalidated screening policy remain limitations; no biology/risk/confidence/accuracy claim.
+- **Lesson learned:** Recurrence evaluability and upstream policy coverage use different denominators: April 3 ~13% support cannot replace target candidate history 7/7. Empty recurrent-span summaries are None even when target singleton spans are zero.
+- **Impact on next step:** M34 real engineering acceptance COMPLETE; AS-106 not fully closed. Owner review and separately gated M35 next, NOT STARTED; AS-107+/policy study/P1 05.10 NOT STARTED.
+- **Presentation takeaway:** “Zero is a result, not a reason to tune.” Frozen dates/policy, honest support and independently reproducible recurrence.
+- **Recommended visual:** Two-date seven-pixel P/C state table, Q/A/B/C denominator diagram and exact observation-gap timeline; capture pending, no screenshot claimed.
+- **Candidate slide title:** “Seven supported candidates — no observed same-pixel recurrence.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1253,6 +1329,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E31 | [M31 offline validation](evidence/AS_106_PERSISTENCE_VALIDATION.md); Decision 051; M31/EV-035 | Pure exact-pixel consecutive-valid recurrence; typed timing/denominators/regions, parent-aware integrity and AS-105-only lineage; 190 focused/993 full tests PASS | Real recurrence/April acceptance, biological continuity/HAB, accuracy, risk/confidence, CI success or M32–M35 authorization |
 | E32 | [M32 metadata evidence](evidence/AS_106_APRIL_METADATA_INVENTORY.md); [normalized inventory](evidence/AS_106_APRIL_METADATA_INVENTORY.json); Decision 051; M32/EV-036 | Metadata-first April 3/28 sequence frozen before anomaly inspection; 12 CDSE records, 2 eligible PC 05.09 products, zero imagery; April 3 upstream stages missing | Raster/pixel usability, real recurrence, biological persistence/HAB, risk/confidence, CI or M33–M35 authorization |
 | E33 | [M33 upstream record](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md); [JSON](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json); M33/EV-037 | Exact April 3 AS-102→103→104→105; typed offline handoff and common contract PASS; 408 focused/993 full tests | Frozen sequence preserved; M34 inputs ready, recurrence NOT RUN; no scientific/architectural Decision |
+| E34 | [M34 real acceptance](evidence/AS_106_REAL_ACCEPTANCE.md); [JSON](evidence/AS_106_REAL_ACCEPTANCE.json); M34/EV-038 | Real as106-v1 P802/Q793/A7/B7/C0; 9/9 array/time/region oracles, repeat/tamper/offline bundle PASS; 190 focused/993 full tests | Observational engineering acceptance, not biological validation; zero retained without tuning; M35 NOT STARTED |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
