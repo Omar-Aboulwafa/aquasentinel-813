@@ -1,6 +1,43 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-108 M43 POST metadata selection — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M44 retrospective case study — 10 October 2026 (Asia/Dubai)
+
+**AS-107 COMPLETE / CLOSED. Decision 053/M42 FINAL / FROZEN DESIGN / MERGED.**
+M43 metadata selection COMPLETE / MERGED via PR #27 at `865cd14398c6bcdbeaed6a19210f5615beb638e6`.
+**M44 / E44 / EV-048: RETROSPECTIVE CASE-STUDY REPORTING COMPLETE.**
+**AS-108 P0: RETROSPECTIVE OBSERVATIONAL-CONSISTENCY CASE STUDY COMPLETE WITH POST UNAVAILABLE.**
+Decision 053 category: **PARTIALLY_CONSISTENT**, from accepted evidence and unchanged
+criteria: five descriptive PRE records evaluable; April 3 AS-105 P = 794 / candidates = 88,
+April 28 P = 802 / candidates = 7 plus accepted Watch = 29.52380952380953; required POST
+geometry endpoint absent. PRE is not independently scored or biologically negative.
+April 3 AS-106/107 remains missing; no score fabricated.
+
+April 28 accepted completeness/coverage = 0.7/0.7, provisional_observational_screening,
+Review on the next valid acquisition, exact-grid persistence A/B/C = 7/7/0 remain
+unchanged. No same-pixel recurrence is not proof of no HAB or biological persistence.
+POST provisional May 3 identity retained: no exact PC 05.09 match, no pixels,
+no scientific product/risk/negative/recovery label; no May 8/13/28 query/substitution.
+M43 digest `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de` unchanged.
+
+This is a retrospective month/area observational-consistency case, not blind,
+prospective, independent April preregistration, biological accuracy, species/toxin/
+chlorophyll confirmation, probability, calibrated confidence, water safety or
+shutdown advice. April outcomes were known before Decision 053; categories frozen
+before May metadata, unavailable POST preserved. Exact onset-relative lead time
+NOT ESTIMABLE. Scientific processing/EO/documentary requests in M44: **zero**.
+Prepared on `data/as-108-case-study`; current active scientific development branch:
+none. No Decision 054. AS-201, future AS-105 policy validation and P1 05.10 NOT STARTED.
+
+Case SHA-256: `ccc5f04f304a8b4bb8a367331069a5ca54776433e7c0fea0c67d662e68e0772a`.
+Engineering gates: **1285 full tests PASS (100.78s)**; six existing Rasterio
+PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS; strict finite
+JSON, independent digest/repeat, predicate, credential and preservation checks PASS.
+Engineering fixtures attempted no external network; no GitHub CI success claimed.
+Immediate next step: owner review → separately authorized M44 PR/merge → separate
+AS-201 Sentinel-1 retrieval/design authorization. No PR created or merge performed.
+See [case report](AS_108_HISTORICAL_CASE_STUDY.md) and [JSON](AS_108_HISTORICAL_CASE_STUDY.json). Earlier checkpoints retain their original historical facts.
+
+## Historical AS-108 M43 POST metadata selection — before PR #27 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: COMPLETE / CLOSED. Decision 053 / M42: FINAL / FROZEN DESIGN / MERGED**
 via PR #26 at `8bb56f12f2cd683d4a96f069c5d049bf4a39799e` (parents
@@ -882,6 +919,7 @@ EV-027–EV-030. Their pending PR/merge instructions are historical.
 | EV-044 | M40 AS-107 publication / closeout preparation | **PUBLICATION / CLOSEOUT PASS — READY FOR PR** | Verified PR #22/#23/#24 ancestry/parents/trees; immutable Watch .7/.7 result; 1285 full tests PASS (104.18s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/new-file whitespace/credential/preservation PASS | [Closeout](AS_107_CLOSEOUT.md); [JSON](AS_107_CLOSEOUT.json); M40/E40 | Policy frozen before outcome; missing components explicit; closure effective on future closeout merge | Driver cards and publication-chain figure proposed, capture pending | AS-107 CLOSEOUT READY before merge, COMPLETE / CLOSED after future merge; no new science; AS-108 NOT STARTED |
 | EV-045 | Historical M41 read-only feasibility/source audit | **COMPLETE; historical source-access blocker** | Seven caches and stage inventory; six blocked documentary attempts; zero EO/science | [M42 historical record](AS_108_DESIGN_FREEZE.md#historical-m41-and-numbering); M41/E41 | Source precision and missingness bound validation | Proposed audit matrix only | Recorded retrospectively during M42; M41 made no repository edits; externally verified source facts subsequently supplied by the owner |
 | EV-046 | Decision 053 / M42 AS-108 historical-validation design | **FINAL / FROZEN DESIGN — NOT EXECUTED** | Fixed 5 PRE/2 EVENT/1 future POST attempt, month/area reference, explicit denominators/categories; 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | [M42 freeze](AS_108_DESIGN_FREEZE.md); [JSON](AS_108_DESIGN_FREEZE.json); M42/E42 | Freeze evaluation before new outcomes; external species/toxin separated from EO inference | Proposed two-lane timeline only | No new score/May selection/validation execution; PR/merge and M43 separately authorized; AS-201 NOT STARTED |
+| EV-048 | M44 retrospective historical case study | COMPLETE WITH POST UNAVAILABLE | PRE5/5; EVENT2/2 positive; Watch1/1 scored and1/2 retained; missing POST; frozen PARTIALLY_CONSISTENT; case digest | [Report](AS_108_HISTORICAL_CASE_STUDY.md); [JSON](AS_108_HISTORICAL_CASE_STUDY.json); M44/E44 | Documented event. Observable signal. Missing POST retained. | Proposed phase strip, not captured | One retrospective month/area case; no biology/accuracy/recovery/lead-time claim; zero new EO science |
 | EV-047 | M43 POST metadata inventory/deterministic selection | **COMPLETE — SELECTION UNAVAILABLE** | Six CDSE pages/26 records/four CDSE-eligible dates; earliest May3 cloud0.57%; exact PC query0; metadata digest frozen; 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | [M43 evidence](AS_108_POST_METADATA_SELECTION.md); [JSON](AS_108_POST_METADATA_SELECTION.json); M43/E43 | Keep frozen date and missingness instead of substituting a convenient scene | Proposed inventory funnel, capture pending | Metadata only; no recovery, biology, score, category, pixels or fallback; M44/AS-201 NOT STARTED |
 
 ### EV-021 final AS-103 review and merge
@@ -1475,3 +1513,16 @@ retain page membership, eligibility, cardinality and request accounting.
 AS-107/M42 evidence and protected artifacts remain unchanged. No new pixels/science
 or observational-consistency category. Owner review and separate authorization
 required; M44 and AS-201 NOT STARTED.
+
+### EV-048 — M44 retrospective case-study reporting over accepted evidence
+
+Both accepted event-month observations have frozen-policy candidate evidence;
+April28 retains its accepted Watch result. POST no exact compatible PC05.09 match
+is preserved without substitution. Frozen Decision053 evaluates to
+PARTIALLY_CONSISTENT; required context is incomplete. Five PRE descriptive records
+are not biological negatives; April3 scoring remains unavailable.
+M44 is reporting arithmetic over accepted artifacts only; no EO/provider/documentary
+requests or scientific rerun. Case JSON retains exact identities, fingerprints,
+source locators, denominators, predicate trace and semantic digest. No new Decision054.
+AS-108 P0 retrospective case study complete with POST unavailable; publication
+requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.

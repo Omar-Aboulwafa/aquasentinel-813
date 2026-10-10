@@ -1,6 +1,43 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-108 M43 POST metadata selection — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M44 retrospective case study — 10 October 2026 (Asia/Dubai)
+
+**AS-107 COMPLETE / CLOSED. Decision 053/M42 FINAL / FROZEN DESIGN / MERGED.**
+M43 metadata selection COMPLETE / MERGED via PR #27 at `865cd14398c6bcdbeaed6a19210f5615beb638e6`.
+**M44 / E44 / EV-048: RETROSPECTIVE CASE-STUDY REPORTING COMPLETE.**
+**AS-108 P0: RETROSPECTIVE OBSERVATIONAL-CONSISTENCY CASE STUDY COMPLETE WITH POST UNAVAILABLE.**
+Decision 053 category: **PARTIALLY_CONSISTENT**, from accepted evidence and unchanged
+criteria: five descriptive PRE records evaluable; April 3 AS-105 P = 794 / candidates = 88,
+April 28 P = 802 / candidates = 7 plus accepted Watch = 29.52380952380953; required POST
+geometry endpoint absent. PRE is not independently scored or biologically negative.
+April 3 AS-106/107 remains missing; no score fabricated.
+
+April 28 accepted completeness/coverage = 0.7/0.7, provisional_observational_screening,
+Review on the next valid acquisition, exact-grid persistence A/B/C = 7/7/0 remain
+unchanged. No same-pixel recurrence is not proof of no HAB or biological persistence.
+POST provisional May 3 identity retained: no exact PC 05.09 match, no pixels,
+no scientific product/risk/negative/recovery label; no May 8/13/28 query/substitution.
+M43 digest `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de` unchanged.
+
+This is a retrospective month/area observational-consistency case, not blind,
+prospective, independent April preregistration, biological accuracy, species/toxin/
+chlorophyll confirmation, probability, calibrated confidence, water safety or
+shutdown advice. April outcomes were known before Decision 053; categories frozen
+before May metadata, unavailable POST preserved. Exact onset-relative lead time
+NOT ESTIMABLE. Scientific processing/EO/documentary requests in M44: **zero**.
+Prepared on `data/as-108-case-study`; current active scientific development branch:
+none. No Decision 054. AS-201, future AS-105 policy validation and P1 05.10 NOT STARTED.
+
+Case SHA-256: `ccc5f04f304a8b4bb8a367331069a5ca54776433e7c0fea0c67d662e68e0772a`.
+Engineering gates: **1285 full tests PASS (100.78s)**; six existing Rasterio
+PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS; strict finite
+JSON, independent digest/repeat, predicate, credential and preservation checks PASS.
+Engineering fixtures attempted no external network; no GitHub CI success claimed.
+Immediate next step: owner review → separately authorized M44 PR/merge → separate
+AS-201 Sentinel-1 retrieval/design authorization. No PR created or merge performed.
+See [case report](evidence/AS_108_HISTORICAL_CASE_STUDY.md) and [JSON](evidence/AS_108_HISTORICAL_CASE_STUDY.json). Earlier checkpoints retain their original historical facts.
+
+## Historical AS-108 M43 POST metadata selection — before PR #27 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: COMPLETE / CLOSED. Decision 053 / M42: FINAL / FROZEN DESIGN / MERGED**
 via PR #26 at `8bb56f12f2cd683d4a96f069c5d049bf4a39799e` (parents
@@ -1720,6 +1757,25 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Proposed six-page inventory/eligibility funnel with four dates, May3 empty PC response and zero-pixel boundary. No screenshot or visual claimed to exist.
 - **Candidate slide title:** “The date we did not replace.”
 
+### M44 — An honest result is useful when one phase is missing — 10 October 2026
+
+- **Date:** 10 October 2026 (Asia/Dubai); reporting publication, not new experiment time.
+- **Task:** AS-108 M44 / E44 / EV-048, retrospective historical case-study reporting.
+- **Problem/question:** What does accepted evidence support about the documented Raha Beach April2023 event when POST is unavailable?
+- **Why it mattered:** Deliver narrow credible P0 validation without hiding missing data or spending oil-pipeline time repairing POST.
+- **Options considered:** Frozen accepted-evidence reporting; new May/April3 downstream science or fallback would require separate authorization and were excluded.
+- **Decision:** Apply unchanged Decision053; no new scientific/architectural decision.
+- **Rationale:** Both accepted EVENT endpoints are evaluable/positive; required POST context is missing, yielding PARTIALLY_CONSISTENT.
+- **Implementation/experiment:** Scalar/count reconstruction and deterministic reporting only; no EO or scientific experiment.
+- **Evidence:** [M44 report](evidence/AS_108_HISTORICAL_CASE_STUDY.md), [JSON](evidence/AS_108_HISTORICAL_CASE_STUDY.json), accepted M33/M29/M34/M39, frozen M42 and merged M43.
+- **Quantitative result:** PRE5/5 descriptive evaluable; EVENT2/2 candidate-positive; April3 88/P794, April28 7/P802; Watch1/1 scored,1/2 retained with one unscored; POST0/1 required slot evaluable. Accepted Watch29.52380952380953, completeness/coverage0.7/0.7 unchanged.
+- **Limitation:** One retrospective month/area case; April outputs known before freeze; no biological accuracy, exact lead time, independent validation or recovery claim.
+- **Lesson learned:** Retain inconvenient missingness and keep reporting integrity distinct from predictive accuracy.
+- **Impact on next step:** Owner review/PR/merge separately authorized; then separate AS-201 authorization. No POST repair in M44.
+- **Presentation takeaway:** Documented event. Observable signal. Missing POST retained.
+- **Recommended visual:** PRE/EVENT/POST availability strip with POST missing; proposed only, no screenshot claimed.
+- **Candidate slide title:** Validation without hiding missing evidence.
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1800,6 +1856,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E40 | [M40 closeout](evidence/AS_107_CLOSEOUT.md); [JSON](evidence/AS_107_CLOSEOUT.json); EV-044 | Verified PR #22–#24 merge chain, unchanged accepted Watch .7/.7 result and protected hashes/modes; durable closeout effective on future merge; 1285 full tests PASS (104.18s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/new-file whitespace/credential/preservation PASS | Documentation/engineering only, no new biology or scoring; AS-107 CLOSEOUT READY before closeout merge; AS-108 NOT STARTED |
 | E41 | Historical read-only M41 audit, recorded during M42; EV-045 | Existing metadata/product feasibility; source access blocked, missing POST and causal PRE limitations surfaced | No repository edits in M41, no independently retrieved EAD passage, no EO/scientific execution |
 | E42 | [Decision 053](DECISIONS.md#decision-053--as-108-historical-validation-contract); [M42 freeze](evidence/AS_108_DESIGN_FREEZE.md); EV-046 | Externally verified documentary facts supplied by the owner and deterministic phase/eligibility/denominator/claim contract; 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | Frozen design only, no case classification/science or PR/merge; AS-201 NOT STARTED |
+| E44 | [M44 case](evidence/AS_108_HISTORICAL_CASE_STUDY.md); [JSON](evidence/AS_108_HISTORICAL_CASE_STUDY.json); EV-048 | Accepted-only reconstruction; both EVENT positive; missing POST retained; frozen category PARTIALLY_CONSISTENT; deterministic case digest | Reporting integrity, not new science, predictive accuracy or biological validation; AS-201 NOT STARTED |
 | E43 | [M43 metadata selection](evidence/AS_108_POST_METADATA_SELECTION.md); [JSON](evidence/AS_108_POST_METADATA_SELECTION.json); EV-047 | Complete 26-record/6-page CDSE inventory; four eligible dates; earliest May3, exact PC query0; UNAVAILABLE; digest frozen; 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | No pixels/scoring/category or fallback; later PC compatibility unassessed; M44/AS-201 NOT STARTED |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.

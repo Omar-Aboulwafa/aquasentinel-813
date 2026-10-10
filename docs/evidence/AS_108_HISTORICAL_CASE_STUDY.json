@@ -1,0 +1,3547 @@
+{
+  "AS201": "NOT_STARTED",
+  "Decision054": "ABSENT",
+  "P1_0510": "NOT_STARTED",
+  "PR": "NONE_CREATED",
+  "base_merge_parents": [
+    "8bb56f12f2cd683d4a96f069c5d049bf4a39799e",
+    "e76d042d1ddefe4c2d78b6fc585f8b65a5a4fff0"
+  ],
+  "base_sha": "865cd14398c6bcdbeaed6a19210f5615beb638e6",
+  "canonicalization": "Python json.dumps(sort_keys=True,separators=(comma,colon),allow_nan=False,ensure_ascii=True) + one LF, encoded UTF-8; arrays retain chronological/frozen order; SHA-256. Digest only semantic_payload; excludes creation/publication time, new commit SHA, display-only question prose and environment metadata.",
+  "engineering_entry": "E44",
+  "engineering_quality_gates": {
+    "GitHub_CI_success_claimed": false,
+    "accepted_scalar_and_lineage_copy": "PASS",
+    "authorized_changed_path_audit": "PASS",
+    "credential_signed_URL_scan": "PASS",
+    "git_diff_check": "PASS",
+    "historical_text_preservation": "PASS",
+    "independent_category_trace": "PASS",
+    "independent_digest_and_deterministic_repeat": "PASS",
+    "new_file_whitespace": "PASS",
+    "pytest": {
+      "passed": 1285,
+      "seconds": 100.78,
+      "synthetic_local_fixture_network_attempts": 0,
+      "warning_type": "Existing Rasterio PendingDeprecationWarnings",
+      "warnings": 6
+    },
+    "ruff": "PASS",
+    "status": "PASS",
+    "strict_JSON_validation": "PASS"
+  },
+  "evidence_id": "EV-048",
+  "interpretation": "PARTIALLY_CONSISTENT means positive accepted evidence in both retained event-month acquisitions with required POST geometry context unavailable; month/area observational correspondence only, not HAB/predictive accuracy validation.",
+  "merge": "NONE_PERFORMED",
+  "milestone": "M44",
+  "network_science": {
+    "CDSE_metadata_requests": 0,
+    "EO_asset_requests": 0,
+    "EO_bytes_downloaded": 0,
+    "PC_metadata_requests": 0,
+    "documentary_requests": 0,
+    "git_network_operations_before_report": 1,
+    "scientific_compute_calls": 0,
+    "scope_note": "Real accepted-scene science calls; ordinary package-local synthetic engineering tests reported separately"
+  },
+  "next_milestone": "Owner review, separately authorized PR/merge of M44, then separately authorized AS-201 Sentinel-1 retrieval/design execution; no POST repair in this task",
+  "prd_questions": [
+    {
+      "answer": "Both retained EVENT acquisitions have accepted frozen-policy candidate anomaly evidence (April3 88/P794; April28 7/P802). This is not a statistical significance test or confirmed HAB.",
+      "id": "Q1",
+      "source_observations": [
+        "2023-04-03T06:46:21.024000Z",
+        "2023-04-28T06:46:29.024000Z"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "answer": "Accepted temporal deviations and family evidence explain the selected candidates: April3 predominantly F2/F5, with one F1/F2 region; April28 F2/F4. Descriptive family evidence is not measured chlorophyll; red-edge and spectral components overlap.",
+      "id": "Q2",
+      "source_observations": [
+        "2023-04-03T06:46:21.024000Z",
+        "2023-04-28T06:46:29.024000Z"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "answer": "Candidate presence exists in both retained April acquisitions, but accepted exact-grid recurrence is 0/7 with history coverage7/7 over25days+8seconds. Biological persistence, motion-tracked continuity and POST/recovery are not established.",
+      "id": "Q3",
+      "source_observations": [
+        "2023-04-03T06:46:21.024000Z",
+        "2023-04-28T06:46:29.024000Z"
+      ],
+      "status": "PARTIALLY_SUPPORTED"
+    },
+    {
+      "answer": "April28 accepted Watch29.52380952380953 is supported. April3 has no accepted AS107 score or band; do not infer one.",
+      "id": "Q4",
+      "source_observations": [
+        "2023-04-03T06:46:21.024000Z",
+        "2023-04-28T06:46:29.024000Z"
+      ],
+      "status": "PARTIALLY_SUPPORTED"
+    },
+    {
+      "answer": "Exact onset-relative warning lead time is not estimable from month-level event timing. April3 is earliest evaluable candidate evidence among the two retained event-month observations, not a claim about all April acquisitions or days before onset.",
+      "event_reference_source": {
+        "kind": "REUSED_ACCEPTED_EVIDENCE",
+        "locator": "/event_reference",
+        "path": "docs/evidence/AS_108_DESIGN_FREEZE.json",
+        "sha256": "0f375a8aa03a586560a81121ab471a54e87dbfe5cd9dceaadbfae134ce5ae9d3"
+      },
+      "id": "Q5",
+      "source_observations": [
+        "2023-04-03T06:46:21.024000Z"
+      ],
+      "status": "NOT_ESTIMABLE"
+    }
+  ],
+  "preservation": {
+    "accepted_upstream_file_hashes": {
+      "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a",
+      "docs/evidence/AS_102_OPTICAL_PREPROCESSING_VALIDATION.md": "ff60554cf919f6f83aff5ce7bc944b4502dc47154eaf427d525843e53cfd4b5d",
+      "docs/evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md": "fa1fba604484d98c0f1f688179bdb0b08e378246d2186a85b9466b367b456d38",
+      "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e",
+      "docs/evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md": "1eec5ceafeb7ee35b01883e2acddc6bcd52496636b7a380b89226a7cd884923f",
+      "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6",
+      "docs/evidence/AS_106_REAL_ACCEPTANCE.json": "7fb6d73341aa8b66f7e946bef9aaa1825fb7d184ff81040cce2a97a408ef4feb",
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.json": "dc97694a9fb1090e30add0d697431bfa9c1eaead783eed7a94050713967cd4c2",
+      "docs/evidence/AS_108_DESIGN_FREEZE.json": "0f375a8aa03a586560a81121ab471a54e87dbfe5cd9dceaadbfae134ce5ae9d3",
+      "docs/evidence/AS_108_POST_METADATA_SELECTION.json": "94b1c9f24362a1eefc570b3bba69a3e18f1e2ce3d64e25fc3489c390d6df41d3"
+    },
+    "frozen_decision_hashes": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea"
+    },
+    "protected_external_hashes": {
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/arrays.npz": "350e4ce5fe117942c26d54e611db6daff2bef9eda7bc80da810338ae530bcb22",
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/manifest.json": "23c024f8a002aad8ecaf1b930b6acf01c55a6404b25f67b70b3c8ac9c19e4b67",
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/arrays.npz": "7c586ae3c546f7dabea0ccc0e9f2c99e0435e4b563aedb93043e90d8077a7cea",
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/manifest.json": "36f5e8598889fd1df081f699755df3a70aed0550455a97e194eda4aae9400a50",
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/arrays.npz": "01512aa7ec3e1deab0f87fddb9c3888986d449ebcdd440830a7d4805bbc4f4a1",
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json": "9a5ca8d78b663426fd53732a52db387c15fe8a70acb2da93978a9f466ce15589",
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/arrays.npz": "dd571a6f3c6eec4fbf05879e596a17cd5a3ceca76b23fe191a709ac0233ab749",
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/manifest.json": "fae0be0d9bcb1222aaf5c2bd1c74861dbaf7a3936f8c6561bd19d88d2d60fdd9",
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/arrays.npz": "632b73ed78f14ee70a3323b670ccdfb79a94a7c9ed02a59c25f49cd22f52ce38",
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/manifest.json": "be38645eae60b1d1c020a61bebf4bf61f9796c796378c36fc7ff61398d5afa1d",
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/arrays.npz": "6186a2706c7b5b18089b897b421d2526f64f19e853682b03a4e19edc85248352",
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/manifest.json": "0d0827ddccade1082fce982e188eed4f60c1e160eb88dc5033a6d0e9c7c5e6e6",
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/arrays.npz": "1b4136081a45be25b787ed752c01e67419f1a98e6229663cc945592cfba950f9",
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/manifest.json": "0db0e1a0492cab09dd043a89a6e6c332d533a9097c22bd2a4093bb40da2254a8",
+      "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt": "5380195b14c84d5d4d5c7365efa12226dbebd93ab726590575b1c0cc0c55b65b",
+      "/workspace/aquasentinel-acceptance/as105/m29/execution.log": "f356d435b915fd763ac041526f1228cf2a6de30928cfd2dec52bb0340314844a",
+      "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a",
+      "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz": "f17e346a9ea3bc29b84e4c568986c8b4d335664dc603ac25b3fab61a66338705",
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/SHA256SUMS.txt": "793f29341bbdc057b9198ffd65c7714829e8373c901ea39fd5a7c773584c674d",
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/execution.log": "f8ed67c9198c6b415a9369a4659ec5527dc18a2f262a92f7087f44bdaf4c80c7",
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/real_acceptance.json": "feb7b974126b2e5ad518febc053494db6d1824badf2fe0db04103e83ecb72d90",
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/scientific_arrays.npz": "6ba3d54f056717e9fe4f11f8c58ef649555d781792edd9ac49a40571b442fc19",
+      "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/SHA256SUMS.txt": "b71ca40555544202df9a735984901377bd373f625eeb36332807455ce61aa1ab",
+      "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/execution.log": "d77c6307df5363cf43fa62b86e7cc4e6fa224cce4fac7bbe9dda02e34457d54c",
+      "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/real_acceptance.json": "4473db7e589ee80b2e62209d59a7e16c2381a3f4783e5ebba166ccc778af0133",
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt": "66fb164d8c86d55fb71fa43d4d2866fa531f75cf6ad522b081ba1ae1af518a21",
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz": "14122d08baea3025d84127b7e6f55635a7fd12652319230c36ccf0d26df94902",
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json": "985ce7ca4df818b46fdb641afc08e65df621be0d91cad1c355b7a3017ff30433",
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt": "ea33a3aee348a30b006ceaa17fb4685b351a13f9812cb14ad01f2e4c63c19d90",
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz": "c7ca935af29f760623f13dc2350302521de5847390e699a405882f472ed92e21",
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json": "add610b9c52fd94a46f5b118dbe9bddec9dae9b11420e65798b748ce03b94475",
+      "/workspace/as104-after-pr10-restoration-sha256.json": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+      "/workspace/as104-before-platform-case-fix-sha256.json": "3ea8280d96d33ffcf488690fbc13933607a1ce46c81a93c00ddbe119ec36ab3e",
+      "/workspace/as104-before-platform-case-fix.patch": "b16a6c31e49b009e26c6bc4080bf10b9a283744c3d0fb4faeba3987c6013ea0e",
+      "/workspace/as104-before-pr10-as104-hashes.json": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+      "/workspace/as104-before-pr10-integration.patch": "6248d9caa9b28320e076f2d12bf5e09ff692251585b4997485b854c52d58702d",
+      "/workspace/as104-before-pr10-sha256.json": "056aa2cc5e29656eb37765b5f85387fe971b29b3f22abe0c0d25b605f25530f5",
+      "/workspace/as104-before-pr10-status.txt": "70064c1534947bd06d9c08d0209c564bc76e7822a2ad171a5dbaea9b12baad93",
+      "/workspace/as104-before-pr10-untracked.tar.gz": "840084aebaa72633a8c721765677947c45fad6df2d9a36b3cba69fb6220c15dc",
+      "/workspace/as104-before-pr11-integration.patch": "2b7aff9495797a60303a105fe0e320e5bf180c9549a654ae695e3132628f8631",
+      "/workspace/as104-before-pr11-sha256.json": "5163e3ff7ea013f0074feb97cfe42b0f2b5a5177b168447fffefdd17e282197f",
+      "/workspace/as104-before-pr11-untracked.tar.gz": "f801e58be285cce0a2df0d3fb9dc267f4b1aef3ea231b2bc8c7717db3a6333db",
+      "/workspace/as104-final-source-test-sha256.json": "cb32eebc106599a7c61a6061e547e7273ab032423369574c94513b862eba6418",
+      "/workspace/as104-history-preservation.json": "96592e2158e2402e8b1e2385d0ef4d550a89945c51becf939968c57b9ed65cda"
+    },
+    "protected_modes": {
+      "/workspace": 16877,
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499": 16832,
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/arrays.npz": 33152,
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/manifest.json": 33152,
+      "/workspace/aquasentinel-acceptance/as105/m29": 16749,
+      "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-acceptance/as105/m29/execution.log": 33060,
+      "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": 33060,
+      "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz": 33060,
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb": 16749,
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/execution.log": 33060,
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/real_acceptance.json": 33060,
+      "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/scientific_arrays.npz": 33060,
+      "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb": 16749,
+      "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/execution.log": 33060,
+      "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb/real_acceptance.json": 33060,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b": 16749,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz": 33060,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json": 33060,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52": 16749,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz": 33060,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json": 33060,
+      "/workspace/as104-after-pr10-restoration-sha256.json": 33152,
+      "/workspace/as104-before-platform-case-fix-sha256.json": 33152,
+      "/workspace/as104-before-platform-case-fix.patch": 33152,
+      "/workspace/as104-before-pr10-as104-hashes.json": 33152,
+      "/workspace/as104-before-pr10-integration.patch": 33152,
+      "/workspace/as104-before-pr10-sha256.json": 33152,
+      "/workspace/as104-before-pr10-status.txt": 33152,
+      "/workspace/as104-before-pr10-untracked.tar.gz": 33152,
+      "/workspace/as104-before-pr11-integration.patch": 33152,
+      "/workspace/as104-before-pr11-sha256.json": 33152,
+      "/workspace/as104-before-pr11-untracked.tar.gz": 33152,
+      "/workspace/as104-final-source-test-sha256.json": 33152,
+      "/workspace/as104-history-preservation.json": 33152
+    },
+    "safety_stashes": [
+      "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration",
+      "f93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration"
+    ],
+    "status": "PASS",
+    "tracked_file_count": 139
+  },
+  "provenance": {
+    "accepted_evidence_kind": "REUSED_ACCEPTED_EVIDENCE",
+    "allowed_derivations": [
+      "denominator counts",
+      "declared support proportions",
+      "frozen predicate evaluation",
+      "PRD reporting statuses",
+      "canonical semantic digest"
+    ],
+    "reporting_kind": "M44_REPORTING_DERIVATION",
+    "scientific_functions_invoked": false,
+    "upstream_parent_checks": "Accepted parent-aware validation PASS reused and IDs/cross-artifact scalars compared read-only; no production reconstruction/validation executed"
+  },
+  "schema_version": "as108-m44-case-study-v1",
+  "semantic_payload": {
+    "aoi_relationship": "AREA_LEVEL_CONTEXTUAL_ALIGNMENT",
+    "category_decision_trace": {
+      "derivation_kind": "M44_REPORTING_DERIVATION",
+      "documentary_reference_provided": true,
+      "documentary_reference_source": {
+        "kind": "REUSED_ACCEPTED_EVIDENCE",
+        "locator": "/event_reference",
+        "path": "docs/evidence/AS_108_DESIGN_FREEZE.json",
+        "sha256": "0f375a8aa03a586560a81121ab471a54e87dbfe5cd9dceaadbfae134ce5ae9d3"
+      },
+      "event_evaluable": {
+        "2023-04-03T06:46:21.024000Z": true,
+        "2023-04-28T06:46:29.024000Z": true
+      },
+      "event_positive": {
+        "2023-04-03T06:46:21.024000Z": true,
+        "2023-04-28T06:46:29.024000Z": true
+      },
+      "event_predicate_sources": {
+        "2023-04-03T06:46:21.024000Z": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/as102,/as103,/as104,/as105,/frozen_april3_identity",
+            "path": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json",
+            "sha256": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6"
+          }
+        ],
+        "2023-04-28T06:46:29.024000Z": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "JSON fence index 1 /target and temporal product",
+            "path": "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md",
+            "sha256": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/identity,/statistics,/diagnostics,/regions,/provenance",
+            "path": "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json",
+            "sha256": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/provenance,/statistics,/product_id",
+            "path": "docs/evidence/AS_106_REAL_ACCEPTANCE.json",
+            "sha256": "7fb6d73341aa8b66f7e946bef9aaa1825fb7d184ff81040cce2a97a408ef4feb"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/result and /parent_reconstruction",
+            "path": "docs/evidence/AS_107_REAL_ACCEPTANCE.json",
+            "sha256": "dc97694a9fb1090e30add0d697431bfa9c1eaead783eed7a94050713967cd4c2"
+          }
+        ]
+      },
+      "frozen_criteria_source": {
+        "kind": "REUSED_ACCEPTED_EVIDENCE",
+        "locator": "/observational_consistency",
+        "path": "docs/evidence/AS_108_DESIGN_FREEZE.json",
+        "sha256": "0f375a8aa03a586560a81121ab471a54e87dbfe5cd9dceaadbfae134ce5ae9d3"
+      },
+      "integrity_valid": true,
+      "inventory_scope_and_missingness_disclosed": true,
+      "post_evaluable": false,
+      "post_evidence_source": {
+        "kind": "REUSED_ACCEPTED_EVIDENCE",
+        "locator": "/selection_payload,/counts,/selection_sha256",
+        "path": "docs/evidence/AS_108_POST_METADATA_SELECTION.json",
+        "sha256": "94b1c9f24362a1eefc570b3bba69a3e18f1e2ce3d64e25fc3489c390d6df41d3"
+      },
+      "pre_evaluable": {
+        "2023-03-04T06:47:51.024000Z": true,
+        "2023-03-09T06:47:19.025000Z": true,
+        "2023-03-14T06:46:41.024000Z": true,
+        "2023-03-24T06:46:21.024000Z": true,
+        "2023-03-29T06:46:29.024000Z": true
+      },
+      "precedence_tests": [
+        {
+          "category": "UNAVAILABLE",
+          "predicate": false,
+          "selected": false
+        },
+        {
+          "category": "INCONCLUSIVE",
+          "predicate": false,
+          "selected": false
+        },
+        {
+          "category": "PARTIALLY_CONSISTENT",
+          "predicate": true,
+          "selected": true
+        },
+        {
+          "category": "CONSISTENT",
+          "predicate": false,
+          "selected": false
+        }
+      ],
+      "required_context_complete": false
+    },
+    "decision_body_hashes": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea"
+    },
+    "denominators": {
+      "EVENT": {
+        "N_candidate_geometry": 2,
+        "N_discovered": null,
+        "N_evaluable": 2,
+        "N_metadata_eligible": null,
+        "N_processing_attempted": 0,
+        "N_provider_records": null,
+        "N_retained": 2,
+        "N_reused_accepted": 2,
+        "N_scored": 1,
+        "N_unavailable": 0,
+        "N_watch_or_higher": 1,
+        "inventory_status": "PARTIAL_ACCEPTED_COHORT_ONLY",
+        "unknown_reason": "Complete phase-wide discovery/provider-compatibility inventory is not established by the reused acceptance cohort; no new requests permitted"
+      },
+      "POST": {
+        "N_candidate_geometry": 0,
+        "N_discovered": 26,
+        "N_evaluable": 0,
+        "N_metadata_eligible": null,
+        "N_metadata_eligible_before_pc": 4,
+        "N_processing_attempted": 0,
+        "N_provider_records": 26,
+        "N_retained": null,
+        "N_retained_status": "NO_SUCCESSFULLY_SELECTED_COMPATIBLE_OBSERVATION",
+        "N_reused_accepted": 0,
+        "N_reused_metadata_selection": 1,
+        "N_scored": 0,
+        "N_unavailable": 1,
+        "N_watch_or_higher": 0,
+        "inventory_status": "COMPLETE_CDSE_INVENTORY_PC_ONLY_EARLIEST_ASSESSED",
+        "retained_required_post_slot": 1,
+        "unknown_reason": "Full compatible count unknown: three CDSE-eligible dates not PC-queried under no-substitution rule",
+        "usable_post_observation": 0
+      },
+      "PRE": {
+        "N_candidate_geometry": "NOT_APPLICABLE",
+        "N_discovered": null,
+        "N_evaluable": 5,
+        "N_metadata_eligible": null,
+        "N_processing_attempted": 0,
+        "N_provider_records": null,
+        "N_retained": 5,
+        "N_reused_accepted": 5,
+        "N_scored": "NOT_APPLICABLE",
+        "N_unavailable": 0,
+        "N_watch_or_higher": "NOT_APPLICABLE",
+        "inventory_status": "PARTIAL_ACCEPTED_COHORT_ONLY",
+        "unknown_reason": "Complete phase-wide discovery/provider-compatibility inventory is not established by the reused acceptance cohort; no new requests permitted"
+      }
+    },
+    "event": [
+      {
+        "acquired_at": "2023-04-03T06:46:21.024000Z",
+        "evaluable": true,
+        "evidence_sources": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/as102,/as103,/as104,/as105,/frozen_april3_identity",
+            "path": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json",
+            "sha256": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6"
+          }
+        ],
+        "highest_accepted_stage": "AS-105",
+        "identity": {
+          "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+          "cdse_item_id": "S2A_MSIL2A_20230403T064621_N0510_R020_T40RBN_20240824T175307",
+          "mgrs_tile": "40RBN",
+          "pc_item_id": "S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452",
+          "platform": "sentinel-2a",
+          "relative_orbit": 20,
+          "required_pc_processing_baseline": "05.09"
+        },
+        "missing_downstream": [
+          "AS-106",
+          "AS-107"
+        ],
+        "positive_candidate_evidence": true,
+        "positive_observational_evidence": true,
+        "positive_risk_evidence": false,
+        "products": {
+          "AS102": {
+            "product_id": "optical:441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499",
+            "source_ids": [
+              "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452"
+            ]
+          },
+          "AS103": {
+            "input_content_fingerprint": "3514eae5b3356531d40357feade7f1c1b1e6728451a9bd19b2920d23ea3f99ce",
+            "product_id": "spectral:6bb1ee8db74f19f7fd03e1fd72c99d1c6fee88c6367b970913e341b55fa8a73c",
+            "source_ids": [
+              "optical:441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499"
+            ]
+          },
+          "AS104": {
+            "input_fingerprints": {
+              "format": "as104-input-v1",
+              "references": [
+                "0869b0895201a5ab1ccf2adce6522634139b82a44b756785abfbc9a24f10ba94",
+                "0b21a36504f5f4490b8c278eeda62db0c74a2f581ee1d2b6eb13801e40b16352",
+                "829102ce043efb940e0280adadbe1f00929facddaa45061d636a4d6c26931923",
+                "f52905f56d78633aa8e8fb97b025eafdd28044797c9ad4eb468587ae5818255b",
+                "ba76b5da773bebbf8b2d08548bbcb5608d2a5a3063b978777db69fb24328ef19"
+              ],
+              "target": "d4b8b7352650a8636437547999da747571d194aa21adfaa06019d6120f8b666a"
+            },
+            "output_content_fingerprint": "949d75aa4642dd2680e0428265da423a8cb855f6965ed30f831b3c91ddf80a92",
+            "product_id": "temporal:71f6be2d8437e91f7cf213df0bd876897febebe630a02a20bb151a5d852edb11",
+            "source_ids": [
+              "spectral:6bb1ee8db74f19f7fd03e1fd72c99d1c6fee88c6367b970913e341b55fa8a73c",
+              "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+              "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+              "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+              "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+              "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+            ]
+          },
+          "AS105": {
+            "accepted_parent_validation": "PASS",
+            "diagnostics": {
+              "families": {
+                "red_edge_b5_vs_red": {
+                  "available_count": 794,
+                  "evidence_count": 5,
+                  "evidence_fraction_of_family_support": 0.006297229219143577
+                },
+                "red_edge_b6_vs_red": {
+                  "available_count": 793,
+                  "evidence_count": 0,
+                  "evidence_fraction_of_family_support": 0.0
+                },
+                "red_edge_line_height": {
+                  "available_count": 794,
+                  "evidence_count": 272,
+                  "evidence_fraction_of_family_support": 0.3425692695214106
+                },
+                "visible_green_vs_blue": {
+                  "available_count": 789,
+                  "evidence_count": 151,
+                  "evidence_fraction_of_family_support": 0.19138149556400508
+                },
+                "visible_green_vs_red": {
+                  "available_count": 793,
+                  "evidence_count": 1,
+                  "evidence_fraction_of_family_support": 0.0012610340479192938
+                }
+              },
+              "features": {
+                "green_blue_ratio": {
+                  "eligible_count": 789,
+                  "evidence_count": 151,
+                  "evidence_fraction_of_feature_support": 0.19138149556400508,
+                  "positive_deviation_count": 662,
+                  "threshold_rank_count": 151
+                },
+                "green_red_ratio": {
+                  "eligible_count": 793,
+                  "evidence_count": 1,
+                  "evidence_fraction_of_feature_support": 0.0012610340479192938,
+                  "positive_deviation_count": 170,
+                  "threshold_rank_count": 1
+                },
+                "mci_like": {
+                  "eligible_count": 794,
+                  "evidence_count": 272,
+                  "evidence_fraction_of_feature_support": 0.3425692695214106,
+                  "positive_deviation_count": 646,
+                  "threshold_rank_count": 272
+                },
+                "ndci_like": {
+                  "eligible_count": 784,
+                  "evidence_count": 5,
+                  "evidence_fraction_of_feature_support": 0.006377551020408163,
+                  "positive_deviation_count": 667,
+                  "threshold_rank_count": 5
+                },
+                "red_edge2_red_ratio": {
+                  "eligible_count": 793,
+                  "evidence_count": 0,
+                  "evidence_fraction_of_feature_support": 0.0,
+                  "positive_deviation_count": 642,
+                  "threshold_rank_count": 0
+                },
+                "red_edge_red_ratio": {
+                  "eligible_count": 793,
+                  "evidence_count": 5,
+                  "evidence_fraction_of_feature_support": 0.006305170239596469,
+                  "positive_deviation_count": 703,
+                  "threshold_rank_count": 5
+                }
+              }
+            },
+            "input_content_fingerprint": "b8bbe965ed3b57e8abbbaa5560784b274b89e9657e3cffb9b378c805f1021a24",
+            "output_content_fingerprint": "ecea6b13cded3553b5d4e8e373e9b8749e3584aba943e808cee4b057b8b731c9",
+            "product_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+            "regions": [
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253380.0,
+                  2706540.0,
+                  253400.0,
+                  2706560.0
+                ],
+                "component_label": 1,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.07922971248626709,
+                      "median": 0.07922971248626709,
+                      "minimum": 0.07922971248626709
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.4147634506225586,
+                      "median": -0.4147634506225586,
+                      "minimum": -0.4147634506225586
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.4000000059604645,
+                      "median": 0.4000000059604645,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.001730416901409626,
+                      "median": 0.001730416901409626,
+                      "minimum": 0.001730416901409626
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.05912325531244278,
+                      "median": 0.05912325531244278,
+                      "minimum": 0.05912325531244278
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.1236758828163147,
+                      "median": 0.1236758828163147,
+                      "minimum": 0.1236758828163147
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.10357612371444702,
+                      "median": 0.10357612371444702,
+                      "minimum": 0.10357612371444702
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 218,
+                "first_pixel_row": 43,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:1"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253660.0,
+                  2706500.0,
+                  253680.0,
+                  2706520.0
+                ],
+                "component_label": 2,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.1092538833618164,
+                      "median": 0.1092538833618164,
+                      "minimum": 0.1092538833618164
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.5548703670501709,
+                      "median": -0.5548703670501709,
+                      "minimum": -0.5548703670501709
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.4000000059604645,
+                      "median": 0.4000000059604645,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.001021247124299407,
+                      "median": 0.001021247124299407,
+                      "minimum": 0.001021247124299407
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.05996192246675491,
+                      "median": 0.05996192246675491,
+                      "minimum": 0.05996192246675491
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.15093344449996948,
+                      "median": 0.15093344449996948,
+                      "minimum": 0.15093344449996948
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.10320019721984863,
+                      "median": 0.10320019721984863,
+                      "minimum": 0.10320019721984863
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 232,
+                "first_pixel_row": 45,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:2"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253560.0,
+                  2706480.0,
+                  253580.0,
+                  2706500.0
+                ],
+                "component_label": 3,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.06950759887695312,
+                      "median": 0.06950759887695312,
+                      "minimum": 0.06950759887695312
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.5359551906585693,
+                      "median": -0.5359551906585693,
+                      "minimum": -0.5359551906585693
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.4000000059604645,
+                      "median": 0.4000000059604645,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.0019543765811249614,
+                      "median": 0.0019543765811249614,
+                      "minimum": 0.0019543765811249614
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.06348861381411552,
+                      "median": 0.06348861381411552,
+                      "minimum": 0.06348861381411552
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.17145973443984985,
+                      "median": 0.17145973443984985,
+                      "minimum": 0.17145973443984985
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.11048460006713867,
+                      "median": 0.11048460006713867,
+                      "minimum": 0.11048460006713867
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 227,
+                "first_pixel_row": 46,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:3"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253620.0,
+                  2706480.0,
+                  253640.0,
+                  2706500.0
+                ],
+                "component_label": 4,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.11061584949493408,
+                      "median": 0.11061584949493408,
+                      "minimum": 0.11061584949493408
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.6674370765686035,
+                      "median": -0.6674370765686035,
+                      "minimum": -0.6674370765686035
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.4000000059604645,
+                      "median": 0.4000000059604645,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.003226877248380333,
+                      "median": 0.003226877248380333,
+                      "minimum": 0.003226877248380333
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 0,
+                      "maximum": null,
+                      "median": null,
+                      "minimum": null
+                    },
+                    "empirical_rank": {
+                      "count": 0,
+                      "maximum": null,
+                      "median": null,
+                      "minimum": null
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.14840909838676453,
+                      "median": 0.14840909838676453,
+                      "minimum": 0.14840909838676453
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.15349197387695312,
+                      "median": 0.15349197387695312,
+                      "minimum": 0.15349197387695312
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 230,
+                "first_pixel_row": 46,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:4"
+              },
+              {
+                "area_km2": 0.0264,
+                "area_m2": 26400.0,
+                "bbox_projected": [
+                  253520.0,
+                  2706200.0,
+                  253680.0,
+                  2706480.0
+                ],
+                "component_label": 5,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 66,
+                  "visible_green_vs_blue": 66,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 66,
+                      "maximum": 0.22799575328826904,
+                      "median": 0.1722506880760193,
+                      "minimum": 0.06961476802825928
+                    },
+                    "empirical_rank": {
+                      "count": 66,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 66,
+                      "maximum": 0.2567474842071533,
+                      "median": -0.001212000846862793,
+                      "minimum": -0.5484275817871094
+                    },
+                    "empirical_rank": {
+                      "count": 66,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.5000000149011612,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 66,
+                      "maximum": 0.00562541710678488,
+                      "median": 0.0026633820962160826,
+                      "minimum": 0.0007933338638395071
+                    },
+                    "empirical_rank": {
+                      "count": 66,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 66,
+                      "maximum": 0.08136537671089172,
+                      "median": 0.027473848313093185,
+                      "minimum": -0.026588089764118195
+                    },
+                    "empirical_rank": {
+                      "count": 66,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 66,
+                      "maximum": 0.12119883298873901,
+                      "median": -0.043462395668029785,
+                      "minimum": -0.11483925580978394
+                    },
+                    "empirical_rank": {
+                      "count": 66,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.4000000059604645,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 66,
+                      "maximum": 0.14020925760269165,
+                      "median": 0.05769917368888855,
+                      "minimum": -0.008600771427154541
+                    },
+                    "empirical_rank": {
+                      "count": 66,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.4000000059604645
+                    }
+                  }
+                },
+                "first_pixel_col": 232,
+                "first_pixel_row": 47,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 66,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:5"
+              },
+              {
+                "area_km2": 0.0008,
+                "area_m2": 800.0,
+                "bbox_projected": [
+                  253600.0,
+                  2706120.0,
+                  253620.0,
+                  2706160.0
+                ],
+                "component_label": 6,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 2,
+                  "visible_green_vs_blue": 2,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.1969980001449585,
+                      "median": 0.19370800256729126,
+                      "minimum": 0.19041800498962402
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.14405083656311035,
+                      "median": 0.11700546741485596,
+                      "minimum": 0.08996009826660156
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.0029965643770992756,
+                      "median": 0.002254011225886643,
+                      "minimum": 0.0015114580746740103
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.063603974878788,
+                      "median": 0.04941733554005623,
+                      "minimum": 0.03523069620132446
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.800000011920929,
+                      "median": 0.7000000178813934,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.018136441707611084,
+                      "median": 0.007446587085723877,
+                      "minimum": -0.00324326753616333
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.5000000149011612,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.11072701215744019,
+                      "median": 0.08544042706489563,
+                      "minimum": 0.060153841972351074
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.800000011920929,
+                      "median": 0.7000000178813934,
+                      "minimum": 0.6000000238418579
+                    }
+                  }
+                },
+                "first_pixel_col": 229,
+                "first_pixel_row": 63,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 2,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:6"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253660.0,
+                  2706060.0,
+                  253680.0,
+                  2706080.0
+                ],
+                "component_label": 7,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.19988906383514404,
+                      "median": 0.19988906383514404,
+                      "minimum": 0.19988906383514404
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.12386918067932129,
+                      "median": 0.12386918067932129,
+                      "minimum": 0.12386918067932129
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.004016665159724653,
+                      "median": 0.004016665159724653,
+                      "minimum": 0.004016665159724653
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.025355364196002483,
+                      "median": -0.025355364196002483,
+                      "minimum": -0.025355364196002483
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.4000000059604645,
+                      "median": 0.4000000059604645,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.06587481498718262,
+                      "median": 0.06587481498718262,
+                      "minimum": 0.06587481498718262
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.1692044734954834,
+                      "median": 0.1692044734954834,
+                      "minimum": 0.1692044734954834
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  }
+                },
+                "first_pixel_col": 232,
+                "first_pixel_row": 67,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:7"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253880.0,
+                  2705700.0,
+                  253900.0,
+                  2705720.0
+                ],
+                "component_label": 8,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.11203718185424805,
+                      "median": 0.11203718185424805,
+                      "minimum": 0.11203718185424805
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.0946798324584961,
+                      "median": 0.0946798324584961,
+                      "minimum": 0.0946798324584961
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.0016920818015933037,
+                      "median": 0.0016920818015933037,
+                      "minimum": 0.0016920818015933037
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.056870441883802414,
+                      "median": 0.056870441883802414,
+                      "minimum": 0.056870441883802414
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.03846234083175659,
+                      "median": -0.03846234083175659,
+                      "minimum": -0.03846234083175659
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.4000000059604645,
+                      "median": 0.4000000059604645,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.10062193870544434,
+                      "median": 0.10062193870544434,
+                      "minimum": 0.10062193870544434
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  }
+                },
+                "first_pixel_col": 243,
+                "first_pixel_row": 85,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:8"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253540.0,
+                  2705680.0,
+                  253560.0,
+                  2705700.0
+                ],
+                "component_label": 9,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.06630265712738037,
+                      "median": 0.06630265712738037,
+                      "minimum": 0.06630265712738037
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.020694732666015625,
+                      "median": 0.020694732666015625,
+                      "minimum": 0.020694732666015625
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.0026344778016209602,
+                      "median": 0.0026344778016209602,
+                      "minimum": 0.0026344778016209602
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.08575387578457594,
+                      "median": 0.08575387578457594,
+                      "minimum": 0.08575387578457594
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.21976089477539062,
+                      "median": 0.21976089477539062,
+                      "minimum": 0.21976089477539062
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.15448617935180664,
+                      "median": 0.15448617935180664,
+                      "minimum": 0.15448617935180664
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 226,
+                "first_pixel_row": 86,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:9"
+              },
+              {
+                "area_km2": 0.0016,
+                "area_m2": 1600.0,
+                "bbox_projected": [
+                  252640.0,
+                  2705280.0,
+                  252700.0,
+                  2705340.0
+                ],
+                "component_label": 10,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 4,
+                  "visible_green_vs_blue": 4,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.0918271541595459,
+                      "median": 0.08645164966583252,
+                      "minimum": 0.06912994384765625
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": -0.15803003311157227,
+                      "median": -0.2816653251647949,
+                      "minimum": -0.4188675880432129
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.20000000298023224,
+                      "median": 0.20000000298023224,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.003021144075319171,
+                      "median": 0.002595208876300603,
+                      "minimum": 0.0021701030200347304
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.12635862920433283,
+                      "median": 0.1158436331897974,
+                      "minimum": 0.10020429454743862
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.32056930661201477,
+                      "median": 0.23792526125907898,
+                      "minimum": 0.20173227787017822
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.21901345252990723,
+                      "median": 0.1945468783378601,
+                      "minimum": 0.1771506667137146
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 182,
+                "first_pixel_row": 104,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 4,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:10"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  252360.0,
+                  2705200.0,
+                  252380.0,
+                  2705220.0
+                ],
+                "component_label": 11,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.08397340774536133,
+                      "median": 0.08397340774536133,
+                      "minimum": 0.08397340774536133
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.24476242065429688,
+                      "median": -0.24476242065429688,
+                      "minimum": -0.24476242065429688
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.20000000298023224,
+                      "median": 0.20000000298023224,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.0008828113786876202,
+                      "median": 0.0008828113786876202,
+                      "minimum": 0.0008828113786876202
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.06141693890094757,
+                      "median": 0.06141693890094757,
+                      "minimum": 0.06141693890094757
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.18760639429092407,
+                      "median": 0.18760639429092407,
+                      "minimum": 0.18760639429092407
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.6000000238418579
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.10758721828460693,
+                      "median": 0.10758721828460693,
+                      "minimum": 0.10758721828460693
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 167,
+                "first_pixel_row": 110,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:11"
+              },
+              {
+                "area_km2": 0.0008,
+                "area_m2": 800.0,
+                "bbox_projected": [
+                  252320.0,
+                  2705160.0,
+                  252340.0,
+                  2705200.0
+                ],
+                "component_label": 12,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 2,
+                  "visible_green_vs_blue": 2,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.11961472034454346,
+                      "median": 0.09234064817428589,
+                      "minimum": 0.06506657600402832
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": -0.12372457981109619,
+                      "median": -0.18903440237045288,
+                      "minimum": -0.25434422492980957
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.20000000298023224,
+                      "median": 0.20000000298023224,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.0077092708088457584,
+                      "median": 0.005560313147725537,
+                      "minimum": 0.0034113554866053164
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.09704477339982986,
+                      "median": 0.0821816036477685,
+                      "minimum": 0.06731843389570713
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.1740025281906128,
+                      "median": -0.03772155940532684,
+                      "minimum": -0.24944564700126648
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.800000011920929,
+                      "median": 0.5000000074505806,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 2,
+                      "maximum": 0.14442592859268188,
+                      "median": 0.1355266273021698,
+                      "minimum": 0.12662732601165771
+                    },
+                    "empirical_rank": {
+                      "count": 2,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 165,
+                "first_pixel_row": 111,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 2,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:12"
+              },
+              {
+                "area_km2": 0.0016,
+                "area_m2": 1600.0,
+                "bbox_projected": [
+                  251360.0,
+                  2704920.0,
+                  251400.0,
+                  2704960.0
+                ],
+                "component_label": 13,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 4,
+                  "visible_green_vs_blue": 4,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.1156700849533081,
+                      "median": 0.1044664978981018,
+                      "minimum": 0.07266378402709961
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": -0.10034990310668945,
+                      "median": -0.1894841194152832,
+                      "minimum": -0.34400153160095215
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.20000000298023224,
+                      "median": 0.20000000298023224,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.0021295840851962566,
+                      "median": 0.0018147896626032889,
+                      "minimum": 0.0014740634942427278
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.1227423083037138,
+                      "median": 0.10824019741266966,
+                      "minimum": 0.07371050119400024
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.21936923265457153,
+                      "median": 0.19983236491680145,
+                      "minimum": 0.13662779331207275
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 4,
+                      "maximum": 0.20995104312896729,
+                      "median": 0.18710485100746155,
+                      "minimum": 0.1284317970275879
+                    },
+                    "empirical_rank": {
+                      "count": 4,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 117,
+                "first_pixel_row": 123,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 4,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:13"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  253100.0,
+                  2704920.0,
+                  253120.0,
+                  2704940.0
+                ],
+                "component_label": 14,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 1,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 0,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.14197373390197754,
+                      "median": 0.14197373390197754,
+                      "minimum": 0.14197373390197754
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.024649500846862793,
+                      "median": -0.024649500846862793,
+                      "minimum": -0.024649500846862793
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.20000000298023224,
+                      "median": 0.20000000298023224,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.005087814759463072,
+                      "median": 0.005087814759463072,
+                      "minimum": 0.005087814759463072
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.14361203834414482,
+                      "median": 0.14361203834414482,
+                      "minimum": 0.14361203834414482
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.14016354084014893,
+                      "median": 0.14016354084014893,
+                      "minimum": 0.14016354084014893
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.2736946940422058,
+                      "median": 0.2736946940422058,
+                      "minimum": 0.2736946940422058
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  }
+                },
+                "first_pixel_col": 204,
+                "first_pixel_row": 124,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_b5_vs_red",
+                  "red_edge_line_height"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:14"
+              },
+              {
+                "area_km2": 0.0004,
+                "area_m2": 400.0,
+                "bbox_projected": [
+                  251240.0,
+                  2704820.0,
+                  251260.0,
+                  2704840.0
+                ],
+                "component_label": 15,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 1,
+                  "visible_green_vs_blue": 1,
+                  "visible_green_vs_red": 0
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.04947102069854736,
+                      "median": 0.04947102069854736,
+                      "minimum": 0.04947102069854736
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": -0.31237125396728516,
+                      "median": -0.31237125396728516,
+                      "minimum": -0.31237125396728516
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.20000000298023224,
+                      "median": 0.20000000298023224,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.00562333210837096,
+                      "median": 0.00562333210837096,
+                      "minimum": 0.00562333210837096
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.07711301976814866,
+                      "median": 0.07711301976814866,
+                      "minimum": 0.07711301976814866
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.16507238149642944,
+                      "median": 0.16507238149642944,
+                      "minimum": 0.16507238149642944
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 1,
+                      "maximum": 0.14397090673446655,
+                      "median": 0.14397090673446655,
+                      "minimum": 0.14397090673446655
+                    },
+                    "empirical_rank": {
+                      "count": 1,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.800000011920929
+                    }
+                  }
+                },
+                "first_pixel_col": 111,
+                "first_pixel_row": 129,
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_blue"
+                ],
+                "pixel_count": 1,
+                "region_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52:region:15"
+              }
+            ],
+            "source_ids": [
+              "temporal:71f6be2d8437e91f7cf213df0bd876897febebe630a02a20bb151a5d852edb11"
+            ],
+            "statistics": {
+              "candidate_analysis_support_count": 794,
+              "candidate_fraction_of_policy_support": 0.11083123425692695,
+              "candidate_pixel_count": 88,
+              "family_vote_histogram_on_candidates": {
+                "0": 0,
+                "1": 0,
+                "2": 88,
+                "3": 0,
+                "4": 0,
+                "5": 0
+              },
+              "family_vote_histogram_on_policy_support": {
+                "0": 453,
+                "1": 253,
+                "2": 88,
+                "3": 0,
+                "4": 0,
+                "5": 0
+              },
+              "largest_region_area_m2": 26400.0,
+              "largest_region_pixels": 66,
+              "median_region_area_m2": 400.0,
+              "median_region_pixels": 1.0,
+              "one_pixel_region_count": 10,
+              "pixel_area_m2": 400.0,
+              "region_count": 15,
+              "region_size_histogram": {
+                "1": 10,
+                "10-49": 0,
+                "2-4": 4,
+                "5-9": 0,
+                "50+": 1
+              },
+              "total_candidate_area_km2": 0.0352,
+              "total_candidate_area_m2": 35200.0
+            }
+          }
+        },
+        "risk": null,
+        "role": "EVENT_MONTH_OBSERVATION",
+        "support_proportions": {
+          "candidates_of_policy_support": {
+            "denominator": 794,
+            "numerator": 88,
+            "scope": "AS-105 candidates / evaluable policy support",
+            "status": "AVAILABLE",
+            "value": 0.11083123425692695
+          },
+          "policy_support_of_water": {
+            "denominator": 6096,
+            "numerator": 794,
+            "scope": "AS-105 support / target valid water; not biological sample size",
+            "status": "AVAILABLE",
+            "value": 0.130249343832021
+          }
+        },
+        "valid_water_count": 6096
+      },
+      {
+        "acquired_at": "2023-04-28T06:46:29.024000Z",
+        "evaluable": true,
+        "evidence_sources": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "JSON fence index 1 /target and temporal product",
+            "path": "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md",
+            "sha256": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/identity,/statistics,/diagnostics,/regions,/provenance",
+            "path": "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json",
+            "sha256": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/provenance,/statistics,/product_id",
+            "path": "docs/evidence/AS_106_REAL_ACCEPTANCE.json",
+            "sha256": "7fb6d73341aa8b66f7e946bef9aaa1825fb7d184ff81040cce2a97a408ef4feb"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/result and /parent_reconstruction",
+            "path": "docs/evidence/AS_107_REAL_ACCEPTANCE.json",
+            "sha256": "dc97694a9fb1090e30add0d697431bfa9c1eaead783eed7a94050713967cd4c2"
+          }
+        ],
+        "highest_accepted_stage": "AS-107",
+        "identity": {
+          "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+          "discovery_product": "S2B_MSIL2A_20230428T064629_N0510_R020_T40RBN_20240831T052931",
+          "discovery_source_id": "stac:727c9c270e50361fad55ba968c9f8e618dea21f690ff8ae24cfb77374ae151f7:sentinel-2-l2a:S2B_MSIL2A_20230428T064629_N0510_R020_T40RBN_20240831T052931",
+          "pc_product": "S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+          "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+          "platform": "sentinel-2b",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "tile": "40RBN"
+        },
+        "missing_downstream": [],
+        "positive_candidate_evidence": true,
+        "positive_observational_evidence": true,
+        "positive_risk_evidence": true,
+        "products": {
+          "AS102": {
+            "product_id": "optical:0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6",
+            "source_ids": [
+              "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311"
+            ]
+          },
+          "AS103": {
+            "input_content_fingerprint": "e76edf08917ef02cfdb544d811fe6df79ea29f014842be5d29fbb03645d475d7",
+            "product_id": "spectral:dae91b4dda0131ca2d2987321abd2ffd5c4b5ffb2e95a44880b7a5f9a67ea64b",
+            "source_ids": [
+              "optical:0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6"
+            ]
+          },
+          "AS104": {
+            "input_fingerprints": {
+              "format": "as104-input-v1",
+              "references": [
+                "6d4e3c1af4cdcc573ace48720e082e1b44463ed1697e2e32ef88c5475821333d",
+                "467d8094d9fe6becafc2f50700fb90fcef54113a159b7109e468feeebdad319d",
+                "0d60d267cc5cd9058fad51a56bd18574cbba84a48cf3048783e089a0142236bb",
+                "eab8fb9314e7909be9a4bde8a7122234c360dcfde1398a38c8a6f3f0478d56d2",
+                "c08237875c285d9eda54f98d7b28d5dabcdcd2b53fdf5c0bc598632c1439e26d"
+              ],
+              "target": "0195eb2c019109f0d5217cda7ea492cc73e68d35708758535f5df92aa8d00662"
+            },
+            "output_content_fingerprint": "2a2902f946d49487f1416d0bd6ad73c7976910fe72060f03503540a49e2678dd",
+            "product_id": "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b",
+            "source_ids": [
+              "spectral:dae91b4dda0131ca2d2987321abd2ffd5c4b5ffb2e95a44880b7a5f9a67ea64b",
+              "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+              "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+              "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+              "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+              "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+            ]
+          },
+          "AS105": {
+            "accepted_parent_validation": "PASS",
+            "diagnostics": {
+              "families": {
+                "red_edge_b5_vs_red": {
+                  "available_count": 802,
+                  "evidence_count": 3,
+                  "evidence_fraction_of_family_support": 0.003740648379052369
+                },
+                "red_edge_b6_vs_red": {
+                  "available_count": 801,
+                  "evidence_count": 0,
+                  "evidence_fraction_of_family_support": 0.0
+                },
+                "red_edge_line_height": {
+                  "available_count": 802,
+                  "evidence_count": 37,
+                  "evidence_fraction_of_family_support": 0.046134663341645885
+                },
+                "visible_green_vs_blue": {
+                  "available_count": 797,
+                  "evidence_count": 1,
+                  "evidence_fraction_of_family_support": 0.0012547051442910915
+                },
+                "visible_green_vs_red": {
+                  "available_count": 801,
+                  "evidence_count": 47,
+                  "evidence_fraction_of_family_support": 0.05867665418227216
+                }
+              },
+              "features": {
+                "green_blue_ratio": {
+                  "eligible_count": 797,
+                  "evidence_count": 1,
+                  "evidence_fraction_of_feature_support": 0.0012547051442910915,
+                  "positive_deviation_count": 195,
+                  "threshold_rank_count": 1
+                },
+                "green_red_ratio": {
+                  "eligible_count": 801,
+                  "evidence_count": 47,
+                  "evidence_fraction_of_feature_support": 0.05867665418227216,
+                  "positive_deviation_count": 743,
+                  "threshold_rank_count": 47
+                },
+                "mci_like": {
+                  "eligible_count": 802,
+                  "evidence_count": 37,
+                  "evidence_fraction_of_feature_support": 0.046134663341645885,
+                  "positive_deviation_count": 234,
+                  "threshold_rank_count": 37
+                },
+                "ndci_like": {
+                  "eligible_count": 792,
+                  "evidence_count": 3,
+                  "evidence_fraction_of_feature_support": 0.003787878787878788,
+                  "positive_deviation_count": 148,
+                  "threshold_rank_count": 3
+                },
+                "red_edge2_red_ratio": {
+                  "eligible_count": 801,
+                  "evidence_count": 0,
+                  "evidence_fraction_of_feature_support": 0.0,
+                  "positive_deviation_count": 175,
+                  "threshold_rank_count": 0
+                },
+                "red_edge_red_ratio": {
+                  "eligible_count": 801,
+                  "evidence_count": 3,
+                  "evidence_fraction_of_feature_support": 0.003745318352059925,
+                  "positive_deviation_count": 148,
+                  "threshold_rank_count": 3
+                }
+              }
+            },
+            "input_content_fingerprint": "c50d9f6300060ab9f194c1a0b8808de340eb53326268a52ef083ad7f994b2bc5",
+            "output_content_fingerprint": "ff976ec800ec2dfc966e4f373dd3f2442938a06a10254dd4ea7a86280dd0a765",
+            "product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+            "regions": [
+              {
+                "area_km2": 0.0028,
+                "area_m2": 2800.0,
+                "bbox_projected": [
+                  249120.0,
+                  2704160.0,
+                  249200.0,
+                  2704240.0
+                ],
+                "component_label": 1,
+                "family_evidence_pixel_counts": {
+                  "red_edge_b5_vs_red": 0,
+                  "red_edge_b6_vs_red": 0,
+                  "red_edge_line_height": 7,
+                  "visible_green_vs_blue": 0,
+                  "visible_green_vs_red": 7
+                },
+                "feature_summaries": {
+                  "green_blue_ratio": {
+                    "deviation": {
+                      "count": 7,
+                      "maximum": 0.03489995002746582,
+                      "median": 0.007427811622619629,
+                      "minimum": -0.03751194477081299
+                    },
+                    "empirical_rank": {
+                      "count": 7,
+                      "maximum": 0.6000000238418579,
+                      "median": 0.6000000238418579,
+                      "minimum": 0.4000000059604645
+                    }
+                  },
+                  "green_red_ratio": {
+                    "deviation": {
+                      "count": 7,
+                      "maximum": 4.3790061473846436,
+                      "median": 2.7588207721710205,
+                      "minimum": 1.6172704696655273
+                    },
+                    "empirical_rank": {
+                      "count": 7,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "mci_like": {
+                    "deviation": {
+                      "count": 7,
+                      "maximum": 0.002846250485163182,
+                      "median": 0.0017468747682869434,
+                      "minimum": 0.00018791353795677423
+                    },
+                    "empirical_rank": {
+                      "count": 7,
+                      "maximum": 1.0,
+                      "median": 1.0,
+                      "minimum": 1.0
+                    }
+                  },
+                  "ndci_like": {
+                    "deviation": {
+                      "count": 7,
+                      "maximum": 0.11055384017527103,
+                      "median": 0.0523981899023056,
+                      "minimum": -0.14103666692972183
+                    },
+                    "empirical_rank": {
+                      "count": 7,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.20000000298023224
+                    }
+                  },
+                  "red_edge2_red_ratio": {
+                    "deviation": {
+                      "count": 7,
+                      "maximum": -0.08071893453598022,
+                      "median": -0.5849029496312141,
+                      "minimum": -0.7847479283809662
+                    },
+                    "empirical_rank": {
+                      "count": 7,
+                      "maximum": 0.4000000059604645,
+                      "median": 0.0,
+                      "minimum": 0.0
+                    }
+                  },
+                  "red_edge_red_ratio": {
+                    "deviation": {
+                      "count": 7,
+                      "maximum": 0.19094771146774292,
+                      "median": 0.08519178628921509,
+                      "minimum": -0.19984787702560425
+                    },
+                    "empirical_rank": {
+                      "count": 7,
+                      "maximum": 0.800000011920929,
+                      "median": 0.800000011920929,
+                      "minimum": 0.20000000298023224
+                    }
+                  }
+                },
+                "first_pixel_col": 5,
+                "first_pixel_row": 159,
+                "geometry_type": "MultiPolygon",
+                "maximum_family_votes": 2,
+                "median_family_votes": 2.0,
+                "participating_families": [
+                  "red_edge_line_height",
+                  "visible_green_vs_red"
+                ],
+                "pixel_count": 7,
+                "polygon_part_count": 3,
+                "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1"
+              }
+            ],
+            "source_ids": [
+              "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b"
+            ],
+            "statistics": {
+              "candidate_analysis_support_count": 802,
+              "candidate_fraction_of_policy_support": 0.008728179551122194,
+              "candidate_pixel_count": 7,
+              "family_vote_histogram_on_candidates": {
+                "0": 0,
+                "1": 0,
+                "2": 7,
+                "3": 0,
+                "4": 0,
+                "5": 0
+              },
+              "family_vote_histogram_on_policy_support": {
+                "0": 722,
+                "1": 72,
+                "2": 8,
+                "3": 0,
+                "4": 0,
+                "5": 0
+              },
+              "largest_region_area_m2": 2800.0,
+              "largest_region_pixels": 7,
+              "median_region_area_m2": 2800.0,
+              "median_region_pixels": 7.0,
+              "one_pixel_region_count": 0,
+              "pixel_area_m2": 400.0,
+              "region_count": 1,
+              "region_size_histogram": {
+                "1": 0,
+                "10-49": 0,
+                "2-4": 0,
+                "5-9": 1,
+                "50+": 0
+              },
+              "total_candidate_area_km2": 0.0028,
+              "total_candidate_area_m2": 2800.0
+            }
+          },
+          "AS106": {
+            "input_content_fingerprint": "2f8f6f1c37bd9f8a236109ab821e6e426f222840c4a74f623d2e78bd76529ab7",
+            "output_content_fingerprint": "7739a3f97c0e88113a17629678a0ef31bdb14594400f0568c0dfdfdb5dabafef",
+            "product_id": "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+            "regions": [
+              {
+                "candidate_history_coverage": 1.0,
+                "component_label": 1,
+                "maximum_current_streak_span_us": null,
+                "maximum_streak_count": 1,
+                "median_current_streak_span_us": null,
+                "median_streak_count": 1.0,
+                "persistence_evaluable_target_candidate_count": 7,
+                "prior_observations": [
+                  {
+                    "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+                    "candidate_overlap_fraction_of_supported": 0.0,
+                    "candidate_overlap_pixel_count": 0,
+                    "geometry_product_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+                    "supported_target_region_pixel_count": 7
+                  }
+                ],
+                "recurrence_fraction": 0.0,
+                "recurrent_candidate_count": 0,
+                "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+                "target_pixel_count": 7
+              }
+            ],
+            "source_ids": [
+              "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+              "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+            ],
+            "statistics": {
+              "candidate_history_coverage": 1.0,
+              "persistence_evaluable_pixel_count": 793,
+              "persistence_evaluable_target_candidate_count": 7,
+              "recurrence_fraction": 0.0,
+              "recurrent_candidate_count": 0,
+              "streak_histogram_on_target_candidates": {
+                "1": 7
+              },
+              "target_candidate_count": 7,
+              "target_candidates_without_prior_history": 0,
+              "target_policy_support_count": 802
+            }
+          },
+          "AS107": {
+            "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+            "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+            "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+            "regional_drivers": [
+              {
+                "availability": "available",
+                "canonical_name": "spectral_anomaly",
+                "canonical_weight": 0.35,
+                "component_value": 40.0,
+                "configured_weight": 0.35,
+                "contribution_points": 20.0,
+                "definition_id": "as107-v1:spectral_anomaly",
+                "effective_weight": 0.5,
+                "evidence_denominator": 35,
+                "evidence_numerator": 14,
+                "family_counts": [
+                  [
+                    "red_edge_b5_vs_red",
+                    7,
+                    0
+                  ],
+                  [
+                    "red_edge_line_height",
+                    7,
+                    7
+                  ],
+                  [
+                    "red_edge_b6_vs_red",
+                    7,
+                    0
+                  ],
+                  [
+                    "visible_green_vs_red",
+                    7,
+                    7
+                  ],
+                  [
+                    "visible_green_vs_blue",
+                    7,
+                    0
+                  ]
+                ],
+                "source_product_ids": [
+                  "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+                ],
+                "unavailable_reason": null
+              },
+              {
+                "availability": "available",
+                "canonical_name": "chlorophyll_red_edge_signal",
+                "canonical_weight": 0.2,
+                "component_value": 33.333333333333336,
+                "configured_weight": 0.2,
+                "contribution_points": 9.523809523809526,
+                "definition_id": "as107-v1:chlorophyll_red_edge_signal",
+                "effective_weight": 0.28571428571428575,
+                "evidence_denominator": 21,
+                "evidence_numerator": 7,
+                "family_counts": [
+                  [
+                    "red_edge_b5_vs_red",
+                    7,
+                    0
+                  ],
+                  [
+                    "red_edge_line_height",
+                    7,
+                    7
+                  ],
+                  [
+                    "red_edge_b6_vs_red",
+                    7,
+                    0
+                  ]
+                ],
+                "source_product_ids": [
+                  "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+                ],
+                "unavailable_reason": null
+              },
+              {
+                "availability": "available",
+                "canonical_name": "persistence",
+                "canonical_weight": 0.15,
+                "component_value": 0.0,
+                "configured_weight": 0.15,
+                "contribution_points": 0.0,
+                "definition_id": "as107-v1:persistence",
+                "effective_weight": 0.2142857142857143,
+                "evidence_denominator": 7,
+                "evidence_numerator": 0,
+                "family_counts": [],
+                "source_product_ids": [
+                  "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+                ],
+                "unavailable_reason": null
+              },
+              {
+                "availability": "unavailable",
+                "canonical_name": "environmental_context",
+                "canonical_weight": 0.15,
+                "component_value": null,
+                "configured_weight": 0.15,
+                "contribution_points": null,
+                "definition_id": "as107-v1:environmental_context",
+                "effective_weight": 0.0,
+                "evidence_denominator": null,
+                "evidence_numerator": null,
+                "family_counts": [],
+                "source_product_ids": [],
+                "unavailable_reason": "not_implemented"
+              },
+              {
+                "availability": "unavailable",
+                "canonical_name": "intake_exposure",
+                "canonical_weight": 0.15,
+                "component_value": null,
+                "configured_weight": 0.15,
+                "contribution_points": null,
+                "definition_id": "as107-v1:intake_exposure",
+                "effective_weight": 0.0,
+                "evidence_denominator": null,
+                "evidence_numerator": null,
+                "family_counts": [],
+                "source_product_ids": [],
+                "unavailable_reason": "not_implemented"
+              }
+            ],
+            "source_ids": [
+              "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+              "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+            ]
+          }
+        },
+        "risk": {
+          "assessment_status": "provisional_observational_screening",
+          "completeness_factors": {
+            "available_configured_weight": 0.7,
+            "candidate_history_coverage": 1.0,
+            "component_coverage": 0.7,
+            "family_availability": 1.0,
+            "family_available_count": 35,
+            "family_opportunity_count": 35,
+            "prior_supported_candidate_count": 7,
+            "red_edge_availability": 1.0,
+            "red_edge_available_count": 21,
+            "red_edge_opportunity_count": 21,
+            "target_candidate_count": 7,
+            "total_configured_weight": 1.0
+          },
+          "component_coverage": 0.7,
+          "drivers": [
+            {
+              "availability": "available",
+              "canonical_name": "spectral_anomaly",
+              "canonical_weight": 0.35,
+              "component_value": 40.0,
+              "configured_weight": 0.35,
+              "contribution_points": 20.0,
+              "definition_id": "as107-v1:spectral_anomaly",
+              "effective_weight": 0.5,
+              "evidence_denominator": 35,
+              "evidence_numerator": 14,
+              "family_counts": [
+                [
+                  "red_edge_b5_vs_red",
+                  7,
+                  0
+                ],
+                [
+                  "red_edge_line_height",
+                  7,
+                  7
+                ],
+                [
+                  "red_edge_b6_vs_red",
+                  7,
+                  0
+                ],
+                [
+                  "visible_green_vs_red",
+                  7,
+                  7
+                ],
+                [
+                  "visible_green_vs_blue",
+                  7,
+                  0
+                ]
+              ],
+              "source_product_ids": [
+                "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+              ],
+              "unavailable_reason": null
+            },
+            {
+              "availability": "available",
+              "canonical_name": "chlorophyll_red_edge_signal",
+              "canonical_weight": 0.2,
+              "component_value": 33.333333333333336,
+              "configured_weight": 0.2,
+              "contribution_points": 9.523809523809526,
+              "definition_id": "as107-v1:chlorophyll_red_edge_signal",
+              "effective_weight": 0.28571428571428575,
+              "evidence_denominator": 21,
+              "evidence_numerator": 7,
+              "family_counts": [
+                [
+                  "red_edge_b5_vs_red",
+                  7,
+                  0
+                ],
+                [
+                  "red_edge_line_height",
+                  7,
+                  7
+                ],
+                [
+                  "red_edge_b6_vs_red",
+                  7,
+                  0
+                ]
+              ],
+              "source_product_ids": [
+                "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+              ],
+              "unavailable_reason": null
+            },
+            {
+              "availability": "available",
+              "canonical_name": "persistence",
+              "canonical_weight": 0.15,
+              "component_value": 0.0,
+              "configured_weight": 0.15,
+              "contribution_points": 0.0,
+              "definition_id": "as107-v1:persistence",
+              "effective_weight": 0.2142857142857143,
+              "evidence_denominator": 7,
+              "evidence_numerator": 0,
+              "family_counts": [],
+              "source_product_ids": [
+                "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+              ],
+              "unavailable_reason": null
+            },
+            {
+              "availability": "unavailable",
+              "canonical_name": "environmental_context",
+              "canonical_weight": 0.15,
+              "component_value": null,
+              "configured_weight": 0.15,
+              "contribution_points": null,
+              "definition_id": "as107-v1:environmental_context",
+              "effective_weight": 0.0,
+              "evidence_denominator": null,
+              "evidence_numerator": null,
+              "family_counts": [],
+              "source_product_ids": [],
+              "unavailable_reason": "not_implemented"
+            },
+            {
+              "availability": "unavailable",
+              "canonical_name": "intake_exposure",
+              "canonical_weight": 0.15,
+              "component_value": null,
+              "configured_weight": 0.15,
+              "contribution_points": null,
+              "definition_id": "as107-v1:intake_exposure",
+              "effective_weight": 0.0,
+              "evidence_denominator": null,
+              "evidence_numerator": null,
+              "family_counts": [],
+              "source_product_ids": [],
+              "unavailable_reason": "not_implemented"
+            }
+          ],
+          "evidence_completeness": 0.7,
+          "explanation_order": [
+            "spectral_anomaly",
+            "chlorophyll_red_edge_signal",
+            "persistence",
+            "environmental_context",
+            "intake_exposure"
+          ],
+          "interpretation_flags": [
+            "incomplete_evidence"
+          ],
+          "limitations": [
+            "provisional_observational_screening",
+            "environmental_context_unavailable",
+            "intake_exposure_unavailable",
+            "correlated_red_edge_emphasis",
+            "candidate_conditioned_screening",
+            "heuristic_weights_not_calibrated",
+            "shared_sparse_histories_not_independent_confirmation",
+            "five_histories_not_statistical_sufficiency",
+            "exact_pixel_recurrence_no_motion_tracking",
+            "observation_gaps_not_continuous_biological_persistence",
+            "future_AS105_policy_validation_not_run",
+            "not_biological_or_operational_validation"
+          ],
+          "message": null,
+          "monitoring_recommendation": "Review on the next valid acquisition",
+          "policy_support_count": 802,
+          "risk_band": "Watch",
+          "risk_score": 29.52380952380953,
+          "selected_component_label": 1,
+          "selected_region": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+          "status": null,
+          "target_acquired_at": "2023-04-28T06:46:29.024000+00:00"
+        },
+        "role": "EVENT_MONTH_OBSERVATION",
+        "support_proportions": {
+          "candidates_of_policy_support": {
+            "denominator": 802,
+            "numerator": 7,
+            "scope": "AS-105 candidates / evaluable policy support",
+            "status": "AVAILABLE",
+            "value": 0.008728179551122194
+          },
+          "policy_support_of_water": {
+            "denominator": 7963,
+            "numerator": 802,
+            "scope": "AS-105 support / target valid water; not biological sample size",
+            "status": "AVAILABLE",
+            "value": 0.10071581062413663
+          }
+        },
+        "valid_water_count": 7963
+      }
+    ],
+    "event_reference": {
+      "AquaSentinel_species_inference": "NONE",
+      "AquaSentinel_toxin_inference": "NONE",
+      "documented_event_month": "2023-04",
+      "event_end": null,
+      "event_reference_id": "ead-raha-beach-red-tide-2023-04",
+      "event_start": null,
+      "external_event_status": "documented_external_event",
+      "geometry_precision": "AREA_LEVEL_ONLY",
+      "geometry_reference": null,
+      "location_text": "Raha Beach",
+      "page_or_section": null,
+      "page_or_section_note": "Exact PDF page/heading not supplied; retain as not recorded, not invent a locator",
+      "publisher": "Environment Agency \u2013 Abu Dhabi (EAD)",
+      "reporting_year": 2023,
+      "resource_category": "Marine Water Quality",
+      "resource_publication_date": "2024-11-21",
+      "resource_title": "Marine Water Quality Report 2023",
+      "source_accessed_at": null,
+      "source_accessed_at_note": "Outside-Codex inspection timestamp not supplied; do not substitute M42 documentation time",
+      "source_reference": "https://www.ead.gov.ae/-/media/Project/EAD/EAD/Documents/KnowledgeHub/Resources-and-Materials/MWQ-ANNUAL-REPORT-2024-EN.pdf",
+      "source_statement_summary": [
+        "In 2023, EAD recorded 23 algal bloom incidents in Abu Dhabi.",
+        "One Red Tide incident was recorded at Raha Beach in April 2023.",
+        "EAD attributes that incident to Pseudo-nitzschia multistriata.",
+        "The report states that this species releases domoic acid."
+      ],
+      "source_type": "official_environmental_incident_reporting",
+      "species_reported": "Pseudo-nitzschia multistriata",
+      "species_source": "external_event_reference",
+      "temporal_precision": "MONTH_LEVEL",
+      "toxin_context": "species-associated toxin reported by EAD",
+      "toxin_measured_in_incident": "NOT ESTABLISHED",
+      "toxin_name": "domoic acid",
+      "verification_provenance": "Project owner supplied externally verified official EAD listing/PDF facts in the M42 authorization; Codex did not independently access the source during M42.",
+      "verification_status": "EXTERNALLY_VERIFIED_FACTS_SUPPLIED_BY_OWNER",
+      "verification_supplied_on": "2026-10-10 (Asia/Dubai)"
+    },
+    "evidence_file_hashes": {
+      "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a",
+      "docs/evidence/AS_102_OPTICAL_PREPROCESSING_VALIDATION.md": "ff60554cf919f6f83aff5ce7bc944b4502dc47154eaf427d525843e53cfd4b5d",
+      "docs/evidence/AS_103_SPECTRAL_FEATURES_VALIDATION.md": "fa1fba604484d98c0f1f688179bdb0b08e378246d2186a85b9466b367b456d38",
+      "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e",
+      "docs/evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md": "1eec5ceafeb7ee35b01883e2acddc6bcd52496636b7a380b89226a7cd884923f",
+      "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6",
+      "docs/evidence/AS_106_REAL_ACCEPTANCE.json": "7fb6d73341aa8b66f7e946bef9aaa1825fb7d184ff81040cce2a97a408ef4feb",
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.json": "dc97694a9fb1090e30add0d697431bfa9c1eaead783eed7a94050713967cd4c2",
+      "docs/evidence/AS_108_DESIGN_FREEZE.json": "0f375a8aa03a586560a81121ab471a54e87dbfe5cd9dceaadbfae134ce5ae9d3",
+      "docs/evidence/AS_108_POST_METADATA_SELECTION.json": "94b1c9f24362a1eefc570b3bba69a3e18f1e2ce3d64e25fc3489c390d6df41d3"
+    },
+    "limitations": [
+      "MONTH_LEVEL_EVENT_TIME_NO_ONSET_OR_EXACT_LEAD_TIME",
+      "AREA_LEVEL_CONTEXTUAL_ALIGNMENT_NOT_EXACT_INCIDENT_FOOTPRINT",
+      "ONE_RETROSPECTIVE_EVENT_NOT_ACCURACY_DATASET",
+      "APRIL_OUTPUTS_KNOWN_BEFORE_DECISION053_NOT_BLIND_OR_PROSPECTIVE",
+      "PRE_DESCRIPTIVE_ONLY_NOT_NEGATIVE_OR_SELF_SCORED",
+      "PARTIAL_PRE_EVENT_INVENTORY_NOT_FULL_MONTH_SURVEILLANCE",
+      "POST_UNAVAILABLE_NO_FALLBACK_RECOVERY_OR_NEGATIVE_LABEL",
+      "APRIL3_AS106_AS107_NOT_AVAILABLE",
+      "SPARSE_SHARED_FIVE_HISTORIES_NOT_STATISTICAL_SUFFICIENCY",
+      "SMALL_POSITIVE_MAD_SCALES_CAN_PRODUCE_LARGE_ROBUST_Z",
+      "CONSERVATIVE_COASTAL_CLOUD_MASK_AND_SPARSE_POLICY_SUPPORT",
+      "BOA_NOT_AQUATIC_RRS",
+      "CORRELATED_RED_EDGE_EVIDENCE_NOT_INDEPENDENT_CORROBORATION",
+      "EXACT_PIXEL_RECURRENCE_NO_MOTION_COMPENSATION",
+      "LONG_25_DAY_8_SECOND_GAP_NOT_CONTINUOUS_MONITORING",
+      "CONTEXT_AND_INTAKE_EXPOSURE_UNIMPLEMENTED",
+      "ONLY_70_PERCENT_CONFIGURED_COMPONENT_WEIGHT_AVAILABLE",
+      "HEURISTIC_WEIGHTS_NOT_CALIBRATED",
+      "CANDIDATE_CONDITIONED_SITE_SUMMARY",
+      "AL_RAHA_ANALYST_AOI_NOT_CONFIRMED_DESALINATION_INTAKE",
+      "NO_BIOLOGICAL_RECOVERY_ABSENCE_OR_OPERATIONAL_SAFETY_INFERENCE"
+    ],
+    "observational_consistency": "PARTIALLY_CONSISTENT",
+    "phase_windows": {
+      "EVENT": {
+        "end_exclusive": "2023-05-01T00:00:00Z",
+        "semantics": "analytical calendar window, NOT biological onset/end",
+        "start_inclusive": "2023-04-01T00:00:00Z"
+      },
+      "POST": {
+        "end_exclusive": "2023-06-01T00:00:00Z",
+        "semantics": "analytical calendar window, NOT biological onset/end",
+        "start_inclusive": "2023-05-01T00:00:00Z"
+      },
+      "PRE": {
+        "end_exclusive": "2023-04-01T00:00:00Z",
+        "semantics": "analytical calendar window, NOT biological onset/end",
+        "start_inclusive": "2023-03-01T00:00:00Z"
+      }
+    },
+    "post": {
+      "biological_label": null,
+      "evaluable": false,
+      "evidence_sources": [
+        {
+          "kind": "REUSED_ACCEPTED_EVIDENCE",
+          "locator": "/selection_payload,/counts,/selection_sha256",
+          "path": "docs/evidence/AS_108_POST_METADATA_SELECTION.json",
+          "sha256": "94b1c9f24362a1eefc570b3bba69a3e18f1e2ce3d64e25fc3489c390d6df41d3"
+        }
+      ],
+      "geometry_endpoint": null,
+      "pc_processing_baseline": null,
+      "pixels_retrieved": false,
+      "provisional_cdse_identity": {
+        "acquired_at": "2023-05-03T06:46:21.024000Z",
+        "catalog_aoi_intersects_match": true,
+        "cdse_item_id": "S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841",
+        "cloud_cover_percent": 0.57,
+        "collection": "sentinel-2-l2a",
+        "disposition": "UNAVAILABLE_PC_COMPATIBILITY",
+        "generation_time": "2024-09-03T13:58:41Z",
+        "metadata_eligible_before_pc": true,
+        "mgrs_tile": "40RBN",
+        "pc_compatibility_status": "UNAVAILABLE_ZERO_EXACT_05_09_MATCHES",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.10",
+        "product_type": "MSIL2A (strict product ID)",
+        "provider_metadata_fields": {
+          "created": "2025-04-10T12:07:07.445000Z",
+          "published": "2025-04-28T03:20:45.482775Z",
+          "sat:relative_orbit": 20
+        },
+        "provider_record_metadata_sha256": "3829d12c30590845d5e89d23378aa2250d6846765ba86430b58d418b253f9b7c",
+        "rejection_reasons": [],
+        "relative_orbit": 20
+      },
+      "recovery_interpretation": null,
+      "required_post_slot": 1,
+      "risk": null,
+      "scientific_products": [],
+      "selected_pc_identity": null,
+      "selection_digest": "df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de",
+      "selection_status": "UNAVAILABLE",
+      "unavailable_reason": "ZERO_EXACT_PC_05_09_MATCHES",
+      "usable_post_observation": 0
+    },
+    "prd_question_statuses": {
+      "Q1": "SUPPORTED",
+      "Q2": "SUPPORTED",
+      "Q3": "PARTIALLY_SUPPORTED",
+      "Q4": "PARTIALLY_SUPPORTED",
+      "Q5": "NOT_ESTIMABLE"
+    },
+    "pre": [
+      {
+        "accepted_reconstruction": "PASS",
+        "acquired_at": "2023-03-04T06:47:51.024000Z",
+        "baseline_role": "Shared March references for both accepted April temporal products; no independent PRE score",
+        "evaluable": true,
+        "evidence_sources": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "JSON fence index 1 /references/0",
+            "path": "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md",
+            "sha256": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/march_reference_reconstruction/0",
+            "path": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json",
+            "sha256": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6"
+          }
+        ],
+        "feature_valid_counts": {
+          "green_blue_ratio": 8674,
+          "green_red_ratio": 8622,
+          "mci_like": 8674,
+          "ndci_like": 8622,
+          "red_edge2_red_ratio": 8622,
+          "red_edge_red_ratio": 8622
+        },
+        "highest_accepted_stage": "AS-103",
+        "identity": {
+          "as102_product_id": "optical:038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1",
+          "as103_input_content_fingerprint": "187251ea126ffdf774b5d347d2af23f7b693b5d947a7ed49e5d6c3cf694c0166",
+          "as103_product_id": "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+          "discovery_product": "S2A_MSIL2A_20230304T064751_N0510_R020_T40RBN_20240819T072511",
+          "discovery_source_id": "stac:727c9c270e50361fad55ba968c9f8e618dea21f690ff8ae24cfb77374ae151f7:sentinel-2-l2a:S2A_MSIL2A_20230304T064751_N0510_R020_T40RBN_20240819T072511",
+          "pc_product": "S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736",
+          "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736",
+          "platform": "sentinel-2a",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "tile": "40RBN"
+        },
+        "lineage_edges": [
+          [
+            "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736",
+            "optical:038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1"
+          ],
+          [
+            "optical:038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1",
+            "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130"
+          ]
+        ],
+        "missing_downstream": "NOT_APPLICABLE to descriptive PRE contract; no AS-104+ PRE target product is fabricated",
+        "role": "DESCRIPTIVE_PRE_EVENT_PRE_MONTH_CONTEXT",
+        "valid_water_count": 8674
+      },
+      {
+        "accepted_reconstruction": "PASS",
+        "acquired_at": "2023-03-09T06:47:19.025000Z",
+        "baseline_role": "Shared March references for both accepted April temporal products; no independent PRE score",
+        "evaluable": true,
+        "evidence_sources": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "JSON fence index 1 /references/1",
+            "path": "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md",
+            "sha256": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/march_reference_reconstruction/1",
+            "path": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json",
+            "sha256": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6"
+          }
+        ],
+        "feature_valid_counts": {
+          "green_blue_ratio": 2092,
+          "green_red_ratio": 2092,
+          "mci_like": 2092,
+          "ndci_like": 2092,
+          "red_edge2_red_ratio": 2092,
+          "red_edge_red_ratio": 2092
+        },
+        "highest_accepted_stage": "AS-103",
+        "identity": {
+          "as102_product_id": "optical:a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644",
+          "as103_input_content_fingerprint": "0a61a0afa5254da8959d38135d967d664debfa45b8aea4f3070608dd8dd198b8",
+          "as103_product_id": "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+          "discovery_product": "S2B_MSIL2A_20230309T064719_N0510_R020_T40RBN_20240823T054455",
+          "discovery_source_id": "stac:727c9c270e50361fad55ba968c9f8e618dea21f690ff8ae24cfb77374ae151f7:sentinel-2-l2a:S2B_MSIL2A_20230309T064719_N0510_R020_T40RBN_20240823T054455",
+          "pc_product": "S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958",
+          "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958",
+          "platform": "sentinel-2b",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "tile": "40RBN"
+        },
+        "lineage_edges": [
+          [
+            "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958",
+            "optical:a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644"
+          ],
+          [
+            "optical:a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644",
+            "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1"
+          ]
+        ],
+        "missing_downstream": "NOT_APPLICABLE to descriptive PRE contract; no AS-104+ PRE target product is fabricated",
+        "role": "DESCRIPTIVE_PRE_EVENT_PRE_MONTH_CONTEXT",
+        "valid_water_count": 2092
+      },
+      {
+        "accepted_reconstruction": "PASS",
+        "acquired_at": "2023-03-14T06:46:41.024000Z",
+        "baseline_role": "Shared March references for both accepted April temporal products; no independent PRE score",
+        "evaluable": true,
+        "evidence_sources": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "JSON fence index 1 /references/2",
+            "path": "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md",
+            "sha256": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/march_reference_reconstruction/2",
+            "path": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json",
+            "sha256": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6"
+          }
+        ],
+        "feature_valid_counts": {
+          "green_blue_ratio": 7330,
+          "green_red_ratio": 7350,
+          "mci_like": 7350,
+          "ndci_like": 7350,
+          "red_edge2_red_ratio": 7350,
+          "red_edge_red_ratio": 7350
+        },
+        "highest_accepted_stage": "AS-103",
+        "identity": {
+          "as102_product_id": "optical:91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2",
+          "as103_input_content_fingerprint": "89311bd86000b4c7a60e1839040022d64c5a45715e3c5fc3a5392c6bc9592462",
+          "as103_product_id": "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+          "discovery_product": "S2A_MSIL2A_20230314T064641_N0510_R020_T40RBN_20240823T041506",
+          "discovery_source_id": "stac:727c9c270e50361fad55ba968c9f8e618dea21f690ff8ae24cfb77374ae151f7:sentinel-2-l2a:S2A_MSIL2A_20230314T064641_N0510_R020_T40RBN_20240823T041506",
+          "pc_product": "S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741",
+          "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741",
+          "platform": "sentinel-2a",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "tile": "40RBN"
+        },
+        "lineage_edges": [
+          [
+            "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741",
+            "optical:91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2"
+          ],
+          [
+            "optical:91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2",
+            "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7"
+          ]
+        ],
+        "missing_downstream": "NOT_APPLICABLE to descriptive PRE contract; no AS-104+ PRE target product is fabricated",
+        "role": "DESCRIPTIVE_PRE_EVENT_PRE_MONTH_CONTEXT",
+        "valid_water_count": 7350
+      },
+      {
+        "accepted_reconstruction": "PASS",
+        "acquired_at": "2023-03-24T06:46:21.024000Z",
+        "baseline_role": "Shared March references for both accepted April temporal products; no independent PRE score",
+        "evaluable": true,
+        "evidence_sources": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "JSON fence index 1 /references/3",
+            "path": "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md",
+            "sha256": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/march_reference_reconstruction/3",
+            "path": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json",
+            "sha256": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6"
+          }
+        ],
+        "feature_valid_counts": {
+          "green_blue_ratio": 3834,
+          "green_red_ratio": 3834,
+          "mci_like": 3834,
+          "ndci_like": 3834,
+          "red_edge2_red_ratio": 3834,
+          "red_edge_red_ratio": 3834
+        },
+        "highest_accepted_stage": "AS-103",
+        "identity": {
+          "as102_product_id": "optical:f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2",
+          "as103_input_content_fingerprint": "2d56879067af2cf99a854725edd38627fdbbcee56345f422e2ba477e509d1898",
+          "as103_product_id": "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+          "discovery_product": "S2A_MSIL2A_20230324T064621_N0510_R020_T40RBN_20240824T014318",
+          "discovery_source_id": "stac:727c9c270e50361fad55ba968c9f8e618dea21f690ff8ae24cfb77374ae151f7:sentinel-2-l2a:S2A_MSIL2A_20230324T064621_N0510_R020_T40RBN_20240824T014318",
+          "pc_product": "S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938",
+          "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938",
+          "platform": "sentinel-2a",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "tile": "40RBN"
+        },
+        "lineage_edges": [
+          [
+            "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938",
+            "optical:f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2"
+          ],
+          [
+            "optical:f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2",
+            "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66"
+          ]
+        ],
+        "missing_downstream": "NOT_APPLICABLE to descriptive PRE contract; no AS-104+ PRE target product is fabricated",
+        "role": "DESCRIPTIVE_PRE_EVENT_PRE_MONTH_CONTEXT",
+        "valid_water_count": 3834
+      },
+      {
+        "accepted_reconstruction": "PASS",
+        "acquired_at": "2023-03-29T06:46:29.024000Z",
+        "baseline_role": "Shared March references for both accepted April temporal products; no independent PRE score",
+        "evaluable": true,
+        "evidence_sources": [
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "JSON fence index 1 /references/4",
+            "path": "docs/evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md",
+            "sha256": "8e1331e0aa745f5821fe50e81e75b14ef8ca9cee8f0e4385468fef4de0e8ef7e"
+          },
+          {
+            "kind": "REUSED_ACCEPTED_EVIDENCE",
+            "locator": "/march_reference_reconstruction/4",
+            "path": "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json",
+            "sha256": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6"
+          }
+        ],
+        "feature_valid_counts": {
+          "green_blue_ratio": 6156,
+          "green_red_ratio": 6156,
+          "mci_like": 6156,
+          "ndci_like": 6156,
+          "red_edge2_red_ratio": 6156,
+          "red_edge_red_ratio": 6156
+        },
+        "highest_accepted_stage": "AS-103",
+        "identity": {
+          "as102_product_id": "optical:45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee",
+          "as103_input_content_fingerprint": "02e8cbea849befda080e04d63bb8dd37ebb89ecd16b0fc5d4aef92976c9757bd",
+          "as103_product_id": "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5",
+          "discovery_product": "S2B_MSIL2A_20230329T064629_N0510_R020_T40RBN_20240823T165234",
+          "discovery_source_id": "stac:727c9c270e50361fad55ba968c9f8e618dea21f690ff8ae24cfb77374ae151f7:sentinel-2-l2a:S2B_MSIL2A_20230329T064629_N0510_R020_T40RBN_20240823T165234",
+          "pc_product": "S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334",
+          "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334",
+          "platform": "sentinel-2b",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "tile": "40RBN"
+        },
+        "lineage_edges": [
+          [
+            "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334",
+            "optical:45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee"
+          ],
+          [
+            "optical:45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee",
+            "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+          ]
+        ],
+        "missing_downstream": "NOT_APPLICABLE to descriptive PRE contract; no AS-104+ PRE target product is fabricated",
+        "role": "DESCRIPTIVE_PRE_EVENT_PRE_MONTH_CONTEXT",
+        "valid_water_count": 6156
+      }
+    ],
+    "reporting_proportions": {
+      "EVENT_candidates": {
+        "denominator": 2,
+        "numerator": 2,
+        "scope": "evaluable EVENT acquisitions",
+        "status": "AVAILABLE",
+        "value": 1.0
+      },
+      "EVENT_evaluable": {
+        "denominator": 2,
+        "numerator": 2,
+        "scope": "retained EVENT acquisitions",
+        "status": "AVAILABLE",
+        "value": 1.0
+      },
+      "EVENT_watch_of_retained": {
+        "denominator": 2,
+        "numerator": 1,
+        "scope": "all retained EVENT acquisitions, including one unscored; not Normal/negative",
+        "status": "AVAILABLE",
+        "value": 0.5
+      },
+      "EVENT_watch_of_scored": {
+        "denominator": 1,
+        "numerator": 1,
+        "scope": "accepted scored EVENT acquisitions",
+        "status": "AVAILABLE",
+        "value": 1.0
+      },
+      "POST_candidates": {
+        "denominator": 0,
+        "numerator": 0,
+        "scope": "evaluable POST acquisitions unavailable",
+        "status": "UNAVAILABLE_ZERO_OR_UNKNOWN_DENOMINATOR",
+        "value": null
+      },
+      "POST_evaluable_required_slot": {
+        "denominator": 1,
+        "numerator": 0,
+        "scope": "required analytical POST slot, not a usable scientific observation",
+        "status": "AVAILABLE",
+        "value": 0.0
+      },
+      "POST_watch_of_scored": {
+        "denominator": 0,
+        "numerator": 0,
+        "scope": "scored POST acquisitions unavailable",
+        "status": "UNAVAILABLE_ZERO_OR_UNKNOWN_DENOMINATOR",
+        "value": null
+      },
+      "PRE_evaluable": {
+        "denominator": 5,
+        "numerator": 5,
+        "scope": "retained descriptive PRE acquisitions; not biological accuracy",
+        "status": "AVAILABLE",
+        "value": 1.0
+      }
+    },
+    "retrospective_validation_semantics": {
+      "april_outputs_known_before_decision_053": true,
+      "blind_validation": false,
+      "category_role": "retrospective_reporting_and_interpretation",
+      "consistency_categories_frozen_before_new_post_execution": true,
+      "future_may_result_must_not_revise_categories": true,
+      "independent_preregistration_of_april_outcomes": false,
+      "must_not_be_used_as": [
+        "predictive_validation",
+        "prospective_detection_performance",
+        "independent_accuracy_validation",
+        "independent_model_validation",
+        "unbiased_accuracy_estimation"
+      ],
+      "prospective_validation": false
+    },
+    "schema_version": "as108-m44-case-study-v1",
+    "scientific_claim_boundary": {
+      "biological_sample_size": null,
+      "false_positive_language": "unmatched_observational_anomaly",
+      "prohibited": [
+        "confirmed_HAB_by_satellite",
+        "species_or_toxin_detection",
+        "measured_chlorophyll",
+        "biological_probability",
+        "calibrated_confidence",
+        "sensitivity",
+        "specificity",
+        "false_positive_rate",
+        "precision",
+        "recall",
+        "ROC_AUC",
+        "population_accuracy",
+        "exact_onset_lead_time",
+        "water_safety",
+        "shutdown_recommendation",
+        "biological_recovery",
+        "biological_absence",
+        "predictive_validation",
+        "prospective_detection_performance",
+        "independent_model_validation",
+        "unbiased_accuracy_estimation"
+      ]
+    }
+  },
+  "semantic_sha256": "ccc5f04f304a8b4bb8a367331069a5ca54776433e7c0fea0c67d662e68e0772a",
+  "status": "P0_RETROSPECTIVE_OBSERVATIONAL_CONSISTENCY_CASE_STUDY_COMPLETE_WITH_POST_UNAVAILABLE"
+}
