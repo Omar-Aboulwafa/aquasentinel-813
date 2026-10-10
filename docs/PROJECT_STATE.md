@@ -1,6 +1,55 @@
 # AquaSentinel 813 — Project State
 
-## Current AS-107 M40 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M42 design freeze — 10 October 2026 (Asia/Dubai)
+
+**AS-107: COMPLETE / CLOSED. M40: COMPLETE / MERGED / PUBLICATION-CLOSEOUT**
+through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified parents
+`2bfbbd63cb5fee8e1d18a0b1099335b924e5ed9d` and
+`88189f5ed85767f5022fa8e6c8ceee55b42f6c85`. Its merge-effective closure is now in force.
+**M41 / E41 / EV-045: read-only feasibility/source audit COMPLETE**, recorded here
+retrospectively; M41 changed no repository file. Its documentary access blocker was
+independently resolved by owner verification outside Codex, supplied for M42.
+**Decision 053 / M42 / E42 / EV-046: FINAL / FROZEN DESIGN — NOT EXECUTED.**
+AS-108 remains P0 before AS-201. No AS-108 validation outcome is computed here.
+
+Frozen objective: **retrospective observational-consistency case study**, one event,
+not biological accuracy. EAD **Marine Water Quality Report 2023**, listed
+**21 November 2024**, documents a Raha Beach Red Tide incident in **April 2023**.
+Timing **MONTH_LEVEL**; lead-time status **MONTH_LEVEL_ONLY**, exact days early not
+estimable. Spatial precision **AREA_LEVEL_ONLY**; AOI/event relationship
+**AREA_LEVEL_CONTEXTUAL_ALIGNMENT**. Al Raha remains analyst-defined, not an EAD
+incident/sampling footprint or confirmed desalination intake. EAD species/toxin
+context stays external: Pseudo-nitzschia multistriata / domoic acid; incident toxin
+measurement NOT ESTABLISHED; AquaSentinel species/toxin inference NONE.
+
+PRE `[2023-03-01,2023-04-01)` retains March 4/9/14/24/29 as descriptive context,
+never self-baseline-scored or biological negatives. EVENT `[2023-04-01,2023-05-01)`
+retains April 3 through accepted AS-105 and April 28 through accepted AS-107.
+POST `[2023-05-01,2023-06-01)` requires one future metadata-selected **earliest
+compatible May acquisition** before pixels; no fallback, honest UNAVAILABLE allowed.
+Same AOI, cloud <=30%, 40RBN/orbit20, exact PC05.09 match and full grid/upstream
+contract. No May metadata or pixels retrieved in M42; no frozen policy adjusted.
+
+Immutable April 28 reference: `hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb`;
+**29.52380952380953 / Watch**, completeness/coverage **0.7/0.7**,
+`provisional_observational_screening`, **Review on the next valid acquisition**,
+A/B/C **7/7/0**. No rerun or new historical-validation classification in this task.
+Decisions 050/051/052 and accepted EO evidence remain unchanged. No Decision 054.
+
+Prepared on documentation branch `docs/as-108-design-freeze`, worktree
+`/workspace/aquasentinel-813-as108-m42`; current active scientific development branch:
+none. Immediate next step: owner review of Decision 053/design, with separate
+PR/merge authorization; then separately authorize **M43 metadata-only POST selection**.
+Validation execution, AS-201, future AS-105 policy validation and P1 05.10 NOT STARTED.
+Deadline 11 October 2026 (Asia/Dubai): protect oil P0, demo and presentation.
+M42 engineering quality: **1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS**; no GitHub CI-success claim.
+New documentary/EO metadata/assets/real scientific calls: **0**.
+
+See [AS-108 contract](AS_108_HAB_HISTORICAL_VALIDATION.md), [freeze evidence](evidence/AS_108_DESIGN_FREEZE.md),
+and [machine-readable design](evidence/AS_108_DESIGN_FREEZE.json). Earlier dated status/milestone bodies
+remain historical; their original unstarted/unmerged wording describes that time.
+
+## Historical AS-107 M40 closeout preparation — before PR #25 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: CLOSEOUT READY. M40 / E40 / EV-044: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
 This is the pre-merge closeout preparation state, not a claim that AS-107 is

@@ -1,6 +1,55 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-107 M40 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M42 design freeze — 10 October 2026 (Asia/Dubai)
+
+**AS-107: COMPLETE / CLOSED. M40: COMPLETE / MERGED / PUBLICATION-CLOSEOUT**
+through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified parents
+`2bfbbd63cb5fee8e1d18a0b1099335b924e5ed9d` and
+`88189f5ed85767f5022fa8e6c8ceee55b42f6c85`. Its merge-effective closure is now in force.
+**M41 / E41 / EV-045: read-only feasibility/source audit COMPLETE**, recorded here
+retrospectively; M41 changed no repository file. Its documentary access blocker was
+independently resolved by owner verification outside Codex, supplied for M42.
+**Decision 053 / M42 / E42 / EV-046: FINAL / FROZEN DESIGN — NOT EXECUTED.**
+AS-108 remains P0 before AS-201. No AS-108 validation outcome is computed here.
+
+Frozen objective: **retrospective observational-consistency case study**, one event,
+not biological accuracy. EAD **Marine Water Quality Report 2023**, listed
+**21 November 2024**, documents a Raha Beach Red Tide incident in **April 2023**.
+Timing **MONTH_LEVEL**; lead-time status **MONTH_LEVEL_ONLY**, exact days early not
+estimable. Spatial precision **AREA_LEVEL_ONLY**; AOI/event relationship
+**AREA_LEVEL_CONTEXTUAL_ALIGNMENT**. Al Raha remains analyst-defined, not an EAD
+incident/sampling footprint or confirmed desalination intake. EAD species/toxin
+context stays external: Pseudo-nitzschia multistriata / domoic acid; incident toxin
+measurement NOT ESTABLISHED; AquaSentinel species/toxin inference NONE.
+
+PRE `[2023-03-01,2023-04-01)` retains March 4/9/14/24/29 as descriptive context,
+never self-baseline-scored or biological negatives. EVENT `[2023-04-01,2023-05-01)`
+retains April 3 through accepted AS-105 and April 28 through accepted AS-107.
+POST `[2023-05-01,2023-06-01)` requires one future metadata-selected **earliest
+compatible May acquisition** before pixels; no fallback, honest UNAVAILABLE allowed.
+Same AOI, cloud <=30%, 40RBN/orbit20, exact PC05.09 match and full grid/upstream
+contract. No May metadata or pixels retrieved in M42; no frozen policy adjusted.
+
+Immutable April 28 reference: `hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb`;
+**29.52380952380953 / Watch**, completeness/coverage **0.7/0.7**,
+`provisional_observational_screening`, **Review on the next valid acquisition**,
+A/B/C **7/7/0**. No rerun or new historical-validation classification in this task.
+Decisions 050/051/052 and accepted EO evidence remain unchanged. No Decision 054.
+
+Prepared on documentation branch `docs/as-108-design-freeze`, worktree
+`/workspace/aquasentinel-813-as108-m42`; current active scientific development branch:
+none. Immediate next step: owner review of Decision 053/design, with separate
+PR/merge authorization; then separately authorize **M43 metadata-only POST selection**.
+Validation execution, AS-201, future AS-105 policy validation and P1 05.10 NOT STARTED.
+Deadline 11 October 2026 (Asia/Dubai): protect oil P0, demo and presentation.
+M42 engineering quality: **1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS**; no GitHub CI-success claim.
+New documentary/EO metadata/assets/real scientific calls: **0**.
+
+See [AS-108 contract](AS_108_HAB_HISTORICAL_VALIDATION.md), [freeze evidence](evidence/AS_108_DESIGN_FREEZE.md),
+and [machine-readable design](evidence/AS_108_DESIGN_FREEZE.json). Earlier dated status/milestone bodies
+remain historical; their original unstarted/unmerged wording describes that time.
+
+## Historical AS-107 M40 closeout preparation — before PR #25 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: CLOSEOUT READY. M40 / E40 / EV-044: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
 This is the pre-merge closeout preparation state, not a claim that AS-107 is
@@ -1585,6 +1634,42 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Five-driver denominator/contribution table plus separate Watch/completeness/coverage cards and a freeze → implementation → acceptance → publication chain. Proposed visual only; no screenshot or figure is claimed to exist.
 - **Candidate slide title:** “A Watch result we can explain — without pretending it proves a bloom.”
 
+### M41 — Historical read-only validation feasibility / source audit — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M41 / E41 / EV-045, retrospectively documented during M42. M41 changed no repository file and created no branch/commit.
+- **Problem / question:** What could existing EO evidence legitimately establish about the documented Raha Beach April 2023 event?
+- **Why it mattered:** Month-level reporting and analyst AOI context cannot support precise onset lead time or biological pixel accuracy.
+- **Options considered:** Full before/event/after biological validation versus a narrow observational case; exact timing versus explicit unavailable lead time.
+- **Decision:** Recommend REVISE before freeze, pending source verification and explicit POST/causal PRE scope. No Decision in M41.
+- **Rationale:** Keep ground truth separate from reproducible satellite engineering and avoid fabricating missing May or negative labels.
+- **Implementation / experiment:** Read-only Git/contracts/cache-manifest/stage inventory; six documentary source attempts blocked by proxy403. No EO query, array loading or science.
+- **Evidence:** Historical M41 owner-reviewed chat audit; preserved local read-only audit; its facts transcribed in [M42 freeze](evidence/AS_108_DESIGN_FREEZE.md#historical-m41-and-numbering). No separate M41 repository publication existed.
+- **Quantitative result:** Seven accepted AS-102 caches; five March AS-103 references; April 3 through AS-105, April 28 through AS-107; May summary metadata but no accepted May product; zero EO/scientific calls.
+- **Limitation:** EAD PDF inaccessible inside Codex; title/report-year/location/time/toxin passage not independently verified there; complete March–May product inventory not retained.
+- **Lesson learned:** PRE dates are not negatives, POST cannot be invented and available Watch output is not biological ground truth.
+- **Impact on next step:** Owner subsequently verified EAD listing/PDF outside Codex and supplied those facts for M42. This later resolution does not rewrite the M41 blocker.
+- **Presentation takeaway:** Validate only the claim the reference can support.
+- **Recommended visual:** Proposed source-precision and stage-availability matrix; no screenshot/visual claimed to exist.
+- **Candidate slide title:** “What the historical reference can—and cannot—tell us.”
+
+### M42 — Freeze the retrospective observational-consistency case — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M42 / E42 / EV-046; Decision 053; base PR #25 `14149113e58788621d6aef91f039b95781c67434`.
+- **Problem / question:** How can a one-event retrospective case be evaluated without outcome-dependent dates, policies or unsupported biological claims?
+- **Why it mattered:** Credibility before the 11 October deadline requires a narrow, denominator-aware design and preservation of inconvenient results.
+- **Options considered:** Broad accuracy/multi-event study versus minimum P0 case; independent PRE scoring versus descriptive fixed March context; chosen-looking May scene versus earliest compatible metadata-selected attempt.
+- **Decision:** Decision 053 FINAL / FROZEN DESIGN — NOT EXECUTED; March descriptive, both April observations, one future May attempt, null/unavailable outcomes retained.
+- **Rationale:** Freeze scene roles, eligibility and reporting before new outcomes; source month/area precision constrains claims, not policy tuning.
+- **Implementation / experiment:** Documentation/schema only. Owner-supplied independent EAD verification resolves M41 source access blocker; no external research/EO/scientific execution here.
+- **Evidence:** [Decision 053](DECISIONS.md#decision-053--as-108-historical-validation-contract), [AS-108 contract](AS_108_HAB_HISTORICAL_VALIDATION.md), [M42 evidence](evidence/AS_108_DESIGN_FREEZE.md), [JSON](evidence/AS_108_DESIGN_FREEZE.json).
+- **Quantitative result:** One event, five PRE records, two EVENT records, one future attempted POST; EAD reports 23 incidents in 2023 but that count is not a labeled validation dataset. 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS. No new validation outcome or score.
+- **Limitation:** Month-only onset, area-only context, no incident toxin measurement, no biological negatives/accuracy/lead time; correlated features, sparse/shared histories, long gaps, missing operational components and possible POST unavailability remain.
+- **Lesson learned:** A frozen limited study is stronger than a broad unsupported accuracy claim; missing evidence must stay visible.
+- **Impact on next step:** Separate owner review/PR/merge approval, then separately authorize M43 metadata-only earliest-May selection before any pixels. AS-201 and validation execution NOT STARTED.
+- **Presentation takeaway:** Freeze the evaluation before looking at new outcomes. EAD names the event/species/toxin association; AquaSentinel explains observational signals without pretending to identify species or toxin.
+- **Recommended visual:** Proposed external-reference versus satellite-evidence lanes and PRE/EVENT/POST availability timeline. No screenshot/figure claimed to exist.
+- **Candidate slide title:** “An honest historical case, designed before the next result.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1614,6 +1699,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | 9 Oct AS-105 offline authorization | 050 | Frozen rank/direction family-aware P0 candidate geometry; explicit support denominator, exact pixel polygons and parent lineage | Explainable heuristic before separately authorized real acceptance/policy comparison | M28/E28/EV-032; synthetic-only PASS, uncommitted |
 | 10 Oct owner-approved design freeze | 051 | Consecutive-valid exact-pixel recurrence; invalid UNKNOWN, noncandidate breaks; no gap cutoff | Preserve AS-105 integrity validation, immediate geometry lineage, explicit history denominators and predeclared fixed-March April selection | [Frozen AS-106 design](AS_106_PERSISTENCE.md); DESIGN ONLY, implementation and M31–M35 NOT STARTED |
 | 10 Oct owner-approved design freeze | 052 | Availability-aware provisional HAB-like screening; evidence completeness separate from score/band | Missing is unavailable, correlated evidence disclosed; freeze before any real score | M37/E37/EV-041; FINAL / FROZEN DESIGN, NOT IMPLEMENTED |
+| 10 Oct AS-108 M42 | Decision 053 | Freeze one-event observational consistency, owner-verified EAD month/area reference, descriptive PRE, retained EVENT and earliest metadata-selected POST | No biological accuracy/exact lead time or new science; protect minimum P0 and oil/demo deadline | M42/E42/EV-046 |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -1662,6 +1748,8 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E38 | [M38 evidence](evidence/AS_107_IMPLEMENTATION_VALIDATION.md); EV-042 | Frozen as107-v1 implementation; 292 focused/1285 full tests; exact scalar/identity/lineage/tamper/side-effect controls PASS | Synthetic engineering only; no real score or M39/M40/AS-108; Decision 052 unchanged |
 | E39 | [M39 real acceptance](evidence/AS_107_REAL_ACCEPTANCE.md); [JSON](evidence/AS_107_REAL_ACCEPTANCE.json); EV-043 | First real frozen-policy score 29.52380952380953 / Watch; completeness/coverage .7/.7; independent arithmetic/hash/repeat/tamper/fresh sealed roundtrip PASS | Provisional screening, not biology; context/exposure unavailable; M40/AS108 not started |
 | E40 | [M40 closeout](evidence/AS_107_CLOSEOUT.md); [JSON](evidence/AS_107_CLOSEOUT.json); EV-044 | Verified PR #22–#24 merge chain, unchanged accepted Watch .7/.7 result and protected hashes/modes; durable closeout effective on future merge; 1285 full tests PASS (104.18s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/new-file whitespace/credential/preservation PASS | Documentation/engineering only, no new biology or scoring; AS-107 CLOSEOUT READY before closeout merge; AS-108 NOT STARTED |
+| E41 | Historical read-only M41 audit, recorded during M42; EV-045 | Existing metadata/product feasibility; source access blocked, missing POST and causal PRE limitations surfaced | No repository edits in M41, no independently retrieved EAD passage, no EO/scientific execution |
+| E42 | [Decision 053](DECISIONS.md#decision-053--as-108-historical-validation-contract); [M42 freeze](evidence/AS_108_DESIGN_FREEZE.md); EV-046 | Owner-verified documentary reference and deterministic phase/eligibility/denominator/claim contract; 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | Frozen design only, no case classification/science or PR/merge; AS-201 NOT STARTED |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
