@@ -1,0 +1,131 @@
+{
+  "schema_version": "as201-m50-stac-geometry-boundary-v1",
+  "semantic": {
+    "schema_version": "as201-m50-stac-geometry-boundary-v1",
+    "milestone": "M50",
+    "engineering_entry": "E50",
+    "evidence_id": "EV-054",
+    "base_sha": "29b7b46edc877a50645865aad4a1e9f62d34d6f5",
+    "branch": "fix/as-201-stac-geometry-boundary",
+    "result": "OFFLINE_INTEROPERABILITY_CORRECTION_COMPLETE",
+    "root_cause": {
+      "stage": "D: client.search(...)",
+      "operation": "pystac-client intersects deepcopy reconstruction",
+      "exception_class": "TypeError",
+      "exception_text": "AS-201 metadata is immutable.",
+      "classification": "IMMUTABLE_INTERNAL_GEOMETRY_AT_MUTABLE_CLIENT_BOUNDARY",
+      "provider_metadata_defect": false,
+      "pystac_version": "1.15.2",
+      "pystac_client_version": "0.9.0"
+    },
+    "correction": {
+      "production_file": "src/aquasentinel/ingestion/sentinel1_resolver.py",
+      "test_file": "tests/ingestion/test_sentinel1_contract.py",
+      "conversion": "json.loads(json.dumps(ENVELOPE_GEOMETRY, allow_nan=False))",
+      "providers": [
+        "CDSE",
+        "Planetary Computer"
+      ],
+      "envelope_geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              49.6,
+              28.6
+            ],
+            [
+              50.7,
+              28.6
+            ],
+            [
+              50.7,
+              29.6
+            ],
+            [
+              49.6,
+              29.6
+            ],
+            [
+              49.6,
+              28.6
+            ]
+          ]
+        ]
+      },
+      "frozen_policy_immutable": true,
+      "boundary_plain_dict_list_finite_JSON": true,
+      "boundary_has_no_frozen_source_aliases": true,
+      "optical_behavior_changed": false,
+      "shared_STAC_behavior_changed": false,
+      "dependency_changes": false,
+      "scientific_policy_changes": false
+    },
+    "offline_regression": {
+      "new_tests": [
+        "test_search_geometry_is_independent_plain_json_for_both_providers",
+        "test_search_geometry_real_client_construction_and_pagination_offline"
+      ],
+      "original_immutable_TypeError_reproduced": true,
+      "real_Client_search_deepcopy_succeeds_after_conversion": true,
+      "only_HTTP_layer_mocked_in_client_integration": true,
+      "synthetic_search_pages_per_provider": 3,
+      "resolved_synthetic_source_slots": 6,
+      "optical_cloud_query_absent": true,
+      "frozen_root_and_nested_mutation_rejected": true,
+      "boundary_mutation_leaves_frozen_geometry_unchanged": true
+    },
+    "historical_M49": {
+      "AS201_LIVE_ACCEPTANCE": "FAIL",
+      "evidence_files": [
+        "docs/evidence/AS_201_LIVE_ACCEPTANCE.md",
+        "docs/evidence/AS_201_LIVE_ACCEPTANCE.json"
+      ],
+      "evidence_byte_identical": true,
+      "full_live_acceptance_retried": false,
+      "six_source_live_readiness_established_by_M50": false
+    },
+    "preservation": {
+      "Decisions_050_through_054_byte_identical": true,
+      "FrozenJSON_and_ENVELOPE_GEOMETRY_policy_byte_identical": true,
+      "shared_catalog_and_optical_production_byte_identical": true,
+      "all_prior_accepted_evidence_except_continuity_index_byte_identical": true,
+      "protected_external_file_hashes_verified": 44,
+      "protected_modes_verified": 57,
+      "complete_stash_inventory_unchanged": true,
+      "stash_count": 3,
+      "new_raster_cache_products": 0,
+      "external_recovery_artifacts_retained": true
+    },
+    "quality_gates": {
+      "focused_tests_passed": 136,
+      "full_tests_passed": 1434,
+      "historical_Rasterio_PendingDeprecationWarnings": 6,
+      "ruff": "PASS",
+      "diff_and_new_file_whitespace": "PASS",
+      "strict_JSON_and_independent_digest_repeat": "PASS",
+      "credential_signed_URL_scan": "PASS",
+      "preservation_audit": "PASS",
+      "GitHub_CI_success_claimed": false
+    },
+    "accounting": {
+      "provider_requests": 0,
+      "CDSE_requests": 0,
+      "PC_requests": 0,
+      "token_signing_requests": 0,
+      "TIFF_requests": 0,
+      "XML_requests": 0,
+      "SAR_pixel_read_calls": 0,
+      "SAR_pixel_bytes": 0,
+      "scientific_SAR_compute_calls": 0
+    },
+    "boundaries": {
+      "AS_202": "NOT_STARTED",
+      "Decision_055": "ABSENT",
+      "PR_created_in_M50": false,
+      "merge_performed_in_M50": false
+    }
+  },
+  "semantic_sha256": "a9df1d3507b347113036ef82edc5a9909d46c47d2cb9ed53591d8baf897a7004",
+  "canonicalization": "semantic only; sorted keys; compact separators; UTF-8; ensure_ascii=false; allow_nan=false; stable array order"
+}

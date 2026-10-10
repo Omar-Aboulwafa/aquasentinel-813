@@ -467,19 +467,21 @@ def search_sentinel1(settings: SARConfig) -> Sentinel1RetrievalSet:
     interval = (
         f"{start.isoformat().replace('+00:00', 'Z')}/{end.isoformat().replace('+00:00', 'Z')}"
     )
+    # pystac-client deep-copies intersects; keep frozen policy metadata internal.
+    geometry = json.loads(json.dumps(ENVELOPE_GEOMETRY, allow_nan=False))
     discovery = search_catalog(
         STACConfig(
             settings.discovery_endpoint,
             settings.discovery_collection,
             settings.timeout_seconds,
         ),
-        intersects=ENVELOPE_GEOMETRY,
+        intersects=geometry,
         datetime_interval=interval,
         query=None,
     )
     access = search_catalog(
         STACConfig(settings.access_endpoint, settings.access_collection, settings.timeout_seconds),
-        intersects=ENVELOPE_GEOMETRY,
+        intersects=geometry,
         datetime_interval=interval,
         query=None,
     )
