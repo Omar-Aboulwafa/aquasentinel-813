@@ -1,6 +1,55 @@
 # AS-106 — Persistence: Frozen Design
 
-## Current AS-106 M32 metadata inventory — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M33 upstream preparation — 10 October 2026 (Asia/Dubai)
+
+**M31: COMPLETE / MERGED via PR #17. M32: COMPLETE / MERGED via PR #18.**
+Official M33 base: `200affdb7fb6f8801744a192511e4200cc0d100d`. **M33 / E33 / EV-037:
+APRIL-3 UPSTREAM PREPARATION + VERIFIED HANDOFF PASS / COMPLETE.** Prepared on
+`data/as-106-april3-upstream-preparation`; no algorithm development or new Decision.
+Decisions 050/051 remain frozen; Decision 052 absent.
+
+The M32 sequence remains April 3 + April 28, selection SHA-256
+`570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`. Only the exact April 3 observation
+`2023-04-03T06:46:21.024000Z` was newly processed through existing AS-102→103→104→105,
+using the frozen PC 05.09 product, fixed five March references and unchanged policy.
+April 28 was reconstructed read-only for comparison/integrity, not newly extracted.
+
+April 3: AS-102 valid water **6,096**; all six AS-103 features valid **6,096**;
+AS-104 five-history eligible support **784/794/793/793/793/789** in canonical feature
+order; zero-MAD counts **0**. Common April 3/April 28 comparison contract **PASS**.
+AS-105 policy-evaluable **P = 794**, candidates **88**, candidate/P **11.083123%**,
+**15 regions / 35,200 m²**. This is frozen observational anomaly geometry, not HAB
+confirmation. No date or threshold was changed after seeing the result.
+
+The separate external read-only M33 handoff stores **88 arrays** plus typed metadata.
+Fresh offline reconstruction of both April dates **PASS**; April 3 typed parent-aware
+geometry validation, semantic hashes/IDs/statistics/regions **PASS**. Network, public
+extraction and recurrence entrypoints were blocked in that readiness test; their
+call counts are zero. Existing validator regeneration is an integrity check only.
+
+**408 focused / 993 full tests PASS; Ruff PASS; diff/new-file whitespace PASS**;
+six existing full-suite Rasterio PendingDeprecationWarnings. Local checks, not CI.
+No source/test/config/dependency change. Pre-existing accepted caches, April 28
+handoff/M29 bundle, M32 inventory, both safety stashes and recovery material remain
+byte-identical; historical permissions retained. New April 3 cache/handoff stay out
+of Git. No credentials/signed asset URLs persisted.
+
+Foundation/continuity complete → AS-101/102/103/104/105 merged → Decisions
+048/049/050/051 retained → AS-106 M31 offline implementation merged → M32 frozen
+metadata inventory merged → **M33 April 3 upstream preparation complete** →
+**M34 INPUTS READY; owner review and separate M34 authorization required**.
+**M34 / M35: NOT STARTED. REAL AS-106 ACCEPTANCE: NOT RUN.** AS-106 is not yet
+complete. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+No PR or merge in this task. Immediate priority: owner review of M33 evidence and
+verified handoffs before separately authorizing real recurrence acceptance.
+
+See [M33 evidence](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md) and
+[normalized evidence](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json).
+The dated M32/M31/design and older status sections below are historical checkpoints;
+their earlier missing/unstarted/authorization states are retained, not current.
+M33 evidence publication is not M35.
+
+## Historical AS-106 M32 metadata inventory — before PR #18 merge — 10 October 2026 (Asia/Dubai)
 
 **M31: COMPLETE AND MERGED** via PR #17 at implementation merge commit
 `723e13a900dba30b73a8a2da39df1d984233a2f4`. **M32 / E32 / EV-036: METADATA-ONLY APRIL
@@ -417,3 +466,24 @@ preparation failure instead of dropping dates. M33–M35 NOT STARTED; real AS-10
 acceptance NOT RUN; AS-107+/P1 05.10 NOT STARTED; future policy validation NOT RUN.
 No recurrence/scientific output, raster/cache modification, Decision 052, PR or
 merge is part of M32. The earlier design/M31 body remains historical and unchanged.
+
+## M33 executed upstream preparation — separate from frozen design
+
+Goal: prepare only the missing frozen April 3 observation through unchanged
+AS-102→103→104→105 and verify a read-only typed handoff for future M34. Inputs:
+exact M32 April 3 CDSE/PC 05.09 identities, existing Al Raha grid, accepted five
+March references, Decisions 050/051. Outputs: new local AS-102 cache, external
+88-array temporal/geometry handoff, normalized evidence and eight docs paths.
+Dependencies/source/tests/config: no change.
+
+Production ingestion/decoding/grid/cache and feature/temporal/geometry validators
+PASS; 18/18 independent scalar checks, repeat/causality, explicit April 28 common
+contract, independent candidate-mask reproduction and geometry roundtrip PASS.
+Fresh offline typed reconstruction for April 3 and accepted April 28 PASS with
+network/public extraction/recurrence blocked. P794 / 88 candidates / 15 regions;
+no output-driven date or policy change. All protected prior artifacts unchanged.
+408 focused / 993 full tests, Ruff/whitespace/security PASS.
+
+See M33 evidence/JSON for exact IDs, scientific values, audit bounds, hashes and
+external adapter recovery. M33 complete; M34 INPUTS READY, separately authorized
+real recurrence NOT RUN; M34/M35 NOT STARTED. No Decision 052, PR or merge.

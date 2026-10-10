@@ -1,6 +1,55 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-106 M32 metadata inventory — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M33 upstream preparation — 10 October 2026 (Asia/Dubai)
+
+**M31: COMPLETE / MERGED via PR #17. M32: COMPLETE / MERGED via PR #18.**
+Official M33 base: `200affdb7fb6f8801744a192511e4200cc0d100d`. **M33 / E33 / EV-037:
+APRIL-3 UPSTREAM PREPARATION + VERIFIED HANDOFF PASS / COMPLETE.** Prepared on
+`data/as-106-april3-upstream-preparation`; no algorithm development or new Decision.
+Decisions 050/051 remain frozen; Decision 052 absent.
+
+The M32 sequence remains April 3 + April 28, selection SHA-256
+`570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`. Only the exact April 3 observation
+`2023-04-03T06:46:21.024000Z` was newly processed through existing AS-102→103→104→105,
+using the frozen PC 05.09 product, fixed five March references and unchanged policy.
+April 28 was reconstructed read-only for comparison/integrity, not newly extracted.
+
+April 3: AS-102 valid water **6,096**; all six AS-103 features valid **6,096**;
+AS-104 five-history eligible support **784/794/793/793/793/789** in canonical feature
+order; zero-MAD counts **0**. Common April 3/April 28 comparison contract **PASS**.
+AS-105 policy-evaluable **P = 794**, candidates **88**, candidate/P **11.083123%**,
+**15 regions / 35,200 m²**. This is frozen observational anomaly geometry, not HAB
+confirmation. No date or threshold was changed after seeing the result.
+
+The separate external read-only M33 handoff stores **88 arrays** plus typed metadata.
+Fresh offline reconstruction of both April dates **PASS**; April 3 typed parent-aware
+geometry validation, semantic hashes/IDs/statistics/regions **PASS**. Network, public
+extraction and recurrence entrypoints were blocked in that readiness test; their
+call counts are zero. Existing validator regeneration is an integrity check only.
+
+**408 focused / 993 full tests PASS; Ruff PASS; diff/new-file whitespace PASS**;
+six existing full-suite Rasterio PendingDeprecationWarnings. Local checks, not CI.
+No source/test/config/dependency change. Pre-existing accepted caches, April 28
+handoff/M29 bundle, M32 inventory, both safety stashes and recovery material remain
+byte-identical; historical permissions retained. New April 3 cache/handoff stay out
+of Git. No credentials/signed asset URLs persisted.
+
+Foundation/continuity complete → AS-101/102/103/104/105 merged → Decisions
+048/049/050/051 retained → AS-106 M31 offline implementation merged → M32 frozen
+metadata inventory merged → **M33 April 3 upstream preparation complete** →
+**M34 INPUTS READY; owner review and separate M34 authorization required**.
+**M34 / M35: NOT STARTED. REAL AS-106 ACCEPTANCE: NOT RUN.** AS-106 is not yet
+complete. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+No PR or merge in this task. Immediate priority: owner review of M33 evidence and
+verified handoffs before separately authorizing real recurrence acceptance.
+
+See [M33 evidence](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md) and
+[normalized evidence](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json).
+The dated M32/M31/design and older status sections below are historical checkpoints;
+their earlier missing/unstarted/authorization states are retained, not current.
+M33 evidence publication is not M35.
+
+## Historical AS-106 M32 metadata inventory — before PR #18 merge — 10 October 2026 (Asia/Dubai)
 
 **M31: COMPLETE AND MERGED** via PR #17 at implementation merge commit
 `723e13a900dba30b73a8a2da39df1d984233a2f4`. **M32 / E32 / EV-036: METADATA-ONLY APRIL
@@ -1117,6 +1166,24 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Two-date metadata timeline, tile/orbit exclusion funnel and stage-availability table with ZERO IMAGERY badge; visual capture pending, no screenshot created.
 - **Candidate slide title:** “Choose dates before seeing anomaly outcomes.”
 
+### M33 — Frozen April 3 upstream preparation and verified handoff — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M33 / E33 / EV-037; base `200affdb7fb6f8801744a192511e4200cc0d100d`, branch `data/as-106-april3-upstream-preparation`. Preparation and later Git publication are separate events.
+- **Problem / question:** Can the only missing predeclared April acquisition be prepared under unchanged production contracts and handed off offline for future recurrence?
+- **Why it mattered:** Recurrence inputs must include every frozen eligible date, not only convenient anomaly results; metadata-key presence cannot prove usable native pixels.
+- **Options considered:** Existing bounded production path versus custom downloader/full tile; exact PC 05.09 versus substitution; fixed references/policy versus tuning; typed verified bundle versus relying on scalar logs. Existing path and frozen identities/contracts retained.
+- **Decision:** Execute owner-authorized M33 only; no new scientific/architectural Decision, no recurrence computation.
+- **Rationale:** Establish real upstream availability and common-contract integrity before separately authorized M34; preserve accepted April 28 evidence.
+- **Implementation / experiment:** Exact April 3 ingestion, XML decoding, AOI COG reads, AS-103/104/105; five March features reconstructed offline; real registry, repeated/scalar/causal/candidate/rasterization validations; external read-only 88-array handoff and fresh offline typed test.
+- **Evidence:** [M33 record](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md), [JSON](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json), E33/EV-037; exact unchanged M32 digest.
+- **Quantitative result:** 6,096 valid-water pixels; six feature supports 6,096; temporal eligible 784/794/793/793/793/789, zero MAD 0; P794, 88 candidates (11.083123% of P), 15 regions, 35,200 m². Common contract PASS; 18/18 scalar checks; 88/88 offline array checks; 408 focused / 993 full tests PASS, six existing warnings; Ruff/diff/credential PASS. Seven observed Python HTTP operations plus ten bounded native COG reads; internal GDAL HTTP counts/bytes not measured.
+- **Limitation:** ~13% target-water policy support; five shared March references are not statistical sufficiency/independent confirmation; rank not probability/confidence/severity. No HAB/biology/recurrence/risk/accuracy claim; future policy validation NOT RUN.
+- **Lesson learned:** JSON list/tuple coordinates and legacy display fields require canonical equality/explicit typed projection; initial external adapter assertions failed, then passed without source/scientific changes or new remote processing. Retained old logs/artifacts.
+- **Impact on next step:** Both frozen April dates have compatible reconstructable typed inputs. M34 INPUTS READY, not M34 PASS; owner review and separate authorization required. M34/M35/AS-107+/P1 05.10 NOT STARTED.
+- **Presentation takeaway:** Preserve dates and policy first, then report the observed support/result and prove offline reconstruction.
+- **Recommended visual:** Two-date stage-readiness diagram with support denominators and handoff checksum card; capture pending, no screenshot claimed.
+- **Candidate slide title:** “Two frozen observations, verified inputs — recurrence still gated.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1185,6 +1252,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E30 | PR #14; M30/EV-034; [merge closeout](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m30--pr-14-merge-and-as-105-closeout--10-october-2026) | AS-105 implementation and accepted real engineering evidence merged at `24a260cff130238c731f7cb62fc47eb74230b4dc`; original source/tests, external artifacts and historical records preserved | New scientific validation, optimized policy, HAB detection, CI success or next-milestone authorization |
 | E31 | [M31 offline validation](evidence/AS_106_PERSISTENCE_VALIDATION.md); Decision 051; M31/EV-035 | Pure exact-pixel consecutive-valid recurrence; typed timing/denominators/regions, parent-aware integrity and AS-105-only lineage; 190 focused/993 full tests PASS | Real recurrence/April acceptance, biological continuity/HAB, accuracy, risk/confidence, CI success or M32–M35 authorization |
 | E32 | [M32 metadata evidence](evidence/AS_106_APRIL_METADATA_INVENTORY.md); [normalized inventory](evidence/AS_106_APRIL_METADATA_INVENTORY.json); Decision 051; M32/EV-036 | Metadata-first April 3/28 sequence frozen before anomaly inspection; 12 CDSE records, 2 eligible PC 05.09 products, zero imagery; April 3 upstream stages missing | Raster/pixel usability, real recurrence, biological persistence/HAB, risk/confidence, CI or M33–M35 authorization |
+| E33 | [M33 upstream record](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md); [JSON](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json); M33/EV-037 | Exact April 3 AS-102→103→104→105; typed offline handoff and common contract PASS; 408 focused/993 full tests | Frozen sequence preserved; M34 inputs ready, recurrence NOT RUN; no scientific/architectural Decision |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
