@@ -1,6 +1,56 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-107 M38 offline implementation — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M39 real engineering acceptance — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED.
+M38: IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION COMPLETE / MERGED** through
+PR #23 at `7f304bb44af93d2b3a1a3e6982fefad05fb8f452`, with parents
+`49f5276b1ad372725b21cdb2085815225c98eed4` and
+`55533467393f394d6cb3f856b439f41fde4b0148`.
+**M39 / E39 / EV-043: REAL ENGINEERING ACCEPTANCE PASS.** First real computation
+used unchanged accepted April 3/28 typed parents, offline, under the pre-score
+frozen policy. Exactly three public AS-107 calls; no public upstream rerun.
+
+Under the frozen AS-107 observational screening policy, the April 28 validation AOI produced a **Watch observational screening score of 29.52380952380953**, with evidence completeness **0.7** and component coverage **0.7**. Environmental context and intake exposure remain unavailable. The result is provisional observational screening, not confirmed HAB or operational water-safety determination.
+
+Accepted product: `hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb`.
+Input fingerprint: `084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91`.
+Output fingerprint: `25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae`.
+The sole seven-pixel / 2,800 m² authoritative region has family a=(7,7,7,7,7),
+v=(0,7,0,7,0); spectral 14/35 → 40.0; red-edge 7/21 → 33.333333333333336;
+persistence A/B/C=7/7/0 → 0.0. F_all=F_red=H=1.0; completeness is capped by
+K=0.7, not a biological probability. Flag: incomplete_evidence. Recommendation:
+**Review on the next valid acquisition**. No same-pixel candidate recurrence was
+observed among the 7 target candidate pixels with valid prior observational history;
+this proves neither no HAB nor safe water nor zero biological persistence/risk.
+
+Independent integer/binary64 arithmetic, fingerprints/identity, same/reversed-order
+repeats, creation-time exclusion, full parent-aware validation, 13 ordinary plus
+3 attacker-rehashed tamper rejections, immutability/non-aliasing and sealed fresh
+process roundtrip: PASS. Scientific network/metadata/assets/EO bytes: 0.
+Decisions 050/051/052, production source/tests/config/dependencies, accepted upstream
+evidence, 41 protected external hashes, 53 modes and both safety stashes preserved.
+Final M39 engineering quality gate: **292 focused tests PASS (43.61s); 1285 full tests PASS (103.96s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/credential/preservation PASS.** Local engineering checks, no GitHub CI-success claim.
+
+Evidence prepared on `data/as-107-real-acceptance`, worktree
+`/workspace/aquasentinel-813-as107-m39`, directly from verified PR #23 main.
+Authorized evidence commit/push is for owner review; no PR or merge in M39.
+Next: owner review of published M39 evidence; PR creation and M40 closeout require
+separate authorization. **M40 and AS-108 NOT STARTED**; future AS-105 policy
+validation NOT RUN; P1 homogeneous 05.10 robustness NOT STARTED. No Decision 053.
+Weights/bands/candidate/recurrence policy were not adjusted after seeing the outcome.
+No biological calibration/accuracy, species/toxins, measured chlorophyll, probability,
+calibrated confidence, water safety, intake shutdown, complete operational risk or
+lead-time claim. BOA is not aquatic Rrs; correlated red-edge emphasis, sparse/shared
+five-history support, long two-date gap and candidate-conditioned maximum remain
+limitations. Al Raha is an analyst-defined validation AOI, not a confirmed intake.
+
+See [M39 evidence](evidence/AS_107_REAL_ACCEPTANCE.md) and
+[machine-readable audit](evidence/AS_107_REAL_ACCEPTANCE.json).
+All earlier dated M36–M38/current-status sections below are historical checkpoints;
+their absent-score/unstarted/unmerged wording describes their original time.
+
+## Historical AS-107 M38 offline implementation — before PR #23 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED** via
 PR #22, implementation base `49f5276b1ad372725b21cdb2085815225c98eed4`.
@@ -1444,6 +1494,24 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Synthetic-only five-driver/completeness and tamper-rejection diagram; proposed, capture pending, no real score graphic.
 - **Candidate slide title:** “The score can explain itself — and prove where it came from.”
 
+### M39 — First real provisional observational screening result — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M39 / E39 / EV-043; PR #23 main `7f304bb44af93d2b3a1a3e6982fefad05fb8f452`. First call 2026-10-10T13:04:58.495566+00:00 → 2026-10-10T13:04:58.732346+00:00 UTC; later publication separate.
+- **Problem / question:** Does the already frozen as107-v1 policy reproducibly consume accepted real AS105/106 evidence without tuning around its outcome?
+- **Why it mattered:** A demo score needs auditable denominators, explicit missingness and engineering reproducibility; biological truth cannot be inferred from arithmetic success.
+- **Options considered:** Only the frozen policy was authorized; no weight/band/threshold/source/date/recurrence alternatives were tried after result inspection.
+- **Decision:** Execute Decision 052 unchanged, offline; no Decision 053. M39 acceptance is distinct from M40 closeout and AS108 biological calibration.
+- **Rationale:** Preserve the first output and compare it with an independent oracle rather than optimize the band for presentation.
+- **Implementation / experiment:** Fresh temporary sealed-schema typed reconstruction; pre-score policy digest; three public calls, independent counts/arithmetic/framing, full validators, 13 ordinary/3 attacker-rehashed controls and sealed fresh-process roundtrip.
+- **Evidence:** [M39 report](evidence/AS_107_REAL_ACCEPTANCE.md), [JSON](evidence/AS_107_REAL_ACCEPTANCE.json), sealed external bundle `/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb`.
+- **Quantitative result:** One seven-pixel region, a=(7,7,7,7,7), v=(0,7,0,7,0); S=40.0, E=33.333333333333336, T=0.0; score 29.52380952380953 / Watch; coverage/completeness 0.7/0.7; F_all/F_red/H=1/1/1. Independent exact binary64/IDs/fingerprints/repeats/tamper/preservation PASS; scientific requests/downloads zero.
+- **Limitation:** Context/exposure unavailable; correlated red-edge emphasis and uncalibrated hypotheses; seven candidates within sparse five-history support; two dates/25-day gap, no biology/accuracy/water-safety/intake/lead-time validation.
+- **Lesson learned:** Available persistence=0 is distinct from missing evidence; full regional availability cannot make missing context/exposure complete. Watch does not mean safe water.
+- **Impact on next step:** Owner review of published M39 evidence; PR/M40 and AS108 separately gated, NOT STARTED. Future AS105 policy study NOT RUN; P1 05.10 NOT STARTED.
+- **Presentation takeaway:** Under the frozen AS-107 observational screening policy, the April 28 validation AOI produced a Watch observational screening score of 29.52380952380953, with evidence completeness 0.7 and component coverage 0.7. Environmental context and intake exposure remain unavailable. The result is provisional observational screening, not confirmed HAB or operational water-safety determination.
+- **Recommended visual:** Five-driver denominator/contribution table beside separate 29.52380952380953 / Watch and .7 completeness/coverage card; prominent provisional/context/exposure label. Proposed, capture pending; no screenshot created.
+- **Candidate slide title:** “A real score with its missing evidence left visible.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1519,6 +1587,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E36 | [Prior M36 audit](evidence/AS_107_DESIGN_FREEZE.md#m36--e36--ev-040--prior-read-only-audit-complete); M36/EV-040 | Typed AS-105/106 feasibility and missing-component alternatives reviewed; owner-approved revisions followed in M37 | Prior read-only audit recorded retrospectively, no real score/implementation |
 | E37 | [M37 freeze](evidence/AS_107_DESIGN_FREEZE.md); [Decision 052](DECISIONS.md#decision-052--as-107-explainable-availability-aware-hab-risk-and-evidence-completeness); EV-041 | Owner-approved scoring/completeness/qualification/lineage/test contract frozen before real scoring | Design only; M38–M40/AS-108 NOT STARTED; no scientific result or calibrated confidence |
 | E38 | [M38 evidence](evidence/AS_107_IMPLEMENTATION_VALIDATION.md); EV-042 | Frozen as107-v1 implementation; 292 focused/1285 full tests; exact scalar/identity/lineage/tamper/side-effect controls PASS | Synthetic engineering only; no real score or M39/M40/AS-108; Decision 052 unchanged |
+| E39 | [M39 real acceptance](evidence/AS_107_REAL_ACCEPTANCE.md); [JSON](evidence/AS_107_REAL_ACCEPTANCE.json); EV-043 | First real frozen-policy score 29.52380952380953 / Watch; completeness/coverage .7/.7; independent arithmetic/hash/repeat/tamper/fresh sealed roundtrip PASS | Provisional screening, not biology; context/exposure unavailable; M40/AS108 not started |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
@@ -1548,6 +1617,8 @@ Journal-task validation on 6 October 2026: the existing `.venv` used Python 3.11
 | S15 | M29 / E29 / EV-033; unchanged Decision 050 | Real reproducible seven-pixel candidate anomaly geometry, F2/F4 agreement, 2,800 m² projected-grid candidate area on P=802; observed coarse ranks | No known-event comparison, biological causation, HAB/bloom/concentration, accuracy/false positives, risk/confidence or operational inference; sparse support and five-history limitations remain |
 
 No measured HAB accuracy, false-positive rate, temporal lead time, intake exposure, or avoided loss is available in the repository. The presentation must distinguish motivation, planned method, measured engineering evidence, and future scientific validation.
+
+M39 / E39 / EV-043 adds reproducible real provisional observational screening: Watch 29.52380952380953, completeness/coverage .7/.7, context/exposure unavailable. It adds no biological/event accuracy evidence and does not replace historical S01–S15.
 
 ## 6. Failures / blockers / pivots
 
@@ -1618,6 +1689,8 @@ Unavailable metrics: exact raster-transfer bytes, aquatic radiometric validation
 | AS-105 real geometry | One eight-connected region; one MultiPolygon, three four-connected parts; F2/F4 votes | M29 / EV-033 | Parts are not three independent regions; no biological confirmation |
 | AS-105 real rank granularity | No supported exact .90; observed threshold passers all rank 1 | M29 / EV-033 | This parent only; exact ties can yield .90 elsewhere; history-depth sensitivity required / NOT RUN |
 | AS-105 real engineering quality | 140 focused / 803 full tests, Ruff/diff PASS, six historical warnings; repeat 27/27, parent 61/61 unchanged | M29 / EV-033 | Local engineering acceptance only; no CI, accuracy, event or comparative-policy validation |
+
+| M39 real observational screening | 29.52380952380953 / Watch; completeness .7, coverage .7; S40/E33.333333333333336/T0 | M39 / E39 / EV-043 | Provisional, context/exposure unavailable; zero recurrence not biological absence/safety; no calibration |
 
 ## 8. Presentation visual / screenshot inventory
 

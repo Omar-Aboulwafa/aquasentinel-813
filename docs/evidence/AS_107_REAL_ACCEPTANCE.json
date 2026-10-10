@@ -1,0 +1,3022 @@
+{
+  "AS108": "NOT STARTED",
+  "M32_selection_digest": "570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5",
+  "M34_bundle": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+  "M40": "NOT STARTED",
+  "P1_0510": "NOT STARTED",
+  "acceptance_bundle": {
+    "directory": "/workspace/aquasentinel-acceptance/as107/m39/113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+    "directory_mode": "0555",
+    "files": {
+      "SHA256SUMS.txt": {
+        "bytes": 167,
+        "mode": "0o444",
+        "sha256": "b71ca40555544202df9a735984901377bd373f625eeb36332807455ce61aa1ab"
+      },
+      "execution.log": {
+        "bytes": 660,
+        "mode": "0o444",
+        "sha256": "d77c6307df5363cf43fa62b86e7cc4e6fa224cce4fac7bbe9dda02e34457d54c"
+      },
+      "real_acceptance.json": {
+        "bytes": 121988,
+        "mode": "0o444",
+        "sha256": "4473db7e589ee80b2e62209d59a7e16c2381a3f4783e5ebba166ccc778af0133"
+      }
+    }
+  },
+  "adapter_preflight_notes": [
+    "Temporary adapter initially omitted the canonical JSON newline in semantic hash framing; corrected before scoring.",
+    "Temporary reconstruction initially passed display-only geometry_type into the typed region; filtered to documented dataclass fields before scoring.",
+    "An unrelated temporary module-import check failed before reconstruction; no science called."
+  ],
+  "anti_outcome_tuning": "No source/test/config/dependency/policy edits before or after first result; all outcome retained",
+  "branch": "data/as-107-real-acceptance",
+  "controls": {
+    "caller_geometry_witness_policy_order_permutation": "PASS",
+    "created_at": [
+      "2026-10-10T13:04:58.725725+00:00",
+      "2026-10-10T13:07:49.090283+00:00",
+      "2026-10-10T13:07:49.319955+00:00"
+    ],
+    "creation_time_exclusion": "PASS",
+    "deterministic_same_order": "PASS",
+    "guards": {
+      "cache": 0,
+      "network": 0,
+      "public_upstream": 0,
+      "registry_mutation": 0,
+      "transport": 0
+    },
+    "independent_hashes": {
+      "excluded": "creation time/product_id excluded from semantic output; creation time excluded from identity; unconsumed reflectance/z/rank/witness arrays excluded from input",
+      "framing": "8-byte big-endian header length, canonical JSON newline, byte_count, C-order selected bytes; exact typed binary64/container encoding",
+      "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+      "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+      "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+      "status": "PASS"
+    },
+    "independent_oracle": {
+      "binary64_arithmetic": "all exact float.hex()",
+      "integer_denominators": "all exact",
+      "regions": [
+        {
+          "A_B_C": [
+            7,
+            7,
+            0
+          ],
+          "F_all": 1.0,
+          "F_red": 1.0,
+          "H": 1.0,
+          "band": "Watch",
+          "canonical_weights": [
+            0.35,
+            0.2,
+            0.15,
+            0.15,
+            0.15
+          ],
+          "completeness": 0.7,
+          "completeness_hex": "0x1.6666666666666p-1",
+          "contribution_hex": [
+            "0x1.4000000000000p+4",
+            "0x1.30c30c30c30c4p+3",
+            "0x0.0p+0",
+            null,
+            null
+          ],
+          "contributions": [
+            20.0,
+            9.523809523809526,
+            0.0,
+            null,
+            null
+          ],
+          "coverage": 0.7,
+          "coverage_hex": "0x1.6666666666666p-1",
+          "denominators": [
+            35,
+            21,
+            7,
+            null,
+            null
+          ],
+          "effective_weights": [
+            0.5,
+            0.28571428571428575,
+            0.2142857142857143,
+            0.0,
+            0.0
+          ],
+          "explanation_order": [
+            "spectral_anomaly",
+            "chlorophyll_red_edge_signal",
+            "persistence",
+            "environmental_context",
+            "intake_exposure"
+          ],
+          "family_a": [
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "family_v": [
+            0,
+            7,
+            0,
+            7,
+            0
+          ],
+          "flags": [
+            "incomplete_evidence"
+          ],
+          "numerators": [
+            14,
+            7,
+            0,
+            null,
+            null
+          ],
+          "raw_weights": [
+            0.35,
+            0.2,
+            0.15,
+            0.15,
+            0.15
+          ],
+          "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+          "score": 29.52380952380953,
+          "score_hex": "0x1.d861861861863p+4",
+          "value_hex": [
+            "0x1.4000000000000p+5",
+            "0x1.0aaaaaaaaaaabp+5",
+            "0x0.0p+0",
+            null,
+            null
+          ],
+          "values": [
+            40.0,
+            33.333333333333336,
+            0.0,
+            null,
+            null
+          ]
+        }
+      ],
+      "site_selection": "maximum raw score / completeness / ascending label; sole region",
+      "status": "PASS"
+    },
+    "lineage": {
+      "april3_pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452",
+      "edges": {
+        "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682": [
+          "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b"
+        ],
+        "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52": [
+          "temporal:71f6be2d8437e91f7cf213df0bd876897febebe630a02a20bb151a5d852edb11"
+        ],
+        "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb": [
+          "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+          "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+        ],
+        "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb": [
+          "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+          "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+        ],
+        "optical:038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1": [
+          "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736"
+        ],
+        "optical:0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6": [
+          "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311"
+        ],
+        "optical:441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499": [
+          "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452"
+        ],
+        "optical:45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee": [
+          "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334"
+        ],
+        "optical:91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2": [
+          "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741"
+        ],
+        "optical:a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644": [
+          "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958"
+        ],
+        "optical:f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2": [
+          "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938"
+        ],
+        "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66": [
+          "optical:f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2"
+        ],
+        "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130": [
+          "optical:038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1"
+        ],
+        "spectral:6bb1ee8db74f19f7fd03e1fd72c99d1c6fee88c6367b970913e341b55fa8a73c": [
+          "optical:441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499"
+        ],
+        "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7": [
+          "optical:91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2"
+        ],
+        "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5": [
+          "optical:45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee"
+        ],
+        "spectral:dae91b4dda0131ca2d2987321abd2ffd5c4b5ffb2e95a44880b7a5f9a67ea64b": [
+          "optical:0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6"
+        ],
+        "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1": [
+          "optical:a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644"
+        ],
+        "temporal:71f6be2d8437e91f7cf213df0bd876897febebe630a02a20bb151a5d852edb11": [
+          "spectral:6bb1ee8db74f19f7fd03e1fd72c99d1c6fee88c6367b970913e341b55fa8a73c",
+          "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+          "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+          "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+          "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+          "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+        ],
+        "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b": [
+          "spectral:dae91b4dda0131ca2d2987321abd2ffd5c4b5ffb2e95a44880b7a5f9a67ea64b",
+          "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+          "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+          "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+          "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+          "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+        ]
+      },
+      "immediate_source_ids": [
+        "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+        "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+      ],
+      "source_records": {
+        "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736": {
+          "acquired_at": "2023-03-04T06:47:51.024000Z",
+          "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+          "collection": "sentinel-2-l2a",
+          "license_name": "proprietary",
+          "platform": "Sentinel-2A",
+          "product_id": "S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736",
+          "record_type": "source_observation",
+          "schema_version": "1.0",
+          "source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736",
+          "source_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736"
+        },
+        "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741": {
+          "acquired_at": "2023-03-14T06:46:41.024000Z",
+          "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+          "collection": "sentinel-2-l2a",
+          "license_name": "proprietary",
+          "platform": "Sentinel-2A",
+          "product_id": "S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741",
+          "record_type": "source_observation",
+          "schema_version": "1.0",
+          "source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741",
+          "source_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741"
+        },
+        "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938": {
+          "acquired_at": "2023-03-24T06:46:21.024000Z",
+          "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+          "collection": "sentinel-2-l2a",
+          "license_name": "proprietary",
+          "platform": "Sentinel-2A",
+          "product_id": "S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938",
+          "record_type": "source_observation",
+          "schema_version": "1.0",
+          "source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938",
+          "source_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938"
+        },
+        "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958": {
+          "acquired_at": "2023-03-09T06:47:19.025000Z",
+          "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+          "collection": "sentinel-2-l2a",
+          "license_name": "proprietary",
+          "platform": "Sentinel-2B",
+          "product_id": "S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958",
+          "record_type": "source_observation",
+          "schema_version": "1.0",
+          "source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958",
+          "source_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958"
+        },
+        "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334": {
+          "acquired_at": "2023-03-29T06:46:29.024000Z",
+          "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+          "collection": "sentinel-2-l2a",
+          "license_name": "proprietary",
+          "platform": "Sentinel-2B",
+          "product_id": "S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334",
+          "record_type": "source_observation",
+          "schema_version": "1.0",
+          "source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334",
+          "source_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334"
+        },
+        "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311": {
+          "acquired_at": "2023-04-28T06:46:29.024000Z",
+          "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+          "collection": "sentinel-2-l2a",
+          "license_name": "proprietary",
+          "platform": "Sentinel-2B",
+          "product_id": "S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+          "record_type": "source_observation",
+          "schema_version": "1.0",
+          "source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-2-l2a:S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+          "source_url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311"
+        }
+      },
+      "status": "PASS",
+      "witness_role": "integrity only; no immediate PC/AS102/AS103/AS104 shortcut"
+    },
+    "non_aliasing": "all mutable object identities disjoint; result contains no arrays",
+    "parent_aware_validate": "PASS",
+    "parent_immutability": "exact arrays bytes/dtype/shape and metadata/provenance PASS",
+    "policy_sha256_after": "f1a9291ba47250a66283a0d352496cc7e60fbdb853ad197b0e56bd3192123c07",
+    "real_public_call_count": 3,
+    "registry_cache": "no mutation; guarded entrypoints zero; protected hashes rechecked separately",
+    "status": "PASS",
+    "tamper_controls": {
+      "assessment_status": "REJECTED / PASS",
+      "attacker_rehashed_driver_identity_parameters": "REJECTED / PASS",
+      "attacker_rehashed_recommendation_assessment": "REJECTED / PASS",
+      "attacker_rehashed_region": "REJECTED / PASS",
+      "completeness_factor": "REJECTED / PASS",
+      "driver_contribution": "REJECTED / PASS",
+      "driver_effective_weight": "REJECTED / PASS",
+      "driver_value": "REJECTED / PASS",
+      "evidence_completeness": "REJECTED / PASS",
+      "output_fingerprint": "REJECTED / PASS",
+      "product_id": "REJECTED / PASS",
+      "provenance_source": "REJECTED / PASS",
+      "recommendation": "REJECTED / PASS",
+      "risk_band": "REJECTED / PASS",
+      "risk_score": "REJECTED / PASS",
+      "selected_region": "REJECTED / PASS"
+    }
+  },
+  "created_at": "2026-10-10T13:08:57.372317+00:00",
+  "decisions_050_051_052": {
+    "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+    "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+    "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5"
+  },
+  "documentation_prepared_at": "2026-10-10T17:12:25.773446+04:00",
+  "engineering_entry": "E39",
+  "evidence_id": "EV-043",
+  "final_preservation_audit": {
+    "changed_paths": [
+      "docs/AS_107_HAB_RISK.md",
+      "docs/DECISIONS.md",
+      "docs/HANDOFF.md",
+      "docs/PRESENTATION_JOURNAL.md",
+      "docs/PROJECT_STATE.md",
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.json",
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.md",
+      "docs/evidence/PRESENTATION_EVIDENCE_INDEX.md"
+    ],
+    "credentials": "PASS; no SAS/signed HREF/Authorization/live secrets",
+    "decision_053": "ABSENT",
+    "decisions_050_051_052": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5"
+    },
+    "first_result_bytes": "UNCHANGED",
+    "historical_bodies": "all retained; current header relabelled historical only",
+    "prescore_canonical_policy_sha256": "f1a9291ba47250a66283a0d352496cc7e60fbdb853ad197b0e56bd3192123c07",
+    "prescore_policy_file_sha256": "5b582dfeb33ee871bef71fedf935b4b4e37e315e40f30ffcb108b67b80f9ffcc",
+    "prescore_serialization_note": "Original file adds one presentation separator newline beyond canonical payload; canonical payload/digest and original file bytes retained unchanged.",
+    "production_test_config_dependency_diff": 0,
+    "protected_external_hashes": 41,
+    "protected_modes": 53,
+    "sealed_M39_hashes_modes": "PASS",
+    "source_files_byte_identical": 41,
+    "stashes": "exact inventory unchanged; both retained",
+    "status": "PASS",
+    "test_files_byte_identical": 46,
+    "untouched_tracked_files": 124,
+    "whitespace_including_new_files": "PASS"
+  },
+  "final_quality_gates": {
+    "CI": "No GitHub CI success claimed",
+    "Ruff": "PASS",
+    "credential_scan": "PASS",
+    "diff": "PASS",
+    "focused": {
+      "passed": 292,
+      "seconds": 43.61,
+      "warnings": 0
+    },
+    "full": {
+      "passed": 1285,
+      "seconds": 103.96,
+      "warnings": 6
+    },
+    "status": "PASS",
+    "warnings": "six existing Rasterio PendingDeprecationWarnings only"
+  },
+  "first_call": {
+    "completed_at": "2026-10-10T13:04:58.732346+00:00",
+    "first_result_file": "/tmp/as107-m39-first-result.json",
+    "first_result_sha256": "2bd6c2b10cdca85114ecb63011fbeab684cb173e3b61096dbc51fbb7598a5474",
+    "guards": {
+      "cache": 0,
+      "network": 0,
+      "public_upstream": 0,
+      "registry_mutation": 0,
+      "transport": 0
+    },
+    "parent_snapshot_after": "b5401a7219d9d58090d8aefa71dade8ff45e81e7bcd98e406f26c215c2696e52",
+    "parent_snapshot_before": "b5401a7219d9d58090d8aefa71dade8ff45e81e7bcd98e406f26c215c2696e52",
+    "policy_sha256_after": "f1a9291ba47250a66283a0d352496cc7e60fbdb853ad197b0e56bd3192123c07",
+    "policy_sha256_before": "f1a9291ba47250a66283a0d352496cc7e60fbdb853ad197b0e56bd3192123c07",
+    "public_call": 1,
+    "started_at": "2026-10-10T13:04:58.495566+00:00"
+  },
+  "fresh_process_roundtrip": {
+    "exact_first_result_bytes": "PASS",
+    "fresh_typed_reconstruction": "PASS",
+    "guards": {
+      "cache": 0,
+      "network": 0,
+      "public_upstream": 0,
+      "registry_mutation": 0,
+      "transport": 0
+    },
+    "independent_arithmetic": {
+      "binary64_arithmetic": "all exact float.hex()",
+      "integer_denominators": "all exact",
+      "regions": [
+        {
+          "A_B_C": [
+            7,
+            7,
+            0
+          ],
+          "F_all": 1.0,
+          "F_red": 1.0,
+          "H": 1.0,
+          "band": "Watch",
+          "canonical_weights": [
+            0.35,
+            0.2,
+            0.15,
+            0.15,
+            0.15
+          ],
+          "completeness": 0.7,
+          "completeness_hex": "0x1.6666666666666p-1",
+          "contribution_hex": [
+            "0x1.4000000000000p+4",
+            "0x1.30c30c30c30c4p+3",
+            "0x0.0p+0",
+            null,
+            null
+          ],
+          "contributions": [
+            20.0,
+            9.523809523809526,
+            0.0,
+            null,
+            null
+          ],
+          "coverage": 0.7,
+          "coverage_hex": "0x1.6666666666666p-1",
+          "denominators": [
+            35,
+            21,
+            7,
+            null,
+            null
+          ],
+          "effective_weights": [
+            0.5,
+            0.28571428571428575,
+            0.2142857142857143,
+            0.0,
+            0.0
+          ],
+          "explanation_order": [
+            "spectral_anomaly",
+            "chlorophyll_red_edge_signal",
+            "persistence",
+            "environmental_context",
+            "intake_exposure"
+          ],
+          "family_a": [
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "family_v": [
+            0,
+            7,
+            0,
+            7,
+            0
+          ],
+          "flags": [
+            "incomplete_evidence"
+          ],
+          "numerators": [
+            14,
+            7,
+            0,
+            null,
+            null
+          ],
+          "raw_weights": [
+            0.35,
+            0.2,
+            0.15,
+            0.15,
+            0.15
+          ],
+          "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+          "score": 29.52380952380953,
+          "score_hex": "0x1.d861861861863p+4",
+          "value_hex": [
+            "0x1.4000000000000p+5",
+            "0x1.0aaaaaaaaaaabp+5",
+            "0x0.0p+0",
+            null,
+            null
+          ],
+          "values": [
+            40.0,
+            33.333333333333336,
+            0.0,
+            null,
+            null
+          ]
+        }
+      ],
+      "site_selection": "maximum raw score / completeness / ascending label; sole region",
+      "status": "PASS"
+    },
+    "independent_hashes": {
+      "excluded": "creation time/product_id excluded from semantic output; creation time excluded from identity; unconsumed reflectance/z/rank/witness arrays excluded from input",
+      "framing": "8-byte big-endian header length, canonical JSON newline, byte_count, C-order selected bytes; exact typed binary64/container encoding",
+      "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+      "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+      "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+      "status": "PASS"
+    },
+    "new_public_scoring_calls": 0,
+    "parent_aware_validate": "PASS",
+    "parent_immutability": "PASS",
+    "product_id_fingerprints_result_provenance": "PASS",
+    "sealed_checksums_modes": "PASS",
+    "status": "PASS"
+  },
+  "future_AS105_policy_validation": "NOT RUN",
+  "independent_validation": {
+    "arithmetic": {
+      "binary64_arithmetic": "all exact float.hex()",
+      "integer_denominators": "all exact",
+      "regions": [
+        {
+          "A_B_C": [
+            7,
+            7,
+            0
+          ],
+          "F_all": 1.0,
+          "F_red": 1.0,
+          "H": 1.0,
+          "band": "Watch",
+          "canonical_weights": [
+            0.35,
+            0.2,
+            0.15,
+            0.15,
+            0.15
+          ],
+          "completeness": 0.7,
+          "completeness_hex": "0x1.6666666666666p-1",
+          "contribution_hex": [
+            "0x1.4000000000000p+4",
+            "0x1.30c30c30c30c4p+3",
+            "0x0.0p+0",
+            null,
+            null
+          ],
+          "contributions": [
+            20.0,
+            9.523809523809526,
+            0.0,
+            null,
+            null
+          ],
+          "coverage": 0.7,
+          "coverage_hex": "0x1.6666666666666p-1",
+          "denominators": [
+            35,
+            21,
+            7,
+            null,
+            null
+          ],
+          "effective_weights": [
+            0.5,
+            0.28571428571428575,
+            0.2142857142857143,
+            0.0,
+            0.0
+          ],
+          "explanation_order": [
+            "spectral_anomaly",
+            "chlorophyll_red_edge_signal",
+            "persistence",
+            "environmental_context",
+            "intake_exposure"
+          ],
+          "family_a": [
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "family_v": [
+            0,
+            7,
+            0,
+            7,
+            0
+          ],
+          "flags": [
+            "incomplete_evidence"
+          ],
+          "numerators": [
+            14,
+            7,
+            0,
+            null,
+            null
+          ],
+          "raw_weights": [
+            0.35,
+            0.2,
+            0.15,
+            0.15,
+            0.15
+          ],
+          "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+          "score": 29.52380952380953,
+          "score_hex": "0x1.d861861861863p+4",
+          "value_hex": [
+            "0x1.4000000000000p+5",
+            "0x1.0aaaaaaaaaaabp+5",
+            "0x0.0p+0",
+            null,
+            null
+          ],
+          "values": [
+            40.0,
+            33.333333333333336,
+            0.0,
+            null,
+            null
+          ]
+        }
+      ],
+      "site_selection": "maximum raw score / completeness / ascending label; sole region",
+      "status": "PASS"
+    },
+    "guards": {
+      "cache": 0,
+      "network": 0,
+      "public_upstream": 0,
+      "registry_mutation": 0,
+      "transport": 0
+    },
+    "hashes": {
+      "excluded": "creation time/product_id excluded from semantic output; creation time excluded from identity; unconsumed reflectance/z/rank/witness arrays excluded from input",
+      "framing": "8-byte big-endian header length, canonical JSON newline, byte_count, C-order selected bytes; exact typed binary64/container encoding",
+      "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+      "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+      "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+      "status": "PASS"
+    }
+  },
+  "milestone": "M39",
+  "official_main": "7f304bb44af93d2b3a1a3e6982fefad05fb8f452",
+  "parent_reconstruction": {
+    "adapter_sha256": "ee966ebbe1f137020f40a8fd7a6db1f0876538f408c308d9839b0109b2bc0d8f",
+    "guards": {
+      "cache": 0,
+      "network": 0,
+      "public_upstream": 0,
+      "registry_mutation": 0,
+      "transport": 0
+    },
+    "parent_reconstruction": "5/5 PASS",
+    "parent_snapshot_sha256": "b5401a7219d9d58090d8aefa71dade8ff45e81e7bcd98e406f26c215c2696e52",
+    "parent_validation": "PASS",
+    "parents": [
+      "temporal:71f6be2d8437e91f7cf213df0bd876897febebe630a02a20bb151a5d852edb11",
+      "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+      "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b",
+      "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+      "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+    ],
+    "policy": {
+      "assessment_status": "provisional_observational_screening",
+      "band_semantics": "unrounded binary64; maxima+1 cuts; no epsilon/snapping",
+      "bands": {
+        "elevated_max": 74,
+        "high_max": 100,
+        "low_max": 24,
+        "watch_max": 49
+      },
+      "canonical_weights": {
+        "chlorophyll_red_edge_signal": 0.2,
+        "environmental_context": 0.15,
+        "intake_exposure": 0.15,
+        "persistence": 0.15,
+        "spectral_anomaly": 0.35
+      },
+      "completeness": "min(coverage,sum(a)/(5*A),sum(a_F1_F3)/(3*A),B/A)",
+      "completeness_flags": "<1 incomplete_evidence; <0.50 limited_evidence_completeness",
+      "component_order": [
+        "spectral_anomaly",
+        "chlorophyll_red_edge_signal",
+        "persistence",
+        "environmental_context",
+        "intake_exposure"
+      ],
+      "coverage": "available configured weight/all configured weight; canonical K",
+      "decision": "052",
+      "definitions": {
+        "chlorophyll_red_edge_signal": "100*sum(v_F1_F3)/sum(a_F1_F3); red-edge family evidence breadth",
+        "environmental_context": "unavailable/not_implemented; no source",
+        "intake_exposure": "unavailable/not_implemented; no source",
+        "persistence": "100*C/B; B=0 unavailable/no_prior_valid_candidate_history",
+        "spectral_anomaly": "100*sum(v_all)/sum(a_all); family-pixel evidence breadth"
+      },
+      "driver_contribution": "effective_weight=w_i/K; points=effective_weight*x_i",
+      "driver_explanation": "descending available contribution; canonical ties; unavailable last",
+      "driver_storage": [
+        "spectral_anomaly",
+        "chlorophyll_red_edge_signal",
+        "persistence",
+        "environmental_context",
+        "intake_exposure"
+      ],
+      "limited_evidence_completeness_threshold": 0.5,
+      "mandatory_components": [
+        "spectral_anomaly",
+        "chlorophyll_red_edge_signal"
+      ],
+      "missing": "None; no zero/neutral/imputation; renormalize available canonical weights",
+      "no_regions": {
+        "message": "No candidates under the frozen policy in evaluable observations.",
+        "status": "no_candidate_regions"
+      },
+      "numeric": "finite binary64; exact counts; fsum; no clipping/NaN/bool numerics",
+      "overlap": "F1-F3 in spectral and red-edge; correlated, deliberate emphasis",
+      "raw_weights": {
+        "chlorophyll_red_edge_signal": 0.2,
+        "environmental_context": 0.15,
+        "intake_exposure": 0.15,
+        "persistence": 0.15,
+        "spectral_anomaly": 0.35
+      },
+      "recommendations": {
+        "Elevated": "Prioritize targeted review and field verification",
+        "High": "High-priority field verification and increased monitoring",
+        "Normal": "Continue scheduled observation",
+        "Watch": "Review on the next valid acquisition"
+      },
+      "regions": "authoritative AS-105; retain all; one pixel single_pixel_region",
+      "risk": "100*fsum(w_i*(x_i/100) canonical available order)/fsum(available w_i)",
+      "serialization": "sorted keys; fixed lists; UTC; exact float hex; null unavailable",
+      "site_selection": "descending raw score, descending completeness, ascending label",
+      "unscored_recommendation": "Request evidence review / additional valid observations",
+      "version": "as107-v1"
+    },
+    "policy_sha256": "f1a9291ba47250a66283a0d352496cc7e60fbdb853ad197b0e56bd3192123c07",
+    "real_public_risk_calls": 0,
+    "status": "PASS"
+  },
+  "pre_score_diff": "PASS",
+  "pre_score_quality": {
+    "focused": {
+      "passed": 292,
+      "seconds": 45.89,
+      "warnings": 0
+    },
+    "full": {
+      "passed": 1285,
+      "seconds": 112.89,
+      "warnings": 6
+    }
+  },
+  "pre_score_ruff": "PASS",
+  "preservation": "PASS; parents, accepted artifacts, caches, handoffs, protected recovery files, modes and stashes unchanged",
+  "protected_external_file_hashes": {
+    "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/arrays.npz": "350e4ce5fe117942c26d54e611db6daff2bef9eda7bc80da810338ae530bcb22",
+    "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/manifest.json": "23c024f8a002aad8ecaf1b930b6acf01c55a6404b25f67b70b3c8ac9c19e4b67",
+    "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/arrays.npz": "7c586ae3c546f7dabea0ccc0e9f2c99e0435e4b563aedb93043e90d8077a7cea",
+    "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/manifest.json": "36f5e8598889fd1df081f699755df3a70aed0550455a97e194eda4aae9400a50",
+    "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/arrays.npz": "01512aa7ec3e1deab0f87fddb9c3888986d449ebcdd440830a7d4805bbc4f4a1",
+    "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json": "9a5ca8d78b663426fd53732a52db387c15fe8a70acb2da93978a9f466ce15589",
+    "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/arrays.npz": "dd571a6f3c6eec4fbf05879e596a17cd5a3ceca76b23fe191a709ac0233ab749",
+    "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/manifest.json": "fae0be0d9bcb1222aaf5c2bd1c74861dbaf7a3936f8c6561bd19d88d2d60fdd9",
+    "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/arrays.npz": "632b73ed78f14ee70a3323b670ccdfb79a94a7c9ed02a59c25f49cd22f52ce38",
+    "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/manifest.json": "be38645eae60b1d1c020a61bebf4bf61f9796c796378c36fc7ff61398d5afa1d",
+    "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/arrays.npz": "6186a2706c7b5b18089b897b421d2526f64f19e853682b03a4e19edc85248352",
+    "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/manifest.json": "0d0827ddccade1082fce982e188eed4f60c1e160eb88dc5033a6d0e9c7c5e6e6",
+    "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/arrays.npz": "1b4136081a45be25b787ed752c01e67419f1a98e6229663cc945592cfba950f9",
+    "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/manifest.json": "0db0e1a0492cab09dd043a89a6e6c332d533a9097c22bd2a4093bb40da2254a8",
+    "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt": "5380195b14c84d5d4d5c7365efa12226dbebd93ab726590575b1c0cc0c55b65b",
+    "/workspace/aquasentinel-acceptance/as105/m29/execution.log": "f356d435b915fd763ac041526f1228cf2a6de30928cfd2dec52bb0340314844a",
+    "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a",
+    "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz": "f17e346a9ea3bc29b84e4c568986c8b4d335664dc603ac25b3fab61a66338705",
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/SHA256SUMS.txt": "793f29341bbdc057b9198ffd65c7714829e8373c901ea39fd5a7c773584c674d",
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/execution.log": "f8ed67c9198c6b415a9369a4659ec5527dc18a2f262a92f7087f44bdaf4c80c7",
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/real_acceptance.json": "feb7b974126b2e5ad518febc053494db6d1824badf2fe0db04103e83ecb72d90",
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/scientific_arrays.npz": "6ba3d54f056717e9fe4f11f8c58ef649555d781792edd9ac49a40571b442fc19",
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt": "66fb164d8c86d55fb71fa43d4d2866fa531f75cf6ad522b081ba1ae1af518a21",
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz": "14122d08baea3025d84127b7e6f55635a7fd12652319230c36ccf0d26df94902",
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json": "985ce7ca4df818b46fdb641afc08e65df621be0d91cad1c355b7a3017ff30433",
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt": "ea33a3aee348a30b006ceaa17fb4685b351a13f9812cb14ad01f2e4c63c19d90",
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz": "c7ca935af29f760623f13dc2350302521de5847390e699a405882f472ed92e21",
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json": "add610b9c52fd94a46f5b118dbe9bddec9dae9b11420e65798b748ce03b94475",
+    "/workspace/as104-after-pr10-restoration-sha256.json": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+    "/workspace/as104-before-platform-case-fix-sha256.json": "3ea8280d96d33ffcf488690fbc13933607a1ce46c81a93c00ddbe119ec36ab3e",
+    "/workspace/as104-before-platform-case-fix.patch": "b16a6c31e49b009e26c6bc4080bf10b9a283744c3d0fb4faeba3987c6013ea0e",
+    "/workspace/as104-before-pr10-as104-hashes.json": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+    "/workspace/as104-before-pr10-integration.patch": "6248d9caa9b28320e076f2d12bf5e09ff692251585b4997485b854c52d58702d",
+    "/workspace/as104-before-pr10-sha256.json": "056aa2cc5e29656eb37765b5f85387fe971b29b3f22abe0c0d25b605f25530f5",
+    "/workspace/as104-before-pr10-status.txt": "70064c1534947bd06d9c08d0209c564bc76e7822a2ad171a5dbaea9b12baad93",
+    "/workspace/as104-before-pr10-untracked.tar.gz": "840084aebaa72633a8c721765677947c45fad6df2d9a36b3cba69fb6220c15dc",
+    "/workspace/as104-before-pr11-integration.patch": "2b7aff9495797a60303a105fe0e320e5bf180c9549a654ae695e3132628f8631",
+    "/workspace/as104-before-pr11-sha256.json": "5163e3ff7ea013f0074feb97cfe42b0f2b5a5177b168447fffefdd17e282197f",
+    "/workspace/as104-before-pr11-untracked.tar.gz": "f801e58be285cce0a2df0d3fb9dc267f4b1aef3ea231b2bc8c7717db3a6333db",
+    "/workspace/as104-final-source-test-sha256.json": "cb32eebc106599a7c61a6061e547e7273ab032423369574c94513b862eba6418",
+    "/workspace/as104-history-preservation.json": "96592e2158e2402e8b1e2385d0ef4d550a89945c51becf939968c57b9ed65cda"
+  },
+  "protected_permission_records": {
+    "/workspace": 16877,
+    "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499": 16832,
+    "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/arrays.npz": 33152,
+    "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/manifest.json": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1": 16832,
+    "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/arrays.npz": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/manifest.json": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6": 16832,
+    "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/arrays.npz": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee": 16832,
+    "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/arrays.npz": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/manifest.json": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2": 16832,
+    "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/arrays.npz": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/manifest.json": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644": 16832,
+    "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/arrays.npz": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/manifest.json": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2": 16832,
+    "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/arrays.npz": 33152,
+    "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/manifest.json": 33152,
+    "/workspace/aquasentinel-acceptance/as105/m29": 16749,
+    "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt": 33060,
+    "/workspace/aquasentinel-acceptance/as105/m29/execution.log": 33060,
+    "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": 33060,
+    "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz": 33060,
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb": 16749,
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/SHA256SUMS.txt": 33060,
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/execution.log": 33060,
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/real_acceptance.json": 33060,
+    "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb/scientific_arrays.npz": 33060,
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b": 16749,
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt": 33060,
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz": 33060,
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json": 33060,
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52": 16749,
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt": 33060,
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz": 33060,
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json": 33060,
+    "/workspace/as104-after-pr10-restoration-sha256.json": 33152,
+    "/workspace/as104-before-platform-case-fix-sha256.json": 33152,
+    "/workspace/as104-before-platform-case-fix.patch": 33152,
+    "/workspace/as104-before-pr10-as104-hashes.json": 33152,
+    "/workspace/as104-before-pr10-integration.patch": 33152,
+    "/workspace/as104-before-pr10-sha256.json": 33152,
+    "/workspace/as104-before-pr10-status.txt": 33152,
+    "/workspace/as104-before-pr10-untracked.tar.gz": 33152,
+    "/workspace/as104-before-pr11-integration.patch": 33152,
+    "/workspace/as104-before-pr11-sha256.json": 33152,
+    "/workspace/as104-before-pr11-untracked.tar.gz": 33152,
+    "/workspace/as104-final-source-test-sha256.json": 33152,
+    "/workspace/as104-history-preservation.json": 33152
+  },
+  "result": {
+    "diagnostics": {
+      "evaluable_observation": true,
+      "missing_components": [
+        "environmental_context",
+        "intake_exposure"
+      ],
+      "overlap_disclosure": "F1-F3 contribute to both spectral and red-edge components: correlated/overlapping evidence, not independent corroboration; weights deliberately emphasize red-edge evidence.",
+      "persistence_unavailable_region_labels": [],
+      "scientific_limit": "Provisional observational HAB-like screening only; not confirmed HAB, species, toxins, chlorophyll concentration, biological certainty, probability, calibrated confidence, accuracy, warning lead time, water safety, shutdown advice or complete intake risk. Al Raha is a validation AOI, not a confirmed intake."
+    },
+    "grid": {
+      "bounds": [
+        249020.0,
+        2702860.0,
+        255220.0,
+        2707420.0
+      ],
+      "crs": "EPSG:32640",
+      "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+      "height": 228,
+      "resolution": 20.0,
+      "transform": [
+        20.0,
+        0.0,
+        249020.0,
+        0.0,
+        -20.0,
+        2707420.0
+      ],
+      "width": 310
+    },
+    "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+    "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+    "persistence_product_id": "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+    "policy": {
+      "assessment_status": "provisional_observational_screening",
+      "elevated_max": 74,
+      "high_max": 100,
+      "limited_evidence_completeness_threshold": 0.5,
+      "low_max": 24,
+      "mandatory_components": [
+        "spectral_anomaly",
+        "chlorophyll_red_edge_signal"
+      ],
+      "watch_max": 49,
+      "weights": [
+        [
+          "spectral_anomaly",
+          0.35
+        ],
+        [
+          "chlorophyll_red_edge_signal",
+          0.2
+        ],
+        [
+          "persistence",
+          0.15
+        ],
+        [
+          "environmental_context",
+          0.15
+        ],
+        [
+          "intake_exposure",
+          0.15
+        ]
+      ]
+    },
+    "processing_parameters": {
+      "identity": {
+        "grid": {
+          "bounds": [
+            249020.0,
+            2702860.0,
+            255220.0,
+            2707420.0
+          ],
+          "crs": "EPSG:32640",
+          "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+          "height": 228,
+          "resolution": 20.0,
+          "transform": [
+            20.0,
+            0.0,
+            249020.0,
+            0.0,
+            -20.0,
+            2707420.0
+          ],
+          "width": 310
+        },
+        "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+        "input_fingerprint_format": "as107-input-v1",
+        "parent_contract_versions": [
+          "as105-v1",
+          "as106-v1",
+          "as104-v1_witness"
+        ],
+        "policy": {
+          "assessment_status": "provisional_observational_screening",
+          "band_semantics": "unrounded binary64; maxima+1 cuts; no epsilon/snapping",
+          "bands": {
+            "elevated_max": 74,
+            "high_max": 100,
+            "low_max": 24,
+            "watch_max": 49
+          },
+          "canonical_weights": {
+            "chlorophyll_red_edge_signal": 0.2,
+            "environmental_context": 0.15,
+            "intake_exposure": 0.15,
+            "persistence": 0.15,
+            "spectral_anomaly": 0.35
+          },
+          "completeness": "min(coverage,sum(a)/(5*A),sum(a_F1_F3)/(3*A),B/A)",
+          "completeness_flags": "<1 incomplete_evidence; <0.50 limited_evidence_completeness",
+          "component_order": [
+            "spectral_anomaly",
+            "chlorophyll_red_edge_signal",
+            "persistence",
+            "environmental_context",
+            "intake_exposure"
+          ],
+          "coverage": "available configured weight/all configured weight; canonical K",
+          "decision": "052",
+          "definitions": {
+            "chlorophyll_red_edge_signal": "100*sum(v_F1_F3)/sum(a_F1_F3); red-edge family evidence breadth",
+            "environmental_context": "unavailable/not_implemented; no source",
+            "intake_exposure": "unavailable/not_implemented; no source",
+            "persistence": "100*C/B; B=0 unavailable/no_prior_valid_candidate_history",
+            "spectral_anomaly": "100*sum(v_all)/sum(a_all); family-pixel evidence breadth"
+          },
+          "driver_contribution": "effective_weight=w_i/K; points=effective_weight*x_i",
+          "driver_explanation": "descending available contribution; canonical ties; unavailable last",
+          "driver_storage": [
+            "spectral_anomaly",
+            "chlorophyll_red_edge_signal",
+            "persistence",
+            "environmental_context",
+            "intake_exposure"
+          ],
+          "limited_evidence_completeness_threshold": 0.5,
+          "mandatory_components": [
+            "spectral_anomaly",
+            "chlorophyll_red_edge_signal"
+          ],
+          "missing": "None; no zero/neutral/imputation; renormalize available canonical weights",
+          "no_regions": {
+            "message": "No candidates under the frozen policy in evaluable observations.",
+            "status": "no_candidate_regions"
+          },
+          "numeric": "finite binary64; exact counts; fsum; no clipping/NaN/bool numerics",
+          "overlap": "F1-F3 in spectral and red-edge; correlated, deliberate emphasis",
+          "raw_weights": {
+            "chlorophyll_red_edge_signal": 0.2,
+            "environmental_context": 0.15,
+            "intake_exposure": 0.15,
+            "persistence": 0.15,
+            "spectral_anomaly": 0.35
+          },
+          "recommendations": {
+            "Elevated": "Prioritize targeted review and field verification",
+            "High": "High-priority field verification and increased monitoring",
+            "Normal": "Continue scheduled observation",
+            "Watch": "Review on the next valid acquisition"
+          },
+          "regions": "authoritative AS-105; retain all; one pixel single_pixel_region",
+          "risk": "100*fsum(w_i*(x_i/100) canonical available order)/fsum(available w_i)",
+          "serialization": "sorted keys; fixed lists; UTC; exact float hex; null unavailable",
+          "site_selection": "descending raw score, descending completeness, ascending label",
+          "unscored_recommendation": "Request evidence review / additional valid observations",
+          "version": "as107-v1"
+        },
+        "processing_version": "as107-v1",
+        "software_versions": {
+          "numpy": "2.2.6",
+          "python": "3.11.16"
+        },
+        "source_product_ids": [
+          "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+          "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+        ],
+        "target_acquired_at": "2023-04-28T06:46:29.024000+00:00"
+      },
+      "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+      "output_fingerprint_format": "as107-output-v1",
+      "overlap_disclosure": "F1-F3 contribute to both spectral and red-edge components: correlated/overlapping evidence, not independent corroboration; weights deliberately emphasize red-edge evidence.",
+      "scientific_limit": "Provisional observational HAB-like screening only; not confirmed HAB, species, toxins, chlorophyll concentration, biological certainty, probability, calibrated confidence, accuracy, warning lead time, water safety, shutdown advice or complete intake risk. Al Raha is a validation AOI, not a confirmed intake."
+    },
+    "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+    "provenance": {
+      "created_at": "2026-10-10T13:04:58.725725+00:00",
+      "parameters": {
+        "identity": {
+          "grid": {
+            "bounds": [
+              249020.0,
+              2702860.0,
+              255220.0,
+              2707420.0
+            ],
+            "crs": "EPSG:32640",
+            "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+            "height": 228,
+            "resolution": 20.0,
+            "transform": [
+              20.0,
+              0.0,
+              249020.0,
+              0.0,
+              -20.0,
+              2707420.0
+            ],
+            "width": 310
+          },
+          "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+          "input_fingerprint_format": "as107-input-v1",
+          "parent_contract_versions": [
+            "as105-v1",
+            "as106-v1",
+            "as104-v1_witness"
+          ],
+          "policy": {
+            "assessment_status": "provisional_observational_screening",
+            "band_semantics": "unrounded binary64; maxima+1 cuts; no epsilon/snapping",
+            "bands": {
+              "elevated_max": 74,
+              "high_max": 100,
+              "low_max": 24,
+              "watch_max": 49
+            },
+            "canonical_weights": {
+              "chlorophyll_red_edge_signal": 0.2,
+              "environmental_context": 0.15,
+              "intake_exposure": 0.15,
+              "persistence": 0.15,
+              "spectral_anomaly": 0.35
+            },
+            "completeness": "min(coverage,sum(a)/(5*A),sum(a_F1_F3)/(3*A),B/A)",
+            "completeness_flags": "<1 incomplete_evidence; <0.50 limited_evidence_completeness",
+            "component_order": [
+              "spectral_anomaly",
+              "chlorophyll_red_edge_signal",
+              "persistence",
+              "environmental_context",
+              "intake_exposure"
+            ],
+            "coverage": "available configured weight/all configured weight; canonical K",
+            "decision": "052",
+            "definitions": {
+              "chlorophyll_red_edge_signal": "100*sum(v_F1_F3)/sum(a_F1_F3); red-edge family evidence breadth",
+              "environmental_context": "unavailable/not_implemented; no source",
+              "intake_exposure": "unavailable/not_implemented; no source",
+              "persistence": "100*C/B; B=0 unavailable/no_prior_valid_candidate_history",
+              "spectral_anomaly": "100*sum(v_all)/sum(a_all); family-pixel evidence breadth"
+            },
+            "driver_contribution": "effective_weight=w_i/K; points=effective_weight*x_i",
+            "driver_explanation": "descending available contribution; canonical ties; unavailable last",
+            "driver_storage": [
+              "spectral_anomaly",
+              "chlorophyll_red_edge_signal",
+              "persistence",
+              "environmental_context",
+              "intake_exposure"
+            ],
+            "limited_evidence_completeness_threshold": 0.5,
+            "mandatory_components": [
+              "spectral_anomaly",
+              "chlorophyll_red_edge_signal"
+            ],
+            "missing": "None; no zero/neutral/imputation; renormalize available canonical weights",
+            "no_regions": {
+              "message": "No candidates under the frozen policy in evaluable observations.",
+              "status": "no_candidate_regions"
+            },
+            "numeric": "finite binary64; exact counts; fsum; no clipping/NaN/bool numerics",
+            "overlap": "F1-F3 in spectral and red-edge; correlated, deliberate emphasis",
+            "raw_weights": {
+              "chlorophyll_red_edge_signal": 0.2,
+              "environmental_context": 0.15,
+              "intake_exposure": 0.15,
+              "persistence": 0.15,
+              "spectral_anomaly": 0.35
+            },
+            "recommendations": {
+              "Elevated": "Prioritize targeted review and field verification",
+              "High": "High-priority field verification and increased monitoring",
+              "Normal": "Continue scheduled observation",
+              "Watch": "Review on the next valid acquisition"
+            },
+            "regions": "authoritative AS-105; retain all; one pixel single_pixel_region",
+            "risk": "100*fsum(w_i*(x_i/100) canonical available order)/fsum(available w_i)",
+            "serialization": "sorted keys; fixed lists; UTC; exact float hex; null unavailable",
+            "site_selection": "descending raw score, descending completeness, ascending label",
+            "unscored_recommendation": "Request evidence review / additional valid observations",
+            "version": "as107-v1"
+          },
+          "processing_version": "as107-v1",
+          "software_versions": {
+            "numpy": "2.2.6",
+            "python": "3.11.16"
+          },
+          "source_product_ids": [
+            "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+            "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+          ],
+          "target_acquired_at": "2023-04-28T06:46:29.024000+00:00"
+        },
+        "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+        "output_fingerprint_format": "as107-output-v1",
+        "overlap_disclosure": "F1-F3 contribute to both spectral and red-edge components: correlated/overlapping evidence, not independent corroboration; weights deliberately emphasize red-edge evidence.",
+        "scientific_limit": "Provisional observational HAB-like screening only; not confirmed HAB, species, toxins, chlorophyll concentration, biological certainty, probability, calibrated confidence, accuracy, warning lead time, water safety, shutdown advice or complete intake risk. Al Raha is a validation AOI, not a confirmed intake."
+      },
+      "processing_version": "as107-v1",
+      "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+      "product_type": "hab_risk",
+      "source_ids": [
+        "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+        "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+      ]
+    },
+    "regions": [
+      {
+        "area_km2": 0.0028,
+        "area_m2": 2800.0,
+        "assessment_status": "provisional_observational_screening",
+        "bbox_projected": [
+          249120.0,
+          2704160.0,
+          249200.0,
+          2704240.0
+        ],
+        "completeness_factors": {
+          "available_configured_weight": 0.7,
+          "candidate_history_coverage": 1.0,
+          "component_coverage": 0.7,
+          "family_availability": 1.0,
+          "family_available_count": 35,
+          "family_opportunity_count": 35,
+          "prior_supported_candidate_count": 7,
+          "red_edge_availability": 1.0,
+          "red_edge_available_count": 21,
+          "red_edge_opportunity_count": 21,
+          "target_candidate_count": 7,
+          "total_configured_weight": 1.0
+        },
+        "component_coverage": 0.7,
+        "component_label": 1,
+        "drivers": [
+          {
+            "availability": "available",
+            "canonical_name": "spectral_anomaly",
+            "canonical_weight": 0.35,
+            "component_value": 40.0,
+            "configured_weight": 0.35,
+            "contribution_points": 20.0,
+            "definition_id": "as107-v1:spectral_anomaly",
+            "effective_weight": 0.5,
+            "evidence_denominator": 35,
+            "evidence_numerator": 14,
+            "family_counts": [
+              [
+                "red_edge_b5_vs_red",
+                7,
+                0
+              ],
+              [
+                "red_edge_line_height",
+                7,
+                7
+              ],
+              [
+                "red_edge_b6_vs_red",
+                7,
+                0
+              ],
+              [
+                "visible_green_vs_red",
+                7,
+                7
+              ],
+              [
+                "visible_green_vs_blue",
+                7,
+                0
+              ]
+            ],
+            "source_product_ids": [
+              "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+            ],
+            "unavailable_reason": null
+          },
+          {
+            "availability": "available",
+            "canonical_name": "chlorophyll_red_edge_signal",
+            "canonical_weight": 0.2,
+            "component_value": 33.333333333333336,
+            "configured_weight": 0.2,
+            "contribution_points": 9.523809523809526,
+            "definition_id": "as107-v1:chlorophyll_red_edge_signal",
+            "effective_weight": 0.28571428571428575,
+            "evidence_denominator": 21,
+            "evidence_numerator": 7,
+            "family_counts": [
+              [
+                "red_edge_b5_vs_red",
+                7,
+                0
+              ],
+              [
+                "red_edge_line_height",
+                7,
+                7
+              ],
+              [
+                "red_edge_b6_vs_red",
+                7,
+                0
+              ]
+            ],
+            "source_product_ids": [
+              "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+            ],
+            "unavailable_reason": null
+          },
+          {
+            "availability": "available",
+            "canonical_name": "persistence",
+            "canonical_weight": 0.15,
+            "component_value": 0.0,
+            "configured_weight": 0.15,
+            "contribution_points": 0.0,
+            "definition_id": "as107-v1:persistence",
+            "effective_weight": 0.2142857142857143,
+            "evidence_denominator": 7,
+            "evidence_numerator": 0,
+            "family_counts": [],
+            "source_product_ids": [
+              "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+            ],
+            "unavailable_reason": null
+          },
+          {
+            "availability": "unavailable",
+            "canonical_name": "environmental_context",
+            "canonical_weight": 0.15,
+            "component_value": null,
+            "configured_weight": 0.15,
+            "contribution_points": null,
+            "definition_id": "as107-v1:environmental_context",
+            "effective_weight": 0.0,
+            "evidence_denominator": null,
+            "evidence_numerator": null,
+            "family_counts": [],
+            "source_product_ids": [],
+            "unavailable_reason": "not_implemented"
+          },
+          {
+            "availability": "unavailable",
+            "canonical_name": "intake_exposure",
+            "canonical_weight": 0.15,
+            "component_value": null,
+            "configured_weight": 0.15,
+            "contribution_points": null,
+            "definition_id": "as107-v1:intake_exposure",
+            "effective_weight": 0.0,
+            "evidence_denominator": null,
+            "evidence_numerator": null,
+            "family_counts": [],
+            "source_product_ids": [],
+            "unavailable_reason": "not_implemented"
+          }
+        ],
+        "evidence_completeness": 0.7,
+        "explanation_order": [
+          "spectral_anomaly",
+          "chlorophyll_red_edge_signal",
+          "persistence",
+          "environmental_context",
+          "intake_exposure"
+        ],
+        "family_counts": [
+          [
+            "red_edge_b5_vs_red",
+            7,
+            0
+          ],
+          [
+            "red_edge_line_height",
+            7,
+            7
+          ],
+          [
+            "red_edge_b6_vs_red",
+            7,
+            0
+          ],
+          [
+            "visible_green_vs_red",
+            7,
+            7
+          ],
+          [
+            "visible_green_vs_blue",
+            7,
+            0
+          ]
+        ],
+        "first_pixel_col": 5,
+        "first_pixel_row": 159,
+        "interpretation_flags": [
+          "incomplete_evidence"
+        ],
+        "limitations": [
+          "provisional_observational_screening",
+          "environmental_context_unavailable",
+          "intake_exposure_unavailable",
+          "correlated_red_edge_emphasis",
+          "candidate_conditioned_screening",
+          "heuristic_weights_not_calibrated",
+          "shared_sparse_histories_not_independent_confirmation",
+          "five_histories_not_statistical_sufficiency",
+          "exact_pixel_recurrence_no_motion_tracking",
+          "observation_gaps_not_continuous_biological_persistence",
+          "future_AS105_policy_validation_not_run",
+          "not_biological_or_operational_validation"
+        ],
+        "monitoring_recommendation": "Review on the next valid acquisition",
+        "participating_families": [
+          "red_edge_line_height",
+          "visible_green_vs_red"
+        ],
+        "persistence_evidence": {
+          "candidate_history_coverage": 1.0,
+          "component_label": 1,
+          "maximum_current_streak_span_us": null,
+          "maximum_streak_count": 1,
+          "median_current_streak_span_us": null,
+          "median_streak_count": 1.0,
+          "persistence_evaluable_target_candidate_count": 7,
+          "prior_observations": [
+            {
+              "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+              "candidate_overlap_fraction_of_supported": 0.0,
+              "candidate_overlap_pixel_count": 0,
+              "geometry_product_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+              "supported_target_region_pixel_count": 7
+            }
+          ],
+          "recurrence_fraction": 0.0,
+          "recurrent_candidate_count": 0,
+          "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+          "target_pixel_count": 7
+        },
+        "pixel_count": 7,
+        "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+        "risk_band": "Watch",
+        "risk_score": 29.52380952380953
+      }
+    ],
+    "site_summary": {
+      "assessment_status": "provisional_observational_screening",
+      "completeness_factors": {
+        "available_configured_weight": 0.7,
+        "candidate_history_coverage": 1.0,
+        "component_coverage": 0.7,
+        "family_availability": 1.0,
+        "family_available_count": 35,
+        "family_opportunity_count": 35,
+        "prior_supported_candidate_count": 7,
+        "red_edge_availability": 1.0,
+        "red_edge_available_count": 21,
+        "red_edge_opportunity_count": 21,
+        "target_candidate_count": 7,
+        "total_configured_weight": 1.0
+      },
+      "component_coverage": 0.7,
+      "drivers": [
+        {
+          "availability": "available",
+          "canonical_name": "spectral_anomaly",
+          "canonical_weight": 0.35,
+          "component_value": 40.0,
+          "configured_weight": 0.35,
+          "contribution_points": 20.0,
+          "definition_id": "as107-v1:spectral_anomaly",
+          "effective_weight": 0.5,
+          "evidence_denominator": 35,
+          "evidence_numerator": 14,
+          "family_counts": [
+            [
+              "red_edge_b5_vs_red",
+              7,
+              0
+            ],
+            [
+              "red_edge_line_height",
+              7,
+              7
+            ],
+            [
+              "red_edge_b6_vs_red",
+              7,
+              0
+            ],
+            [
+              "visible_green_vs_red",
+              7,
+              7
+            ],
+            [
+              "visible_green_vs_blue",
+              7,
+              0
+            ]
+          ],
+          "source_product_ids": [
+            "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "availability": "available",
+          "canonical_name": "chlorophyll_red_edge_signal",
+          "canonical_weight": 0.2,
+          "component_value": 33.333333333333336,
+          "configured_weight": 0.2,
+          "contribution_points": 9.523809523809526,
+          "definition_id": "as107-v1:chlorophyll_red_edge_signal",
+          "effective_weight": 0.28571428571428575,
+          "evidence_denominator": 21,
+          "evidence_numerator": 7,
+          "family_counts": [
+            [
+              "red_edge_b5_vs_red",
+              7,
+              0
+            ],
+            [
+              "red_edge_line_height",
+              7,
+              7
+            ],
+            [
+              "red_edge_b6_vs_red",
+              7,
+              0
+            ]
+          ],
+          "source_product_ids": [
+            "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "availability": "available",
+          "canonical_name": "persistence",
+          "canonical_weight": 0.15,
+          "component_value": 0.0,
+          "configured_weight": 0.15,
+          "contribution_points": 0.0,
+          "definition_id": "as107-v1:persistence",
+          "effective_weight": 0.2142857142857143,
+          "evidence_denominator": 7,
+          "evidence_numerator": 0,
+          "family_counts": [],
+          "source_product_ids": [
+            "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+          ],
+          "unavailable_reason": null
+        },
+        {
+          "availability": "unavailable",
+          "canonical_name": "environmental_context",
+          "canonical_weight": 0.15,
+          "component_value": null,
+          "configured_weight": 0.15,
+          "contribution_points": null,
+          "definition_id": "as107-v1:environmental_context",
+          "effective_weight": 0.0,
+          "evidence_denominator": null,
+          "evidence_numerator": null,
+          "family_counts": [],
+          "source_product_ids": [],
+          "unavailable_reason": "not_implemented"
+        },
+        {
+          "availability": "unavailable",
+          "canonical_name": "intake_exposure",
+          "canonical_weight": 0.15,
+          "component_value": null,
+          "configured_weight": 0.15,
+          "contribution_points": null,
+          "definition_id": "as107-v1:intake_exposure",
+          "effective_weight": 0.0,
+          "evidence_denominator": null,
+          "evidence_numerator": null,
+          "family_counts": [],
+          "source_product_ids": [],
+          "unavailable_reason": "not_implemented"
+        }
+      ],
+      "evidence_completeness": 0.7,
+      "explanation_order": [
+        "spectral_anomaly",
+        "chlorophyll_red_edge_signal",
+        "persistence",
+        "environmental_context",
+        "intake_exposure"
+      ],
+      "interpretation_flags": [
+        "incomplete_evidence"
+      ],
+      "limitations": [
+        "provisional_observational_screening",
+        "environmental_context_unavailable",
+        "intake_exposure_unavailable",
+        "correlated_red_edge_emphasis",
+        "candidate_conditioned_screening",
+        "heuristic_weights_not_calibrated",
+        "shared_sparse_histories_not_independent_confirmation",
+        "five_histories_not_statistical_sufficiency",
+        "exact_pixel_recurrence_no_motion_tracking",
+        "observation_gaps_not_continuous_biological_persistence",
+        "future_AS105_policy_validation_not_run",
+        "not_biological_or_operational_validation"
+      ],
+      "message": null,
+      "monitoring_recommendation": "Review on the next valid acquisition",
+      "policy_support_count": 802,
+      "risk_band": "Watch",
+      "risk_score": 29.52380952380953,
+      "selected_component_label": 1,
+      "selected_region": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+      "status": null,
+      "target_acquired_at": "2023-04-28T06:46:29.024000+00:00"
+    },
+    "statistics": {
+      "region_count": 1,
+      "scored_region_count": 1,
+      "single_pixel_region_count": 0,
+      "target_candidate_count": 7,
+      "target_policy_support_count": 802
+    },
+    "target_acquired_at": "2023-04-28T06:46:29.024000+00:00",
+    "target_geometry_product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+  },
+  "schema_version": "as107-m39-acceptance-v1",
+  "scientific_limitations": [
+    "provisional_observational_screening",
+    "environmental_context_unavailable",
+    "intake_exposure_unavailable",
+    "correlated_red_edge_emphasis",
+    "candidate_conditioned_screening",
+    "heuristic_weights_not_calibrated",
+    "shared_sparse_histories_not_independent_confirmation",
+    "five_histories_not_statistical_sufficiency",
+    "exact_pixel_recurrence_no_motion_tracking",
+    "observation_gaps_not_continuous_biological_persistence",
+    "future_AS105_policy_validation_not_run",
+    "not_biological_or_operational_validation",
+    "No same-pixel candidate recurrence was observed among the 7 target candidate pixels with valid prior observational history.",
+    "Zero recurrence is not no HAB, biological persistence absence, water safety or zero risk.",
+    "Completeness and rank are not probabilities, calibrated confidence, sensitivity/specificity or accuracy.",
+    "BOA-derived observational features are not aquatic Rrs or measured chlorophyll.",
+    "Al Raha is an analyst-defined validation AOI, not a confirmed intake boundary.",
+    "Sparse (~10%) target five-history support, five shared March histories, two April dates and 25-day-plus-8-second gap remain limitations."
+  ],
+  "scientific_network": {
+    "EO_bytes_downloaded": 0,
+    "administrative_git": "initial fetch and final authorized evidence branch push separate",
+    "asset_requests": 0,
+    "attempts": 0,
+    "metadata_requests": 0
+  },
+  "software_versions": {
+    "numpy": "2.2.6",
+    "python": "3.11.16"
+  },
+  "stashes": "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration\nf93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration\n",
+  "status": "REAL ENGINEERING ACCEPTANCE PASS",
+  "typed_result": {
+    "fields": {
+      "diagnostics": {
+        "fields": {
+          "evaluable_observation": true,
+          "missing_components": {
+            "items": [
+              "environmental_context",
+              "intake_exposure"
+            ],
+            "sequence_type": "tuple"
+          },
+          "overlap_disclosure": "F1-F3 contribute to both spectral and red-edge components: correlated/overlapping evidence, not independent corroboration; weights deliberately emphasize red-edge evidence.",
+          "persistence_unavailable_region_labels": {
+            "items": [],
+            "sequence_type": "tuple"
+          },
+          "scientific_limit": "Provisional observational HAB-like screening only; not confirmed HAB, species, toxins, chlorophyll concentration, biological certainty, probability, calibrated confidence, accuracy, warning lead time, water safety, shutdown advice or complete intake risk. Al Raha is a validation AOI, not a confirmed intake."
+        },
+        "record_type": "HABRiskDiagnostics"
+      },
+      "grid": {
+        "fields": {
+          "bounds": {
+            "items": [
+              {
+                "binary64": "0x1.e65e000000000p+17"
+              },
+              {
+                "binary64": "0x1.49f0600000000p+21"
+              },
+              {
+                "binary64": "0x1.f27a000000000p+17"
+              },
+              {
+                "binary64": "0x1.4a7ee00000000p+21"
+              }
+            ],
+            "sequence_type": "list"
+          },
+          "crs": "EPSG:32640",
+          "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+          "height": 228,
+          "resolution": {
+            "binary64": "0x1.4000000000000p+4"
+          },
+          "transform": {
+            "items": [
+              {
+                "binary64": "0x1.4000000000000p+4"
+              },
+              {
+                "binary64": "0x0.0p+0"
+              },
+              {
+                "binary64": "0x1.e65e000000000p+17"
+              },
+              {
+                "binary64": "0x0.0p+0"
+              },
+              {
+                "binary64": "-0x1.4000000000000p+4"
+              },
+              {
+                "binary64": "0x1.4a7ee00000000p+21"
+              }
+            ],
+            "sequence_type": "list"
+          },
+          "width": 310
+        },
+        "record_type": "AnalysisGrid"
+      },
+      "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+      "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+      "persistence_product_id": "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+      "policy": {
+        "fields": {
+          "assessment_status": "provisional_observational_screening",
+          "elevated_max": 74,
+          "high_max": 100,
+          "limited_evidence_completeness_threshold": {
+            "binary64": "0x1.0000000000000p-1"
+          },
+          "low_max": 24,
+          "mandatory_components": {
+            "items": [
+              "spectral_anomaly",
+              "chlorophyll_red_edge_signal"
+            ],
+            "sequence_type": "tuple"
+          },
+          "watch_max": 49,
+          "weights": {
+            "items": [
+              {
+                "items": [
+                  "spectral_anomaly",
+                  {
+                    "binary64": "0x1.6666666666666p-2"
+                  }
+                ],
+                "sequence_type": "tuple"
+              },
+              {
+                "items": [
+                  "chlorophyll_red_edge_signal",
+                  {
+                    "binary64": "0x1.999999999999ap-3"
+                  }
+                ],
+                "sequence_type": "tuple"
+              },
+              {
+                "items": [
+                  "persistence",
+                  {
+                    "binary64": "0x1.3333333333333p-3"
+                  }
+                ],
+                "sequence_type": "tuple"
+              },
+              {
+                "items": [
+                  "environmental_context",
+                  {
+                    "binary64": "0x1.3333333333333p-3"
+                  }
+                ],
+                "sequence_type": "tuple"
+              },
+              {
+                "items": [
+                  "intake_exposure",
+                  {
+                    "binary64": "0x1.3333333333333p-3"
+                  }
+                ],
+                "sequence_type": "tuple"
+              }
+            ],
+            "sequence_type": "tuple"
+          }
+        },
+        "record_type": "HABRiskPolicy"
+      },
+      "processing_parameters": {
+        "identity": {
+          "grid": {
+            "bounds": {
+              "items": [
+                {
+                  "binary64": "0x1.e65e000000000p+17"
+                },
+                {
+                  "binary64": "0x1.49f0600000000p+21"
+                },
+                {
+                  "binary64": "0x1.f27a000000000p+17"
+                },
+                {
+                  "binary64": "0x1.4a7ee00000000p+21"
+                }
+              ],
+              "sequence_type": "list"
+            },
+            "crs": "EPSG:32640",
+            "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+            "height": 228,
+            "resolution": {
+              "binary64": "0x1.4000000000000p+4"
+            },
+            "transform": {
+              "items": [
+                {
+                  "binary64": "0x1.4000000000000p+4"
+                },
+                {
+                  "binary64": "0x0.0p+0"
+                },
+                {
+                  "binary64": "0x1.e65e000000000p+17"
+                },
+                {
+                  "binary64": "0x0.0p+0"
+                },
+                {
+                  "binary64": "-0x1.4000000000000p+4"
+                },
+                {
+                  "binary64": "0x1.4a7ee00000000p+21"
+                }
+              ],
+              "sequence_type": "list"
+            },
+            "width": 310
+          },
+          "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+          "input_fingerprint_format": "as107-input-v1",
+          "parent_contract_versions": {
+            "items": [
+              "as105-v1",
+              "as106-v1",
+              "as104-v1_witness"
+            ],
+            "sequence_type": "tuple"
+          },
+          "policy": {
+            "assessment_status": "provisional_observational_screening",
+            "band_semantics": "unrounded binary64; maxima+1 cuts; no epsilon/snapping",
+            "bands": {
+              "elevated_max": 74,
+              "high_max": 100,
+              "low_max": 24,
+              "watch_max": 49
+            },
+            "canonical_weights": {
+              "chlorophyll_red_edge_signal": {
+                "binary64": "0x1.999999999999ap-3"
+              },
+              "environmental_context": {
+                "binary64": "0x1.3333333333333p-3"
+              },
+              "intake_exposure": {
+                "binary64": "0x1.3333333333333p-3"
+              },
+              "persistence": {
+                "binary64": "0x1.3333333333333p-3"
+              },
+              "spectral_anomaly": {
+                "binary64": "0x1.6666666666666p-2"
+              }
+            },
+            "completeness": "min(coverage,sum(a)/(5*A),sum(a_F1_F3)/(3*A),B/A)",
+            "completeness_flags": "<1 incomplete_evidence; <0.50 limited_evidence_completeness",
+            "component_order": {
+              "items": [
+                "spectral_anomaly",
+                "chlorophyll_red_edge_signal",
+                "persistence",
+                "environmental_context",
+                "intake_exposure"
+              ],
+              "sequence_type": "list"
+            },
+            "coverage": "available configured weight/all configured weight; canonical K",
+            "decision": "052",
+            "definitions": {
+              "chlorophyll_red_edge_signal": "100*sum(v_F1_F3)/sum(a_F1_F3); red-edge family evidence breadth",
+              "environmental_context": "unavailable/not_implemented; no source",
+              "intake_exposure": "unavailable/not_implemented; no source",
+              "persistence": "100*C/B; B=0 unavailable/no_prior_valid_candidate_history",
+              "spectral_anomaly": "100*sum(v_all)/sum(a_all); family-pixel evidence breadth"
+            },
+            "driver_contribution": "effective_weight=w_i/K; points=effective_weight*x_i",
+            "driver_explanation": "descending available contribution; canonical ties; unavailable last",
+            "driver_storage": {
+              "items": [
+                "spectral_anomaly",
+                "chlorophyll_red_edge_signal",
+                "persistence",
+                "environmental_context",
+                "intake_exposure"
+              ],
+              "sequence_type": "list"
+            },
+            "limited_evidence_completeness_threshold": {
+              "binary64": "0x1.0000000000000p-1"
+            },
+            "mandatory_components": {
+              "items": [
+                "spectral_anomaly",
+                "chlorophyll_red_edge_signal"
+              ],
+              "sequence_type": "list"
+            },
+            "missing": "None; no zero/neutral/imputation; renormalize available canonical weights",
+            "no_regions": {
+              "message": "No candidates under the frozen policy in evaluable observations.",
+              "status": "no_candidate_regions"
+            },
+            "numeric": "finite binary64; exact counts; fsum; no clipping/NaN/bool numerics",
+            "overlap": "F1-F3 in spectral and red-edge; correlated, deliberate emphasis",
+            "raw_weights": {
+              "chlorophyll_red_edge_signal": {
+                "binary64": "0x1.999999999999ap-3"
+              },
+              "environmental_context": {
+                "binary64": "0x1.3333333333333p-3"
+              },
+              "intake_exposure": {
+                "binary64": "0x1.3333333333333p-3"
+              },
+              "persistence": {
+                "binary64": "0x1.3333333333333p-3"
+              },
+              "spectral_anomaly": {
+                "binary64": "0x1.6666666666666p-2"
+              }
+            },
+            "recommendations": {
+              "Elevated": "Prioritize targeted review and field verification",
+              "High": "High-priority field verification and increased monitoring",
+              "Normal": "Continue scheduled observation",
+              "Watch": "Review on the next valid acquisition"
+            },
+            "regions": "authoritative AS-105; retain all; one pixel single_pixel_region",
+            "risk": "100*fsum(w_i*(x_i/100) canonical available order)/fsum(available w_i)",
+            "serialization": "sorted keys; fixed lists; UTC; exact float hex; null unavailable",
+            "site_selection": "descending raw score, descending completeness, ascending label",
+            "unscored_recommendation": "Request evidence review / additional valid observations",
+            "version": "as107-v1"
+          },
+          "processing_version": "as107-v1",
+          "software_versions": {
+            "numpy": "2.2.6",
+            "python": "3.11.16"
+          },
+          "source_product_ids": {
+            "items": [
+              "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+              "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+            ],
+            "sequence_type": "tuple"
+          },
+          "target_acquired_at": "2023-04-28T06:46:29.024000+00:00"
+        },
+        "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+        "output_fingerprint_format": "as107-output-v1",
+        "overlap_disclosure": "F1-F3 contribute to both spectral and red-edge components: correlated/overlapping evidence, not independent corroboration; weights deliberately emphasize red-edge evidence.",
+        "scientific_limit": "Provisional observational HAB-like screening only; not confirmed HAB, species, toxins, chlorophyll concentration, biological certainty, probability, calibrated confidence, accuracy, warning lead time, water safety, shutdown advice or complete intake risk. Al Raha is a validation AOI, not a confirmed intake."
+      },
+      "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+      "provenance": {
+        "fields": {
+          "created_at": {
+            "utc": "2026-10-10T13:04:58.725725+00:00"
+          },
+          "parameters": {
+            "identity": {
+              "grid": {
+                "bounds": {
+                  "items": [
+                    {
+                      "binary64": "0x1.e65e000000000p+17"
+                    },
+                    {
+                      "binary64": "0x1.49f0600000000p+21"
+                    },
+                    {
+                      "binary64": "0x1.f27a000000000p+17"
+                    },
+                    {
+                      "binary64": "0x1.4a7ee00000000p+21"
+                    }
+                  ],
+                  "sequence_type": "list"
+                },
+                "crs": "EPSG:32640",
+                "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+                "height": 228,
+                "resolution": {
+                  "binary64": "0x1.4000000000000p+4"
+                },
+                "transform": {
+                  "items": [
+                    {
+                      "binary64": "0x1.4000000000000p+4"
+                    },
+                    {
+                      "binary64": "0x0.0p+0"
+                    },
+                    {
+                      "binary64": "0x1.e65e000000000p+17"
+                    },
+                    {
+                      "binary64": "0x0.0p+0"
+                    },
+                    {
+                      "binary64": "-0x1.4000000000000p+4"
+                    },
+                    {
+                      "binary64": "0x1.4a7ee00000000p+21"
+                    }
+                  ],
+                  "sequence_type": "list"
+                },
+                "width": 310
+              },
+              "input_content_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+              "input_fingerprint_format": "as107-input-v1",
+              "parent_contract_versions": {
+                "items": [
+                  "as105-v1",
+                  "as106-v1",
+                  "as104-v1_witness"
+                ],
+                "sequence_type": "tuple"
+              },
+              "policy": {
+                "assessment_status": "provisional_observational_screening",
+                "band_semantics": "unrounded binary64; maxima+1 cuts; no epsilon/snapping",
+                "bands": {
+                  "elevated_max": 74,
+                  "high_max": 100,
+                  "low_max": 24,
+                  "watch_max": 49
+                },
+                "canonical_weights": {
+                  "chlorophyll_red_edge_signal": {
+                    "binary64": "0x1.999999999999ap-3"
+                  },
+                  "environmental_context": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "intake_exposure": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "persistence": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "spectral_anomaly": {
+                    "binary64": "0x1.6666666666666p-2"
+                  }
+                },
+                "completeness": "min(coverage,sum(a)/(5*A),sum(a_F1_F3)/(3*A),B/A)",
+                "completeness_flags": "<1 incomplete_evidence; <0.50 limited_evidence_completeness",
+                "component_order": {
+                  "items": [
+                    "spectral_anomaly",
+                    "chlorophyll_red_edge_signal",
+                    "persistence",
+                    "environmental_context",
+                    "intake_exposure"
+                  ],
+                  "sequence_type": "list"
+                },
+                "coverage": "available configured weight/all configured weight; canonical K",
+                "decision": "052",
+                "definitions": {
+                  "chlorophyll_red_edge_signal": "100*sum(v_F1_F3)/sum(a_F1_F3); red-edge family evidence breadth",
+                  "environmental_context": "unavailable/not_implemented; no source",
+                  "intake_exposure": "unavailable/not_implemented; no source",
+                  "persistence": "100*C/B; B=0 unavailable/no_prior_valid_candidate_history",
+                  "spectral_anomaly": "100*sum(v_all)/sum(a_all); family-pixel evidence breadth"
+                },
+                "driver_contribution": "effective_weight=w_i/K; points=effective_weight*x_i",
+                "driver_explanation": "descending available contribution; canonical ties; unavailable last",
+                "driver_storage": {
+                  "items": [
+                    "spectral_anomaly",
+                    "chlorophyll_red_edge_signal",
+                    "persistence",
+                    "environmental_context",
+                    "intake_exposure"
+                  ],
+                  "sequence_type": "list"
+                },
+                "limited_evidence_completeness_threshold": {
+                  "binary64": "0x1.0000000000000p-1"
+                },
+                "mandatory_components": {
+                  "items": [
+                    "spectral_anomaly",
+                    "chlorophyll_red_edge_signal"
+                  ],
+                  "sequence_type": "list"
+                },
+                "missing": "None; no zero/neutral/imputation; renormalize available canonical weights",
+                "no_regions": {
+                  "message": "No candidates under the frozen policy in evaluable observations.",
+                  "status": "no_candidate_regions"
+                },
+                "numeric": "finite binary64; exact counts; fsum; no clipping/NaN/bool numerics",
+                "overlap": "F1-F3 in spectral and red-edge; correlated, deliberate emphasis",
+                "raw_weights": {
+                  "chlorophyll_red_edge_signal": {
+                    "binary64": "0x1.999999999999ap-3"
+                  },
+                  "environmental_context": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "intake_exposure": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "persistence": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "spectral_anomaly": {
+                    "binary64": "0x1.6666666666666p-2"
+                  }
+                },
+                "recommendations": {
+                  "Elevated": "Prioritize targeted review and field verification",
+                  "High": "High-priority field verification and increased monitoring",
+                  "Normal": "Continue scheduled observation",
+                  "Watch": "Review on the next valid acquisition"
+                },
+                "regions": "authoritative AS-105; retain all; one pixel single_pixel_region",
+                "risk": "100*fsum(w_i*(x_i/100) canonical available order)/fsum(available w_i)",
+                "serialization": "sorted keys; fixed lists; UTC; exact float hex; null unavailable",
+                "site_selection": "descending raw score, descending completeness, ascending label",
+                "unscored_recommendation": "Request evidence review / additional valid observations",
+                "version": "as107-v1"
+              },
+              "processing_version": "as107-v1",
+              "software_versions": {
+                "numpy": "2.2.6",
+                "python": "3.11.16"
+              },
+              "source_product_ids": {
+                "items": [
+                  "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+                  "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+                ],
+                "sequence_type": "tuple"
+              },
+              "target_acquired_at": "2023-04-28T06:46:29.024000+00:00"
+            },
+            "output_content_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+            "output_fingerprint_format": "as107-output-v1",
+            "overlap_disclosure": "F1-F3 contribute to both spectral and red-edge components: correlated/overlapping evidence, not independent corroboration; weights deliberately emphasize red-edge evidence.",
+            "scientific_limit": "Provisional observational HAB-like screening only; not confirmed HAB, species, toxins, chlorophyll concentration, biological certainty, probability, calibrated confidence, accuracy, warning lead time, water safety, shutdown advice or complete intake risk. Al Raha is a validation AOI, not a confirmed intake."
+          },
+          "processing_version": "as107-v1",
+          "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+          "product_type": "hab_risk",
+          "source_ids": {
+            "items": [
+              "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+              "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+            ],
+            "sequence_type": "tuple"
+          }
+        },
+        "record_type": "DerivedProductRecord"
+      },
+      "regions": {
+        "items": [
+          {
+            "fields": {
+              "area_km2": {
+                "binary64": "0x1.6f0068db8bac7p-9"
+              },
+              "area_m2": {
+                "binary64": "0x1.5e00000000000p+11"
+              },
+              "assessment_status": "provisional_observational_screening",
+              "bbox_projected": {
+                "items": [
+                  {
+                    "binary64": "0x1.e690000000000p+17"
+                  },
+                  {
+                    "binary64": "0x1.4a19000000000p+21"
+                  },
+                  {
+                    "binary64": "0x1.e6b8000000000p+17"
+                  },
+                  {
+                    "binary64": "0x1.4a1b800000000p+21"
+                  }
+                ],
+                "sequence_type": "tuple"
+              },
+              "completeness_factors": {
+                "fields": {
+                  "available_configured_weight": {
+                    "binary64": "0x1.6666666666666p-1"
+                  },
+                  "candidate_history_coverage": {
+                    "binary64": "0x1.0000000000000p+0"
+                  },
+                  "component_coverage": {
+                    "binary64": "0x1.6666666666666p-1"
+                  },
+                  "family_availability": {
+                    "binary64": "0x1.0000000000000p+0"
+                  },
+                  "family_available_count": 35,
+                  "family_opportunity_count": 35,
+                  "prior_supported_candidate_count": 7,
+                  "red_edge_availability": {
+                    "binary64": "0x1.0000000000000p+0"
+                  },
+                  "red_edge_available_count": 21,
+                  "red_edge_opportunity_count": 21,
+                  "target_candidate_count": 7,
+                  "total_configured_weight": {
+                    "binary64": "0x1.0000000000000p+0"
+                  }
+                },
+                "record_type": "EvidenceCompletenessFactors"
+              },
+              "component_coverage": {
+                "binary64": "0x1.6666666666666p-1"
+              },
+              "component_label": 1,
+              "drivers": {
+                "items": [
+                  {
+                    "fields": {
+                      "availability": "available",
+                      "canonical_name": "spectral_anomaly",
+                      "canonical_weight": {
+                        "binary64": "0x1.6666666666666p-2"
+                      },
+                      "component_value": {
+                        "binary64": "0x1.4000000000000p+5"
+                      },
+                      "configured_weight": {
+                        "binary64": "0x1.6666666666666p-2"
+                      },
+                      "contribution_points": {
+                        "binary64": "0x1.4000000000000p+4"
+                      },
+                      "definition_id": "as107-v1:spectral_anomaly",
+                      "effective_weight": {
+                        "binary64": "0x1.0000000000000p-1"
+                      },
+                      "evidence_denominator": 35,
+                      "evidence_numerator": 14,
+                      "family_counts": {
+                        "items": [
+                          {
+                            "items": [
+                              "red_edge_b5_vs_red",
+                              7,
+                              0
+                            ],
+                            "sequence_type": "tuple"
+                          },
+                          {
+                            "items": [
+                              "red_edge_line_height",
+                              7,
+                              7
+                            ],
+                            "sequence_type": "tuple"
+                          },
+                          {
+                            "items": [
+                              "red_edge_b6_vs_red",
+                              7,
+                              0
+                            ],
+                            "sequence_type": "tuple"
+                          },
+                          {
+                            "items": [
+                              "visible_green_vs_red",
+                              7,
+                              7
+                            ],
+                            "sequence_type": "tuple"
+                          },
+                          {
+                            "items": [
+                              "visible_green_vs_blue",
+                              7,
+                              0
+                            ],
+                            "sequence_type": "tuple"
+                          }
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      "source_product_ids": {
+                        "items": [
+                          "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      "unavailable_reason": null
+                    },
+                    "record_type": "RiskDriver"
+                  },
+                  {
+                    "fields": {
+                      "availability": "available",
+                      "canonical_name": "chlorophyll_red_edge_signal",
+                      "canonical_weight": {
+                        "binary64": "0x1.999999999999ap-3"
+                      },
+                      "component_value": {
+                        "binary64": "0x1.0aaaaaaaaaaabp+5"
+                      },
+                      "configured_weight": {
+                        "binary64": "0x1.999999999999ap-3"
+                      },
+                      "contribution_points": {
+                        "binary64": "0x1.30c30c30c30c4p+3"
+                      },
+                      "definition_id": "as107-v1:chlorophyll_red_edge_signal",
+                      "effective_weight": {
+                        "binary64": "0x1.2492492492493p-2"
+                      },
+                      "evidence_denominator": 21,
+                      "evidence_numerator": 7,
+                      "family_counts": {
+                        "items": [
+                          {
+                            "items": [
+                              "red_edge_b5_vs_red",
+                              7,
+                              0
+                            ],
+                            "sequence_type": "tuple"
+                          },
+                          {
+                            "items": [
+                              "red_edge_line_height",
+                              7,
+                              7
+                            ],
+                            "sequence_type": "tuple"
+                          },
+                          {
+                            "items": [
+                              "red_edge_b6_vs_red",
+                              7,
+                              0
+                            ],
+                            "sequence_type": "tuple"
+                          }
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      "source_product_ids": {
+                        "items": [
+                          "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      "unavailable_reason": null
+                    },
+                    "record_type": "RiskDriver"
+                  },
+                  {
+                    "fields": {
+                      "availability": "available",
+                      "canonical_name": "persistence",
+                      "canonical_weight": {
+                        "binary64": "0x1.3333333333333p-3"
+                      },
+                      "component_value": {
+                        "binary64": "0x0.0p+0"
+                      },
+                      "configured_weight": {
+                        "binary64": "0x1.3333333333333p-3"
+                      },
+                      "contribution_points": {
+                        "binary64": "0x0.0p+0"
+                      },
+                      "definition_id": "as107-v1:persistence",
+                      "effective_weight": {
+                        "binary64": "0x1.b6db6db6db6dcp-3"
+                      },
+                      "evidence_denominator": 7,
+                      "evidence_numerator": 0,
+                      "family_counts": {
+                        "items": [],
+                        "sequence_type": "tuple"
+                      },
+                      "source_product_ids": {
+                        "items": [
+                          "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      "unavailable_reason": null
+                    },
+                    "record_type": "RiskDriver"
+                  },
+                  {
+                    "fields": {
+                      "availability": "unavailable",
+                      "canonical_name": "environmental_context",
+                      "canonical_weight": {
+                        "binary64": "0x1.3333333333333p-3"
+                      },
+                      "component_value": null,
+                      "configured_weight": {
+                        "binary64": "0x1.3333333333333p-3"
+                      },
+                      "contribution_points": null,
+                      "definition_id": "as107-v1:environmental_context",
+                      "effective_weight": {
+                        "binary64": "0x0.0p+0"
+                      },
+                      "evidence_denominator": null,
+                      "evidence_numerator": null,
+                      "family_counts": {
+                        "items": [],
+                        "sequence_type": "tuple"
+                      },
+                      "source_product_ids": {
+                        "items": [],
+                        "sequence_type": "tuple"
+                      },
+                      "unavailable_reason": "not_implemented"
+                    },
+                    "record_type": "RiskDriver"
+                  },
+                  {
+                    "fields": {
+                      "availability": "unavailable",
+                      "canonical_name": "intake_exposure",
+                      "canonical_weight": {
+                        "binary64": "0x1.3333333333333p-3"
+                      },
+                      "component_value": null,
+                      "configured_weight": {
+                        "binary64": "0x1.3333333333333p-3"
+                      },
+                      "contribution_points": null,
+                      "definition_id": "as107-v1:intake_exposure",
+                      "effective_weight": {
+                        "binary64": "0x0.0p+0"
+                      },
+                      "evidence_denominator": null,
+                      "evidence_numerator": null,
+                      "family_counts": {
+                        "items": [],
+                        "sequence_type": "tuple"
+                      },
+                      "source_product_ids": {
+                        "items": [],
+                        "sequence_type": "tuple"
+                      },
+                      "unavailable_reason": "not_implemented"
+                    },
+                    "record_type": "RiskDriver"
+                  }
+                ],
+                "sequence_type": "tuple"
+              },
+              "evidence_completeness": {
+                "binary64": "0x1.6666666666666p-1"
+              },
+              "explanation_order": {
+                "items": [
+                  "spectral_anomaly",
+                  "chlorophyll_red_edge_signal",
+                  "persistence",
+                  "environmental_context",
+                  "intake_exposure"
+                ],
+                "sequence_type": "tuple"
+              },
+              "family_counts": {
+                "items": [
+                  {
+                    "items": [
+                      "red_edge_b5_vs_red",
+                      7,
+                      0
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  {
+                    "items": [
+                      "red_edge_line_height",
+                      7,
+                      7
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  {
+                    "items": [
+                      "red_edge_b6_vs_red",
+                      7,
+                      0
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  {
+                    "items": [
+                      "visible_green_vs_red",
+                      7,
+                      7
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  {
+                    "items": [
+                      "visible_green_vs_blue",
+                      7,
+                      0
+                    ],
+                    "sequence_type": "tuple"
+                  }
+                ],
+                "sequence_type": "tuple"
+              },
+              "first_pixel_col": 5,
+              "first_pixel_row": 159,
+              "interpretation_flags": {
+                "items": [
+                  "incomplete_evidence"
+                ],
+                "sequence_type": "tuple"
+              },
+              "limitations": {
+                "items": [
+                  "provisional_observational_screening",
+                  "environmental_context_unavailable",
+                  "intake_exposure_unavailable",
+                  "correlated_red_edge_emphasis",
+                  "candidate_conditioned_screening",
+                  "heuristic_weights_not_calibrated",
+                  "shared_sparse_histories_not_independent_confirmation",
+                  "five_histories_not_statistical_sufficiency",
+                  "exact_pixel_recurrence_no_motion_tracking",
+                  "observation_gaps_not_continuous_biological_persistence",
+                  "future_AS105_policy_validation_not_run",
+                  "not_biological_or_operational_validation"
+                ],
+                "sequence_type": "tuple"
+              },
+              "monitoring_recommendation": "Review on the next valid acquisition",
+              "participating_families": {
+                "items": [
+                  "red_edge_line_height",
+                  "visible_green_vs_red"
+                ],
+                "sequence_type": "tuple"
+              },
+              "persistence_evidence": {
+                "fields": {
+                  "candidate_history_coverage": {
+                    "binary64": "0x1.0000000000000p+0"
+                  },
+                  "component_label": 1,
+                  "maximum_current_streak_span_us": null,
+                  "maximum_streak_count": 1,
+                  "median_current_streak_span_us": null,
+                  "median_streak_count": {
+                    "binary64": "0x1.0000000000000p+0"
+                  },
+                  "persistence_evaluable_target_candidate_count": 7,
+                  "prior_observations": {
+                    "items": [
+                      {
+                        "fields": {
+                          "acquired_at": {
+                            "utc": "2023-04-03T06:46:21.024000+00:00"
+                          },
+                          "candidate_overlap_fraction_of_supported": {
+                            "binary64": "0x0.0p+0"
+                          },
+                          "candidate_overlap_pixel_count": 0,
+                          "geometry_product_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+                          "supported_target_region_pixel_count": 7
+                        },
+                        "record_type": "PriorRegionEvidence"
+                      }
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  "recurrence_fraction": {
+                    "binary64": "0x0.0p+0"
+                  },
+                  "recurrent_candidate_count": 0,
+                  "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+                  "target_pixel_count": 7
+                },
+                "record_type": "PersistenceRegionSummary"
+              },
+              "pixel_count": 7,
+              "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+              "risk_band": "Watch",
+              "risk_score": {
+                "binary64": "0x1.d861861861863p+4"
+              }
+            },
+            "record_type": "HABRegionRisk"
+          }
+        ],
+        "sequence_type": "tuple"
+      },
+      "site_summary": {
+        "fields": {
+          "assessment_status": "provisional_observational_screening",
+          "completeness_factors": {
+            "fields": {
+              "available_configured_weight": {
+                "binary64": "0x1.6666666666666p-1"
+              },
+              "candidate_history_coverage": {
+                "binary64": "0x1.0000000000000p+0"
+              },
+              "component_coverage": {
+                "binary64": "0x1.6666666666666p-1"
+              },
+              "family_availability": {
+                "binary64": "0x1.0000000000000p+0"
+              },
+              "family_available_count": 35,
+              "family_opportunity_count": 35,
+              "prior_supported_candidate_count": 7,
+              "red_edge_availability": {
+                "binary64": "0x1.0000000000000p+0"
+              },
+              "red_edge_available_count": 21,
+              "red_edge_opportunity_count": 21,
+              "target_candidate_count": 7,
+              "total_configured_weight": {
+                "binary64": "0x1.0000000000000p+0"
+              }
+            },
+            "record_type": "EvidenceCompletenessFactors"
+          },
+          "component_coverage": {
+            "binary64": "0x1.6666666666666p-1"
+          },
+          "drivers": {
+            "items": [
+              {
+                "fields": {
+                  "availability": "available",
+                  "canonical_name": "spectral_anomaly",
+                  "canonical_weight": {
+                    "binary64": "0x1.6666666666666p-2"
+                  },
+                  "component_value": {
+                    "binary64": "0x1.4000000000000p+5"
+                  },
+                  "configured_weight": {
+                    "binary64": "0x1.6666666666666p-2"
+                  },
+                  "contribution_points": {
+                    "binary64": "0x1.4000000000000p+4"
+                  },
+                  "definition_id": "as107-v1:spectral_anomaly",
+                  "effective_weight": {
+                    "binary64": "0x1.0000000000000p-1"
+                  },
+                  "evidence_denominator": 35,
+                  "evidence_numerator": 14,
+                  "family_counts": {
+                    "items": [
+                      {
+                        "items": [
+                          "red_edge_b5_vs_red",
+                          7,
+                          0
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      {
+                        "items": [
+                          "red_edge_line_height",
+                          7,
+                          7
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      {
+                        "items": [
+                          "red_edge_b6_vs_red",
+                          7,
+                          0
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      {
+                        "items": [
+                          "visible_green_vs_red",
+                          7,
+                          7
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      {
+                        "items": [
+                          "visible_green_vs_blue",
+                          7,
+                          0
+                        ],
+                        "sequence_type": "tuple"
+                      }
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  "source_product_ids": {
+                    "items": [
+                      "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  "unavailable_reason": null
+                },
+                "record_type": "RiskDriver"
+              },
+              {
+                "fields": {
+                  "availability": "available",
+                  "canonical_name": "chlorophyll_red_edge_signal",
+                  "canonical_weight": {
+                    "binary64": "0x1.999999999999ap-3"
+                  },
+                  "component_value": {
+                    "binary64": "0x1.0aaaaaaaaaaabp+5"
+                  },
+                  "configured_weight": {
+                    "binary64": "0x1.999999999999ap-3"
+                  },
+                  "contribution_points": {
+                    "binary64": "0x1.30c30c30c30c4p+3"
+                  },
+                  "definition_id": "as107-v1:chlorophyll_red_edge_signal",
+                  "effective_weight": {
+                    "binary64": "0x1.2492492492493p-2"
+                  },
+                  "evidence_denominator": 21,
+                  "evidence_numerator": 7,
+                  "family_counts": {
+                    "items": [
+                      {
+                        "items": [
+                          "red_edge_b5_vs_red",
+                          7,
+                          0
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      {
+                        "items": [
+                          "red_edge_line_height",
+                          7,
+                          7
+                        ],
+                        "sequence_type": "tuple"
+                      },
+                      {
+                        "items": [
+                          "red_edge_b6_vs_red",
+                          7,
+                          0
+                        ],
+                        "sequence_type": "tuple"
+                      }
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  "source_product_ids": {
+                    "items": [
+                      "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  "unavailable_reason": null
+                },
+                "record_type": "RiskDriver"
+              },
+              {
+                "fields": {
+                  "availability": "available",
+                  "canonical_name": "persistence",
+                  "canonical_weight": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "component_value": {
+                    "binary64": "0x0.0p+0"
+                  },
+                  "configured_weight": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "contribution_points": {
+                    "binary64": "0x0.0p+0"
+                  },
+                  "definition_id": "as107-v1:persistence",
+                  "effective_weight": {
+                    "binary64": "0x1.b6db6db6db6dcp-3"
+                  },
+                  "evidence_denominator": 7,
+                  "evidence_numerator": 0,
+                  "family_counts": {
+                    "items": [],
+                    "sequence_type": "tuple"
+                  },
+                  "source_product_ids": {
+                    "items": [
+                      "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb"
+                    ],
+                    "sequence_type": "tuple"
+                  },
+                  "unavailable_reason": null
+                },
+                "record_type": "RiskDriver"
+              },
+              {
+                "fields": {
+                  "availability": "unavailable",
+                  "canonical_name": "environmental_context",
+                  "canonical_weight": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "component_value": null,
+                  "configured_weight": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "contribution_points": null,
+                  "definition_id": "as107-v1:environmental_context",
+                  "effective_weight": {
+                    "binary64": "0x0.0p+0"
+                  },
+                  "evidence_denominator": null,
+                  "evidence_numerator": null,
+                  "family_counts": {
+                    "items": [],
+                    "sequence_type": "tuple"
+                  },
+                  "source_product_ids": {
+                    "items": [],
+                    "sequence_type": "tuple"
+                  },
+                  "unavailable_reason": "not_implemented"
+                },
+                "record_type": "RiskDriver"
+              },
+              {
+                "fields": {
+                  "availability": "unavailable",
+                  "canonical_name": "intake_exposure",
+                  "canonical_weight": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "component_value": null,
+                  "configured_weight": {
+                    "binary64": "0x1.3333333333333p-3"
+                  },
+                  "contribution_points": null,
+                  "definition_id": "as107-v1:intake_exposure",
+                  "effective_weight": {
+                    "binary64": "0x0.0p+0"
+                  },
+                  "evidence_denominator": null,
+                  "evidence_numerator": null,
+                  "family_counts": {
+                    "items": [],
+                    "sequence_type": "tuple"
+                  },
+                  "source_product_ids": {
+                    "items": [],
+                    "sequence_type": "tuple"
+                  },
+                  "unavailable_reason": "not_implemented"
+                },
+                "record_type": "RiskDriver"
+              }
+            ],
+            "sequence_type": "tuple"
+          },
+          "evidence_completeness": {
+            "binary64": "0x1.6666666666666p-1"
+          },
+          "explanation_order": {
+            "items": [
+              "spectral_anomaly",
+              "chlorophyll_red_edge_signal",
+              "persistence",
+              "environmental_context",
+              "intake_exposure"
+            ],
+            "sequence_type": "tuple"
+          },
+          "interpretation_flags": {
+            "items": [
+              "incomplete_evidence"
+            ],
+            "sequence_type": "tuple"
+          },
+          "limitations": {
+            "items": [
+              "provisional_observational_screening",
+              "environmental_context_unavailable",
+              "intake_exposure_unavailable",
+              "correlated_red_edge_emphasis",
+              "candidate_conditioned_screening",
+              "heuristic_weights_not_calibrated",
+              "shared_sparse_histories_not_independent_confirmation",
+              "five_histories_not_statistical_sufficiency",
+              "exact_pixel_recurrence_no_motion_tracking",
+              "observation_gaps_not_continuous_biological_persistence",
+              "future_AS105_policy_validation_not_run",
+              "not_biological_or_operational_validation"
+            ],
+            "sequence_type": "tuple"
+          },
+          "message": null,
+          "monitoring_recommendation": "Review on the next valid acquisition",
+          "policy_support_count": 802,
+          "risk_band": "Watch",
+          "risk_score": {
+            "binary64": "0x1.d861861861863p+4"
+          },
+          "selected_component_label": 1,
+          "selected_region": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+          "status": null,
+          "target_acquired_at": {
+            "utc": "2023-04-28T06:46:29.024000+00:00"
+          }
+        },
+        "record_type": "HABSiteRiskSummary"
+      },
+      "statistics": {
+        "fields": {
+          "region_count": 1,
+          "scored_region_count": 1,
+          "single_pixel_region_count": 0,
+          "target_candidate_count": 7,
+          "target_policy_support_count": 802
+        },
+        "record_type": "HABRiskStatistics"
+      },
+      "target_acquired_at": {
+        "utc": "2023-04-28T06:46:29.024000+00:00"
+      },
+      "target_geometry_product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+    },
+    "record_type": "HABRiskScene"
+  }
+}
