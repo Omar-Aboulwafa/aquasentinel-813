@@ -11,24 +11,20 @@ from urllib.parse import urlsplit, urlunsplit
 from aquasentinel.catalog.stac import search_catalog
 from aquasentinel.config import SARConfig, STACConfig
 from aquasentinel.ingestion.planetary_computer import AssetAccessError, validate_asset_href
+from aquasentinel.ingestion.sentinel1_coverage import canonical_geometry
 from aquasentinel.ingestion.sentinel1_policy import (
-    ENVELOPE_BBOX,
     ENVELOPE_GEOMETRY,
-    ENVELOPE_ID,
     FROZEN_SOURCES,
-    POLICY_VERSION,
     REPRESENTATION,
-    ROLE_ORDER,
     FrozenSentinel1Source,
-    Sentinel1AcquisitionGroup,
     Sentinel1AssetReference,
     Sentinel1RetrievalError,
     Sentinel1RetrievalSet,
     Sentinel1SliceSource,
-    _fingerprint,
     _parse_time,
     _source_record,
     _with_fingerprint,
+    assemble_retrieval,
 )
 from aquasentinel.provenance import SourceRecord
 
@@ -40,19 +36,6 @@ def _normalize_platform(value: Any) -> str:
     if platform not in {"sentinel-1a"}:
         raise Sentinel1RetrievalError("Frozen AS-201 sources must be Sentinel-1A.")
     return platform
-
-
-def _finite_geometry(value: Any) -> None:
-    if isinstance(value, dict):
-        for item in value.values():
-            _finite_geometry(item)
-    elif isinstance(value, list):
-        for item in value:
-            _finite_geometry(item)
-    elif isinstance(value, bool):
-        return
-    elif isinstance(value, (int, float)) and not isfinite(value):
-        raise Sentinel1RetrievalError("Sentinel-1 geometry must contain finite coordinates.")
 
 
 def _stable_self_url(item: dict[str, Any], endpoint: str) -> str | None:
@@ -67,13 +50,26 @@ def _stable_self_url(item: dict[str, Any], endpoint: str) -> str | None:
     href = self_links[0]
     if not isinstance(href, str) or not href.strip():
         raise Sentinel1RetrievalError("Sentinel-1 self link is invalid.")
-    if not urlsplit(href).scheme:
-        from urllib.parse import urljoin
+    try:
+        if not urlsplit(href).scheme:
+            from urllib.parse import urljoin
 
-        href = urljoin(endpoint, href)
-    parsed = urlsplit(href)
-    if parsed.query or parsed.fragment or parsed.username is not None:
-        raise Sentinel1RetrievalError("Stable Sentinel-1 self URL cannot contain credentials.")
+            href = urljoin(endpoint, href)
+        parsed = urlsplit(href)
+        valid = (
+            parsed.scheme == "https"
+            and parsed.hostname
+            and parsed.port in (None, 443)
+            and not parsed.query
+            and not parsed.fragment
+            and parsed.username is None
+            and parsed.password is None
+            and not any(c.isspace() for c in href)
+        )
+    except ValueError:
+        valid = False
+    if not valid:
+        raise Sentinel1RetrievalError("Stable Sentinel-1 self URL must be unsigned HTTPS.")
     return href
 
 
@@ -81,8 +77,7 @@ def _normalize_bbox(value: Any) -> tuple[float, float, float, float]:
     if not isinstance(value, list) or len(value) != 4:
         raise Sentinel1RetrievalError("Sentinel-1 item bbox must contain four numbers.")
     if any(
-        isinstance(v, bool) or not isinstance(v, (int, float)) or not isfinite(v)
-        for v in value
+        isinstance(v, bool) or not isinstance(v, (int, float)) or not isfinite(v) for v in value
     ):
         raise Sentinel1RetrievalError("Sentinel-1 bbox must contain finite numbers.")
     bbox = tuple(float(v) for v in value)
@@ -131,8 +126,26 @@ def _normalize_item(
     geometry = item.get("geometry")
     if not isinstance(geometry, dict) or geometry.get("type") not in {"Polygon", "MultiPolygon"}:
         raise Sentinel1RetrievalError("Sentinel-1 item requires Polygon/MultiPolygon geometry.")
-    _finite_geometry(geometry)
+    try:
+        geometry = canonical_geometry(geometry)
+    except (ValueError, TypeError):
+        raise Sentinel1RetrievalError("Source footprint topology is invalid.") from None
     bbox = _normalize_bbox(item.get("bbox"))
+    product = props.get("sar:product_type", props.get("s1:product_type", props.get("product:type")))
+    if product not in {"GRD", "GRDH"}:
+        raise Sentinel1RetrievalError("Source is not GRDH-compatible Level-1 GRD.")
+    native = props.get("s1:product_identifier")
+    if expected_item_id == expected.pc_item_id and native != expected.native_source_product_id:
+        raise Sentinel1RetrievalError("PC native source product identity mismatches.")
+    if native is not None and native not in {
+        expected.native_source_product_id,
+        expected.cdse_item_id,
+    }:
+        raise Sentinel1RetrievalError("Native source product identifier mismatch.")
+    for key in ("sar:pixel_spacing_range", "sar:pixel_spacing_azimuth"):
+        value = props.get(key)
+        if value is not None and (isinstance(value, bool) or value != 10):
+            raise Sentinel1RetrievalError("Source sample spacing conflicts with raw GRDH.")
     source_url = _stable_self_url(item, endpoint)
     record = _source_record(
         endpoint=endpoint,
@@ -146,26 +159,39 @@ def _normalize_item(
     return record, geometry, bbox, props
 
 
-def _index_items(items: tuple[dict[str, Any], ...]) -> dict[str, dict[str, Any]]:
-    indexed: dict[str, dict[str, Any]] = {}
-    canonical: dict[str, bytes] = {}
+def _index_items(items: tuple[dict[str, Any], ...]) -> dict[str, list[dict[str, Any]]]:
+    indexed: dict[str, list[dict[str, Any]]] = {}
     for item in items:
-        if not isinstance(item, dict):
-            raise Sentinel1RetrievalError("Catalog returned a non-object Sentinel-1 item.")
-        item_id = item.get("id")
-        if not isinstance(item_id, str) or not item_id:
-            raise Sentinel1RetrievalError("Catalog returned Sentinel-1 item without an ID.")
+        if not isinstance(item, dict) or not isinstance(item.get("id"), str) or not item["id"]:
+            raise Sentinel1RetrievalError("Catalog returned malformed Sentinel-1 item identity.")
         try:
-            encoded = json.dumps(
-                item, sort_keys=True, separators=(",", ":"), allow_nan=False
-            ).encode("utf-8")
+            json.dumps(item, allow_nan=False)
         except (TypeError, ValueError):
-            raise Sentinel1RetrievalError("Catalog item is not strict finite JSON.") from None
-        if item_id in indexed and canonical[item_id] != encoded:
-            raise Sentinel1RetrievalError(f"Conflicting duplicate Sentinel-1 item {item_id!r}.")
-        indexed[item_id] = item
-        canonical[item_id] = encoded
+            raise Sentinel1RetrievalError("Catalog metadata is not strict finite JSON.") from None
+        indexed.setdefault(item["id"], []).append(item)
     return indexed
+
+
+def classify_representation(item: dict[str, Any]) -> str:
+    properties = item.get("properties", {})
+    if not isinstance(properties, dict):
+        return "UNKNOWN_REPRESENTATION"
+    stated = properties.get("s1:representation", properties.get("representation"))
+    if stated is not None:
+        return (
+            stated
+            if stated in {"RAW_GRD_AMPLITUDE", "PROVIDER_CALIBRATED_BACKSCATTER", "RTC_GAMMA0"}
+            else "UNKNOWN_REPRESENTATION"
+        )
+    if item.get("collection") == "sentinel-1-rtc":
+        return "RTC_GAMMA0"
+    if properties.get("s1:calibrated") is True:
+        return "PROVIDER_CALIBRATED_BACKSCATTER"
+    return (
+        "RAW_GRD_AMPLITUDE"
+        if item.get("collection") == "sentinel-1-grd"
+        else ("UNKNOWN_REPRESENTATION")
+    )
 
 
 def _raw_asset(raw_assets: dict[str, Any], key: str) -> dict[str, Any] | None:
@@ -174,24 +200,23 @@ def _raw_asset(raw_assets: dict[str, Any], key: str) -> dict[str, Any] | None:
 
 
 def _measurement_asset(raw_assets: dict[str, Any], polarization: str) -> tuple[str, dict[str, Any]]:
-    preferred = polarization.lower()
     candidates: list[tuple[str, dict[str, Any]]] = []
     pattern = rf"(?:^|[-_/]){polarization.lower()}(?:[-_.]|$)"
     for key, asset in raw_assets.items():
         if not isinstance(key, str) or not isinstance(asset, dict):
             continue
         href = asset.get("href")
-        path = urlsplit(href).path.lower() if isinstance(href, str) else ""
-        if "/measurement/" not in path or not re.search(pattern, path):
-            continue
-        if key == preferred or preferred in key.lower() or "/measurement/" in path:
+        try:
+            path = urlsplit(href).path.lower() if isinstance(href, str) else ""
+        except ValueError:
+            raise Sentinel1RetrievalError("Measurement asset URL is malformed.") from None
+        if "/measurement/" in path and re.search(pattern, path):
             candidates.append((key, asset))
-    unique = {(key, asset.get("href")): (key, asset) for key, asset in candidates}
-    if len(unique) != 1:
+    if len(candidates) != 1:
         raise Sentinel1RetrievalError(
-            f"Expected one {polarization} measurement asset; found {len(unique)}."
+            f"Expected one {polarization} measurement asset; found {len(candidates)}."
         )
-    return next(iter(unique.values()))
+    return candidates[0]
 
 
 def _stable_asset(
@@ -230,7 +255,7 @@ def _same_product_href(measurement_href: str, relative_path: str, settings: SARC
 
 
 def _resolved_assets(
-    item: dict[str, Any], settings: SARConfig
+    item: dict[str, Any], settings: SARConfig, expected: FrozenSentinel1Source
 ) -> tuple[Sentinel1AssetReference, ...]:
     raw_assets = item.get("assets")
     if not isinstance(raw_assets, dict):
@@ -242,9 +267,26 @@ def _resolved_assets(
     vv_url, vh_url = urlsplit(vv.href), urlsplit(vh.href)
     vv_root = vv_url.path.split("/measurement/", 1)[0]
     vh_root = vh_url.path.split("/measurement/", 1)[0]
-    if (vv_url.scheme, vv_url.netloc, vv_root) != (vh_url.scheme, vh_url.netloc, vh_root):
+    if (vv_url.scheme, vv_url.hostname, vv_url.port or 443, vv_root) != (
+        vh_url.scheme,
+        vh_url.hostname,
+        vh_url.port or 443,
+        vh_root,
+    ):
         raise Sentinel1RetrievalError("VV/VH measurements do not share one product root.")
 
+    # Both stable measurements must identify this exact native source root.
+    for asset in (vv, vh):
+        path = urlsplit(asset.href).path
+        root = path.split("/measurement/", 1)[0]
+        polarization = "vv" if asset.purpose == "measurement_vv" else "vh"
+        if root.rsplit("/", 1)[-1] not in {
+            expected.native_source_product_id,
+            expected.native_source_product_id + ".SAFE",
+        } or not path.startswith("/s1-grd/"):
+            raise Sentinel1RetrievalError("Measurement path belongs to another source product.")
+        if not re.search(rf"(?:^|[-_/]){polarization}(?:[-_.]|$)", path.rsplit("/", 1)[-1]):
+            raise Sentinel1RetrievalError("Measurement filename has wrong polarization.")
     derived = {
         "manifest": ("normalized:manifest.safe", "manifest.safe"),
         "product_vv": ("normalized:annotation/iw-vv.xml", "annotation/iw-vv.xml"),
@@ -264,7 +306,7 @@ def _resolved_assets(
                 purpose=purpose,
                 key=key,
                 href=_same_product_href(vv.href, relative, settings),
-                media_type="application/xml" if purpose != "manifest" else "application/xml",
+                media_type="application/xml",
             )
         )
     return tuple(resolved)
@@ -309,13 +351,32 @@ def build_retrieval_set(
     pc = _index_items(pc_items)
     slices: list[Sentinel1SliceSource] = []
     for policy in FROZEN_SOURCES:
-        discovery_item = cdse.get(policy.cdse_item_id)
-        pc_item = pc.get(policy.pc_item_id)
+        discoveries = cdse.get(policy.cdse_item_id, [])
+        matches = [
+            item
+            for bucket in pc.values()
+            for item in bucket
+            if (
+                item["id"] == policy.pc_item_id
+                or (
+                    isinstance(item.get("properties"), dict)
+                    and item["properties"].get("s1:product_identifier")
+                    == policy.native_source_product_id
+                )
+            )
+        ]
+        discovery_item = discoveries[0] if len(discoveries) == 1 else None
+        pc_item = matches[0] if len(matches) == 1 else None
         if discovery_item is None:
-            slices.append(_unavailable(policy, "DISCOVERY_SOURCE_MISSING"))
+            slices.append(
+                _unavailable(
+                    policy,
+                    "DISCOVERY_SOURCE_MISSING" if not discoveries else "DISCOVERY_SOURCE_AMBIGUOUS",
+                )
+            )
             continue
         try:
-            discovery_record, _, _, _ = _normalize_item(
+            discovery_record, discovery_footprint, discovery_bbox, _ = _normalize_item(
                 discovery_item,
                 policy,
                 endpoint=settings.discovery_endpoint,
@@ -330,8 +391,10 @@ def build_retrieval_set(
             slices.append(
                 _unavailable(
                     policy,
-                    "PC_SOURCE_MISSING",
+                    "PC_SOURCE_MISSING" if not matches else "PC_SOURCE_AMBIGUOUS",
                     discovery_source=discovery_record,
+                    footprint=discovery_footprint,
+                    bbox=discovery_bbox,
                 )
             )
             continue
@@ -344,7 +407,9 @@ def build_retrieval_set(
                 expected_item_id=policy.pc_item_id,
                 license_name=pc_license,
             )
-            assets = _resolved_assets(pc_item, settings)
+            if classify_representation(pc_item) != REPRESENTATION:
+                raise Sentinel1RetrievalError("PC representation is not raw GRD amplitude.")
+            assets = _resolved_assets(pc_item, settings, policy)
             provider_metadata = {
                 key: props[key]
                 for key in (
@@ -357,6 +422,10 @@ def build_retrieval_set(
                     "s1:resolution",
                     "s1:shape",
                     "proj:shape",
+                    "s1:product_identifier",
+                    "sar:product_type",
+                    "sar:pixel_spacing_range",
+                    "sar:pixel_spacing_azimuth",
                 )
                 if key in props
             }
@@ -382,46 +451,12 @@ def build_retrieval_set(
                     policy,
                     "PC_IDENTITY_OR_ASSET_CONTRACT_INVALID",
                     discovery_source=discovery_record,
+                    footprint=discovery_footprint,
+                    bbox=discovery_bbox,
                 )
             )
 
-    groups = []
-    for role in ROLE_ORDER:
-        role_slices = tuple(
-            sorted(
-                (source for source in slices if source.policy.role == role),
-                key=lambda source: (source.policy.acquisition_start, source.policy.pc_item_id),
-            )
-        )
-        if len(role_slices) != 2:
-            raise RuntimeError("Frozen AS-201 policy must contain two slices per role.")
-        groups.append(
-            Sentinel1AcquisitionGroup(
-                role, role_slices[0].policy.acquisition_date, role_slices
-            )
-        )
-    payload = {
-        "policy_version": POLICY_VERSION,
-        "envelope_id": ENVELOPE_ID,
-        "envelope_bbox": ENVELOPE_BBOX,
-        "envelope_geometry": ENVELOPE_GEOMETRY,
-        "groups": [
-            {
-                "role": group.role,
-                "acquisition_date": group.acquisition_date.isoformat(),
-                "slices": [source.fingerprint for source in group.slices],
-            }
-            for group in groups
-        ],
-    }
-    return Sentinel1RetrievalSet(
-        POLICY_VERSION,
-        ENVELOPE_ID,
-        ENVELOPE_BBOX,
-        ENVELOPE_GEOMETRY,
-        tuple(groups),
-        _fingerprint(payload),
-    )
+    return assemble_retrieval(tuple(slices))
 
 
 def search_sentinel1(settings: SARConfig) -> Sentinel1RetrievalSet:
@@ -430,8 +465,7 @@ def search_sentinel1(settings: SARConfig) -> Sentinel1RetrievalSet:
     start = min(source.acquisition_start for source in FROZEN_SOURCES)
     end = max(source.acquisition_end for source in FROZEN_SOURCES)
     interval = (
-        f"{start.isoformat().replace('+00:00', 'Z')}/"
-        f"{end.isoformat().replace('+00:00', 'Z')}"
+        f"{start.isoformat().replace('+00:00', 'Z')}/{end.isoformat().replace('+00:00', 'Z')}"
     )
     discovery = search_catalog(
         STACConfig(
@@ -456,4 +490,3 @@ def search_sentinel1(settings: SARConfig) -> Sentinel1RetrievalSet:
         cdse_license=discovery.license_name,
         pc_license=access.license_name,
     )
-

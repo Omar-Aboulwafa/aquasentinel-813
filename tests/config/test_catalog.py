@@ -42,7 +42,8 @@ def test_non_numeric_toml_cloud_threshold_rejected_before_catalog_request(
 
 def test_catalog_configurable_and_old_config_still_loads(tmp_path):
     text = Path("config/default.toml").read_text()
-    custom = text.replace("https://stac.dataspace.copernicus.eu/v1/", "https://other.test/stac/")
+    # Change the optical endpoint only; SAR retains its separate frozen provider.
+    custom = text.replace("https://stac.dataspace.copernicus.eu/v1/", "https://other.test/stac/", 1)
     custom = custom.replace('collection = "sentinel-2-l2a"', 'collection = "custom-l2a"')
     custom = custom.replace("timeout_seconds = 30", "timeout_seconds = 7.5")
     path = tmp_path / "custom.toml"

@@ -175,6 +175,14 @@ class SARConfig:
             if parsed.scheme != "https" or not _is_hostname(parsed.hostname):
                 raise ValueError("SAR catalog/access endpoints must use HTTPS DNS hostnames.")
 
+        if (
+            not isinstance(self.signing_endpoint, str)
+            or self.discovery_endpoint.rstrip("/") != "https://stac.dataspace.copernicus.eu/v1"
+            or self.access_endpoint.rstrip("/") != "https://planetarycomputer.microsoft.com/api/stac/v1"
+            or self.signing_endpoint.rstrip("/") != "https://planetarycomputer.microsoft.com/api/sas/v1/sign"
+        ):
+            raise ValueError("AS-201 requires the frozen CDSE/PC provider endpoints.")
+
         try:
             signing = urlsplit(self.signing_endpoint)
             _ = signing.port
@@ -187,6 +195,8 @@ class SARConfig:
             or signing.scheme != "https"
             or not _is_hostname(signing.hostname)
             or signing.username is not None
+            or signing.port not in (None, 443)
+            or signing.path.rstrip("/") != "/api/sas/v1/sign"
             or signing.password is not None
             or signing.query
             or signing.fragment
@@ -194,6 +204,10 @@ class SARConfig:
             raise ValueError("SAR signing endpoint must be a credential-free HTTPS URL.")
         if not isinstance(self.allowed_asset_hosts, (tuple, list)) or not self.allowed_asset_hosts:
             raise ValueError("SAR allowed_asset_hosts must be a non-empty sequence.")
+        if tuple(self.allowed_asset_hosts) != ("sentinel1euwest.blob.core.windows.net",):
+            raise ValueError("AS-201 requires the frozen Planetary Computer GRD host.")
+        if self.discovery_collection != "sentinel-1-grd" or self.access_collection != "sentinel-1-grd":
+            raise ValueError("AS-201 requires frozen sentinel-1-grd collections.")
         for host in self.allowed_asset_hosts:
             if not _is_hostname(host):
                 raise ValueError("SAR asset hosts must be exact lowercase hostnames.")

@@ -9,18 +9,27 @@ import socket
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from time import sleep
+from typing import Protocol
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, quote, urlsplit, urlunsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
-from aquasentinel.config import OpticalConfig
+
+class AssetTransportSettings(Protocol):
+    """Shared transport configuration, independent of optical/SAR processing."""
+
+    signing_endpoint: str
+    allowed_asset_hosts: tuple[str, ...]
+    timeout_seconds: float
+
+    def validate(self) -> None: ...
 
 
 class AssetAccessError(RuntimeError):
     """Sanitized transport failure, deliberately without provider URL diagnostics."""
 
 
-def validate_asset_href(href: str, settings: OpticalConfig, *, signed: bool = False) -> None:
+def validate_asset_href(href: str, settings: AssetTransportSettings, *, signed: bool = False) -> None:
     try:
         parsed = urlsplit(href)
         valid = (
@@ -104,7 +113,7 @@ def _utc_now() -> datetime:
     return datetime.now(UTC)
 
 
-def _token_url(href: str, settings: OpticalConfig) -> str:
+def _token_url(href: str, settings: AssetTransportSettings) -> str:
     """Derive one canonical credential-free issuer/account/container scope."""
     asset = urlsplit(href)  # Caller has already enforced the asset allowlist.
     # Even an empty delimiter would make appending query authorization ambiguous.
@@ -144,7 +153,7 @@ def _token_url(href: str, settings: OpticalConfig) -> str:
     return urlunsplit(("https", authority, path, "", ""))
 
 
-def _request_token(url: str, settings: OpticalConfig) -> bytes:
+def _request_token(url: str, settings: AssetTransportSettings) -> bytes:
     """One bounded acquisition; retain typed HTTP errors only inside this module."""
     request = Request(url, headers={"User-Agent": "AquaSentinel813/as102-v1"})
     with build_opener(_SameHostRedirect()).open(
@@ -197,7 +206,7 @@ def _is_transient(error: OSError) -> bool:
     )
 
 
-def _acquire_token(url: str, settings: OpticalConfig) -> _SASToken:
+def _acquire_token(url: str, settings: AssetTransportSettings) -> _SASToken:
     for attempt in range(_MAX_TOKEN_ATTEMPTS):
         retry = False
         try:
@@ -215,7 +224,7 @@ def _acquire_token(url: str, settings: OpticalConfig) -> _SASToken:
     raise AssetAccessError("Token acquisition is invalid or unavailable.") from None
 
 
-def _get_token(url: str, settings: OpticalConfig) -> _SASToken:
+def _get_token(url: str, settings: AssetTransportSettings) -> _SASToken:
     cached = _TOKEN_CACHE.get(url)
     if cached is not None and (
         cached.expires_at - _utc_now()
@@ -231,7 +240,7 @@ def _signed_href(href: str, token: _SASToken) -> str:
     return href + "?" + token.material
 
 
-def sign_asset(href: str, settings: OpticalConfig) -> str:
+def sign_asset(href: str, settings: AssetTransportSettings) -> str:
     """Stable unsigned HREF in, ephemeral signed HREF out; no caller API change."""
     try:
         settings.validate()

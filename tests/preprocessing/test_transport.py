@@ -620,5 +620,5 @@ def test_transport_token_does_not_change_stable_source_metadata(monkeypatch, res
     signature = inspect.signature(pc.sign_asset)
     assert tuple(signature.parameters) == ("href", "settings")
     assert signature.parameters["href"].annotation == "str"
-    assert signature.parameters["settings"].annotation == "OpticalConfig"
+    assert signature.parameters["settings"].annotation == "AssetTransportSettings"
     assert signature.return_annotation == "str"

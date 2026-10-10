@@ -1,6 +1,16 @@
 # AS-201 — Sentinel-1 Retrieval / Source Contract
 
-## M47 scope, plan and status
+## Current M48 implementation status
+
+Decision 054 FINAL / FROZEN DESIGN / MERGED. M48 / E48 / EV-052 raw-GRD
+retrieval/source implementation is complete and offline validated on
+`feature/as-201-sentinel1-retrieval`, preserving existing WIP d6f89ce.
+See the completed implementation contract below and
+[EV-052](evidence/AS_201_IMPLEMENTATION_VALIDATION.md) for actual gates and limitations.
+No M48 live provider acceptance, SAR pixel reads or scientific SAR processing.
+AS-202 NOT STARTED; Decision 055 ABSENT. No PR or merge in this task.
+
+## Historical M47 scope, plan and status
 
 Decision 054 / M47 / E47 / EV-051: **FINAL / FROZEN DESIGN / NOT IMPLEMENTED**.
 Prepared 11 October 2026 (Asia/Dubai) on `docs/as-201-design-freeze`, from PR #28
@@ -229,3 +239,77 @@ See [M47 MD](evidence/AS_201_DESIGN_FREEZE.md) and [JSON](evidence/AS_201_DESIGN
 Next: owner review → separately authorized design PR/merge → separately authorized
 AS-201 offline retrieval/source implementation. AS-202 needs its own pre-science
 numerical design; no Decision 055 or implementation is authorized here.
+
+## M48 implementation plan and completed contract
+
+**Task:** AS-201 Sentinel-1 Retrieval / Source Implementation under Decision 054.
+**Goal:** reproducible raw-GRD metadata/source handoff with explicit six-slot
+missingness, footprint support and source/derived provenance; no scientific pixels.
+**Inputs:** merged Decision 054; fixed envelope and six exact native/CDSE/PC products;
+SAR provider settings; existing paginated STAC and reusable transient token transport.
+**Outputs:** immutable source/group/set models, strict resolver, bounded structural
+TIFF/XML validation, coverage metadata, stable identities, registry integration,
+offline fixtures and EV-052 implementation evidence.
+**Files:** SAR config/export/loader/default TOML, generic non-optical STAC query,
+`ingestion/sentinel1*.py`, structural PC transport typing, focused tests,
+`pyproject.toml`, this contract and continuity/evidence documents.
+**Dependencies:** pinned Shapely 2.1.2 for valid arbitrary Polygon/MultiPolygon
+union/intersection/difference and canonicalization in WGS84 metadata coordinates.
+The standard library has no robust polygon topology engine; bbox arithmetic would
+lose real source gaps. No GeoPandas, raster stack, calibration library or other new
+package; existing dependencies were not upgraded.
+**Acceptance:** exact six slots/two slices per role; strict complete pagination;
+identity/schema/representation rejection; actual TIFF structure rather than
+`proj:shape`; XML roles/native identity and nonempty finite LUT/geolocation
+structures; per-slice thermal state; immutable coverage and gaps; deterministic
+source/group/set fingerprints; CDSE and PC records plus derived retrieval lineage;
+credential-free stable serialization; full offline pytest/Ruff/preservation gates.
+**Guardrails:** raw amplitude is not backscatter; 10 m is sampling, not independent
+resolution; footprint support is not valid-pixel support; reference is not an oil
+negative and follow-up is not recovery. No petroleum/source/toxin/water safety or
+shutdown inference. Frozen Decisions 050–054 unchanged; Decision 055 absent.
+**Risks:** provider schema/access changes become unavailable, not fallbacks; M46
+representative XML does not prove all six current endpoints; header range budgets
+are conservative and reject unsupported layouts. Synthetic acceptance does not
+replace later controlled provider acceptance. No VH science inferred from VV XML.
+**Validation:** offline synthetic catalog pagination, six-source matching,
+metadata/header/XML rejection, coverage/gap checks, immutable identities, registry
+lineage, unsigned/SAS/redirect/range controls; full pytest/Ruff/diff and protected
+hash/mode/stash checks. No live provider acceptance in M48.
+**Non-goals:** pixel samples, calibration, denoising, dB, reprojection/common grid,
+resampling/mosaic/speckle/water mask, detection/temporal comparison/oil risk,
+AS-202 or Decision 055.
+
+Public entry points are `search_sentinel1`, `build_retrieval_set`,
+`validate_slice_access` and `validate_retrieval_access` from
+`aquasentinel.ingestion.sentinel1`. Discovery leaves sources
+`RESOLVED_NOT_ACCESSED`; only required VV header/XML validation makes them
+`AVAILABLE`. Zero/ambiguous/malformed/access-blocked sources stay `UNAVAILABLE`
+with reasons. Retrieval readiness requires all six `AVAILABLE` sources.
+
+Per-date support = envelope intersect union of source footprints; common support
+= intersection of all three date supports. Canonical MultiPolygons preserve gaps,
+holes and empty support. A known discovery footprint may describe metadata support
+when PC is unavailable; missing footprint inventory is explicitly a lower bound.
+No pixels are used and no area in km² is derived by planar degree arithmetic.
+
+Source and group hashes commit to validated metadata; set identity commits to
+Decision 054/as201-v1, frozen sources/envelope, canonical group/common support,
+missingness and source payloads. Sorting keys and compact UTF-8 JSON with finite
+numbers makes serialization deterministic. SAS/query/request/creation time/local
+paths are excluded; unsafe credential-bearing metadata is rejected. Header/XML
+acceptance changes source state and therefore identity. Derived retrieval product
+`sentinel1_retrieval:<digest>` references distinct CDSE and PC SourceRecords in
+canonical slice order. Registry integration is explicit; it does not mutate an
+existing registry unless called. Entirely missing sets retain a stable inspectable
+identity but no invented derived SourceRecord lineage. No new disk-cache schema.
+
+Shared PC transport changes only structural configuration typing; token issuance,
+expiry/retry behavior and optical algorithms are unchanged. Real signed access is
+scoped and transient; exceptions are sanitized. TIFF metadata reads require exact
+206/Content-Range, bounded bytes and structural directories/tag payloads. Image
+block offsets are catalogued to reject overlap and are never dereferenced.
+
+Follow-up publication preserves original WIP d6f89ce; Git records the new corrective
+commit. See [EV-052](evidence/AS_201_IMPLEMENTATION_VALIDATION.md) for actual gates.
+AS-202 NOT STARTED. Decision 055 ABSENT. No PR or merge in M48.

@@ -3,8 +3,6 @@ from __future__ import annotations
 import struct
 from dataclasses import replace
 
-import pytest
-
 from aquasentinel.catalog.stac import CatalogResult
 from aquasentinel.config import SARConfig
 from aquasentinel.ingestion import sentinel1 as s1
@@ -22,6 +20,9 @@ def _properties(policy):
         "sat:relative_orbit": 101,
         "sat:absolute_orbit": policy.absolute_orbit,
         "s1:product_type": "GRD",
+        "s1:product_identifier": policy.native_source_product_id,
+        "sar:pixel_spacing_range": 10,
+        "sar:pixel_spacing_azimuth": 10,
     }
 
 
@@ -42,7 +43,7 @@ def _item(policy, provider: str):
         "assets": {},
     }
     if provider == "pc":
-        root = f"https://sentinel1euwest.blob.core.windows.net/s1-grd/{item_id}.SAFE"
+        root = f"https://sentinel1euwest.blob.core.windows.net/s1-grd/{policy.native_source_product_id}.SAFE"
         item["assets"] = {
             "vv": {
                 "href": root + "/measurement/iw-vv.tiff",
@@ -162,49 +163,66 @@ def _ifd_entry(tag, field_type, count, value):
     return struct.pack("<HHI", tag, field_type, count) + raw
 
 
+def _tiff_blob(policy):
+    blob = bytearray(16384)
+    offsets = [8 + 256 * i for i in range(7)]
+    blob[:8] = b"II*\x00" + struct.pack("<I", offsets[0])
+    for level, offset in enumerate(offsets):
+        entries = [
+            _ifd_entry(256, 4, 1, policy.width // 2**level),
+            _ifd_entry(257, 4, 1, policy.height // 2**level),
+            _ifd_entry(258, 3, 1, 16),
+            _ifd_entry(259, 3, 1, 50000),
+            _ifd_entry(277, 3, 1, 1),
+            _ifd_entry(322, 4, 1, 1024),
+            _ifd_entry(323, 4, 1, 1024),
+            _ifd_entry(339, 3, 1, 1),
+            _ifd_entry(324, 4, 1, 1000000 + 2000 * level),
+            _ifd_entry(325, 4, 1, 1000),
+        ]
+        if level == 0:
+            entries.extend(
+                [
+                    struct.pack("<HHII", 33922, 12, 6, 4096),
+                    struct.pack("<HHII", 34735, 3, 12, 4200),
+                    _ifd_entry(42113, 2, 2, b"0\x00"),
+                ]
+            )
+        ifd = (
+            struct.pack("<H", len(entries))
+            + b"".join(entries)
+            + struct.pack("<I", offsets[level + 1] if level < 6 else 0)
+        )
+        blob[offset : offset + len(ifd)] = ifd
+    blob[4096:4144] = struct.pack("<6d", 0, 0, 0, 50, 29, 0)
+    blob[4200:4224] = struct.pack("<12H", 1, 1, 0, 2, 1024, 0, 1, 2, 2048, 0, 1, 4326)
+    return bytes(blob)
+
+
 def _tiff_ranges(policy):
-    entries = [
-        _ifd_entry(256, 4, 1, policy.width),
-        _ifd_entry(257, 4, 1, policy.height),
-        _ifd_entry(258, 3, 1, 16),
-        _ifd_entry(259, 3, 1, 50000),
-        _ifd_entry(277, 3, 1, 1),
-        _ifd_entry(322, 4, 1, 1024),
-        _ifd_entry(323, 4, 1, 1024),
-        _ifd_entry(330, 4, 6, 4096),
-        _ifd_entry(339, 3, 1, 1),
-        _ifd_entry(33922, 12, 1260, 8192),
-        _ifd_entry(42113, 2, 2, b"0\x00"),
-    ]
-    ifd = struct.pack("<H", len(entries)) + b"".join(entries) + struct.pack("<I", 0)
-    header = b"II*\x00" + struct.pack("<I", 8)
-    return header, ifd
+    blob = _tiff_blob(policy)
+    count = struct.unpack("<H", blob[8:10])[0]
+    return blob[:8], blob[8 : 8 + 2 + 12 * count + 4]
 
 
 def test_header_reader_uses_only_structural_ranges():
     policy = s1.FROZEN_SOURCES[0]
-    header, ifd = _tiff_ranges(policy)
+    blob = _tiff_blob(policy)
     requests = []
 
     def reader(url, *, timeout, start, end):
         requests.append((start, end))
-        if (start, end) == (0, 7):
-            return header
-        if (start, end) == (8, 9):
-            return ifd[:2]
-        assert start == 8
-        assert end == 8 + len(ifd) - 1
-        return ifd
+        assert end < 1000000  # no image-block span is requested
+        return blob[start : end + 1]
 
     summary = s1.read_tiff_header(
         "https://example.test/fake", policy, timeout=1, range_reader=reader
     )
-    assert summary.width == policy.width
-    assert summary.height == policy.height
+    assert (summary.width, summary.height) == (policy.width, policy.height)
     assert summary.compression == 50000
-    assert summary.tiepoint_count == 210
+    assert summary.tiepoint_count == 1
     assert summary.overview_count == 6
-    assert requests == [(0, 7), (8, 9), (8, 8 + len(ifd) - 1)]
+    assert len(requests) == 17  # header, 7 IFD count/body pairs, tiepoints and GeoKeys
 
 
 def _ads(policy):
@@ -221,25 +239,40 @@ def _ads(policy):
 
 
 def _xml_bundle(policy):
+    start = policy.acquisition_start.isoformat()
     product = f"""<product>{_ads(policy)}<imageAnnotation><imageInformation>
-      <numberOfSamples>{policy.width}</numberOfSamples>
-      <numberOfLines>{policy.height}</numberOfLines>
+      <numberOfSamples>{policy.width}</numberOfSamples><numberOfLines>{policy.height}</numberOfLines>
       <thermalNoiseCorrectionPerformed>false</thermalNoiseCorrectionPerformed>
-    </imageInformation></imageAnnotation></product>""".encode()
-    calibration = f"""<calibration>{_ads(policy)}<calibrationVector>
-      <betaNought>1</betaNought><sigmaNought>1</sigmaNought><gamma>1</gamma><dn>1</dn>
-    </calibrationVector></calibration>""".encode()
-    noise = f"""<noise>{_ads(policy)}
-      <noiseRangeVectorList/><noiseAzimuthVectorList/>
-    </noise>""".encode()
-    manifest = b'<xfdu:XFDU xmlns:xfdu="urn:ccsds:schema:xfdu:1"/>'
+      <rangePixelSpacing>10</rangePixelSpacing><azimuthPixelSpacing>10</azimuthPixelSpacing>
+    </imageInformation></imageAnnotation><geolocationGridPointList count="1"><geolocationGridPoint>
+      <line>0</line><pixel>0</pixel><latitude>29</latitude><longitude>50</longitude>
+      <height>0</height><incidenceAngle>35</incidenceAngle>
+    </geolocationGridPoint></geolocationGridPointList></product>""".encode()
+    calibration = f"""<calibration>{_ads(policy)}<calibrationVectorList count="1"><calibrationVector>
+      <azimuthTime>{start}</azimuthTime><line>0</line><pixel count="2">0 40</pixel>
+      <betaNought>1 2</betaNought><sigmaNought>1 2</sigmaNought><gamma>1 2</gamma><dn>1 2</dn>
+    </calibrationVector></calibrationVectorList></calibration>""".encode()
+    noise = f"""<noise>{_ads(policy)}<noiseRangeVectorList count="1"><noiseRangeVector>
+      <azimuthTime>{start}</azimuthTime><line>0</line><pixel>0 40</pixel><noiseRangeLut>0 1</noiseRangeLut>
+    </noiseRangeVector></noiseRangeVectorList><noiseAzimuthVectorList count="1"><noiseAzimuthVector>
+      <firstAzimuthLine>0</firstAzimuthLine><lastAzimuthLine>1</lastAzimuthLine>
+      <firstRangeSample>0</firstRangeSample><lastRangeSample>40</lastRangeSample>
+      <line>0 1</line><noiseAzimuthLut>0 1</noiseAzimuthLut>
+    </noiseAzimuthVector></noiseAzimuthVectorList></noise>""".encode()
+    parts = policy.native_source_product_id.lower().split("_")
+    name = f"s1a-iw-grd-vv-{parts[4]}-{parts[5]}-{parts[6]}-{parts[7]}-001.tiff"
+    manifest = f"""<xfdu:XFDU xmlns:xfdu="urn:ccsds:schema:xfdu:1"><platform>
+      <familyName>Sentinel-1</familyName><number>A</number></platform><mode>IW</mode>
+      <pass>ASCENDING</pass><relativeOrbitNumber>101</relativeOrbitNumber><productType>GRD</productType>
+      <startTime>{start}</startTime><stopTime>{policy.acquisition_end.isoformat()}</stopTime>
+      <fileLocation href="./measurement/{name}"/></xfdu:XFDU>""".encode()
     return manifest, product, calibration, noise
 
 
 def test_xml_contract_validates_identity_noise_state_and_luts():
     policy = s1.FROZEN_SOURCES[0]
     header_bytes, ifd = _tiff_ranges(policy)
-    header = s1._parse_tiff_ifd(header_bytes, ifd, policy)
+    header = s1._parse_tiff_ifd(header_bytes, ifd, policy, overview_count=6)
     manifest, product, calibration, noise = _xml_bundle(policy)
     summary = s1.validate_metadata_xml(
         manifest=manifest,
@@ -257,7 +290,7 @@ def test_xml_contract_validates_identity_noise_state_and_luts():
 def test_access_validation_never_persists_signed_urls():
     retrieval = s1.build_retrieval_set(_all_items("cdse"), _all_items("pc"), SARConfig())
     source = retrieval.slices[0]
-    header, ifd = _tiff_ranges(source.policy)
+    blob = _tiff_blob(source.policy)
     manifest, product, calibration, noise = _xml_bundle(source.policy)
 
     def signer(href, settings):
@@ -265,11 +298,7 @@ def test_access_validation_never_persists_signed_urls():
 
     def range_reader(url, *, timeout, start, end):
         assert "sig=fake-only" in url
-        if (start, end) == (0, 7):
-            return header
-        if (start, end) == (8, 9):
-            return ifd[:2]
-        return ifd
+        return blob[start : end + 1]
 
     def byte_reader(url, *, timeout, max_bytes):
         if url.endswith("manifest.safe?sv=fake&sig=fake-only"):

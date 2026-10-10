@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 import struct
+from collections.abc import Callable
 from dataclasses import replace
-from typing import Any, Callable
+from hashlib import sha256
+from itertools import pairwise
+from math import isfinite
+from typing import Any
 from urllib.request import Request, build_opener
 from xml.etree import ElementTree as ET
 
@@ -14,159 +18,220 @@ from aquasentinel.ingestion.planetary_computer import (
     _SameHostRedirect,
     read_bytes,
     sign_asset,
+    validate_asset_href,
 )
 from aquasentinel.ingestion.sentinel1_policy import (
     FrozenSentinel1Source,
-    Sentinel1AcquisitionGroup,
     Sentinel1HeaderSummary,
     Sentinel1MetadataError,
     Sentinel1MetadataSummary,
     Sentinel1RetrievalError,
     Sentinel1RetrievalSet,
     Sentinel1SliceSource,
-    _fingerprint,
     _parse_time,
     _with_fingerprint,
+    assemble_retrieval,
 )
 
 
 def _safe_range_bytes(url: str, *, timeout: float, start: int, end: int) -> bytes:
-    """Read one exact HTTP range with sanitized failures and no pixel decoding."""
+    """Exact range response only, including Content-Range; never a full raster GET."""
     if (
-        isinstance(start, bool)
-        or isinstance(end, bool)
-        or not isinstance(start, int)
-        or not isinstance(end, int)
+        type(start) is not int
+        or type(end) is not int
         or start < 0
         or end < start
         or end - start + 1 > 256 * 1024
     ):
         raise AssetAccessError("Invalid bounded metadata range request.")
     expected = end - start + 1
+    validate_asset_href(url, SARConfig(), signed=True)
     try:
         request = Request(
-            url,
-            headers={
-                "User-Agent": "AquaSentinel813/as201-v1",
-                "Range": f"bytes={start}-{end}",
-            },
+            url, headers={"User-Agent": "AquaSentinel813/as201-v1", "Range": f"bytes={start}-{end}"}
         )
         with build_opener(_SameHostRedirect()).open(request, timeout=timeout) as response:
-            status = response.getcode()
+            import re
+
+            span = re.fullmatch(
+                r"bytes (\d+)-(\d+)/(\d+)", response.headers.get("Content-Range", "")
+            )
+            if (
+                response.getcode() != 206
+                or not span
+                or (int(span[1]), int(span[2])) != (start, end)
+                or int(span[3]) <= end
+            ):
+                raise AssetAccessError("Incorrect metadata range response.")
             body = response.read(expected + 1)
-        if status != 206 or len(body) != expected:
-            raise AssetAccessError("Range response is not the exact requested metadata span.")
+        if len(body) != expected:
+            raise AssetAccessError("Incorrect metadata range length.")
         return body
     except (OSError, ValueError, TypeError, KeyError, AttributeError, AssetAccessError):
         pass
     raise AssetAccessError("Bounded HTTPS range metadata request failed.") from None
 
 
-def _ifd_scalar(entry: tuple[int, int, int, bytes]) -> int | None:
-    _, field_type, count, raw = entry
-    if count != 1:
-        return None
-    if field_type == 3:
-        return struct.unpack("<H", raw[:2])[0]
-    if field_type in {4, 13}:
-        return struct.unpack("<I", raw)[0]
-    return None
-
-
-def _inline_ascii(entry: tuple[int, int, int, bytes]) -> str | None:
-    _, field_type, count, raw = entry
-    if field_type != 2 or count <= 0 or count > 4:
-        return None
-    return raw[:count].rstrip(b"\x00").decode("ascii", errors="strict")
-
-
-def _parse_tiff_ifd(
-    header: bytes,
-    ifd: bytes,
-    expected: FrozenSentinel1Source,
-) -> Sentinel1HeaderSummary:
-    if len(header) != 8 or header[:4] != b"II*\x00":
-        raise Sentinel1MetadataError("Sentinel-1 measurement is not classic little-endian TIFF.")
+def _entries(ifd: bytes) -> dict[int, tuple[int, int, bytes]]:
     if len(ifd) < 2:
         raise Sentinel1MetadataError("TIFF IFD metadata is incomplete.")
     count = struct.unpack("<H", ifd[:2])[0]
-    if len(ifd) != 2 + 12 * count + 4:
-        raise Sentinel1MetadataError("TIFF IFD range length is inconsistent.")
-    entries: dict[int, tuple[int, int, int, bytes]] = {}
+    if count <= 0 or count > 4096 or len(ifd) != 2 + 12 * count + 4:
+        raise Sentinel1MetadataError("TIFF IFD size is invalid.")
+    result = {}
     for index in range(count):
-        raw = ifd[2 + index * 12:2 + (index + 1) * 12]
-        tag, field_type, value_count = struct.unpack("<HHI", raw[:8])
-        entries[tag] = (tag, field_type, value_count, raw[8:12])
+        raw = ifd[2 + index * 12 : 2 + (index + 1) * 12]
+        tag, kind, size = struct.unpack("<HHI", raw[:8])
+        if tag in result or size <= 0:
+            raise Sentinel1MetadataError("TIFF duplicate/empty tag is invalid.")
+        result[tag] = (kind, size, raw[8:])
+    return result
 
-    def scalar(tag: int, default: int | None = None) -> int:
-        entry = entries.get(tag)
-        value = _ifd_scalar(entry) if entry else default
-        if value is None:
-            raise Sentinel1MetadataError(f"Required TIFF tag {tag} is missing or unsupported.")
-        return value
 
-    width, height = scalar(256), scalar(257)
-    bits = scalar(258)
-    compression = scalar(259)
-    samples = scalar(277, 1)
-    tile_width, tile_height = scalar(322), scalar(323)
-    sample_format = scalar(339, 1)
-    nodata = _inline_ascii(entries[42113]) if 42113 in entries else None
-    tiepoint_entry = entries.get(33922)
-    tiepoint_count = tiepoint_entry[2] // 6 if tiepoint_entry and tiepoint_entry[2] % 6 == 0 else 0
-    subifd = entries.get(330)
-    overview_count = subifd[2] if subifd and subifd[1] in {4, 13} else None
+def _scalar(entries, tag, default=None):
+    value = entries.get(tag)
+    if value is None:
+        if default is None:
+            raise Sentinel1MetadataError("Required TIFF scalar is absent.")
+        return default
+    kind, count, raw = value
+    if count != 1 or kind not in (3, 4, 13):
+        raise Sentinel1MetadataError("TIFF scalar type is invalid.")
+    return struct.unpack("<H" if kind == 3 else "<I", raw[:2] if kind == 3 else raw)[0]
 
+
+def _parse_tiff_ifd(header, ifd, expected, *, overview_count=None):
+    if len(header) != 8 or header[:4] != b"II*\x00":
+        raise Sentinel1MetadataError("Expected classic little-endian TIFF.")
+    entries = _entries(ifd)
+    width, height = _scalar(entries, 256), _scalar(entries, 257)
+    nodata_entry = entries.get(42113)
+    nodata = None
+    if nodata_entry and nodata_entry[0] == 2 and nodata_entry[1] <= 4:
+        nodata = nodata_entry[2][: nodata_entry[1]].rstrip(b"\x00").decode("ascii")
+    tiepoint = entries.get(33922)
+    points = tiepoint[1] // 6 if tiepoint and tiepoint[0] == 12 and tiepoint[1] % 6 == 0 else 0
+    if overview_count is None:
+        sub = entries.get(330)
+        overview_count = sub[1] if sub and sub[0] in (4, 13) else None
     if (width, height) != (expected.width, expected.height):
-        raise Sentinel1MetadataError("TIFF dimensions conflict with frozen M46 header contract.")
-    if bits != 16 or samples != 1 or sample_format != 1:
-        raise Sentinel1MetadataError("TIFF is not one-band unsigned uint16.")
-    if compression != 50000 or (tile_width, tile_height) != (1024, 1024):
-        raise Sentinel1MetadataError("TIFF compression/tile contract differs from M46.")
-    if nodata not in {"0", "0.0"}:
-        raise Sentinel1MetadataError("TIFF nodata must be explicit inline zero.")
-    if tiepoint_count <= 0:
-        raise Sentinel1MetadataError("TIFF must expose native geographic tiepoints.")
-    if overview_count != 6:
-        raise Sentinel1MetadataError("TIFF must expose the six verified overview directories.")
+        raise Sentinel1MetadataError("TIFF dimensions mismatch the frozen source.")
+    if (_scalar(entries, 258), _scalar(entries, 277, 1), _scalar(entries, 339, 1)) != (16, 1, 1):
+        raise Sentinel1MetadataError("Expected one-band unsigned uint16 TIFF.")
+    if _scalar(entries, 259) != 50000 or (_scalar(entries, 322), _scalar(entries, 323)) != (
+        1024,
+        1024,
+    ):
+        raise Sentinel1MetadataError("TIFF compression/block contract is invalid.")
+    if nodata not in {"0", "0.0"} or not points or overview_count != 6:
+        raise Sentinel1MetadataError("TIFF nodata/tiepoint/overview contract is invalid.")
+    if 33550 in entries or 34264 in entries:
+        raise Sentinel1MetadataError(
+            "Native geographic tiepoints cannot be replaced with an affine."
+        )
     return Sentinel1HeaderSummary(
-        width=width,
-        height=height,
-        bits_per_sample=bits,
-        samples_per_pixel=samples,
-        compression=compression,
-        tile_width=tile_width,
-        tile_height=tile_height,
-        sample_format=sample_format,
-        nodata=nodata,
-        tiepoint_count=tiepoint_count,
-        overview_count=overview_count,
-        has_model_pixel_scale=33550 in entries,
-        has_model_transformation=34264 in entries,
+        width, height, 16, 1, 50000, 1024, 1024, 1, nodata, points, overview_count, False, False
     )
 
 
-def read_tiff_header(
-    url: str,
-    expected: FrozenSentinel1Source,
-    *,
-    timeout: float,
-    range_reader: Callable[..., bytes] = _safe_range_bytes,
-) -> Sentinel1HeaderSummary:
-    """Read TIFF structural metadata only using explicit non-image byte ranges."""
-    header = range_reader(url, timeout=timeout, start=0, end=7)
-    if len(header) != 8 or header[:4] != b"II*\x00":
-        raise Sentinel1MetadataError("Sentinel-1 measurement is not classic little-endian TIFF.")
-    ifd_offset = struct.unpack("<I", header[4:8])[0]
-    if ifd_offset < 8:
-        raise Sentinel1MetadataError("TIFF first IFD offset is invalid.")
-    count_bytes = range_reader(url, timeout=timeout, start=ifd_offset, end=ifd_offset + 1)
-    count = struct.unpack("<H", count_bytes)[0]
-    if count <= 0 or count > 4096:
-        raise Sentinel1MetadataError("TIFF IFD entry count is outside safe bounds.")
-    ifd_end = ifd_offset + 2 + 12 * count + 4 - 1
-    ifd = range_reader(url, timeout=timeout, start=ifd_offset, end=ifd_end)
-    return _parse_tiff_ifd(header, ifd, expected)
+def read_tiff_header(url, expected, *, timeout, range_reader=_safe_range_bytes):
+    """Traverse metadata directories/tags only; never dereference image-block offsets."""
+    requested = []
+    image_blocks = []
+    total = 0
+
+    def read(start, size):
+        nonlocal total
+        if type(start) is not int or type(size) is not int or start < 0 or size <= 0:
+            raise Sentinel1MetadataError("Invalid TIFF metadata span.")
+        total += size
+        if size > 256 * 1024 or total > 4 * 1024 * 1024 or start + size > 2**32:
+            raise Sentinel1MetadataError("TIFF metadata budget exceeded.")
+        requested.append((start, start + size))
+        result = range_reader(url, timeout=timeout, start=start, end=start + size - 1)
+        if len(result) != size:
+            raise Sentinel1MetadataError("TIFF metadata span is truncated.")
+        return result
+
+    def values(entry):
+        kind, count, raw = entry
+        sizes = {2: 1, 3: 2, 4: 4, 12: 8, 13: 4}
+        if kind not in sizes or count > 32768:
+            raise Sentinel1MetadataError("Unsupported/bounded TIFF metadata type.")
+        size = count * sizes[kind]
+        body = raw[:size] if size <= 4 else read(struct.unpack("<I", raw)[0], size)
+        if kind == 2:
+            return body
+        return struct.unpack("<" + {3: "H", 4: "I", 12: "d", 13: "I"}[kind] * count, body)
+
+    try:
+        header = read(0, 8)
+        if header[:4] != b"II*\x00":
+            raise Sentinel1MetadataError("Expected classic little-endian TIFF.")
+        pending = [struct.unpack("<I", header[4:])[0]]
+        seen = set()
+        directories = []
+        while pending:
+            offset = pending.pop(0)
+            if offset < 8 or offset in seen or len(seen) >= 7:
+                raise Sentinel1MetadataError("TIFF directory cycle/count is invalid.")
+            seen.add(offset)
+            count = struct.unpack("<H", read(offset, 2))[0]
+            if not 0 < count <= 4096:
+                raise Sentinel1MetadataError("TIFF directory entry count is invalid.")
+            ifd = read(offset, 2 + 12 * count + 4)
+            entries = _entries(ifd)
+            directories.append((ifd, entries))
+            next_ifd = struct.unpack("<I", ifd[-4:])[0]
+            if next_ifd:
+                pending.append(next_ifd)
+            if 330 in entries:
+                pending.extend(values(entries[330]))
+            if 324 not in entries or 325 not in entries:
+                raise Sentinel1MetadataError("Tile offset/count metadata is required.")
+            if any(entries[tag][0] not in (3, 4) for tag in (324, 325)):
+                raise Sentinel1MetadataError("Image block indexes must be unsigned integers.")
+            offsets, lengths = values(entries[324]), values(entries[325])
+            if (
+                len(offsets) != len(lengths)
+                or not offsets
+                or any(n <= 0 for n in lengths)
+                or any(a < 8 or a + b > 2**32 for a, b in zip(offsets, lengths))
+            ):
+                raise Sentinel1MetadataError("Invalid image block index metadata.")
+            image_blocks.extend((a, a + b) for a, b in zip(offsets, lengths))
+        if len(directories) != 7:
+            raise Sentinel1MetadataError("Six overview directories are required.")
+        base = directories[0][1]
+        summary = _parse_tiff_ifd(header, directories[0][0], expected, overview_count=6)
+        for level, (_, directory) in enumerate(directories[1:], start=1):
+            # Providers can use integer floor or ceil for reduced dimensions.
+            factor = 2**level
+            for tag, native in ((256, expected.width), (257, expected.height)):
+                if _scalar(directory, tag) not in {
+                    native // factor,
+                    (native + factor - 1) // factor,
+                }:
+                    raise Sentinel1MetadataError("Overview dimensions are inconsistent.")
+        tiepoints = values(base[33922])
+        if any(not isinstance(v, (int, float)) or not isfinite(v) for v in tiepoints):
+            raise Sentinel1MetadataError("Tiepoints must be finite.")
+        if 34735 not in base:
+            raise Sentinel1MetadataError("Geographic CRS metadata is required.")
+        keys = values(base[34735])
+        if len(keys) < 4 or len(keys) != 4 + 4 * keys[3]:
+            raise Sentinel1MetadataError("GeoKey directory is invalid.")
+        geo = {keys[i]: keys[i + 3] for i in range(4, len(keys), 4) if keys[i + 1] == 0}
+        if geo.get(1024) != 2 or geo.get(2048) != 4326:
+            raise Sentinel1MetadataError("Native geolocation must be WGS84 geographic.")
+        if any(a < d and c < b for a, b in requested for c, d in image_blocks):
+            raise Sentinel1MetadataError("Metadata range overlaps an image-block span.")
+        return summary
+    except AssetAccessError:
+        raise
+    except (OSError, ValueError, TypeError, KeyError, AttributeError, struct.error):
+        pass
+    raise Sentinel1MetadataError("TIFF structural metadata validation failed.") from None
 
 
 def _local(tag: str) -> str:
@@ -193,6 +258,12 @@ def _unique_text(root: ET.Element, name: str, *, required: bool = True) -> str |
 
 
 def _parse_xml(xml: bytes, role: str) -> ET.Element:
+    if (
+        not isinstance(xml, bytes)
+        or len(xml) > 4 * 1024 * 1024
+        or any(marker in xml.upper() for marker in (b"<!DOCTYPE", b"<!ENTITY"))
+    ):
+        raise Sentinel1MetadataError("XML must be bounded and have no DTD/entities.")
     try:
         root = ET.fromstring(xml)
     except ET.ParseError:
@@ -201,19 +272,23 @@ def _parse_xml(xml: bytes, role: str) -> ET.Element:
 
 
 def _validate_ads_header(root: ET.Element, expected: FrozenSentinel1Source, role: str) -> None:
+    headers = [e for e in root.iter() if _local(e.tag) == "adsHeader"]
+    if len(headers) != 1:
+        raise Sentinel1MetadataError("XML requires exactly one ADS identity header.")
+    root = headers[0]
     mission = _unique_text(root, "missionId")
     product = _unique_text(root, "productType")
     polarisation = _unique_text(root, "polarisation")
     mode = _unique_text(root, "mode")
     start = _parse_time(_unique_text(root, "startTime"), f"{role}.startTime")
     stop = _parse_time(_unique_text(root, "stopTime"), f"{role}.stopTime")
-    if mission != "S1A" or not str(product).upper().startswith("GRD"):
+    if mission != "S1A" or product not in {"GRD", "GRDH"}:
         raise Sentinel1MetadataError(f"{role} XML mission/product identity is invalid.")
     if str(polarisation).upper() != "VV" or mode != "IW":
         raise Sentinel1MetadataError(f"{role} XML polarization/mode identity is invalid.")
     if start != expected.acquisition_start or stop != expected.acquisition_end:
         raise Sentinel1MetadataError(f"{role} XML acquisition interval mismatches frozen source.")
-    orbit = _unique_text(root, "absoluteOrbitNumber", required=False)
+    orbit = _unique_text(root, "absoluteOrbitNumber")
     if orbit is not None:
         try:
             if int(orbit) != expected.absolute_orbit:
@@ -222,7 +297,109 @@ def _validate_ads_header(root: ET.Element, expected: FrozenSentinel1Source, role
             raise Sentinel1MetadataError(f"{role} XML absolute orbit is invalid.") from None
 
 
-def validate_metadata_xml(
+def _validate_manifest(root, expected):
+    start = _parse_time(_unique_text(root, "startTime"), "manifest.startTime")
+    stop = _parse_time(_unique_text(root, "stopTime"), "manifest.stopTime")
+    if (start, stop) != (expected.acquisition_start, expected.acquisition_end):
+        raise Sentinel1MetadataError("Manifest interval mismatch.")
+    if _unique_text(root, "mode") != "IW" or _unique_text(root, "pass").casefold() != "ascending":
+        raise Sentinel1MetadataError("Manifest mode/orbit direction mismatch.")
+    if _unique_text(root, "relativeOrbitNumber") != "101":
+        raise Sentinel1MetadataError("Manifest relative orbit mismatch.")
+    if _unique_text(root, "productType") != "GRD":
+        raise Sentinel1MetadataError("Manifest product mismatch.")
+    platforms = [e for e in root.iter() if _local(e.tag) == "platform"]
+    if len(platforms) != 1 or _unique_text(platforms[0], "number") != "A":
+        raise Sentinel1MetadataError("Manifest platform mismatch.")
+    family = _unique_text(platforms[0], "familyName")
+    if family != "Sentinel-1":
+        raise Sentinel1MetadataError("Manifest platform family mismatch.")
+    hrefs = [v for e in root.iter() for k, v in e.attrib.items() if _local(k) == "href"]
+    parts = expected.native_source_product_id.lower().split("_")
+    witness = f"s1a-iw-grd-vv-{parts[4]}-{parts[5]}-{parts[6]}-{parts[7]}"
+    if not any(witness in href and "/measurement/" in "/" + href for href in hrefs):
+        raise Sentinel1MetadataError("Manifest lacks matching VV native measurement identity.")
+
+
+def _numeric_values(root, name, *, integers=False, minimum=None):
+    value = _unique_text(root, name)
+    try:
+        parts = value.split()
+        numbers = [int(s) if integers else float(s) for s in parts]
+    except (ValueError, TypeError):
+        raise Sentinel1MetadataError("XML numeric metadata is invalid.") from None
+    if not numbers or any(
+        not isfinite(v) or (minimum is not None and v < minimum) for v in numbers
+    ):
+        raise Sentinel1MetadataError("XML numeric metadata is nonfinite/outside structure bounds.")
+    elements = [e for e in root.iter() if _local(e.tag) == name]
+    if (
+        len(elements) == 1
+        and "count" in elements[0].attrib
+        and int(elements[0].attrib["count"]) != len(numbers)
+    ):
+        raise Sentinel1MetadataError("XML declared element count mismatch.")
+    return numbers
+
+
+def _vectors(root, name):
+    result = [e for e in root.iter() if _local(e.tag) == name]
+    if not result:
+        raise Sentinel1MetadataError("Required XML vectors are empty.")
+    containers = [e for e in root.iter() if _local(e.tag) == name + "List"]
+    if len(containers) != 1 or int(containers[0].attrib.get("count", len(result))) != len(result):
+        raise Sentinel1MetadataError("XML vector container count mismatch.")
+    return result
+
+
+def _validate_luts(calibration, noise, product):
+    for vector in _vectors(calibration, "calibrationVector"):
+        pixels = _numeric_values(vector, "pixel", integers=True)
+        if any(a >= b for a, b in pairwise(pixels)):
+            raise Sentinel1MetadataError("Calibration coordinates must be ordered.")
+        _numeric_values(vector, "line", integers=True)
+        _parse_time(_unique_text(vector, "azimuthTime"), "calibration.azimuthTime")
+        for field in ("betaNought", "sigmaNought", "gamma", "dn"):
+            values = _numeric_values(vector, field, minimum=0)
+            if len(values) != len(pixels) or any(v == 0 for v in values):
+                raise Sentinel1MetadataError("Calibration LUT coordinate/value lengths invalid.")
+    for vector in _vectors(noise, "noiseRangeVector"):
+        pixels = _numeric_values(vector, "pixel", integers=True)
+        values = _numeric_values(vector, "noiseRangeLut", minimum=0)
+        if len(pixels) != len(values) or any(a >= b for a, b in pairwise(pixels)):
+            raise Sentinel1MetadataError("Range noise LUT coordinates/length mismatch.")
+        _numeric_values(vector, "line", integers=True)
+        _parse_time(_unique_text(vector, "azimuthTime"), "noise.azimuthTime")
+    for vector in _vectors(noise, "noiseAzimuthVector"):
+        lines = _numeric_values(vector, "line", integers=True)
+        values = _numeric_values(vector, "noiseAzimuthLut", minimum=0)
+        if len(lines) != len(values) or any(a >= b for a, b in pairwise(lines)):
+            raise Sentinel1MetadataError("Azimuth noise LUT coordinates/length mismatch.")
+        for lo, hi in (
+            ("firstAzimuthLine", "lastAzimuthLine"),
+            ("firstRangeSample", "lastRangeSample"),
+        ):
+            if (
+                _numeric_values(vector, lo, integers=True)[0]
+                > _numeric_values(vector, hi, integers=True)[0]
+            ):
+                raise Sentinel1MetadataError("Azimuth noise coordinate block bounds invalid.")
+    for point in _vectors(product, "geolocationGridPoint"):
+        for name in ("line", "pixel", "latitude", "longitude", "height", "incidenceAngle"):
+            values = _numeric_values(point, name, integers=name in ("line", "pixel"))
+            if len(values) != 1:
+                raise Sentinel1MetadataError("Geolocation fields must be scalar.")
+        if (
+            not -90 <= _numeric_values(point, "latitude")[0] <= 90
+            or not -180 <= _numeric_values(point, "longitude")[0] <= 180
+        ):
+            raise Sentinel1MetadataError("Geolocation is outside WGS84.")
+    for field in ("rangePixelSpacing", "azimuthPixelSpacing"):
+        if _numeric_values(product, field) != [10]:
+            raise Sentinel1MetadataError("Native sample spacing mismatch.")
+
+
+def _validate_metadata_xml(
     *,
     manifest: bytes,
     product: bytes,
@@ -249,6 +426,8 @@ def validate_metadata_xml(
         raise Sentinel1MetadataError("Calibration XML has an unexpected root role.")
     if roots["noise"].lower() != "noise":
         raise Sentinel1MetadataError("Noise XML has an unexpected root role.")
+    _validate_manifest(manifest_root, expected)
+    _validate_luts(calibration_root, noise_root, product_root)
     xml_roots = (
         ("product", product_root),
         ("calibration", calibration_root),
@@ -304,6 +483,14 @@ def validate_metadata_xml(
     )
 
 
+def validate_metadata_xml(**kwargs: Any) -> Sentinel1MetadataSummary:
+    try:
+        return _validate_metadata_xml(**kwargs)
+    except (ValueError, TypeError, KeyError, AttributeError, ET.ParseError, OverflowError):
+        pass
+    raise Sentinel1MetadataError("Required XML metadata contract is invalid.") from None
+
+
 def validate_slice_access(
     source: Sentinel1SliceSource,
     settings: SARConfig,
@@ -313,17 +500,22 @@ def validate_slice_access(
     byte_reader: Callable[..., bytes] = read_bytes,
 ) -> Sentinel1SliceSource:
     """Validate headers/XML only. No raster sample/pixel read is performed."""
+    settings.validate()
+    source.validate()
     if source.availability != "RESOLVED_NOT_ACCESSED":
         return source
     try:
         measurement = source.asset("measurement_vv")
         signed_measurement = signer(measurement.href, settings)
-        header = read_tiff_header(
-            signed_measurement,
-            source.policy,
-            timeout=settings.timeout_seconds,
-            range_reader=range_reader,
-        )
+        try:
+            header = read_tiff_header(
+                signed_measurement,
+                source.policy,
+                timeout=settings.timeout_seconds,
+                range_reader=range_reader,
+            )
+        finally:
+            signed_measurement = None
         payloads: dict[str, bytes] = {}
         limits = {
             "manifest": 2 * 1024 * 1024,
@@ -334,11 +526,16 @@ def validate_slice_access(
         for purpose, limit in limits.items():
             asset = source.asset(purpose)
             signed = signer(asset.href, settings)
-            payloads[purpose] = byte_reader(
-                signed,
-                timeout=settings.timeout_seconds,
-                max_bytes=limit,
-            )
+            try:
+                payloads[purpose] = byte_reader(
+                    signed,
+                    timeout=settings.timeout_seconds,
+                    max_bytes=limit,
+                )
+                if len(payloads[purpose]) > limit:
+                    raise Sentinel1MetadataError("XML metadata size budget exceeded.")
+            finally:
+                signed = None
         metadata = validate_metadata_xml(
             manifest=payloads["manifest"],
             product=payloads["product_vv"],
@@ -354,10 +551,14 @@ def validate_slice_access(
                 reason=None,
                 header=header,
                 metadata=metadata,
+                provider_metadata={
+                    **source.provider_metadata,
+                    "metadata_SHA256": {k: sha256(v).hexdigest() for k, v in payloads.items()},
+                },
                 fingerprint="",
             )
         )
-    except AssetAccessError:
+    except (AssetAccessError, OSError):
         return _with_fingerprint(
             replace(source, availability="UNAVAILABLE", reason="ACCESS_BLOCKED", fingerprint="")
         )
@@ -372,26 +573,6 @@ def validate_retrieval_access(
     settings: SARConfig,
     **kwargs: Any,
 ) -> Sentinel1RetrievalSet:
-    groups = tuple(
-        Sentinel1AcquisitionGroup(
-            group.role,
-            group.acquisition_date,
-            tuple(validate_slice_access(source, settings, **kwargs) for source in group.slices),
-        )
-        for group in retrieval.groups
-    )
-    payload = {
-        "policy_version": retrieval.policy_version,
-        "envelope_id": retrieval.envelope_id,
-        "envelope_bbox": retrieval.envelope_bbox,
-        "envelope_geometry": retrieval.envelope_geometry,
-        "groups": [
-            {
-                "role": group.role,
-                "acquisition_date": group.acquisition_date.isoformat(),
-                "slices": [source.fingerprint for source in group.slices],
-            }
-            for group in groups
-        ],
-    }
-    return replace(retrieval, groups=groups, fingerprint=_fingerprint(payload))
+    slices = tuple(validate_slice_access(source, settings, **kwargs) for source in retrieval.slices)
+    created_at = retrieval.provenance.created_at if retrieval.provenance else None
+    return assemble_retrieval(slices, created_at=created_at)
