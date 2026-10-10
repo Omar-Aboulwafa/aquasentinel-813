@@ -8,7 +8,9 @@ through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified pare
 `88189f5ed85767f5022fa8e6c8ceee55b42f6c85`. Its merge-effective closure is now in force.
 **M41 / E41 / EV-045: read-only feasibility/source audit COMPLETE**, recorded here
 retrospectively; M41 changed no repository file. Its documentary access blocker was
-independently resolved by owner verification outside Codex, supplied for M42.
+resolved by externally verified EAD facts supplied by the project owner for M42;
+Codex did not independently access the source, and no personal owner inspection
+is claimed.
 **Decision 053 / M42 / E42 / EV-046: FINAL / FROZEN DESIGN — NOT EXECUTED.**
 AS-108 remains P0 before AS-201. No AS-108 validation outcome is computed here.
 

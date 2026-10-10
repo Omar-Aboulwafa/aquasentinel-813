@@ -44,10 +44,14 @@ Quality**; resource **Marine Water Quality Report 2023**; listing publication
 **21 November 2024**. The reporting-year/publication-year distinction resolves
 the earlier filename/citation ambiguity. [Official PDF](https://www.ead.gov.ae/-/media/Project/EAD/EAD/Documents/KnowledgeHub/Resources-and-Materials/MWQ-ANNUAL-REPORT-2024-EN.pdf).
 
-Verification supplied by the owner on 10 October 2026 (Asia/Dubai), after independent
-outside-Codex inspection. **No new documentary request or independent report access
-in M42.** Exact outside access timestamp and PDF page/heading not supplied; null
-in the event schema. Supplied statement summaries are not invented direct quotes.
+The project owner supplied externally verified official EAD source facts in the
+M42 authorization. The verification step occurred outside Codex; Codex did not
+independently retrieve or inspect the source during M42. The repository records
+the supplied verification facts and their stated limitations; it does not claim
+that the project owner personally performed the external inspection.
+Verification facts supplied on 10 October 2026 (Asia/Dubai). **No new documentary
+request or independent report access in M42.** Exact outside access timestamp and
+PDF page/heading not supplied; null in the event schema. Supplied statement summaries are not invented direct quotes.
 EAD reports 23 Abu Dhabi algal bloom incidents in 2023, one Raha Beach Red Tide
 incident in April, attributed to Pseudo-nitzschia multistriata; the report states
 that species releases domoic acid. Incident-specific toxin measurement **NOT
@@ -78,6 +82,18 @@ are documented but **not applied** here. No biological accuracy, significance,
 probability/confidence, safety or exact lead-time claim. Unmatched observational
 anomaly is not automatically a false positive; a missing candidate is not a false
 negative. Full criteria are in Decision 053/canonical methodology/JSON.
+
+## Retrospective-validation semantics
+
+April 3 and April 28 scientific outputs were already known before Decision 053.
+AS-108 is therefore not blind, prospective, or independently pre-registered
+validation of those April outputs. The observational-consistency categories are
+frozen before any new May POST metadata selection or scientific processing; they
+are reporting/interpretation rules for a retrospective case study. They MUST NOT
+be presented as evidence of predictive validation, prospective detection
+performance, independent model validation, or unbiased accuracy estimation.
+The future May result MUST NOT be used to revise these categories. This
+clarification changes no category criterion and computes or predicts no category.
 
 ## Immutable accepted April 28 reference
 

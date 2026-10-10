@@ -20,7 +20,7 @@
     "repository_modified_during_M41": false,
     "recorded_retrospectively_in_M42": true,
     "source_access_blocker": "Six documentary request attempts blocked; original report not independently accessed by Codex",
-    "resolution": "Owner independently verified official resource listing and PDF outside Codex; supplied facts in M42 authorization",
+    "resolution": "Project owner supplied externally verified official EAD listing/PDF facts in the M42 authorization; verification occurred outside Codex, with no claim of personal owner inspection",
     "EO_metadata_requests": 0,
     "EO_asset_requests": 0,
     "scientific_compute_calls": 0
@@ -49,8 +49,8 @@
     "toxin_name": "domoic acid",
     "toxin_context": "species-associated toxin reported by EAD",
     "toxin_measured_in_incident": "NOT ESTABLISHED",
-    "verification_status": "OWNER_SUPPLIED_INDEPENDENT_VERIFICATION_OUTSIDE_CODEX",
-    "verification_provenance": "Owner M42 authorization supplies independently verified official resource listing and PDF event passage; no M42 external research",
+    "verification_status": "EXTERNALLY_VERIFIED_FACTS_SUPPLIED_BY_OWNER",
+    "verification_provenance": "Project owner supplied externally verified official EAD listing/PDF facts in the M42 authorization; Codex did not independently access the source during M42.",
     "verification_supplied_on": "2026-10-10 (Asia/Dubai)",
     "page_or_section": null,
     "page_or_section_note": "Exact PDF page/heading not supplied; retain as not recorded, not invent a locator",
@@ -451,5 +451,22 @@
   "validation_execution": "NOT STARTED",
   "future_AS105_policy_validation": "NOT STARTED",
   "P1_0510": "NOT STARTED",
-  "next_milestone": "Owner review and separately authorized PR/merge; then separately authorize AS-108 M43 metadata-only POST inventory/selection before any pixels or new scientific outcomes"
+  "next_milestone": "Owner review and separately authorized PR/merge; then separately authorize AS-108 M43 metadata-only POST inventory/selection before any pixels or new scientific outcomes",
+  "retrospective_validation_semantics": {
+    "april_outputs_known_before_decision_053": true,
+    "blind_validation": false,
+    "prospective_validation": false,
+    "independent_preregistration_of_april_outcomes": false,
+    "consistency_categories_frozen_before_new_post_execution": true,
+    "category_role": "retrospective_reporting_and_interpretation",
+    "must_not_be_used_as": [
+      "predictive_validation",
+      "prospective_detection_performance",
+      "independent_accuracy_validation",
+      "independent_model_validation",
+      "unbiased_accuracy_estimation"
+    ],
+    "future_may_result_must_not_revise_categories": true,
+    "category_calculated_or_predicted_in_this_patch": false
+  }
 }

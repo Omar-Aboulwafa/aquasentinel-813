@@ -8,7 +8,9 @@ through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified pare
 `88189f5ed85767f5022fa8e6c8ceee55b42f6c85`. Its merge-effective closure is now in force.
 **M41 / E41 / EV-045: read-only feasibility/source audit COMPLETE**, recorded here
 retrospectively; M41 changed no repository file. Its documentary access blocker was
-independently resolved by owner verification outside Codex, supplied for M42.
+resolved by externally verified EAD facts supplied by the project owner for M42;
+Codex did not independently access the source, and no personal owner inspection
+is claimed.
 **Decision 053 / M42 / E42 / EV-046: FINAL / FROZEN DESIGN — NOT EXECUTED.**
 AS-108 remains P0 before AS-201. No AS-108 validation outcome is computed here.
 
@@ -1647,7 +1649,7 @@ capture pending, not a real anomaly map or validation result.
 - **Quantitative result:** Seven accepted AS-102 caches; five March AS-103 references; April 3 through AS-105, April 28 through AS-107; May summary metadata but no accepted May product; zero EO/scientific calls.
 - **Limitation:** EAD PDF inaccessible inside Codex; title/report-year/location/time/toxin passage not independently verified there; complete March–May product inventory not retained.
 - **Lesson learned:** PRE dates are not negatives, POST cannot be invented and available Watch output is not biological ground truth.
-- **Impact on next step:** Owner subsequently verified EAD listing/PDF outside Codex and supplied those facts for M42. This later resolution does not rewrite the M41 blocker.
+- **Impact on next step:** The project owner subsequently supplied externally verified EAD listing/PDF facts for M42; no personal owner inspection is claimed. This later resolution does not rewrite the M41 blocker.
 - **Presentation takeaway:** Validate only the claim the reference can support.
 - **Recommended visual:** Proposed source-precision and stage-availability matrix; no screenshot/visual claimed to exist.
 - **Candidate slide title:** “What the historical reference can—and cannot—tell us.”
@@ -1660,7 +1662,7 @@ capture pending, not a real anomaly map or validation result.
 - **Options considered:** Broad accuracy/multi-event study versus minimum P0 case; independent PRE scoring versus descriptive fixed March context; chosen-looking May scene versus earliest compatible metadata-selected attempt.
 - **Decision:** Decision 053 FINAL / FROZEN DESIGN — NOT EXECUTED; March descriptive, both April observations, one future May attempt, null/unavailable outcomes retained.
 - **Rationale:** Freeze scene roles, eligibility and reporting before new outcomes; source month/area precision constrains claims, not policy tuning.
-- **Implementation / experiment:** Documentation/schema only. Owner-supplied independent EAD verification resolves M41 source access blocker; no external research/EO/scientific execution here.
+- **Implementation / experiment:** Documentation/schema only. Externally verified EAD facts supplied by the project owner resolve M41 source access blocker; no external research/EO/scientific execution here.
 - **Evidence:** [Decision 053](DECISIONS.md#decision-053--as-108-historical-validation-contract), [AS-108 contract](AS_108_HAB_HISTORICAL_VALIDATION.md), [M42 evidence](evidence/AS_108_DESIGN_FREEZE.md), [JSON](evidence/AS_108_DESIGN_FREEZE.json).
 - **Quantitative result:** One event, five PRE records, two EVENT records, one future attempted POST; EAD reports 23 incidents in 2023 but that count is not a labeled validation dataset. 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS. No new validation outcome or score.
 - **Limitation:** Month-only onset, area-only context, no incident toxin measurement, no biological negatives/accuracy/lead time; correlated features, sparse/shared histories, long gaps, missing operational components and possible POST unavailability remain.
@@ -1699,7 +1701,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | 9 Oct AS-105 offline authorization | 050 | Frozen rank/direction family-aware P0 candidate geometry; explicit support denominator, exact pixel polygons and parent lineage | Explainable heuristic before separately authorized real acceptance/policy comparison | M28/E28/EV-032; synthetic-only PASS, uncommitted |
 | 10 Oct owner-approved design freeze | 051 | Consecutive-valid exact-pixel recurrence; invalid UNKNOWN, noncandidate breaks; no gap cutoff | Preserve AS-105 integrity validation, immediate geometry lineage, explicit history denominators and predeclared fixed-March April selection | [Frozen AS-106 design](AS_106_PERSISTENCE.md); DESIGN ONLY, implementation and M31–M35 NOT STARTED |
 | 10 Oct owner-approved design freeze | 052 | Availability-aware provisional HAB-like screening; evidence completeness separate from score/band | Missing is unavailable, correlated evidence disclosed; freeze before any real score | M37/E37/EV-041; FINAL / FROZEN DESIGN, NOT IMPLEMENTED |
-| 10 Oct AS-108 M42 | Decision 053 | Freeze one-event observational consistency, owner-verified EAD month/area reference, descriptive PRE, retained EVENT and earliest metadata-selected POST | No biological accuracy/exact lead time or new science; protect minimum P0 and oil/demo deadline | M42/E42/EV-046 |
+| 10 Oct AS-108 M42 | Decision 053 | Freeze one-event observational consistency, externally verified EAD month/area facts supplied by the owner, descriptive PRE, retained EVENT and earliest metadata-selected POST | No biological accuracy/exact lead time or new science; protect minimum P0 and oil/demo deadline | M42/E42/EV-046 |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -1749,7 +1751,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E39 | [M39 real acceptance](evidence/AS_107_REAL_ACCEPTANCE.md); [JSON](evidence/AS_107_REAL_ACCEPTANCE.json); EV-043 | First real frozen-policy score 29.52380952380953 / Watch; completeness/coverage .7/.7; independent arithmetic/hash/repeat/tamper/fresh sealed roundtrip PASS | Provisional screening, not biology; context/exposure unavailable; M40/AS108 not started |
 | E40 | [M40 closeout](evidence/AS_107_CLOSEOUT.md); [JSON](evidence/AS_107_CLOSEOUT.json); EV-044 | Verified PR #22–#24 merge chain, unchanged accepted Watch .7/.7 result and protected hashes/modes; durable closeout effective on future merge; 1285 full tests PASS (104.18s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/new-file whitespace/credential/preservation PASS | Documentation/engineering only, no new biology or scoring; AS-107 CLOSEOUT READY before closeout merge; AS-108 NOT STARTED |
 | E41 | Historical read-only M41 audit, recorded during M42; EV-045 | Existing metadata/product feasibility; source access blocked, missing POST and causal PRE limitations surfaced | No repository edits in M41, no independently retrieved EAD passage, no EO/scientific execution |
-| E42 | [Decision 053](DECISIONS.md#decision-053--as-108-historical-validation-contract); [M42 freeze](evidence/AS_108_DESIGN_FREEZE.md); EV-046 | Owner-verified documentary reference and deterministic phase/eligibility/denominator/claim contract; 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | Frozen design only, no case classification/science or PR/merge; AS-201 NOT STARTED |
+| E42 | [Decision 053](DECISIONS.md#decision-053--as-108-historical-validation-contract); [M42 freeze](evidence/AS_108_DESIGN_FREEZE.md); EV-046 | Externally verified documentary facts supplied by the owner and deterministic phase/eligibility/denominator/claim contract; 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | Frozen design only, no case classification/science or PR/merge; AS-201 NOT STARTED |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 

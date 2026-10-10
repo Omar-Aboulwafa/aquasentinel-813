@@ -8,7 +8,9 @@ through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified pare
 `88189f5ed85767f5022fa8e6c8ceee55b42f6c85`. Its merge-effective closure is now in force.
 **M41 / E41 / EV-045: read-only feasibility/source audit COMPLETE**, recorded here
 retrospectively; M41 changed no repository file. Its documentary access blocker was
-independently resolved by owner verification outside Codex, supplied for M42.
+resolved by externally verified EAD facts supplied by the project owner for M42;
+Codex did not independently access the source, and no personal owner inspection
+is claimed.
 **Decision 053 / M42 / E42 / EV-046: FINAL / FROZEN DESIGN — NOT EXECUTED.**
 AS-108 remains P0 before AS-201. No AS-108 validation outcome is computed here.
 
@@ -2373,10 +2375,12 @@ Resource listing publication date: **21 November 2024**. Reporting year **2023**
 is distinct from publication year **2024** and the PDF filename's 2024 marker.
 Official source: [EAD PDF](https://www.ead.gov.ae/-/media/Project/EAD/EAD/Documents/KnowledgeHub/Resources-and-Materials/MWQ-ANNUAL-REPORT-2024-EN.pdf).
 
-The owner independently verified the official listing and PDF outside Codex and
-supplied this verification in the M42 authorization on 10 October 2026 (Asia/Dubai).
-Codex did not retrieve or independently read the report in M42. The exact outside
-access timestamp and PDF page/heading were not supplied; retain null/not recorded,
+The project owner supplied externally verified official EAD source facts in the
+M42 authorization. The verification step occurred outside Codex; Codex did not
+independently retrieve or inspect the source during M42. The repository records
+the supplied verification facts and their stated limitations; it does not claim
+that the project owner personally performed the external inspection. The exact
+outside access timestamp and PDF page/heading were not supplied; retain null/not recorded,
 not an invented locator or access date. The historical M41 proxy blocker remains
 a factual earlier checkpoint, resolved by this separately supplied verification.
 
@@ -2524,6 +2528,16 @@ recurrence, AS-107 component coverage and every completeness factor. They are
 different denominators; do not substitute global support for candidate history.
 
 ### Deterministic observational-consistency categories
+
+April 3 and April 28 scientific outputs were already known before Decision 053.
+AS-108 is therefore not blind, prospective, or independently pre-registered
+validation of those April outputs. The observational-consistency categories are
+frozen before any new May POST metadata selection or scientific processing; they
+are reporting/interpretation rules for a retrospective case study. They MUST NOT
+be presented as evidence of predictive validation, prospective detection
+performance, independent model validation, or unbiased accuracy estimation.
+The future May result MUST NOT be used to revise these categories. This
+clarification changes no category criterion and computes or predicts no category.
 
 These are case-study correspondence categories at **month/area documentary
 resolution**, not truth labels, probabilities or accuracy. No new significance,
