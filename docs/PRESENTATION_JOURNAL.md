@@ -1,6 +1,32 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-108 M44 retrospective case study — 10 October 2026 (Asia/Dubai)
+## Current AS-201 M47 design freeze — 11 October 2026 (Asia/Dubai)
+
+**AS-107 COMPLETE / CLOSED. AS-108 P0 RETROSPECTIVE OBSERVATIONAL-CONSISTENCY
+CASE STUDY COMPLETE / MERGED with POST UNAVAILABLE**, via PR #28 at
+`9a8a15c489a6aa3e678b642d2ccf5160affc56bd`. M44 PARTIALLY_CONSISTENT and all accepted scientific evidence
+remain unchanged. M45/E45/EV-049 and M46/E46/EV-050 are now recorded historically
+as completed read-only predecessor audits; PC_GRD_ACCESS_GATE PASS.
+**Decision 054 / M47 / E47 / EV-051: FINAL / FROZEN DESIGN / NOT IMPLEMENTED.**
+
+Frozen Kharg envelope EPSG:4326 [49.60,28.60,50.70,29.60], explicit source gaps and
+common three-date comparison support; Apr24 REFERENCE → May6 DOCUMENTARY_EVENT →
+May18 LATE_FOLLOW_UP, same S1A IW ascending orbit101 VV/VH, both slices/date.
+CDSE discovery → exact PC GRD access mapping; RAW_GRD_AMPLITUDE; runtime-only
+tokens; no provider fallback. Actual headers/XML roles govern provider defects.
+SIGMA0_ELLIPSOID is a candidate, NOT FROZEN; AS-202 numerics/downstream rules remain
+unfrozen. No pixels, SAR science, petroleum/source confirmation or intake invented.
+
+Current active scientific development branch: none. This design was prepared on
+`docs/as-201-design-freeze`. **AS-201 implementation and AS-202 NOT STARTED;
+Decision 055 ABSENT.** Future AS-105 policy validation and P1 05.10 NOT STARTED.
+Immediate next step: owner review → separately authorized M47 PR/merge → separate
+AS-201 implementation authorization. No M47 PR or merge performed.
+See [contract](AS_201_SENTINEL1_RETRIEVAL.md), [freeze evidence](evidence/AS_201_DESIGN_FREEZE.md)
+and [JSON](evidence/AS_201_DESIGN_FREEZE.json). Engineering results are recorded in
+the freeze evidence; historical checkpoints below retain their original states.
+
+## Historical AS-108 M44 reporting — before PR #28 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107 COMPLETE / CLOSED. Decision 053/M42 FINAL / FROZEN DESIGN / MERGED.**
 M43 metadata selection COMPLETE / MERGED via PR #27 at `865cd14398c6bcdbeaed6a19210f5615beb638e6`.
@@ -1776,6 +1802,60 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** PRE/EVENT/POST availability strip with POST missing; proposed only, no screenshot claimed.
 - **Candidate slide title:** Validation without hiding missing evidence.
 
+### M45 — Historical read-only Sentinel-1 feasibility audit — historical predecessor or design checkpoint
+
+- **Date / task:** Pre-M47 read-only audit; exact audit timestamp not recorded here; AS-201 M45/E45/EV-049, recorded during M47 on 11 October 2026.
+- **Problem / question:** Which metadata-compatible source sequence can support a Kharg surface-slick demonstration?
+- **Why it mattered:** Scientific representation and defensible selection precede oil-candidate inference.
+- **Options considered:** CDSE source discovery; PC GRD/RTC; Sentinel Hub; multiple documentary radar dates.
+- **Decision:** Recommend same S1A ascending orbit101 Apr24/May6/May18; two slices per date.
+- **Rationale:** Documentary timing and metadata compatibility before SAR output inspection.
+- **Implementation / experiment:** Read-only metadata feasibility; no repository writes or pixel/science execution.
+- **Evidence:** [M47 accepted predecessor/design record](evidence/AS_201_DESIGN_FREEZE.md) and [JSON](evidence/AS_201_DESIGN_FREEZE.json); prior temporary files are not repository artifacts.
+- **Quantitative result:** Three-role sequence recommended; six exact source products retained for later audit.
+- **Limitation:** Envelope is analyst geometry; no petroleum polygon/truth or raster suitability claim.
+- **Lesson learned:** Choose dates before scientific output.
+- **Impact on next step:** M46 provider/access/representation gate; not executed by this entry.
+- **Presentation takeaway:** Before looking for dark pixels, freeze the same-track sequence and raw-data contract.
+- **Recommended visual:** Metadata-only three-date timeline; proposed, no screenshot/figure claimed to exist.
+- **Candidate slide title:** “Before looking for dark pixels.”
+
+### M46 — Historical provider/access/header/XML gate — historical predecessor or design checkpoint
+
+- **Date / task:** Pre-M47 read-only audit; exact audit timestamp not recorded here; AS-201 M46/E46/EV-050, recorded during M47 on 11 October 2026.
+- **Problem / question:** Can credential-free raw GRD provide the metadata needed for later local SAR preprocessing?
+- **Why it mattered:** Scientific representation and defensible selection precede oil-candidate inference.
+- **Options considered:** PC GRD local preprocessing vs RTC vs Sentinel Hub; asset keys vs validated XML roles.
+- **Decision:** PC GRD access PASS; raw amplitude and representative noise/calibration structures verified.
+- **Rationale:** Bounded access avoids full scenes; headers/XML resolve misleading STAC metadata.
+- **Implementation / experiment:** Six VV and one VH header; representative VV manifest/product/calibration/noise XML; retained allowlist blocker, RFI and 404 failures.
+- **Evidence:** [M47 accepted predecessor/design record](evidence/AS_201_DESIGN_FREEZE.md) and [JSON](evidence/AS_201_DESIGN_FREEZE.json); prior temporary files are not repository artifacts.
+- **Quantitative result:** 7 headers / 224 ranges / 115,563 header bytes; 3,298,504 XML bytes; zero pixels.
+- **Limitation:** No calibration/noise removal; representative VV only; no VH LUT proof or guaranteed future access.
+- **Lesson learned:** COG packaging and asset labels do not establish scientific representation.
+- **Impact on next step:** M47 source contract freeze; not executed by this entry.
+- **Presentation takeaway:** Before looking for dark pixels, freeze the same-track sequence and raw-data contract.
+- **Recommended visual:** Header/XML defect-to-validation card; proposed, no screenshot/figure claimed to exist.
+- **Candidate slide title:** “Before looking for dark pixels.”
+
+### M47 — Freeze sources before looking for dark pixels — historical predecessor or design checkpoint
+
+- **Date / task:** 11 October 2026 (Asia/Dubai); AS-201 M47/E47/EV-051, recorded during M47 on 11 October 2026.
+- **Problem / question:** How can future retrieval avoid outcome-driven date/provider/AOI choices?
+- **Why it mattered:** Scientific representation and defensible selection precede oil-candidate inference.
+- **Options considered:** Broad vs narrowed envelope; raw GRD vs alternate representation; scientific preprocessing now vs later dedicated design.
+- **Decision:** Decision054 as201-v1 exact six-source raw GRD contract; broad envelope, explicit gaps, no fallback.
+- **Rationale:** Preserve southern documentary geography and same-track reproducibility; separate access proof from science.
+- **Implementation / experiment:** Documentation/policy only; canonical design digest, strict JSON, engineering and preservation checks.
+- **Evidence:** [M47 accepted predecessor/design record](evidence/AS_201_DESIGN_FREEZE.md) and [JSON](evidence/AS_201_DESIGN_FREEZE.json); prior temporary files are not repository artifacts.
+- **Quantitative result:** 3 roles; 2 mandatory slices/date; exact PC cardinality1 each; 1,285 tests PASS (36.40s), six existing Rasterio warnings, Ruff/diff/strict JSON/digest/security/preservation PASS; zero M47 EO/pixels/science.
+- **Limitation:** AS201 not implemented; AS202 numerics/coefficient/grid/downstream thresholds not frozen.
+- **Lesson learned:** Freeze source and representation before anomaly strength can influence selection.
+- **Impact on next step:** Owner review then separate PR/merge and AS201 implementation authorization; not executed by this entry.
+- **Presentation takeaway:** Before looking for dark pixels, freeze the same-track sequence and raw-data contract.
+- **Recommended visual:** Three-role timeline plus envelope/support diagram; proposed, no screenshot/figure claimed to exist.
+- **Candidate slide title:** “Before looking for dark pixels.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1809,6 +1889,12 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
+
+### M47 decision timeline addition
+
+| Date | Decision | Contract | Boundary | Evidence |
+|---|---|---|---|---|
+| 11 Oct AS-201 M47 | Decision 054 | Freeze exact raw-GRD sources, broad envelope/gaps and secure typed handoff before SAR science | AS-202 algorithm and downstream thresholds remain unfrozen | M47/E47/EV-051 |
 
 ## 4. Engineering evidence index
 
@@ -1865,6 +1951,14 @@ Reproduce the engineering quality gate with `git diff --check`, `python -m pytes
 
 Journal-task validation on 6 October 2026: the existing `.venv` used Python 3.11.16; `python -m pytest -v` reported **97 passed in 0.20s**, and `python -m ruff check .` reported **All checks passed!** No live catalog or raster experiment was rerun. Whitespace validation also checks the new untracked file with `git diff --no-index --check /dev/null docs/PRESENTATION_JOURNAL.md`, because plain `git diff --check` does not include untracked files.
 
+
+### M45–M47 engineering evidence additions
+
+| Entry | Source | Demonstrates | Limitation |
+|---|---|---|---|
+| E45 | M47 historical predecessor record; EV-049 | Metadata-only Kharg feasibility, no repository writing at M45 | No pixel or petroleum claim |
+| E46 | M47 historical predecessor record; EV-050 | GRD header/XML/access PASS without pixels; defects/failures retained | No SAR calibration/detection |
+| E47 | [Design freeze](evidence/AS_201_DESIGN_FREEZE.md); EV-051; Decision054 | Exact six-source policy, coverage and security/digest/preservation contract | Not implemented; no scientific result or CI claim |
 
 ## 5. Scientific evidence index
 
