@@ -1,0 +1,197 @@
+{
+  "schema_version": "as201-m52-cdse-product-type-fix-v1",
+  "semantic": {
+    "schema_version": "as201-m52-cdse-product-type-fix-v1",
+    "milestone": "M52",
+    "engineering_entry": "E52",
+    "evidence_id": "EV-056",
+    "official_main": "e137795686d8f97bbd8ba6bc0465616783586ae0",
+    "parent_M51_evidence_commit": "8b32ec53e052d1ca6472bcf0fd442d9102b8669f",
+    "branch": "fix/as-201-cdse-product-type-normalization",
+    "status": "OFFLINE_PRODUCT_TYPE_INTEROPERABILITY_CORRECTION_PASS",
+    "root_cause": {
+      "function": "aquasentinel.ingestion.sentinel1_resolver._normalize_item",
+      "offending_field": "properties.product:type",
+      "provider_value": "IW_GRDH_1S",
+      "higher_priority_fields_absent": [
+        "sar:product_type",
+        "s1:product_type"
+      ],
+      "prior_accepted_values": [
+        "GRD",
+        "GRDH"
+      ],
+      "affected_exact_CDSE_slots": 6,
+      "exception_class": "Sentinel1RetrievalError",
+      "sanitized_text": "Source is not GRDH-compatible Level-1 GRD.",
+      "M51_final_state": "UNAVAILABLE / DISCOVERY_IDENTITY_INVALID",
+      "provider_metadata_defect_established": false
+    },
+    "external_provider_fact": {
+      "publisher": "Copernicus Data Space Ecosystem",
+      "reference": "Official CDSE STAC documentation supplied as a verified fact in the M52 owner authorization",
+      "verification_status": "EXTERNALLY_VERIFIED_OFFICIAL_PROVIDER_FACT_SUPPLIED_BY_OWNER",
+      "verification_provenance": "Owner authorization supplies the externally verified official-provider fact that sentinel-1-grd supports product:type=IW_GRDH_1S. Codex did not independently retrieve or inspect that documentation in M52.",
+      "source_accessed_at": null,
+      "claim": "IW_GRDH_1S is compatible with the frozen IW high-resolution Level-1 GRD contract, not a scientific or Decision-054 change"
+    },
+    "correction": {
+      "production_path": "src/aquasentinel/ingestion/sentinel1_resolver.py",
+      "function": "_normalize_item",
+      "rule": "Exact case-sensitive membership only",
+      "accepted_product_values": [
+        "GRD",
+        "GRDH",
+        "IW_GRDH_1S"
+      ],
+      "field_precedence": [
+        "sar:product_type",
+        "s1:product_type",
+        "product:type"
+      ],
+      "field_precedence_changed": false,
+      "explicit_incompatible_or_null_higher_priority_field_cannot_be_rescued_by_fallback": true,
+      "substring_regex_prefix_suffix_or_arbitrary_GRDH_matching": false,
+      "provider_value_rewriting": false,
+      "strict_identity_or_other_guards_changed": false,
+      "shared_STAC_optical_config_dependency_changes": 0,
+      "Decision_054_semantics_changed": false
+    },
+    "offline_regressions": {
+      "test_path": "tests/ingestion/test_sentinel1_contract.py",
+      "new_parametrized_cases": 41,
+      "fixture_origin": "Synthetic exact frozen identities; M51-observed product-field shape; no new provider response",
+      "six_exact_frozen_CDSE_sources": [
+        {
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E"
+        },
+        {
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E"
+        },
+        {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09"
+        },
+        {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09"
+        },
+        {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235"
+        },
+        {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235"
+        }
+      ],
+      "six_source_direct_normalization": "PASS",
+      "six_source_resolver_state": "RESOLVED_NOT_ACCESSED",
+      "six_source_result_ready": false,
+      "normalized_retrieval_parameters_fingerprint_product_id_identical_to_existing_GRD_fixture": true,
+      "input_metadata_unchanged": true,
+      "PC_GRD_GRDH_all_three_field_positions": "PASS",
+      "explicit_rejected_values": [
+        "EW_GRDH_1S",
+        "IW_GRDM_1S",
+        "IW_SLC__1S",
+        "GRDM",
+        "SLC",
+        "unknown",
+        "OTHER_GRDH_1S",
+        "IW_GRDH_1S_extra",
+        "prefix_IW_GRDH_1S",
+        "iw_grdh_1s",
+        ""
+      ],
+      "higher_priority_incompatible_and_null_conflict_cases": 7,
+      "exact_invariant_rejection_cases": 10,
+      "exact_invariants": [
+        "item ID",
+        "collection",
+        "acquisition start",
+        "acquisition end",
+        "Sentinel-1A",
+        "IW mode",
+        "VV+VH",
+        "ascending",
+        "relative orbit 101",
+        "absolute orbit when supplied"
+      ],
+      "existing_PC_native_product_identity_and_cardinality_guards": "UNCHANGED / EXISTING_REGRESSIONS_PASS",
+      "M50_real_client_construction_and_pagination_offline_regressions": "PASS",
+      "no_external_network_fixture_guard": "socket.connect fails if attempted"
+    },
+    "history": {
+      "M49": "HISTORICAL_FAIL_UNCHANGED",
+      "M50": "MERGED_CORRECTION_UNCHANGED",
+      "M51": "HISTORICAL_FAIL_UNCHANGED",
+      "M51_semantic_sha256": "d255801335110cc74f11e1d045a1c5cdf7cabb37c085fbcf890512feb11bc336",
+      "M52": "SEPARATE_OFFLINE_ENGINEERING_CORRECTION",
+      "live_retry_performed_in_M52": false,
+      "live_readiness": "UNPROVED"
+    },
+    "network_science_boundary": {
+      "CDSE_requests": 0,
+      "PC_requests": 0,
+      "token_signing_requests": 0,
+      "TIFF_requests": 0,
+      "XML_requests": 0,
+      "total_provider_requests": 0,
+      "SAR_pixel_reads": 0,
+      "SAR_pixel_bytes": 0,
+      "scientific_SAR_compute_calls": 0,
+      "new_raster_or_cache_scientific_products": 0,
+      "Git_operations_are_not_provider_requests": true,
+      "offline_synthetic_engineering_tests_are_not_live_scientific_processing": true
+    },
+    "scientific_boundary": {
+      "AS_202": "NOT_STARTED",
+      "Decision_055": "ABSENT",
+      "calibration_noise_backscatter_dB_reprojection_mosaic_speckle_detection_persistence_risk": "NOT_PERFORMED",
+      "oil_detection_or_petroleum_confirmation": false
+    },
+    "recommended_next_action": "Owner review; separately authorize PR/merge containing M51 evidence plus M52 correction, then a separately authorized controlled live acceptance run. No retry in M52."
+  },
+  "semantic_sha256": "c79dc7714ad2ad6895c4e58da4e7f4122f137c18755481379bc245702900bf23",
+  "canonicalization": "semantic only; sorted keys; compact separators; UTF-8; ensure_ascii=false; allow_nan=false; ordered frozen sources; execution/creation times, future commit SHA and display prose excluded",
+  "engineering_quality_gates": {
+    "focused_pytest": {
+      "passed": 177,
+      "seconds": 0.94,
+      "new_cases": 41
+    },
+    "full_pytest": {
+      "passed": 1475,
+      "seconds": 36.37,
+      "existing_Rasterio_PendingDeprecationWarnings": 6
+    },
+    "ruff": "PASS",
+    "diff_JSON_digest_security_preservation": "PASS",
+    "GitHub_CI_success_claimed": false
+  },
+  "preservation": {
+    "all_non_authorized_tracked_hashes_unchanged": true,
+    "Decisions_050_054_and_entire_Decisions_file_unchanged": true,
+    "M49_M50_M51_MD_JSON_byte_identical": true,
+    "shared_STAC_optical_config_dependencies_frozen_source_policy_unchanged": true,
+    "protected_external_hash_count": 44,
+    "protected_mode_count": 57,
+    "complete_three_stash_inventory_unchanged": true,
+    "recovery_artifacts_retained": true
+  }
+}

@@ -35,6 +35,124 @@ def retrieval():
     return s1.build_retrieval_set(_all_items("cdse"), _all_items("pc"), SARConfig())
 
 
+def _cdse_product_type_item(source):
+    """Synthetic exact source with the product-type field shape observed in M51."""
+    item = _item(source, "cdse")
+    item["properties"].pop("s1:product_type")
+    item["properties"]["product:type"] = "IW_GRDH_1S"
+    assert "sar:product_type" not in item["properties"]
+    return item
+
+
+@pytest.mark.parametrize("source", s1.FROZEN_SOURCES, ids=lambda source: source.cdse_item_id)
+def test_cdse_m51_product_type_normalizes_each_exact_frozen_source(source):
+    item = _cdse_product_type_item(source)
+    original = copy.deepcopy(item)
+    settings = SARConfig()
+    record, _, _, properties = resolver._normalize_item(
+        item, source, endpoint=settings.discovery_endpoint,
+        collection=settings.discovery_collection, expected_item_id=source.cdse_item_id,
+        license_name=None,
+    )
+    assert record.product_id == source.cdse_item_id
+    assert record.acquired_at == source.acquisition_start
+    assert properties["product:type"] == "IW_GRDH_1S"
+    assert item == original
+
+
+def test_cdse_m51_product_type_resolves_all_six_without_changing_normalized_identity():
+    cdse = tuple(_cdse_product_type_item(source) for source in s1.FROZEN_SOURCES)
+    result = s1.build_retrieval_set(cdse, _all_items("pc"), SARConfig())
+    expected = retrieval()
+    assert [source.policy for source in result.slices] == list(s1.FROZEN_SOURCES)
+    assert all(source.availability == "RESOLVED_NOT_ACCESSED" for source in result.slices)
+    assert all(source.discovery_source and source.source for source in result.slices)
+    assert result.to_dict()["parameters"] == expected.to_dict()["parameters"]
+    assert result.fingerprint == expected.fingerprint
+    assert result.product_id == expected.product_id
+    assert not result.ready  # Synthetic normalization does not establish live asset access.
+
+
+@pytest.mark.parametrize("field", ["sar:product_type", "s1:product_type", "product:type"])
+@pytest.mark.parametrize("product", ["GRD", "GRDH"])
+def test_pc_existing_grd_product_type_representations_remain_accepted(field, product):
+    source = s1.FROZEN_SOURCES[0]
+    item = _item(source, "pc")
+    item["properties"].pop("s1:product_type")
+    item["properties"][field] = product
+    settings = SARConfig()
+    record, _, _, _ = resolver._normalize_item(
+        item, source, endpoint=settings.access_endpoint,
+        collection=settings.access_collection, expected_item_id=source.pc_item_id,
+        license_name=None,
+    )
+    assert record.product_id == source.pc_item_id
+
+
+@pytest.mark.parametrize("product", [
+    "EW_GRDH_1S", "IW_GRDM_1S", "IW_SLC__1S", "GRDM", "SLC", "unknown",
+    "OTHER_GRDH_1S", "IW_GRDH_1S_extra", "prefix_IW_GRDH_1S", "iw_grdh_1s", "",
+])
+def test_cdse_product_type_alias_does_not_accept_other_strings(product):
+    source = s1.FROZEN_SOURCES[0]
+    item = _cdse_product_type_item(source)
+    item["properties"]["product:type"] = product
+    settings = SARConfig()
+    with pytest.raises(s1.Sentinel1RetrievalError, match="not GRDH-compatible"):
+        resolver._normalize_item(
+            item, source, endpoint=settings.discovery_endpoint,
+            collection=settings.discovery_collection, expected_item_id=source.cdse_item_id,
+            license_name=None,
+        )
+
+
+@pytest.mark.parametrize("explicit", [
+    {"sar:product_type": "SLC"},
+    {"s1:product_type": "SLC"},
+    {"sar:product_type": "SLC", "s1:product_type": "GRD"},
+    {"sar:product_type": None},
+    {"s1:product_type": None},
+    {"sar:product_type": "EW_GRDH_1S"},
+    {"s1:product_type": "IW_GRDM_1S"},
+])
+def test_cdse_product_type_alias_cannot_rescue_incompatible_explicit_metadata(explicit):
+    items = list(_all_items("cdse"))
+    items[0] = _cdse_product_type_item(s1.FROZEN_SOURCES[0])
+    items[0]["properties"].update(explicit)
+    result = s1.build_retrieval_set(tuple(items), _all_items("pc"), SARConfig())
+    assert result.slices[0].availability == "UNAVAILABLE"
+    assert result.slices[0].reason == "DISCOVERY_IDENTITY_INVALID"
+    assert len(result.slices) == 6 and not result.ready
+
+
+@pytest.mark.parametrize("field,value", [
+    ("id", "different-CDSE-product"),
+    ("collection", "sentinel-1-rtc"),
+    ("start_datetime", "2026-04-24T14:42:05Z"),
+    ("end_datetime", "2026-04-24T14:42:30Z"),
+    ("platform", "sentinel-1b"),
+    ("sar:instrument_mode", "EW"),
+    ("sar:polarizations", ["VV"]),
+    ("sat:orbit_state", "descending"),
+    ("sat:relative_orbit", 102),
+    ("sat:absolute_orbit", 1),
+])
+def test_cdse_product_type_alias_preserves_exact_identity_guards(field, value):
+    source = s1.FROZEN_SOURCES[0]
+    item = _cdse_product_type_item(source)
+    if field in {"id", "collection"}:
+        item[field] = value
+    else:
+        item["properties"][field] = value
+    settings = SARConfig()
+    with pytest.raises(s1.Sentinel1RetrievalError):
+        resolver._normalize_item(
+            item, source, endpoint=settings.discovery_endpoint,
+            collection=settings.discovery_collection, expected_item_id=source.cdse_item_id,
+            license_name=None,
+        )
+
+
 def test_search_geometry_is_independent_plain_json_for_both_providers(monkeypatch):
     expected = {
         "type": "Polygon",
