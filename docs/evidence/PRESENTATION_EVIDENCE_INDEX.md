@@ -1,6 +1,27 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-106 M35 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M37 design freeze — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED** through PR #21 merge
+`6b22d32f078ef80158b2f2d7aac4f3dd07925038` (official design baseline).
+**M36 / E36 / EV-040:** prior read-only feasibility/design audit COMPLETE.
+**Decision 052 / M37 / E37 / EV-041: FINAL / FROZEN DESIGN — NOT IMPLEMENTED.**
+The primary quantity is evidence_completeness; all current scored outputs must be
+qualified as provisional_observational_screening. Policy is frozen before any
+real AS-107 score; environmental context/intake exposure remain unavailable.
+No production implementation, real score, scientific product or AS-108 work.
+
+Current active development branch: none. Design prepared on
+`docs/as-107-design-freeze`. Next: owner review and separately authorized design
+PR/merge, then separate M38 implementation authorization. M38–M40 NOT STARTED;
+AS-108 NOT STARTED; future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.
+No PR/merge in M37. Decisions 050/051 and accepted evidence remain unchanged.
+
+See [frozen contract](../AS_107_HAB_RISK.md), Decision 052 and
+[M36/M37 evidence](AS_107_DESIGN_FREEZE.md). Existing dated checkpoints
+below remain historical, including pre-PR #21 pending-closeout/no-052 statements.
+
+## Historical AS-106 M35 publication / closeout preparation — before PR #21 merge — 10 October 2026 (Asia/Dubai)
 
 **M35 / E35 / EV-039: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
 **AS-106 before this closeout merge: CLOSEOUT READY.** Official real-acceptance
@@ -644,6 +665,8 @@ EV-027–EV-030. Their pending PR/merge instructions are historical.
 | EV-037 | AS-106 M33 exact April 3 upstream preparation + verified handoff | **PASS / COMPLETE; M34 INPUTS READY, NOT RUN** | P794 / 88 candidates / 15 regions; 88-array offline typed handoff; common contract PASS; 18/18 scalar checks; 408 focused/993 full tests | [M33 evidence](AS_106_APRIL3_UPSTREAM_PREPARATION.md); [JSON](AS_106_APRIL3_UPSTREAM_PREPARATION.json); M33/E33 | Freeze dates/policy before outcomes; prove inputs without computing recurrence | Two-date readiness/support/checksum card capture pending | No recurrence/HAB/biology/accuracy/risk/confidence/CI claim; sparse support remains; M34/M35/AS-107+/P1 05.10 NOT STARTED; future policy validation NOT RUN |
 | EV-038 | AS-106 M34 frozen real recurrence engineering acceptance | **REAL ENGINEERING PASS / COMPLETE; M35 NOT STARTED** | P802/Q793/A7/B7/C0; coverage 7/7=1.0, recurrence 0/7=0.0; nine arrays/dtypes, exact timing/region/repeat/tamper/typed offline bundle PASS; 190 focused/993 full tests | [M34 evidence](AS_106_REAL_ACCEPTANCE.md); [JSON](AS_106_REAL_ACCEPTANCE.json); M34/E34 | Frozen sequence/policy and honest denominator; zero outcome retained without tuning | Seven-pixel state/denominator/timing diagram capture pending | No absence-of-HAB/biology/risk/confidence/accuracy/CI claim; M35/AS-107+/P1 05.10 NOT STARTED; future policy study NOT RUN |
 | EV-039 | AS-106 M35 publication / formal closeout preparation | **PASS — CLOSEOUT READY; OFFICIAL CLOSURE EFFECTIVE ON MERGE** | PR #16–#20 verified; accepted P802/Q793/A7/B7/C0, coverage1.0/recurrence0.0; preserved IDs/fingerprints/bundle/history | [M35 record](AS_106_CLOSEOUT.md); [JSON](AS_106_CLOSEOUT.json); M35/E35 | Frozen eligible dates and zero retained without tuning; durable official closure | Final selection/support/recurrence/limits slide capture pending | Documentation only, no new science/biological/risk/confidence/CI claim; no PR/merge; AS-107+/P1 05.10 NOT STARTED; future policy validation NOT RUN |
+| EV-040 | M36 AS-107 feasibility/design audit | **COMPLETE — READ ONLY** | Config/interfaces/missing policies reviewed; no real score or code | [Prior audit record](AS_107_DESIGN_FREEZE.md#m36--e36--ev-040--prior-read-only-audit-complete); M36/E36 | Freeze policy before inspecting score | Availability/evidence-strength visual proposed | Recorded retrospectively in M37; no scientific result or implementation |
+| EV-041 | M37 Decision 052 design freeze | **FINAL / FROZEN DESIGN — NOT IMPLEMENTED** | Owner-approved formulas, completeness, qualification, identity/lineage and future tests | [M37 record](AS_107_DESIGN_FREEZE.md); [contract](../AS_107_HAB_RISK.md); M37/E37 | Missing is not zero; score is separate from evidence completeness | Driver/completeness layout proposed, no real-score visual | Documentation only; no real score/product/PR/merge/AS-108; M38–M40 NOT STARTED |
 
 ### EV-021 final AS-103 review and merge
 
@@ -1152,3 +1175,26 @@ The future merge itself makes AS-106 COMPLETE/CLOSED and M35 COMPLETE/MERGED;
 no extra post-merge SHA edit required. AS-107 separately designed/authorized,
 NOT STARTED; future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.
 Historical EV-001–EV-038 bodies retained; presentation visual capture pending.
+
+### EV-040 — M36 prior AS-107 read-only feasibility/design audit
+
+10 October 2026 (Asia/Dubai); M36/E36 COMPLETE. Recorded retrospectively from the
+completed owner-reviewed audit in [M36 record](AS_107_DESIGN_FREEZE.md#m36--e36--ev-040--prior-read-only-audit-complete).
+Current typed AS-105 family availability/evidence and AS-106 regional recurrence
+can support future scoring; AS-104 remains an integrity witness. Audit compared
+missing policies and recommended explicit regional/completeness/qualification rules.
+No real score, outcome-based formula selection, implementation or scientific product.
+
+### EV-041 — M37 AS-107 Decision 052 owner-approved design freeze
+
+10 October 2026 (Asia/Dubai); M37/E37 FINAL / FROZEN DESIGN — NOT IMPLEMENTED.
+[Contract](../AS_107_HAB_RISK.md), Decision 052 and [M37 evidence](AS_107_DESIGN_FREEZE.md)
+freeze formulas, weights/availability, evidence_completeness, provisional status,
+continuous bands, 0.50 administrative interpretation, regions/site/drivers,
+monitoring/witness/provenance/identity/serialization and future adversarial gates.
+No real score or expected band; 0.70/0.55 coverage are config consequences only.
+Correlation/missing-input/scientific boundaries remain explicit. Actual regression
+and preservation gates are in M37 evidence, not proof of unimplemented risk science.
+Earlier evidence bodies preserved; M38/E38/EV-042, M39/E39/EV-043 and M40/E40/EV-044
+are future reservations only. No PR/merge/implementation/scientific product or
+AS-108 work; policy validation/05.10 remain unrun. Proposed visuals are not created.
