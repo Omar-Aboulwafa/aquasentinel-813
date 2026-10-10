@@ -1,0 +1,319 @@
+{
+  "P_Q_A_B_C": {
+    "A": 7,
+    "B": 7,
+    "C": 0,
+    "P": 802,
+    "Q": 793
+  },
+  "acceptance_bundle": {
+    "directory": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+    "directory_mode": "0555",
+    "files": {
+      "SHA256SUMS.txt": {
+        "bytes": 255,
+        "mode": "0444",
+        "sha256": "793f29341bbdc057b9198ffd65c7714829e8373c901ea39fd5a7c773584c674d"
+      },
+      "execution.log": {
+        "bytes": 1335,
+        "mode": "0444",
+        "sha256": "f8ed67c9198c6b415a9369a4659ec5527dc18a2f262a92f7087f44bdaf4c80c7"
+      },
+      "real_acceptance.json": {
+        "bytes": 58486,
+        "mode": "0444",
+        "sha256": "feb7b974126b2e5ad518febc053494db6d1824badf2fe0db04103e83ecb72d90"
+      },
+      "scientific_arrays.npz": {
+        "bytes": 6527,
+        "mode": "0444",
+        "sha256": "6ba3d54f056717e9fe4f11f8c58ef649555d781792edd9ac49a40571b442fc19"
+      }
+    }
+  },
+  "additional_post_merge_sha_documentation_required": false,
+  "anti_cherry_picking_assertions": [
+    "Metadata froze the sequence before recurrence inspection.",
+    "Every eligible April acquisition was retained: April 3 and April 28.",
+    "Both dates shared the same frozen temporal comparison contract.",
+    "April 3 produced 88 AS-105 candidates.",
+    "April 28 produced 7 AS-105 candidates.",
+    "Real AS-106 produced zero same-pixel recurrence.",
+    "Zero was retained without tuning.",
+    "No date, threshold, family rule, connectivity or spatial tolerance changed."
+  ],
+  "candidate_history_coverage": 1.0,
+  "change_counts": {
+    "config": 0,
+    "dependencies": 0,
+    "source": 0,
+    "tests": 0
+  },
+  "closeout_effective_on_merge": true,
+  "created_at": "2026-10-10T15:08:32.083334+04:00",
+  "decision_050": "UNCHANGED",
+  "decision_051_status": "FINAL / FROZEN / MERGED via PR #16; original scientific text byte-identical",
+  "decision_052": "ABSENT",
+  "engineering_entry": "E35",
+  "evidence_id": "EV-039",
+  "forward_handoff": {
+    "authorization": "AS-107 remains a separate milestone requiring owner design review and separate implementation authorization",
+    "does_not_provide": [
+      "risk",
+      "confidence",
+      "probability",
+      "HAB confirmation",
+      "biological persistence",
+      "operational decision"
+    ],
+    "provides": [
+      "observational recurrence evidence",
+      "target-candidate history coverage",
+      "exact streak/timing evidence",
+      "provenance"
+    ]
+  },
+  "frozen_observations": [
+    "2023-04-03T06:46:21.024000+00:00",
+    "2023-04-28T06:46:29.024000+00:00"
+  ],
+  "future_work": {
+    "AS107_plus": "NOT STARTED / NOT AUTHORIZED; separate design and authorization required",
+    "P1_0510": "NOT STARTED",
+    "future_AS105_policy_validation": "NOT RUN"
+  },
+  "historical_M34_engineering_validation": {
+    "independent_oracles": {
+      "Boolean": "PASS",
+      "arrays": "9/9 PASS",
+      "dtypes": "9/9 PASS",
+      "exact_microseconds": "PASS",
+      "global_denominators_and_histogram": "PASS",
+      "input_output_fingerprints": "PASS separate production helper verification",
+      "product_identity": "PASS canonical JSON/SHA-256 independent recomputation",
+      "target_region": "PASS"
+    },
+    "network": {
+      "EO_asset_requests": 0,
+      "git": "initial authorized fetch; final M34 branch push after gates only",
+      "imagery_XML_bytes_downloaded": 0,
+      "metadata_requests": 0,
+      "scientific_guard_attempts": {
+        "cache_load": 0,
+        "network": 0,
+        "public_upstream_extraction": 0,
+        "transport": 0
+      },
+      "signing_token_requests": 0,
+      "unexpected_hosts": 0
+    },
+    "quality_gates": {
+      "credential_scan": "PASS; no live SAS/signed URL/Authorization header/secret; final committed-doc gate also required",
+      "diff_check": "PASS; local pre-publication gate; final tracked/new-file gate also required before commit",
+      "final_committed_doc_credential_scan": "PASS before commit",
+      "final_tracked_and_new_file_whitespace": "PASS before commit",
+      "full_pytest": {
+        "command": "python -m pytest -v",
+        "passed": 993,
+        "seconds": 64.61,
+        "warning_type": "existing Rasterio PendingDeprecationWarning",
+        "warnings": 6
+      },
+      "persistence_focused": {
+        "command": "python -m pytest tests/persistence -v",
+        "passed": 190,
+        "seconds": 46.36,
+        "warnings": 0
+      },
+      "ruff": "PASS"
+    },
+    "reference": "docs/evidence/AS_106_REAL_ACCEPTANCE.json",
+    "sealed_bundle_roundtrip": {
+      "array_dtype_shape_semantic_hashes": "9/9 PASS",
+      "file_checksums": "PASS",
+      "four_accepted_typed_parents": "PASS",
+      "ids_fingerprints_statistics_regions_provenance": "PASS",
+      "integrity_exception": "Existing parent-aware validation internally regenerates science; no new public recurrence or upstream extraction.",
+      "network_public_upstream_guards": {
+        "cache_load": 0,
+        "network": 0,
+        "public_upstream_extraction": 0,
+        "transport": 0
+      },
+      "numeric_arrays_pickle_disabled": "PASS",
+      "public_recurrence_calls": 0,
+      "scene_validate": "PASS",
+      "status": "PASS",
+      "typed_HABPersistenceScene_reconstruction": "PASS"
+    },
+    "tamper_controls": {
+      "gap": "REJECTED / PASS",
+      "provenance": "REJECTED / PASS",
+      "recurrent_mask": "REJECTED / PASS",
+      "region": "REJECTED / PASS",
+      "rehashed_recurrent_mask": "REJECTED / PASS",
+      "statistics": "REJECTED / PASS",
+      "streak": "REJECTED / PASS"
+    },
+    "validation": {
+      "chronology_latest_target": "PASS",
+      "created_at_identity_exclusion": "PASS",
+      "external_hashes_modes": "PASS",
+      "four_typed_parents": "PASS",
+      "frozen_policy": "PASS",
+      "immediate_AS105_provenance": "PASS",
+      "known_P_C_region_guards": "PASS",
+      "output_nonaliasing": "PASS",
+      "parent_immutability": "PASS",
+      "parent_pair_nonaliasing": "PASS",
+      "reverse_order_repeat": "PASS",
+      "same_grid_common_contract": "PASS",
+      "same_order_repeat": "PASS",
+      "scene_validate": "PASS"
+    }
+  },
+  "input_content_fingerprint": "2f8f6f1c37bd9f8a236109ab821e6e426f222840c4a74f623d2e78bd76529ab7",
+  "limitations": [
+    "Exact same-grid pixel recurrence only; no neighborhood, motion or current compensation.",
+    "Unsupported earlier observations are UNKNOWN, not negative.",
+    "Only two April observations were eligible under the frozen contract; both retained.",
+    "Gap is 25 days + 8 seconds; it does not imply continuous biological presence or absence.",
+    "Shared five March references are not independent confirmation; five histories are not statistical sufficiency.",
+    "April 3 ~13% upstream policy coverage is a separate denominator from 7/7 target-candidate history coverage.",
+    "Zero observational recurrence is not absence-of-HAB evidence.",
+    "Spectral candidate geometry does not identify species/toxins.",
+    "AS-106 supplies no operational risk/confidence/probability/water-safety decision.",
+    "Decision 050 comparative policy validation remains REQUIRED / NOT RUN."
+  ],
+  "m35_bundle_verification": "PASS locally rehashed read-only; no scientific reconstruction or execution",
+  "merge_chain": [
+    {
+      "PR": 16,
+      "git_commit_time_dubai": "2026-10-10T11:21:58+04:00",
+      "git_subject": "Merge pull request #16 from Omar-Aboulwafa/docs/as-106-design-freeze",
+      "merge_commit": "57185444f0cc963cc899a25cd8179d7a31f12119",
+      "milestone": "Decision 051 design freeze",
+      "parents": [
+        "b1b5147d9973d8cf23d575985319bf94a55a03d4",
+        "a54b872fb89bf9dc3e9b532d59e4229fbb34f2b6"
+      ],
+      "verification": "PASS from local Git history; no GitHub API request"
+    },
+    {
+      "PR": 17,
+      "git_commit_time_dubai": "2026-10-10T12:13:05+04:00",
+      "git_subject": "Merge pull request #17 from Omar-Aboulwafa/feature/as-106-persistence",
+      "merge_commit": "723e13a900dba30b73a8a2da39df1d984233a2f4",
+      "milestone": "M31 implementation",
+      "parents": [
+        "57185444f0cc963cc899a25cd8179d7a31f12119",
+        "dff87fa031007440166f63440545c900c52516b5"
+      ],
+      "verification": "PASS from local Git history; no GitHub API request"
+    },
+    {
+      "PR": 18,
+      "git_commit_time_dubai": "2026-10-10T13:35:36+04:00",
+      "git_subject": "Merge pull request #18 from Omar-Aboulwafa/data/as-106-april-metadata-inventory",
+      "merge_commit": "200affdb7fb6f8801744a192511e4200cc0d100d",
+      "milestone": "M32 metadata inventory",
+      "parents": [
+        "723e13a900dba30b73a8a2da39df1d984233a2f4",
+        "59b01c959405fa67a69ec226c619d746aa58c245"
+      ],
+      "verification": "PASS from local Git history; no GitHub API request"
+    },
+    {
+      "PR": 19,
+      "git_commit_time_dubai": "2026-10-10T14:22:32+04:00",
+      "git_subject": "Merge pull request #19 from Omar-Aboulwafa/data/as-106-april3-upstream-preparation",
+      "merge_commit": "4cde14ee448079163c2a08f3951f8dac294f8dac",
+      "milestone": "M33 April 3 preparation",
+      "parents": [
+        "200affdb7fb6f8801744a192511e4200cc0d100d",
+        "8a81e99ac835496eaf88d962a640ccdd88aca771"
+      ],
+      "verification": "PASS from local Git history; no GitHub API request"
+    },
+    {
+      "PR": 20,
+      "git_commit_time_dubai": "2026-10-10T14:52:49+04:00",
+      "git_subject": "Merge pull request #20 from Omar-Aboulwafa/data/as-106-real-acceptance",
+      "merge_commit": "82e30c00a30ed893ad47c44c5a1e363661370d35",
+      "milestone": "M34 real engineering acceptance",
+      "parents": [
+        "4cde14ee448079163c2a08f3951f8dac294f8dac",
+        "01c95caa974a4f61c44bd0676ec6cb19878e8b47"
+      ],
+      "verification": "PASS from local Git history; no GitHub API request"
+    }
+  ],
+  "milestone": "M35",
+  "network_audit": {
+    "EO_metadata_raster_XML_downloads": 0,
+    "Git": [
+      "initial git fetch origin main",
+      "final authorized closeout branch push only"
+    ],
+    "real_compute_hab_persistence_calls": 0,
+    "scientific_external_data_requests": 0,
+    "scope_note": "M35 reads/checksums accepted artifacts only; authorized existing pytest suite is separate from real scientific execution.",
+    "signing_token_requests": 0,
+    "upstream_real_reruns": 0
+  },
+  "observation_gap_us": 2160008000000,
+  "official_base_main": "82e30c00a30ed893ad47c44c5a1e363661370d35",
+  "output_content_fingerprint": "7739a3f97c0e88113a17629678a0ef31bdb14594400f0568c0dfdfdb5dabafef",
+  "prepared_on_branch": "docs/as-106-closeout",
+  "preservation": {
+    "accepted_evidence_files_unchanged": {
+      "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6",
+      "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md": "65beeb1ad3c6fe64049f88ea8efb12a3d21c5b481b0b6cfa6423d435bcfba956",
+      "docs/evidence/AS_106_APRIL_METADATA_INVENTORY.json": "ec1adf3f020d4b6480629c8204fbd5401450de715ba51ae05607ebeaeb140571",
+      "docs/evidence/AS_106_APRIL_METADATA_INVENTORY.md": "d491c05d0f6959130f8e4a35ec18908576b4fbed6f3d259211c2e879530c77d8",
+      "docs/evidence/AS_106_PERSISTENCE_VALIDATION.md": "4e4001dbfefb76584e93b3358f2cc652b383a326fcd1aedd07f0876f033f7983",
+      "docs/evidence/AS_106_REAL_ACCEPTANCE.json": "7fb6d73341aa8b66f7e946bef9aaa1825fb7d184ff81040cce2a97a408ef4feb",
+      "docs/evidence/AS_106_REAL_ACCEPTANCE.md": "5a18b38bceca88cdd3041869fd4ad182d2ee58f8a927bf55fe42a31457bb6fff"
+    },
+    "baseline_tracked_file_count": 115,
+    "decision_bodies_sha256": {
+      "050": "ab1c196a8e204e6c81784ae7de9083b2fa5cd6d295d68fa74742e95c4aa9ce26",
+      "051": "f3f79a2f85ca3fb33e70518fedbf59f7946932fbc2cec1dae4ebed9a0a05a36b"
+    },
+    "protected_external_file_count": 41,
+    "protected_permissions_count": 53,
+    "result": "PASS: all existing accepted artifacts, modes, stashes and recovery files retained unchanged; verified before commit",
+    "safety_stashes": [
+      "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration",
+      "f93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration"
+    ]
+  },
+  "processing_version": "as106-v1",
+  "product_id": "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+  "quality_gates": {
+    "credential_scan": "PASS all eight authorized paths; no live SAS/signed URL/Authorization header/secret",
+    "current_status_consistency": "PASS all six continuity documents",
+    "diff_check": "PASS tracked and new-file whitespace",
+    "full_pytest": {
+      "command": "python -m pytest -v",
+      "passed": 993,
+      "seconds": 64.16,
+      "warning_type": "existing Rasterio PendingDeprecationWarning",
+      "warnings": 6
+    },
+    "preservation": "PASS 109 untouched tracked files, 41 protected external hashes, 53 modes and unchanged stash inventory",
+    "ruff": "PASS",
+    "status": "PASS"
+  },
+  "recurrence_fraction": 0.0,
+  "schema_version": "as106-m35-closeout-v1",
+  "scientific_statement": "No same-pixel candidate recurrence was observed among the 7 target candidate pixels with valid prior observational history.",
+  "selection_inventory_sha256": "570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5",
+  "status": "PUBLICATION / CLOSEOUT PASS \u2014 READY FOR PR; official closure pending merge",
+  "status_after_merge": "AS-106 COMPLETE / CLOSED; M35 COMPLETE / MERGED / PUBLICATION-CLOSEOUT",
+  "status_before_merge": "AS-106 CLOSEOUT READY; M35 preparation complete / pending merge",
+  "streak_histogram": {
+    "1": 7
+  }
+}
