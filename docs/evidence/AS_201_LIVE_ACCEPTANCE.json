@@ -1,0 +1,734 @@
+{
+  "schema_version": "as201-m49-live-acceptance-v1",
+  "semantic": {
+    "schema_version": "as201-m49-live-acceptance-v1",
+    "milestone": "M49",
+    "engineering_entry": "E49",
+    "evidence_id": "EV-053",
+    "base_sha": "392603b5b074d515eb6c137e33395c7f0b1256ac",
+    "branch": "validation/as-201-live-acceptance",
+    "decision": "054",
+    "policy_version": "as201-v1",
+    "AS201_LIVE_ACCEPTANCE": "FAIL",
+    "failure_classification": "CATALOG_METADATA_CONTRACT_REJECTION_UNLOCALIZED",
+    "exception_type": "CatalogMetadataError",
+    "public_execution": {
+      "search_sentinel1": "CALLED_ONCE; EXCEPTION BEFORE RETURN",
+      "validate_retrieval_access": "NOT_REACHED",
+      "six_source_acceptance_complete": false,
+      "terminal_failed_attempt_record_complete": true,
+      "production_code_changes": 0,
+      "live_retry_after_failure": 0
+    },
+    "merge_record": {
+      "pr": 30,
+      "merged": true,
+      "merge_commit": "392603b5b074d515eb6c137e33395c7f0b1256ac",
+      "parents": [
+        "1d2d994c7a04cca712485ce53dc9132db50615a8",
+        "d9ff882a6ff0727a91d1a54240c12d8c61920725"
+      ]
+    },
+    "provider_request_evidence": [
+      {
+        "body_sha256": "2665e1c0ebd3bd0a47ecc82902237d5797abcfcd95dab73eaa024fc4db3890d4",
+        "bytes": 3670,
+        "category": "CDSE_STAC",
+        "hostname": "stac.dataspace.copernicus.eu",
+        "method": "GET",
+        "path": "/v1/",
+        "status": 200
+      },
+      {
+        "body_sha256": "d0f82ec0a132ebc0c48543f25e1fa0a0de4d6f8c5279936a7907c90160806246",
+        "bytes": 11989,
+        "category": "CDSE_STAC",
+        "hostname": "stac.dataspace.copernicus.eu",
+        "method": "GET",
+        "path": "/v1/collections/sentinel-1-grd",
+        "status": 200
+      }
+    ],
+    "request_accounting": {
+      "CDSE_STAC_requests": 2,
+      "CDSE_STAC_bytes_received": 15659,
+      "CDSE_search_page_requests": 0,
+      "PC_STAC_requests": 0,
+      "PC_STAC_bytes_received": 0,
+      "signing_token_requests": 0,
+      "signing_token_bytes_received": 0,
+      "TIFF_range_requests": 0,
+      "TIFF_metadata_bytes_received": 0,
+      "manifest_XML_requests": 0,
+      "manifest_XML_bytes_received": 0,
+      "product_annotation_XML_requests": 0,
+      "product_annotation_XML_bytes_received": 0,
+      "calibration_XML_requests": 0,
+      "calibration_XML_bytes_received": 0,
+      "noise_XML_requests": 0,
+      "noise_XML_bytes_received": 0,
+      "total_provider_requests": 2,
+      "total_provider_bytes_received": 15659,
+      "full_product_zip_downloads": 0,
+      "image_block_payload_requests": 0,
+      "sar_pixel_bytes": 0,
+      "sar_pixel_read_calls": 0,
+      "scientific_sar_compute_calls": 0
+    },
+    "request_byte_semantics": "Response-body bytes delivered to the HTTP client, not wire framing/headers or compressed-transfer size.",
+    "slices": [
+      {
+        "frozen_source": {
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "acquisition_start": "2026-04-24T14:42:05.150515Z",
+          "acquisition_end": "2026-04-24T14:42:30.148548Z",
+          "absolute_orbit": 64223,
+          "width": 25835,
+          "height": 16732
+        },
+        "outcome": "NOT_EVALUATED_DISCOVERY_ABORTED",
+        "actual_as201_availability": null,
+        "cdse_exact_resolution": null,
+        "pc_exact_resolution": null,
+        "platform_mode_product_orbit_polarizations_match": null,
+        "acquisition_interval_match": null,
+        "vv_identity_valid": null,
+        "vh_auxiliary_identity_valid": null,
+        "manifest_valid": null,
+        "product_annotation_valid": null,
+        "calibration_xml_valid": null,
+        "noise_xml_valid": null,
+        "tiff_structural_contract_valid": null,
+        "observed_width": null,
+        "observed_height": null,
+        "dtype": null,
+        "band_count": null,
+        "nodata": null,
+        "compression": null,
+        "tile_size": null,
+        "overview_count": null,
+        "wgs84_geolocation_tiepoints_valid": null,
+        "affine_absent": null,
+        "thermal_noise_correction_performed": null,
+        "slice_fingerprint": null,
+        "reason": "PUBLIC_SEARCH_ABORTED_WITH_CATALOG_METADATA_ERROR"
+      },
+      {
+        "frozen_source": {
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "acquisition_start": "2026-04-24T14:42:30.150042Z",
+          "acquisition_end": "2026-04-24T14:42:55.148075Z",
+          "absolute_orbit": 64223,
+          "width": 25842,
+          "height": 16732
+        },
+        "outcome": "NOT_EVALUATED_DISCOVERY_ABORTED",
+        "actual_as201_availability": null,
+        "cdse_exact_resolution": null,
+        "pc_exact_resolution": null,
+        "platform_mode_product_orbit_polarizations_match": null,
+        "acquisition_interval_match": null,
+        "vv_identity_valid": null,
+        "vh_auxiliary_identity_valid": null,
+        "manifest_valid": null,
+        "product_annotation_valid": null,
+        "calibration_xml_valid": null,
+        "noise_xml_valid": null,
+        "tiff_structural_contract_valid": null,
+        "observed_width": null,
+        "observed_height": null,
+        "dtype": null,
+        "band_count": null,
+        "nodata": null,
+        "compression": null,
+        "tile_size": null,
+        "overview_count": null,
+        "wgs84_geolocation_tiepoints_valid": null,
+        "affine_absent": null,
+        "thermal_noise_correction_performed": null,
+        "slice_fingerprint": null,
+        "reason": "PUBLIC_SEARCH_ABORTED_WITH_CATALOG_METADATA_ERROR"
+      },
+      {
+        "frozen_source": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "acquisition_start": "2026-05-06T14:42:04.538690Z",
+          "acquisition_end": "2026-05-06T14:42:29.536703Z",
+          "absolute_orbit": 64398,
+          "width": 25835,
+          "height": 16732
+        },
+        "outcome": "NOT_EVALUATED_DISCOVERY_ABORTED",
+        "actual_as201_availability": null,
+        "cdse_exact_resolution": null,
+        "pc_exact_resolution": null,
+        "platform_mode_product_orbit_polarizations_match": null,
+        "acquisition_interval_match": null,
+        "vv_identity_valid": null,
+        "vh_auxiliary_identity_valid": null,
+        "manifest_valid": null,
+        "product_annotation_valid": null,
+        "calibration_xml_valid": null,
+        "noise_xml_valid": null,
+        "tiff_structural_contract_valid": null,
+        "observed_width": null,
+        "observed_height": null,
+        "dtype": null,
+        "band_count": null,
+        "nodata": null,
+        "compression": null,
+        "tile_size": null,
+        "overview_count": null,
+        "wgs84_geolocation_tiepoints_valid": null,
+        "affine_absent": null,
+        "thermal_noise_correction_performed": null,
+        "slice_fingerprint": null,
+        "reason": "PUBLIC_SEARCH_ABORTED_WITH_CATALOG_METADATA_ERROR"
+      },
+      {
+        "frozen_source": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "acquisition_start": "2026-05-06T14:42:29.538209Z",
+          "acquisition_end": "2026-05-06T14:42:54.536224Z",
+          "absolute_orbit": 64398,
+          "width": 25842,
+          "height": 16732
+        },
+        "outcome": "NOT_EVALUATED_DISCOVERY_ABORTED",
+        "actual_as201_availability": null,
+        "cdse_exact_resolution": null,
+        "pc_exact_resolution": null,
+        "platform_mode_product_orbit_polarizations_match": null,
+        "acquisition_interval_match": null,
+        "vv_identity_valid": null,
+        "vh_auxiliary_identity_valid": null,
+        "manifest_valid": null,
+        "product_annotation_valid": null,
+        "calibration_xml_valid": null,
+        "noise_xml_valid": null,
+        "tiff_structural_contract_valid": null,
+        "observed_width": null,
+        "observed_height": null,
+        "dtype": null,
+        "band_count": null,
+        "nodata": null,
+        "compression": null,
+        "tile_size": null,
+        "overview_count": null,
+        "wgs84_geolocation_tiepoints_valid": null,
+        "affine_absent": null,
+        "thermal_noise_correction_performed": null,
+        "slice_fingerprint": null,
+        "reason": "PUBLIC_SEARCH_ABORTED_WITH_CATALOG_METADATA_ERROR"
+      },
+      {
+        "frozen_source": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "acquisition_start": "2026-05-18T14:42:04.240283Z",
+          "acquisition_end": "2026-05-18T14:42:29.238414Z",
+          "absolute_orbit": 64573,
+          "width": 25836,
+          "height": 16732
+        },
+        "outcome": "NOT_EVALUATED_DISCOVERY_ABORTED",
+        "actual_as201_availability": null,
+        "cdse_exact_resolution": null,
+        "pc_exact_resolution": null,
+        "platform_mode_product_orbit_polarizations_match": null,
+        "acquisition_interval_match": null,
+        "vv_identity_valid": null,
+        "vh_auxiliary_identity_valid": null,
+        "manifest_valid": null,
+        "product_annotation_valid": null,
+        "calibration_xml_valid": null,
+        "noise_xml_valid": null,
+        "tiff_structural_contract_valid": null,
+        "observed_width": null,
+        "observed_height": null,
+        "dtype": null,
+        "band_count": null,
+        "nodata": null,
+        "compression": null,
+        "tile_size": null,
+        "overview_count": null,
+        "wgs84_geolocation_tiepoints_valid": null,
+        "affine_absent": null,
+        "thermal_noise_correction_performed": null,
+        "slice_fingerprint": null,
+        "reason": "PUBLIC_SEARCH_ABORTED_WITH_CATALOG_METADATA_ERROR"
+      },
+      {
+        "frozen_source": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "acquisition_start": "2026-05-18T14:42:29.239908Z",
+          "acquisition_end": "2026-05-18T14:42:54.239534Z",
+          "absolute_orbit": 64573,
+          "width": 25843,
+          "height": 16733
+        },
+        "outcome": "NOT_EVALUATED_DISCOVERY_ABORTED",
+        "actual_as201_availability": null,
+        "cdse_exact_resolution": null,
+        "pc_exact_resolution": null,
+        "platform_mode_product_orbit_polarizations_match": null,
+        "acquisition_interval_match": null,
+        "vv_identity_valid": null,
+        "vh_auxiliary_identity_valid": null,
+        "manifest_valid": null,
+        "product_annotation_valid": null,
+        "calibration_xml_valid": null,
+        "noise_xml_valid": null,
+        "tiff_structural_contract_valid": null,
+        "observed_width": null,
+        "observed_height": null,
+        "dtype": null,
+        "band_count": null,
+        "nodata": null,
+        "compression": null,
+        "tile_size": null,
+        "overview_count": null,
+        "wgs84_geolocation_tiepoints_valid": null,
+        "affine_absent": null,
+        "thermal_noise_correction_performed": null,
+        "slice_fingerprint": null,
+        "reason": "PUBLIC_SEARCH_ABORTED_WITH_CATALOG_METADATA_ERROR"
+      }
+    ],
+    "coverage": {
+      "status": "UNAVAILABLE_DISCOVERY_ABORTED",
+      "per_date": [
+        {
+          "role": "REFERENCE",
+          "metadata_support": null,
+          "gaps": null,
+          "is_lower_bound": null
+        },
+        {
+          "role": "DOCUMENTARY_EVENT",
+          "metadata_support": null,
+          "gaps": null,
+          "is_lower_bound": null
+        },
+        {
+          "role": "LATE_FOLLOW_UP",
+          "metadata_support": null,
+          "gaps": null,
+          "is_lower_bound": null
+        }
+      ],
+      "common_three_date_support": null,
+      "footprint_inventory_complete": false,
+      "pixel_evaluability_established": false
+    },
+    "retrieval_fingerprint": null,
+    "group_fingerprints": [
+      null,
+      null,
+      null
+    ],
+    "derived_retrieval_provenance_source_count": null,
+    "provenance_created": false,
+    "limitations": [
+      "No live source identity, representation, header, XML or footprint was validated in this run.",
+      "Exception class alone does not localize the offending field or establish implementation defect versus provider schema drift.",
+      "The observer did not persist the raw response bodies, exception message or traceback; retained status/path/body hashes are the available failure evidence.",
+      "The initial harness diagnostic used BLOCKED for any fatal error after network activity; the durable gate uses FAIL for this catalog metadata rejection, without evidence of an access denial.",
+      "No automatic retry, provider substitution or production patch was performed after the failure.",
+      "Frozen expected dimensions/identities are policy references, not observed provider acceptance results.",
+      "Historical M46 access and M48 synthetic validation do not establish M49 six-source live readiness.",
+      "No pixel evaluability, calibrated backscatter, oil candidate, petroleum/source attribution, water safety or shutdown conclusion follows."
+    ],
+    "AS202": "NOT_STARTED",
+    "Decision_055": "ABSENT",
+    "recommended_next_milestone": "Owner review; separately authorize catalog failure localization before any retry, repair or AS-202."
+  },
+  "semantic_sha256": "ad4d6422a1280cb730f43952a20bd5bf4992d53b9bfe7627862d6715ab22cc7c",
+  "canonicalization": "SHA-256 over semantic only; sorted keys, compact UTF-8 JSON, ensure_ascii=false, allow_nan=false; fixed slot order; no runtime/creation timestamps.",
+  "execution_timing": {
+    "started_at": "2026-10-10T21:53:31.697726+00:00",
+    "completed_at": "2026-10-10T21:53:34.600932+00:00"
+  },
+  "external_observation_record_sha256": "67a8c5f523c8d429bc4d9fd969fde610567fcb01e7db1010547f79f1933032e7",
+  "preservation": {
+    "tracked_snapshot_count": 155,
+    "frozen_decision_body_sha256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea",
+      "054": "62d8bf08c6f13774ec91ae4b1c7c93109a7ebbd3a45bb3ea79b9d4e672123df8"
+    },
+    "protected_external_hash_count": 44,
+    "protected_mode_count": 57,
+    "protected_external_hashes_modes": "PASS_UNCHANGED",
+    "source_tests_configuration_dependencies": "PASS_BYTE_IDENTICAL",
+    "accepted_prior_evidence": "PASS_BYTE_IDENTICAL",
+    "safety_stashes": "PASS_COMPLETE_INVENTORY_UNCHANGED",
+    "new_raster_cache_products": 0
+  },
+  "engineering_quality_gates": {
+    "full_pytest_passed": 1432,
+    "seconds": 36.39,
+    "existing_Rasterio_PendingDeprecationWarnings": 6,
+    "ruff": "PASS",
+    "diff_new_file_whitespace": "PASS",
+    "strict_finite_JSON": "PASS",
+    "independent_digest_repeat": "PASS",
+    "credential_scan": "PASS",
+    "preservation": "PASS",
+    "GitHub_CI_success_claim": false
+  },
+  "failure_localization": {
+    "semantic": {
+      "scope": "M49 / E49 / EV-053 Failure localization only; original FAIL preserved",
+      "prior_evidence_commit": "37331736d2278bf93dc3e91bdfc30d5e96bdd0c5",
+      "implementation_base": "392603b5b074d515eb6c137e33395c7f0b1256ac",
+      "failure_stage": "D_CLIENT_SEARCH_CONSTRUCTION",
+      "failing_operation": "pystac_client.item_search.BaseSearch._format_intersects -> copy.deepcopy(intersects) -> FrozenJSON.__setitem__/_deny",
+      "underlying_exception_class": "builtins.TypeError",
+      "underlying_sanitized_exception_text": "AS-201 metadata is immutable.",
+      "public_wrapper_exception_class": "aquasentinel.catalog.stac.CatalogMetadataError",
+      "public_wrapper_sanitized_exception_text": "Malformed catalog metadata: AS-201 metadata is immutable.",
+      "wrapper_message_evidence": "Derived exactly from unchanged search_catalog TypeError handler; no full acceptance replay.",
+      "origin": "Our FrozenJSON reconstruction rejects deepcopy requested by pystac-client, before network search.",
+      "root_cause_classification": "OUR_OVERLY_STRICT_INTERNAL_IMMUTABLE_GEOMETRY_INTEROPERABILITY_CONTRACT",
+      "provider_offending_JSON_field": null,
+      "offending_internal_argument_path": "client.search(intersects=ENVELOPE_GEOMETRY)",
+      "internal_value_summary": {
+        "python_type": "aquasentinel.ingestion.sentinel1_policy.FrozenJSON",
+        "JSON_type": "Polygon",
+        "coordinates_python_type": "tuple",
+        "canonical_envelope_bbox": [
+          49.6,
+          28.6,
+          50.7,
+          29.6
+        ]
+      },
+      "parser_expected_contract": "dict-compatible GeoJSON geometry whose Python object can be deep-copied; ordinary mutable dict/list reconstruction is supported.",
+      "provider_JSON_validity": {
+        "root": "STRICT_JSON_OBJECT_PASS",
+        "collection": "STRICT_JSON_OBJECT_PASS",
+        "raw_pystac_Collection_from_dict": "PASS",
+        "collection_license": "other",
+        "collection_license_type": "str",
+        "collection_license_validation": "PASS"
+      },
+      "collection_top_level_keys": [
+        "assets",
+        "auth:schemes",
+        "description",
+        "extent",
+        "id",
+        "item_assets",
+        "keywords",
+        "license",
+        "links",
+        "providers",
+        "sci:citation",
+        "stac_extensions",
+        "stac_version",
+        "storage:schemes",
+        "summaries",
+        "title",
+        "type"
+      ],
+      "collection_structure": {
+        "assets": {
+          "keys": [
+            "thumbnail"
+          ],
+          "type": "dict"
+        },
+        "auth:schemes": {
+          "keys": [
+            "oidc",
+            "s3"
+          ],
+          "type": "dict"
+        },
+        "description": {
+          "type": "str"
+        },
+        "extent": {
+          "keys": [
+            "spatial",
+            "temporal"
+          ],
+          "type": "dict"
+        },
+        "id": {
+          "type": "str"
+        },
+        "item_assets": {
+          "keys": [
+            "Product",
+            "hh",
+            "hv",
+            "safe_manifest",
+            "schema-calibration-hh",
+            "schema-calibration-hv",
+            "schema-calibration-vh",
+            "schema-calibration-vv",
+            "schema-noise-hh",
+            "schema-noise-hv",
+            "schema-noise-vh",
+            "schema-noise-vv",
+            "schema-product-hh",
+            "schema-product-hv",
+            "schema-product-vh",
+            "schema-product-vv",
+            "thumbnail",
+            "vh",
+            "vv"
+          ],
+          "type": "dict"
+        },
+        "keywords": {
+          "length": 11,
+          "type": "list"
+        },
+        "license": {
+          "type": "str"
+        },
+        "links": {
+          "length": 6,
+          "type": "list"
+        },
+        "providers": {
+          "length": 3,
+          "type": "list"
+        },
+        "sci:citation": {
+          "type": "str"
+        },
+        "stac_extensions": {
+          "length": 10,
+          "type": "list"
+        },
+        "stac_version": {
+          "type": "str"
+        },
+        "storage:schemes": {
+          "keys": [
+            "cdse-s3",
+            "creodias-s3"
+          ],
+          "type": "dict"
+        },
+        "summaries": {
+          "keys": [
+            "constellation",
+            "instruments",
+            "platform",
+            "processing:level",
+            "processing:version",
+            "product:timeliness",
+            "product:timeliness_category",
+            "product:type",
+            "sar:center_frequency",
+            "sar:frequency_band",
+            "sar:instrument_mode",
+            "sar:observation_direction",
+            "sar:polarizations",
+            "sat:orbit_state",
+            "sat:platform_international_designator",
+            "view:incidence_angle"
+          ],
+          "type": "dict"
+        },
+        "title": {
+          "type": "str"
+        },
+        "type": {
+          "type": "str"
+        }
+      },
+      "stages": [
+        {
+          "outcome": "PASS",
+          "stage": "fetch_decode_root",
+          "strict_JSON_object": true
+        },
+        {
+          "outcome": "PASS",
+          "stage": "fetch_decode_collection",
+          "strict_JSON_object": true
+        },
+        {
+          "outcome": "PASS",
+          "stage": "raw_pystac_Collection_from_dict"
+        },
+        {
+          "outcome": "PASS",
+          "stage": "A_Client_open_captured_root"
+        },
+        {
+          "outcome": "PASS",
+          "stage": "B_client_get_collection_captured_response"
+        },
+        {
+          "outcome": "PASS",
+          "stage": "C_collection_license_access"
+        },
+        {
+          "exception_class": "builtins.TypeError",
+          "frames": [
+            {
+              "filename": "localize.py",
+              "function": "attempt",
+              "line": 63
+            },
+            {
+              "filename": "localize.py",
+              "function": "<lambda>",
+              "line": 111
+            },
+            {
+              "filename": "client.py",
+              "function": "search",
+              "line": 616
+            },
+            {
+              "filename": "item_search.py",
+              "function": "__init__",
+              "line": 725
+            },
+            {
+              "filename": "item_search.py",
+              "function": "__init__",
+              "line": 169
+            },
+            {
+              "filename": "item_search.py",
+              "function": "_format_intersects",
+              "line": 564
+            },
+            {
+              "filename": "copy.py",
+              "function": "deepcopy",
+              "line": 172
+            },
+            {
+              "filename": "copy.py",
+              "function": "_reconstruct",
+              "line": 298
+            },
+            {
+              "filename": "sentinel1_policy.py",
+              "function": "_deny",
+              "line": 25
+            }
+          ],
+          "outcome": "FAIL",
+          "sanitized_exception_text": "AS-201 metadata is immutable.",
+          "stage": "D_client_search_construction_only"
+        }
+      ],
+      "provider_requests": [
+        {
+          "bytes": 3670,
+          "document": "root",
+          "sha256": "2665e1c0ebd3bd0a47ecc82902237d5797abcfcd95dab73eaa024fc4db3890d4",
+          "status": 200
+        },
+        {
+          "bytes": 11989,
+          "document": "collection",
+          "sha256": "d0f82ec0a132ebc0c48543f25e1fa0a0de4d6f8c5279936a7907c90160806246",
+          "status": 200
+        }
+      ],
+      "response_bytes_semantics": "Response-body bytes delivered to HTTP client; excludes headers/wire framing.",
+      "diagnostic_request_count": 2,
+      "diagnostic_response_bytes": 15659,
+      "original_M49_plus_diagnostic_CDSE_request_count": 4,
+      "original_M49_plus_diagnostic_provider_bytes": 31318,
+      "captured_response_hashes_equal_original_M49": true,
+      "library_versions": {
+        "pystac": "1.15.2",
+        "pystac-client": "0.9.0"
+      },
+      "dependency_contract": {
+        "pystac-client": "Direct project pin ==0.9.0",
+        "pystac": "Indirect requirement pystac[validation]>=1.10.0; no direct project pin",
+        "dependency_changes": 0
+      },
+      "boundaries": {
+        "search_requests": 0,
+        "PC_requests": 0,
+        "token_requests": 0,
+        "TIFF_requests": 0,
+        "XML_requests": 0,
+        "SAR_pixel_reads": 0,
+        "SAR_pixel_bytes": 0,
+        "scientific_SAR_compute_calls": 0,
+        "full_live_acceptance_retry": false,
+        "production_changes": 0,
+        "test_changes": 0,
+        "config_dependency_changes": 0,
+        "AS202": "NOT_STARTED",
+        "Decision_055": "ABSENT"
+      },
+      "raw_provider_response_policy": "Captured temporarily outside repository and removed after diagnosis; neither raw response committed.",
+      "correction_options_ranked": [
+        {
+          "rank": 1,
+          "option": "Serialize/thaw frozen envelope once into independent ordinary JSON dict/lists at SAR search boundary; pass to both existing provider searches.",
+          "production_files": [
+            "src/aquasentinel/ingestion/sentinel1_resolver.py"
+          ],
+          "regression_tests": [
+            "tests/ingestion/test_sentinel1_contract.py"
+          ],
+          "Sentinel2_impact": "None expected; optical search path unchanged.",
+          "Decision054_semantics_changed": false,
+          "required_tests": "Real pystac-client constructor against captured/synthetic root and collection with frozen envelope; both provider queries retain exact geometry/window/no-cloud contract; original frozen geometry and identities unchanged."
+        },
+        {
+          "rank": 2,
+          "option": "Normalize intersects into an ordinary finite JSON dict/list copy at shared catalog-client boundary.",
+          "production_files": [
+            "src/aquasentinel/catalog/stac.py"
+          ],
+          "regression_tests": [
+            "tests/catalog/test_stac_non_optical.py",
+            "tests/catalog/test_stac.py"
+          ],
+          "Sentinel2_impact": "Shared search boundary affected; optical AOI, cloud query, pagination and identity regressions required.",
+          "Decision054_semantics_changed": false,
+          "required_tests": "Immutable/ordinary geometries, finite input, caller immutability, real client construction and S2 cloud/page behavior."
+        }
+      ],
+      "non_recommended_option": "Change FrozenJSON deepcopy semantics globally: broader immutability/aliasing surface than necessary; not required for minimal boundary correction.",
+      "recommended_next_action": "Owner authorize option 1 with focused offline regression and full engineering gates, followed by separate authorization for the full M49 live retry."
+    },
+    "semantic_sha256": "ed1bc8499c08b03df714caad32d8ab3c4ae6ab900cb93d8dd1a785f709ef557f",
+    "accessed_at": "2026-10-10T22:03:56.386478+00:00",
+    "canonicalization": "SHA256 of failure_localization.semantic; original acceptance semantic and hash unchanged; access timestamp excluded."
+  }
+}
