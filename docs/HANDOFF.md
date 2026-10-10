@@ -1,6 +1,56 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-107 M38 offline implementation — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M39 real engineering acceptance — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED.
+M38: IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION COMPLETE / MERGED** through
+PR #23 at `7f304bb44af93d2b3a1a3e6982fefad05fb8f452`, with parents
+`49f5276b1ad372725b21cdb2085815225c98eed4` and
+`55533467393f394d6cb3f856b439f41fde4b0148`.
+**M39 / E39 / EV-043: REAL ENGINEERING ACCEPTANCE PASS.** First real computation
+used unchanged accepted April 3/28 typed parents, offline, under the pre-score
+frozen policy. Exactly three public AS-107 calls; no public upstream rerun.
+
+Under the frozen AS-107 observational screening policy, the April 28 validation AOI produced a **Watch observational screening score of 29.52380952380953**, with evidence completeness **0.7** and component coverage **0.7**. Environmental context and intake exposure remain unavailable. The result is provisional observational screening, not confirmed HAB or operational water-safety determination.
+
+Accepted product: `hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb`.
+Input fingerprint: `084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91`.
+Output fingerprint: `25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae`.
+The sole seven-pixel / 2,800 m² authoritative region has family a=(7,7,7,7,7),
+v=(0,7,0,7,0); spectral 14/35 → 40.0; red-edge 7/21 → 33.333333333333336;
+persistence A/B/C=7/7/0 → 0.0. F_all=F_red=H=1.0; completeness is capped by
+K=0.7, not a biological probability. Flag: incomplete_evidence. Recommendation:
+**Review on the next valid acquisition**. No same-pixel candidate recurrence was
+observed among the 7 target candidate pixels with valid prior observational history;
+this proves neither no HAB nor safe water nor zero biological persistence/risk.
+
+Independent integer/binary64 arithmetic, fingerprints/identity, same/reversed-order
+repeats, creation-time exclusion, full parent-aware validation, 13 ordinary plus
+3 attacker-rehashed tamper rejections, immutability/non-aliasing and sealed fresh
+process roundtrip: PASS. Scientific network/metadata/assets/EO bytes: 0.
+Decisions 050/051/052, production source/tests/config/dependencies, accepted upstream
+evidence, 41 protected external hashes, 53 modes and both safety stashes preserved.
+Final M39 engineering quality gate: **292 focused tests PASS (43.61s); 1285 full tests PASS (103.96s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/credential/preservation PASS.** Local engineering checks, no GitHub CI-success claim.
+
+Evidence prepared on `data/as-107-real-acceptance`, worktree
+`/workspace/aquasentinel-813-as107-m39`, directly from verified PR #23 main.
+Authorized evidence commit/push is for owner review; no PR or merge in M39.
+Next: owner review of published M39 evidence; PR creation and M40 closeout require
+separate authorization. **M40 and AS-108 NOT STARTED**; future AS-105 policy
+validation NOT RUN; P1 homogeneous 05.10 robustness NOT STARTED. No Decision 053.
+Weights/bands/candidate/recurrence policy were not adjusted after seeing the outcome.
+No biological calibration/accuracy, species/toxins, measured chlorophyll, probability,
+calibrated confidence, water safety, intake shutdown, complete operational risk or
+lead-time claim. BOA is not aquatic Rrs; correlated red-edge emphasis, sparse/shared
+five-history support, long two-date gap and candidate-conditioned maximum remain
+limitations. Al Raha is an analyst-defined validation AOI, not a confirmed intake.
+
+See [M39 evidence](evidence/AS_107_REAL_ACCEPTANCE.md) and
+[machine-readable audit](evidence/AS_107_REAL_ACCEPTANCE.json).
+All earlier dated M36–M38/current-status sections below are historical checkpoints;
+their absent-score/unstarted/unmerged wording describes their original time.
+
+## Historical AS-107 M38 offline implementation — before PR #23 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED** via
 PR #22, implementation base `49f5276b1ad372725b21cdb2085815225c98eed4`.
