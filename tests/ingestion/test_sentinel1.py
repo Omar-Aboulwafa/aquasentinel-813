@@ -38,12 +38,7 @@ def _item(policy, provider: str):
             "coordinates": [[[49.5, 28.5], [50.8, 28.5], [50.8, 29.7], [49.5, 29.7], [49.5, 28.5]]],
         },
         "bbox": [49.5, 28.5, 50.8, 29.7],
-        "links": [
-            {
-                "rel": "self",
-                "href": f"https://example.test/{provider}/{item_id}",
-            }
-        ],
+        "links": [{"rel": "self", "href": f"https://example.test/{provider}/{item_id}"}],
         "assets": {},
     }
     if provider == "pc":
@@ -76,11 +71,7 @@ def test_exact_frozen_six_resolve_with_stable_order_and_no_pixel_processing():
     assert [group.role for group in retrieval.groups] == list(s1.ROLE_ORDER)
     assert len(retrieval.slices) == 6
     assert all(source.availability == "RESOLVED_NOT_ACCESSED" for source in retrieval.slices)
-    orders = [
-        source.policy.slice_order
-        for group in retrieval.groups
-        for source in group.slices
-    ]
+    orders = [source.policy.slice_order for group in retrieval.groups for source in group.slices]
     assert orders == [1, 2, 1, 2, 1, 2]
     assert not retrieval.ready
     assert len(retrieval.fingerprint) == 64
@@ -90,6 +81,24 @@ def test_exact_frozen_six_resolve_with_stable_order_and_no_pixel_processing():
         assert source.asset("product_vv").href.endswith("/annotation/iw-vv.xml")
         assert "rfi" not in source.asset("product_vv").href
         assert all("?" not in asset.href for asset in source.assets)
+
+
+def test_mislabelled_vv_asset_key_does_not_override_measurement_identity():
+    pc = list(_all_items("pc"))
+    pc[0]["assets"]["vv"]["href"] = pc[0]["assets"]["vh"]["href"]
+    retrieval = s1.build_retrieval_set(_all_items("cdse"), tuple(pc), SARConfig())
+    assert retrieval.slices[0].availability == "UNAVAILABLE"
+    assert retrieval.slices[0].reason == "PC_IDENTITY_OR_ASSET_CONTRACT_INVALID"
+
+
+def test_vv_vh_must_share_same_product_root():
+    pc = list(_all_items("pc"))
+    pc[0]["assets"]["vh"]["href"] = (
+        "https://sentinel1euwest.blob.core.windows.net/s1-grd/OTHER.SAFE/measurement/iw-vh.tiff"
+    )
+    retrieval = s1.build_retrieval_set(_all_items("cdse"), tuple(pc), SARConfig())
+    assert retrieval.slices[0].availability == "UNAVAILABLE"
+    assert retrieval.slices[0].reason == "PC_IDENTITY_OR_ASSET_CONTRACT_INVALID"
 
 
 def test_missing_source_retains_required_slot_without_substitution():

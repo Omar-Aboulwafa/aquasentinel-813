@@ -175,17 +175,16 @@ def _raw_asset(raw_assets: dict[str, Any], key: str) -> dict[str, Any] | None:
 
 def _measurement_asset(raw_assets: dict[str, Any], polarization: str) -> tuple[str, dict[str, Any]]:
     preferred = polarization.lower()
-    direct = _raw_asset(raw_assets, preferred)
     candidates: list[tuple[str, dict[str, Any]]] = []
-    if direct is not None:
-        candidates.append((preferred, direct))
+    pattern = rf"(?:^|[-_/]){polarization.lower()}(?:[-_.]|$)"
     for key, asset in raw_assets.items():
-        if not isinstance(key, str) or not isinstance(asset, dict) or key == preferred:
+        if not isinstance(key, str) or not isinstance(asset, dict):
             continue
         href = asset.get("href")
         path = urlsplit(href).path.lower() if isinstance(href, str) else ""
-        pattern = rf"(?:^|[-_/]){polarization.lower()}(?:[-_.]|$)"
-        if "/measurement/" in path and re.search(pattern, path):
+        if "/measurement/" not in path or not re.search(pattern, path):
+            continue
+        if key == preferred or preferred in key.lower() or "/measurement/" in path:
             candidates.append((key, asset))
     unique = {(key, asset.get("href")): (key, asset) for key, asset in candidates}
     if len(unique) != 1:
@@ -240,6 +239,11 @@ def _resolved_assets(
     vh_key, vh_raw = _measurement_asset(raw_assets, "VH")
     vv = _stable_asset(purpose="measurement_vv", key=vv_key, asset=vv_raw, settings=settings)
     vh = _stable_asset(purpose="measurement_vh", key=vh_key, asset=vh_raw, settings=settings)
+    vv_url, vh_url = urlsplit(vv.href), urlsplit(vh.href)
+    vv_root = vv_url.path.split("/measurement/", 1)[0]
+    vh_root = vh_url.path.split("/measurement/", 1)[0]
+    if (vv_url.scheme, vv_url.netloc, vv_root) != (vh_url.scheme, vh_url.netloc, vh_root):
+        raise Sentinel1RetrievalError("VV/VH measurements do not share one product root.")
 
     derived = {
         "manifest": ("normalized:manifest.safe", "manifest.safe"),
