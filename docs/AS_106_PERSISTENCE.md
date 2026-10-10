@@ -1,6 +1,58 @@
 # AS-106 — Persistence: Frozen Design
 
-## Current AS-106 M31 offline implementation — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M32 metadata inventory — 10 October 2026 (Asia/Dubai)
+
+**M31: COMPLETE AND MERGED** via PR #17 at implementation merge commit
+`723e13a900dba30b73a8a2da39df1d984233a2f4`. **M32 / E32 / EV-036: METADATA-ONLY APRIL
+ACQUISITION INVENTORY PASS / COMPLETE.** Decision 051's scientific body is
+unchanged; no Decision 052. Inventory prepared on
+`data/as-106-april-metadata-inventory`, directly from that official main base.
+No active algorithm development in M32.
+
+**12 CDSE records / 2 post-filter candidates / 2 exact PC 05.09 matches /
+2 eligible acquisitions:** `2023-04-03T06:46:21.024000Z` (Sentinel-2A) and
+`2023-04-28T06:46:29.024000Z` (Sentinel-2B). Every returned record has a
+disposition; 10 excluded records fail frozen tile/orbit rules. All 11 required
+AS-102 asset keys are present in both selected PC metadata records. April 28
+reconciles to the accepted target product. No pixel-equivalence claim.
+
+Selection inventory SHA-256:
+`570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`.
+The sequence was selected metadata-first, before existing-stage availability
+was audited; no anomaly values, support fractions or candidate outcomes were
+used. **10 metadata HTTP requests**, only to
+`stac.dataspace.copernicus.eu` and `planetarycomputer.microsoft.com`;
+complete pagination, no credentials needed, **ZERO asset requests / ZERO
+imagery bytes**. No raster/XML/thumbnail fetch, signing or new-date processing.
+
+April 3: AS-102/103/104/105 **missing in audited accepted artifacts**;
+future status `needs_as102_as103_as104_as105`. April 28: all four stages
+**present through verified cache/evidence/handoff identities**;
+`already_complete_for_sequence`. Existing AS-103 PASS descriptors are evidence,
+not a new AS-103 disk cache. An eligible preparation failure must be reported,
+never silently remove a date or weaken a frozen contract.
+
+**993 tests PASS; Ruff PASS; diff/new-file whitespace PASS**; six retained
+Rasterio PendingDeprecationWarnings. No source/test/config/dependency change;
+accepted caches, AS-104 handoff, M29 bundle, safety stashes and recovery material
+are retained unchanged. These are local checks, not GitHub CI claims.
+
+Foundation/continuity complete → AS-101/102/103/104/105 merged → Decisions
+048/049/050/051 retained → AS-106 M31 offline implementation merged → M32
+metadata-only sequence frozen → **owner review and separate M33 authorization
+required**. **M33 upstream preparation / M34 real recurrence acceptance /
+M35 publication-closeout: NOT STARTED. REAL AS-106 ACCEPTANCE: NOT RUN.**
+AS-107+ / P1 05.10 NOT STARTED; future AS-105 comparative policy validation NOT
+RUN. Immediate priority: owner review of this frozen inventory and the April 3
+AS-102→103→104→105 prerequisite before any separately authorized preparation.
+
+See [M32 evidence](evidence/AS_106_APRIL_METADATA_INVENTORY.md) and
+[normalized inventory](evidence/AS_106_APRIL_METADATA_INVENTORY.json).
+The dated M31 implementation, design-freeze and earlier states below are
+historical; their old PR/merge/authorization/inventory states are preserved and
+do not describe current M32. This metadata evidence publication is not M35.
+
+## Historical AS-106 M31 offline implementation — before PR #17 merge — 10 October 2026 (Asia/Dubai)
 
 **M31 / E31 / EV-035: OFFLINE IMPLEMENTATION + SYNTHETIC/ADVERSARIAL VALIDATION PASS.**
 Decision 051 is merged through PR #16 at official base
@@ -339,3 +391,29 @@ are validated but excluded from immediate AS-106 provenance.
 See [M31 engineering evidence](evidence/AS_106_PERSISTENCE_VALIDATION.md) for test
 coverage and the clearly labelled synthetic product. No real acceptance was run.
 Owner feature review is next; M32–M35 remain NOT STARTED / separately authorized.
+
+## M32 executed metadata inventory — separate from frozen design
+
+Goal: freeze every eligible April acquisition without imagery/scientific processing.
+Inputs: unchanged Al Raha geometry, exact owner-approved interval, CDSE cloud
+<=30%, frozen CDSE/PC collections and strict observation identity, exact PC 05.09,
+required AS-102 keys. Outputs: normalized JSON/deterministic digest, human-readable
+evidence, current continuity and M32/E32/EV-036 entries; eight authorized docs paths.
+Dependencies: none. External temporary audit code only; no production helper.
+
+Acceptance: all pages consumed; every returned CDSE record disposed; all eligible
+PC identities unique at 05.09; accepted target reconciled; stage audit after
+selection; zero asset requests/imagery/science; protected artifacts/history
+unchanged; 993 tests, Ruff, whitespace and credential gates PASS. These were met.
+Sequence: April 3, April 28; digest `570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`. Full counts, query parameters,
+exclusions and existing-stage evidence are in
+[M32 record](evidence/AS_106_APRIL_METADATA_INVENTORY.md) and
+[JSON](evidence/AS_106_APRIL_METADATA_INVENTORY.json).
+
+April 3 requires separately authorized AS-102→103→104→105 preparation; April 28
+is already complete through accepted evidence. Metadata compatibility/key presence
+does not prove asset/XML/pixel usability; preserve frozen contracts and report any
+preparation failure instead of dropping dates. M33–M35 NOT STARTED; real AS-106
+acceptance NOT RUN; AS-107+/P1 05.10 NOT STARTED; future policy validation NOT RUN.
+No recurrence/scientific output, raster/cache modification, Decision 052, PR or
+merge is part of M32. The earlier design/M31 body remains historical and unchanged.
