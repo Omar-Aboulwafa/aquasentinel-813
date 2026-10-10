@@ -1,6 +1,37 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-## Current AS-106 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M31 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**M31 / E31 / EV-035: OFFLINE IMPLEMENTATION + SYNTHETIC/ADVERSARIAL VALIDATION PASS.**
+Decision 051 is merged through PR #16 at official base
+`57185444f0cc963cc899a25cd8179d7a31f12119`; its scientific body is unchanged.
+Feature branch: `feature/as-106-persistence`; isolated worktree
+`/workspace/aquasentinel-813-as106`. Owner authorized implementation and final
+commit/push with `feat: implement AS-106 persistence`; owner feature review is next.
+**PR NOT CREATED; FEATURE NOT MERGED.** These are local engineering checks, not CI.
+
+**190 focused persistence tests / 993 full tests PASS**; Ruff and tracked/new-file
+whitespace checks PASS. Focused suite has no warnings; full suite retains only
+six existing Rasterio PendingDeprecationWarnings. No dependency or upstream
+source/test/config/provenance-schema/cache-format change.
+
+Pure recurrence over validated AS-105 parents; UNKNOWN skipped, supported
+noncandidate breaks, exact pixels only, UTC int64 microseconds, honest B/A and
+C/B fractions. Existing AS-105 validator regeneration is permitted integrity
+verification, not new extraction. Immediate lineage parents are AS-105 only.
+Real artifacts remain preserved and were not used for AS-106 computation.
+
+**REAL AS-106 ACCEPTANCE: NOT RUN / BLOCKED ON FUTURE DATA PREPARATION.**
+**REAL APRIL SEQUENCE PREPARATION: NOT STARTED.** M32 metadata inventory, M33
+upstream preparation, M34 real acceptance and M35 publication/closeout remain
+**NOT STARTED** and separately gated. No EO/service network attempts or imagery
+downloads. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+See [AS-106 specification](AS_106_PERSISTENCE.md) and [M31 validation](evidence/AS_106_PERSISTENCE_VALIDATION.md).
+
+Earlier dated design-freeze/publication/merge checkpoints below are historical;
+their old implementation/authorization states do not describe current M31.
+
+## Historical AS-106 design freeze — 10 October 2026 (Asia/Dubai)
 
 **Decision 051: OWNER-APPROVED / FROZEN DESIGN ONLY.** AS-105 remains COMPLETE
 AND MERGED; Decisions 001–050 and completed M01–M30 history are preserved.

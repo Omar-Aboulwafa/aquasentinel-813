@@ -1,5 +1,38 @@
 # AS-106 — Persistence: Frozen Design
 
+## Current AS-106 M31 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**M31 / E31 / EV-035: OFFLINE IMPLEMENTATION + SYNTHETIC/ADVERSARIAL VALIDATION PASS.**
+Decision 051 is merged through PR #16 at official base
+`57185444f0cc963cc899a25cd8179d7a31f12119`; its scientific body is unchanged.
+Feature branch: `feature/as-106-persistence`; isolated worktree
+`/workspace/aquasentinel-813-as106`. Owner authorized implementation and final
+commit/push with `feat: implement AS-106 persistence`; owner feature review is next.
+**PR NOT CREATED; FEATURE NOT MERGED.** These are local engineering checks, not CI.
+
+**190 focused persistence tests / 993 full tests PASS**; Ruff and tracked/new-file
+whitespace checks PASS. Focused suite has no warnings; full suite retains only
+six existing Rasterio PendingDeprecationWarnings. No dependency or upstream
+source/test/config/provenance-schema/cache-format change.
+
+Pure recurrence over validated AS-105 parents; UNKNOWN skipped, supported
+noncandidate breaks, exact pixels only, UTC int64 microseconds, honest B/A and
+C/B fractions. Existing AS-105 validator regeneration is permitted integrity
+verification, not new extraction. Immediate lineage parents are AS-105 only.
+Real artifacts remain preserved and were not used for AS-106 computation.
+
+**REAL AS-106 ACCEPTANCE: NOT RUN / BLOCKED ON FUTURE DATA PREPARATION.**
+**REAL APRIL SEQUENCE PREPARATION: NOT STARTED.** M32 metadata inventory, M33
+upstream preparation, M34 real acceptance and M35 publication/closeout remain
+**NOT STARTED** and separately gated. No EO/service network attempts or imagery
+downloads. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+See [M31 validation](evidence/AS_106_PERSISTENCE_VALIDATION.md); the original scientific specification below remains frozen.
+
+Earlier dated design-freeze/publication/merge checkpoints below are historical;
+their old implementation/authorization states do not describe current M31.
+
+## Historical owner-approved design freeze specification
+
 **Date:** 10 October 2026 (Asia/Dubai).
 **Status:** OWNER-APPROVED / DESIGN FROZEN ONLY — Decision 051.
 **Implementation:** NOT STARTED. No source, tests or implementation validation
@@ -266,3 +299,43 @@ Rasterio warnings. These checks do not execute real EO acceptance or validate
 AS-106 software that does not exist yet. No PR or merge in this task.
 Owner review of the published design documentation, followed by explicit M31
 implementation authorization, is next. M32–M35 require their separate staged gates.
+
+## M31 implemented contract and execution plan — offline only
+
+**Task/goal:** Implement frozen Decision 051 as deterministic recurrence evidence.
+**Inputs:** Fully validated synthetic AS-105 geometry scenes and temporal witnesses.
+**Outputs:** HABPersistenceScene, six primary evidence rasters plus defensive
+P/C/label copies, typed global/region/prior-date summaries, DerivedProductRecord.
+**Files:** Three persistence source files, six persistence test files, this plan,
+M31 evidence and five continuity documents; exactly sixteen authorized paths.
+**Dependencies:** NONE; existing NumPy and standard library.
+**Acceptance:** Frozen recurrence/denominator/timing/context/lineage semantics,
+strict whole-parent validation, no IO/upstream extraction, deterministic identity,
+non-aliasing and regenerated tamper rejection; synthetic/adversarial suite PASS.
+**Risks/guardrails:** UNKNOWN is not absence, observed span is not biology; no real
+April execution, motion matching, policy tuning, probability/risk or accuracy claims.
+**Validation:** 190 focused / 993 full tests PASS, Ruff/diff/whitespace PASS,
+protected-file hash/mode checks PASS; six existing full-suite warnings only.
+**Non-goals:** M32–M35, real EO/network/download, AS-107+, AS-105 policy validation, P1 05.10.
+
+Public API now implements the expected frozen signature. `HABPersistenceScene`
+retains defensive target P/C/labels. `PersistenceStatistics`,
+`PersistenceRegionSummary`, `PriorRegionEvidence` and `ExactMicroseconds`
+expose typed counts/fractions, regional history/recurrence, chronological overlap
+records and exact median duration numerator/denominator (1 or 2). Streak maxima/
+medians use B; span maxima/medians use recurrent pixels. Histogram is on A.
+
+Common temporal context projects validated AS-104 identity version/feature order/
+formulas/references/times/window/minimum/grid/algorithm and the structured upstream
+contract (including AOI/catalog/collection/decoding) plus tile/orbit/baseline.
+Target-specific IDs, acquisition/generation times and platform may differ; both
+Sentinel-2 platforms remain permitted. The full validator checks every descriptor.
+
+Total observation capacity is checked as well as prior-count capacity: a target-
+inclusive streak must fit uint32. Exact timedelta arithmetic is checked before
+int64 storage. Hashing preserves C-order/endian conventions; temporal witnesses
+are validated but excluded from immediate AS-106 provenance.
+
+See [M31 engineering evidence](evidence/AS_106_PERSISTENCE_VALIDATION.md) for test
+coverage and the clearly labelled synthetic product. No real acceptance was run.
+Owner feature review is next; M32–M35 remain NOT STARTED / separately authorized.

@@ -1,6 +1,37 @@
 # AquaSentinel 813 — Project State
 
-## Current AS-106 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M31 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**M31 / E31 / EV-035: OFFLINE IMPLEMENTATION + SYNTHETIC/ADVERSARIAL VALIDATION PASS.**
+Decision 051 is merged through PR #16 at official base
+`57185444f0cc963cc899a25cd8179d7a31f12119`; its scientific body is unchanged.
+Feature branch: `feature/as-106-persistence`; isolated worktree
+`/workspace/aquasentinel-813-as106`. Owner authorized implementation and final
+commit/push with `feat: implement AS-106 persistence`; owner feature review is next.
+**PR NOT CREATED; FEATURE NOT MERGED.** These are local engineering checks, not CI.
+
+**190 focused persistence tests / 993 full tests PASS**; Ruff and tracked/new-file
+whitespace checks PASS. Focused suite has no warnings; full suite retains only
+six existing Rasterio PendingDeprecationWarnings. No dependency or upstream
+source/test/config/provenance-schema/cache-format change.
+
+Pure recurrence over validated AS-105 parents; UNKNOWN skipped, supported
+noncandidate breaks, exact pixels only, UTC int64 microseconds, honest B/A and
+C/B fractions. Existing AS-105 validator regeneration is permitted integrity
+verification, not new extraction. Immediate lineage parents are AS-105 only.
+Real artifacts remain preserved and were not used for AS-106 computation.
+
+**REAL AS-106 ACCEPTANCE: NOT RUN / BLOCKED ON FUTURE DATA PREPARATION.**
+**REAL APRIL SEQUENCE PREPARATION: NOT STARTED.** M32 metadata inventory, M33
+upstream preparation, M34 real acceptance and M35 publication/closeout remain
+**NOT STARTED** and separately gated. No EO/service network attempts or imagery
+downloads. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+See [AS-106 specification](AS_106_PERSISTENCE.md) and [M31 validation](evidence/AS_106_PERSISTENCE_VALIDATION.md).
+
+Earlier dated design-freeze/publication/merge checkpoints below are historical;
+their old implementation/authorization states do not describe current M31.
+
+## Historical AS-106 design freeze — 10 October 2026 (Asia/Dubai)
 
 **Decision 051: OWNER-APPROVED / FROZEN DESIGN ONLY.** AS-105 remains COMPLETE
 AND MERGED; Decisions 001–050 and completed M01–M30 history are preserved.
@@ -152,7 +183,7 @@ See [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md) and [M28 validation](evide
 **Last updated:** 10 October 2026 (Asia/Dubai)
 **Repository:** `Omar-Aboulwafa/aquasentinel-813`
 **Default branch:** `main`
-**Current active development branch:** none. AS-105 development is closed; AS-106 design is frozen, implementation NOT authorized / NOT STARTED. Documentation prepared on `docs/as-106-design-freeze`. AS-107+ and P1 05.10 NOT STARTED; no real EO processing.
+**Current active development branch:** `feature/as-106-persistence`. AS-106 M31 offline implementation/synthetic validation PASS; owner feature review is next. Real April preparation/acceptance and M32–M35 NOT STARTED. AS-107+ and P1 05.10 NOT STARTED; no real EO processing.
 **Historical AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
 **AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
 **AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
@@ -337,7 +368,7 @@ No commit/push/PR; no AS-105+ authorization. See the AS-104 section below.
 
 AquaSentinel 813 is at the following stage:
 
-**Foundation/continuity complete → AS-101/102/103/104/105 COMPLETE AND MERGED → Decision 051 AS-106 DESIGN FROZEN → M31 offline implementation awaits explicit authorization → real April sequence BLOCKED ON FUTURE DATA PREPARATION → AS-106 implementation / AS-107+ NOT STARTED; future AS-105 policy validation REQUIRED / NOT RUN; P1 05.10 NOT STARTED.**
+**Foundation/continuity complete → AS-101/102/103/104/105 MERGED → Decision 051 MERGED/FROZEN → AS-106 M31 OFFLINE IMPLEMENTATION/SYNTHETIC VALIDATION PASS → owner feature review next (PR NOT CREATED / FEATURE NOT MERGED) → real April acceptance BLOCKED ON FUTURE DATA PREPARATION → M32–M35 / AS-107+ NOT STARTED; future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.**
 
 Completed engineering foundations:
 
@@ -358,7 +389,7 @@ Completed AS-101 implementation and next milestone:
 - AS-101 — Sentinel-2 STAC Search: completed on `feature/as-101-sentinel2-stac`, based on `origin/main` at `51f4ede`. Implementation is committed at `41a0b0b217cace909c906b7aedcb9cc6d0026f53` and documentation at `b3f0e9f878375f5fbfccb35519eeac5cc8fa48af`. AS-101, including the approved review fixes, is merged into `main` via [PR #2](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/2) at merge commit `1b83a732155ee01c01b7d33cb50115725cfb08c3`.
 - Quality gate: **97 tests passed**, Ruff passed, and `git diff --check` passed.
 - Real CDSE query returned **44 scenes** for the configured Al Raha AOI, 1 March–31 May 2023, cloud cover <= 30%; all converted to valid provenance records.
-- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 is COMPLETE AND MERGED through PR #12 at 472edc7, with implementation and frozen real acceptance PASS; AS-105 is COMPLETE AND MERGED through PR #14 at `24a260cff130238c731f7cb62fc47eb74230b4dc`, with M28 implementation/adversarial validation PASS and M29 real engineering acceptance PASS. Decision 051 AS-106 design is frozen; owner review of its published documentation and explicit M31 implementation authorization are next; future comparative policy validation is REQUIRED / NOT RUN; AS-106+ and P1 05.10 are NOT STARTED. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
+- AS-102 was explicitly authorized on 6 October 2026 and is **COMPLETE AND MERGED** through [PR #6](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/6). Implementation commit: `fe3d27046c40600010753957ee8921d57071ec48`. Merge commit: `627b6ae8a509509dbb2d5d43bbdc6d74e0ce2aac`, merged `2026-10-08T07:06:46Z` / `2026-10-08T11:06:46+04:00` Asia/Dubai. AS-103 is complete and merged through PR #8; AS-104 is COMPLETE AND MERGED through PR #12 at 472edc7, with implementation and frozen real acceptance PASS; AS-105 is COMPLETE AND MERGED through PR #14 at `24a260cff130238c731f7cb62fc47eb74230b4dc`, with M28 implementation/adversarial validation PASS and M29 real engineering acceptance PASS. Decision 051 remains frozen; AS-106 M31 offline implementation/synthetic validation PASS, with owner feature review next. M32–M35 and real April preparation/acceptance NOT STARTED; future AS-105 comparative policy validation REQUIRED / NOT RUN; AS-107+ and P1 05.10 NOT STARTED. See §23 and `docs/AS_102_OPTICAL_PREPROCESSING.md`.
 - AS-103 is **COMPLETE AND MERGED** through [PR #8](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/8). Implementation commit: `5638bc8b4ab06f235f908642f714a7cc83b35709`. AS-103 implementation merge commit: `b770d0561da9ac2b81ca2d4b8e784adff66ee231`, merged `2026-10-08T10:43:24Z` / `2026-10-08T14:43:24+04:00` Asia/Dubai. See §24 and journal M18 / EV-021 for final review/merge and preserved acceptance evidence.
 
 ---
@@ -704,18 +735,16 @@ AS-003 merge commit:
 
 ## 9. Current Test / Quality Status
 
-Current AS-105 M29 accepted code baseline: **803 tests passed** (140 geometry
-cases plus 663 retained), Ruff/diff/whitespace PASS, six existing Rasterio warnings.
-M28 implementation/adversarial validation and M29 real engineering acceptance PASS;
-AS-105 COMPLETE AND MERGED via PR #14. Owner review of the next milestone /
-AS-106 frozen design and explicit M31 implementation authorization are next; future comparative policy validation
-REQUIRED / NOT RUN.
+AS-106 M31: **190 focused / 993 full tests PASS**, Ruff/diff/new-file whitespace
+PASS. No focused warnings or new warnings; only six retained Rasterio warnings
+in the full suite. All 803 pre-AS-106 tests remain passing. This is synthetic
+engineering acceptance, not real recurrence, biological accuracy or GitHub CI.
 
-Merged AS-104 reviewed baseline: **663 tests passed**, Ruff/diff PASS and six
-existing Rasterio warnings. Frozen real acceptance and 18 scalar/synthetic causal/
-repeat checks remain PASS. No GitHub CI-success claim. AS-106+ and P1 05.10
-remain unstarted. Earlier merged baselines below are historical.
-
+Historical AS-105 M28/M29 baseline: 140 geometry / 803 full tests PASS, six
+existing Rasterio warnings; accepted M29 real engineering evidence is unchanged.
+Historical AS-104 reviewed baseline: 663 tests PASS and six existing warnings;
+frozen scalar/causal/repeat checks remain PASS. M32–M35, AS-107+ and P1 05.10
+are NOT STARTED; future AS-105 policy validation is NOT RUN.
 
 Historical merged AS-103 reviewed baseline: **348 tests passed**, Ruff/diff check passed; six existing non-blocking Rasterio PendingDeprecationWarnings only, with no new AS-103 warnings. No configured/reported GitHub Actions/workflow CI run; no GitHub CI pass is claimed. No new dependency; AS-104 NOT authorized and NOT started.
 
@@ -1150,15 +1179,15 @@ Do not reconstruct important project state from memory when repository evidence 
 
 ## 21. Immediate Next Action
 
-Owner review of the published Decision 051 / AS-106 frozen design documentation;
-then explicit M31 offline implementation authorization. AS-106 implementation
-is NOT STARTED. Real acceptance is BLOCKED ON FUTURE DATA PREPARATION: M32 is
-metadata-only inventory without imagery; M33 separately authorizes missing
-April upstream products/handoffs; M34 is offline recurrence acceptance; M35 is
-review/publication/merge/closeout. No staged milestone is executed here.
-AS-105 remains COMPLETE AND MERGED, with M28/M29 evidence unchanged. Preserve
-stashes, recovery and read-only handoff/bundle/cache hashes. Future AS-105 policy
-validation REQUIRED / NOT RUN; AS-107+ and P1 05.10 NOT STARTED.
+Owner review of the published AS-106 M31 feature implementation and synthetic
+engineering evidence. No PR is created or merge performed here. Decision 051
+is unchanged. Do not automatically advance: M32 metadata-only April inventory,
+M33 missing-date upstream preparation, M34 offline real recurrence acceptance
+and M35 publication/closeout all require their own authorization and are NOT STARTED.
+Real acceptance remains blocked on future preparation; no verified earlier-April
+cache/inventory exists. Preserve accepted handoffs/bundles/cache hashes, both
+safety stashes and recovery artifacts. AS-107+ / P1 05.10 NOT STARTED; future
+AS-105 policy validation REQUIRED / NOT RUN.
 
 ---
 
@@ -1172,7 +1201,7 @@ At the current point, the project is healthy if:
 - continuity documentation is committed,
 - a new session/agent can understand the project without chat history,
 - AS-101 is complete and merged into `main` via PR #2, with passing offline checks and a successful real catalog smoke test,
-- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is COMPLETE AND MERGED through PR #8 with reviewed feature/identity/lineage evidence; AS-104 is COMPLETE AND MERGED through PR #12 at 472edc7, with implementation and frozen real acceptance PASS; AS-105 is COMPLETE AND MERGED through PR #14 at `24a260cff130238c731f7cb62fc47eb74230b4dc`, with M28 implementation/adversarial validation PASS and M29 real engineering acceptance PASS. Decision 051 AS-106 design is frozen; owner review of its published documentation and explicit M31 implementation authorization are next; future comparative policy validation is REQUIRED / NOT RUN; AS-106+ and P1 05.10 are NOT STARTED.
+- AS-102 is COMPLETE AND MERGED through PR #6 with final reviewed checks and traceable evidence; AS-103 is COMPLETE AND MERGED through PR #8 with reviewed feature/identity/lineage evidence; AS-104 is COMPLETE AND MERGED through PR #12 at 472edc7, with implementation and frozen real acceptance PASS; AS-105 is COMPLETE AND MERGED through PR #14 at `24a260cff130238c731f7cb62fc47eb74230b4dc`, with M28 implementation/adversarial validation PASS and M29 real engineering acceptance PASS. Decision 051 remains frozen; AS-106 M31 offline implementation/synthetic validation PASS, with owner feature review next. M32–M35 and real April preparation/acceptance NOT STARTED; future AS-105 comparative policy validation REQUIRED / NOT RUN; AS-107+ and P1 05.10 NOT STARTED.
 
 
 ## 23. AS-102 — Optical Preprocessing — COMPLETE AND MERGED

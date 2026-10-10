@@ -1,6 +1,37 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-106 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M31 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**M31 / E31 / EV-035: OFFLINE IMPLEMENTATION + SYNTHETIC/ADVERSARIAL VALIDATION PASS.**
+Decision 051 is merged through PR #16 at official base
+`57185444f0cc963cc899a25cd8179d7a31f12119`; its scientific body is unchanged.
+Feature branch: `feature/as-106-persistence`; isolated worktree
+`/workspace/aquasentinel-813-as106`. Owner authorized implementation and final
+commit/push with `feat: implement AS-106 persistence`; owner feature review is next.
+**PR NOT CREATED; FEATURE NOT MERGED.** These are local engineering checks, not CI.
+
+**190 focused persistence tests / 993 full tests PASS**; Ruff and tracked/new-file
+whitespace checks PASS. Focused suite has no warnings; full suite retains only
+six existing Rasterio PendingDeprecationWarnings. No dependency or upstream
+source/test/config/provenance-schema/cache-format change.
+
+Pure recurrence over validated AS-105 parents; UNKNOWN skipped, supported
+noncandidate breaks, exact pixels only, UTC int64 microseconds, honest B/A and
+C/B fractions. Existing AS-105 validator regeneration is permitted integrity
+verification, not new extraction. Immediate lineage parents are AS-105 only.
+Real artifacts remain preserved and were not used for AS-106 computation.
+
+**REAL AS-106 ACCEPTANCE: NOT RUN / BLOCKED ON FUTURE DATA PREPARATION.**
+**REAL APRIL SEQUENCE PREPARATION: NOT STARTED.** M32 metadata inventory, M33
+upstream preparation, M34 real acceptance and M35 publication/closeout remain
+**NOT STARTED** and separately gated. No EO/service network attempts or imagery
+downloads. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+See [AS-106 specification](AS_106_PERSISTENCE.md) and [M31 validation](evidence/AS_106_PERSISTENCE_VALIDATION.md).
+
+Earlier dated design-freeze/publication/merge checkpoints below are historical;
+their old implementation/authorization states do not describe current M31.
+
+## Historical AS-106 design freeze — 10 October 2026 (Asia/Dubai)
 
 **Decision 051: OWNER-APPROVED / FROZEN DESIGN ONLY.** AS-105 remains COMPLETE
 AND MERGED; Decisions 001–050 and completed M01–M30 history are preserved.
@@ -360,7 +391,7 @@ The P0 product vision contains two separately interpretable hazards: Sentinel-2 
 
 **Recorded experiment:** A 2 October CDSE metadata search returned 44 unique candidate scenes for the analyst-defined Al Raha validation polygon, 1 March–31 May 2023, with scene cloud cover <= 30%. Provenance conversion/serialization succeeded for 44/44. The recorded quality baseline is 97 tests, Ruff passed, and `git diff --check` passed. Source: [AS-101 report](AS_101_STAC_SEARCH.md).
 
-**Current repository phase:** Foundation/continuity complete → AS-101/102/103/104/105 COMPLETE AND MERGED → Decision 051 AS-106 DESIGN FROZEN → M31 offline implementation awaits explicit authorization → real April sequence BLOCKED ON FUTURE DATA PREPARATION → AS-106 implementation / AS-107+ NOT STARTED; future AS-105 policy validation REQUIRED / NOT RUN; P1 05.10 NOT STARTED.
+**Current repository phase:** Foundation/continuity complete → AS-101/102/103/104/105 MERGED → Decision 051 MERGED/FROZEN → AS-106 M31 OFFLINE IMPLEMENTATION/SYNTHETIC VALIDATION PASS → owner feature review next (PR NOT CREATED / FEATURE NOT MERGED) → real April acceptance BLOCKED ON FUTURE DATA PREPARATION → M32–M35 / AS-107+ NOT STARTED; future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.
 
 **Presentation boundary:** Catalog discovery alone proves metadata availability. The historical reports retain advertised CDSE scale/offset, its access blocker, PC catalog/COG metadata, and the same-acquisition/different-product finding. At that earlier checkpoint, signing, decoding, and bounded reads remained unverified and EV-014 was PENDING. The later FG-01 experiment establishes credential-free signing, bounded B02/B05/SCL reads, and XML-driven B02/B05 decoding for the tested PC product/path: EV-014 later stage PASS / READY, EV-015 decoding evidence. Neither stage proves final usable-water pixels, HABs, chlorophyll concentration, toxins, water safety, warning lead time, or operational intake risk. Those historical stages did not authorize a provider change or implementation. The separately authorized M15 / EV-016–EV-017 now records actual full-AOI AS-102 arrays/masks/lineage/cache and Decisions 039–045; M17 / EV-019–EV-020 records the later candidate-feature acceptance; M18 / EV-021 separately records final review and merge through PR #8. At that AS-103 closeout checkpoint, AS-104 was NOT authorized and NOT started; M25–M26 separately record its later accepted and published implementation. These mask outcomes also do not establish the scientific/operational claims above.
 
@@ -1002,6 +1033,21 @@ capture pending, not a real anomaly map or validation result.
 - **Presentation takeaway / candidate slide:** “Unknown is not absence: recurrence over valid observations.” Explain P/C/Q and honest candidate-history denominators; do not show fabricated real recurrence.
 - **Recommended visual:** Conceptual timeline for candidate / unknown / valid non-candidate, labelled DESIGN ONLY; capture pending, no screenshot created.
 
+### M31 — AS-106 offline observation recurrence — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M31 / E31 / EV-035. Owner-authorized offline implementation and synthetic/adversarial validation at main `57185444f0cc963cc899a25cd8179d7a31f12119`; feature `feature/as-106-persistence`.
+- **Problem / question:** Can repeated candidate observations be summarized causally without calling missing observations absence or implying continuous bloom duration?
+- **Why it mattered:** Sparse observations require an explicit history denominator, exact timing and preserved source lineage before future real multi-date preparation.
+- **Options considered / decision:** Frozen Decision 051: UNKNOWN skips; supported noncandidate breaks; exact same-grid pixels rather than motion/morphology; full AS-105 validation rather than weakened checks; existing NumPy/stdlib rather than a new dependency. No new decision.
+- **Rationale:** Count every prior supported observation for Q but only the unbroken candidate streak for recurrence; keep witnesses separate from immediate provenance parents.
+- **Implementation / experiment:** Pure persistence API and HABPersistenceScene, typed global/region evidence, canonical input/output fingerprints and regenerated validation. Synthetic/adversarial only; existing AS-105 regeneration is allowed integrity verification. No real handoff consumed, EO query/download, cache IO or upstream extraction by API.
+- **Evidence:** [M31 validation](evidence/AS_106_PERSISTENCE_VALIDATION.md), `src/aquasentinel/persistence/`, `tests/persistence/`. 190 focused / 993 full tests PASS, Ruff/diff/whitespace PASS; six retained full-suite Rasterio warnings, no new/focused warnings.
+- **Quantitative result:** Twelve seeded sequences independently checked over six pixels each. Synthetic two-date example has six target candidates, six history-evaluable candidates and six recurrent pixels (coverage/recurrence 1.0); this is a constructed test, NOT an EO observation.
+- **Limitation:** Real recurrence NOT RUN / BLOCKED ON FUTURE DATA PREPARATION. No verified earlier-April cache or eligible inventory. Shared March histories are not independent confirmation; exact-pixel motion and long observation gaps remain limitations. No HAB/biology/accuracy/risk/confidence/safety claim.
+- **Lesson learned / impact:** Output fingerprints alone cannot prove scientific integrity; regeneration from fully validated parents rejects rehashed tampering. Owner feature review is next; M32–M35 remain separately gated and NOT STARTED.
+- **Presentation takeaway / recommended visual:** “Unknown is not absence.” A clearly labelled SYNTHETIC timeline comparing candidate→unknown→candidate versus candidate→supported-noncandidate→candidate, with Q/B/A denominator callouts. Visual capture pending; no screenshot created.
+- **Candidate slide title:** “Recurrence over valid satellite observations — with honest gaps.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1068,6 +1114,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E28 | [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md), [offline validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md); M28/EV-032; Decision 050 | Frozen family policy, exact support/components/polygons/area, consumed-bit identity, immediate lineage; 140 geometry/803 total tests and controls A–E PASS | Real geometry metrics, HAB accuracy/biological causation, probability/confidence/risk, persistence, alerts, lead time or GitHub CI success |
 | E29 | [M29 real acceptance](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026); M29/EV-033; external checksummed bundle, NOT tracked | Frozen real-parent masks/components/areas/polygons, 27/27 repeat, 61/61 parent immutability, 140 focused/803 full tests and zero real network/upstream/cache-load attempts PASS | HAB/event/accuracy/causation/probability/confidence/risk/persistence/alert/lead-time validation; policy comparison, merge or GitHub CI success |
 | E30 | PR #14; M30/EV-034; [merge closeout](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m30--pr-14-merge-and-as-105-closeout--10-october-2026) | AS-105 implementation and accepted real engineering evidence merged at `24a260cff130238c731f7cb62fc47eb74230b4dc`; original source/tests, external artifacts and historical records preserved | New scientific validation, optimized policy, HAB detection, CI success or next-milestone authorization |
+| E31 | [M31 offline validation](evidence/AS_106_PERSISTENCE_VALIDATION.md); Decision 051; M31/EV-035 | Pure exact-pixel consecutive-valid recurrence; typed timing/denominators/regions, parent-aware integrity and AS-105-only lineage; 190 focused/993 full tests PASS | Real recurrence/April acceptance, biological continuity/HAB, accuracy, risk/confidence, CI success or M32–M35 authorization |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
@@ -1246,12 +1293,13 @@ AS-105 M28 COMPLETE / COMMITTED / PUSHED; M29 real engineering acceptance and
 owner review PASS. Exact real metrics and canonical geometry are now recorded
 in EV-033 and the external local bundle, NOT tracked in Git. Sanitized map/slide
 capture remains pending. AS-105 is COMPLETE AND MERGED through PR #14;
-Decision 051 freezes AS-106 design only. Owner review of the published design
-and explicit M31 implementation authorization are next; no AS-106 implementation.
+Decision 051 is merged and unchanged. AS-106 M31 offline implementation and
+synthetic/adversarial validation PASS; owner feature review is next. Real April
+preparation and M32–M35 remain NOT STARTED.
 Future comparative policy validation, including
 predeclared history-depth sensitivity, is REQUIRED / NOT RUN. No known-April-event
 comparison or accuracy/biological claim. Synthetic visuals remain labelled;
-AS-106+ and P1 05.10 NOT STARTED.
+AS-107+ and P1 05.10 NOT STARTED.
 
 | Priority / category | Missing evidence | Required record before a presentation claim |
 |---|---|---|
