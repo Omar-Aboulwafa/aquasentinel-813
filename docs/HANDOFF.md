@@ -1,6 +1,30 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-107 M37 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M38 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED** via
+PR #22, implementation base `49f5276b1ad372725b21cdb2085815225c98eed4`.
+**M38 / E38 / EV-042: IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION PASS.**
+AS-107 implements the frozen explainable availability-aware observational
+screening-risk policy and passes synthetic/adversarial engineering validation.
+No real HAB risk score or band exists; no accepted real parents were loaded/scored.
+Current active development branch: `feature/as-107-hab-risk`; worktree
+`/workspace/aquasentinel-813-as107-m38`. Implementation publication is on this
+feature branch, not merged into main. Owner-authorized commit/push is for review;
+no PR created and no merge performed by M38. Next: owner review of the published
+implementation. M39 real acceptance and M40 closeout require separate authorization.
+M39/M40 and AS-108 NOT STARTED; future AS-105 policy validation NOT RUN;
+P1 homogeneous 05.10 robustness NOT STARTED.
+
+Actual M38 quality: **292 focused risk tests PASS (44.93s);
+1285 full tests PASS (117.57s), six existing Rasterio warnings;
+Ruff/diff/security/preservation PASS.** Engineering evidence only, not real/biological
+validation. Zero dependency/config/upstream changes; Decisions 050/051/052 unchanged.
+See [M38 evidence](evidence/AS_107_IMPLEMENTATION_VALIDATION.md).
+All earlier dated M36/M37/current-status sections below are historical checkpoints;
+their unimplemented/unstarted wording does not describe current M38.
+
+## Historical AS-107 M37 design freeze — before PR #22 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-106: COMPLETE / CLOSED** through PR #21 merge
 `6b22d32f078ef80158b2f2d7aac4f3dd07925038` (official design baseline).

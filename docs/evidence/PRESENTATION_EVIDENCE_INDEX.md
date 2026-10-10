@@ -1,6 +1,30 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-107 M37 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M38 offline implementation — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED. Decision 052 / M37: FINAL / FROZEN / MERGED** via
+PR #22, implementation base `49f5276b1ad372725b21cdb2085815225c98eed4`.
+**M38 / E38 / EV-042: IMPLEMENTED / SYNTHETIC-ADVERSARIAL VALIDATION PASS.**
+AS-107 implements the frozen explainable availability-aware observational
+screening-risk policy and passes synthetic/adversarial engineering validation.
+No real HAB risk score or band exists; no accepted real parents were loaded/scored.
+Current active development branch: `feature/as-107-hab-risk`; worktree
+`/workspace/aquasentinel-813-as107-m38`. Implementation publication is on this
+feature branch, not merged into main. Owner-authorized commit/push is for review;
+no PR created and no merge performed by M38. Next: owner review of the published
+implementation. M39 real acceptance and M40 closeout require separate authorization.
+M39/M40 and AS-108 NOT STARTED; future AS-105 policy validation NOT RUN;
+P1 homogeneous 05.10 robustness NOT STARTED.
+
+Actual M38 quality: **292 focused risk tests PASS (44.93s);
+1285 full tests PASS (117.57s), six existing Rasterio warnings;
+Ruff/diff/security/preservation PASS.** Engineering evidence only, not real/biological
+validation. Zero dependency/config/upstream changes; Decisions 050/051/052 unchanged.
+See [M38 evidence](AS_107_IMPLEMENTATION_VALIDATION.md).
+All earlier dated M36/M37/current-status sections below are historical checkpoints;
+their unimplemented/unstarted wording does not describe current M38.
+
+## Historical AS-107 M37 design freeze — before PR #22 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-106: COMPLETE / CLOSED** through PR #21 merge
 `6b22d32f078ef80158b2f2d7aac4f3dd07925038` (official design baseline).
@@ -667,6 +691,7 @@ EV-027–EV-030. Their pending PR/merge instructions are historical.
 | EV-039 | AS-106 M35 publication / formal closeout preparation | **PASS — CLOSEOUT READY; OFFICIAL CLOSURE EFFECTIVE ON MERGE** | PR #16–#20 verified; accepted P802/Q793/A7/B7/C0, coverage1.0/recurrence0.0; preserved IDs/fingerprints/bundle/history | [M35 record](AS_106_CLOSEOUT.md); [JSON](AS_106_CLOSEOUT.json); M35/E35 | Frozen eligible dates and zero retained without tuning; durable official closure | Final selection/support/recurrence/limits slide capture pending | Documentation only, no new science/biological/risk/confidence/CI claim; no PR/merge; AS-107+/P1 05.10 NOT STARTED; future policy validation NOT RUN |
 | EV-040 | M36 AS-107 feasibility/design audit | **COMPLETE — READ ONLY** | Config/interfaces/missing policies reviewed; no real score or code | [Prior audit record](AS_107_DESIGN_FREEZE.md#m36--e36--ev-040--prior-read-only-audit-complete); M36/E36 | Freeze policy before inspecting score | Availability/evidence-strength visual proposed | Recorded retrospectively in M37; no scientific result or implementation |
 | EV-041 | M37 Decision 052 design freeze | **FINAL / FROZEN DESIGN — NOT IMPLEMENTED** | Owner-approved formulas, completeness, qualification, identity/lineage and future tests | [M37 record](AS_107_DESIGN_FREEZE.md); [contract](../AS_107_HAB_RISK.md); M37/E37 | Missing is not zero; score is separate from evidence completeness | Driver/completeness layout proposed, no real-score visual | Documentation only; no real score/product/PR/merge/AS-108; M38–M40 NOT STARTED |
+| EV-042 | M38 AS-107 offline implementation and synthetic/adversarial validation | **IMPLEMENTED / SYNTHETIC-ADVERSARIAL PASS** | 292 focused/1285 full tests; six existing Rasterio warnings; Ruff/diff/security/preservation PASS | [M38 evidence](AS_107_IMPLEMENTATION_VALIDATION.md); M38/E38; frozen Decision 052 | Availability and completeness are explicit; rehashed tampering rejected by regeneration | Synthetic-only driver/completeness diagram proposed, capture pending | No real score/band, biological validation, operational risk or CI-success claim; M39/M40/AS-108 NOT STARTED |
 
 ### EV-021 final AS-103 review and merge
 
@@ -1198,3 +1223,15 @@ and preservation gates are in M37 evidence, not proof of unimplemented risk scie
 Earlier evidence bodies preserved; M38/E38/EV-042, M39/E39/EV-043 and M40/E40/EV-044
 are future reservations only. No PR/merge/implementation/scientific product or
 AS-108 work; policy validation/05.10 remain unrun. Proposed visuals are not created.
+
+### EV-042 — M38 AS-107 offline implementation / synthetic-adversarial validation
+
+10 October 2026 (Asia/Dubai); M38/E38 IMPLEMENTED / SYNTHETIC-ADVERSARIAL PASS.
+[M38 record](AS_107_IMPLEMENTATION_VALIDATION.md) contains actual quality results,
+frozen-policy implementation, exact denominators, explanation/qualification, typed
+parent-chain/provenance/identity, adversarial rehash and no-side-effect evidence.
+No real AS-105/106 handoff was loaded or scored; no real score/band/prediction.
+Historical M36/M37 / EV-040/041 remain unchanged. Decision 052 scientific body
+preserved; no Decision 053. M39/EV-043 and M40/EV-044 remain future reservations,
+NOT STARTED; AS-108, policy study and 05.10 NOT STARTED/NOT RUN. Publication on
+feature/as-107-hab-risk is for owner review; M38 creates no PR and performs no merge.
