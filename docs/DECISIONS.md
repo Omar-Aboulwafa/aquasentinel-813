@@ -1,6 +1,50 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+## Current AS-105 M28 status — 10 October 2026 (Asia/Dubai)
+
+Owner-authorized **offline implementation only**; Decision 050 / M28 / E28 / EV-032.
+**PASS — OWNER-REVIEWED / FEATURE PUBLICATION AUTHORIZED** on
+`feature/as-105-hab-anomaly-geometry`, isolated worktree
+`/workspace/aquasentinel-813-as105`, verified base
+`4e322df220f8cab2805fccf9a2b32dd825f29218`.
+Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged
+→ AS-104 COMPLETE AND MERGED → AS-105 frozen-policy offline implementation PASS
+→ owner rank-granularity clarification accepted → feature publication
+→ PR code review next after publication verification.
+
+140 synthetic geometry cases PASS; full **803 passed**, Ruff/diff/whitespace
+PASS; only six existing Rasterio warnings. No upstream algorithms, tests,
+configuration, dependencies, provenance schema or cache format changed.
+All 55 mandated adversarial requirements and controls A–E pass; this is
+engineering evidence, not HAB accuracy. Rank is not probability/confidence/
+significance/severity and evidence families are not independent measurements.
+
+Real AS-105 geometry acceptance: **NOT RUN**; real counts/fraction/area/regions
+remain **UNKNOWN**. Its future checkpoint is reserved and has **not been created**.
+Future predeclared comparative policy validation: **REQUIRED / NOT RUN**;
+AS-106+ and P1 homogeneous 05.10: **NOT STARTED**.
+The owner authorized feature commit/push on 10 October 2026 after the final
+quality/preservation gates. This record accompanies that feature publication;
+verify the exact Git SHA/remote before PR review. **PR NOT CREATED; NOT MERGED.**
+Real acceptance and future studies remain separately gated. The verified external
+AS-104 handoff, twelve accepted cache hashes, both safety stashes and recovery
+artifacts remain intact; the handoff is read-only and not tracked.
+
+Earlier dated checkpoint status statements below retain their historical
+meaning, including earlier AS-105 non-authorization and absence of Decision 050.
+This M28 block governs current status; M01–M27/E01–E27/EV-001–EV-031 stay intact.
+
+Owner-review clarification (same M28/Decision 050): with five histories,
+no-tie empirical ranks are 0.0/0.2/0.4/0.6/0.8/1.0; the frozen 0.90 screen
+requires all five below, or four below plus one exact tie. It is not a population
+90th-percentile estimator or significance. Four synthetic regression cases pass.
+Future predeclared history-depth sensitivity is required where valid EO permits;
+choose exact depths before running it. M29 retains the accepted minimum-five
+parent. No real geometry execution or new checkpoint.
+
+See [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md) and [M28 validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md).
+
+**Historical AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
 **AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
 **AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
 Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
@@ -1300,6 +1344,93 @@ change, pixel-processing change, provenance change or cache-schema change.
 AS-104 real acceptance remains blocked pending fix review/merge.
 See [plan](AS_102_REUSABLE_PC_SAS_TOKEN_FIX.md) and
 [validation](evidence/AS_102_REUSABLE_PC_SAS_TOKEN_FIX_VALIDATION.md).
+
+---
+
+## Decision 050 — AS-105 Predeclared Family-Aware Candidate Anomaly Geometry
+
+**Date:** 9 October 2026 (Asia/Dubai).
+**Status:** Owner-approved v1 scientific policy; M28 offline engineering review
+PASS and five-history clarification accepted 10 October 2026. Feature publication
+authorized; PR code review is next after publication verification. Real geometry acceptance and comparative
+policy validation are separately gated and NOT RUN.
+
+**Decision:** Freeze `as105-v1` as a predeclared P0 screening heuristic on a
+validated AS-104 parent, not a fitted/validated HAB classifier. For each feature,
+use rank-valid support and evidence `deviation > 0 AND rank >= float32(0.90)`.
+Record nominal 0.90, actual 0.8999999761581421 and threshold bits `3f666666`.
+No robust-z gate or summary, epsilon, clipping, fallback or imputation.
+
+**Owner-review clarification — 10 October 2026 (Asia/Dubai):** Nominal 0.90 and
+the frozen float32 comparison remain unchanged. This is a predeclared
+empirical-rank screening threshold whose effective granularity depends on the
+available historical sample count, not a statistically estimated population
+90th percentile, significance, probability, confidence or severity.
+AS-104's exact-tie midrank is
+`(count(history < target) + 0.5 * count(history == target)) / n`.
+For the accepted five-history parent, no-tie ranks are spaced by 0.2:
+0.0, 0.2, 0.4, 0.6, 0.8, 1.0. Thus the unchanged threshold requires the
+target to exceed all five values in a no-tie pixel. Rank 0.90 is attained only
+with four values below and one exact tie; three below and two ties yields 0.80.
+These decimal ranks are stored as float32 before the frozen comparison.
+This is an upper-tail screening rule, not a smooth percentile estimator.
+Five observations are not statistical sufficiency; future comparative validation
+remains required. M29 must use the already accepted parent with minimum five;
+no AS-104 math, minimum or accepted evidence is changed.
+
+F1 `red_edge_b5_vs_red` = ndci_like + red_edge_red_ratio;
+F2 `red_edge_line_height` = mci_like;
+F3 `red_edge_b6_vs_red` = red_edge2_red_ratio;
+F4 `visible_green_vs_red` = green_red_ratio;
+F5 `visible_green_vs_blue` = green_blue_ratio.
+OR member evidence gives at most one family vote. Candidates require at least
+two families and a vote from F1/F2/F3. Policy support independently requires at
+least two available families and available F1/F2/F3, using OR of member rank
+support. Fraction uses that support denominator, not AOI/water/all-six intersection.
+
+Use deterministic row-major int32 eight-connected components with no morphology
+or size filter. Polygonize four-connected pieces, group by label, preserve exact
+pixel edges and canonical winding/start/holes/parts. Geometry stays in projected
+AnalysisGrid CRS; exact raster round-trip is mandatory. Area derives from affine
+determinant on supported north-up square projected metre grids, not hardcoded 400.
+
+**Options considered:** rank + direction, z + direction or combined evidence;
+feature counting versus family counting; alternate thresholds/family minima;
+red-edge requirement; four/eight connectivity; region filtering. Owner freezes
+one explainable policy now and requires a later bounded comparative study,
+without tuning against the accepted April 28 observation. F1 grouping avoids
+counting two related B05/red signals twice; distinct policy families do not imply
+statistical independence or proof of biological causation.
+
+**Integrity/lineage:** pure one-parent API; defensive array copies; canonical
+consumed-mask/deviation/rank fingerprint, separate complete output fingerprint,
+full policy/software/grid identity and parent-aware regeneration. Existing
+DerivedProductRecord references exactly the AS-104 product, preserving actual
+PC → AS-102 → AS-103 → AS-104 → AS-105 without schema/cache/dependency changes.
+Rehashed alternate policy is invalid under v1.
+
+**Scientific limits:** candidate spectral anomaly geometry only. Rank is not
+probability, confidence, significance or severity. No HAB/bloom confirmation,
+chlorophyll, species, toxins, water safety, intake risk, persistence, confidence,
+alert or lead time. BOA is not aquatic reflectance. Roughly 10% five-history
+support and the absence of statistical sufficiency from five observations remain
+explicit; large z from small scales is not a geometry vote.
+
+**Required future validation — NOT RUN:** bounded predeclared comparisons of
+rank + direction, z + direction and combined rank/z; rank 0.80/0.90/0.95;
+family minimum 1/2/3; red-edge required/optional; connectivity 4/8; no filtering
+versus separately labelled region-filter sensitivity. Add **history-depth
+sensitivity** where valid EO availability permits: predeclare support around
+five, moderately deeper and substantially deeper histories. Select exact depths
+from valid EO availability before running the study, to assess dependence on
+coarse five-history rank resolution. Do not run it now or change the accepted
+AS-104 parent/minimum for M29. April 28 cannot be both
+tuning data and the sole proof of superiority. This task authorizes neither
+that study nor real geometry acceptance, persistence/risk/alerting or P1 05.10.
+
+**Evidence:** [contract/plan](AS_105_HAB_ANOMALY_GEOMETRY.md),
+[offline validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md),
+M28/E28/EV-032; 140 geometry and 803 full tests PASS with six existing warnings.
 
 ---
 

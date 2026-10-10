@@ -1,6 +1,50 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-**Current AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
+## Current AS-105 M28 status — 10 October 2026 (Asia/Dubai)
+
+Owner-authorized **offline implementation only**; Decision 050 / M28 / E28 / EV-032.
+**PASS — OWNER-REVIEWED / FEATURE PUBLICATION AUTHORIZED** on
+`feature/as-105-hab-anomaly-geometry`, isolated worktree
+`/workspace/aquasentinel-813-as105`, verified base
+`4e322df220f8cab2805fccf9a2b32dd825f29218`.
+Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged
+→ AS-104 COMPLETE AND MERGED → AS-105 frozen-policy offline implementation PASS
+→ owner rank-granularity clarification accepted → feature publication
+→ PR code review next after publication verification.
+
+140 synthetic geometry cases PASS; full **803 passed**, Ruff/diff/whitespace
+PASS; only six existing Rasterio warnings. No upstream algorithms, tests,
+configuration, dependencies, provenance schema or cache format changed.
+All 55 mandated adversarial requirements and controls A–E pass; this is
+engineering evidence, not HAB accuracy. Rank is not probability/confidence/
+significance/severity and evidence families are not independent measurements.
+
+Real AS-105 geometry acceptance: **NOT RUN**; real counts/fraction/area/regions
+remain **UNKNOWN**. Its future checkpoint is reserved and has **not been created**.
+Future predeclared comparative policy validation: **REQUIRED / NOT RUN**;
+AS-106+ and P1 homogeneous 05.10: **NOT STARTED**.
+The owner authorized feature commit/push on 10 October 2026 after the final
+quality/preservation gates. This record accompanies that feature publication;
+verify the exact Git SHA/remote before PR review. **PR NOT CREATED; NOT MERGED.**
+Real acceptance and future studies remain separately gated. The verified external
+AS-104 handoff, twelve accepted cache hashes, both safety stashes and recovery
+artifacts remain intact; the handoff is read-only and not tracked.
+
+Earlier dated checkpoint status statements below retain their historical
+meaning, including earlier AS-105 non-authorization and absence of Decision 050.
+This M28 block governs current status; M01–M27/E01–E27/EV-001–EV-031 stay intact.
+
+Owner-review clarification (same M28/Decision 050): with five histories,
+no-tie empirical ranks are 0.0/0.2/0.4/0.6/0.8/1.0; the frozen 0.90 screen
+requires all five below, or four below plus one exact tie. It is not a population
+90th-percentile estimator or significance. Four synthetic regression cases pass.
+Future predeclared history-depth sensitivity is required where valid EO permits;
+choose exact depths before running it. M29 retains the accepted minimum-five
+parent. No real geometry execution or new checkpoint.
+
+See [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md) and [M28 validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md).
+
+**Historical AS-104 closeout status — 9 October 2026 (Asia/Dubai), M27/E27/EV-031:**
 **AS-104: COMPLETE AND MERGED** through [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12).
 **AS-104 implementation merge commit:** `472edc737847dc8581290a372c5da28f71fc48f0`.
 Feature implementation commit: `09b38bd9c312470e948b1f17165ec5335cfc149d`.
@@ -760,6 +804,45 @@ and closeout. Their earlier next-step instructions remain historical.
 - **Recommended visual:** M23 blocker → M24 fix → M25 accepted experiment → M26 publication → M27 merge timeline with sparse-support/guardrail card; capture pending, no screenshot claimed.
 - **Candidate slide title:** “Close the temporal milestone without hiding its limits.”
 
+### M28 — Frozen candidate policy and offline anomaly geometry
+
+- **Date:** 9 October 2026 (Asia/Dubai); after merged AS-104 closeout and verified external handoff prerequisite.
+- **Task / milestone ID:** AS-105 offline implementation; Decision 050 / E28 / EV-032.
+- **Status:** PASS — synthetic implementation/adversarial validation; UNCOMMITTED / READY FOR OWNER REVIEW. Real geometry NOT RUN.
+- **Problem / question:** How can causal spectral comparisons produce explainable spatial candidates without duplicate feature voting, hidden tuning or invented geometry?
+- **Why it mattered:** Later reasoning needs exact spatial support and auditable lineage; early screening must not be mistaken for biological confirmation.
+- **Options considered:** Rank/direction, z/direction or combined gates; feature/family voting; alternate rank/minimum/connectivity/filter policies. Comparisons are future predeclared work, not executed here.
+- **Decision:** Owner-authorized Decision 050 freezes rank-valid, positive deviation and float32 0.90 evidence; two families including red-edge; independent availability denominator; eight-connected regions, no filter and exact pixel-edge geometry.
+- **Rationale:** Count B05/red-related features once, preserve missing-support semantics and all candidates; expose the heuristic instead of optimizing on April 28. Families are not statistically independent.
+- **Implementation / experiment:** Four new geometry modules, seven offline test files and seven documentation paths in an isolated worktree from `4e322df220f8cab2805fccf9a2b32dd825f29218`. Pure AS-104-parent extraction, canonical masks/identity/polygons, affine areas, output fingerprint and regeneration validation. No real handoff loaded into geometry.
+- **Evidence:** [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md), [M28 validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md), synthetic controls A–E and all 55 mandated adversarial requirements; protected upstream bytes/cache/handoff/stashes remain intact.
+- **Quantitative result:** 136 new geometry cases PASS; 799 full tests PASS (663 retained), Ruff/diff/new-file whitespace PASS, six existing Rasterio warnings. Real candidate counts/fraction/area/regions/fragmentation/vote distribution UNKNOWN.
+- **Limitation:** Engineering control results are not HAB accuracy. Rank is not probability/confidence/significance/severity; family agreement is not biological causation. Sparse five-history coverage and five-observation insufficiency remain. No real acceptance or comparative policy experiment.
+- **Lesson learned:** Freeze the evidence denominator and binary threshold representation alongside the policy; prove exact geometry and reject rehashed tampering before interpreting real maps.
+- **Impact on next step:** Owner review of uncommitted M28; separate authorization required for real geometry acceptance and bounded future policy validation. AS-106+ and P1 05.10 NOT STARTED.
+- **Presentation takeaway:** “An explainable candidate map starts with an honest support denominator and a reproducible rule.”
+- **Recommended visual:** Clearly labelled synthetic F1/F4 versus F4/F5 vote card, exact-threshold card and diagonal one-region/multipart round-trip diagram; capture pending. Do not substitute these fixtures for a real anomaly map.
+- **Candidate slide title:** “From temporal signals to exact candidate geometry.”
+
+### M28 owner-review reconciliation and feature publication authorization
+
+10 October 2026 (Asia/Dubai), same M28/E28/EV-032 and Decision 050; no new
+milestone. The 9 October implementation entry above preserves its historical
+uncommitted stop state. Offline engineering review PASS; the owner requests a
+five-history interpretation before authorizing publication. No-tie n=5 ranks
+advance in 0.2 steps; the unchanged float32 0.90 screen requires five below,
+or four below plus one exact tie. This is empirical upper-tail screening, not
+a statistically estimated population percentile or probability/significance.
+Four synthetic regression cases use unchanged AS-104 calculation; 140 geometry
+and 803 full tests PASS, Ruff/diff PASS, six existing warnings. No algorithm,
+upstream evidence or accepted-parent change. Feature commit/push is authorized;
+this record accompanies publication, with exact Git/remote verification required.
+PR not created; no merge. Future history-depth sensitivity is required where
+valid EO allows deeper histories, with exact depths predeclared; NOT RUN.
+Real geometry metrics UNKNOWN; future real checkpoint not created, AS-106+
+and P1 05.10 NOT STARTED. Suggested visual: labelled five-history rank/tie ladder;
+capture pending, not a real anomaly map or validation result.
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -786,6 +869,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | 8 Oct isolated upstream authorization | 048 | Optional explicit PC baseline after validated exact matching; zero/multiple fail; selector is not a cache identity dimension | Homogeneous delivered processing without generation heuristics or changed pixel processing | M20/E20/EV-024; Decision 047 remains in preserved AS-104 worktree |
 | 9 Oct isolated upstream transport authorization | 049 | Reusable anonymous account/container SAS, memory-only expiry-aware cache and bounded token-only retries; retain public API | Fewer authentication calls without dependency/key/identity changes | M22/E22/EV-026; 531 tests and fresh one-request/eleven-signs smoke; uncommitted for review |
 | 9 Oct AS-104 merge / closeout | No new decision | PR #12 merges the existing temporal contract and accepted evidence; close current status while retaining M23–M26 | Acceptance, publication and merge remain separate; no Decision 050 or future-stage authorization | M27/E27/EV-031; merge `472edc7` |
+| 9 Oct AS-105 offline authorization | 050 | Frozen rank/direction family-aware P0 candidate geometry; explicit support denominator, exact pixel polygons and parent lineage | Explainable heuristic before separately authorized real acceptance/policy comparison | M28/E28/EV-032; synthetic-only PASS, uncommitted |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -821,6 +905,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E25 | [Cached real validation §7](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#7-cached-five-reference-0509-real-acceptance-rerun--9-october-2026); M25/EV-029 | Six verified real caches/AS-103 IDs; sparse five-history support; 18 scalar checks; synthetic causal exclusion/repeat; no network | Detection accuracy, statistical sufficiency, real future availability, hazard/operational claims or GitHub CI success |
 | E26 | Feature `09b38bd`; parent `2006df7`; [publication §8](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#8-as-104-feature-publication--9-october-2026); M26/EV-030 | Exactly 15 reviewed paths committed/pushed, 663-test pre-commit gate, clean worktree and remote SHA equality; preserves M23–M25 | Merge, PR creation, new scientific experiment, detection accuracy or GitHub CI success |
 | E27 | [PR #12](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/12); merge `472edc7`; [closeout §9](evidence/AS_104_TEMPORAL_BASELINE_VALIDATION.md#9-pr-12-merge-and-as-104-closeout--9-october-2026); M27/EV-031 | AS-104 complete/merged; two commits/fifteen paths, 663-test reviewed baseline; source/test and accepted-evidence preservation, explicit next-stage authorization | New EO experiment, biological/operational validation, statistical sufficiency or GitHub CI success |
+| E28 | [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md), [offline validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md); M28/EV-032; Decision 050 | Frozen family policy, exact support/components/polygons/area, consumed-bit identity, immediate lineage; 140 geometry/803 total tests and controls A–E PASS | Real geometry metrics, HAB accuracy/biological causation, probability/confidence/risk, persistence, alerts, lead time or GitHub CI success |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 
@@ -979,6 +1064,11 @@ This is a proposed 7-slide spine, consistent with the PRD's 5–7-slide target. 
 For a presentation made from this evidence pack, slide 5 must label observed versus metadata-derived/inferred findings and show EV-014's historical PENDING → later PASS / READY progression. Do not show 353 raw SCL water-class pixels as a valid-water count or claim exact transferred-byte efficiency. Slide 6 may show the separately validated AS-102 mask/lineage/cache result and AS-103 candidate features complete/merged through PR #8. Distinguish M17 historical acceptance from M18 final review/merge; AS-104 temporal comparisons passed real acceptance (M25 / EV-029), were published (M26 / EV-030) and are COMPLETE AND MERGED through PR #12 (M27 / EV-031). Event/scientific validation remains future work. Never replace missing real scientific evidence with an unlabelled simulation. Business subscriptions/licences in PRD §23 are hypotheses, not validated pricing or revenue.
 
 ## 11. Outstanding evidence still needed
+
+AS-105 M28 offline geometry/owner clarification has passed review and is authorized for feature publication. PR code review follows publication verification.
+Real AS-105 geometry and predeclared comparative policy validation remain
+separately gated and NOT RUN; no real candidate metrics or map are available.
+Synthetic visuals must be labelled synthetic. AS-106+ and P1 05.10 NOT STARTED.
 
 | Priority / category | Missing evidence | Required record before a presentation claim |
 |---|---|---|
