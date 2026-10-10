@@ -1,6 +1,36 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-108 M42 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M43 POST metadata selection — 10 October 2026 (Asia/Dubai)
+
+**AS-107: COMPLETE / CLOSED. Decision 053 / M42: FINAL / FROZEN DESIGN / MERGED**
+via PR #26 at `8bb56f12f2cd683d4a96f069c5d049bf4a39799e` (parents
+`14149113e58788621d6aef91f039b95781c67434` and
+`9e7254edc7680c5da31e796f82be2b8537833b9b`).
+**M43 / E43 / EV-047: POST METADATA INVENTORY / SELECTION COMPLETE; selection UNAVAILABLE.**
+Six complete CDSE pages yielded **26 provider records / 26 distinct observation
+keys / 13 acquisition timestamps**. Four pass CDSE metadata eligibility. Earliest:
+**2023-05-03T06:46:21.024000Z**, Sentinel-2A, 40RBN/orbit20, cloud metadata **0.57%**.
+The fixed existing PC resolver query returned **0 items / 0 exact PC05.09 matches**.
+Selected PC ID/baseline: null. No later acquisition substituted or queried on PC.
+This is metadata-selection UNAVAILABLE, **not a scientific consistency category**.
+
+Selection SHA-256: `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de`.
+POST pixels, asset/signing/range requests, scientific processing and new risk scores:
+**0 / NOT STARTED**. No May water-support inspection, recovery/negative label,
+observational-consistency conclusion or upstream policy change. M42 evidence,
+Decisions 050–053 and accepted scientific evidence remain unchanged.
+
+Prepared on `data/as-108-post-selection`, worktree
+`/workspace/aquasentinel-813-as108-m43`. Immediate next step: owner review of the
+UNAVAILABLE metadata evidence, then separately authorize M44 case-study reporting
+from accepted PRE/EVENT evidence with POST explicitly UNAVAILABLE. PR/merge and
+any further compatibility investigation need separate authorization. **M44, AS-108 scientific execution and AS-201 NOT STARTED.**
+Engineering gates: 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS. No GitHub CI success claimed.
+See [M43 evidence](evidence/AS_108_POST_METADATA_SELECTION.md) and
+[complete inventory/selection digest](evidence/AS_108_POST_METADATA_SELECTION.json).
+Earlier dated checkpoints below remain historical; no outcome tuned or hidden.
+
+## Historical AS-108 M42 design freeze — before PR #26 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: COMPLETE / CLOSED. M40: COMPLETE / MERGED / PUBLICATION-CLOSEOUT**
 through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified parents
@@ -1672,6 +1702,24 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Proposed external-reference versus satellite-evidence lanes and PRE/EVENT/POST availability timeline. No screenshot/figure claimed to exist.
 - **Candidate slide title:** “An honest historical case, designed before the next result.”
 
+### M43 — Retain an unavailable POST scene instead of choosing a better-looking date — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M43 / E43 / EV-047; metadata-only selection from PR #26 main `8bb56f12f2cd683d4a96f069c5d049bf4a39799e`.
+- **Problem / question:** Does the frozen earliest May acquisition resolve uniquely to a compatible PC05.09 product before any pixel inspection?
+- **Why it mattered:** Outcome-independent selection must remain auditable even when provider compatibility blocks the requested analytical phase.
+- **Options considered:** Frozen chronological selection/no fallback versus querying later dates or relaxing the resolver; the latter options were not authorized.
+- **Decision:** Execute unchanged Decision053; complete inventory, fix earliest eligible May3 identity, retain UNAVAILABLE after empty exact resolver query. No new Decision.
+- **Rationale:** Preserve missing evidence rather than substitute a scientifically convenient date or infer absence from sparse metadata.
+- **Implementation / experiment:** Existing STAC transport/strict metadata identities in an ephemeral external script; six full CDSE pages and one empty PC page; no assets or scientific processing.
+- **Evidence:** [M43 metadata evidence](evidence/AS_108_POST_METADATA_SELECTION.md), [full inventory/digest](evidence/AS_108_POST_METADATA_SELECTION.json); `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de`.
+- **Quantitative result:** 26 provider records/26 timestamp-platform-tile-orbit keys/13 timestamps; four CDSE-eligible acquisitions; May3 cloud0.57%; zero PC matches; CDSE8/PC3 metadata requests; assets/bytes/science0. 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS.
+- **Limitation:** Empty resolver-window result does not establish global catalog absence or May biological state. PC compatibility of later dates unassessed; native headers/support/science unknown.
+- **Lesson learned:** Metadata unavailability is a legitimate frozen-rule result; transparency includes retaining inconvenient failure without outcome-driven substitution.
+- **Impact on next step:** Owner review, separate PR/merge approval and any separately authorized metadata investigation; no M44 pixels/science or AS-201.
+- **Presentation takeaway:** POST was attempted using a rule frozen before inspecting May pixels; missing evidence was retained, not hidden.
+- **Recommended visual:** Proposed six-page inventory/eligibility funnel with four dates, May3 empty PC response and zero-pixel boundary. No screenshot or visual claimed to exist.
+- **Candidate slide title:** “The date we did not replace.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1752,6 +1800,7 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E40 | [M40 closeout](evidence/AS_107_CLOSEOUT.md); [JSON](evidence/AS_107_CLOSEOUT.json); EV-044 | Verified PR #22–#24 merge chain, unchanged accepted Watch .7/.7 result and protected hashes/modes; durable closeout effective on future merge; 1285 full tests PASS (104.18s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/new-file whitespace/credential/preservation PASS | Documentation/engineering only, no new biology or scoring; AS-107 CLOSEOUT READY before closeout merge; AS-108 NOT STARTED |
 | E41 | Historical read-only M41 audit, recorded during M42; EV-045 | Existing metadata/product feasibility; source access blocked, missing POST and causal PRE limitations surfaced | No repository edits in M41, no independently retrieved EAD passage, no EO/scientific execution |
 | E42 | [Decision 053](DECISIONS.md#decision-053--as-108-historical-validation-contract); [M42 freeze](evidence/AS_108_DESIGN_FREEZE.md); EV-046 | Externally verified documentary facts supplied by the owner and deterministic phase/eligibility/denominator/claim contract; 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | Frozen design only, no case classification/science or PR/merge; AS-201 NOT STARTED |
+| E43 | [M43 metadata selection](evidence/AS_108_POST_METADATA_SELECTION.md); [JSON](evidence/AS_108_POST_METADATA_SELECTION.json); EV-047 | Complete 26-record/6-page CDSE inventory; four eligible dates; earliest May3, exact PC query0; UNAVAILABLE; digest frozen; 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | No pixels/scoring/category or fallback; later PC compatibility unassessed; M44/AS-201 NOT STARTED |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 

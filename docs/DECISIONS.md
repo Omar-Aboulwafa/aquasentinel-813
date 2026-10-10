@@ -1,6 +1,36 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-## Current AS-108 M42 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M43 POST metadata selection — 10 October 2026 (Asia/Dubai)
+
+**AS-107: COMPLETE / CLOSED. Decision 053 / M42: FINAL / FROZEN DESIGN / MERGED**
+via PR #26 at `8bb56f12f2cd683d4a96f069c5d049bf4a39799e` (parents
+`14149113e58788621d6aef91f039b95781c67434` and
+`9e7254edc7680c5da31e796f82be2b8537833b9b`).
+**M43 / E43 / EV-047: POST METADATA INVENTORY / SELECTION COMPLETE; selection UNAVAILABLE.**
+Six complete CDSE pages yielded **26 provider records / 26 distinct observation
+keys / 13 acquisition timestamps**. Four pass CDSE metadata eligibility. Earliest:
+**2023-05-03T06:46:21.024000Z**, Sentinel-2A, 40RBN/orbit20, cloud metadata **0.57%**.
+The fixed existing PC resolver query returned **0 items / 0 exact PC05.09 matches**.
+Selected PC ID/baseline: null. No later acquisition substituted or queried on PC.
+This is metadata-selection UNAVAILABLE, **not a scientific consistency category**.
+
+Selection SHA-256: `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de`.
+POST pixels, asset/signing/range requests, scientific processing and new risk scores:
+**0 / NOT STARTED**. No May water-support inspection, recovery/negative label,
+observational-consistency conclusion or upstream policy change. M42 evidence,
+Decisions 050–053 and accepted scientific evidence remain unchanged.
+
+Prepared on `data/as-108-post-selection`, worktree
+`/workspace/aquasentinel-813-as108-m43`. Immediate next step: owner review of the
+UNAVAILABLE metadata evidence, then separately authorize M44 case-study reporting
+from accepted PRE/EVENT evidence with POST explicitly UNAVAILABLE. PR/merge and
+any further compatibility investigation need separate authorization. **M44, AS-108 scientific execution and AS-201 NOT STARTED.**
+Engineering gates: 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS. No GitHub CI success claimed.
+See [M43 evidence](evidence/AS_108_POST_METADATA_SELECTION.md) and
+[complete inventory/selection digest](evidence/AS_108_POST_METADATA_SELECTION.json).
+Earlier dated checkpoints below remain historical; no outcome tuned or hidden.
+
+## Historical AS-108 M42 design freeze — before PR #26 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: COMPLETE / CLOSED. M40: COMPLETE / MERGED / PUBLICATION-CLOSEOUT**
 through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified parents

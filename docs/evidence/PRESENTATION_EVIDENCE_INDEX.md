@@ -1,6 +1,36 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-108 M42 design freeze — 10 October 2026 (Asia/Dubai)
+## Current AS-108 M43 POST metadata selection — 10 October 2026 (Asia/Dubai)
+
+**AS-107: COMPLETE / CLOSED. Decision 053 / M42: FINAL / FROZEN DESIGN / MERGED**
+via PR #26 at `8bb56f12f2cd683d4a96f069c5d049bf4a39799e` (parents
+`14149113e58788621d6aef91f039b95781c67434` and
+`9e7254edc7680c5da31e796f82be2b8537833b9b`).
+**M43 / E43 / EV-047: POST METADATA INVENTORY / SELECTION COMPLETE; selection UNAVAILABLE.**
+Six complete CDSE pages yielded **26 provider records / 26 distinct observation
+keys / 13 acquisition timestamps**. Four pass CDSE metadata eligibility. Earliest:
+**2023-05-03T06:46:21.024000Z**, Sentinel-2A, 40RBN/orbit20, cloud metadata **0.57%**.
+The fixed existing PC resolver query returned **0 items / 0 exact PC05.09 matches**.
+Selected PC ID/baseline: null. No later acquisition substituted or queried on PC.
+This is metadata-selection UNAVAILABLE, **not a scientific consistency category**.
+
+Selection SHA-256: `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de`.
+POST pixels, asset/signing/range requests, scientific processing and new risk scores:
+**0 / NOT STARTED**. No May water-support inspection, recovery/negative label,
+observational-consistency conclusion or upstream policy change. M42 evidence,
+Decisions 050–053 and accepted scientific evidence remain unchanged.
+
+Prepared on `data/as-108-post-selection`, worktree
+`/workspace/aquasentinel-813-as108-m43`. Immediate next step: owner review of the
+UNAVAILABLE metadata evidence, then separately authorize M44 case-study reporting
+from accepted PRE/EVENT evidence with POST explicitly UNAVAILABLE. PR/merge and
+any further compatibility investigation need separate authorization. **M44, AS-108 scientific execution and AS-201 NOT STARTED.**
+Engineering gates: 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS. No GitHub CI success claimed.
+See [M43 evidence](AS_108_POST_METADATA_SELECTION.md) and
+[complete inventory/selection digest](AS_108_POST_METADATA_SELECTION.json).
+Earlier dated checkpoints below remain historical; no outcome tuned or hidden.
+
+## Historical AS-108 M42 design freeze — before PR #26 merge — 10 October 2026 (Asia/Dubai)
 
 **AS-107: COMPLETE / CLOSED. M40: COMPLETE / MERGED / PUBLICATION-CLOSEOUT**
 through PR #25 at `14149113e58788621d6aef91f039b95781c67434`, with verified parents
@@ -852,6 +882,7 @@ EV-027–EV-030. Their pending PR/merge instructions are historical.
 | EV-044 | M40 AS-107 publication / closeout preparation | **PUBLICATION / CLOSEOUT PASS — READY FOR PR** | Verified PR #22/#23/#24 ancestry/parents/trees; immutable Watch .7/.7 result; 1285 full tests PASS (104.18s), six existing Rasterio PendingDeprecationWarnings; Ruff/diff/new-file whitespace/credential/preservation PASS | [Closeout](AS_107_CLOSEOUT.md); [JSON](AS_107_CLOSEOUT.json); M40/E40 | Policy frozen before outcome; missing components explicit; closure effective on future closeout merge | Driver cards and publication-chain figure proposed, capture pending | AS-107 CLOSEOUT READY before merge, COMPLETE / CLOSED after future merge; no new science; AS-108 NOT STARTED |
 | EV-045 | Historical M41 read-only feasibility/source audit | **COMPLETE; historical source-access blocker** | Seven caches and stage inventory; six blocked documentary attempts; zero EO/science | [M42 historical record](AS_108_DESIGN_FREEZE.md#historical-m41-and-numbering); M41/E41 | Source precision and missingness bound validation | Proposed audit matrix only | Recorded retrospectively during M42; M41 made no repository edits; externally verified source facts subsequently supplied by the owner |
 | EV-046 | Decision 053 / M42 AS-108 historical-validation design | **FINAL / FROZEN DESIGN — NOT EXECUTED** | Fixed 5 PRE/2 EVENT/1 future POST attempt, month/area reference, explicit denominators/categories; 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | [M42 freeze](AS_108_DESIGN_FREEZE.md); [JSON](AS_108_DESIGN_FREEZE.json); M42/E42 | Freeze evaluation before new outcomes; external species/toxin separated from EO inference | Proposed two-lane timeline only | No new score/May selection/validation execution; PR/merge and M43 separately authorized; AS-201 NOT STARTED |
+| EV-047 | M43 POST metadata inventory/deterministic selection | **COMPLETE — SELECTION UNAVAILABLE** | Six CDSE pages/26 records/four CDSE-eligible dates; earliest May3 cloud0.57%; exact PC query0; metadata digest frozen; 1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS | [M43 evidence](AS_108_POST_METADATA_SELECTION.md); [JSON](AS_108_POST_METADATA_SELECTION.json); M43/E43 | Keep frozen date and missingness instead of substituting a convenient scene | Proposed inventory funnel, capture pending | Metadata only; no recovery, biology, score, category, pixels or fallback; M44/AS-201 NOT STARTED |
 
 ### EV-021 final AS-103 review and merge
 
@@ -1431,3 +1462,16 @@ April observations and one future earliest metadata-compatible May attempt.
 1285 full tests PASS (115.87s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS. No execution, present consistency classification, new score or
 biological accuracy result. Owner review is next; PR/merge and M43 need separate
 authorization. Decision 054 absent; AS-201 NOT STARTED.
+
+### EV-047 — M43 POST metadata inventory and selection
+
+Six validated CDSE pages retain all 26 May AOI records and distinct keys; four pass
+CDSE eligibility. Frozen earliest May3 `S2A_MSIL2A_20230503T064621_N0510_R020_T40RBN_20240903T135841` yields zero items in
+the unchanged exact PC resolver query. Selection **UNAVAILABLE**, PC ID/baseline
+null; later May dates not substituted or PC-queried. Digest `df487999defada56023a7e76be69c507b2b1ff11d81de1480737eca86a1ad4de`.
+[M43 evidence](AS_108_POST_METADATA_SELECTION.md) and [JSON](AS_108_POST_METADATA_SELECTION.json)
+retain page membership, eligibility, cardinality and request accounting.
+1285 full tests PASS (106.24s), six existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/new-file whitespace PASS. Source/tests/config/dependencies, frozen Decisions050–053, accepted
+AS-107/M42 evidence and protected artifacts remain unchanged. No new pixels/science
+or observational-consistency category. Owner review and separate authorization
+required; M44 and AS-201 NOT STARTED.
