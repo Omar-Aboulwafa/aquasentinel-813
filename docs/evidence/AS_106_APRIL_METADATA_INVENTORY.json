@@ -1,0 +1,892 @@
+{
+  "accepted_target_reconciliation": {
+    "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+    "cdse_item_id": "S2B_MSIL2A_20230428T064629_N0510_R020_T40RBN_20240831T052931",
+    "pc_item_id": "S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+    "pc_processing_baseline": "05.09",
+    "pixel_equivalence_claimed": false,
+    "same_underlying_acquisition": true,
+    "status": "PASS"
+  },
+  "aoi_identity": {
+    "feature_id": "raha_validation_aoi",
+    "geometry_sha256": "a0fdb745672b246f569400574aa299ae4e233b8012ef54e970cdacba56687c2a",
+    "name": "Al Raha Bay Validation AOI",
+    "role": "validation_aoi"
+  },
+  "candidate_records": [
+    {
+      "acquired_at": "2023-04-01T06:56:29.024000+00:00",
+      "cdse_item_id": "S2B_MSIL2A_20230401T065629_N0510_R063_T39RZH_20240828T022548",
+      "cdse_processing": {
+        "generation_time": "2024-08-28T02:25:48+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 6.05,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong MGRS tile; requires 40RBN",
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "39RZH",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2b",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-01T06:56:29.024000+00:00",
+      "cdse_item_id": "S2B_MSIL2A_20230401T065629_N0510_R063_T40RBN_20240828T022548",
+      "cdse_processing": {
+        "generation_time": "2024-08-28T02:25:48+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 4.73,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "40RBN",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2b",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+      "cdse_item_id": "S2A_MSIL2A_20230403T064621_N0510_R020_T39RZH_20240824T175307",
+      "cdse_processing": {
+        "generation_time": "2024-08-24T17:53:07+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 0.74,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong MGRS tile; requires 40RBN"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "39RZH",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2a",
+      "relative_orbit": 20
+    },
+    {
+      "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+      "cdse_item_id": "S2A_MSIL2A_20230403T064621_N0510_R020_T40RBN_20240824T175307",
+      "cdse_processing": {
+        "generation_time": "2024-08-24T17:53:07+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 0.68,
+      "collection": "sentinel-2-l2a",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "metadata_eligible_before_pc": true,
+      "mgrs_tile": "40RBN",
+      "pc_exact_0509_match_count": 1,
+      "pc_query": {
+        "cloud_query_lte": 100,
+        "datetime_interval": "2023-04-03T06:46:20.024000+00:00/2023-04-03T06:46:22.024000+00:00",
+        "operation": "pc_match_4"
+      },
+      "pc_results": [
+        {
+          "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+          "collection": "sentinel-2-l2a",
+          "exact_observation_match": false,
+          "generation_time": "2023-04-03T12:01:24.779706Z",
+          "mgrs_tile": "39RZH",
+          "pc_item_id": "S2A_MSIL2A_20230403T064621_R020_T39RZH_20230403T120124",
+          "platform": "sentinel-2a",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "required_asset_keys_present": {
+            "B02": true,
+            "B03": true,
+            "B04": true,
+            "B05": true,
+            "B06": true,
+            "B07": true,
+            "B08": true,
+            "B11": true,
+            "B8A": true,
+            "SCL": true,
+            "product-metadata": true
+          }
+        },
+        {
+          "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+          "collection": "sentinel-2-l2a",
+          "exact_observation_match": false,
+          "generation_time": "2024-08-24T17:53:07.000000Z",
+          "mgrs_tile": "39RZH",
+          "pc_item_id": "S2A_MSIL2A_20230403T064621_R020_T39RZH_20240824T175307",
+          "platform": "sentinel-2a",
+          "processing_baseline": "05.10",
+          "relative_orbit": 20,
+          "required_asset_keys_present": {
+            "B02": true,
+            "B03": true,
+            "B04": true,
+            "B05": true,
+            "B06": true,
+            "B07": true,
+            "B08": true,
+            "B11": true,
+            "B8A": true,
+            "SCL": true,
+            "product-metadata": true
+          }
+        },
+        {
+          "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+          "collection": "sentinel-2-l2a",
+          "exact_observation_match": true,
+          "generation_time": "2023-04-03T11:54:52.560526Z",
+          "mgrs_tile": "40RBN",
+          "pc_item_id": "S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452",
+          "platform": "sentinel-2a",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "required_asset_keys_present": {
+            "B02": true,
+            "B03": true,
+            "B04": true,
+            "B05": true,
+            "B06": true,
+            "B07": true,
+            "B08": true,
+            "B11": true,
+            "B8A": true,
+            "SCL": true,
+            "product-metadata": true
+          }
+        },
+        {
+          "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+          "collection": "sentinel-2-l2a",
+          "exact_observation_match": true,
+          "generation_time": "2024-08-24T17:53:07.000000Z",
+          "mgrs_tile": "40RBN",
+          "pc_item_id": "S2A_MSIL2A_20230403T064621_R020_T40RBN_20240824T175307",
+          "platform": "sentinel-2a",
+          "processing_baseline": "05.10",
+          "relative_orbit": 20,
+          "required_asset_keys_present": {
+            "B02": true,
+            "B03": true,
+            "B04": true,
+            "B05": true,
+            "B06": true,
+            "B07": true,
+            "B08": true,
+            "B11": true,
+            "B8A": true,
+            "SCL": true,
+            "product-metadata": true
+          }
+        }
+      ],
+      "platform": "sentinel-2a",
+      "relative_orbit": 20,
+      "selected_pc": {
+        "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+        "collection": "sentinel-2-l2a",
+        "exact_observation_match": true,
+        "generation_time": "2023-04-03T11:54:52.560526Z",
+        "mgrs_tile": "40RBN",
+        "pc_item_id": "S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.09",
+        "relative_orbit": 20,
+        "required_asset_keys_present": {
+          "B02": true,
+          "B03": true,
+          "B04": true,
+          "B05": true,
+          "B06": true,
+          "B07": true,
+          "B08": true,
+          "B11": true,
+          "B8A": true,
+          "SCL": true,
+          "product-metadata": true
+        }
+      }
+    },
+    {
+      "acquired_at": "2023-04-06T06:56:21.024000+00:00",
+      "cdse_item_id": "S2A_MSIL2A_20230406T065621_N0510_R063_T39RZH_20240827T062705",
+      "cdse_processing": {
+        "generation_time": "2024-08-27T06:27:05+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 0.3,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong MGRS tile; requires 40RBN",
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "39RZH",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2a",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-06T06:56:21.024000+00:00",
+      "cdse_item_id": "S2A_MSIL2A_20230406T065621_N0510_R063_T40RBN_20240827T062705",
+      "cdse_processing": {
+        "generation_time": "2024-08-27T06:27:05+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 0.31,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "40RBN",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2a",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-16T06:56:21.024000+00:00",
+      "cdse_item_id": "S2A_MSIL2A_20230416T065621_N0510_R063_T39RZH_20240901T165132",
+      "cdse_processing": {
+        "generation_time": "2024-09-01T16:51:32+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 16.16,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong MGRS tile; requires 40RBN",
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "39RZH",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2a",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-16T06:56:21.024000+00:00",
+      "cdse_item_id": "S2A_MSIL2A_20230416T065621_N0510_R063_T40RBN_20240901T165132",
+      "cdse_processing": {
+        "generation_time": "2024-09-01T16:51:32+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 15.23,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "40RBN",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2a",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-21T06:56:29.024000+00:00",
+      "cdse_item_id": "S2B_MSIL2A_20230421T065629_N0510_R063_T39RZH_20240902T093328",
+      "cdse_processing": {
+        "generation_time": "2024-09-02T09:33:28+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 9.32,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong MGRS tile; requires 40RBN",
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "39RZH",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2b",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-21T06:56:29.024000+00:00",
+      "cdse_item_id": "S2B_MSIL2A_20230421T065629_N0510_R063_T40RBN_20240902T093328",
+      "cdse_processing": {
+        "generation_time": "2024-09-02T09:33:28+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 10.56,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong relative orbit; requires 20"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "40RBN",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2b",
+      "relative_orbit": 63
+    },
+    {
+      "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+      "cdse_item_id": "S2B_MSIL2A_20230428T064629_N0510_R020_T39RZH_20240831T052931",
+      "cdse_processing": {
+        "generation_time": "2024-08-31T05:29:31+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 0.14,
+      "collection": "sentinel-2-l2a",
+      "eligible": false,
+      "exclusion_reasons": [
+        "wrong MGRS tile; requires 40RBN"
+      ],
+      "metadata_eligible_before_pc": false,
+      "mgrs_tile": "39RZH",
+      "pc_exact_0509_match_count": null,
+      "pc_results": [],
+      "platform": "sentinel-2b",
+      "relative_orbit": 20
+    },
+    {
+      "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+      "cdse_item_id": "S2B_MSIL2A_20230428T064629_N0510_R020_T40RBN_20240831T052931",
+      "cdse_processing": {
+        "generation_time": "2024-08-31T05:29:31+00:00",
+        "processing_baseline": "05.10"
+      },
+      "cloud_cover_percent": 0.12,
+      "collection": "sentinel-2-l2a",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "metadata_eligible_before_pc": true,
+      "mgrs_tile": "40RBN",
+      "pc_exact_0509_match_count": 1,
+      "pc_query": {
+        "cloud_query_lte": 100,
+        "datetime_interval": "2023-04-28T06:46:28.024000+00:00/2023-04-28T06:46:30.024000+00:00",
+        "operation": "pc_match_12"
+      },
+      "pc_results": [
+        {
+          "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+          "collection": "sentinel-2-l2a",
+          "exact_observation_match": false,
+          "generation_time": "2023-04-28T12:32:02.636260Z",
+          "mgrs_tile": "39RZH",
+          "pc_item_id": "S2B_MSIL2A_20230428T064629_R020_T39RZH_20230428T123202",
+          "platform": "sentinel-2b",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "required_asset_keys_present": {
+            "B02": true,
+            "B03": true,
+            "B04": true,
+            "B05": true,
+            "B06": true,
+            "B07": true,
+            "B08": true,
+            "B11": true,
+            "B8A": true,
+            "SCL": true,
+            "product-metadata": true
+          }
+        },
+        {
+          "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+          "collection": "sentinel-2-l2a",
+          "exact_observation_match": true,
+          "generation_time": "2023-04-28T12:23:11.362052Z",
+          "mgrs_tile": "40RBN",
+          "pc_item_id": "S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+          "platform": "sentinel-2b",
+          "processing_baseline": "05.09",
+          "relative_orbit": 20,
+          "required_asset_keys_present": {
+            "B02": true,
+            "B03": true,
+            "B04": true,
+            "B05": true,
+            "B06": true,
+            "B07": true,
+            "B08": true,
+            "B11": true,
+            "B8A": true,
+            "SCL": true,
+            "product-metadata": true
+          }
+        }
+      ],
+      "platform": "sentinel-2b",
+      "relative_orbit": 20,
+      "selected_pc": {
+        "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+        "collection": "sentinel-2-l2a",
+        "exact_observation_match": true,
+        "generation_time": "2023-04-28T12:23:11.362052Z",
+        "mgrs_tile": "40RBN",
+        "pc_item_id": "S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.09",
+        "relative_orbit": 20,
+        "required_asset_keys_present": {
+          "B02": true,
+          "B03": true,
+          "B04": true,
+          "B05": true,
+          "B06": true,
+          "B07": true,
+          "B08": true,
+          "B11": true,
+          "B8A": true,
+          "SCL": true,
+          "product-metadata": true
+        }
+      }
+    }
+  ],
+  "cdse": {
+    "cloud_query_lte": 30,
+    "collection": "sentinel-2-l2a",
+    "endpoint": "https://stac.dataspace.copernicus.eu/v1/",
+    "pagination_complete": true,
+    "query_datetime": "2023-04-01T00:00:00+00:00/2023-04-28T06:46:29.024000+00:00"
+  },
+  "created_at": "2026-10-10T08:24:00.339520+00:00",
+  "data_download_count": 0,
+  "final_eligible_acquisition_count": 2,
+  "final_eligible_records": [
+    {
+      "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+      "cdse_item_id": "S2A_MSIL2A_20230403T064621_N0510_R020_T40RBN_20240824T175307",
+      "cloud_cover_percent": 0.68,
+      "eligible": true,
+      "future_m33_status": "needs_as102_as103_as104_as105",
+      "mgrs_tile": "40RBN",
+      "missing_stages": [
+        "as102",
+        "as103",
+        "as104",
+        "as105"
+      ],
+      "platform": "sentinel-2a",
+      "relative_orbit": 20,
+      "selected_pc": {
+        "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+        "collection": "sentinel-2-l2a",
+        "exact_observation_match": true,
+        "generation_time": "2023-04-03T11:54:52.560526Z",
+        "mgrs_tile": "40RBN",
+        "pc_item_id": "S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452",
+        "platform": "sentinel-2a",
+        "processing_baseline": "05.09",
+        "relative_orbit": 20,
+        "required_asset_keys_present": {
+          "B02": true,
+          "B03": true,
+          "B04": true,
+          "B05": true,
+          "B06": true,
+          "B07": true,
+          "B08": true,
+          "B11": true,
+          "B8A": true,
+          "SCL": true,
+          "product-metadata": true
+        }
+      },
+      "stage_evidence": {},
+      "stage_state": {
+        "as102": "missing",
+        "as103": "missing",
+        "as104": "missing",
+        "as105": "missing"
+      }
+    },
+    {
+      "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+      "cdse_item_id": "S2B_MSIL2A_20230428T064629_N0510_R020_T40RBN_20240831T052931",
+      "cloud_cover_percent": 0.12,
+      "eligible": true,
+      "future_m33_status": "already_complete_for_sequence",
+      "mgrs_tile": "40RBN",
+      "missing_stages": [],
+      "platform": "sentinel-2b",
+      "relative_orbit": 20,
+      "selected_pc": {
+        "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+        "collection": "sentinel-2-l2a",
+        "exact_observation_match": true,
+        "generation_time": "2023-04-28T12:23:11.362052Z",
+        "mgrs_tile": "40RBN",
+        "pc_item_id": "S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311",
+        "platform": "sentinel-2b",
+        "processing_baseline": "05.09",
+        "relative_orbit": 20,
+        "required_asset_keys_present": {
+          "B02": true,
+          "B03": true,
+          "B04": true,
+          "B05": true,
+          "B06": true,
+          "B07": true,
+          "B08": true,
+          "B11": true,
+          "B8A": true,
+          "SCL": true,
+          "product-metadata": true
+        }
+      },
+      "stage_evidence": {
+        "as102": {
+          "manifest": "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json",
+          "manifest_sha256": "9a5ca8d78b663426fd53732a52db387c15fe8a70acb2da93978a9f466ce15589",
+          "product_id": "optical:0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6"
+        },
+        "as103": {
+          "descriptor": "upstream.as103_scenes; accepted PASS descriptor, not an AS-103 disk cache",
+          "manifest": "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json",
+          "product_id": "spectral:dae91b4dda0131ca2d2987321abd2ffd5c4b5ffb2e95a44880b7a5f9a67ea64b"
+        },
+        "as104": {
+          "manifest": "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json",
+          "product_id": "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b"
+        },
+        "as105": {
+          "evidence": "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json",
+          "parent_id": "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b",
+          "product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+        }
+      },
+      "stage_state": {
+        "as102": "present",
+        "as103": "present",
+        "as104": "present",
+        "as105": "present"
+      }
+    }
+  ],
+  "frozen_interval": {
+    "end_inclusive": "2023-04-28T06:46:29.024000+00:00",
+    "start_inclusive": "2023-04-01T00:00:00+00:00"
+  },
+  "future_m33_requirements": [
+    {
+      "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+      "future_m33_status": "needs_as102_as103_as104_as105",
+      "missing_stages": [
+        "as102",
+        "as103",
+        "as104",
+        "as105"
+      ],
+      "stage_evidence": {},
+      "stage_state": {
+        "as102": "missing",
+        "as103": "missing",
+        "as104": "missing",
+        "as105": "missing"
+      }
+    }
+  ],
+  "milestone_status": {
+    "as107_plus": "NOT STARTED",
+    "future_as105_policy_validation": "NOT RUN",
+    "m31": "COMPLETE AND MERGED via PR #17",
+    "m32": "METADATA-ONLY PASS",
+    "m33": "NOT STARTED",
+    "m34": "NOT STARTED",
+    "m35": "NOT STARTED",
+    "p1_0510": "NOT STARTED",
+    "real_as106_acceptance": "NOT RUN"
+  },
+  "network_audit": {
+    "allowed_hosts": [
+      "planetarycomputer.microsoft.com",
+      "stac.dataspace.copernicus.eu"
+    ],
+    "asset_request_count": 0,
+    "auth_required": false,
+    "blocked_operations": 0,
+    "finished_at": "2026-10-10T08:24:00.344588+00:00",
+    "guard": "HTTPS exact host/path guard before every request, including redirects; streaming JSON-only response gate; raster/signing entrypoints disabled",
+    "hosts_contacted": [
+      "planetarycomputer.microsoft.com",
+      "stac.dataspace.copernicus.eu"
+    ],
+    "imagery_data_bytes_downloaded": 0,
+    "metadata_http_request_count": 10,
+    "requests": [
+      {
+        "host": "stac.dataspace.copernicus.eu",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "cdse_discovery",
+        "path": "/v1/",
+        "status": 200
+      },
+      {
+        "host": "stac.dataspace.copernicus.eu",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "cdse_discovery",
+        "path": "/v1/collections/sentinel-2-l2a",
+        "status": 200
+      },
+      {
+        "host": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "cdse_discovery",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "host": "stac.dataspace.copernicus.eu",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "cdse_discovery",
+        "path": "/v1/search",
+        "status": 200
+      },
+      {
+        "host": "planetarycomputer.microsoft.com",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "pc_match_4",
+        "path": "/api/stac/v1/",
+        "status": 200
+      },
+      {
+        "host": "planetarycomputer.microsoft.com",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "pc_match_4",
+        "path": "/api/stac/v1/collections/sentinel-2-l2a",
+        "status": 200
+      },
+      {
+        "host": "planetarycomputer.microsoft.com",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "pc_match_4",
+        "path": "/api/stac/v1/search",
+        "status": 200
+      },
+      {
+        "host": "planetarycomputer.microsoft.com",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "pc_match_12",
+        "path": "/api/stac/v1/",
+        "status": 200
+      },
+      {
+        "host": "planetarycomputer.microsoft.com",
+        "media_type": "application/json",
+        "method": "GET",
+        "operation": "pc_match_12",
+        "path": "/api/stac/v1/collections/sentinel-2-l2a",
+        "status": 200
+      },
+      {
+        "host": "planetarycomputer.microsoft.com",
+        "media_type": "application/geo+json",
+        "method": "POST",
+        "operation": "pc_match_12",
+        "path": "/api/stac/v1/search",
+        "status": 200
+      }
+    ],
+    "searches": [
+      {
+        "feature_count": 10,
+        "has_next": true,
+        "operation": "cdse_discovery"
+      },
+      {
+        "feature_count": 2,
+        "has_next": false,
+        "operation": "cdse_discovery"
+      },
+      {
+        "feature_count": 4,
+        "has_next": false,
+        "operation": "pc_match_4"
+      },
+      {
+        "feature_count": 2,
+        "has_next": false,
+        "operation": "pc_match_12"
+      }
+    ],
+    "started_at": "2026-10-10T08:23:54.186384+00:00",
+    "unexpected_host_contacts": 0
+  },
+  "official_main_base": "723e13a900dba30b73a8a2da39df1d984233a2f4",
+  "planetary_computer": {
+    "cloud_query_lte": 100,
+    "collection": "sentinel-2-l2a",
+    "endpoint": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+    "pagination_complete": true,
+    "query_window": "exact candidate acquisition +/-1 second; frozen resolver"
+  },
+  "query_counts": {
+    "cdse_discovered": 12,
+    "cdse_search_pages": 2,
+    "distinct_cdse_acquisition_timestamps": 6,
+    "exact_pc_0509_matches": 2,
+    "exact_pc_observation_matches_all_baselines": 3,
+    "excluded_cdse_records": 10,
+    "pc_items_returned": 6,
+    "pc_logical_searches": 2,
+    "pc_search_pages": 2,
+    "post_provider_filter": 2
+  },
+  "schema_version": "as106-m32-inventory-v1",
+  "scientific_boundary": "Metadata-only predeclaration; no pixel usability, anomaly, HAB, risk or recurrence conclusion.",
+  "selection_digest_contract": {
+    "candidate_dispositions": "candidate_records with pc_query removed; preserve canonical acquisition/item-ID order",
+    "encoding": "UTF-8 json.dumps(sort_keys=True, separators=(comma,colon), allow_nan=False) plus one newline; SHA-256",
+    "excluded": [
+      "created_at",
+      "query_counts",
+      "network_audit",
+      "stage_availability",
+      "stage_audit_scope",
+      "future_m33_requirements",
+      "validation",
+      "preservation"
+    ],
+    "ordered_eligible_acquisitions": "candidate_dispositions entries whose eligible field is true, in order",
+    "payload_keys": [
+      "frozen_interval",
+      "aoi_identity",
+      "selection_policy",
+      "candidate_dispositions",
+      "ordered_eligible_acquisitions"
+    ]
+  },
+  "selection_inventory_sha256": "570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5",
+  "selection_policy": {
+    "asset_assessment": "key presence only",
+    "cdse_cloud_cover_lte_percent": 30,
+    "exact_pc_baseline_match_count": 1,
+    "forbidden_selection_criteria": [
+      "spectral values",
+      "anomaly output",
+      "candidate count",
+      "support fraction",
+      "recurrence outcome",
+      "presentation convenience"
+    ],
+    "mgrs_tile": "40RBN",
+    "pixel_contract": "frozen upstream contracts retained; raster/XML suitability is not assessed by M32",
+    "platforms": [
+      "sentinel-2a",
+      "sentinel-2b"
+    ],
+    "product_level": "Sentinel-2 L2A",
+    "relative_orbit": 20,
+    "required_asset_keys": [
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B8A",
+      "B11",
+      "SCL",
+      "product-metadata"
+    ],
+    "required_pc_processing_baseline": "05.09",
+    "strict_match_fields": [
+      "acquired_at",
+      "platform",
+      "mgrs_tile",
+      "relative_orbit"
+    ]
+  },
+  "stage_audit_scope": {
+    "absence_meaning": "No verified accepted/available stage in audited local cache/handoff/bundle/repository evidence; not a provider-wide nonexistence claim",
+    "anomaly_values_used_for_selection": false,
+    "arrays_loaded_for_stage_audit": false,
+    "as102_manifest_count": 6,
+    "as102_manifest_root": "/workspace/aquasentinel-813/data/cache/as102",
+    "as103_accepted_descriptor_count": 6,
+    "as104_handoff_manifest_count": 1,
+    "as104_handoff_manifest_root": "/workspace/aquasentinel-handoffs/as104",
+    "as105_acceptance_bundle_count": 1,
+    "as105_acceptance_bundle_root": "/workspace/aquasentinel-acceptance/as105",
+    "repository_evidence_search": "No 2023-04-03 / 20230403 stage evidence in docs/evidence/ or docs/AS_10*.md at base main",
+    "selection_order": "All eligibility dispositions and selection digest computed before existing-stage audit"
+  },
+  "stage_availability": [
+    {
+      "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+      "future_m33_status": "needs_as102_as103_as104_as105",
+      "missing_stages": [
+        "as102",
+        "as103",
+        "as104",
+        "as105"
+      ],
+      "stage_evidence": {},
+      "stage_state": {
+        "as102": "missing",
+        "as103": "missing",
+        "as104": "missing",
+        "as105": "missing"
+      }
+    },
+    {
+      "acquired_at": "2023-04-28T06:46:29.024000+00:00",
+      "future_m33_status": "already_complete_for_sequence",
+      "missing_stages": [],
+      "stage_evidence": {
+        "as102": {
+          "manifest": "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json",
+          "manifest_sha256": "9a5ca8d78b663426fd53732a52db387c15fe8a70acb2da93978a9f466ce15589",
+          "product_id": "optical:0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6"
+        },
+        "as103": {
+          "descriptor": "upstream.as103_scenes; accepted PASS descriptor, not an AS-103 disk cache",
+          "manifest": "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json",
+          "product_id": "spectral:dae91b4dda0131ca2d2987321abd2ffd5c4b5ffb2e95a44880b7a5f9a67ea64b"
+        },
+        "as104": {
+          "manifest": "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json",
+          "product_id": "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b"
+        },
+        "as105": {
+          "evidence": "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json",
+          "parent_id": "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b",
+          "product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+        }
+      },
+      "stage_state": {
+        "as102": "present",
+        "as103": "present",
+        "as104": "present",
+        "as105": "present"
+      }
+    }
+  ]
+}

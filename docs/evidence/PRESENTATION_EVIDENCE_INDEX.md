@@ -1,6 +1,58 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-106 M31 offline implementation — 10 October 2026 (Asia/Dubai)
+## Current AS-106 M32 metadata inventory — 10 October 2026 (Asia/Dubai)
+
+**M31: COMPLETE AND MERGED** via PR #17 at implementation merge commit
+`723e13a900dba30b73a8a2da39df1d984233a2f4`. **M32 / E32 / EV-036: METADATA-ONLY APRIL
+ACQUISITION INVENTORY PASS / COMPLETE.** Decision 051's scientific body is
+unchanged; no Decision 052. Inventory prepared on
+`data/as-106-april-metadata-inventory`, directly from that official main base.
+No active algorithm development in M32.
+
+**12 CDSE records / 2 post-filter candidates / 2 exact PC 05.09 matches /
+2 eligible acquisitions:** `2023-04-03T06:46:21.024000Z` (Sentinel-2A) and
+`2023-04-28T06:46:29.024000Z` (Sentinel-2B). Every returned record has a
+disposition; 10 excluded records fail frozen tile/orbit rules. All 11 required
+AS-102 asset keys are present in both selected PC metadata records. April 28
+reconciles to the accepted target product. No pixel-equivalence claim.
+
+Selection inventory SHA-256:
+`570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`.
+The sequence was selected metadata-first, before existing-stage availability
+was audited; no anomaly values, support fractions or candidate outcomes were
+used. **10 metadata HTTP requests**, only to
+`stac.dataspace.copernicus.eu` and `planetarycomputer.microsoft.com`;
+complete pagination, no credentials needed, **ZERO asset requests / ZERO
+imagery bytes**. No raster/XML/thumbnail fetch, signing or new-date processing.
+
+April 3: AS-102/103/104/105 **missing in audited accepted artifacts**;
+future status `needs_as102_as103_as104_as105`. April 28: all four stages
+**present through verified cache/evidence/handoff identities**;
+`already_complete_for_sequence`. Existing AS-103 PASS descriptors are evidence,
+not a new AS-103 disk cache. An eligible preparation failure must be reported,
+never silently remove a date or weaken a frozen contract.
+
+**993 tests PASS; Ruff PASS; diff/new-file whitespace PASS**; six retained
+Rasterio PendingDeprecationWarnings. No source/test/config/dependency change;
+accepted caches, AS-104 handoff, M29 bundle, safety stashes and recovery material
+are retained unchanged. These are local checks, not GitHub CI claims.
+
+Foundation/continuity complete → AS-101/102/103/104/105 merged → Decisions
+048/049/050/051 retained → AS-106 M31 offline implementation merged → M32
+metadata-only sequence frozen → **owner review and separate M33 authorization
+required**. **M33 upstream preparation / M34 real recurrence acceptance /
+M35 publication-closeout: NOT STARTED. REAL AS-106 ACCEPTANCE: NOT RUN.**
+AS-107+ / P1 05.10 NOT STARTED; future AS-105 comparative policy validation NOT
+RUN. Immediate priority: owner review of this frozen inventory and the April 3
+AS-102→103→104→105 prerequisite before any separately authorized preparation.
+
+See [M32 evidence](AS_106_APRIL_METADATA_INVENTORY.md) and
+[normalized inventory](AS_106_APRIL_METADATA_INVENTORY.json).
+The dated M31 implementation, design-freeze and earlier states below are
+historical; their old PR/merge/authorization/inventory states are preserved and
+do not describe current M32. This metadata evidence publication is not M35.
+
+## Historical AS-106 M31 offline implementation — before PR #17 merge — 10 October 2026 (Asia/Dubai)
 
 **M31 / E31 / EV-035: OFFLINE IMPLEMENTATION + SYNTHETIC/ADVERSARIAL VALIDATION PASS.**
 Decision 051 is merged through PR #16 at official base
@@ -414,6 +466,7 @@ EV-027–EV-030. Their pending PR/merge instructions are historical.
 | EV-033 | AS-105 M29 real geometry engineering acceptance | **PASS — OWNER-REVIEWED; NOT YET PR-MERGED** | P 802 / water 7,963; 7 candidates, 7/802=0.872818%; projected-grid candidate area 2,800 m²; one eight-connected MultiPolygon region/three pieces, F2/F4 votes; independent checks/repeat/immutability/bundle PASS; 140 focused/803 full tests | [M29 validation](AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026); M29/E29; external local checksummed bundle NOT tracked | Reproducible frozen candidate anomaly geometry with explicit sparse support | V23 capture pending; no screenshot claimed | No HAB/event/biological/accuracy/risk/confidence/persistence/alert/lead-time or CI-success claim; future comparative policy validation REQUIRED / NOT RUN |
 | EV-034 | AS-105 PR #14 merge and formal closeout | **COMPLETE AND MERGED** | Actual merge `24a260cff130238c731f7cb62fc47eb74230b4dc`, 10 Oct 2026 06:24:09 UTC / 10:24:09 Dubai; 2 commits / 18 files; M28/M29 PASS unchanged | [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14); [merge closeout](AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m30--pr-14-merge-and-as-105-closeout--10-october-2026); M30/E30 | Reviewed frozen-policy engineering evidence on official main | Merge/timeline/support card capture pending | Publication event only; no new scientific validation/CI claim; future policy validation REQUIRED / NOT RUN; AS-106+ and P1 05.10 NOT STARTED |
 | EV-035 | AS-106 M31 offline implementation + synthetic/adversarial validation | **OFFLINE PASS; REAL NOT RUN** | 190 focused/993 full tests; six retained full-suite warnings; Ruff/diff/whitespace PASS; no EO/service network/download | [M31 validation](AS_106_PERSISTENCE_VALIDATION.md); M31/E31; Decision 051 | Reproducible recurrence, timing/denominators/regions, canonical identity, parent integrity and lineage on synthetic inputs | Synthetic timeline/denominator visual pending | No real recurrence, biological persistence, HAB/accuracy/risk/confidence or CI claim; M32–M35 NOT STARTED |
+| EV-036 | AS-106 M32 predeclared metadata-only April inventory | **METADATA-ONLY PASS / COMPLETE** | 12 CDSE records / 2 post-filter / 2 exact PC 05.09 products; April 3 and April 28; 10 metadata HTTP requests, ZERO imagery | [M32 evidence](AS_106_APRIL_METADATA_INVENTORY.md); [JSON](AS_106_APRIL_METADATA_INVENTORY.json); M32/E32; Decision 051 | Every eligible date frozen before anomaly inspection; all exclusions retained; April 3 prerequisite stage gap explicit | Metadata timeline/funnel/stage card pending | Key presence is not pixel suitability; real recurrence NOT RUN; M33–M35/AS-107+/P1 05.10 NOT STARTED; future policy validation NOT RUN |
 
 ### EV-021 final AS-103 review and merge
 
@@ -806,3 +859,31 @@ GitHub CI success, PR or merge claim. Real acceptance BLOCKED ON FUTURE DATA
 PREPARATION; M32/E32/EV-036 through M35/E35/EV-039 NOT STARTED. Their original
 historical design reservations above remain preserved. Future AS-105 policy
 validation NOT RUN; AS-107+ / P1 05.10 NOT STARTED. Synthetic visual capture pending.
+
+### EV-036 — AS-106 M32 predeclared metadata-only April inventory
+
+**Date:** 10 October 2026 (Asia/Dubai). **Status:** METADATA-ONLY PASS / COMPLETE.
+**Branch/base:** `data/as-106-april-metadata-inventory` / `723e13a900dba30b73a8a2da39df1d984233a2f4`
+(PR #17 merged M31). **Evidence:** [normalized JSON](AS_106_APRIL_METADATA_INVENTORY.json)
+and [M32 record](AS_106_APRIL_METADATA_INVENTORY.md); M32/E32; Decision 051 unchanged.
+12 CDSE records/2 pages → 2 post-filter candidates → 2 unique exact PC 05.09
+products with all 11 required keys → April 3 and April 28 sequence, chronologically.
+Ten excluded CDSE records retain exact tile/orbit reasons. Two PC searches return
+six context items; no ambiguous 05.09 match. April 28 reconciles to accepted target.
+Selection SHA-256: `570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5`; operational timestamps and local stage availability
+excluded. Selection completed before outcome-independent availability audit.
+
+Only `stac.dataspace.copernicus.eu` and `planetarycomputer.microsoft.com`
+contacted: 10 metadata HTTP requests, 3 logical searches, 4 complete search pages;
+ZERO asset requests / imagery bytes, no signing, href persistence or EO processing.
+April 3 all AS-102/103/104/105 missing; April 28 all present through accepted
+identities/evidence. Missing-stage audit is local, not provider-wide absence;
+accepted AS-103 descriptors do not imply a new disk cache. Future April 3 M33
+work is separate; M33/M34/M35 NOT STARTED, real AS-106 acceptance NOT RUN.
+993 tests PASS, Ruff/diff/new-file whitespace/credential checks PASS; six retained
+Rasterio warnings. Protected source/tests, caches/handoff/M29, both safety stashes
+and external recovery files retained byte-identical with modes unchanged.
+No raster usability, biological persistence/HAB/accuracy/risk/confidence or CI
+claim. AS-107+ / P1 05.10 NOT STARTED; future AS-105 policy validation NOT RUN.
+Recommended metadata-only timeline/exclusion funnel/stage card capture pending.
+No new Decision 052, PR or merge; M32 evidence publication is not M35.
