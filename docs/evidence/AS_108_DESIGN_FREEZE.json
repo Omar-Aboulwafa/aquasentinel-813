@@ -1,0 +1,472 @@
+{
+  "schema_version": "as108-m42-design-freeze-v1",
+  "decision": "053",
+  "decision_status": "FINAL / FROZEN DESIGN",
+  "execution_status": "NOT EXECUTED",
+  "milestone": "M42",
+  "engineering_entry": "E42",
+  "evidence_id": "EV-046",
+  "prepared_at_dubai": "2026-10-10T18:39:15.648497+04:00",
+  "official_baseline": "14149113e58788621d6aef91f039b95781c67434",
+  "branch": "docs/as-108-design-freeze",
+  "worktree": "/workspace/aquasentinel-813-as108-m42",
+  "objective": "RETROSPECTIVE OBSERVATIONAL-CONSISTENCY CASE STUDY",
+  "priority": "P0; AS-108 precedes AS-201; no AS-201 authorization",
+  "historical_M41": {
+    "milestone": "M41",
+    "engineering_entry": "E41",
+    "evidence_id": "EV-045",
+    "status": "READ-ONLY FEASIBILITY / SOURCE AUDIT COMPLETE",
+    "repository_modified_during_M41": false,
+    "recorded_retrospectively_in_M42": true,
+    "source_access_blocker": "Six documentary request attempts blocked; original report not independently accessed by Codex",
+    "resolution": "Project owner supplied externally verified official EAD listing/PDF facts in the M42 authorization; verification occurred outside Codex, with no claim of personal owner inspection",
+    "EO_metadata_requests": 0,
+    "EO_asset_requests": 0,
+    "scientific_compute_calls": 0
+  },
+  "numbering": "M41/E41/EV-045 added as historical read-only record under journal continuity convention; M42/E42/EV-046 uniquely identify design freeze",
+  "event_reference": {
+    "event_reference_id": "ead-raha-beach-red-tide-2023-04",
+    "publisher": "Environment Agency – Abu Dhabi (EAD)",
+    "resource_title": "Marine Water Quality Report 2023",
+    "resource_publication_date": "2024-11-21",
+    "resource_category": "Marine Water Quality",
+    "reporting_year": 2023,
+    "source_type": "official_environmental_incident_reporting",
+    "source_reference": "https://www.ead.gov.ae/-/media/Project/EAD/EAD/Documents/KnowledgeHub/Resources-and-Materials/MWQ-ANNUAL-REPORT-2024-EN.pdf",
+    "source_accessed_at": null,
+    "source_accessed_at_note": "Outside-Codex inspection timestamp not supplied; do not substitute M42 documentation time",
+    "location_text": "Raha Beach",
+    "temporal_precision": "MONTH_LEVEL",
+    "documented_event_month": "2023-04",
+    "event_start": null,
+    "event_end": null,
+    "geometry_precision": "AREA_LEVEL_ONLY",
+    "geometry_reference": null,
+    "species_reported": "Pseudo-nitzschia multistriata",
+    "species_source": "external_event_reference",
+    "toxin_name": "domoic acid",
+    "toxin_context": "species-associated toxin reported by EAD",
+    "toxin_measured_in_incident": "NOT ESTABLISHED",
+    "verification_status": "EXTERNALLY_VERIFIED_FACTS_SUPPLIED_BY_OWNER",
+    "verification_provenance": "Project owner supplied externally verified official EAD listing/PDF facts in the M42 authorization; Codex did not independently access the source during M42.",
+    "verification_supplied_on": "2026-10-10 (Asia/Dubai)",
+    "page_or_section": null,
+    "page_or_section_note": "Exact PDF page/heading not supplied; retain as not recorded, not invent a locator",
+    "source_statement_summary": [
+      "In 2023, EAD recorded 23 algal bloom incidents in Abu Dhabi.",
+      "One Red Tide incident was recorded at Raha Beach in April 2023.",
+      "EAD attributes that incident to Pseudo-nitzschia multistriata.",
+      "The report states that this species releases domoic acid."
+    ],
+    "external_event_status": "documented_external_event",
+    "AquaSentinel_species_inference": "NONE",
+    "AquaSentinel_toxin_inference": "NONE"
+  },
+  "event_reference_EO_separation": "documented_external_event is documentary context; AquaSentinel_observational_result retains its own EO lineage; neither implies the other",
+  "phase_windows": {
+    "PRE": {
+      "start_inclusive": "2023-03-01T00:00:00Z",
+      "end_exclusive": "2023-04-01T00:00:00Z",
+      "semantics": "analytical calendar window, NOT biological onset/end"
+    },
+    "EVENT": {
+      "start_inclusive": "2023-04-01T00:00:00Z",
+      "end_exclusive": "2023-05-01T00:00:00Z",
+      "semantics": "analytical calendar window, NOT biological onset/end"
+    },
+    "POST": {
+      "start_inclusive": "2023-05-01T00:00:00Z",
+      "end_exclusive": "2023-06-01T00:00:00Z",
+      "semantics": "analytical calendar window, NOT biological onset/end"
+    }
+  },
+  "PRE": {
+    "role": "DESCRIPTIVE PRE-EVENT / PRE-MONTH CONTEXT",
+    "accepted_references": [
+      {
+        "acquired_at": "2023-03-04T06:47:51.024000+00:00",
+        "as102_parent": "optical:038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1",
+        "fingerprint": "187251ea126ffdf774b5d347d2af23f7b693b5d947a7ed49e5d6c3cf694c0166",
+        "product_id": "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+        "reconstruction": "PASS"
+      },
+      {
+        "acquired_at": "2023-03-09T06:47:19.025000+00:00",
+        "as102_parent": "optical:a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644",
+        "fingerprint": "0a61a0afa5254da8959d38135d967d664debfa45b8aea4f3070608dd8dd198b8",
+        "product_id": "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+        "reconstruction": "PASS"
+      },
+      {
+        "acquired_at": "2023-03-14T06:46:41.024000+00:00",
+        "as102_parent": "optical:91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2",
+        "fingerprint": "89311bd86000b4c7a60e1839040022d64c5a45715e3c5fc3a5392c6bc9592462",
+        "product_id": "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+        "reconstruction": "PASS"
+      },
+      {
+        "acquired_at": "2023-03-24T06:46:21.024000+00:00",
+        "as102_parent": "optical:f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2",
+        "fingerprint": "2d56879067af2cf99a854725edd38627fdbbcee56345f422e2ba477e509d1898",
+        "product_id": "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+        "reconstruction": "PASS"
+      },
+      {
+        "acquired_at": "2023-03-29T06:46:29.024000+00:00",
+        "as102_parent": "optical:45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee",
+        "fingerprint": "02e8cbea849befda080e04d63bb8dd37ebb89ecd16b0fc5d4aef92976c9757bd",
+        "product_id": "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5",
+        "reconstruction": "PASS"
+      }
+    ],
+    "allowed": [
+      "acquisition/evaluability",
+      "valid-water support",
+      "accepted spectral-feature context",
+      "frozen March baseline role"
+    ],
+    "forbidden": [
+      "self-containing retrospective baseline scoring",
+      "biological-negative labels",
+      "accuracy denominators"
+    ],
+    "independent_PRE_scoring": "OUTSIDE minimum P0; requires separately frozen earlier-history design"
+  },
+  "EVENT": {
+    "fixed_observations": [
+      {
+        "acquired_at": "2023-04-03T06:46:21.024000Z",
+        "highest_accepted_stage": "AS-105",
+        "products": {
+          "as102": "optical:441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499",
+          "as103": "spectral:6bb1ee8db74f19f7fd03e1fd72c99d1c6fee88c6367b970913e341b55fa8a73c",
+          "as104": "temporal:71f6be2d8437e91f7cf213df0bd876897febebe630a02a20bb151a5d852edb11",
+          "as105": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52"
+        }
+      },
+      {
+        "acquired_at": "2023-04-28T06:46:29.024000Z",
+        "highest_accepted_stage": "AS-107",
+        "accepted_risk_product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb"
+      }
+    ],
+    "rule": "Retain both regardless of outcome; report highest accepted stage; no fabricated later-stage result",
+    "missing_April3_downstream": "Not required in minimum P0; only separately predeclared authorization before any new outcome permits computation"
+  },
+  "accepted_reference_result": {
+    "version": "as107-v1",
+    "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+    "input_fingerprint": "084790273118f50f6c8eaf0ed380dbce730c6dbbd7e4fa0f757c5d145e894d91",
+    "output_fingerprint": "25cccf8e8b550a76f28ebb01a2249060de5b1cd3114a7c531ef4775adbc87dae",
+    "target_acquired_at": "2023-04-28T06:46:29.024000Z",
+    "risk_score": 29.52380952380953,
+    "risk_score_hex": "0x1.d861861861863p+4",
+    "risk_band": "Watch",
+    "evidence_completeness": 0.7,
+    "component_coverage": 0.7,
+    "assessment_status": "provisional_observational_screening",
+    "recommendation": "Review on the next valid acquisition",
+    "persistence_A_B_C": [
+      7,
+      7,
+      0
+    ],
+    "interpretation": "No same-pixel candidate recurrence was observed among the 7 target candidate pixels with valid prior observational history. This does not prove no HAB or no biological persistence.",
+    "status": "IMMUTABLE HISTORICAL ACCEPTED REFERENCE; not a new M42 validation result"
+  },
+  "POST": {
+    "required": "One deterministic attempted analytical phase in future separately authorized execution; UNAVAILABLE permitted",
+    "currently_accepted_processed_scene": null,
+    "selection": {
+      "window": "2023-05-01 <= acquisition < 2023-06-01 UTC",
+      "aoi": "raha_validation_aoi; unchanged analyst-defined Al Raha Polygon",
+      "aoi_geometry_digest": "a0fdb745672b246f569400574aa299ae4e233b8012ef54e970cdacba56687c2a",
+      "collection": "sentinel-2-l2a",
+      "platforms": [
+        "sentinel-2a",
+        "sentinel-2b"
+      ],
+      "cloud_metadata_provider": "CDSE discovery; do not substitute broad PC matching query",
+      "cloud_cover_lte_percent": 30,
+      "mgrs_tile": "40RBN",
+      "relative_orbit": 20,
+      "pc_processing_baseline": "05.09",
+      "exact_pc_product_match_count": 1,
+      "provider_matching": "Exact timezone-aware acquisition, platform under existing rules, MGRS tile and relative orbit; no ID-only/fuzzy/alias fallback",
+      "grid": "Existing deterministic EPSG:32640 20 m, 310 x 228 AnalysisGrid and full upstream compatibility contract",
+      "ordering": "UTC acquisition ascending, then CDSE item ID; distinct observation key=(acquisition,platform,tile,relative_orbit); reject unresolved duplicate/ambiguous products",
+      "selected_observations": 1,
+      "rule": "EARLIEST metadata-eligible compatible acquisition in full fixed May interval; exact matched PC product required before selection",
+      "freeze_before_pixels": [
+        "CDSE/PC IDs",
+        "acquisition",
+        "platform",
+        "tile",
+        "orbit",
+        "processing baseline",
+        "generation history",
+        "AOI/grid/contract identities",
+        "selection inventory and digest"
+      ],
+      "fallback": "NONE; selected-scene retrieval/processing failure is UNAVAILABLE with reason, not substitution",
+      "metadata_failures": "Retain all dispositions; incomplete pagination/transport failure means selection UNAVAILABLE; malformed/ambiguous identity stops selection, never silently choose a convenient record",
+      "scientific_failures": "Retain selected identity, failure stage and reason; no support/mask/history relaxation",
+      "unselected_eligible_candidates": "NOT_SELECTED_METADATA_RULE; not processing failures or biological negatives",
+      "future_authorization": "Separate metadata-only selection authorization; later retrieval/processing authorization; NO EO request in M42"
+    },
+    "recovery_language": "Do not call POST recovery without supporting descriptive evidence"
+  },
+  "anti_cherry_picking": [
+    "March descriptive phase fixed",
+    "Both April observations fixed and retained",
+    "May calendar window fixed before querying",
+    "Earliest compatible May metadata rule fixed before querying",
+    "AOI and cloud<=30% fixed",
+    "AS-103 numerical/formula/feature rules unchanged",
+    "Decision050 AS-105 families/candidate rules unchanged",
+    "Decision051 AS-106 recurrence/compatibility unchanged",
+    "Decision052 AS-107 weights/bands/recommendations/missingness unchanged",
+    "Retain inconvenient outputs; no post-outcome date/threshold/AOI/family/recurrence/weight/band/recommendation tuning"
+  ],
+  "validation_units": {
+    "primary": "event_case",
+    "primary_event_count": 1,
+    "secondary": [
+      "acquisition",
+      "region",
+      "pixel support"
+    ],
+    "pixels": "not independent biological labels or biological accuracy sample size"
+  },
+  "denominators": {
+    "counting_unit": "Distinct acquisitions, not provider products, regions, pixels or independent biological samples",
+    "N_discovered": "Distinct acquisitions represented by available discovery inventory inside phase; also report N_provider_records, exact query bounds and COMPLETE/PARTIAL/UNAVAILABLE inventory status",
+    "N_metadata_eligible": "Distinct acquisitions passing frozen metadata/product compatibility criteria, including exactly one matched PC 05.09 product when matching assessed; unknown when required inventory incomplete",
+    "N_processing_attempted": "Distinct acquisitions for which new scientific processing starts in separately authorized execution; reuse of accepted evidence recorded separately as N_reused_accepted",
+    "N_evaluable": "Required retained acquisitions meeting phase endpoint: PRE accepted AS-103 with nonempty valid feature support; EVENT/POST accepted AS-105 with P>0 and valid immediate witnesses. Report per-feature/per-question support separately",
+    "N_unavailable": "Required retained/selected acquisitions lacking their required phase endpoint after authorized attempt or artifact availability assessment, with reason; not unselected eligible scenes",
+    "N_candidate_geometry": "EVENT/POST evaluable acquisitions with existing AS-105 candidate_pixel_count>0; PRE NOT_APPLICABLE",
+    "N_scored": "EVENT/POST acquisitions with an accepted, finite AS-107 site score; missing later stage remains NOT_AVAILABLE, not zero; PRE NOT_APPLICABLE",
+    "N_watch_or_higher": "Scored acquisitions whose accepted frozen band is Watch, Elevated or High; PRE NOT_APPLICABLE",
+    "proportions": "Show numerator and denominator plus scope; candidate=N_candidate_geometry/N_evaluable (EVENT/POST); band=N_watch_or_higher/N_scored and separately N_watch_or_higher/N_retained (availability inclusive); unknown/not-applicable denominators remain null; zero denominator proportion unavailable, never zero",
+    "phase_accounting": "N_retained=5 PRE,2 EVENT,1 selected POST after successful metadata selection; full metadata candidate population kept separate. No claim of full April survey from retained two acquisitions",
+    "incomplete_inventory": "Unknown counts are null with reason, not zero; no percentages imply coverage of an unqueried interval",
+    "scientific_denominators": [
+      "feature-specific valid support",
+      "AS-105 P",
+      "AS-106 B/A history coverage",
+      "AS-106 C/B recurrence",
+      "AS-107 component coverage",
+      "AS-107 individual completeness factors"
+    ],
+    "existing_AS105_statistics_fields": {
+      "P": "statistics.candidate_analysis_support_count",
+      "candidate_pixels": "statistics.candidate_pixel_count"
+    }
+  },
+  "observational_consistency": {
+    "scope": "Observational correspondence at documented MONTH_LEVEL / AREA_LEVEL_ONLY resolution; never biological truth, event specificity or exact sample overlap",
+    "integrity_gate": "Invalid provenance, incompatible contracts or tampered evidence STOP execution; do not classify corruption as scientific absence",
+    "event_evaluable": "AS-105 valid parent-aware evidence with P>0; availability of AS-107 not required for April 3 minimum contract",
+    "event_positive": "Existing frozen-policy AS-105 candidate_pixel_count>0 OR available accepted AS-107 band in {Watch,Elevated,High}; no new significance/area/score threshold",
+    "required_context_complete": "All five PRE descriptive records and both retained EVENT geometry endpoints evaluable; selected POST attempted and its geometry endpoint evaluable; inventory scope/missingness disclosed",
+    "precedence": [
+      "UNAVAILABLE",
+      "INCONCLUSIVE",
+      "PARTIALLY_CONSISTENT",
+      "CONSISTENT"
+    ],
+    "UNAVAILABLE": "No retained EVENT acquisition has evaluable geometry evidence, or required documentary event reference cannot be verified/provided",
+    "INCONCLUSIVE": "At least one retained EVENT is evaluable, but none has event_positive evidence; this does NOT contradict or falsify the documented event",
+    "PARTIALLY_CONSISTENT": "At least one retained EVENT has event_positive evidence, but required context is incomplete/unavailable, an EVENT is unevaluable, or another evaluable EVENT has no positive evidence",
+    "CONSISTENT": "Both retained EVENT acquisitions evaluable and event_positive, with required_context_complete; consistency is only at documented month/area resolution and limited to selected acquisitions",
+    "POST_semantics": "POST need not be candidate-free or Normal to qualify; positive POST evidence is retained and may be unmatched_observational_anomaly, not automatically a false positive. No recovery claim without descriptive evidence",
+    "known_limits": "Month/area imprecision and sparse observations remain explicit even for CONSISTENT; an unavailable POST may yield PARTIALLY_CONSISTENT if usable EVENT evidence exists, not automatic whole-case UNAVAILABLE",
+    "result_in_M42": null,
+    "status": "DEFINITIONS FROZEN; NOT APPLIED TO ACCEPTED DATA IN M42"
+  },
+  "claim_boundary": {
+    "may_support": [
+      "event-month observational consistency",
+      "descriptive feature behavior",
+      "candidate anomaly/screening behavior",
+      "evidence completeness",
+      "missingness/evaluability",
+      "exact-grid observational persistence under frozen rules",
+      "monitoring-priority recommendation",
+      "reproducible PRE/EVENT/attempted POST workflow"
+    ],
+    "must_not_claim": [
+      "satellite species/toxin detection",
+      "measured chlorophyll",
+      "biological probability",
+      "calibrated confidence",
+      "sensitivity",
+      "specificity",
+      "false-positive rate",
+      "precision",
+      "recall",
+      "ROC/AUC",
+      "population accuracy",
+      "biological absence",
+      "safe/unsafe water",
+      "shutdown advice",
+      "exact lead time from unknown onset"
+    ],
+    "false_positive_term": "unmatched_observational_anomaly unless independent biological/reference absence evidence supports false-positive designation",
+    "false_negative_term": "No false-negative classification without sufficiently precise temporal/spatial ground truth and evaluability",
+    "feature_language": "candidate anomaly under the frozen screening policy; feature evidence differed from the frozen local reference; no statistical significance claim",
+    "lead_time_status": "MONTH_LEVEL_ONLY",
+    "exact_days_early": null,
+    "lead_time_statement": "Exact warning lead time relative to biological event onset cannot be estimated from the current authoritative event reference",
+    "allowed_timing": [
+      "first metadata-eligible observation in documented month",
+      "first evaluable candidate evidence in documented month",
+      "first Watch-or-higher observation in documented month",
+      "calendar-relative timing labelled analytical, NOT biological onset"
+    ]
+  },
+  "future_output_model": {
+    "name": "HABHistoricalValidationCase",
+    "implemented": false,
+    "fields": [
+      "event_reference",
+      "phase_windows",
+      "observations",
+      "phase_summaries",
+      "accepted_reference_result",
+      "observational_consistency",
+      "evidence_completeness",
+      "limitations",
+      "provenance",
+      "validation_status"
+    ],
+    "observation_fields": [
+      "observation_identity",
+      "phase",
+      "metadata_status",
+      "selection_disposition",
+      "processing_stage_available",
+      "reused_accepted_product_ids",
+      "evaluability_by_question",
+      "candidate_geometry_if_available",
+      "risk_result_if_available",
+      "relationship_to_event_month",
+      "missingness_reason"
+    ],
+    "provenance": "Read-only references to accepted EO product IDs/fingerprints/parent records and separate documentary source; no generic provenance/cache-schema change",
+    "validation_status_states": [
+      "NOT_EXECUTED",
+      "COMPLETE_WITH_AVAILABLE_EVIDENCE",
+      "COMPLETE_WITH_UNAVAILABLE_PHASE",
+      "UNAVAILABLE",
+      "BLOCKED_INTEGRITY"
+    ],
+    "future_identity": "If implemented, canonical frozen design/event-reference/selected IDs+fingerprints/missingness records; exclude publication/creation timing; no new scientific ID/cache format required in M42"
+  },
+  "minimum_P0_scope": [
+    "verified owner-supplied EAD reference",
+    "fixed March/April/May calendar windows",
+    "five March descriptive context observations",
+    "both accepted April observations",
+    "immutable April28 Watch example",
+    "stage/evaluability inventory",
+    "one metadata-preselected future May attempt",
+    "preserved unavailable outcomes",
+    "denominator-aware case summary",
+    "qualified observational-consistency conclusion",
+    "no biological accuracy metrics",
+    "presentation-ready limitations"
+  ],
+  "deadline": "2026-10-11 Asia/Dubai",
+  "deadline_protection": "Stop after minimum defensible case; protect AS-201 oil P0 time, demo, presentation and reproducibility; no P1, ML, extra events, hyperspectral or complex statistics",
+  "secondary_Fujairah": "OUTSIDE minimum AS-108 P0",
+  "limitations": [
+    "Month-level event timing: no exact onset/peak/sampling/end/recovery day",
+    "Area-level contextual alignment only: no authoritative event or sampling polygon/intake geometry",
+    "PRE/POST temporal roles are not biological negatives; March histories may overlap evolving conditions",
+    "Scene cloud metadata is not AOI-specific water support; conservative SCL/all-contributor masks may exclude coastal/turbid water",
+    "Sparse support, five shared historical references and correlated spectral/red-edge evidence are not statistical sufficiency or independent confirmation",
+    "Exact-pixel recurrence has no current/motion compensation; accepted April gap is 25 days + 8 seconds, not continuous biological duration",
+    "BOA reflectance is not aquatic Rrs or measured chlorophyll",
+    "Context/exposure unavailable; risk weights/bands are PoC hypotheses, not calibrated biological or operational probabilities",
+    "Candidate-conditioned site maximum is not complete intake risk; Al Raha is not a confirmed desalination intake",
+    "One documented event and 23 reported incident count do not form an independently labeled positive/negative evaluation dataset",
+    "April accepted outputs were already known before M42; this is retrospective, not blind/prospective validation",
+    "No May processed product accepted; POST may honestly be UNAVAILABLE; no outcome-driven fallback"
+  ],
+  "preservation": {
+    "status": "PASS: authorized documentation changes only; protected tracked/external hashes, modes and stashes identical",
+    "tracked_snapshot_count": 134,
+    "protected_external_hashes": 44,
+    "protected_modes": 57,
+    "Decision050_051_052_section_sha256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5"
+    },
+    "accepted_M39_evidence_sha256": {
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.md": "344da2c7b9b1ee521dcde273b167a39d4e452f435dfe80036a8af196ff3b3f3f",
+      "docs/evidence/AS_107_REAL_ACCEPTANCE.json": "dc97694a9fb1090e30add0d697431bfa9c1eaead783eed7a94050713967cd4c2"
+    },
+    "safety_stashes": "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration\nf93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration\n",
+    "unmodified_protected_tracked_files": 129,
+    "source_files_unchanged": 41,
+    "test_files_unchanged": 46,
+    "config_dependency_files": "BYTE IDENTICAL",
+    "historical_checkpoints": "All pre-M42 historical lines retained in order; only dated current M40 header relabelled historical"
+  },
+  "engineering_quality_gates": {
+    "status": "PASS",
+    "pytest_command": "python -m pytest -v",
+    "pytest_passed": 1285,
+    "pytest_seconds": 115.87,
+    "warning_count": 6,
+    "warnings": "Existing Rasterio PendingDeprecationWarnings only",
+    "ruff_command": "python -m ruff check .",
+    "ruff": "PASS",
+    "diff_check": "PASS",
+    "all_new_file_whitespace": "PASS",
+    "credential_stable_metadata_scan": "PASS; no live credential or signed URL",
+    "engineering_test_network_attempts": 0,
+    "test_boundary": "Existing synthetic/local-fixture tests only; external network blocked; no accepted-scene scientific execution",
+    "CI": "No GitHub CI success claimed"
+  },
+  "network_boundary": {
+    "new_documentary_requests": 0,
+    "EO_metadata_requests": 0,
+    "EO_asset_requests": 0,
+    "EO_bytes_downloaded": 0,
+    "real_scientific_compute_calls": 0,
+    "engineering_tests": "Existing synthetic/local-fixture engineering tests authorized separately; no real validation",
+    "administrative_git": "Fetch and authorized publication/verification only",
+    "engineering_test_network_attempts": 0
+  },
+  "PR": "NONE CREATED",
+  "merge": "NONE PERFORMED",
+  "AS201": "NOT STARTED",
+  "Decision054": "ABSENT",
+  "validation_execution": "NOT STARTED",
+  "future_AS105_policy_validation": "NOT STARTED",
+  "P1_0510": "NOT STARTED",
+  "next_milestone": "Owner review and separately authorized PR/merge; then separately authorize AS-108 M43 metadata-only POST inventory/selection before any pixels or new scientific outcomes",
+  "retrospective_validation_semantics": {
+    "april_outputs_known_before_decision_053": true,
+    "blind_validation": false,
+    "prospective_validation": false,
+    "independent_preregistration_of_april_outcomes": false,
+    "consistency_categories_frozen_before_new_post_execution": true,
+    "category_role": "retrospective_reporting_and_interpretation",
+    "must_not_be_used_as": [
+      "predictive_validation",
+      "prospective_detection_performance",
+      "independent_accuracy_validation",
+      "independent_model_validation",
+      "unbiased_accuracy_estimation"
+    ],
+    "future_may_result_must_not_revise_categories": true,
+    "category_calculated_or_predicted_in_this_patch": false
+  }
+}
