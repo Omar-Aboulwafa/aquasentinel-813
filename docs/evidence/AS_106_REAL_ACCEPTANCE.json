@@ -1,0 +1,1376 @@
+{
+  "AS107_plus": "NOT STARTED",
+  "M35": "NOT STARTED",
+  "P1_0510": "NOT STARTED",
+  "acceptance_arrays_file": {
+    "bytes": 6527,
+    "name": "scientific_arrays.npz",
+    "sha256": "6ba3d54f056717e9fe4f11f8c58ef649555d781792edd9ac49a40571b442fc19"
+  },
+  "acceptance_bundle": {
+    "directory": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+    "directory_mode": "0555",
+    "files": {
+      "SHA256SUMS.txt": {
+        "bytes": 255,
+        "mode": "0444",
+        "sha256": "793f29341bbdc057b9198ffd65c7714829e8373c901ea39fd5a7c773584c674d"
+      },
+      "execution.log": {
+        "bytes": 1335,
+        "mode": "0444",
+        "sha256": "f8ed67c9198c6b415a9369a4659ec5527dc18a2f262a92f7087f44bdaf4c80c7"
+      },
+      "real_acceptance.json": {
+        "bytes": 58486,
+        "mode": "0444",
+        "sha256": "feb7b974126b2e5ad518febc053494db6d1824badf2fe0db04103e83ecb72d90"
+      },
+      "scientific_arrays.npz": {
+        "bytes": 6527,
+        "mode": "0444",
+        "sha256": "6ba3d54f056717e9fe4f11f8c58ef649555d781792edd9ac49a40571b442fc19"
+      }
+    }
+  },
+  "acceptance_bundle_directory": "/workspace/aquasentinel-acceptance/as106/m34/c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+  "accepted_input_artifact_hashes": {
+    "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt": "5380195b14c84d5d4d5c7365efa12226dbebd93ab726590575b1c0cc0c55b65b",
+    "/workspace/aquasentinel-acceptance/as105/m29/execution.log": "f356d435b915fd763ac041526f1228cf2a6de30928cfd2dec52bb0340314844a",
+    "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a",
+    "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz": "f17e346a9ea3bc29b84e4c568986c8b4d335664dc603ac25b3fab61a66338705",
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt": "66fb164d8c86d55fb71fa43d4d2866fa531f75cf6ad522b081ba1ae1af518a21",
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz": "14122d08baea3025d84127b7e6f55635a7fd12652319230c36ccf0d26df94902",
+    "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json": "985ce7ca4df818b46fdb641afc08e65df621be0d91cad1c355b7a3017ff30433",
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt": "ea33a3aee348a30b006ceaa17fb4685b351a13f9812cb14ad01f2e4c63c19d90",
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz": "c7ca935af29f760623f13dc2350302521de5847390e699a405882f472ed92e21",
+    "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json": "add610b9c52fd94a46f5b118dbe9bddec9dae9b11420e65798b748ce03b94475"
+  },
+  "accepted_parent_ids": [
+    "temporal:71f6be2d8437e91f7cf213df0bd876897febebe630a02a20bb151a5d852edb11",
+    "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+    "temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b",
+    "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+  ],
+  "bundle_finalized_at": "2026-10-10T14:42:10.034770+04:00",
+  "bundle_roundtrip": {
+    "array_dtype_shape_semantic_hashes": "9/9 PASS",
+    "file_checksums": "PASS",
+    "four_accepted_typed_parents": "PASS",
+    "ids_fingerprints_statistics_regions_provenance": "PASS",
+    "integrity_exception": "Existing parent-aware validation internally regenerates science; no new public recurrence or upstream extraction.",
+    "network_public_upstream_guards": {
+      "cache_load": 0,
+      "network": 0,
+      "public_upstream_extraction": 0,
+      "transport": 0
+    },
+    "numeric_arrays_pickle_disabled": "PASS",
+    "public_recurrence_calls": 0,
+    "scene_validate": "PASS",
+    "status": "PASS",
+    "typed_HABPersistenceScene_reconstruction": "PASS"
+  },
+  "chronological_acquired_at": [
+    "2023-04-03T06:46:21.024000+00:00",
+    "2023-04-28T06:46:29.024000+00:00"
+  ],
+  "chronological_parent_ids": [
+    "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+    "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+  ],
+  "common_contract_sha256": "8e13d83acf214e35465077d893178f6998f9a1976cd01582d4d468601f2513fc",
+  "created_at": "2026-10-10T14:40:35.235154+04:00",
+  "execution_completed_at": "2026-10-10T14:40:35.235165+04:00",
+  "execution_started_at": "2026-10-10T14:40:31.682184+04:00",
+  "external_diagnostic_preflight": "First external parent-immutability serializer required AnalysisGrid.to_dict() for Affine; corrected temporary diagnostic only before the first production AS-106 call. No scientific contract or accepted input changed.",
+  "future_AS105_policy_validation": "NOT RUN",
+  "grid": {
+    "bounds": [
+      249020.0,
+      2702860.0,
+      255220.0,
+      2707420.0
+    ],
+    "crs": "EPSG:32640",
+    "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+    "height": 228,
+    "resolution": 20.0,
+    "transform": [
+      20.0,
+      0.0,
+      249020.0,
+      0.0,
+      -20.0,
+      2707420.0
+    ],
+    "width": 310
+  },
+  "history_coverage_limitation": "7 of 7 target candidates have valid prior observational support; 0 are unevaluable for recurrence. This denominator is distinct from April 3 P/valid-water coverage.",
+  "identity": {
+    "acquired_at": [
+      "2023-04-03T06:46:21.024000+00:00",
+      "2023-04-28T06:46:29.024000+00:00"
+    ],
+    "common_temporal_comparison_contract": {
+      "algorithm": {
+        "MAD": "median(abs(history - centre))",
+        "MAD_factor": 1.4826,
+        "anomaly": "deviation / scale where scale > 0",
+        "arithmetic_dtype": "float64",
+        "centre": "median; mean of two middle values for even history",
+        "clip": false,
+        "count_outside_target": 0,
+        "deviation": "target - centre",
+        "output_dtypes": {
+          "anomaly": "float32",
+          "centre": "float64",
+          "count": "uint32",
+          "deviation": "float64",
+          "mask": "bool",
+          "rank": "float32",
+          "scale": "float64"
+        },
+        "positive_scale": "direct float64 division; finite float32 result required",
+        "rank": "(count(history < target) + 0.5*count(history == target))/n; exact ties",
+        "statistics": "declared support; float64 linear percentiles [5,50,95]; None if empty",
+        "summary_denominator": "target feature-valid pixel count",
+        "support": "per-feature valid history at target feature-valid pixels only",
+        "temporal": "start <= reference < end <= target; strictly prior; target excluded",
+        "zero_scale": "baseline/deviation/rank valid; standardized anomaly masked NaN"
+      },
+      "feature_order": [
+        "ndci_like",
+        "mci_like",
+        "red_edge_red_ratio",
+        "red_edge2_red_ratio",
+        "green_red_ratio",
+        "green_blue_ratio"
+      ],
+      "formulas": {
+        "green_blue_ratio": {
+          "feature_family": "visible_green_vs_blue",
+          "formula": "B03 / B02",
+          "required_bands": [
+            "B03",
+            "B02"
+          ],
+          "units": "dimensionless"
+        },
+        "green_red_ratio": {
+          "feature_family": "visible_green_vs_red",
+          "formula": "B03 / B04",
+          "required_bands": [
+            "B03",
+            "B04"
+          ],
+          "units": "dimensionless"
+        },
+        "mci_like": {
+          "cloud_correction_factor": 1.0,
+          "feature_family": "red_edge_line_height",
+          "formula": "B05 - (B04 + (B06 - B04) * ((705.0 - 665.0) / (740.0 - 665.0)))",
+          "nominal_wavelengths": true,
+          "required_bands": [
+            "B04",
+            "B05",
+            "B06"
+          ],
+          "scientific_name": "MCI-like red-edge line height",
+          "units": "dimensionless reflectance",
+          "wavelength_units": "nm",
+          "wavelengths": {
+            "B04": 665.0,
+            "B05": 705.0,
+            "B06": 740.0
+          }
+        },
+        "ndci_like": {
+          "feature_family": "red_edge_b5_vs_red",
+          "formula": "(B05 - B04) / (B05 + B04)",
+          "required_bands": [
+            "B05",
+            "B04"
+          ],
+          "scientific_name": "NDCI-like candidate red-edge contrast",
+          "units": "dimensionless"
+        },
+        "red_edge2_red_ratio": {
+          "feature_family": "red_edge_b6_vs_red",
+          "formula": "B06 / B04",
+          "required_bands": [
+            "B06",
+            "B04"
+          ],
+          "units": "dimensionless"
+        },
+        "red_edge_red_ratio": {
+          "feature_family": "red_edge_b5_vs_red",
+          "formula": "B05 / B04",
+          "required_bands": [
+            "B05",
+            "B04"
+          ],
+          "units": "dimensionless"
+        }
+      },
+      "grid": {
+        "bounds": [
+          249020.0,
+          2702860.0,
+          255220.0,
+          2707420.0
+        ],
+        "crs": "EPSG:32640",
+        "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+        "height": 228,
+        "resolution": 20.0,
+        "transform": [
+          20.0,
+          0.0,
+          249020.0,
+          0.0,
+          -20.0,
+          2707420.0
+        ],
+        "width": 310
+      },
+      "mgrs_tile": "40RBN",
+      "minimum_observations": 5,
+      "pc_processing_baseline": "05.09",
+      "processing_version": "as104-v1",
+      "reference_acquired_at": [
+        "2023-03-04T06:47:51.024000+00:00",
+        "2023-03-09T06:47:19.025000+00:00",
+        "2023-03-14T06:46:41.024000+00:00",
+        "2023-03-24T06:46:21.024000+00:00",
+        "2023-03-29T06:46:29.024000+00:00"
+      ],
+      "reference_period": {
+        "end": "2023-04-01T00:00:00+00:00",
+        "start": "2023-03-01T00:00:00+00:00"
+      },
+      "reference_product_ids": [
+        "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+        "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+        "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+        "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+        "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+      ],
+      "relative_orbit": 20,
+      "upstream_contract": {
+        "aoi_geometry_digest": "a0fdb745672b246f569400574aa299ae4e233b8012ef54e970cdacba56687c2a",
+        "as102_version": "as102-v1",
+        "as103_version": "as103-v1",
+        "bands": [
+          "B02",
+          "B03",
+          "B04",
+          "B05",
+          "B06",
+          "B07",
+          "B08",
+          "B8A",
+          "B11"
+        ],
+        "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+        "collection": "sentinel-2-l2a",
+        "decoding": {
+          "band_ids": {
+            "B02": "1",
+            "B03": "2",
+            "B04": "3",
+            "B05": "4",
+            "B06": "5",
+            "B07": "6",
+            "B08": "7",
+            "B11": "11",
+            "B8A": "8"
+          },
+          "offsets": {
+            "B02": -1000.0,
+            "B03": -1000.0,
+            "B04": -1000.0,
+            "B05": -1000.0,
+            "B06": -1000.0,
+            "B07": -1000.0,
+            "B08": -1000.0,
+            "B11": -1000.0,
+            "B8A": -1000.0
+          },
+          "processing_baseline": "05.09",
+          "quantification": 10000.0
+        },
+        "interpolation_support_policy": "native-3x3-water-erosion-plus-bilinear-all-support-v1",
+        "mask_policy": {
+          "aoi": "pixel-centre",
+          "invalid_scl": [
+            0,
+            1,
+            2,
+            3,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "unknown": "invalid",
+          "valid_scl": [
+            4,
+            5,
+            6
+          ],
+          "water_scl": 6
+        },
+        "resampling": {
+          "categorical": "nearest",
+          "reflectance": "bilinear"
+        }
+      }
+    },
+    "grid": {
+      "bounds": [
+        249020.0,
+        2702860.0,
+        255220.0,
+        2707420.0
+      ],
+      "crs": "EPSG:32640",
+      "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+      "height": 228,
+      "resolution": 20.0,
+      "transform": [
+        20.0,
+        0.0,
+        249020.0,
+        0.0,
+        -20.0,
+        2707420.0
+      ],
+      "width": 310
+    },
+    "input_content_fingerprint": "2f8f6f1c37bd9f8a236109ab821e6e426f222840c4a74f623d2e78bd76529ab7",
+    "input_fingerprint_format": "as106-input-v1",
+    "parent_geometry_product_ids": [
+      "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+      "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+    ],
+    "policy": {
+      "A": "target candidate pixels",
+      "B": "target C AND Q",
+      "C": "target C AND current_streak_count >= 2",
+      "Q": "target P AND prior_valid_observation_count >= 1",
+      "calendar_gap_cutoff": null,
+      "candidate_history_coverage": "count(B)/count(A); None for empty A",
+      "counts": "uint32; capacity checked before arithmetic",
+      "masks": "bool",
+      "median_span": "exact numerator_microseconds / denominator (1 or 2)",
+      "prior_count": "all earlier P=true at target P; zero outside target P",
+      "recurrence_fraction": "count(C)/count(B); None for empty B",
+      "recurrence_minimum_streak": 2,
+      "region_overlap": "target region AND prior P AND prior C; denominator prior support",
+      "regional_span_support": "recurrent candidate pixels",
+      "regional_streak_support": "B",
+      "spatial": "exact same-grid pixel only; no motion/morphology/resampling",
+      "streak_histogram_denominator": "A; exact observed integer streaks in ascending order",
+      "supported_noncandidate": "break current streak",
+      "target_labels": "int32; authoritative AS-105 labels/region IDs unchanged",
+      "timing": "exact UTC microseconds; int64; missing -1; singleton span 0",
+      "unsupported_observation": "UNKNOWN; skip without increment or break"
+    },
+    "processing_version": "as106-v1",
+    "software_versions": {
+      "numpy": "2.2.6",
+      "python": "3.11.16"
+    },
+    "target_acquired_at": "2023-04-28T06:46:29.024000+00:00",
+    "target_geometry_product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+  },
+  "identity_sha256": "c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+  "independent_oracles": {
+    "Boolean": "PASS",
+    "arrays": "9/9 PASS",
+    "dtypes": "9/9 PASS",
+    "exact_microseconds": "PASS",
+    "global_denominators_and_histogram": "PASS",
+    "input_output_fingerprints": "PASS separate production helper verification",
+    "product_identity": "PASS canonical JSON/SHA-256 independent recomputation",
+    "target_region": "PASS"
+  },
+  "input_content_fingerprint": "2f8f6f1c37bd9f8a236109ab821e6e426f222840c4a74f623d2e78bd76529ab7",
+  "network_audit": {
+    "EO_asset_requests": 0,
+    "git": "initial authorized fetch; final M34 branch push after gates only",
+    "imagery_XML_bytes_downloaded": 0,
+    "metadata_requests": 0,
+    "scientific_guard_attempts": {
+      "cache_load": 0,
+      "network": 0,
+      "public_upstream_extraction": 0,
+      "transport": 0
+    },
+    "signing_token_requests": 0,
+    "unexpected_hosts": 0
+  },
+  "official_main_base": "4cde14ee448079163c2a08f3951f8dac294f8dac",
+  "output_content_fingerprint": "7739a3f97c0e88113a17629678a0ef31bdb14594400f0568c0dfdfdb5dabafef",
+  "preservation_audit": {
+    "M32_M33_evidence_files": {
+      "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json": "b28ad32b8d30f7bc8d46bd5c56519eaec1f813ecb49a75eec0471f8a8c7a61d6",
+      "docs/evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md": "65beeb1ad3c6fe64049f88ea8efb12a3d21c5b481b0b6cfa6423d435bcfba956",
+      "docs/evidence/AS_106_APRIL_METADATA_INVENTORY.json": "ec1adf3f020d4b6480629c8204fbd5401450de715ba51ae05607ebeaeb140571",
+      "docs/evidence/AS_106_APRIL_METADATA_INVENTORY.md": "d491c05d0f6959130f8e4a35ec18908576b4fbed6f3d259211c2e879530c77d8"
+    },
+    "all_preexisting_artifacts": "byte-identical and permission-identical",
+    "preexisting_tracked_file_count": 113,
+    "protected_external_file_count": 37,
+    "protected_external_file_hashes": {
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/arrays.npz": "350e4ce5fe117942c26d54e611db6daff2bef9eda7bc80da810338ae530bcb22",
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/manifest.json": "23c024f8a002aad8ecaf1b930b6acf01c55a6404b25f67b70b3c8ac9c19e4b67",
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/arrays.npz": "7c586ae3c546f7dabea0ccc0e9f2c99e0435e4b563aedb93043e90d8077a7cea",
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/manifest.json": "36f5e8598889fd1df081f699755df3a70aed0550455a97e194eda4aae9400a50",
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/arrays.npz": "01512aa7ec3e1deab0f87fddb9c3888986d449ebcdd440830a7d4805bbc4f4a1",
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json": "9a5ca8d78b663426fd53732a52db387c15fe8a70acb2da93978a9f466ce15589",
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/arrays.npz": "dd571a6f3c6eec4fbf05879e596a17cd5a3ceca76b23fe191a709ac0233ab749",
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/manifest.json": "fae0be0d9bcb1222aaf5c2bd1c74861dbaf7a3936f8c6561bd19d88d2d60fdd9",
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/arrays.npz": "632b73ed78f14ee70a3323b670ccdfb79a94a7c9ed02a59c25f49cd22f52ce38",
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/manifest.json": "be38645eae60b1d1c020a61bebf4bf61f9796c796378c36fc7ff61398d5afa1d",
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/arrays.npz": "6186a2706c7b5b18089b897b421d2526f64f19e853682b03a4e19edc85248352",
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/manifest.json": "0d0827ddccade1082fce982e188eed4f60c1e160eb88dc5033a6d0e9c7c5e6e6",
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/arrays.npz": "1b4136081a45be25b787ed752c01e67419f1a98e6229663cc945592cfba950f9",
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/manifest.json": "0db0e1a0492cab09dd043a89a6e6c332d533a9097c22bd2a4093bb40da2254a8",
+      "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt": "5380195b14c84d5d4d5c7365efa12226dbebd93ab726590575b1c0cc0c55b65b",
+      "/workspace/aquasentinel-acceptance/as105/m29/execution.log": "f356d435b915fd763ac041526f1228cf2a6de30928cfd2dec52bb0340314844a",
+      "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": "4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a",
+      "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz": "f17e346a9ea3bc29b84e4c568986c8b4d335664dc603ac25b3fab61a66338705",
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt": "66fb164d8c86d55fb71fa43d4d2866fa531f75cf6ad522b081ba1ae1af518a21",
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz": "14122d08baea3025d84127b7e6f55635a7fd12652319230c36ccf0d26df94902",
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json": "985ce7ca4df818b46fdb641afc08e65df621be0d91cad1c355b7a3017ff30433",
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt": "ea33a3aee348a30b006ceaa17fb4685b351a13f9812cb14ad01f2e4c63c19d90",
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz": "c7ca935af29f760623f13dc2350302521de5847390e699a405882f472ed92e21",
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json": "add610b9c52fd94a46f5b118dbe9bddec9dae9b11420e65798b748ce03b94475",
+      "/workspace/as104-after-pr10-restoration-sha256.json": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+      "/workspace/as104-before-platform-case-fix-sha256.json": "3ea8280d96d33ffcf488690fbc13933607a1ce46c81a93c00ddbe119ec36ab3e",
+      "/workspace/as104-before-platform-case-fix.patch": "b16a6c31e49b009e26c6bc4080bf10b9a283744c3d0fb4faeba3987c6013ea0e",
+      "/workspace/as104-before-pr10-as104-hashes.json": "2374e28ffb4c12062003763d5b1b775fbb67ee0f34c6bcdc27a0f77a09fe1e6a",
+      "/workspace/as104-before-pr10-integration.patch": "6248d9caa9b28320e076f2d12bf5e09ff692251585b4997485b854c52d58702d",
+      "/workspace/as104-before-pr10-sha256.json": "056aa2cc5e29656eb37765b5f85387fe971b29b3f22abe0c0d25b605f25530f5",
+      "/workspace/as104-before-pr10-status.txt": "70064c1534947bd06d9c08d0209c564bc76e7822a2ad171a5dbaea9b12baad93",
+      "/workspace/as104-before-pr10-untracked.tar.gz": "840084aebaa72633a8c721765677947c45fad6df2d9a36b3cba69fb6220c15dc",
+      "/workspace/as104-before-pr11-integration.patch": "2b7aff9495797a60303a105fe0e320e5bf180c9549a654ae695e3132628f8631",
+      "/workspace/as104-before-pr11-sha256.json": "5163e3ff7ea013f0074feb97cfe42b0f2b5a5177b168447fffefdd17e282197f",
+      "/workspace/as104-before-pr11-untracked.tar.gz": "f801e58be285cce0a2df0d3fb9dc267f4b1aef3ea231b2bc8c7717db3a6333db",
+      "/workspace/as104-final-source-test-sha256.json": "cb32eebc106599a7c61a6061e547e7273ab032423369574c94513b862eba6418",
+      "/workspace/as104-history-preservation.json": "96592e2158e2402e8b1e2385d0ef4d550a89945c51becf939968c57b9ed65cda"
+    },
+    "protected_permission_count": 48,
+    "protected_permissions": {
+      "/workspace": 16877,
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499": 16832,
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/arrays.npz": 33152,
+      "/workspace/aquasentinel-813-as106-m33/data/cache/as102/441badc774727bcff001ccb02e8e936988b819db8cecc3a247d5d80572ec6499/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/038a425d46eead247826c4e1e735851a50325d896f1c95b99258840285bf31e1/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/0725a908d21cd655e83f70d2bb11247dc0f1516f0c00ea275efc3239113ee4a6/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/45360cce80a32aba72c755a3110b865575cc65d45eb96a27922f2dbc93d3aeee/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/91cd94459703fb64b6c982d0d61403dcea8e766a99796b01d591d9ab6b9a67c2/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/a412b51188a9c47a0f121a5882fbf464490a66d19a96d3f682c0955398193644/manifest.json": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2": 16832,
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/arrays.npz": 33152,
+      "/workspace/aquasentinel-813/data/cache/as102/f812d226e81f482d912b0f0450ec3623e8a707f3a1774aaeaba2b27080b03ad2/manifest.json": 33152,
+      "/workspace/aquasentinel-acceptance/as105/m29": 16749,
+      "/workspace/aquasentinel-acceptance/as105/m29/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-acceptance/as105/m29/execution.log": 33060,
+      "/workspace/aquasentinel-acceptance/as105/m29/real_acceptance.json": 33060,
+      "/workspace/aquasentinel-acceptance/as105/m29/scientific_arrays.npz": 33060,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b": 16749,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/arrays.npz": 33060,
+      "/workspace/aquasentinel-handoffs/as104/e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b/manifest.json": 33060,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52": 16749,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/SHA256SUMS.txt": 33060,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/arrays.npz": 33060,
+      "/workspace/aquasentinel-handoffs/as106/m33/april3/7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52/manifest.json": 33060,
+      "/workspace/as104-after-pr10-restoration-sha256.json": 33152,
+      "/workspace/as104-before-platform-case-fix-sha256.json": 33152,
+      "/workspace/as104-before-platform-case-fix.patch": 33152,
+      "/workspace/as104-before-pr10-as104-hashes.json": 33152,
+      "/workspace/as104-before-pr10-integration.patch": 33152,
+      "/workspace/as104-before-pr10-sha256.json": 33152,
+      "/workspace/as104-before-pr10-status.txt": 33152,
+      "/workspace/as104-before-pr10-untracked.tar.gz": 33152,
+      "/workspace/as104-before-pr11-integration.patch": 33152,
+      "/workspace/as104-before-pr11-sha256.json": 33152,
+      "/workspace/as104-before-pr11-untracked.tar.gz": 33152,
+      "/workspace/as104-final-source-test-sha256.json": 33152,
+      "/workspace/as104-history-preservation.json": 33152
+    },
+    "safety_stashes": [
+      "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration",
+      "f93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration"
+    ],
+    "source_test_config_dependency_changes": 0,
+    "status": "PASS"
+  },
+  "prior_count_histogram_on_target_P": {
+    "0": 9,
+    "1": 793
+  },
+  "processing_parameters": {
+    "identity": {
+      "acquired_at": [
+        "2023-04-03T06:46:21.024000+00:00",
+        "2023-04-28T06:46:29.024000+00:00"
+      ],
+      "common_temporal_comparison_contract": {
+        "algorithm": {
+          "MAD": "median(abs(history - centre))",
+          "MAD_factor": 1.4826,
+          "anomaly": "deviation / scale where scale > 0",
+          "arithmetic_dtype": "float64",
+          "centre": "median; mean of two middle values for even history",
+          "clip": false,
+          "count_outside_target": 0,
+          "deviation": "target - centre",
+          "output_dtypes": {
+            "anomaly": "float32",
+            "centre": "float64",
+            "count": "uint32",
+            "deviation": "float64",
+            "mask": "bool",
+            "rank": "float32",
+            "scale": "float64"
+          },
+          "positive_scale": "direct float64 division; finite float32 result required",
+          "rank": "(count(history < target) + 0.5*count(history == target))/n; exact ties",
+          "statistics": "declared support; float64 linear percentiles [5,50,95]; None if empty",
+          "summary_denominator": "target feature-valid pixel count",
+          "support": "per-feature valid history at target feature-valid pixels only",
+          "temporal": "start <= reference < end <= target; strictly prior; target excluded",
+          "zero_scale": "baseline/deviation/rank valid; standardized anomaly masked NaN"
+        },
+        "feature_order": [
+          "ndci_like",
+          "mci_like",
+          "red_edge_red_ratio",
+          "red_edge2_red_ratio",
+          "green_red_ratio",
+          "green_blue_ratio"
+        ],
+        "formulas": {
+          "green_blue_ratio": {
+            "feature_family": "visible_green_vs_blue",
+            "formula": "B03 / B02",
+            "required_bands": [
+              "B03",
+              "B02"
+            ],
+            "units": "dimensionless"
+          },
+          "green_red_ratio": {
+            "feature_family": "visible_green_vs_red",
+            "formula": "B03 / B04",
+            "required_bands": [
+              "B03",
+              "B04"
+            ],
+            "units": "dimensionless"
+          },
+          "mci_like": {
+            "cloud_correction_factor": 1.0,
+            "feature_family": "red_edge_line_height",
+            "formula": "B05 - (B04 + (B06 - B04) * ((705.0 - 665.0) / (740.0 - 665.0)))",
+            "nominal_wavelengths": true,
+            "required_bands": [
+              "B04",
+              "B05",
+              "B06"
+            ],
+            "scientific_name": "MCI-like red-edge line height",
+            "units": "dimensionless reflectance",
+            "wavelength_units": "nm",
+            "wavelengths": {
+              "B04": 665.0,
+              "B05": 705.0,
+              "B06": 740.0
+            }
+          },
+          "ndci_like": {
+            "feature_family": "red_edge_b5_vs_red",
+            "formula": "(B05 - B04) / (B05 + B04)",
+            "required_bands": [
+              "B05",
+              "B04"
+            ],
+            "scientific_name": "NDCI-like candidate red-edge contrast",
+            "units": "dimensionless"
+          },
+          "red_edge2_red_ratio": {
+            "feature_family": "red_edge_b6_vs_red",
+            "formula": "B06 / B04",
+            "required_bands": [
+              "B06",
+              "B04"
+            ],
+            "units": "dimensionless"
+          },
+          "red_edge_red_ratio": {
+            "feature_family": "red_edge_b5_vs_red",
+            "formula": "B05 / B04",
+            "required_bands": [
+              "B05",
+              "B04"
+            ],
+            "units": "dimensionless"
+          }
+        },
+        "grid": {
+          "bounds": [
+            249020.0,
+            2702860.0,
+            255220.0,
+            2707420.0
+          ],
+          "crs": "EPSG:32640",
+          "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+          "height": 228,
+          "resolution": 20.0,
+          "transform": [
+            20.0,
+            0.0,
+            249020.0,
+            0.0,
+            -20.0,
+            2707420.0
+          ],
+          "width": 310
+        },
+        "mgrs_tile": "40RBN",
+        "minimum_observations": 5,
+        "pc_processing_baseline": "05.09",
+        "processing_version": "as104-v1",
+        "reference_acquired_at": [
+          "2023-03-04T06:47:51.024000+00:00",
+          "2023-03-09T06:47:19.025000+00:00",
+          "2023-03-14T06:46:41.024000+00:00",
+          "2023-03-24T06:46:21.024000+00:00",
+          "2023-03-29T06:46:29.024000+00:00"
+        ],
+        "reference_period": {
+          "end": "2023-04-01T00:00:00+00:00",
+          "start": "2023-03-01T00:00:00+00:00"
+        },
+        "reference_product_ids": [
+          "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+          "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+          "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+          "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+          "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+        ],
+        "relative_orbit": 20,
+        "upstream_contract": {
+          "aoi_geometry_digest": "a0fdb745672b246f569400574aa299ae4e233b8012ef54e970cdacba56687c2a",
+          "as102_version": "as102-v1",
+          "as103_version": "as103-v1",
+          "bands": [
+            "B02",
+            "B03",
+            "B04",
+            "B05",
+            "B06",
+            "B07",
+            "B08",
+            "B8A",
+            "B11"
+          ],
+          "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+          "collection": "sentinel-2-l2a",
+          "decoding": {
+            "band_ids": {
+              "B02": "1",
+              "B03": "2",
+              "B04": "3",
+              "B05": "4",
+              "B06": "5",
+              "B07": "6",
+              "B08": "7",
+              "B11": "11",
+              "B8A": "8"
+            },
+            "offsets": {
+              "B02": -1000.0,
+              "B03": -1000.0,
+              "B04": -1000.0,
+              "B05": -1000.0,
+              "B06": -1000.0,
+              "B07": -1000.0,
+              "B08": -1000.0,
+              "B11": -1000.0,
+              "B8A": -1000.0
+            },
+            "processing_baseline": "05.09",
+            "quantification": 10000.0
+          },
+          "interpolation_support_policy": "native-3x3-water-erosion-plus-bilinear-all-support-v1",
+          "mask_policy": {
+            "aoi": "pixel-centre",
+            "invalid_scl": [
+              0,
+              1,
+              2,
+              3,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "unknown": "invalid",
+            "valid_scl": [
+              4,
+              5,
+              6
+            ],
+            "water_scl": 6
+          },
+          "resampling": {
+            "categorical": "nearest",
+            "reflectance": "bilinear"
+          }
+        }
+      },
+      "grid": {
+        "bounds": [
+          249020.0,
+          2702860.0,
+          255220.0,
+          2707420.0
+        ],
+        "crs": "EPSG:32640",
+        "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+        "height": 228,
+        "resolution": 20.0,
+        "transform": [
+          20.0,
+          0.0,
+          249020.0,
+          0.0,
+          -20.0,
+          2707420.0
+        ],
+        "width": 310
+      },
+      "input_content_fingerprint": "2f8f6f1c37bd9f8a236109ab821e6e426f222840c4a74f623d2e78bd76529ab7",
+      "input_fingerprint_format": "as106-input-v1",
+      "parent_geometry_product_ids": [
+        "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+        "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+      ],
+      "policy": {
+        "A": "target candidate pixels",
+        "B": "target C AND Q",
+        "C": "target C AND current_streak_count >= 2",
+        "Q": "target P AND prior_valid_observation_count >= 1",
+        "calendar_gap_cutoff": null,
+        "candidate_history_coverage": "count(B)/count(A); None for empty A",
+        "counts": "uint32; capacity checked before arithmetic",
+        "masks": "bool",
+        "median_span": "exact numerator_microseconds / denominator (1 or 2)",
+        "prior_count": "all earlier P=true at target P; zero outside target P",
+        "recurrence_fraction": "count(C)/count(B); None for empty B",
+        "recurrence_minimum_streak": 2,
+        "region_overlap": "target region AND prior P AND prior C; denominator prior support",
+        "regional_span_support": "recurrent candidate pixels",
+        "regional_streak_support": "B",
+        "spatial": "exact same-grid pixel only; no motion/morphology/resampling",
+        "streak_histogram_denominator": "A; exact observed integer streaks in ascending order",
+        "supported_noncandidate": "break current streak",
+        "target_labels": "int32; authoritative AS-105 labels/region IDs unchanged",
+        "timing": "exact UTC microseconds; int64; missing -1; singleton span 0",
+        "unsupported_observation": "UNKNOWN; skip without increment or break"
+      },
+      "processing_version": "as106-v1",
+      "software_versions": {
+        "numpy": "2.2.6",
+        "python": "3.11.16"
+      },
+      "target_acquired_at": "2023-04-28T06:46:29.024000+00:00",
+      "target_geometry_product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+    },
+    "output_content_fingerprint": "7739a3f97c0e88113a17629678a0ef31bdb14594400f0568c0dfdfdb5dabafef",
+    "output_fingerprint_format": "as106-output-v1",
+    "regions": [
+      {
+        "candidate_history_coverage": 1.0,
+        "component_label": 1,
+        "maximum_current_streak_span_us": null,
+        "maximum_streak_count": 1,
+        "median_current_streak_span_us": null,
+        "median_streak_count": 1.0,
+        "persistence_evaluable_target_candidate_count": 7,
+        "prior_observations": [
+          {
+            "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+            "candidate_overlap_fraction_of_supported": 0.0,
+            "candidate_overlap_pixel_count": 0,
+            "geometry_product_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+            "supported_target_region_pixel_count": 7
+          }
+        ],
+        "recurrence_fraction": 0.0,
+        "recurrent_candidate_count": 0,
+        "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+        "target_pixel_count": 7
+      }
+    ],
+    "scientific_limit": "Observed candidate recurrence only, not continuous biological persistence, HAB confirmation, bloom duration, accuracy, risk, confidence, water safety or warning lead time. Shared reference histories are not independent confirmation.",
+    "statistics": {
+      "candidate_history_coverage": 1.0,
+      "persistence_evaluable_pixel_count": 793,
+      "persistence_evaluable_target_candidate_count": 7,
+      "recurrence_fraction": 0.0,
+      "recurrent_candidate_count": 0,
+      "streak_histogram_on_target_candidates": {
+        "1": 7
+      },
+      "target_candidate_count": 7,
+      "target_candidates_without_prior_history": 0,
+      "target_policy_support_count": 802
+    }
+  },
+  "product_id": "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+  "provenance": {
+    "created_at": "2026-10-10T10:40:32.895468Z",
+    "parameters": {
+      "identity": {
+        "acquired_at": [
+          "2023-04-03T06:46:21.024000+00:00",
+          "2023-04-28T06:46:29.024000+00:00"
+        ],
+        "common_temporal_comparison_contract": {
+          "algorithm": {
+            "MAD": "median(abs(history - centre))",
+            "MAD_factor": 1.4826,
+            "anomaly": "deviation / scale where scale > 0",
+            "arithmetic_dtype": "float64",
+            "centre": "median; mean of two middle values for even history",
+            "clip": false,
+            "count_outside_target": 0,
+            "deviation": "target - centre",
+            "output_dtypes": {
+              "anomaly": "float32",
+              "centre": "float64",
+              "count": "uint32",
+              "deviation": "float64",
+              "mask": "bool",
+              "rank": "float32",
+              "scale": "float64"
+            },
+            "positive_scale": "direct float64 division; finite float32 result required",
+            "rank": "(count(history < target) + 0.5*count(history == target))/n; exact ties",
+            "statistics": "declared support; float64 linear percentiles [5,50,95]; None if empty",
+            "summary_denominator": "target feature-valid pixel count",
+            "support": "per-feature valid history at target feature-valid pixels only",
+            "temporal": "start <= reference < end <= target; strictly prior; target excluded",
+            "zero_scale": "baseline/deviation/rank valid; standardized anomaly masked NaN"
+          },
+          "feature_order": [
+            "ndci_like",
+            "mci_like",
+            "red_edge_red_ratio",
+            "red_edge2_red_ratio",
+            "green_red_ratio",
+            "green_blue_ratio"
+          ],
+          "formulas": {
+            "green_blue_ratio": {
+              "feature_family": "visible_green_vs_blue",
+              "formula": "B03 / B02",
+              "required_bands": [
+                "B03",
+                "B02"
+              ],
+              "units": "dimensionless"
+            },
+            "green_red_ratio": {
+              "feature_family": "visible_green_vs_red",
+              "formula": "B03 / B04",
+              "required_bands": [
+                "B03",
+                "B04"
+              ],
+              "units": "dimensionless"
+            },
+            "mci_like": {
+              "cloud_correction_factor": 1.0,
+              "feature_family": "red_edge_line_height",
+              "formula": "B05 - (B04 + (B06 - B04) * ((705.0 - 665.0) / (740.0 - 665.0)))",
+              "nominal_wavelengths": true,
+              "required_bands": [
+                "B04",
+                "B05",
+                "B06"
+              ],
+              "scientific_name": "MCI-like red-edge line height",
+              "units": "dimensionless reflectance",
+              "wavelength_units": "nm",
+              "wavelengths": {
+                "B04": 665.0,
+                "B05": 705.0,
+                "B06": 740.0
+              }
+            },
+            "ndci_like": {
+              "feature_family": "red_edge_b5_vs_red",
+              "formula": "(B05 - B04) / (B05 + B04)",
+              "required_bands": [
+                "B05",
+                "B04"
+              ],
+              "scientific_name": "NDCI-like candidate red-edge contrast",
+              "units": "dimensionless"
+            },
+            "red_edge2_red_ratio": {
+              "feature_family": "red_edge_b6_vs_red",
+              "formula": "B06 / B04",
+              "required_bands": [
+                "B06",
+                "B04"
+              ],
+              "units": "dimensionless"
+            },
+            "red_edge_red_ratio": {
+              "feature_family": "red_edge_b5_vs_red",
+              "formula": "B05 / B04",
+              "required_bands": [
+                "B05",
+                "B04"
+              ],
+              "units": "dimensionless"
+            }
+          },
+          "grid": {
+            "bounds": [
+              249020.0,
+              2702860.0,
+              255220.0,
+              2707420.0
+            ],
+            "crs": "EPSG:32640",
+            "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+            "height": 228,
+            "resolution": 20.0,
+            "transform": [
+              20.0,
+              0.0,
+              249020.0,
+              0.0,
+              -20.0,
+              2707420.0
+            ],
+            "width": 310
+          },
+          "mgrs_tile": "40RBN",
+          "minimum_observations": 5,
+          "pc_processing_baseline": "05.09",
+          "processing_version": "as104-v1",
+          "reference_acquired_at": [
+            "2023-03-04T06:47:51.024000+00:00",
+            "2023-03-09T06:47:19.025000+00:00",
+            "2023-03-14T06:46:41.024000+00:00",
+            "2023-03-24T06:46:21.024000+00:00",
+            "2023-03-29T06:46:29.024000+00:00"
+          ],
+          "reference_period": {
+            "end": "2023-04-01T00:00:00+00:00",
+            "start": "2023-03-01T00:00:00+00:00"
+          },
+          "reference_product_ids": [
+            "spectral:6409add4aef5c95cfe773bfabfa1f554bdda2968241712bda4debefa34b57130",
+            "spectral:dafde3d3a2a94d44b62a9d5605bce497b03021e517b7dd6b081607719f37efa1",
+            "spectral:721d847a7ed032426c8124e42507b60c3f9a6ae86a4e9ad406176646c35abff7",
+            "spectral:1002b083b3d7637abd67446ef171e0746fe3bd839706cadff18571ac1c51af66",
+            "spectral:c4de2a86bb7b15a6a8bc49373823bb944be7e6787db383b0959c93c51f3464d5"
+          ],
+          "relative_orbit": 20,
+          "upstream_contract": {
+            "aoi_geometry_digest": "a0fdb745672b246f569400574aa299ae4e233b8012ef54e970cdacba56687c2a",
+            "as102_version": "as102-v1",
+            "as103_version": "as103-v1",
+            "bands": [
+              "B02",
+              "B03",
+              "B04",
+              "B05",
+              "B06",
+              "B07",
+              "B08",
+              "B8A",
+              "B11"
+            ],
+            "catalog": "https://planetarycomputer.microsoft.com/api/stac/v1/",
+            "collection": "sentinel-2-l2a",
+            "decoding": {
+              "band_ids": {
+                "B02": "1",
+                "B03": "2",
+                "B04": "3",
+                "B05": "4",
+                "B06": "5",
+                "B07": "6",
+                "B08": "7",
+                "B11": "11",
+                "B8A": "8"
+              },
+              "offsets": {
+                "B02": -1000.0,
+                "B03": -1000.0,
+                "B04": -1000.0,
+                "B05": -1000.0,
+                "B06": -1000.0,
+                "B07": -1000.0,
+                "B08": -1000.0,
+                "B11": -1000.0,
+                "B8A": -1000.0
+              },
+              "processing_baseline": "05.09",
+              "quantification": 10000.0
+            },
+            "interpolation_support_policy": "native-3x3-water-erosion-plus-bilinear-all-support-v1",
+            "mask_policy": {
+              "aoi": "pixel-centre",
+              "invalid_scl": [
+                0,
+                1,
+                2,
+                3,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              "unknown": "invalid",
+              "valid_scl": [
+                4,
+                5,
+                6
+              ],
+              "water_scl": 6
+            },
+            "resampling": {
+              "categorical": "nearest",
+              "reflectance": "bilinear"
+            }
+          }
+        },
+        "grid": {
+          "bounds": [
+            249020.0,
+            2702860.0,
+            255220.0,
+            2707420.0
+          ],
+          "crs": "EPSG:32640",
+          "grid_id": "88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec",
+          "height": 228,
+          "resolution": 20.0,
+          "transform": [
+            20.0,
+            0.0,
+            249020.0,
+            0.0,
+            -20.0,
+            2707420.0
+          ],
+          "width": 310
+        },
+        "input_content_fingerprint": "2f8f6f1c37bd9f8a236109ab821e6e426f222840c4a74f623d2e78bd76529ab7",
+        "input_fingerprint_format": "as106-input-v1",
+        "parent_geometry_product_ids": [
+          "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+          "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+        ],
+        "policy": {
+          "A": "target candidate pixels",
+          "B": "target C AND Q",
+          "C": "target C AND current_streak_count >= 2",
+          "Q": "target P AND prior_valid_observation_count >= 1",
+          "calendar_gap_cutoff": null,
+          "candidate_history_coverage": "count(B)/count(A); None for empty A",
+          "counts": "uint32; capacity checked before arithmetic",
+          "masks": "bool",
+          "median_span": "exact numerator_microseconds / denominator (1 or 2)",
+          "prior_count": "all earlier P=true at target P; zero outside target P",
+          "recurrence_fraction": "count(C)/count(B); None for empty B",
+          "recurrence_minimum_streak": 2,
+          "region_overlap": "target region AND prior P AND prior C; denominator prior support",
+          "regional_span_support": "recurrent candidate pixels",
+          "regional_streak_support": "B",
+          "spatial": "exact same-grid pixel only; no motion/morphology/resampling",
+          "streak_histogram_denominator": "A; exact observed integer streaks in ascending order",
+          "supported_noncandidate": "break current streak",
+          "target_labels": "int32; authoritative AS-105 labels/region IDs unchanged",
+          "timing": "exact UTC microseconds; int64; missing -1; singleton span 0",
+          "unsupported_observation": "UNKNOWN; skip without increment or break"
+        },
+        "processing_version": "as106-v1",
+        "software_versions": {
+          "numpy": "2.2.6",
+          "python": "3.11.16"
+        },
+        "target_acquired_at": "2023-04-28T06:46:29.024000+00:00",
+        "target_geometry_product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+      },
+      "output_content_fingerprint": "7739a3f97c0e88113a17629678a0ef31bdb14594400f0568c0dfdfdb5dabafef",
+      "output_fingerprint_format": "as106-output-v1",
+      "regions": [
+        {
+          "candidate_history_coverage": 1.0,
+          "component_label": 1,
+          "maximum_current_streak_span_us": null,
+          "maximum_streak_count": 1,
+          "median_current_streak_span_us": null,
+          "median_streak_count": 1.0,
+          "persistence_evaluable_target_candidate_count": 7,
+          "prior_observations": [
+            {
+              "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+              "candidate_overlap_fraction_of_supported": 0.0,
+              "candidate_overlap_pixel_count": 0,
+              "geometry_product_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+              "supported_target_region_pixel_count": 7
+            }
+          ],
+          "recurrence_fraction": 0.0,
+          "recurrent_candidate_count": 0,
+          "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+          "target_pixel_count": 7
+        }
+      ],
+      "scientific_limit": "Observed candidate recurrence only, not continuous biological persistence, HAB confirmation, bloom duration, accuracy, risk, confidence, water safety or warning lead time. Shared reference histories are not independent confirmation.",
+      "statistics": {
+        "candidate_history_coverage": 1.0,
+        "persistence_evaluable_pixel_count": 793,
+        "persistence_evaluable_target_candidate_count": 7,
+        "recurrence_fraction": 0.0,
+        "recurrent_candidate_count": 0,
+        "streak_histogram_on_target_candidates": {
+          "1": 7
+        },
+        "target_candidate_count": 7,
+        "target_candidates_without_prior_history": 0,
+        "target_policy_support_count": 802
+      }
+    },
+    "processing_version": "as106-v1",
+    "product_id": "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+    "product_type": "hab_persistence",
+    "record_type": "derived_product",
+    "schema_version": "1.0",
+    "source_ids": [
+      "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+      "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682"
+    ]
+  },
+  "quality_gates": {
+    "credential_scan": "PASS; no live SAS/signed URL/Authorization header/secret; final committed-doc gate also required",
+    "diff_check": "PASS; local pre-publication gate; final tracked/new-file gate also required before commit",
+    "final_committed_doc_credential_scan": "PASS before commit",
+    "final_tracked_and_new_file_whitespace": "PASS before commit",
+    "full_pytest": {
+      "command": "python -m pytest -v",
+      "passed": 993,
+      "seconds": 64.61,
+      "warning_type": "existing Rasterio PendingDeprecationWarning",
+      "warnings": 6
+    },
+    "persistence_focused": {
+      "command": "python -m pytest tests/persistence -v",
+      "passed": 190,
+      "seconds": 46.36,
+      "warnings": 0
+    },
+    "ruff": "PASS"
+  },
+  "regions": [
+    {
+      "candidate_history_coverage": 1.0,
+      "component_label": 1,
+      "maximum_current_streak_span_us": null,
+      "maximum_streak_count": 1,
+      "median_current_streak_span_us": null,
+      "median_streak_count": 1.0,
+      "persistence_evaluable_target_candidate_count": 7,
+      "prior_observations": [
+        {
+          "acquired_at": "2023-04-03T06:46:21.024000+00:00",
+          "candidate_overlap_fraction_of_supported": 0.0,
+          "candidate_overlap_pixel_count": 0,
+          "geometry_product_id": "hab_geometry:7e3a4ba3ba8fb394ca874415c62f7fed7a160609c6dee458d59b35ea0c12cd52",
+          "supported_target_region_pixel_count": 7
+        }
+      ],
+      "recurrence_fraction": 0.0,
+      "recurrent_candidate_count": 0,
+      "region_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1",
+      "target_pixel_count": 7
+    }
+  ],
+  "schema_version": "as106-m34-real-acceptance-v1",
+  "scientific_arrays": {
+    "current_streak_count": {
+      "dtype": "uint32",
+      "result": "PASS",
+      "sha256": "98043625896712539d1afd8c22d41a84453123d3333bb34aa081dc730faa0ff7",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "current_streak_span_us": {
+      "dtype": "int64",
+      "result": "PASS",
+      "sha256": "b0cd63baee15b8f3c81ebc1ed33f677079deb4a5310bb370f2a55aa221cd677b",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "persistence_evaluable_mask": {
+      "dtype": "bool",
+      "result": "PASS",
+      "sha256": "bca32106331324535870537535cc59aad9faa73c7b253bfa2f887a0f2410e965",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "previous_valid_observation_gap_us": {
+      "dtype": "int64",
+      "result": "PASS",
+      "sha256": "d40cd78b3366e5175cbd89f5aab03e85a242490e77c7b361fb42bb5290e68417",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "prior_valid_observation_count": {
+      "dtype": "uint32",
+      "result": "PASS",
+      "sha256": "c4cab8a7ff6d467ac39c2ae6a0589d0a29826030674ba02327ee2b7df06d3a16",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "recurrent_candidate_mask": {
+      "dtype": "bool",
+      "result": "PASS",
+      "sha256": "cb0a10f5deb550e0a560608f8117391e1ae2f55a9c1b8877bb6905dc85374311",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "target_candidate_analysis_support_mask": {
+      "dtype": "bool",
+      "result": "PASS",
+      "sha256": "ce01181417b28ef58ad17a669d2906af9ed588876d24edd18ec889204f9536b7",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "target_candidate_mask": {
+      "dtype": "bool",
+      "result": "PASS",
+      "sha256": "df367f9ffe771fcc36c422b34a801441b9b5ae712eafc238f69c93de24395833",
+      "shape": [
+        228,
+        310
+      ]
+    },
+    "target_component_labels": {
+      "dtype": "int32",
+      "result": "PASS",
+      "sha256": "e8eeafe84e15b0c6fad7dc40f6ec1a7d769f312abf24d90b6cda630766b7f043",
+      "shape": [
+        228,
+        310
+      ]
+    }
+  },
+  "scientific_boundary": "Observed candidate recurrence only, not continuous biological persistence, HAB confirmation, bloom duration, accuracy, risk, confidence, water safety or warning lead time. Shared reference histories are not independent confirmation. No absence-of-HAB, probability/severity/exposure/species/toxin/alert or policy accuracy claim. 25-day gap is not continuous bloom duration; exact-pixel recurrence cannot track motion. Five shared March histories are not statistical sufficiency.",
+  "scientific_interpretation": "No same-pixel candidate recurrence was observed among the 7 target candidate pixels with valid prior observational history.",
+  "selection_inventory_sha256": "570792066c1997b9a403249d994c4e7367bf2f1dafc6473b6e30df20cd6481d5",
+  "statistics": {
+    "candidate_history_coverage": 1.0,
+    "persistence_evaluable_pixel_count": 793,
+    "persistence_evaluable_target_candidate_count": 7,
+    "recurrence_fraction": 0.0,
+    "recurrent_candidate_count": 0,
+    "streak_histogram_on_target_candidates": {
+      "1": 7
+    },
+    "target_candidate_count": 7,
+    "target_candidates_without_prior_history": 0,
+    "target_policy_support_count": 802
+  },
+  "status": "M34 / E34 / EV-038: REAL AS-106 ENGINEERING ACCEPTANCE PASS / COMPLETE; M35 NOT STARTED",
+  "tamper_controls": {
+    "gap": "REJECTED / PASS",
+    "provenance": "REJECTED / PASS",
+    "recurrent_mask": "REJECTED / PASS",
+    "region": "REJECTED / PASS",
+    "rehashed_recurrent_mask": "REJECTED / PASS",
+    "statistics": "REJECTED / PASS",
+    "streak": "REJECTED / PASS"
+  },
+  "target_acquired_at": "2023-04-28T06:46:29.024000+00:00",
+  "target_geometry_product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+  "timing_oracle": {
+    "current_streak_span_distribution_full_grid": {
+      "-1": 70673,
+      "0": 7
+    },
+    "current_streak_span_distribution_on_target_C": {
+      "0": 7
+    },
+    "expected_gap_us": 2160008000000,
+    "previous_valid_gap_distribution_full_grid": {
+      "-1": 69887,
+      "2160008000000": 793
+    },
+    "previous_valid_gap_distribution_on_target_P": {
+      "-1": 9,
+      "2160008000000": 793
+    }
+  },
+  "validation": {
+    "chronology_latest_target": "PASS",
+    "created_at_identity_exclusion": "PASS",
+    "external_hashes_modes": "PASS",
+    "four_typed_parents": "PASS",
+    "frozen_policy": "PASS",
+    "immediate_AS105_provenance": "PASS",
+    "known_P_C_region_guards": "PASS",
+    "output_nonaliasing": "PASS",
+    "parent_immutability": "PASS",
+    "parent_pair_nonaliasing": "PASS",
+    "reverse_order_repeat": "PASS",
+    "same_grid_common_contract": "PASS",
+    "same_order_repeat": "PASS",
+    "scene_validate": "PASS"
+  }
+}
