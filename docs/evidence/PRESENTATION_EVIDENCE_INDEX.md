@@ -1,6 +1,26 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
+## Current AS-106 design freeze — 10 October 2026 (Asia/Dubai)
+
+**Decision 051: OWNER-APPROVED / FROZEN DESIGN ONLY.** AS-105 remains COMPLETE
+AND MERGED; Decisions 001–050 and completed M01–M30 history are preserved.
+**AS-106 IMPLEMENTATION: NOT STARTED; no implementation authorization here.**
+Prepared on `docs/as-106-design-freeze`, from approved main
+`b1b5147d9973d8cf23d575985319bf94a55a03d4` (PR #15).
+Real AS-106 acceptance: **BLOCKED ON FUTURE DATA PREPARATION**; earlier-April
+eligible inventory remains unknown and no verified earlier-April cache exists.
+M31–M35 / E31–E35 / EV-035–EV-039 are **future reservations, all NOT STARTED**.
+Owner review of the published frozen design, then explicit M31 implementation
+authorization, is next. Metadata-only M32 and upstream-data M33 are separate gates.
+AS-107+ and P1 05.10: **NOT STARTED**; future AS-105 policy validation **REQUIRED /
+NOT RUN**. No source/test/config/dependency change, real EO processing, EO-service
+query, imagery download, PR or merge in this design-freeze task.
+See [AS-106 frozen design](../AS_106_PERSISTENCE.md) and [Decision 051](../DECISIONS.md#decision-051--as-106-causal-consecutive-valid-observation-recurrence).
+
+The dated AS-105 closeout and earlier checkpoint text below retains its historical
+next-step/authorization meaning; it does not authorize or describe current AS-106 work.
+
+## Historical AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
 
 **AS-105: COMPLETE AND MERGED** via [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14).
 **M30 / E30 / EV-034:** merge/publication closeout only; frozen Decision 050
@@ -715,3 +735,25 @@ predeclared dimensions. Merge/support-boundary visual capture pending.
 **Next:** Owner review of the next milestone / AS-106 design before implementation.
 AS-106+ is not authorized and **NOT STARTED**; P1 05.10 **NOT STARTED**.
 This documentation closeout creates no PR and performs no merge.
+
+## AS-106 design freeze and future evidence reservations — 10 October 2026
+
+Decision 051 is owner-approved/frozen design only; [specification](../AS_106_PERSISTENCE.md).
+This is not AS-106 implementation or real validation evidence. Historical
+EV-001–EV-034 retain their original bodies and dates. No completed EV-035–EV-039
+evidence record or implementation-validation placeholder document is created.
+
+| Reserved future IDs | Scope | Current status |
+|---|---|---|
+| M31 / E31 / EV-035 | Offline implementation + synthetic/adversarial validation | NOT STARTED; separate implementation authorization |
+| M32 / E32 / EV-036 | Metadata-only April inventory; network metadata only, NO imagery | NOT STARTED |
+| M33 / E33 / EV-037 | Separately authorized missing April AS-102→103→104→105 preparation/handoffs | NOT STARTED |
+| M34 / E34 / EV-038 | Offline real AS-106 engineering acceptance | BLOCKED ON FUTURE DATA PREPARATION / NOT STARTED |
+| M35 / E35 / EV-039 | Owner review/publication/merge/closeout | NOT STARTED |
+
+Existing accepted dates are March 4/9/14/24/29 and April 28; no verified earlier-
+April cache or complete eligible inventory. Freeze every eligible April acquisition
+before anomaly inspection, unchanged 05.09/grid/tile/orbit/cloud contracts and
+the same accepted March references. Sparse/zero-candidate dates are not removed.
+No recurrence measurement or biological/risk/confidence claim is supplied here.
+AS-107+ / P1 05.10 NOT STARTED; AS-105 policy validation REQUIRED / NOT RUN.

@@ -1,6 +1,26 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-## Current AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
+## Current AS-106 design freeze — 10 October 2026 (Asia/Dubai)
+
+**Decision 051: OWNER-APPROVED / FROZEN DESIGN ONLY.** AS-105 remains COMPLETE
+AND MERGED; Decisions 001–050 and completed M01–M30 history are preserved.
+**AS-106 IMPLEMENTATION: NOT STARTED; no implementation authorization here.**
+Prepared on `docs/as-106-design-freeze`, from approved main
+`b1b5147d9973d8cf23d575985319bf94a55a03d4` (PR #15).
+Real AS-106 acceptance: **BLOCKED ON FUTURE DATA PREPARATION**; earlier-April
+eligible inventory remains unknown and no verified earlier-April cache exists.
+M31–M35 / E31–E35 / EV-035–EV-039 are **future reservations, all NOT STARTED**.
+Owner review of the published frozen design, then explicit M31 implementation
+authorization, is next. Metadata-only M32 and upstream-data M33 are separate gates.
+AS-107+ and P1 05.10: **NOT STARTED**; future AS-105 policy validation **REQUIRED /
+NOT RUN**. No source/test/config/dependency change, real EO processing, EO-service
+query, imagery download, PR or merge in this design-freeze task.
+See [AS-106 frozen design](AS_106_PERSISTENCE.md) and Decision 051.
+
+The dated AS-105 closeout and earlier checkpoint text below retains its historical
+next-step/authorization meaning; it does not authorize or describe current AS-106 work.
+
+## Historical AS-105 M30 closeout — 10 October 2026 (Asia/Dubai)
 
 **AS-105: COMPLETE AND MERGED** via [PR #14](https://github.com/Omar-Aboulwafa/aquasentinel-813/pull/14).
 **M30 / E30 / EV-034:** merge/publication closeout only; frozen Decision 050
@@ -1516,6 +1536,152 @@ that study nor real geometry acceptance, persistence/risk/alerting or P1 05.10.
 **Evidence:** [contract/plan](AS_105_HAB_ANOMALY_GEOMETRY.md),
 [offline validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md),
 M28/E28/EV-032; 140 geometry and 803 full tests PASS with six existing warnings.
+
+---
+
+## Decision 051 — AS-106 Causal Consecutive-Valid Observation Recurrence
+
+**Date:** 10 October 2026 (Asia/Dubai).
+**Status:** OWNER-APPROVED / FROZEN DESIGN ONLY. AS-106 implementation NOT STARTED.
+M31–M35 are future staged work, not executed checkpoints. Decision 050 is unchanged.
+
+### Recurrence and evaluability
+
+AS-106 consumes fully validated AS-105 `HABAnomalyGeometryScene` observations.
+For each observation, `P_t = candidate_analysis_support_mask` and
+`C_t = candidate_mask`. Validity for recurrence is P, not AOI or full water.
+Target P=false is unevaluable; target P=true/C=false has current streak zero.
+Target C=true starts at one. Scan earlier observations backwards:
+
+- P=false: UNKNOWN; skip, neither increment nor break.
+- P=true/C=true: increment.
+- P=true/C=false: break the current streak; older candidates cannot reconnect it.
+
+`recurrent_candidate_mask = target_C AND current_streak_count >= 2`.
+This means **observed multi-observation recurrence**, not continuous biological
+persistence. A target candidate without prior supported observations has streak
+one but recurrence is unevaluable, not established absent.
+
+`n_prior` counts all earlier P=true observations at each target-supported pixel,
+including observations older than a streak-breaking non-candidate. Define:
+
+- `Q = target_P AND n_prior >= 1` (persistence-evaluable mask).
+- A = target candidate pixels; B = `target_C AND Q`; C = recurrent target candidates.
+- `candidate_history_coverage = count(B)/count(A)`.
+- `recurrence_fraction = count(C)/count(B)`.
+
+Empty denominator means `None`; a nonempty denominator with zero numerator is
+0.0. Do not substitute AOI, target valid water or full AS-105 P denominators.
+
+### Space, timing and sequence
+
+Use exact same-grid pixel overlap only. No dilation, buffering, morphology,
+neighbourhood/adjacent/diagonal matching, IoU region matching, displacement,
+advection/current/wind compensation, gap filling, reprojection or resampling.
+Movement without exact overlap does not recur; this is a conservative v1 limitation.
+
+No arbitrary calendar-gap cutoff. Use timezone-aware UTC arithmetic and exact
+int64 microseconds. `previous_valid_observation_gap_us` is target time minus
+the most recent earlier P=true time, -1 if unavailable, including outside target
+P. `current_streak_span_us` is target time minus the oldest candidate in the
+current streak: zero for a singleton target candidate, -1 outside target C.
+These are satellite observation gaps/spans, not bloom duration.
+
+Require unique AS-105 IDs and unique normalized acquisition timestamps; identical
+AnalysisGrid; the same AS-105 version and Decision 050 policy; compatible AS-104
+comparison context. Canonicalize caller order by UTC acquisition time. Reject
+missing target, duplicates, future observations, a target that is not latest,
+grid mismatch, policy/version mismatch or incompatible comparison context.
+
+The common comparison context includes AS-104 version; AS-103 feature/formula
+contract; reference product IDs/times/period; minimum_observations; target
+grid/AOI; provider/collection; relevant tile/orbit; and upstream processing baseline.
+
+### Integrity, API and lineage
+
+Use `compute_hab_persistence(geometry_scenes, *, temporal_parents,
+target_geometry_product_id)`, with temporal witnesses keyed by their product IDs.
+For every geometry scene, call the existing `scene.validate(temporal_parent)`.
+Its internal AS-105 regeneration is explicitly permitted as **INTEGRITY
+VERIFICATION**, not retrieval, extraction for a new date, tuning, new scientific
+input or duplicated family-voting logic. Do not weaken or duplicate AS-105 validation.
+
+Persistence computation must not invoke optical/spectral extraction, AS-104
+temporal computation or `extract_hab_anomaly_geometry`. AS-104 witnesses are
+not immediate provenance parents. Immediate `source_ids` contain only the
+chronological AS-105 product IDs, including target:
+PC → AS-102 → AS-103 → AS-104 → AS-105 → AS-106.
+
+### Output, identity and fingerprints
+
+Expected model: `HABPersistenceScene`. Primary rasters: prior-valid count and
+current streak uint32; evaluable/recurrent masks bool; previous-valid gap and
+streak span int64 microseconds. Defensively retain target P/C where required for
+self-validation/denominators. No persistence, risk or confidence score.
+
+Target AS-105 regions remain authoritative; no deletion, geometry editing or
+cross-date matching. Summarize region size, B/history coverage, recurrent count
+and recurrent/B fraction, maximum/median streak on B, maximum/median observed
+recurrence span on recurrent pixels, and chronological prior support/overlap
+counts with overlap/support fractions. Empty support yields None; retain zero-
+recurrence and unknown-history regions. Declare summary denominators explicitly.
+
+Freeze version `as106-v1`, product type `hab_persistence`, prefix
+`hab_persistence:`, input format `as106-input-v1`, output format `as106-output-v1`.
+Identity records ordered AS-105 IDs/times, explicit target, grid, recurrence >=2,
+unknown-skip/noncandidate-break rules, exact-pixel semantics, no gap cutoff,
+common comparison context, denominator/dtype policies and relevant software
+versions. `created_at` is provenance timing, excluded from identity.
+
+Semantic content consumes UTC timestamps/common grid; full target P/C and target
+labels/region identity; prior P where target P is true; prior C where target C
+AND prior P are true. No unnecessary family-vote rasters, AS-104 spectral/z/
+centre/scale values, unrelated pixels or prior component labels. Parent IDs
+remain lineage identity inputs independently of the consumed-content fingerprint.
+
+Use canonical JSON headers with explicit payload-length framing, C-order bytes,
+masks as uint8, counts <u4, timing <i8 and labels <i4. Output-content fingerprint
+covers all scientific output arrays and typed summaries. Parent-aware result
+regeneration must reject tampering even if its output fingerprint is recomputed.
+Inputs remain unmodified; returned arrays/metadata must not alias parents.
+
+### Predeclared future real sequence and boundary
+
+Before inspecting anomaly outputs, select every eligible acquisition in
+`[2023-04-01T00:00:00Z, 2023-04-28T06:46:29.024000Z]`: configured Al Raha AOI,
+accepted 20 m grid, existing cloud metadata <=30%, tile 40RBN, orbit 20, both
+Sentinel-2A/B, strict cross-provider time/platform/tile/orbit matching, exactly
+one PC 05.09 product, required assets and unchanged AS-102/103/104/105 contracts.
+Resolve metadata ambiguity first; never remove sparse-support, zero-candidate
+or inconvenient observations because of anomaly outcomes.
+
+Use the same five accepted March AS-103 reference IDs and
+`[2023-03-01, 2023-04-01)`, minimum_observations=5. April temporal computations
+remain target-specific because support differs; there is no common precomputed
+baseline raster valid for all April targets. Existing accepted caches are March
+4/9/14/24/29 and April 28 only. Earlier-April inventory is unknown and no verified
+earlier-April cache exists: real acceptance is **BLOCKED ON FUTURE DATA
+PREPARATION**, not an offline algorithm blocker.
+
+Allowed claims: observed candidate recurrence, history coverage, observation
+gaps and exact-pixel streaks. No continuous biological persistence, HAB/bloom
+confirmation, bloom duration, concentration/species/toxins, biological causation,
+sensitivity/specificity/accuracy/false-positive rate, risk/confidence, exposure,
+water safety, alert or warning lead time. Shared March references are not
+statistically independent confirmation. Decision 050's scientific limitations
+and future comparative policy validation remain unchanged.
+
+### Staged authorization
+
+M31/E31/EV-035: offline implementation/adversarial validation; M32/E32/EV-036:
+metadata-only April inventory, no imagery; M33/E33/EV-037: separately authorized
+missing April AS-102→103→104→105 preparation/handoffs; M34/E34/EV-038: offline
+real recurrence acceptance; M35/E35/EV-039: owner review/publication/merge/closeout.
+None is executed or implementation-authorized by this design freeze. No new
+dependency, generic provenance/cache change, AS-107+, AS-105 policy comparison
+or P1 05.10 experiment is authorized.
+
+**Design specification:** [AS-106 Persistence](AS_106_PERSISTENCE.md).
 
 ---
 
