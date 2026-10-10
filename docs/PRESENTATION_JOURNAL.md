@@ -1,6 +1,27 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-106 M35 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M37 design freeze — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED** through PR #21 merge
+`6b22d32f078ef80158b2f2d7aac4f3dd07925038` (official design baseline).
+**M36 / E36 / EV-040:** prior read-only feasibility/design audit COMPLETE.
+**Decision 052 / M37 / E37 / EV-041: FINAL / FROZEN DESIGN — NOT IMPLEMENTED.**
+The primary quantity is evidence_completeness; all current scored outputs must be
+qualified as provisional_observational_screening. Policy is frozen before any
+real AS-107 score; environmental context/intake exposure remain unavailable.
+No production implementation, real score, scientific product or AS-108 work.
+
+Current active development branch: none. Design prepared on
+`docs/as-107-design-freeze`. Next: owner review and separately authorized design
+PR/merge, then separate M38 implementation authorization. M38–M40 NOT STARTED;
+AS-108 NOT STARTED; future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.
+No PR/merge in M37. Decisions 050/051 and accepted evidence remain unchanged.
+
+See [frozen contract](AS_107_HAB_RISK.md), Decision 052 and
+[M36/M37 evidence](evidence/AS_107_DESIGN_FREEZE.md). Existing dated checkpoints
+below remain historical, including pre-PR #21 pending-closeout/no-052 statements.
+
+## Historical AS-106 M35 publication / closeout preparation — before PR #21 merge — 10 October 2026 (Asia/Dubai)
 
 **M35 / E35 / EV-039: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
 **AS-106 before this closeout merge: CLOSEOUT READY.** Official real-acceptance
@@ -1345,6 +1366,42 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Frozen-selection→April3(88 candidates)→April28(7)→supported7/recurrent0 story, with denominator/UNKNOWN and long-gap limits; capture pending, no screenshot claimed.
 - **Candidate slide title:** “We kept zero recurrence — and its evidence.”
 
+### M36 — AS-107 read-only feasibility/design audit — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M36 / E36 / EV-040; prior audit, recorded retrospectively in M37.
+- **Problem / question:** Can a scoring layer use current typed evidence while context/exposure are unavailable?
+- **Why it mattered:** Missing inputs must not appear reassuring or create biological certainty.
+- **Options considered:** Zero/neutral missing values, available-weight renormalization, full-input refusal and qualified provisional screening.
+- **Decision:** Audit recommended revisions before freeze; owner later approved the explicit M37 policy.
+- **Rationale:** Separate evidence strength, completeness, availability and scientific validation.
+- **Implementation / experiment:** Read-only repository/interface audit, no real score or scientific product.
+- **Evidence:** [M36 record](evidence/AS_107_DESIGN_FREEZE.md#m36--e36--ev-040--prior-read-only-audit-complete).
+- **Quantitative result:** Five configured components; no real scoring result calculated. No new implementation test result claimed.
+- **Limitation:** Heuristic weights, correlated families, unavailable context/exposure and observational upstream evidence.
+- **Lesson learned:** Explicit regional denominators and typed integrity witnesses are needed before scoring.
+- **Impact on next step:** M37 design freeze required owner review; audit did not authorize implementation.
+- **Presentation takeaway:** Missing is unknown, not no risk; completeness is separate from score.
+- **Recommended visual:** Availability versus evidence-strength diagram; capture pending, no visual claimed created.
+- **Candidate slide title:** “Freeze the rules before looking at the score.”
+
+### M37 — Decision 052 AS-107 policy freeze — 10 October 2026
+
+- **Date / task:** 10 October 2026 (Asia/Dubai); M37 / E37 / EV-041; official base PR #21 merge `6b22d32f078ef80158b2f2d7aac4f3dd07925038`.
+- **Problem / question:** How can provisional HAB-like screening stay deterministic, explainable and scientifically bounded?
+- **Why it mattered:** Formula selection must precede real risk-band inspection; missing inputs cannot be zero or fabricated context.
+- **Options considered:** M36 alternatives; owner approved pooled family-pixel breadth, availability-aware weighting and minimum-factor completeness.
+- **Decision:** Decision 052 FINAL / FROZEN DESIGN — NOT IMPLEMENTED; primary evidence_completeness and provisional_observational_screening status.
+- **Rationale:** Reuse frozen AS-105/106 evidence without new upstream thresholds; disclose correlated red-edge emphasis and unavailable inputs.
+- **Implementation / experiment:** Documentation/policy only, typed API/provenance/identity and future acceptance matrix; no production scorer or real experiment.
+- **Evidence:** [Decision 052](DECISIONS.md#decision-052--as-107-explainable-availability-aware-hab-risk-and-evidence-completeness), [contract](AS_107_HAB_RISK.md), [M37 record](evidence/AS_107_DESIGN_FREEZE.md#m37--e37--ev-041--frozen-policy).
+- **Quantitative result:** Configured coverage ceiling 0.70, or 0.55 without persistence; 0.50 administrative interpretation flag. Policy consequences only, no real score/band. Actual M37 regression gates recorded separately in evidence.
+- **Limitation:** No calibrated probability/confidence, biological confirmation, exposure completeness, event accuracy or warning lead time.
+- **Lesson learned:** A High raw score can remain High while visibly qualified by limited evidence completeness.
+- **Impact on next step:** Owner review/design PR+merge and separate M38 authorization; M38–M40 NOT STARTED, AS-108 NOT STARTED.
+- **Presentation takeaway:** Rules, missing reasons and denominators make the future score reconstructable; outcome tuning is prohibited.
+- **Recommended visual:** Five-driver contribution/availability layout beside completeness factors; proposed visual only, no real scoring graphic.
+- **Candidate slide title:** “An explainable score — with its missing evidence visible.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -1373,6 +1430,7 @@ The decision log is authoritative. Decisions 039–045 are explicitly dated 6 Oc
 | 9 Oct AS-104 merge / closeout | No new decision | PR #12 merges the existing temporal contract and accepted evidence; close current status while retaining M23–M26 | Acceptance, publication and merge remain separate; no Decision 050 or future-stage authorization | M27/E27/EV-031; merge `472edc7` |
 | 9 Oct AS-105 offline authorization | 050 | Frozen rank/direction family-aware P0 candidate geometry; explicit support denominator, exact pixel polygons and parent lineage | Explainable heuristic before separately authorized real acceptance/policy comparison | M28/E28/EV-032; synthetic-only PASS, uncommitted |
 | 10 Oct owner-approved design freeze | 051 | Consecutive-valid exact-pixel recurrence; invalid UNKNOWN, noncandidate breaks; no gap cutoff | Preserve AS-105 integrity validation, immediate geometry lineage, explicit history denominators and predeclared fixed-March April selection | [Frozen AS-106 design](AS_106_PERSISTENCE.md); DESIGN ONLY, implementation and M31–M35 NOT STARTED |
+| 10 Oct owner-approved design freeze | 052 | Availability-aware provisional HAB-like screening; evidence completeness separate from score/band | Missing is unavailable, correlated evidence disclosed; freeze before any real score | M37/E37/EV-041; FINAL / FROZEN DESIGN, NOT IMPLEMENTED |
 
 Remaining pending decisions include other task-required geospatial frameworks (NumPy/Rasterio now adopted), final operational demo site, usable hyperspectral event/site, and fitted ML selection. The PRD's broad stack is a suggested future stack, not the installed dependency inventory.
 
@@ -1416,6 +1474,8 @@ Remaining pending decisions include other task-required geospatial frameworks (N
 | E33 | [M33 upstream record](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.md); [JSON](evidence/AS_106_APRIL3_UPSTREAM_PREPARATION.json); M33/EV-037 | Exact April 3 AS-102→103→104→105; typed offline handoff and common contract PASS; 408 focused/993 full tests | Frozen sequence preserved; M34 inputs ready, recurrence NOT RUN; no scientific/architectural Decision |
 | E34 | [M34 real acceptance](evidence/AS_106_REAL_ACCEPTANCE.md); [JSON](evidence/AS_106_REAL_ACCEPTANCE.json); M34/EV-038 | Real as106-v1 P802/Q793/A7/B7/C0; 9/9 array/time/region oracles, repeat/tamper/offline bundle PASS; 190 focused/993 full tests | Observational engineering acceptance, not biological validation; zero retained without tuning; M35 NOT STARTED |
 | E35 | [M35 closeout](evidence/AS_106_CLOSEOUT.md); [JSON](evidence/AS_106_CLOSEOUT.json); M35/EV-039; PR #16–#20 chain | Accepted AS-106 result consolidated; publication/closeout prepared, official closure effective on merge | No new science/Decision; zero retained, engineering versus biological claims separated; AS-107 separately authorized |
+| E36 | [Prior M36 audit](evidence/AS_107_DESIGN_FREEZE.md#m36--e36--ev-040--prior-read-only-audit-complete); M36/EV-040 | Typed AS-105/106 feasibility and missing-component alternatives reviewed; owner-approved revisions followed in M37 | Prior read-only audit recorded retrospectively, no real score/implementation |
+| E37 | [M37 freeze](evidence/AS_107_DESIGN_FREEZE.md); [Decision 052](DECISIONS.md#decision-052--as-107-explainable-availability-aware-hab-risk-and-evidence-completeness); EV-041 | Owner-approved scoring/completeness/qualification/lineage/test contract frozen before real scoring | Design only; M38–M40/AS-108 NOT STARTED; no scientific result or calibrated confidence |
 
 Integration note (9 October 2026): E18–E19 and E20 are now reunited in chronological order. Their original bodies and historical statuses remain unchanged; E01–E17 remain preserved.
 

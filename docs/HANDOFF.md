@@ -1,6 +1,27 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-106 M35 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M37 design freeze — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED** through PR #21 merge
+`6b22d32f078ef80158b2f2d7aac4f3dd07925038` (official design baseline).
+**M36 / E36 / EV-040:** prior read-only feasibility/design audit COMPLETE.
+**Decision 052 / M37 / E37 / EV-041: FINAL / FROZEN DESIGN — NOT IMPLEMENTED.**
+The primary quantity is evidence_completeness; all current scored outputs must be
+qualified as provisional_observational_screening. Policy is frozen before any
+real AS-107 score; environmental context/intake exposure remain unavailable.
+No production implementation, real score, scientific product or AS-108 work.
+
+Current active development branch: none. Design prepared on
+`docs/as-107-design-freeze`. Next: owner review and separately authorized design
+PR/merge, then separate M38 implementation authorization. M38–M40 NOT STARTED;
+AS-108 NOT STARTED; future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.
+No PR/merge in M37. Decisions 050/051 and accepted evidence remain unchanged.
+
+See [frozen contract](AS_107_HAB_RISK.md), Decision 052 and
+[M36/M37 evidence](evidence/AS_107_DESIGN_FREEZE.md). Existing dated checkpoints
+below remain historical, including pre-PR #21 pending-closeout/no-052 statements.
+
+## Historical AS-106 M35 publication / closeout preparation — before PR #21 merge — 10 October 2026 (Asia/Dubai)
 
 **M35 / E35 / EV-039: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
 **AS-106 before this closeout merge: CLOSEOUT READY.** Official real-acceptance

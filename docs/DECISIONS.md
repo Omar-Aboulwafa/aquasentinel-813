@@ -1,6 +1,27 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-## Current AS-106 M35 publication / closeout preparation — 10 October 2026 (Asia/Dubai)
+## Current AS-107 M37 design freeze — 10 October 2026 (Asia/Dubai)
+
+**AS-106: COMPLETE / CLOSED** through PR #21 merge
+`6b22d32f078ef80158b2f2d7aac4f3dd07925038` (official design baseline).
+**M36 / E36 / EV-040:** prior read-only feasibility/design audit COMPLETE.
+**Decision 052 / M37 / E37 / EV-041: FINAL / FROZEN DESIGN — NOT IMPLEMENTED.**
+The primary quantity is evidence_completeness; all current scored outputs must be
+qualified as provisional_observational_screening. Policy is frozen before any
+real AS-107 score; environmental context/intake exposure remain unavailable.
+No production implementation, real score, scientific product or AS-108 work.
+
+Current active development branch: none. Design prepared on
+`docs/as-107-design-freeze`. Next: owner review and separately authorized design
+PR/merge, then separate M38 implementation authorization. M38–M40 NOT STARTED;
+AS-108 NOT STARTED; future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.
+No PR/merge in M37. Decisions 050/051 and accepted evidence remain unchanged.
+
+See [frozen contract](AS_107_HAB_RISK.md), Decision 052 and
+[M36/M37 evidence](evidence/AS_107_DESIGN_FREEZE.md). Existing dated checkpoints
+below remain historical, including pre-PR #21 pending-closeout/no-052 statements.
+
+## Historical AS-106 M35 publication / closeout preparation — before PR #21 merge — 10 October 2026 (Asia/Dubai)
 
 **M35 / E35 / EV-039: PUBLICATION / CLOSEOUT PASS — READY FOR PR.**
 **AS-106 before this closeout merge: CLOSEOUT READY.** Official real-acceptance
@@ -1939,6 +1960,212 @@ dependency, generic provenance/cache change, AS-107+, AS-105 policy comparison
 or P1 05.10 experiment is authorized.
 
 **Design specification:** [AS-106 Persistence](AS_106_PERSISTENCE.md).
+
+---
+
+## Decision 052 — AS-107 Explainable Availability-Aware HAB Risk and Evidence Completeness
+
+**Date:** 10 October 2026 (Asia/Dubai).
+**Status:** FINAL / FROZEN DESIGN — NOT IMPLEMENTED. Owner-approved M37 only.
+M36 audit COMPLETE; no real AS-107 score inspected/calculated, scientific product,
+implementation, AS-108 or context/exposure work. Decisions 050/051 unchanged.
+
+### Scientific scope and qualification
+
+An explainable availability-aware provisional observational HAB-like screening-risk
+layer, not complete intake operational risk. Freeze assessment_status
+`provisional_observational_screening` for every scored region and site summary;
+current context/exposure are unavailable, so current P0 is always provisional.
+No confirmed HAB, species/toxins, chlorophyll concentration, biological certainty,
+water-safety certification, shutdown advice, HAB probability, calibrated confidence,
+accuracy or warning-lead-time validation. Al Raha is a validation AOI, not a confirmed intake.
+
+### Regional components and overlap
+
+Use unchanged AS-105 regions/labels. For family j, exact integer
+`a_j=count(R intersect family_available_j)` and
+`v_j=count(R intersect family_evidence_j)`. Family order/membership stays Decision
+050 (F1 B05/red, F2 line height, F3 B06/red, F4 green/red, F5 green/blue); F1
+still counts once. Derive regional availability from masks, not global diagnostics.
+
+- spectral_anomaly: `S_R=100*sum(v_j)/sum(a_j)` over all five families, available
+  only for positive denominator; spectral family-evidence breadth over available
+  family-pixel opportunities.
+- chlorophyll_red_edge_signal: `E_R=100*(v1+v2+v3)/(a1+a2+a3)` only with positive
+  denominator. Scientific name: **red-edge family evidence breadth**; no
+  concentration or biological-causation inference.
+- persistence: region A_R=target candidates, B_R=candidates with valid prior
+  history, C_R=recurrent candidates; `T_R=100*C_R/B_R` only when B_R>0.
+  B_R=0 means None/unavailable/no_prior_valid_candidate_history, not absent
+  recurrence. Unsupported candidates/streak=1 do not establish nonrecurrence.
+  Preserve streak/timing for explanations only, without a new gap cutoff.
+
+No raw z/rank/deviation magnitude/new threshold. F1–F3 appear in both spectral
+and red-edge components: correlated/overlapping evidence, not independent
+confirmation. Existing weights deliberately emphasize red-edge evidence. Record
+this limitation in diagnostics, limitations and driver/explanation metadata.
+
+### Weights, missing policy, risk and coverage
+
+Canonical component order/raw weights q_i remain spectral_anomaly=0.35,
+chlorophyll_red_edge_signal=0.20, persistence=0.15, environmental_context=0.15,
+intake_exposure=0.15. Do not alter config. Require exactly these names, finite
+nonboolean numeric/nonnegative weights, positive total, positive required spectral/
+red-edge weights and abs(fsum(q_i)-1)<=1e-9. Retain raw and normalized weights;
+these are PoC hypotheses, not validated scientific constants.
+
+Availability-aware renormalization; never zero/neutral/imputed context/exposure.
+Mandatory spectral and red-edge unavailable => no score. Persistence may be
+unavailable. Context/exposure are unavailable/not_implemented. Unavailable driver:
+component_value=None, effective_weight=0, contribution_points=None, explicit reason.
+
+```text
+W0 = math.fsum(all q_i in fixed canonical order)
+w_i = q_i / W0
+K_R = math.fsum(w_i for available components in canonical order)
+risk_R = 100 * math.fsum(w_i * (x_i / 100) for available components in canonical order) / K_R
+```
+
+Zero K_R => no score. Component coverage=available configured weight/all configured
+weight, evaluated canonically as K_R. P0 maximum possible coverage 0.70; persistence
+unavailable with mandatory components available gives 0.55. These are configuration
+consequences, not real outcomes. Renormalization can raise score when a low-valued
+component becomes unavailable; coverage/reasons must remain visible.
+
+### Evidence completeness, B=0 and zero regions
+
+Primary field/name: evidence_completeness. For nonempty region N_R=A_R:
+
+```text
+F_all = sum(a_j for all five families) / (5 * N_R)
+F_red = (a1 + a2 + a3) / (3 * N_R)
+H_R = B_R / A_R
+evidence_completeness_R = min(component_coverage_R, F_all, F_red, H_R)
+```
+
+Output every factor and its numerator/denominator, including integer family/history
+counts. It is support/evidence completeness, not probability, biological confidence,
+statistical sufficiency, accuracy or event likelihood. No second AS-104 support
+multiplier; family availability already incorporates eligible temporal support.
+B_R=0 => persistence unavailable/H_R=0/completeness=0; a provisional mandatory-
+component score may exist. Zero completeness means missing history, not zero
+HAB likelihood/anomaly, safe water or HAB absence.
+
+Zero AS-105 candidate regions => no fabricated region; site status no_candidate_regions;
+score/band/completeness/selected_region=None, observation time and evaluability/policy
+support diagnostics retained. Exact wording: "No candidates under the frozen policy
+in evaluable observations." Do not output risk zero/Normal/safe/absence of HAB;
+distinguish from unevaluable observation using support diagnostics.
+
+### Bands, interpretation, monitoring and aggregation
+
+Strictly increasing nonnegative integer maxima ending at 100; reject boolean,
+negative/equal/malformed thresholds. Cut points low_max+1/watch_max+1/elevated_max+1.
+Defaults: Normal [0,25), Watch [25,50), Elevated [50,75), High [75,100]. Compare
+unrounded binary64 values; no epsilon/snapping. Score/band/completeness/coverage/
+factors/flags/recommendations separate. High stays High; no completeness multiplication.
+Freeze administrative limited_evidence_completeness_threshold=0.50, uncalibrated:
+<1 => incomplete_evidence; <0.50 => also limited_evidence_completeness. This
+qualifies wording, never score/band or probability/biological confidence.
+
+Recommendations: Normal "Continue scheduled observation"; Watch "Review on the
+next valid acquisition"; Elevated "Prioritize targeted review and field verification";
+High "High-priority field verification and increased monitoring". Unscored =>
+evidence review/additional valid observations. No shutdown/unsafe-water certification/
+confirmed bloom or petroleum action. Limited completeness wording visibly says
+verification is required and context/exposure are unavailable.
+
+Score each authoritative region; retain ID/label/count/area/family/persistence.
+No geometry edit/merge/filter; retain one-pixel regions with single_pixel_region
+limitation, no biological coherence claim. Site maximum: descending raw score,
+descending completeness, ascending component label. Copy selected score/band/
+completeness/coverage/drivers/recommendation/limitations together. No region average
+or HAB/oil combination; screening summary, not validated whole-site risk.
+
+### Drivers, typed API and parent-aware integrity
+
+RiskDriver: canonical_name, component_value float|None, configured_weight,
+canonical_weight, effective_weight, contribution_points float|None, availability,
+unavailable_reason, typed evidence counts/denominators, definition_id and source_product_ids.
+All five stored in canonical order. Available effective_weight=w_i/K_R;
+contribution_points=effective_weight*component_value. Explanation order: descending
+available contribution/canonical tie order, then unavailable canonical order.
+Canonical risk arithmetic reconstructs raw score from driver values/weights;
+display rounding is non-authoritative.
+
+```text
+compute_hab_risk(geometry_scene: HABAnomalyGeometryScene,
+    persistence_scene: HABPersistenceScene, *,
+    geometry_scenes: Iterable[HABAnomalyGeometryScene],
+    temporal_parents: Mapping[str, TemporalFeatureScene],
+    policy: HABRiskPolicy) -> HABRiskScene
+```
+
+Explicit geometry exactly matches persistence target. Call existing geometry.validate
+with temporal parent and persistence.validate with complete geometry sequence/typed
+witnesses. AS-104 witnesses are integrity inputs, not immediate scoring sources.
+Require matching ID/time/grid/masks/labels/regions/counts/fractions/contracts.
+Future risk validator regenerates outputs from validated parents and rejects even
+rehash-consistent tampering. No IO/network/registry mutation/retrieval/public upstream
+extraction. Existing validators' internal regeneration is integrity verification.
+Frozen dataclasses/canonical tuples/defensive copies/no aliasing. Intended models:
+HABRiskPolicy, RiskDriver, EvidenceCompletenessFactors, HABRegionRisk,
+HABSiteRiskSummary, HABRiskStatistics, HABRiskDiagnostics, HABRiskScene.
+No raster/cache/new dependency or production modules in M37.
+
+### Lineage, identity and deterministic serialization
+
+Immediate source_ids exactly `(target_geometry_scene.product_id, persistence_scene.product_id)`.
+No fictional unavailable-component IDs or PC/AS104 shortcuts. Preserve actual PC →
+AS-102 → AS-103 → AS-104 → AS-105 → AS-106; AS-107 consumes target AS-105 + AS-106;
+registry may deduplicate shared ancestry. No generic provenance change.
+
+Freeze as107-v1 / hab_risk / hab_risk:. Identity includes parent IDs/required
+versions, target acquisition/grid, input fingerprint, raw/canonical weights,
+component/missing/mandatory definitions, completeness/0.50 flag, continuous bands,
+site/ties, monitoring/qualification/assessment and relevant software versions.
+Exclude created_at/display rounding/publication metadata.
+
+as107-input-v1 framed SHA-256: consumed target policy/candidate masks/labels,
+family availability/evidence on candidate support, authoritative region identities/
+consumed measurements, AS-106 regional A/B/C/recurrence/history/timing/streak/matching.
+Exclude unrelated reflectance/z/rank/deviation and full AS-104 witness payloads.
+Consumed-bit change changes fingerprint even if final risk is equal; parent IDs
+separately enter identity. as107-output-v1 covers all regions/five drivers/components/
+denominators/availability/score/band/completeness/factors/coverage/interpretation/
+assessment/recommendation/site/statistics/diagnostics/limitations, excluding
+resulting AS-107 ID/creation time to avoid circularity.
+
+Float64/Python float, exact counts, math.fsum/fixed order, finite nonboolean values,
+no NaN/infinity/clipping/score or band epsilon; zero denominator unavailable None.
+Sorted JSON keys/fixed semantic lists/aware UTC/allow_nan=False, exact binary64
+fingerprint encoding (hex policy floats acceptable), null unavailable. Mapping
+order cannot affect identity. Invalid values/results rejected, not clipped.
+
+### Validation and authorization boundary
+
+Future synthetic/adversarial requirements and typed model details are frozen in
+[AS-107 contract](AS_107_HAB_RISK.md#future-m38-synthetic-and-adversarial-acceptance--not-run),
+including three/current and generic five/future components, missing/partial history,
+mandatory components, empty/single/multiple regions/ties, all score/band boundaries/
+neighbours, numeric/policy rejection, ordering/time exclusion, incompatible targets,
+witnesses, low-completeness High and complete tamper/IO/lineage/copy controls.
+Future arbitrary provider components not accepted; zero-score tests do not fabricate
+invalid AS-105 candidates. Recomputed attacker hashes do not confer validity.
+
+M39 real acceptance only after this decision merged/frozen, separate implementation
+authorization, synthetic/adversarial PASS and separate acceptance authorization.
+Unchanged accepted typed parents/witnesses, sealed hashes/modes, offline independent
+counts/components/score/band/completeness/drivers/site/repeat/permutation/identity/
+provenance/tamper/preservation. No expected real score/band; accept without tuning.
+AS-108 separately owns historical accuracy/sensitivity/specificity/false positives/
+biological truth/chlorophyll accuracy/toxic confirmation/optimal thresholds/lead
+time/calibration/intake-decision quality. AS-108 NOT STARTED.
+
+M36/E36/EV-040 COMPLETE; M37/E37/EV-041 design only; M38–M40 reserved NOT STARTED.
+Evidence: [M37 record](evidence/AS_107_DESIGN_FREEZE.md). Owner review/design PR+merge
+and separate implementation authorization required. No PR/merge/real score or
+implementation in M37. Future AS-105 policy validation NOT RUN; P1 05.10 NOT STARTED.
 
 ---
 
