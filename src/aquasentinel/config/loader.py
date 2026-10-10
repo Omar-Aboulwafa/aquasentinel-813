@@ -10,6 +10,7 @@ from aquasentinel.config.models import (
     OpticalConfig,
     RiskBands,
     RiskWeights,
+    SARConfig,
     STACConfig,
 )
 
@@ -51,6 +52,10 @@ def load_config(
     if isinstance(optical.get("allowed_asset_hosts"), list):
         optical["allowed_asset_hosts"] = tuple(optical["allowed_asset_hosts"])
 
+    sar = dict(raw.get("sar", {}))
+    if isinstance(sar.get("allowed_asset_hosts"), list):
+        sar["allowed_asset_hosts"] = tuple(sar["allowed_asset_hosts"])
+
     config = AquaSentinelConfig(
         app_name=raw["app"]["name"],
         environment=raw["app"]["environment"],
@@ -72,6 +77,7 @@ def load_config(
         ),
         catalog=STACConfig(**raw.get("catalog", {})),
         optical=OpticalConfig(**optical),
+        sar=SARConfig(**sar),
     )
 
     config.validate()

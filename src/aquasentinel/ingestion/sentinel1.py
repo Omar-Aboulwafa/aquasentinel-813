@@ -1,0 +1,42 @@
+"""AS-201 Sentinel-1 retrieval public surface; no scientific SAR processing."""
+
+from aquasentinel.ingestion.sentinel1_metadata import (
+    _parse_tiff_ifd,
+    _safe_range_bytes,
+    read_tiff_header,
+    validate_metadata_xml,
+    validate_retrieval_access,
+    validate_slice_access,
+)
+from aquasentinel.ingestion.sentinel1_policy import (
+    ENVELOPE_BBOX,
+    ENVELOPE_GEOMETRY,
+    ENVELOPE_ID,
+    FROZEN_SOURCES,
+    POLICY_VERSION,
+    REPRESENTATION,
+    REQUIRED_POLARIZATIONS,
+    REQUIRED_VV_ASSETS,
+    ROLE_ORDER,
+    FrozenSentinel1Source,
+    Sentinel1AcquisitionGroup,
+    Sentinel1AssetReference,
+    Sentinel1HeaderSummary,
+    Sentinel1MetadataError,
+    Sentinel1MetadataSummary,
+    Sentinel1RetrievalError,
+    Sentinel1RetrievalSet,
+    Sentinel1SliceSource,
+)
+from aquasentinel.ingestion.sentinel1_resolver import build_retrieval_set, search_sentinel1
+
+__all__ = [
+    "ENVELOPE_BBOX", "ENVELOPE_GEOMETRY", "ENVELOPE_ID", "FROZEN_SOURCES",
+    "POLICY_VERSION", "REPRESENTATION", "REQUIRED_POLARIZATIONS", "REQUIRED_VV_ASSETS",
+    "ROLE_ORDER", "FrozenSentinel1Source", "Sentinel1AcquisitionGroup",
+    "Sentinel1AssetReference", "Sentinel1HeaderSummary", "Sentinel1MetadataError",
+    "Sentinel1MetadataSummary", "Sentinel1RetrievalError", "Sentinel1RetrievalSet",
+    "Sentinel1SliceSource", "build_retrieval_set", "read_tiff_header", "search_sentinel1",
+    "validate_metadata_xml", "validate_retrieval_access", "validate_slice_access",
+    "_parse_tiff_ifd", "_safe_range_bytes",
+]
