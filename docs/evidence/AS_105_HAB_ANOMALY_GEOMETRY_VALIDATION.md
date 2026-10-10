@@ -1,4 +1,52 @@
-# AS-105 M28 — Offline Geometry Implementation and Adversarial Validation
+# AS-105 — Offline and Real Geometry Engineering Validation
+
+## Current AS-105 M29 status — 10 October 2026 (Asia/Dubai)
+
+**M28: COMPLETE / COMMITTED / PUSHED**, implementation `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`,
+branch `feature/as-105-hab-anomaly-geometry`, remote
+`origin/feature/as-105-hab-anomaly-geometry`, base main `4e322df220f8cab2805fccf9a2b32dd825f29218`.
+**M29 / E29 / EV-033: REAL ENGINEERING ACCEPTANCE PASS; OWNER REVIEW PASS.**
+Decision 050 remains unchanged; M29 is an execution/evidence checkpoint, not
+Decision 051. The accepted AS-104 handoff was the only real input; no network,
+upstream reprocessing or AS-102 cache loading, and no policy tuning.
+
+Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 COMPLETE / COMMITTED / PUSHED → AS-105 M29 REAL ENGINEERING ACCEPTANCE PASS → owner review of M29 documentation/publication followed by PR preparation → AS-105 FEATURE NOT YET PR-MERGED → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
+
+Target valid water **7,963**; policy-evaluable support P **802** (**10.071581%**
+coverage diagnostic); candidates **7**, fraction **7/802 = 0.872818%** of P.
+**Projected-grid candidate area: 2,800 m² / 0.0028 km².** One eight-connected
+region, one MultiPolygon with three four-connected pieces; F2/F4 agreement.
+P is not full AOI/ocean/risk coverage, and its coverage is not candidate fraction.
+Sparse-history support remains material; no masks were relaxed.
+
+Frozen real product: `hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682`.
+First extraction **2026-10-10T05:45:15.046037+00:00–05:45:15.173566+00:00** /
+**09:45:15.046037–09:45:15.173566 +04:00 Asia/Dubai**;
+acceptance completed **05:45:46.711968 UTC / 09:45:46.711968 +04:00**.
+Execution/acceptance precede owner review and this later documentation publication;
+no PR or merge timestamp exists. **PR NOT CREATED; FEATURE NOT YET MERGED.**
+
+Independent masks/families/P/C, components, area and polygon round-trip PASS;
+repeat **27/27 arrays**, parent immutability **61/61**, bundle read-back PASS.
+M29 gates: **140 focused / 803 full tests PASS**, Ruff/diff PASS;
+only six existing Rasterio PendingDeprecationWarnings. These are local checks,
+not GitHub CI or scientific accuracy. External local evidence bundle:
+`/workspace/aquasentinel-acceptance/as105/m29/`, **NOT tracked in Git**.
+
+M29 establishes reproducible real candidate spectral anomaly geometry only. It does NOT establish confirmed HAB/bloom, chlorophyll concentration, species/toxins, biological causation, sensitivity/specificity/accuracy/false-positive rate, event agreement, persistence, risk/confidence, water safety, intake exposure, alert or warning lead time. No comparison with the historical April event was performed. Rank is not probability/confidence/significance/severity; policy families are not statistically independent. Five observations are not statistical sufficiency.
+Future comparative policy validation: **REQUIRED / NOT RUN**, including
+predeclared history-depth sensitivity; AS-106+ and P1 05.10 **NOT STARTED**.
+Immediate next step: **owner review of M29 documentation/publication followed by
+PR preparation**; no PR creation or merge in this task. All earlier M01–M28,
+E01–E28, EV-001–EV-032 and Decisions 001–050 remain historical and preserved.
+The old M28 status below describes its earlier checkpoint, not current status.
+See [AS-105 contract](../AS_105_HAB_ANOMALY_GEOMETRY.md) and [M29 validation](AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026).
+
+## Historical M28 offline validation record
+
+All sections below through the earlier limitations/next-boundary section describe
+M28 before real execution. Their original NOT RUN/UNKNOWN/publication wording
+is preserved as history. The separate M29 section records the later real PASS.
 
 **Date:** 9 October 2026 (Asia/Dubai).
 **Checkpoint:** M28 / E28 / EV-032, Decision 050.
@@ -232,3 +280,211 @@ dependence without altering M29's accepted minimum-five parent. NOT RUN.
 It has **NOT RUN**. April 28 cannot serve as both tuning data and sole superiority
 evidence. Feature publication and then PR code review follow the passed owner-review clarification. Real AS-105 acceptance,
 future policy study, AS-106+ and P1 05.10 require separate authorization.
+
+## M29 — Real geometry engineering acceptance — 10 October 2026
+
+**Checkpoint:** M29 / E29 / EV-033. **Owner execution review: PASS.**
+**Implementation:** `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`, `feat: implement AS-105 HAB anomaly geometry`;
+branch `feature/as-105-hab-anomaly-geometry`, base main `4e322df220f8cab2805fccf9a2b32dd825f29218`.
+M28 is COMPLETE / COMMITTED / PUSHED, with synthetic/adversarial evidence preserved.
+M29 used the unchanged Decision 050 policy; no Decision 051 and no tuning.
+The later owner-authorized documentation publication uses the same feature branch;
+execution/acceptance, review/publication and any future merge are separate events.
+PR NOT CREATED; feature NOT YET PR-MERGED. No real rerun in this documentation task.
+
+### Verified input, environment and execution timestamps
+
+Only the frozen read-only external AS-104 handoff was loaded, with `allow_pickle=False`.
+All three prerequisite hashes above and 0444 files / 0555 directory matched.
+Exactly 61 names, dtypes and (228,310) shapes passed; a fresh TemporalFeatureScene
+validated and recomputed product/output fingerprint exactly:
+`temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b` / `2a2902f946d49487f1416d0bd6ad73c7976910fe72060f03503540a49e2678dd`.
+Environment exactly Python 3.11.16, NumPy 2.2.6, Rasterio 1.4.3, GDAL 3.9.3.
+
+First execution **2026-10-10T05:45:15.046037+00:00–2026-10-10T05:45:15.173566+00:00**;
+Dubai **2026-10-10T09:45:15.046037+04:00–2026-10-10T09:45:15.173566+04:00**.
+Repeat **05:45:15.246649–05:45:15.360536 UTC / 09:45:15.246649–09:45:15.360536 +04:00**.
+Acceptance completed **2026-10-10T05:45:46.711968+00:00** /
+**2026-10-10T09:45:46.711968+04:00 Asia/Dubai**. Owner review and documentation
+publication occur later on 10 October; no exact review/publication second is
+asserted here. No PR/merge timestamp exists for AS-105.
+
+Connection/DNS/HTTP, upstream-processing and AS-102 cache-load attempts: **0 each**
+in the guarded real process, including reconstruction/imports/first/repeat.
+Harmless socket construction was not classified as a connection. Git remote
+state verification was separate from offline EO execution. No STAC, CDSE, PC,
+signing, imagery download, optical/spectral/temporal recalculation or AS-102 cache
+load. Raw file hashing alone verified cache preservation.
+
+### Exact real product identity
+
+- Product: `hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682`.
+- Consumed-input fingerprint: `c50d9f6300060ab9f194c1a0b8808de340eb53326268a52ef083ad7f994b2bc5`.
+- Output-content fingerprint: `ff976ec800ec2dfc966e4f373dd3f2442938a06a10254dd4ea7a86280dd0a765`.
+- Processing version: `as105-v1`; immediate parent: `temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`.
+- Target: `2023-04-28T06:46:29.024000+00:00`.
+- Grid: EPSG:32640, 20 m, width 310 × height 228; transform
+  `[20, 0, 249020, 0, -20, 2707420]`; bounds `[249020, 2702860, 255220, 2707420]`.
+- Grid ID: `88d76cf6265d9e0fa2802ed26324c02275e74721d4eb5b597cc9884a6d27aeec`.
+- Complete frozen policy/software/provenance parameters are in the external JSON;
+  immediate lineage remains actual PC → AS-102 → AS-103 → AS-104 → AS-105.
+
+### Support and exact feature/family diagnostics
+
+Target valid water **7,963**; policy-evaluable support P **802**.
+P/target water **802/7963 = 0.10071581062413663 = 10.071581%**.
+P is the support on which AS-105 policy could be evaluated, **not** full AOI coverage,
+comprehensive ocean assessment, candidate fraction or risk coverage. This confirms
+that the sparse-history limitation remains material in the real run.
+
+Positive/threshold/evidence counts below are within each feature's rank-valid
+support. Evidence counts are neither detections nor probabilities. Literal raw-parent
+recomputation matched every mask/count/diagnostic exactly.
+
+| Feature | Rank-valid | Positive deviation | Threshold-rank | Evidence | Evidence/support |
+|---|---:|---:|---:|---:|---|
+| `ndci_like` | 792 | 148 | 3 | 3 | 3/792 |
+| `mci_like` | 802 | 234 | 37 | 37 | 37/802 |
+| `red_edge_red_ratio` | 801 | 148 | 3 | 3 | 3/801 |
+| `red_edge2_red_ratio` | 801 | 175 | 0 | 0 | 0/801 |
+| `green_red_ratio` | 801 | 743 | 47 | 47 | 47/801 |
+| `green_blue_ratio` | 797 | 195 | 1 | 1 | 1/797 |
+
+| Policy family | Available | Votes | Votes/availability |
+|---|---:|---:|---|
+| F1 `red_edge_b5_vs_red` | 802 | 3 | 3/802 |
+| F2 `red_edge_line_height` | 802 | 37 | 37/802 |
+| F3 `red_edge_b6_vs_red` | 801 | 0 | 0/801 |
+| F4 `visible_green_vs_red` | 801 | 47 | 47/801 |
+| F5 `visible_green_vs_blue` | 797 | 1 | 1/797 |
+
+F1 member features remain **one policy-family vote**, not two independent
+measurements; none of these policy families is claimed statistically independent.
+
+| Family count | Availability on target water | Votes on P | Votes on C |
+|---:|---:|---:|---:|
+| 0 | 7161 | 722 | 0 |
+| 1 | 0 | 72 | 0 |
+| 2 | 0 | 8 | 7 |
+| 3 | 1 | 0 | 0 |
+| 4 | 5 | 0 | 0 |
+| 5 | 796 | 0 | 0 |
+
+### Candidate and sole-region results
+
+Candidate pixels **7**; candidate fraction uses P:
+**7/802 = 0.008728179551122194 = 0.872818%**.
+Candidate/target water **7/7963 = 0.0008790656787642849 = 0.087907%**, descriptive only.
+Pixel area **400 m²**; **projected-grid candidate area: 2,800 m² / 0.0028 km²**,
+not confirmed bloom extent. One region, zero one-pixel regions; largest and median
+region **7 pixels / 2,800 m² / 0.0028 km²**. Size histogram:
+`1:0; 2–4:0; 5–9:1; 10–49:0; 50+:0`.
+Polygon **0**, MultiPolygon **1**, total polygon parts **3**. These are one
+eight-connected region's four-connected pieces, not three independent regions.
+
+- Region ID: `hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682:region:1`.
+- Component label **1**, first row/column **159, 5**, pixel count **7**.
+- Projected-grid candidate area **2,800 m² / 0.0028 km²**.
+- Projected bbox **[249120, 2704160, 249200, 2704240]**.
+- Geometry **MultiPolygon**, **3 parts**.
+- Participating families **F2 red_edge_line_height + F4 visible_green_vs_red**.
+- Family evidence-pixel counts in F1–F5 order **0, 7, 0, 7, 0**.
+- Maximum/median votes **2 / 2**.
+
+This region was created by **F2 + F4 family agreement under the frozen policy**.
+That is not confirmed biological signal, algae, HAB or chlorophyll confirmation.
+Complete canonical geometry and all six regional deviation/rank summaries are
+preserved in the external `real_acceptance.json`, `regions` record.
+
+### Observed five-history rank granularity
+
+No supported feature rank equalled **float32(0.90)**. The observed union was
+`0`, `0.20000000298023224`, `0.4000000059604645`, `0.6000000238418579`,
+`0.800000011920929`, `1.0`. Thus **for this accepted parent's observed supported
+pixels only**, `rank >= float32(0.90)` was operationally equivalent to `rank == 1.0`.
+The algorithm was not rewritten; its threshold remains nominal .90, actual
+`0.8999999761581421`, bits `3f666666`. Four-below/one-exact-tie can produce .90
+in another five-history pixel. This measured coarse-rank property strengthens
+future predeclared history-depth sensitivity; it is not a policy comparison.
+
+Columns .2/.4/.6/.8 use the exact float32 values listed above; zero counts mean
+absence from that feature's unique supported ranks.
+
+| Feature | 0 | .2 | .4 | .6 | .8 | 1 | Exact .90 | >=threshold | >=threshold + positive |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| `ndci_like` | 98 | 308 | 238 | 93 | 52 | 3 | 0 | 3 | 3 |
+| `mci_like` | 164 | 233 | 171 | 117 | 80 | 37 | 0 | 37 | 37 |
+| `red_edge_red_ratio` | 36 | 377 | 240 | 92 | 53 | 3 | 0 | 3 | 3 |
+| `red_edge2_red_ratio` | 28 | 389 | 209 | 109 | 66 | 0 | 0 | 0 | 0 |
+| `green_red_ratio` | 0 | 5 | 53 | 32 | 664 | 47 | 0 | 47 | 47 |
+| `green_blue_ratio` | 141 | 297 | 164 | 79 | 115 | 1 | 0 | 1 | 1 |
+
+**Owner-confirmed publication transcription correction — 10 October 2026:**
+The earlier chat table incorrectly listed `red_edge_red_ratio` counts 238 at
+rank float32(.4) and 93 at float32(.6). The verified acceptance JSON records
+**240 and 92**; its six rank-bin counts sum to the accepted **801** supported
+pixels, whereas the chat transcription summed to 800. The owner explicitly
+approved using the verified artifact values and documenting this correction.
+`real_acceptance.json` retains SHA-256
+`4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a`.
+This corrects publication text only; no accepted artifact, measurement, policy
+or algorithm changed, and no real execution was rerun.
+
+Deterministic spot checks A/E are (159,5), F2/F4 two-vote candidates; B (4,196)
+is P-supported with zero votes; C (31,224) has only F2; D (125,197) has F4/F5
+without red-edge evidence and is not a candidate; F (>=3-vote candidate) is NONE.
+Exact projected centres, six deviations/ranks/support/evidence and five family
+availability/votes are in JSON `spot_checks`. No biological interpretation.
+
+### Engineering acceptance gates and preservation
+
+All PASS: exact handoff verification; parent validate; AS-105 scene.validate;
+independent pixel/family aggregation/P/C; independent eight-connected complete
+labels, component count and row-major seeds; independent determinant **400 m²**
+and each/total area; exact polygon label/union rasterization with `all_touched=False`,
+no bridges/extras; deterministic repeat **27/27** arrays plus IDs/fingerprints/
+regions/statistics/diagnostics/policy, allowing only provenance created_at to differ;
+parent immutability **61/61** and canonical metadata unchanged; bundle round-trip;
+no network/upstream processing/cache loads/policy tuning; repository preservation.
+First-run metrics were recorded before the second production API call; exactly
+two calls occurred. No good-looking/nonzero/event-agreeing result was required.
+
+M29 local quality: focused **140 passed in 5.30s**; full **803 passed, 6 warnings
+in 24.60s**; Ruff PASS; git diff --check PASS. Six existing Rasterio
+PendingDeprecationWarnings only (`windows.py:360–361`); no GitHub CI-success claim.
+During real execution all 98 tracked-file hashes and clean feature/base SHAs
+were preserved; three handoff hashes/permissions and **12/12** accepted AS-102
+cache-file hashes unchanged; both safety stashes and **13** recovery artifacts
+unchanged. This later documentation task changes only seven authorized docs,
+checks source/test bytes against `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5` and retains external artifacts.
+
+### External acceptance bundle and checksums
+
+`/workspace/aquasentinel-acceptance/as105/m29/` is an **external local evidence
+artifact, NOT tracked in Git**. Files 0444, directory 0555; no signed URLs/secrets.
+
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| `SHA256SUMS.txt` | 255 | `5380195b14c84d5d4d5c7365efa12226dbebd93ab726590575b1c0cc0c55b65b` |
+| `execution.log` | 1,388 | `f356d435b915fd763ac041526f1228cf2a6de30928cfd2dec52bb0340314844a` |
+| `real_acceptance.json` | 50,976 | `4ee7496b9537e80523d1e92ecee0b9cccce98fb5b3f293d7db279479076aec6a` |
+| `scientific_arrays.npz` | 16,027 | `f17e346a9ea3bc29b84e4c568986c8b4d335664dc603ac25b3fab61a66338705` |
+
+Audit PASS: **27 arrays**, no objects; 24 bool masks, 2 uint8 counts, 1 int32 label
+raster, all (228,310). `allow_pickle=False` reload compared 27/27 arrays to live
+scene; canonical JSON/read-back identity and checksum inventory verified.
+Hashes cover the exact original acceptance bundle, not an EO rerun or repo cache.
+
+### Scientific boundary and next step
+
+M29 establishes reproducible real candidate spectral anomaly geometry only. It does NOT establish confirmed HAB/bloom, chlorophyll concentration, species/toxins, biological causation, sensitivity/specificity/accuracy/false-positive rate, event agreement, persistence, risk/confidence, water safety, intake exposure, alert or warning lead time. No comparison with the historical April event was performed. Rank is not probability/confidence/significance/severity; policy families are not statistically independent. Five observations are not statistical sufficiency.
+The allowed claims are seven candidate anomaly pixels, one eight-connected
+candidate region, three polygon pieces, F2/F4 agreement and reproducible
+**projected-grid candidate area**. No tuning, filtering, size removal, morphology,
+smoothing, gap fill, interpolation or manual geometry editing occurred.
+
+M28 COMPLETE / COMMITTED / PUSHED; M29 REAL ENGINEERING ACCEPTANCE PASS and owner
+review PASS. Feature NOT YET PR-MERGED; PR NOT CREATED. Immediate next step is
+owner review of M29 documentation/publication followed by PR preparation.
+Future comparative policy validation **REQUIRED / NOT RUN**, including history-depth
+sensitivity. AS-106+ and P1 05.10 **NOT STARTED**. No Decision 051.

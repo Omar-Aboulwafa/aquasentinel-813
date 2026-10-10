@@ -1,6 +1,48 @@
 # AS-105 — Predeclared Family-Aware Candidate Anomaly Geometry
 
-## Current status and boundary
+## Current AS-105 M29 status — 10 October 2026 (Asia/Dubai)
+
+**M28: COMPLETE / COMMITTED / PUSHED**, implementation `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`,
+branch `feature/as-105-hab-anomaly-geometry`, remote
+`origin/feature/as-105-hab-anomaly-geometry`, base main `4e322df220f8cab2805fccf9a2b32dd825f29218`.
+**M29 / E29 / EV-033: REAL ENGINEERING ACCEPTANCE PASS; OWNER REVIEW PASS.**
+Decision 050 remains unchanged; M29 is an execution/evidence checkpoint, not
+Decision 051. The accepted AS-104 handoff was the only real input; no network,
+upstream reprocessing or AS-102 cache loading, and no policy tuning.
+
+Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 COMPLETE / COMMITTED / PUSHED → AS-105 M29 REAL ENGINEERING ACCEPTANCE PASS → owner review of M29 documentation/publication followed by PR preparation → AS-105 FEATURE NOT YET PR-MERGED → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
+
+Target valid water **7,963**; policy-evaluable support P **802** (**10.071581%**
+coverage diagnostic); candidates **7**, fraction **7/802 = 0.872818%** of P.
+**Projected-grid candidate area: 2,800 m² / 0.0028 km².** One eight-connected
+region, one MultiPolygon with three four-connected pieces; F2/F4 agreement.
+P is not full AOI/ocean/risk coverage, and its coverage is not candidate fraction.
+Sparse-history support remains material; no masks were relaxed.
+
+Frozen real product: `hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682`.
+First extraction **2026-10-10T05:45:15.046037+00:00–05:45:15.173566+00:00** /
+**09:45:15.046037–09:45:15.173566 +04:00 Asia/Dubai**;
+acceptance completed **05:45:46.711968 UTC / 09:45:46.711968 +04:00**.
+Execution/acceptance precede owner review and this later documentation publication;
+no PR or merge timestamp exists. **PR NOT CREATED; FEATURE NOT YET MERGED.**
+
+Independent masks/families/P/C, components, area and polygon round-trip PASS;
+repeat **27/27 arrays**, parent immutability **61/61**, bundle read-back PASS.
+M29 gates: **140 focused / 803 full tests PASS**, Ruff/diff PASS;
+only six existing Rasterio PendingDeprecationWarnings. These are local checks,
+not GitHub CI or scientific accuracy. External local evidence bundle:
+`/workspace/aquasentinel-acceptance/as105/m29/`, **NOT tracked in Git**.
+
+M29 establishes reproducible real candidate spectral anomaly geometry only. It does NOT establish confirmed HAB/bloom, chlorophyll concentration, species/toxins, biological causation, sensitivity/specificity/accuracy/false-positive rate, event agreement, persistence, risk/confidence, water safety, intake exposure, alert or warning lead time. No comparison with the historical April event was performed. Rank is not probability/confidence/significance/severity; policy families are not statistically independent. Five observations are not statistical sufficiency.
+Future comparative policy validation: **REQUIRED / NOT RUN**, including
+predeclared history-depth sensitivity; AS-106+ and P1 05.10 **NOT STARTED**.
+Immediate next step: **owner review of M29 documentation/publication followed by
+PR preparation**; no PR creation or merge in this task. All earlier M01–M28,
+E01–E28, EV-001–EV-032 and Decisions 001–050 remain historical and preserved.
+The old M28 status below describes its earlier checkpoint, not current status.
+See [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md) and [M29 validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026).
+
+## Historical M28 implementation/publication boundary
 
 9 October 2026 (Asia/Dubai): owner-authorized **M28 offline implementation only**.
 Branch `feature/as-105-hab-anomaly-geometry`, base
@@ -21,7 +63,7 @@ region count, fragmentation and family-vote distribution remain **UNKNOWN**.
 Future policy comparison is required and **NOT RUN**. AS-106+ and P1 homogeneous
 05.10 robustness are **NOT STARTED**.
 
-## Plan and implementation scope
+## Historical M28 plan and implementation scope
 
 Goal: translate predeclared per-feature temporal evidence into family agreement,
 an explicit evaluable support population, eight-connected regions and exact
@@ -151,8 +193,7 @@ V1 accepts explicit EPSG projected metre grids with finite, nonsingular,
 north-up square affine pixels and consistent resolution, dimensions and bounds.
 Geographic, foot-unit, rotated/sheared, rectangular, inconsistent and malformed
 grids fail. Pixel area is `abs(a*e - b*d)`, not a hardcoded 400. Region area is
-pixel count × pixel area; km² divides by 1,000,000. Call it **projected grid
-candidate area**, not confirmed bloom extent.
+pixel count × pixel area; km² divides by 1,000,000. Call it **projected-grid candidate area**, not confirmed bloom extent.
 
 ## API and typed output
 
@@ -270,7 +311,27 @@ on coarse five-observation empirical ranks. It is NOT RUN, and does not change
 minimum_observations=5 or the accepted frozen AS-104 parent for M29.
 
 Do not optimize on April 28 and then use it as the sole proof of superiority.
-This study is not authorized/run now. Real geometry acceptance requires separate
-owner authorization after M28 review. No persistence, risk/confidence, historical
+This study is not authorized/run now. Separately authorized M29 real engineering
+acceptance is PASS under the unchanged policy; see the dated M29 evidence below. No persistence, risk/confidence, historical
 accuracy validation, intake exposure, alerting, monitoring recommendations, ML,
 threshold fitting, full-scene export or new cache system is implemented here.
+
+## M29 real acceptance under the unchanged contract
+
+Owner-reviewed M29 / E29 / EV-033 PASS on 10 October 2026 (Asia/Dubai), using
+implementation `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5` and the frozen accepted AS-104 parent
+`temporal:e814b0574ab30d1841778ee3c5005ffcb313ab42473c41acc028f0a9f7804a8b`. Version `as105-v1`, input fingerprint `c50d9f6300060ab9f194c1a0b8808de340eb53326268a52ef083ad7f994b2bc5`,
+output fingerprint `ff976ec800ec2dfc966e4f373dd3f2442938a06a10254dd4ea7a86280dd0a765`. The observed result is 7 candidate pixels out of
+802 policy-evaluable pixels, one eight-connected region and three polygon pieces;
+projected-grid candidate area 2,800 m² / 0.0028 km². The support coverage is
+802/7,963 = 10.071581%, not comprehensive water assessment or risk coverage.
+No supported rank equalled float32(0.90); supported ranks in this parent were
+limited to 0/float32(.2)/float32(.4)/float32(.6)/float32(.8)/1. Thus >=float32(.90)
+selected rank 1.0 for these observed pixels only. The algorithm remains >=float32(.90),
+and four-below/one-exact-tie can still yield .90 in another five-history pixel.
+Future predeclared history-depth sensitivity remains required and NOT RUN.
+
+Exact feature/family/rank tables, sole region, timestamps, bundle hashes and all
+independent acceptance checks are in [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md) and [M29 validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026). No real execution rerun in this
+documentation task. PR NOT CREATED; feature NOT YET PR-MERGED; AS-106+ and P1
+05.10 NOT STARTED. M28 synthetic results remain historically distinct.

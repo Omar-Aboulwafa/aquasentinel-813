@@ -1,6 +1,48 @@
 # AquaSentinel 813 — Architecture & Product Decisions
 
-## Current AS-105 M28 status — 10 October 2026 (Asia/Dubai)
+## Current AS-105 M29 status — 10 October 2026 (Asia/Dubai)
+
+**M28: COMPLETE / COMMITTED / PUSHED**, implementation `57100b2e53e941f3a7fdfdfc40b61d2b4043c0e5`,
+branch `feature/as-105-hab-anomaly-geometry`, remote
+`origin/feature/as-105-hab-anomaly-geometry`, base main `4e322df220f8cab2805fccf9a2b32dd825f29218`.
+**M29 / E29 / EV-033: REAL ENGINEERING ACCEPTANCE PASS; OWNER REVIEW PASS.**
+Decision 050 remains unchanged; M29 is an execution/evidence checkpoint, not
+Decision 051. The accepted AS-104 handoff was the only real input; no network,
+upstream reprocessing or AS-102 cache loading, and no policy tuning.
+
+Foundation/continuity complete → AS-101/102/103 merged → Decisions 048/049 merged → AS-104 COMPLETE AND MERGED → AS-105 M28 COMPLETE / COMMITTED / PUSHED → AS-105 M29 REAL ENGINEERING ACCEPTANCE PASS → owner review of M29 documentation/publication followed by PR preparation → AS-105 FEATURE NOT YET PR-MERGED → AS-106+ NOT STARTED; P1 05.10 NOT STARTED.
+
+Target valid water **7,963**; policy-evaluable support P **802** (**10.071581%**
+coverage diagnostic); candidates **7**, fraction **7/802 = 0.872818%** of P.
+**Projected-grid candidate area: 2,800 m² / 0.0028 km².** One eight-connected
+region, one MultiPolygon with three four-connected pieces; F2/F4 agreement.
+P is not full AOI/ocean/risk coverage, and its coverage is not candidate fraction.
+Sparse-history support remains material; no masks were relaxed.
+
+Frozen real product: `hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682`.
+First extraction **2026-10-10T05:45:15.046037+00:00–05:45:15.173566+00:00** /
+**09:45:15.046037–09:45:15.173566 +04:00 Asia/Dubai**;
+acceptance completed **05:45:46.711968 UTC / 09:45:46.711968 +04:00**.
+Execution/acceptance precede owner review and this later documentation publication;
+no PR or merge timestamp exists. **PR NOT CREATED; FEATURE NOT YET MERGED.**
+
+Independent masks/families/P/C, components, area and polygon round-trip PASS;
+repeat **27/27 arrays**, parent immutability **61/61**, bundle read-back PASS.
+M29 gates: **140 focused / 803 full tests PASS**, Ruff/diff PASS;
+only six existing Rasterio PendingDeprecationWarnings. These are local checks,
+not GitHub CI or scientific accuracy. External local evidence bundle:
+`/workspace/aquasentinel-acceptance/as105/m29/`, **NOT tracked in Git**.
+
+M29 establishes reproducible real candidate spectral anomaly geometry only. It does NOT establish confirmed HAB/bloom, chlorophyll concentration, species/toxins, biological causation, sensitivity/specificity/accuracy/false-positive rate, event agreement, persistence, risk/confidence, water safety, intake exposure, alert or warning lead time. No comparison with the historical April event was performed. Rank is not probability/confidence/significance/severity; policy families are not statistically independent. Five observations are not statistical sufficiency.
+Future comparative policy validation: **REQUIRED / NOT RUN**, including
+predeclared history-depth sensitivity; AS-106+ and P1 05.10 **NOT STARTED**.
+Immediate next step: **owner review of M29 documentation/publication followed by
+PR preparation**; no PR creation or merge in this task. All earlier M01–M28,
+E01–E28, EV-001–EV-032 and Decisions 001–050 remain historical and preserved.
+The old M28 status below describes its earlier checkpoint, not current status.
+See [AS-105 contract](AS_105_HAB_ANOMALY_GEOMETRY.md) and [M29 validation](evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md#m29--real-geometry-engineering-acceptance--10-october-2026).
+
+## Historical AS-105 M28 status — before M29, 10 October 2026 (Asia/Dubai)
 
 Owner-authorized **offline implementation only**; Decision 050 / M28 / E28 / EV-032.
 **PASS — OWNER-REVIEWED / FEATURE PUBLICATION AUTHORIZED** on
