@@ -65,6 +65,15 @@ The exact seven Sentinel-2 product identities, AOI, grid, frozen counts, lineage
 
 M61 / PR #38 proved the live AS-201 retrieval and metadata/access boundary for six exact frozen real Sentinel-1 products. This is an engineering foundation, not oil science. The project has not started AS-202 SAR pixel/backscatter/surface-slick scientific processing.
 
+### Data sources and licences
+
+- **Copernicus Sentinel-1 and Sentinel-2 data:** Sentinel data are made available on a **free, full and open** basis under the European Commission's **Legal Notice on the use of Copernicus Sentinel Data and Service Information**. Lawful use includes reproduction, distribution, communication, adaptation, modification and combination with other data. Public redistribution/communication requires source attribution. Official legal notice: https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice
+- **Copernicus Data Space Ecosystem (CDSE):** used for discovery, source identity and metadata access. Use of the CDSE service is subject to its Terms and Conditions: https://dataspace.copernicus.eu/terms-and-conditions
+- **Microsoft Planetary Computer:** used as an access/asset-delivery service for the exact Sentinel products selected by the pipeline. Planetary Computer service/token use is subject to Microsoft's Terms of Use: https://planetarycomputer.microsoft.com/terms . The underlying Sentinel data remain subject to the Copernicus Sentinel legal notice above.
+- **Attribution used by AquaSentinel:** reviewer-facing derived outputs based on the 2023 Sentinel-2 sequence should be read as **Contains modified Copernicus Sentinel data 2023**. Sentinel-1 AS-201 engineering evidence based on the frozen 2026 products should be read as **Contains modified Copernicus Sentinel data 2026**.
+
+AquaSentinel does not redistribute raw Sentinel scenes or provider products. It commits compact derived evidence, source/product identifiers, provenance and reviewer outputs only. Short-lived signed URLs/tokens are never committed.
+
 ### Processing and redistribution boundary
 
 Sentinel-2 L2A BOA surface reflectance is **not** automatically aquatic remote-sensing reflectance (Rrs), and the repository does not claim otherwise.
@@ -207,7 +216,7 @@ Field and laboratory verification remain necessary.
 - **Theme:** **Marine & Water Security**
 - **Team state:** organizer platform remains authoritative for the approved roster.
 - **Repository author metadata:** Omar Aboulwafa
-- **EO attribution:** product/source identities and providers are retained in repository provenance; raw provider imagery is not redistributed.
+- **EO attribution:** product/source identities and providers are retained in repository provenance; raw provider imagery is not redistributed. Data-source licensing and service terms are stated explicitly in Section 4 above.
 - **Project code licence:** no standalone open-source `LICENSE` file is declared, so this README does not invent a broad reuse grant.
 
 For engineering status and scientific evidence, see `docs/PROJECT_STATE.md`, `docs/DECISIONS.md`, and `docs/evidence/`.
