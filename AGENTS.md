@@ -2,7 +2,7 @@
 
 ## Mission
 
-AquaSentinel 813 is an explainable multi-hazard marine-intake intelligence system for the Arab Youth Space Hackathon 2026, Track 03: Water Security & Marine Environments.
+AquaSentinel 813 is an explainable multi-hazard marine-intake intelligence system for the Arab Youth Space Hackathon 2026.
 
 Core principle:
 
@@ -144,6 +144,8 @@ Prefer explainable, reproducible, and scientifically defensible methods over unn
 ## Repository Is the Source of Truth
 
 Do not rely on chat history, Codex memory, or agent memory.
+
+For hackathon registration, submission, judging, official program-data, and submission-readiness facts, read [docs/HACKATHON_SUBMISSION.md](docs/HACKATHON_SUBMISSION.md).
 
 Before any non-trivial work:
 

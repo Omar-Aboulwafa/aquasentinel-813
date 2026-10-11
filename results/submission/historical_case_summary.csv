@@ -1,0 +1,5 @@
+phase,observation,policy_evaluable_pixels,candidate_pixels,status
+PRE,Five March reference observations,,,descriptive context
+EVENT,2023-04-03,794,88,candidate geometry
+EVENT,2023-04-28,802,7,Watch 29.523810
+POST,Earliest frozen compatible May attempt,,,UNAVAILABLE
