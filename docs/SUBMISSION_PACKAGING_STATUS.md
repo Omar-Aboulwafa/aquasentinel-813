@@ -14,8 +14,9 @@ Base includes the authoritative `docs/HACKATHON_SUBMISSION.md` branch state.
 |---|---|---|
 | Reviewer-facing end-to-end notebook | PRESENT / EXECUTED | `notebooks/aquasentinel_hab_water_quality.ipynb`; visible outputs committed; deterministic replay of accepted headline |
 | Python 3.11 syntax compatibility | PASS | Every notebook code cell parsed against Python 3.11 grammar before publication |
-| Clean Python 3.11 machine execution | PASS | GitHub Actions `Submission reproducibility` run #9 / run ID `38127919859`, head `eaefeb970019c258763313be8c5d2c1e9758f4e6`, completed successfully on Python 3.11 |
+| Clean Python 3.11 machine execution | PASS | GitHub Actions `Submission reproducibility` run #23 / run ID `38129217697`, packaging head `3b158ca1d505d1789e8ab1078946a916f54b95f0`, completed successfully on Python 3.11 |
 | Repository quality gates | PASS | The successful submission workflow runs repository tests and Ruff before notebook execution; accepted result verification and deterministic-output verification also passed |
+| Latest-main integration precheck | CLEAN / CURRENT-BASE CI REQUIRED | `main` advanced to `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721` via PR #35 after run #23. PR #34 currently reports `mergeable=true`, `rebaseable=true`, `mergeable_state=clean`; PR #35 changed Sentinel-1/state/evidence files and does not overlap the 21 packaging paths. This documentation commit intentionally triggers a fresh PR workflow against the latest base before release. |
 | Root pinned requirements.txt | PRESENT | `requirements.txt` with exact direct pins |
 | Reproducible sample input | PRESENT | `data/submission/hab_headline_input.json`; compact accepted evidence + exact public EO product identities; no raw imagery |
 | Reviewer-facing example outputs | PRESENT | `results/submission/` JSON, CSV and SVG actual-result artifacts |
@@ -55,7 +56,7 @@ This is a deterministic reviewer replay from committed accepted evidence, not a 
 
 ## Clean-environment reproducibility evidence
 
-GitHub Actions workflow `Submission reproducibility` run #9 (`38127919859`) completed with conclusion `success` for packaging head `eaefeb970019c258763313be8c5d2c1e9758f4e6`.
+GitHub Actions workflow `Submission reproducibility` run #23 (`38129217697`) completed with conclusion `success` for packaging head `3b158ca1d505d1789e8ab1078946a916f54b95f0`.
 
 The successful workflow verifies, in order:
 
@@ -66,7 +67,7 @@ The successful workflow verifies, in order:
 5. verification of the frozen accepted headline result,
 6. deterministic regeneration of reviewer-facing outputs.
 
-This closes the previously open clean-Python-3.11 release blocker. Later documentation/presentation commits must still leave the final submission head green before release.
+After that successful run, `main` advanced through PR #35. GitHub reports PR #34 as cleanly mergeable and the changed-path sets do not overlap, but release evidence must still include a fresh successful PR workflow generated against the current base. The latest documentation-only commit exists to force that validation without changing frozen science or reviewer outputs.
 
 ## Presentation V2 validation
 
@@ -96,7 +97,7 @@ Packaging does not claim confirmed HAB, species, toxins, measured chlorophyll co
 
 ## Next release gates
 
-1. Confirm the latest packaging head still passes the reproducibility workflow after presentation/strategy documentation edits.
+1. Obtain a fresh successful reproducibility workflow for the current PR head against latest `main` (`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`).
 2. Resolve evaluator repository access.
 3. Verify creator timezone and formal team eligibility.
 4. Obtain organizer confirmation of final theme wording; update only administrative presentation/README wording if required.
