@@ -1,0 +1,142 @@
+{
+  "schema": "aquasentinel-submission-hab-replay-v1",
+  "purpose": "Small reviewer input derived only from accepted AS-105/AS-106/AS-107/AS-108 evidence. It reproduces the accepted headline risk arithmetic and reviewer figures without committing raw Earth-observation imagery.",
+  "source_evidence": [
+    "docs/evidence/AS_105_HAB_ANOMALY_GEOMETRY_VALIDATION.md",
+    "docs/evidence/AS_107_REAL_ACCEPTANCE.json",
+    "docs/evidence/AS_107_REAL_ACCEPTANCE.md",
+    "docs/evidence/AS_108_HISTORICAL_CASE_STUDY.json",
+    "docs/evidence/AS_108_HISTORICAL_CASE_STUDY.md"
+  ],
+  "study_area": {
+    "name": "Al Raha Bay Validation AOI",
+    "role": "analyst_defined_validation_aoi",
+    "not_an_intake": true,
+    "wgs84_polygon": [
+      [54.525, 24.42],
+      [54.585, 24.42],
+      [54.585, 24.46],
+      [54.525, 24.46],
+      [54.525, 24.42]
+    ],
+    "analysis_grid": {
+      "crs": "EPSG:32640",
+      "pixel_size_m": 20,
+      "bounds": [249020.0, 2702860.0, 255220.0, 2707420.0],
+      "width": 310,
+      "height": 228
+    }
+  },
+  "public_retrieval_lineage": {
+    "discovery_provider": "Copernicus Data Space Ecosystem STAC",
+    "pixel_provider": "Microsoft Planetary Computer",
+    "credentials_required": false,
+    "planetary_computer_processing_baseline": "05.09",
+    "tile": "40RBN",
+    "relative_orbit": 20,
+    "reference_observations": [
+      "S2A_MSIL2A_20230304T064751_R020_T40RBN_20230304T113736",
+      "S2B_MSIL2A_20230309T064719_R020_T40RBN_20230309T121958",
+      "S2A_MSIL2A_20230314T064641_R020_T40RBN_20230314T123741",
+      "S2A_MSIL2A_20230324T064621_R020_T40RBN_20230324T114938",
+      "S2B_MSIL2A_20230329T064629_R020_T40RBN_20230329T132334"
+    ],
+    "comparison_observations": [
+      "S2A_MSIL2A_20230403T064621_R020_T40RBN_20230403T115452",
+      "S2B_MSIL2A_20230428T064629_R020_T40RBN_20230428T122311"
+    ],
+    "note": "The reviewer replay below does not depend on live provider availability. The exact public observation identities are retained for traceability and optional upstream re-execution using the existing package modules."
+  },
+  "accepted_april_28_geometry": {
+    "product_id": "hab_geometry:70876fbcb25e8a37abaa238a59e1da32fec9066792e6239db68e284b7bd18682",
+    "valid_water_pixels": 7963,
+    "policy_evaluable_pixels": 802,
+    "candidate_pixels": 7,
+    "candidate_fraction_of_policy_support": 0.008728179551122194,
+    "candidate_area_m2": 2800.0,
+    "candidate_area_km2": 0.0028,
+    "region_count": 1,
+    "region_bbox_projected": [249120.0, 2704160.0, 249200.0, 2704240.0],
+    "family_available_counts": [7, 7, 7, 7, 7],
+    "family_evidence_counts": [0, 7, 0, 7, 0],
+    "family_order": [
+      "red_edge_b5_vs_red",
+      "red_edge_line_height",
+      "red_edge_b6_vs_red",
+      "visible_green_vs_red",
+      "visible_green_vs_blue"
+    ]
+  },
+  "accepted_persistence": {
+    "product_id": "hab_persistence:c576478b6b6d85894e5317e65a1d0fd6cee38ed1c406d452b10f97712d2cc3bb",
+    "target_candidate_pixels_A": 7,
+    "candidate_pixels_with_prior_history_B": 7,
+    "recurrent_candidate_pixels_C": 0,
+    "candidate_history_coverage": 1.0,
+    "recurrence_fraction": 0.0,
+    "interpretation": "No same-pixel candidate recurrence was observed among the 7 target candidate pixels with valid prior observational history. This does not prove absence of a HAB or biological persistence."
+  },
+  "accepted_risk": {
+    "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+    "assessment_status": "provisional_observational_screening",
+    "component_order": [
+      "spectral_anomaly",
+      "chlorophyll_red_edge_signal",
+      "persistence",
+      "environmental_context",
+      "intake_exposure"
+    ],
+    "raw_weights": [0.35, 0.2, 0.15, 0.15, 0.15],
+    "component_values": [40.0, 33.333333333333336, 0.0, null, null],
+    "component_numerators": [14, 7, 0, null, null],
+    "component_denominators": [35, 21, 7, null, null],
+    "expected_effective_weights": [0.5, 0.28571428571428575, 0.2142857142857143, 0.0, 0.0],
+    "expected_contributions": [20.0, 9.523809523809526, 0.0, null, null],
+    "expected_component_coverage": 0.7,
+    "expected_evidence_completeness": 0.7,
+    "expected_score": 29.52380952380953,
+    "expected_band": "Watch",
+    "expected_recommendation": "Review on the next valid acquisition",
+    "flags": ["incomplete_evidence"],
+    "unavailable_components": {
+      "environmental_context": "not_implemented",
+      "intake_exposure": "not_implemented"
+    }
+  },
+  "historical_case": {
+    "classification": "PARTIALLY_CONSISTENT",
+    "timing_precision": "MONTH_LEVEL",
+    "spatial_precision": "AREA_LEVEL_ONLY",
+    "documented_event": "Raha Beach Red Tide incident in April 2023",
+    "pre_observation_count": 5,
+    "april_3": {
+      "policy_evaluable_pixels": 794,
+      "candidate_pixels": 88
+    },
+    "april_28": {
+      "policy_evaluable_pixels": 802,
+      "candidate_pixels": 7,
+      "risk_score": 29.52380952380953,
+      "risk_band": "Watch"
+    },
+    "post": {
+      "status": "UNAVAILABLE",
+      "reason": "No exact Planetary Computer 05.09 match for the frozen earliest compatible May acquisition; no later date was substituted."
+    },
+    "lead_time": "NOT_ESTIMABLE",
+    "limitations": [
+      "Retrospective observational-consistency case study, not blind prospective validation.",
+      "No biological accuracy, species, toxin or chlorophyll confirmation is established.",
+      "The April event timing is month-level and spatial alignment is area-level only.",
+      "POST is unavailable and was not replaced with a more convenient acquisition."
+    ]
+  },
+  "scientific_guardrails": [
+    "HAB-like spectral anomaly, not confirmed HAB.",
+    "Risk score is provisional observational screening, not biological probability or calibrated confidence.",
+    "BOA surface reflectance is not aquatic remote-sensing reflectance.",
+    "Field/laboratory verification remains necessary.",
+    "No water-safety certification or autonomous plant-shutdown decision is produced.",
+    "Environmental context and intake exposure are unavailable in the accepted P0 score."
+  ]
+}
