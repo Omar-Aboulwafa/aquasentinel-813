@@ -1,6 +1,32 @@
 # AquaSentinel 813 — Project State
 
-## Current AS-201 M55 — controlled live acceptance after M54 — FAIL
+## Current AS-201 M56 — manifest platform representation diagnostic — COMPLETE
+
+**M56 / E56 / EV-060: MANIFEST_PLATFORM_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
+Prepared on `diagnostic/as-201-manifest-platform-familyname` from published M55
+`ff00aafed870b0f427532159c4eb4ac3d08691d9`; official main remains
+`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`.
+All six manifests: one platform, number `A`, direct family `SENTINEL-1`, nested
+instrument family `Synthetic Aperture Radar` (`abbreviation="SAR"`). Recursive
+`familyName` lookup sees two distinct values and raises the exact M55 exception.
+Direct-child scoping alone would still fail the later case-sensitive `Sentinel-1`
+literal; both representation facts are diagnosed, with no production fix.
+
+Exactly **6 signing operations / 1 token HTTP acquisition / 6 manifest HTTP200 GETs
+/ 151,650 manifest bytes**; each body SHA matches M55. No retry, catalog, TIFF,
+other XML, ZIP/image-block/pixel access or SAR science. M55 was not rerun.
+**261 focused / 1548 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/JSON/digest/security/preservation PASS. Source/tests/config/dependencies,
+Decisions 050–054, M49–M55/upstream evidence, 44 protected hashes/57 modes/three
+stashes unchanged. No raw XML/credential/signed href persisted.
+**M55 HISTORICAL LIVE FAIL; LIVE_READINESS UNPROVED; AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR or merge. Next: owner review → separately authorized
+minimal manifest-boundary correction/offline regressions → separately authorized
+live engineering gate. No correction implemented in M56.
+Evidence: [EV-060 MD](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md) /
+[JSON](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json).
+
+## Historical AS-201 M55 — live FAIL before M56 diagnostic
 
 **M55 / E55 / EV-059: AS201_LIVE_ACCEPTANCE_AFTER_M54 = FAIL.**
 One unchanged public search/access-validation run from PR #35 merge `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`;

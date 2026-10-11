@@ -1,6 +1,32 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M55 — controlled live acceptance after M54 — FAIL
+## Current AS-201 M56 — manifest platform representation diagnostic — COMPLETE
+
+**M56 / E56 / EV-060: MANIFEST_PLATFORM_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
+Prepared on `diagnostic/as-201-manifest-platform-familyname` from published M55
+`ff00aafed870b0f427532159c4eb4ac3d08691d9`; official main remains
+`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`.
+All six manifests: one platform, number `A`, direct family `SENTINEL-1`, nested
+instrument family `Synthetic Aperture Radar` (`abbreviation="SAR"`). Recursive
+`familyName` lookup sees two distinct values and raises the exact M55 exception.
+Direct-child scoping alone would still fail the later case-sensitive `Sentinel-1`
+literal; both representation facts are diagnosed, with no production fix.
+
+Exactly **6 signing operations / 1 token HTTP acquisition / 6 manifest HTTP200 GETs
+/ 151,650 manifest bytes**; each body SHA matches M55. No retry, catalog, TIFF,
+other XML, ZIP/image-block/pixel access or SAR science. M55 was not rerun.
+**261 focused / 1548 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/JSON/digest/security/preservation PASS. Source/tests/config/dependencies,
+Decisions 050–054, M49–M55/upstream evidence, 44 protected hashes/57 modes/three
+stashes unchanged. No raw XML/credential/signed href persisted.
+**M55 HISTORICAL LIVE FAIL; LIVE_READINESS UNPROVED; AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR or merge. Next: owner review → separately authorized
+minimal manifest-boundary correction/offline regressions → separately authorized
+live engineering gate. No correction implemented in M56.
+Evidence: [EV-060 MD](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md) /
+[JSON](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json).
+
+## Historical AS-201 M55 — live FAIL before M56 diagnostic
 
 **M55 / E55 / EV-059: AS201_LIVE_ACCEPTANCE_AFTER_M54 = FAIL.**
 One unchanged public search/access-validation run from PR #35 merge `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`;
@@ -2220,6 +2246,23 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Catalog/identity/header PASS → exact manifest time PASS → familyName FAIL → later checks NOT_REACHED; proposed only, no new visual exists.
 - **Candidate slide title:** “Progress is not yet readiness.”
 
+### M56 — Platform identity is not instrument identity — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M56 / E56 / EV-060; manifest-only representation diagnostic.
+- **Problem / question:** Why does recursive platform familyName lookup reject all six manifests?
+- **Why it mattered:** The live failure needs exact field-level evidence before any correction.
+- **Options considered:** Repeat full acceptance; inspect six preserved manifest references only; patch the parser before observing the structure.
+- **Decision / rationale:** Owner-authorized manifest-only diagnostic; preserve M55 FAIL and avoid all other assets.
+- **Implementation / experiment:** Existing transient signer, bounded XML fetch/parser; unmodified recursive helper reproduction and direct-child hypotheses.
+- **Evidence:** [EV-060 MD](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md) / [JSON](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json).
+- **Quantitative result:** 6/6 identical platform structures; two distinct family texts each; 6 GETs / 151,650 manifest bytes, six body hashes matching M55; zero pixels/science.
+- **Limitation:** Direct family is uppercase SENTINEL-1; scoping alone does not satisfy the later exact literal. Later validators/readiness remain unproved.
+- **Lesson learned:** XML local names can recur at different identity levels; preserve structural scope and distinguish representation from semantics.
+- **Impact on next step:** Owner review; separate correction/test/retry authorization required. No source edit, M55 rerun or AS-202.
+- **Presentation takeaway:** Diagnose the exact mismatch before changing a frozen contract.
+- **Recommended visual:** platform → familyName SENTINEL-1 vs instrument → familyName Synthetic Aperture Radar; proposed only, no screenshot/figure created.
+- **Candidate slide title:** “Platform identity is not instrument identity.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2377,6 +2420,14 @@ M53 stays historical FAIL; no live-readiness claim.
 VV headers and manifest acquisition intervals pass; platform familyName cardinality
 fails. Later validators are NOT_REACHED; all final slots unavailable, ready=false.
 One search/validation, no patch/restart/extra requests/pixels or SAR science.
+
+### E56 — Six unchanged manifests expose a recursive XML scope collision
+
+[EV-060](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md): direct platform family
+SENTINEL-1 and nested instrument family Synthetic Aperture Radar are conflated by
+recursive lookup. Two distinct values reproduce the exact exception in every source;
+uppercase direct text also differs from the later literal. No production fix or
+acceptance retry, catalog/TIFF/other XML/pixels/scientific compute. M55 remains FAIL.
 
 ## 5. Scientific evidence index
 

@@ -1,0 +1,845 @@
+{
+  "schema_version": "as201-m56-manifest-platform-diagnostic-v1",
+  "semantic": {
+    "schema_version": "as201-m56-manifest-platform-diagnostic-v1",
+    "milestone": "M56",
+    "engineering_entry": "E56",
+    "evidence_id": "EV-060",
+    "official_main_sha": "cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721",
+    "parent_M55_sha": "ff00aafed870b0f427532159c4eb4ac3d08691d9",
+    "M55_evidence_semantic_sha256": "875eb97e3b48c6ff99d2ea819466a852ca424880ef56b469e773be1992765e5e",
+    "branch": "diagnostic/as-201-manifest-platform-familyname",
+    "status": "MANIFEST_PLATFORM_REPRESENTATION_DIAGNOSTIC_COMPLETE",
+    "scope": "MANIFEST_ONLY_DIAGNOSTIC_NOT_LIVE_ACCEPTANCE_OR_PRODUCTION_FIX",
+    "inputs": {
+      "evidence": "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.json",
+      "JSON_pointer": "/semantic/retrieval/parameters/source_records",
+      "unsigned_query_free_allowlisted_exact_six_frozen_references": true,
+      "manifest_budget_bytes": 2097152,
+      "safe_parser": "sentinel1_metadata._parse_xml",
+      "parser_limit_bytes": 4194304,
+      "DTD_entities_allowed": false,
+      "parser_source_sha256": "339fe571a62227e0dd90de2748fea0d4a77a4c8e365d92269a6126965fa2d1ec"
+    },
+    "manifests": [
+      {
+        "role": "REFERENCE",
+        "slice_order": 1,
+        "policy": {
+          "absolute_orbit": 64223,
+          "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+          "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "width": 25835
+        },
+        "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-1-grd:S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "unsigned_manifest_asset": {
+          "href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192/manifest.safe",
+          "key": "normalized:manifest.safe",
+          "media_type": "application/xml",
+          "purpose": "manifest",
+          "roles": []
+        },
+        "manifest_bytes": 25275,
+        "manifest_sha256": "75e2f13c4ccdf4ee0be4735ef30d0d2c0b986e88fea7533f8416e0f06089a7ca",
+        "matches_M55_manifest_hash": true,
+        "root_local_name": "XFDU",
+        "platform_count": 1,
+        "platforms": [
+          {
+            "direct_child_local_names": [
+              "nssdcIdentifier",
+              "familyName",
+              "number",
+              "instrument"
+            ],
+            "direct_familyName_and_number": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/number",
+                "local_name": "number",
+                "exact_text": "A",
+                "stripped_text": "A",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              }
+            ],
+            "descendant_familyName": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/instrument/familyName",
+                "local_name": "familyName",
+                "exact_text": "Synthetic Aperture Radar",
+                "stripped_text": "Synthetic Aperture Radar",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {
+                  "abbreviation": "SAR"
+                }
+              }
+            ],
+            "current_texts": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_values": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_cardinality": 2,
+            "current_unique_text": {
+              "status": "RAISES",
+              "exception_class": "Sentinel1MetadataError",
+              "sanitized_text": "XML requires one consistent familyName value."
+            },
+            "current_number_texts": [
+              "A"
+            ],
+            "current_number_unique_text": "A",
+            "direct_child_only_hypothesis": [
+              "SENTINEL-1"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "REFERENCE",
+        "slice_order": 2,
+        "policy": {
+          "absolute_orbit": 64223,
+          "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+          "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "width": 25842
+        },
+        "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-1-grd:S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "unsigned_manifest_asset": {
+          "href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A/manifest.safe",
+          "key": "normalized:manifest.safe",
+          "media_type": "application/xml",
+          "purpose": "manifest",
+          "roles": []
+        },
+        "manifest_bytes": 25275,
+        "manifest_sha256": "3da37252b4e9c6f029cf872359286d603433a2e6bc810bc79924e74e6bfdbc9a",
+        "matches_M55_manifest_hash": true,
+        "root_local_name": "XFDU",
+        "platform_count": 1,
+        "platforms": [
+          {
+            "direct_child_local_names": [
+              "nssdcIdentifier",
+              "familyName",
+              "number",
+              "instrument"
+            ],
+            "direct_familyName_and_number": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/number",
+                "local_name": "number",
+                "exact_text": "A",
+                "stripped_text": "A",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              }
+            ],
+            "descendant_familyName": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/instrument/familyName",
+                "local_name": "familyName",
+                "exact_text": "Synthetic Aperture Radar",
+                "stripped_text": "Synthetic Aperture Radar",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {
+                  "abbreviation": "SAR"
+                }
+              }
+            ],
+            "current_texts": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_values": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_cardinality": 2,
+            "current_unique_text": {
+              "status": "RAISES",
+              "exception_class": "Sentinel1MetadataError",
+              "sanitized_text": "XML requires one consistent familyName value."
+            },
+            "current_number_texts": [
+              "A"
+            ],
+            "current_number_unique_text": "A",
+            "direct_child_only_hypothesis": [
+              "SENTINEL-1"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 1,
+        "policy": {
+          "absolute_orbit": 64398,
+          "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+          "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "width": 25835
+        },
+        "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-1-grd:S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "unsigned_manifest_asset": {
+          "href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44/manifest.safe",
+          "key": "normalized:manifest.safe",
+          "media_type": "application/xml",
+          "purpose": "manifest",
+          "roles": []
+        },
+        "manifest_bytes": 25275,
+        "manifest_sha256": "3270cec0e4099f803bd8dd7e9f515235a9eeb16438113d71778194f765e58740",
+        "matches_M55_manifest_hash": true,
+        "root_local_name": "XFDU",
+        "platform_count": 1,
+        "platforms": [
+          {
+            "direct_child_local_names": [
+              "nssdcIdentifier",
+              "familyName",
+              "number",
+              "instrument"
+            ],
+            "direct_familyName_and_number": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/number",
+                "local_name": "number",
+                "exact_text": "A",
+                "stripped_text": "A",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              }
+            ],
+            "descendant_familyName": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/instrument/familyName",
+                "local_name": "familyName",
+                "exact_text": "Synthetic Aperture Radar",
+                "stripped_text": "Synthetic Aperture Radar",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {
+                  "abbreviation": "SAR"
+                }
+              }
+            ],
+            "current_texts": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_values": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_cardinality": 2,
+            "current_unique_text": {
+              "status": "RAISES",
+              "exception_class": "Sentinel1MetadataError",
+              "sanitized_text": "XML requires one consistent familyName value."
+            },
+            "current_number_texts": [
+              "A"
+            ],
+            "current_number_unique_text": "A",
+            "direct_child_only_hypothesis": [
+              "SENTINEL-1"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 2,
+        "policy": {
+          "absolute_orbit": 64398,
+          "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+          "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "width": 25842
+        },
+        "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-1-grd:S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "unsigned_manifest_asset": {
+          "href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B/manifest.safe",
+          "key": "normalized:manifest.safe",
+          "media_type": "application/xml",
+          "purpose": "manifest",
+          "roles": []
+        },
+        "manifest_bytes": 25275,
+        "manifest_sha256": "b3d0e23e1f02269789f9a19d98f010f4cdfdc07fc8cd95727cddc6ba084c7dbb",
+        "matches_M55_manifest_hash": true,
+        "root_local_name": "XFDU",
+        "platform_count": 1,
+        "platforms": [
+          {
+            "direct_child_local_names": [
+              "nssdcIdentifier",
+              "familyName",
+              "number",
+              "instrument"
+            ],
+            "direct_familyName_and_number": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/number",
+                "local_name": "number",
+                "exact_text": "A",
+                "stripped_text": "A",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              }
+            ],
+            "descendant_familyName": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/instrument/familyName",
+                "local_name": "familyName",
+                "exact_text": "Synthetic Aperture Radar",
+                "stripped_text": "Synthetic Aperture Radar",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {
+                  "abbreviation": "SAR"
+                }
+              }
+            ],
+            "current_texts": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_values": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_cardinality": 2,
+            "current_unique_text": {
+              "status": "RAISES",
+              "exception_class": "Sentinel1MetadataError",
+              "sanitized_text": "XML requires one consistent familyName value."
+            },
+            "current_number_texts": [
+              "A"
+            ],
+            "current_number_unique_text": "A",
+            "direct_child_only_hypothesis": [
+              "SENTINEL-1"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 1,
+        "policy": {
+          "absolute_orbit": 64573,
+          "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+          "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "width": 25836
+        },
+        "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-1-grd:S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "unsigned_manifest_asset": {
+          "href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC/manifest.safe",
+          "key": "normalized:manifest.safe",
+          "media_type": "application/xml",
+          "purpose": "manifest",
+          "roles": []
+        },
+        "manifest_bytes": 25275,
+        "manifest_sha256": "40ac9d0058f7247c79276b267adf3258b4bbc9ce0659b4a91584cb92fb5932c1",
+        "matches_M55_manifest_hash": true,
+        "root_local_name": "XFDU",
+        "platform_count": 1,
+        "platforms": [
+          {
+            "direct_child_local_names": [
+              "nssdcIdentifier",
+              "familyName",
+              "number",
+              "instrument"
+            ],
+            "direct_familyName_and_number": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/number",
+                "local_name": "number",
+                "exact_text": "A",
+                "stripped_text": "A",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              }
+            ],
+            "descendant_familyName": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/instrument/familyName",
+                "local_name": "familyName",
+                "exact_text": "Synthetic Aperture Radar",
+                "stripped_text": "Synthetic Aperture Radar",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {
+                  "abbreviation": "SAR"
+                }
+              }
+            ],
+            "current_texts": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_values": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_cardinality": 2,
+            "current_unique_text": {
+              "status": "RAISES",
+              "exception_class": "Sentinel1MetadataError",
+              "sanitized_text": "XML requires one consistent familyName value."
+            },
+            "current_number_texts": [
+              "A"
+            ],
+            "current_number_unique_text": "A",
+            "direct_child_only_hypothesis": [
+              "SENTINEL-1"
+            ]
+          }
+        ]
+      },
+      {
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 2,
+        "policy": {
+          "absolute_orbit": 64573,
+          "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+          "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "height": 16733,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "width": 25843
+        },
+        "pc_source_id": "stac:ef177b34b0fa3cabbb6d613d65f1c55d8ea4c5959326bb8896ec51d111792740:sentinel-1-grd:S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "unsigned_manifest_asset": {
+          "href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298/manifest.safe",
+          "key": "normalized:manifest.safe",
+          "media_type": "application/xml",
+          "purpose": "manifest",
+          "roles": []
+        },
+        "manifest_bytes": 25275,
+        "manifest_sha256": "ba2525991663208b0f7fdfcc211007499729bab912a63613b5b220d607cd91a7",
+        "matches_M55_manifest_hash": true,
+        "root_local_name": "XFDU",
+        "platform_count": 1,
+        "platforms": [
+          {
+            "direct_child_local_names": [
+              "nssdcIdentifier",
+              "familyName",
+              "number",
+              "instrument"
+            ],
+            "direct_familyName_and_number": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/number",
+                "local_name": "number",
+                "exact_text": "A",
+                "stripped_text": "A",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              }
+            ],
+            "descendant_familyName": [
+              {
+                "path": "platform/familyName",
+                "local_name": "familyName",
+                "exact_text": "SENTINEL-1",
+                "stripped_text": "SENTINEL-1",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {}
+              },
+              {
+                "path": "platform/instrument/familyName",
+                "local_name": "familyName",
+                "exact_text": "Synthetic Aperture Radar",
+                "stripped_text": "Synthetic Aperture Radar",
+                "text_is_none": false,
+                "text_is_empty_after_strip": false,
+                "attributes": {
+                  "abbreviation": "SAR"
+                }
+              }
+            ],
+            "current_texts": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_values": [
+              "SENTINEL-1",
+              "Synthetic Aperture Radar"
+            ],
+            "unique_cardinality": 2,
+            "current_unique_text": {
+              "status": "RAISES",
+              "exception_class": "Sentinel1MetadataError",
+              "sanitized_text": "XML requires one consistent familyName value."
+            },
+            "current_number_texts": [
+              "A"
+            ],
+            "current_number_unique_text": "A",
+            "direct_child_only_hypothesis": [
+              "SENTINEL-1"
+            ]
+          }
+        ]
+      }
+    ],
+    "diagnostic_answers": {
+      "exactly_one_platform_each": true,
+      "platform_number_each": "A",
+      "descendant_familyName_count_each": 2,
+      "paths": [
+        "platform/familyName",
+        "platform/instrument/familyName"
+      ],
+      "texts": [
+        "SENTINEL-1",
+        "Synthetic Aperture Radar"
+      ],
+      "problem": "MULTIPLE_DIFFERENT_VALUES_NESTED_INSTRUMENT_FAMILYNAME_INCLUDED_BY_RECURSIVE_LOOKUP",
+      "platform_structure_identical_across_six": true,
+      "direct_child_familyName_unambiguously_identifies_Sentinel_1": true
+    },
+    "root_cause": {
+      "classification": "APPLICATION_XML_ELEMENT_SCOPE_INTEROPERABILITY_DEFECT",
+      "operation": "_validate_manifest -> _unique_text(platform, \"familyName\") -> _texts(platform, \"familyName\")",
+      "current_contract": "Exactly one distinct nonempty stripped descendant familyName text in the entire platform subtree.",
+      "exception_class": "Sentinel1MetadataError",
+      "sanitized_exception_text": "XML requires one consistent familyName value.",
+      "provider_data_defect_established": false,
+      "formal_provider_schema_validation_performed": false,
+      "explanation": "Recursive local-name matching conflates platform identity with nested instrument identity.",
+      "additional_unreached_representation_issue": "Direct text SENTINEL-1 differs from later exact Sentinel-1 literal; direct-child scoping alone would still reject it."
+    },
+    "local_hypothesis_evaluation": {
+      "current_recursive_texts": [
+        "SENTINEL-1",
+        "Synthetic Aperture Radar"
+      ],
+      "current_unique_cardinality": 2,
+      "current_unique_text": "RAISES",
+      "direct_child_only_texts": [
+        "SENTINEL-1"
+      ],
+      "direct_child_unique_cardinality": 1,
+      "direct_child_value_equals_current_literal": false,
+      "direct_child_value_casefold_equals_Sentinel_1_casefold": true,
+      "source_edited": false,
+      "acceptance_result_fabricated": false,
+      "proposed_minimum_correction_for_separate_owner_authorization": "Manifest-specific direct-child familyName cardinality/text validation plus exact case-only Sentinel-1 identity comparison; preserve generic recursive helpers and later guards. Add offline regression/ambiguity/wrong-identity tests. Not implemented."
+    },
+    "request_accounting": {
+      "manifest_signing_operations": 6,
+      "token_HTTP_acquisitions": 1,
+      "token_response_body_bytes": 404,
+      "manifest_GET_requests": 6,
+      "manifest_response_body_bytes": 151650,
+      "total_provider_HTTP_requests": 7,
+      "total_response_body_bytes": 152054,
+      "HTTP_statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "ordinary_library_internal_retries_observed": 0,
+      "custom_retries": 0,
+      "CDSE_requests": 0,
+      "PC_STAC_requests": 0,
+      "catalog_requests": 0,
+      "TIFF_requests": 0,
+      "VH_requests": 0,
+      "product_XML_requests": 0,
+      "calibration_XML_requests": 0,
+      "noise_XML_requests": 0,
+      "other_XML_requests": 0,
+      "ZIP_requests": 0,
+      "ZIP_bytes": 0,
+      "image_block_requests": 0,
+      "image_block_bytes": 0,
+      "SAR_pixel_reads": 0,
+      "SAR_pixel_bytes": 0,
+      "scientific_SAR_compute_calls": 0,
+      "search_sentinel1_calls": 0,
+      "validate_retrieval_access_calls": 0,
+      "M55_reruns": 0
+    },
+    "request_evidence": [
+      {
+        "category": "TOKEN",
+        "slot": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "hostname": "planetarycomputer.microsoft.com",
+        "response_body_bytes": 404,
+        "HTTP_status": 200
+      },
+      {
+        "category": "MANIFEST",
+        "slot": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+        "hostname": "sentinel1euwest.blob.core.windows.net",
+        "response_body_bytes": 25275,
+        "HTTP_status": 200
+      },
+      {
+        "category": "MANIFEST",
+        "slot": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+        "hostname": "sentinel1euwest.blob.core.windows.net",
+        "response_body_bytes": 25275,
+        "HTTP_status": 200
+      },
+      {
+        "category": "MANIFEST",
+        "slot": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+        "hostname": "sentinel1euwest.blob.core.windows.net",
+        "response_body_bytes": 25275,
+        "HTTP_status": 200
+      },
+      {
+        "category": "MANIFEST",
+        "slot": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+        "hostname": "sentinel1euwest.blob.core.windows.net",
+        "response_body_bytes": 25275,
+        "HTTP_status": 200
+      },
+      {
+        "category": "MANIFEST",
+        "slot": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+        "hostname": "sentinel1euwest.blob.core.windows.net",
+        "response_body_bytes": 25275,
+        "HTTP_status": 200
+      },
+      {
+        "category": "MANIFEST",
+        "slot": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+        "hostname": "sentinel1euwest.blob.core.windows.net",
+        "response_body_bytes": 25275,
+        "HTTP_status": 200
+      }
+    ],
+    "security": {
+      "raw_manifest_persisted": false,
+      "signed_URL_persisted": false,
+      "SAS_persisted": false,
+      "token_persisted": false,
+      "token_hash_persisted": false,
+      "headers_or_cookies_persisted": false,
+      "transient_token_cache_cleared": true,
+      "logging_state_restored": true
+    },
+    "state": {
+      "M55": "HISTORICAL LIVE FAIL",
+      "LIVE_READINESS": "UNPROVED",
+      "later_native_witness_XML_LUT_geolocation_thermal_validation": "NOT_REACHED_IN_M55_NOT_EXECUTED_IN_M56",
+      "AS_202": "NOT STARTED",
+      "Decision_055": "ABSENT",
+      "production_fix": "NOT IMPLEMENTED",
+      "PR": "NONE CREATED",
+      "merge": "NONE PERFORMED"
+    },
+    "limitations": [
+      "Structural diagnosis only, not six-source access acceptance.",
+      "No later XML identity, LUT, geolocation or thermal checks executed.",
+      "Observed same structure is limited to the six frozen manifest files.",
+      "No SAR pixels, calibration, backscatter or oil inference.",
+      "No formal schema/standards-validity claim from this diagnostic."
+    ]
+  },
+  "semantic_sha256": "1c4da094b1845f1862d6c39cd173f8d66ad1e935c5dcf34d532ea9fbd6a5b6eb",
+  "canonicalization": "SHA-256 of UTF-8 json.dumps(semantic, sort_keys=True, separators=(\",\", \":\"), ensure_ascii=False, allow_nan=False); list order preserved. Execution time, engineering gates and preservation summary excluded.",
+  "execution_time": {
+    "started_at": "2026-10-11T11:01:39.926964+00:00",
+    "ended_at": "2026-10-11T11:01:44.622924+00:00"
+  },
+  "engineering_quality_gates": {
+    "focused_pytest": {
+      "passed": 261,
+      "warnings": 0,
+      "seconds": 0.98,
+      "external_socket_connection_attempts": 0
+    },
+    "full_pytest": {
+      "passed": 1548,
+      "warnings": 6,
+      "seconds": 37.33,
+      "external_socket_connection_attempts": 0
+    },
+    "ruff": "PASS",
+    "diff_and_new_file_whitespace": "PASS",
+    "strict_finite_JSON_digest_repeat": "PASS",
+    "credential_signed_URL_scan": "PASS",
+    "GitHub_CI_success_claimed": false
+  },
+  "preservation": {
+    "all_non_authorized_tracked_hashes": "BYTE_IDENTICAL",
+    "source_tests_config_dependencies": "BYTE_IDENTICAL",
+    "Decisions_050_054_entire_file": "BYTE_IDENTICAL",
+    "M49_M55_and_accepted_upstream_evidence": "BYTE_IDENTICAL",
+    "protected_external_hashes": 44,
+    "protected_modes": 57,
+    "stash_inventory": "ALL_THREE_UNCHANGED",
+    "recovery_artifacts_retained": true,
+    "new_scientific_raster_cache_products": 0,
+    "decision_body_sha256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea",
+      "054": "62d8bf08c6f13774ec91ae4b1c7c93109a7ebbd3a45bb3ea79b9d4e672123df8"
+    },
+    "accepted_M55_MD_sha256": "99448194a148989d37227858481926af7719d5a04ac4df84b5e8b44b3eca54b4",
+    "accepted_M55_JSON_sha256": "6f77235480af8b5b905325013789c9388bcc0936dfa28f1c9bc4e5eabb265463"
+  }
+}
