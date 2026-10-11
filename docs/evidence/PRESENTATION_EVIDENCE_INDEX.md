@@ -1,6 +1,29 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-201 M53 — controlled live acceptance after M52 — FAIL
+## Current AS-201 M54 — offline manifest UTC-time correction — PASS
+
+**M54 / E54 / EV-058: OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.**
+Prepared on `fix/as-201-manifest-utc-time-normalization` from preserved M53 evidence commit
+`42855ac22844ede60e37c5136944de879a0a9080`; official main `9403faf7f7bd8c0a71e5d262338974647831ad93`.
+Only manifest acquisition start/stop may interpret naive time as UTC, followed by
+the unchanged exact frozen-interval comparison. Generic parser and non-manifest XML
+time boundaries remain strict; all later XML guards remain unchanged.
+
+**73 new offline cases; 250 focused / 1548 full tests PASS**, six existing Rasterio
+PendingDeprecationWarnings; Ruff/diff/strict JSON/digest/security/preservation
+**PASS**. Decisions 050–054, M49–M53 evidence,
+resolver/shared STAC/optical/config/dependencies and protected external hashes/modes/
+three safety stashes preserved. Provider requests **0**; SAR pixel reads/bytes **0/0**;
+scientific SAR compute **0**. No live retry, PR or merge.
+
+**M53 remains HISTORICAL LIVE FAIL. LIVE_READINESS UNPROVED. AS-202 NOT STARTED.
+Decision 055 ABSENT.** Offline success does not establish later live XML/LUT readiness.
+Next: owner review; separately authorize publication/merge and any controlled live
+acceptance retry. No AS-202 work.
+Evidence: [EV-058 MD](AS_201_MANIFEST_UTC_TIME_FIX.md) and
+[JSON](AS_201_MANIFEST_UTC_TIME_FIX.json).
+
+## Historical AS-201 M53 — controlled live FAIL before M54 offline correction
 
 **M53 / E53 / EV-057: AS201_LIVE_ACCEPTANCE_AFTER_M52 = FAIL.**
 One public search/access-validation run from PR #33 merge `9403faf7f7bd8c0a71e5d262338974647831ad93`;
@@ -1786,3 +1809,13 @@ requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.
 - 195 requests / 20,261,621 body bytes; 30 sign operations / 1 token request; no signed material persisted.
 - Complete footprint metadata and 12-source derived provenance are not access readiness.
 - M49/M50/M51/M52 evidence byte-identical; no fix, restart, extra provider traffic, pixels, science, AS-202 or CI-success claim.
+
+### EV-058 — AS-201 M54 manifest UTC-time interoperability correction
+
+- **M54 / E54**; OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.
+- [MD](AS_201_MANIFEST_UTC_TIME_FIX.md) / [JSON](AS_201_MANIFEST_UTC_TIME_FIX.json).
+- Semantic SHA-256: `6c2f7b00534cb1e58e50739ea199e602248476699d40df8ee695fe3fa3f8df1f`.
+- 73 new offline cases; 250 focused / 1548 full tests PASS, six existing Rasterio warnings; Ruff PASS.
+- Only manifest acquisition times may assume UTC; exact microseconds and every later XML guard retained. Generic parser unchanged.
+- M49–M53 evidence preserved; M53 remains historical LIVE FAIL. No provider requests/pixels/scientific compute or live retry.
+- LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT. Proposed visual only; no screenshot created.

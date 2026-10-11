@@ -1,0 +1,210 @@
+{
+  "schema_version": "as201-m54-manifest-utc-time-fix-v1",
+  "semantic": {
+    "schema_version": "as201-m54-manifest-utc-time-fix-v1",
+    "milestone": "M54",
+    "engineering_entry": "E54",
+    "evidence_id": "EV-058",
+    "official_main": "9403faf7f7bd8c0a71e5d262338974647831ad93",
+    "parent_M53_evidence_commit": "42855ac22844ede60e37c5136944de879a0a9080",
+    "branch": "fix/as-201-manifest-utc-time-normalization",
+    "status": "OFFLINE_MANIFEST_UTC_TIME_INTEROPERABILITY_CORRECTION_PASS",
+    "historical_M53": {
+      "status": "HISTORICAL_LIVE_FAIL",
+      "evidence_MD": "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.md",
+      "evidence_JSON": "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.json",
+      "semantic_sha256": "984cdb35b7364150d687d86f4a3478f2e93ca7015843b58425f109687ab0078d",
+      "six_CDSE_identities_passed": true,
+      "six_PC_identities_passed": true,
+      "six_stable_asset_sets_resolved": true,
+      "six_VV_TIFF_structural_validations_passed": true,
+      "all_required_XML_files_fetched": true,
+      "six_final_states": "UNAVAILABLE / METADATA_INVALID",
+      "failure_function": "sentinel1_metadata._validate_manifest -> sentinel1_policy._parse_time",
+      "offending_field": "manifest.startTime",
+      "observed_example": "2026-04-24T14:42:05.150515",
+      "frozen_expected_example": "2026-04-24T14:42:05.150515+00:00",
+      "sanitized_exception": "Sentinel-1 item manifest.startTime must be timezone-aware.",
+      "later_live_XML_identity_LUT_checks_reached": false
+    },
+    "correction": {
+      "production_path": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+      "helper": "_parse_manifest_time",
+      "only_call_sites": [
+        "_validate_manifest.startTime",
+        "_validate_manifest.stopTime"
+      ],
+      "naive_time_interpretation": "UTC_ONLY_AT_MANIFEST_ACQUISITION_BOUNDARY",
+      "aware_time_interpretation": "NORMALIZE_EXPLICIT_OFFSET_TO_UTC",
+      "comparison": "EXACT_EXPECTED_START_AND_STOP_DATETIME_EQUALITY",
+      "microseconds_significant": true,
+      "raw_whitespace_checked_before_unique_text_stripping": true,
+      "fractional_precision_over_six_digits": "REJECT_TO_PREVENT_FROMISOFORMAT_TRUNCATION",
+      "tolerance_rounding_truncation_filename_STAC_or_provider_fallback": false,
+      "generic_parser_changed": false,
+      "non_manifest_XML_time_boundaries_changed": false,
+      "later_XML_validation_code_changed": false,
+      "resolver_shared_STAC_optical_config_dependency_changes": 0,
+      "Decisions_050_054_changed": false
+    },
+    "offline_regressions": {
+      "test_path": "tests/ingestion/test_sentinel1_contract.py",
+      "fixture_origin": "Existing synthetic XML/header fixtures and six exact frozen sources; no new provider traffic",
+      "new_parametrized_cases": 73,
+      "matrix": {
+        "six_frozen_sources_times_four_serializations": 24,
+        "start_stop_one_microsecond_or_one_second_mismatch": 4,
+        "swapped_interval": 1,
+        "start_stop_times_eight_invalid_serializations": 16,
+        "generic_parser_naive_start_stop_rejection": 2,
+        "three_ADS_roles_times_naive_start_stop_rejection": 6,
+        "calibration_noise_LUT_naive_time_rejection": 2,
+        "later_XML_identity_dimensions_geolocation_LUT_thermal_guards": 18
+      },
+      "six_exact_frozen_sources": [
+        {
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E"
+        },
+        {
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E"
+        },
+        {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09"
+        },
+        {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09"
+        },
+        {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235"
+        },
+        {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235"
+        }
+      ],
+      "accepted_serializations": [
+        "naive interpreted UTC",
+        "Z",
+        "+00:00",
+        "equivalent +04:00"
+      ],
+      "invalid_serializations": [
+        "malformed",
+        "empty",
+        "spaces_only",
+        "leading_space",
+        "trailing_space",
+        "impossible_date",
+        "impossible_time",
+        "extra_fraction_digits"
+      ],
+      "success_assertion": "Entire metadata summary equals original explicit-UTC fixture summary",
+      "rejection_assertion": "Public sanitized metadata error; generic direct parser still reports timezone-aware requirement",
+      "later_guard_controls": [
+        "manifest platform",
+        "manifest family",
+        "IW mode",
+        "ascending orbit",
+        "relative orbit 101",
+        "manifest product type",
+        "VV measurement witness",
+        "product ADS platform",
+        "product ADS mode",
+        "product ADS polarization",
+        "product ADS absolute orbit",
+        "product dimensions",
+        "incidence values",
+        "geolocation values",
+        "calibration LUT",
+        "noise azimuth LUT",
+        "noise vector count",
+        "thermal-noise-correction metadata"
+      ],
+      "network_guard": "Existing autouse no_network fixture rejects socket.socket.connect",
+      "existing_test_functions_unchanged": true
+    },
+    "network_science_boundary": {
+      "CDSE_requests": 0,
+      "PC_requests": 0,
+      "signing_operations": 0,
+      "token_requests": 0,
+      "TIFF_requests": 0,
+      "XML_provider_requests": 0,
+      "ZIP_requests": 0,
+      "SAR_pixel_reads": 0,
+      "SAR_pixel_bytes": 0,
+      "scientific_SAR_compute": 0,
+      "live_acceptance_retries": 0
+    },
+    "limitations": [
+      "Offline success proves only the M53-observed manifest serialization crosses the exact local boundary.",
+      "M53 did not reach later live XML identity/LUT/geolocation validation; M54 does not establish their live success.",
+      "Synthetic full-bundle success is not six-source provider acceptance or calibrated SAR readiness.",
+      "No SAR calibration, thermal-noise correction, dB conversion, reprojection, mosaicking, speckle filtering or oil detection."
+    ],
+    "history": {
+      "M49": "HISTORICAL_LIVE_FAIL",
+      "M50": "MERGED_OFFLINE_CORRECTION",
+      "M51": "HISTORICAL_LIVE_FAIL",
+      "M52": "MERGED_OFFLINE_CORRECTION",
+      "M53": "HISTORICAL_LIVE_FAIL",
+      "LIVE_READINESS": "UNPROVED",
+      "AS_202": "NOT_STARTED",
+      "Decision_055": "ABSENT",
+      "PR_created": false,
+      "merge_performed": false
+    }
+  },
+  "semantic_sha256": "6c2f7b00534cb1e58e50739ea199e602248476699d40df8ee695fe3fa3f8df1f",
+  "canonicalization": "SHA-256 of UTF-8 semantic object serialized with sorted keys, compact separators, ensure_ascii=False, allow_nan=False; no quality timing, new commit SHA or volatile environment data.",
+  "engineering_quality_gates": {
+    "focused_pytest": {
+      "passed": 250,
+      "seconds": 1.02
+    },
+    "full_pytest": {
+      "passed": 1548,
+      "seconds": 36.86,
+      "existing_Rasterio_PendingDeprecationWarnings": 6
+    },
+    "ruff": "PASS",
+    "diff_whitespace_JSON_digest_security_preservation": "PASS",
+    "GitHub_CI_success_claimed": false
+  },
+  "preservation": {
+    "tracked_snapshot_files": 165,
+    "all_other_tracked_files": "BYTE_IDENTICAL",
+    "generic_policy_parser_and_resolver": "BYTE_IDENTICAL",
+    "later_XML_validation_code": "BYTE_IDENTICAL_AFTER_REVERSING_ONLY_AUTHORIZED_HELPER_AND_TWO_CALLS",
+    "Decisions_050_054_and_entire_DECISIONS_file": "BYTE_IDENTICAL",
+    "M49_M50_M51_M52_M53_MD_JSON": "BYTE_IDENTICAL",
+    "protected_external_file_hashes": 44,
+    "protected_modes": 57,
+    "safety_stashes": [
+      "d128ae2a00e61e28db274f682666e21361a69efb On feature/as-201-sentinel1-retrieval: temporary: preserve reviewed AS-201 M48 completion before related remote advance",
+      "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration",
+      "f93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration"
+    ],
+    "all_stashes_unchanged": true,
+    "data_inventory_unchanged": true,
+    "recovery_artifacts_retained": true,
+    "new_scientific_raster_cache_products": 0
+  }
+}

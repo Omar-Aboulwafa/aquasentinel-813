@@ -4,7 +4,7 @@ import copy
 import json
 import struct
 from dataclasses import replace
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, datetime, timedelta, timezone
 from hashlib import sha256
 
 import pytest
@@ -493,6 +493,162 @@ def header(policy_source):
         timeout=1,
         range_reader=lambda url, timeout, start, end: blob[start : end + 1],
     )
+
+
+def _manifest_time_bundle(source, start, stop):
+    bundle = list(_xml_bundle(source))
+    for name, original, value in (
+        ("startTime", source.acquisition_start.isoformat(), start),
+        ("stopTime", source.acquisition_end.isoformat(), stop),
+    ):
+        old = f"<{name}>{original}</{name}>".encode()
+        assert old in bundle[0]
+        bundle[0] = bundle[0].replace(old, f"<{name}>{value}</{name}>".encode())
+    return dict(zip(("manifest", "product", "calibration", "noise"), bundle))
+
+
+@pytest.mark.parametrize("source", s1.FROZEN_SOURCES, ids=lambda source: source.pc_item_id)
+@pytest.mark.parametrize("serialization", ["naive", "Z", "+00:00", "+04:00"])
+def test_manifest_time_serializations_preserve_exact_six_source_metadata(source, serialization):
+    def serialize(value):
+        if serialization == "naive":
+            return value.replace(tzinfo=None).isoformat()
+        if serialization == "Z":
+            return value.isoformat().replace("+00:00", "Z")
+        if serialization == "+04:00":
+            return value.astimezone(timezone(timedelta(hours=4))).isoformat()
+        return value.isoformat()
+
+    bundle = _manifest_time_bundle(
+        source, serialize(source.acquisition_start), serialize(source.acquisition_end)
+    )
+    summary = s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    original = dict(zip(("manifest", "product", "calibration", "noise"), _xml_bundle(source)))
+    assert summary == s1.validate_metadata_xml(**original, expected=source, header=header(source))
+    assert summary.thermal_noise_correction_performed is False
+
+
+@pytest.mark.parametrize("field", ["start", "stop"])
+@pytest.mark.parametrize("delta", [timedelta(microseconds=1), timedelta(seconds=1)])
+def test_manifest_time_mismatch_fails_without_tolerance(field, delta):
+    source = s1.FROZEN_SOURCES[0]
+    start, stop = source.acquisition_start, source.acquisition_end
+    start += delta if field == "start" else timedelta(0)
+    stop += delta if field == "stop" else timedelta(0)
+    bundle = _manifest_time_bundle(
+        source, start.replace(tzinfo=None).isoformat(), stop.replace(tzinfo=None).isoformat()
+    )
+    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+
+
+def test_manifest_time_swapped_interval_fails():
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _manifest_time_bundle(
+        source, source.acquisition_end.replace(tzinfo=None).isoformat(),
+        source.acquisition_start.replace(tzinfo=None).isoformat(),
+    )
+    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+
+
+@pytest.mark.parametrize("field", ["start", "stop"])
+@pytest.mark.parametrize("invalid", [
+    "malformed", "empty", "spaces_only", "leading_space", "trailing_space",
+    "impossible_date", "impossible_time", "extra_fraction_digits",
+])
+def test_manifest_time_invalid_serialization_fails(field, invalid):
+    source = s1.FROZEN_SOURCES[0]
+    values = {
+        "start": source.acquisition_start.replace(tzinfo=None).isoformat(),
+        "stop": source.acquisition_end.replace(tzinfo=None).isoformat(),
+    }
+    value = values[field]
+    values[field] = {
+        "malformed": "not-a-timestamp", "empty": "", "spaces_only": "  ",
+        "leading_space": " " + value, "trailing_space": value + " ",
+        "impossible_date": "2026-02-30T14:42:05.150515",
+        "impossible_time": "2026-04-24T25:42:05.150515",
+        "extra_fraction_digits": value + "1",
+    }[invalid]
+    bundle = _manifest_time_bundle(source, values["start"], values["stop"])
+    with pytest.raises(s1.Sentinel1MetadataError):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+
+
+@pytest.mark.parametrize("field", ["startTime", "stopTime"])
+def test_generic_time_parser_remains_strict_for_naive_inputs(field):
+    source = s1.FROZEN_SOURCES[0]
+    value = source.acquisition_start if field == "startTime" else source.acquisition_end
+    with pytest.raises(s1.Sentinel1RetrievalError, match="must be timezone-aware"):
+        policy._parse_time(value.replace(tzinfo=None).isoformat(), field)
+
+
+@pytest.mark.parametrize("role", ["product", "calibration", "noise"])
+@pytest.mark.parametrize("field", ["startTime", "stopTime"])
+def test_ads_time_parser_remains_strict_after_manifest_utc_normalization(role, field):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _manifest_time_bundle(
+        source, source.acquisition_start.replace(tzinfo=None).isoformat(),
+        source.acquisition_end.replace(tzinfo=None).isoformat(),
+    )
+    value = source.acquisition_start if field == "startTime" else source.acquisition_end
+    aware = value.isoformat().replace("+00:00", "Z")
+    original = f"<{field}>{aware}</{field}>".encode()
+    assert original in bundle[role]
+    bundle[role] = bundle[role].replace(
+        original, f"<{field}>{value.replace(tzinfo=None).isoformat()}</{field}>".encode()
+    )
+    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+
+
+@pytest.mark.parametrize("role", ["calibration", "noise"])
+def test_lut_time_parser_remains_strict_after_manifest_utc_normalization(role):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _manifest_time_bundle(
+        source, source.acquisition_start.replace(tzinfo=None).isoformat(),
+        source.acquisition_end.replace(tzinfo=None).isoformat(),
+    )
+    original = f"<azimuthTime>{source.acquisition_start.isoformat()}</azimuthTime>".encode()
+    assert original in bundle[role]
+    bundle[role] = bundle[role].replace(
+        original, f"<azimuthTime>{source.acquisition_start.replace(tzinfo=None).isoformat()}</azimuthTime>".encode()
+    )
+    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+
+
+@pytest.mark.parametrize("role,old,new", [
+    ("manifest", b"<number>A", b"<number>B"),
+    ("manifest", b"<familyName>Sentinel-1", b"<familyName>OTHER"),
+    ("manifest", b"<mode>IW", b"<mode>EW"),
+    ("manifest", b"<pass>ASCENDING", b"<pass>DESCENDING"),
+    ("manifest", b"<relativeOrbitNumber>101", b"<relativeOrbitNumber>102"),
+    ("manifest", b"<productType>GRD", b"<productType>SLC"),
+    ("manifest", b"./measurement/", b"./wrong/"),
+    ("product", b"<missionId>S1A", b"<missionId>S1B"),
+    ("product", b"<mode>IW", b"<mode>EW"),
+    ("product", b"<polarisation>VV", b"<polarisation>VH"),
+    ("product", b"<absoluteOrbitNumber>64223", b"<absoluteOrbitNumber>64224"),
+    ("product", b"<numberOfSamples>25835", b"<numberOfSamples>25836"),
+    ("product", b"<incidenceAngle>35", b"<incidenceAngle>NaN"),
+    ("product", b"<latitude>29", b"<latitude>999"),
+    ("calibration", b"<sigmaNought>1 2", b"<sigmaNought>1"),
+    ("noise", b"<noiseAzimuthLut>0 1", b"<noiseAzimuthLut>0"),
+    ("noise", b'<noiseRangeVectorList count="1">', b'<noiseRangeVectorList count="0">'),
+    ("product", b"<thermalNoiseCorrectionPerformed>false", b"<thermalNoiseCorrectionPerformed>unknown"),
+])
+def test_manifest_utc_boundary_does_not_bypass_later_guards(role, old, new):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _manifest_time_bundle(
+        source, source.acquisition_start.replace(tzinfo=None).isoformat(),
+        source.acquisition_end.replace(tzinfo=None).isoformat(),
+    )
+    assert old in bundle[role]
+    bundle[role] = bundle[role].replace(old, new)
+    with pytest.raises(s1.Sentinel1RetrievalError):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
 
 
 @pytest.mark.parametrize(
