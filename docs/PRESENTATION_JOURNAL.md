@@ -1,6 +1,54 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M50 — offline geometry interoperability correction
+## Current AS-201 M52 — offline CDSE product-type correction
+
+**M52 / E52 / EV-056: OFFLINE PRODUCT-TYPE INTEROPERABILITY CORRECTION PASS.**
+Prepared on `fix/as-201-cdse-product-type-normalization` from M51 FAIL evidence commit
+`8b32ec53e052d1ca6472bcf0fd442d9102b8669f`; official main remains `e137795686d8f97bbd8ba6bc0465616783586ae0`, PR #32.
+The SAR resolver now accepts exactly `IW_GRDH_1S` alongside `GRD` / `GRDH`.
+Field precedence and all exact frozen source guards stay unchanged; incompatible
+higher-priority product metadata is not rescued by a valid fallback.
+Official CDSE representation fact is externally verified and supplied in owner
+authorization; Codex did not retrieve the documentation in M52.
+
+**177 focused / 1475 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff/diff/strict JSON/digest/security/preservation PASS.
+**41 new offline cases**; six synthetic CDSE sources resolve without access,
+existing normalized identities remain equal. Shared STAC/optical/config/dependencies,
+Decisions 050–054, M49/M50/M51 evidence, protected hashes/modes/stashes preserved.
+**M51 remains historical FAIL. Live readiness UNPROVED; no M52 live retry.**
+Provider requests **0**; SAR pixel reads/bytes **0/0**; scientific SAR compute **0**.
+**AS-202 NOT STARTED; Decision 055 ABSENT.** No PR or merge in M52.
+Next: owner review → separately authorize PR/merge with M51 evidence + M52 fix
+→ separately authorize controlled live acceptance. No provider fallback or science.
+Evidence: [EV-056 MD](evidence/AS_201_CDSE_PRODUCT_TYPE_FIX.md) and
+[JSON](evidence/AS_201_CDSE_PRODUCT_TYPE_FIX.json).
+
+## Historical AS-201 M51 — controlled live acceptance retry before M52 correction — FAIL
+
+**M51 / E51 / EV-055: AS201_LIVE_ACCEPTANCE_RETRY = FAIL.**
+One top-level merged public search/access-validation run from main `e137795686d8f97bbd8ba6bc0465616783586ae0`,
+PR #32. M49 historical FAIL and M50 merged offline correction remain unchanged.
+CDSE/PC catalog search and complete pagination succeed; the corrected client
+construction is reached live. Stage I rejects all six CDSE records:
+`properties.product:type="IW_GRDH_1S"` is outside the resolver's GRD/GRDH literals.
+All six final slots: **UNAVAILABLE / DISCOVERY_IDENTITY_INVALID**; ready=false.
+J1–J6 preserve unavailable slots without asset access; final assembly reaches K.
+
+Accounting: **8 HTTP200 requests / 671,449 body bytes**; CDSE 3 search pages,
+PC 1. Signing/TIFF/XML/ZIP/image-block requests **0**; SAR pixel reads/bytes
+**0/0**; scientific SAR compute **0**. No production fix or full restart.
+Unavailable-state fingerprints exist; normalized sources/derived provenance null,
+coverage incomplete empty lower bound. Header/XML validation NOT EVALUATED.
+Engineering: **136 focused / 1434 full tests PASS**, six existing Rasterio PendingDeprecationWarnings; Ruff/diff/JSON/digest/security/preservation PASS.
+
+Prepared on `validation/as-201-live-acceptance-retry`; Decision 054 unchanged.
+Next: owner review → separately authorize SAR product-type interoperability fix
+and offline tests → separately authorize live acceptance. **AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR/merge; no oil-detection or live-readiness claim.
+Evidence: [EV-055 MD](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.json).
+
+## Historical AS-201 M50 — offline correction before PR #32 merge / M51 retry
 
 **M50 / E50 / EV-054: OFFLINE INTEROPERABILITY CORRECTION COMPLETE.**
 Baseline: PR #31 merge `29b7b46edc877a50645865aad4a1e9f62d34d6f5`.
@@ -2008,6 +2056,40 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Conceptual frozen-policy → plain JSON → client diagram; no screenshot created.
 - **Candidate slide title:** “Fix the boundary, preserve the evidence.”
 
+### M51 — A corrected boundary is not a completed live gate — 11 October 2026
+
+- **Task / ID:** AS-201 M51 / E51 / EV-055; one controlled public-path live retry.
+- **Problem / question:** Does merged M50 permit all six real sources to pass retrieval acceptance?
+- **Why it mattered:** Offline interoperability does not establish source/asset readiness.
+- **Options considered:** Preserve exact policy and outcome; patch while probing; or substitute sources.
+- **Decision / rationale:** One unchanged run, no repair/restart; retain all unavailable slots and exact stage diagnosis.
+- **Implementation / experiment:** Public search and access validator, delegated stage/request instrumentation; both catalogs paginated completely.
+- **Evidence:** [EV-055 MD](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.md) and [JSON](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.json).
+- **Quantitative result:** 8 HTTP200 requests / 671,449 body bytes; 3 CDSE + 1 PC pages; 6/6 slots discovery-identity invalid; zero assets/pixels/science.
+- **Limitation:** CDSE product:type IW_GRDH_1S rejected by GRD/GRDH literal check; header/XML/PC identity not accepted; retrieval not ready.
+- **Lesson learned:** Crossing one library boundary does not prove provider metadata normalization or live access.
+- **Impact on next step:** Separate owner review and authorization for the localized SAR-only metadata correction.
+- **Presentation takeaway:** Preserve each failed gate rather than claiming readiness from catalog success.
+- **Recommended visual:** Catalog success → six identity rejections → zero asset access; proposed, no screenshot created.
+- **Candidate slide title:** “Catalog access is not source acceptance.”
+
+### M52 — Exact provider semantics without relaxed source identity — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M52 / E52 / EV-056; offline product-type interoperability correction.
+- **Problem / question:** M51 rejected all six exact CDSE sources because product:type IW_GRDH_1S was not in the GRD/GRDH literal set.
+- **Why it mattered:** An authentic provider representation must cross the metadata boundary before live access can be evaluated.
+- **Options considered:** Exact documented alias; broad substring acceptance; changing providers or sources.
+- **Decision / rationale:** Add only IW_GRDH_1S, retaining field precedence and every frozen invariant; no scientific-policy change.
+- **Implementation / experiment:** One SAR resolver membership correction; 41 new offline regression cases; no provider request or live retry.
+- **Evidence:** [EV-056 MD](evidence/AS_201_CDSE_PRODUCT_TYPE_FIX.md) and [JSON](evidence/AS_201_CDSE_PRODUCT_TYPE_FIX.json).
+- **Quantitative result:** Six exact synthetic CDSE normalizations pass; six-source normalized identities stay identical to GRD fixture; zero pixels/science.
+- **Limitation:** Offline normalization does not establish six-source header/XML readiness; M51 remains historical FAIL.
+- **Lesson learned:** Normalize exact provider semantics at the narrow boundary while rejecting incompatible metadata.
+- **Impact on next step:** Owner review; separate fix publication/merge and controlled live acceptance authorization.
+- **Presentation takeaway:** A minimal tested compatibility correction preserves scientific restraint and failed-gate history.
+- **Recommended visual:** M51 literal mismatch → exact alias + conflict guards → offline pass → live gate still pending; proposed, no screenshot created.
+- **Candidate slide title:** “Provider compatibility without weakened evidence.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2130,6 +2212,20 @@ claim, no SAR science. Exact error field remains unlocalized; no hidden retry/pa
 only the SAR boundary receives ordinary JSON. Original deepcopy failure reproduced,
 corrected constructor and complete synthetic pagination pass. M49 historical FAIL
 unchanged; zero real provider/pixel/scientific work; no live-readiness claim.
+
+### E51 — Controlled retry reaches the next strict identity gate
+
+[EV-055](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.md): M50 construction now succeeds
+live; both catalogs complete. Six CDSE product-type representation failures leave
+all slots UNAVAILABLE, readiness false, no normalized sources/derived provenance.
+No signing/header/XML/pixel/science request and no production correction.
+
+### E52 — Exact CDSE product-type interoperability, offline only
+
+[EV-056](evidence/AS_201_CDSE_PRODUCT_TYPE_FIX.md): accepts IW_GRDH_1S exactly,
+preserves GRD/GRDH and strict field/identity guards. All six synthetic CDSE sources
+normalize; 41 new regression cases; shared STAC/optical and frozen policy unchanged.
+M49/M51 FAIL records retained; no live retry, pixels or SAR science. Live readiness unproved.
 
 ## 5. Scientific evidence index
 

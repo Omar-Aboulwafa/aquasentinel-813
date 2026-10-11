@@ -1,6 +1,54 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-201 M50 — offline geometry interoperability correction
+## Current AS-201 M52 — offline CDSE product-type correction
+
+**M52 / E52 / EV-056: OFFLINE PRODUCT-TYPE INTEROPERABILITY CORRECTION PASS.**
+Prepared on `fix/as-201-cdse-product-type-normalization` from M51 FAIL evidence commit
+`8b32ec53e052d1ca6472bcf0fd442d9102b8669f`; official main remains `e137795686d8f97bbd8ba6bc0465616783586ae0`, PR #32.
+The SAR resolver now accepts exactly `IW_GRDH_1S` alongside `GRD` / `GRDH`.
+Field precedence and all exact frozen source guards stay unchanged; incompatible
+higher-priority product metadata is not rescued by a valid fallback.
+Official CDSE representation fact is externally verified and supplied in owner
+authorization; Codex did not retrieve the documentation in M52.
+
+**177 focused / 1475 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff/diff/strict JSON/digest/security/preservation PASS.
+**41 new offline cases**; six synthetic CDSE sources resolve without access,
+existing normalized identities remain equal. Shared STAC/optical/config/dependencies,
+Decisions 050–054, M49/M50/M51 evidence, protected hashes/modes/stashes preserved.
+**M51 remains historical FAIL. Live readiness UNPROVED; no M52 live retry.**
+Provider requests **0**; SAR pixel reads/bytes **0/0**; scientific SAR compute **0**.
+**AS-202 NOT STARTED; Decision 055 ABSENT.** No PR or merge in M52.
+Next: owner review → separately authorize PR/merge with M51 evidence + M52 fix
+→ separately authorize controlled live acceptance. No provider fallback or science.
+Evidence: [EV-056 MD](evidence/AS_201_CDSE_PRODUCT_TYPE_FIX.md) and
+[JSON](evidence/AS_201_CDSE_PRODUCT_TYPE_FIX.json).
+
+## Historical AS-201 M51 — controlled live acceptance retry before M52 correction — FAIL
+
+**M51 / E51 / EV-055: AS201_LIVE_ACCEPTANCE_RETRY = FAIL.**
+One top-level merged public search/access-validation run from main `e137795686d8f97bbd8ba6bc0465616783586ae0`,
+PR #32. M49 historical FAIL and M50 merged offline correction remain unchanged.
+CDSE/PC catalog search and complete pagination succeed; the corrected client
+construction is reached live. Stage I rejects all six CDSE records:
+`properties.product:type="IW_GRDH_1S"` is outside the resolver's GRD/GRDH literals.
+All six final slots: **UNAVAILABLE / DISCOVERY_IDENTITY_INVALID**; ready=false.
+J1–J6 preserve unavailable slots without asset access; final assembly reaches K.
+
+Accounting: **8 HTTP200 requests / 671,449 body bytes**; CDSE 3 search pages,
+PC 1. Signing/TIFF/XML/ZIP/image-block requests **0**; SAR pixel reads/bytes
+**0/0**; scientific SAR compute **0**. No production fix or full restart.
+Unavailable-state fingerprints exist; normalized sources/derived provenance null,
+coverage incomplete empty lower bound. Header/XML validation NOT EVALUATED.
+Engineering: **136 focused / 1434 full tests PASS**, six existing Rasterio PendingDeprecationWarnings; Ruff/diff/JSON/digest/security/preservation PASS.
+
+Prepared on `validation/as-201-live-acceptance-retry`; Decision 054 unchanged.
+Next: owner review → separately authorize SAR product-type interoperability fix
+and offline tests → separately authorize live acceptance. **AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR/merge; no oil-detection or live-readiness claim.
+Evidence: [EV-055 MD](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_RETRY.json).
+
+## Historical AS-201 M50 — offline correction before PR #32 merge / M51 retry
 
 **M50 / E50 / EV-054: OFFLINE INTEROPERABILITY CORRECTION COMPLETE.**
 Baseline: PR #31 merge `29b7b46edc877a50645865aad4a1e9f62d34d6f5`.

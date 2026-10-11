@@ -132,7 +132,8 @@ def _normalize_item(
         raise Sentinel1RetrievalError("Source footprint topology is invalid.") from None
     bbox = _normalize_bbox(item.get("bbox"))
     product = props.get("sar:product_type", props.get("s1:product_type", props.get("product:type")))
-    if product not in {"GRD", "GRDH"}:
+    # CDSE's exact IW high-resolution Level-1 GRD alias; retain field precedence.
+    if product not in {"GRD", "GRDH", "IW_GRDH_1S"}:
         raise Sentinel1RetrievalError("Source is not GRDH-compatible Level-1 GRD.")
     native = props.get("s1:product_identifier")
     if expected_item_id == expected.pc_item_id and native != expected.native_source_product_id:
