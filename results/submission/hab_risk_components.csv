@@ -1,0 +1,6 @@
+component,available,numerator,denominator,value,configured_weight,effective_weight,contribution_points
+spectral_anomaly,True,14,35,40.0,0.35,0.5,20.0
+chlorophyll_red_edge_signal,True,7,21,33.333333333333336,0.2,0.28571428571428575,9.523809523809526
+persistence,True,0,7,0.0,0.15,0.2142857142857143,0.0
+environmental_context,False,,,,0.15,0.0,
+intake_exposure,False,,,,0.15,0.0,
