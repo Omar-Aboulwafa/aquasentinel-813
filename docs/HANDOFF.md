@@ -1,6 +1,34 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-201 M57 — offline manifest platform scope / casing correction — PASS
+## Current AS-201 M58 — controlled live acceptance after M57 — FAIL
+
+**M58 / E58 / EV-062: AS201_LIVE_ACCEPTANCE_AFTER_M57 = FAIL.**
+One unchanged public search/access-validation run from PR #36 merge
+`225efc896bf74d87f62741e05a4251ac86d07395`; prepared on `validation/as-201-live-acceptance-after-platform-family-fix`.
+Both catalogs complete; all six CDSE/PC identities, stable asset sets, VV headers
+and **complete manifests including platform familyName + native VV witness PASS**.
+All 24 required XMLs fetched. All six then fail generic strict calibration-vector
+`calibration.azimuthTime`: `Sentinel-1 item calibration.azimuthTime must be timezone-aware.`
+Final UNAVAILABLE / METADATA_INVALID; assembly reaches K, ready=false.
+Later ADS identity/interval, dimensions, noise LUT, geolocation/incidence, native
+spacing and thermal guards NOT_REACHED. No repair, restart or second diagnostic.
+
+**195 requests / 20,261,623 response-body bytes; 162 HTTP206 VV structural ranges /
+98,592 bytes; 30 signing operations / 1 transient token HTTP acquisition.**
+ZIP/image-block/SAR pixel reads/bytes/scientific compute **zero**; no VH TIFF.
+Passive tracing only, no live monkeypatches or production edits.
+**330 focused / 1617 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/strict JSON/digest/security/preservation PASS. All source/tests/config/
+dependencies, Decisions 050–054, historical evidence, 44 protected hashes/57 modes /
+three safety stashes/recovery artifacts preserved. No signed href/secret persisted.
+**M55 HISTORICAL LIVE FAIL; M56 DIAGNOSTIC COMPLETE; M57 OFFLINE CORRECTION PASS;
+LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.**
+Next: owner review; any PR/merge, localization/fix or live attempt requires separate
+authorization. No PR, merge, correction or second live attempt in M58.
+Evidence: [EV-062 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M57.md) /
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M57.json).
+
+## Historical AS-201 M57 — offline correction before PR #36 merge / M58
 
 **M57 / E57 / EV-061: OFFLINE MANIFEST PLATFORM FAMILYNAME INTEROPERABILITY
 CORRECTION PASS.** Prepared on `fix/as-201-manifest-platform-familyname` from M56
