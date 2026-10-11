@@ -330,8 +330,15 @@ def _validate_manifest(root, expected):
     platforms = [e for e in root.iter() if _local(e.tag) == "platform"]
     if len(platforms) != 1 or _unique_text(platforms[0], "number") != "A":
         raise Sentinel1MetadataError("Manifest platform mismatch.")
-    family = _unique_text(platforms[0], "familyName")
-    if family != "Sentinel-1":
+    families = [e for e in platforms[0] if _local(e.tag).lower() == "familyname"]
+    if (
+        len(families) != 1
+        or not isinstance(families[0].text, str)
+        or not families[0].text.strip()
+    ):
+        raise Sentinel1MetadataError("Manifest requires one nonempty direct platform familyName.")
+    family = families[0].text.strip()
+    if family.casefold() != "Sentinel-1".casefold():
         raise Sentinel1MetadataError("Manifest platform family mismatch.")
     hrefs = [v for e in root.iter() for k, v in e.attrib.items() if _local(k) == "href"]
     parts = expected.native_source_product_id.lower().split("_")

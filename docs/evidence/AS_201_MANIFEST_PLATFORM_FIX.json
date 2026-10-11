@@ -1,0 +1,439 @@
+{
+  "schema_version": "as201-m57-manifest-platform-familyname-fix-v1",
+  "semantic": {
+    "schema_version": "as201-m57-manifest-platform-familyname-fix-v1",
+    "milestone": "M57",
+    "engineering_entry": "E57",
+    "evidence_id": "EV-061",
+    "official_main_sha": "cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721",
+    "M55_sha": "ff00aafed870b0f427532159c4eb4ac3d08691d9",
+    "parent_M56_sha": "839b593a6f79722235494ab40c6df345ea17c7de",
+    "branch": "fix/as-201-manifest-platform-familyname",
+    "status": "OFFLINE MANIFEST PLATFORM FAMILYNAME INTEROPERABILITY CORRECTION PASS",
+    "empirical_input": {
+      "source": "docs/evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json",
+      "semantic_sha256": "1c4da094b1845f1862d6c39cd173f8d66ad1e935c5dcf34d532ea9fbd6a5b6eb",
+      "platform_count_each": 1,
+      "direct_child_order": [
+        "nssdcIdentifier",
+        "familyName",
+        "number",
+        "instrument"
+      ],
+      "direct_family": "SENTINEL-1",
+      "direct_number": "A",
+      "instrument_family": "Synthetic Aperture Radar",
+      "instrument_family_attributes": {
+        "abbreviation": "SAR"
+      },
+      "recursive_unique_cardinality": 2,
+      "provider_defect_claimed": false,
+      "formal_XML_schema_compliance_claimed": false
+    },
+    "production_change": {
+      "file": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+      "function": "_validate_manifest",
+      "exact_diff": "diff --git a/src/aquasentinel/ingestion/sentinel1_metadata.py b/src/aquasentinel/ingestion/sentinel1_metadata.py\nindex 32fc6d5..f11bf19 100644\n--- a/src/aquasentinel/ingestion/sentinel1_metadata.py\n+++ b/src/aquasentinel/ingestion/sentinel1_metadata.py\n@@ -330,8 +330,15 @@ def _validate_manifest(root, expected):\n     platforms = [e for e in root.iter() if _local(e.tag) == \"platform\"]\n     if len(platforms) != 1 or _unique_text(platforms[0], \"number\") != \"A\":\n         raise Sentinel1MetadataError(\"Manifest platform mismatch.\")\n-    family = _unique_text(platforms[0], \"familyName\")\n-    if family != \"Sentinel-1\":\n+    families = [e for e in platforms[0] if _local(e.tag).lower() == \"familyname\"]\n+    if (\n+        len(families) != 1\n+        or not isinstance(families[0].text, str)\n+        or not families[0].text.strip()\n+    ):\n+        raise Sentinel1MetadataError(\"Manifest requires one nonempty direct platform familyName.\")\n+    family = families[0].text.strip()\n+    if family.casefold() != \"Sentinel-1\".casefold():\n         raise Sentinel1MetadataError(\"Manifest platform family mismatch.\")\n     hrefs = [v for e in root.iter() for k, v in e.attrib.items() if _local(k) == \"href\"]\n     parts = expected.native_source_product_id.lower().split(\"_\")\n",
+      "direct_child_selection": "Only immediate children of the already uniquely validated platform; existing case-insensitive local-name semantics retained.",
+      "cardinality": "Exactly one element, not one distinct value; identical or empty duplicate elements fail.",
+      "text": "Requires isinstance(text, str) and nonempty text.strip(). Existing surrounding XML text stripping retained.",
+      "identity": "family.strip().casefold() equals Sentinel-1.casefold(); case-only identity comparison.",
+      "forbidden_relaxations": [
+        "aliases",
+        "substring",
+        "prefix_suffix",
+        "regex_mission_acceptance",
+        "punctuation_normalization",
+        "internal_whitespace_removal",
+        "global_XML_lowercasing"
+      ],
+      "platform_number": "Existing recursive _unique_text(platform, number) == A guard byte-identical.",
+      "preceding_guards": "BYTE_IDENTICAL",
+      "later_guards": "BYTE_IDENTICAL",
+      "shared_helpers": {
+        "_texts": {
+          "source_file": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+          "before_sha256": "2a160bd122b65d6618df882f1c60bc59359c00267529abf926d4ef2aacf0d3e0",
+          "after_sha256": "2a160bd122b65d6618df882f1c60bc59359c00267529abf926d4ef2aacf0d3e0",
+          "byte_identical": true
+        },
+        "_unique_text": {
+          "source_file": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+          "before_sha256": "b82a20bc4be9b9eb9882bcdee23a1b167739fdbc25e82fb1557d950152df4243",
+          "after_sha256": "b82a20bc4be9b9eb9882bcdee23a1b167739fdbc25e82fb1557d950152df4243",
+          "byte_identical": true
+        },
+        "_parse_manifest_time": {
+          "source_file": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+          "before_sha256": "9211a579e62bba3bbc5665ba7e2db3224dede37cf9e1bd473f61355b747ee2a5",
+          "after_sha256": "9211a579e62bba3bbc5665ba7e2db3224dede37cf9e1bd473f61355b747ee2a5",
+          "byte_identical": true
+        },
+        "_validate_ads_header": {
+          "source_file": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+          "before_sha256": "2bb35b0593ab7a5f36d5c8a0a93ada2a968002f979efd1c139b61a99f5446180",
+          "after_sha256": "2bb35b0593ab7a5f36d5c8a0a93ada2a968002f979efd1c139b61a99f5446180",
+          "byte_identical": true
+        },
+        "_validate_luts": {
+          "source_file": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+          "before_sha256": "34716599558b181c20e46332db45b7715895c6f07a346ab0ff10c063f9e601cb",
+          "after_sha256": "34716599558b181c20e46332db45b7715895c6f07a346ab0ff10c063f9e601cb",
+          "byte_identical": true
+        },
+        "_parse_time": {
+          "source_file": "src/aquasentinel/ingestion/sentinel1_policy.py",
+          "before_sha256": "6dbf00c5dd5bdb6b5998d30bf52f42fee020a94beac842518cfc6e960860b614",
+          "after_sha256": "6dbf00c5dd5bdb6b5998d30bf52f42fee020a94beac842518cfc6e960860b614",
+          "byte_identical": true
+        }
+      }
+    },
+    "offline_six_source_outcomes": [
+      {
+        "role": "REFERENCE",
+        "slice_order": 1,
+        "policy": {
+          "absolute_orbit": 64223,
+          "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+          "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "width": 25835
+        },
+        "observed_uppercase_direct_and_nested_instrument_synthetic_complete_metadata_validation": "PASS",
+        "comparison_to_original_complete_metadata_summary": "EQUAL",
+        "live_status": "NOT_RETRIED_NOT_PROVED"
+      },
+      {
+        "role": "REFERENCE",
+        "slice_order": 2,
+        "policy": {
+          "absolute_orbit": 64223,
+          "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+          "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "width": 25842
+        },
+        "observed_uppercase_direct_and_nested_instrument_synthetic_complete_metadata_validation": "PASS",
+        "comparison_to_original_complete_metadata_summary": "EQUAL",
+        "live_status": "NOT_RETRIED_NOT_PROVED"
+      },
+      {
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 1,
+        "policy": {
+          "absolute_orbit": 64398,
+          "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+          "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "width": 25835
+        },
+        "observed_uppercase_direct_and_nested_instrument_synthetic_complete_metadata_validation": "PASS",
+        "comparison_to_original_complete_metadata_summary": "EQUAL",
+        "live_status": "NOT_RETRIED_NOT_PROVED"
+      },
+      {
+        "role": "DOCUMENTARY_EVENT",
+        "slice_order": 2,
+        "policy": {
+          "absolute_orbit": 64398,
+          "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+          "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "width": 25842
+        },
+        "observed_uppercase_direct_and_nested_instrument_synthetic_complete_metadata_validation": "PASS",
+        "comparison_to_original_complete_metadata_summary": "EQUAL",
+        "live_status": "NOT_RETRIED_NOT_PROVED"
+      },
+      {
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 1,
+        "policy": {
+          "absolute_orbit": 64573,
+          "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+          "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "height": 16732,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "width": 25836
+        },
+        "observed_uppercase_direct_and_nested_instrument_synthetic_complete_metadata_validation": "PASS",
+        "comparison_to_original_complete_metadata_summary": "EQUAL",
+        "live_status": "NOT_RETRIED_NOT_PROVED"
+      },
+      {
+        "role": "LATE_FOLLOW_UP",
+        "slice_order": 2,
+        "policy": {
+          "absolute_orbit": 64573,
+          "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+          "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "height": 16733,
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "width": 25843
+        },
+        "observed_uppercase_direct_and_nested_instrument_synthetic_complete_metadata_validation": "PASS",
+        "comparison_to_original_complete_metadata_summary": "EQUAL",
+        "live_status": "NOT_RETRIED_NOT_PROVED"
+      }
+    ],
+    "offline_regression_matrix": [
+      {
+        "group": "complete_six_source_metadata",
+        "new_cases": 24,
+        "sources": 6,
+        "families": [
+          "SENTINEL-1",
+          "Sentinel-1",
+          "sentinel-1",
+          " \nSENTINEL-1\t "
+        ],
+        "nested_instrument_family": "Synthetic Aperture Radar",
+        "expected": "PASS_UNCHANGED_COMPLETE_METADATA_SUMMARY",
+        "test": "test_manifest_direct_platform_family_case_preserves_complete_six_source_metadata"
+      },
+      {
+        "group": "nested_instrument_isolation",
+        "new_cases": 6,
+        "nested_values": [
+          null,
+          "",
+          "Synthetic Aperture Radar",
+          "OTHER",
+          "SENTINEL-2",
+          "Sentinel-1"
+        ],
+        "direct_family": "SENTINEL-1",
+        "expected": "PASS",
+        "test": "test_nested_instrument_family_does_not_contaminate_platform_identity"
+      },
+      {
+        "group": "fail_closed_direct_identity",
+        "new_cases": 20,
+        "families": [
+          [],
+          [
+            null
+          ],
+          [
+            ""
+          ],
+          [
+            " \n\t "
+          ],
+          [
+            "SENTINEL-1",
+            "SENTINEL-1"
+          ],
+          [
+            "SENTINEL-1",
+            "SENTINEL-2"
+          ],
+          [
+            "SENTINEL-1",
+            ""
+          ],
+          [
+            "SENTINEL-1",
+            null
+          ],
+          [
+            "SENTINEL-2"
+          ],
+          [
+            "Synthetic Aperture Radar"
+          ],
+          [
+            "SENTINEL"
+          ],
+          [
+            "Sentinel_1"
+          ],
+          [
+            "Sentinel-1A"
+          ],
+          [
+            "prefix-Sentinel-1"
+          ],
+          [
+            "Sentinel-1-suffix"
+          ],
+          [
+            "Sentinel-10"
+          ],
+          [
+            "Sentinel -1"
+          ],
+          [
+            "Sentinel- 1"
+          ],
+          [
+            "Sentinel 1"
+          ],
+          [
+            "SENTINEL\n-1"
+          ]
+        ],
+        "nested_instrument_family": "Sentinel-1",
+        "expected": "FAIL_REQUIRED_XML_METADATA_CONTRACT",
+        "test": "test_nested_valid_family_cannot_rescue_invalid_direct_platform_family"
+      },
+      {
+        "group": "shared_recursive_helper_isolation",
+        "new_cases": 1,
+        "expected": "RECURSIVE_TWO_VALUES_STILL_RAISES_WHILE_SCOPED_MANIFEST_VALIDATION_PASSES",
+        "test": "test_manifest_family_fix_does_not_change_recursive_shared_helpers"
+      },
+      {
+        "group": "existing_guard_matrix_M56_nested_structure",
+        "new_cases": 18,
+        "existing_original_cases": 18,
+        "expected": "FAIL_ON_TAMPERING",
+        "test": "test_manifest_utc_boundary_does_not_bypass_later_guards",
+        "guards": [
+          "number_A",
+          "IW",
+          "ascending",
+          "relative_orbit_101",
+          "GRD",
+          "family_identity",
+          "native_VV_measurement_witness",
+          "product_mission",
+          "product_mode",
+          "product_polarization",
+          "product_orbit",
+          "product_dimensions",
+          "incidence",
+          "geolocation",
+          "calibration_LUT",
+          "noise_azimuth_LUT",
+          "noise_range_vector_count",
+          "thermal_noise_state"
+        ]
+      }
+    ],
+    "new_regression_cases": 69,
+    "existing_regressions_preserved": {
+      "M54_manifest_time_serializations": "ALL_PASS",
+      "exact_time_mismatches_microseconds": "REJECTED",
+      "generic_naive_time": "REJECTED",
+      "non_manifest_ADS_naive_time": "REJECTED",
+      "LUT_naive_time": "REJECTED",
+      "later_XML_identity_LUT_geolocation_thermal_tampering": "REJECTED"
+    },
+    "request_accounting": {
+      "CDSE_requests": 0,
+      "PC_STAC_requests": 0,
+      "signing_operations": 0,
+      "token_requests": 0,
+      "manifest_GETs": 0,
+      "TIFF_requests": 0,
+      "other_XML_requests": 0,
+      "ZIP_requests": 0,
+      "ZIP_bytes": 0,
+      "image_block_requests": 0,
+      "image_block_bytes": 0,
+      "SAR_pixel_reads": 0,
+      "SAR_pixel_bytes": 0,
+      "scientific_SAR_compute_calls": 0,
+      "M55_reruns": 0,
+      "M56_reruns": 0
+    },
+    "state": {
+      "M55": "HISTORICAL LIVE FAIL",
+      "M56": "DIAGNOSTIC COMPLETE",
+      "LIVE_READINESS": "UNPROVED",
+      "AS_202": "NOT STARTED",
+      "Decision_055": "ABSENT",
+      "PR": "NONE CREATED",
+      "merge": "NONE PERFORMED"
+    },
+    "limits": [
+      "Offline synthetic metadata success only, no new live source access.",
+      "M57 proves the exact M56 platform representation crosses the complete offline metadata contract, not that later live XML guards pass.",
+      "No provider defect or formal schema compliance claimed.",
+      "No SAR pixels, calibration, backscatter or oil science."
+    ]
+  },
+  "semantic_sha256": "a9efe173ca065f0b9f096b75491e3be7281ef7b4d8edcff18aa2d5e9ff62be25",
+  "canonicalization": "SHA-256 of UTF-8 json.dumps(semantic, sort_keys=True, separators=(\",\", \":\"), ensure_ascii=False, allow_nan=False); list order preserved; quality/preservation summaries excluded.",
+  "engineering_quality_gates": {
+    "focused_pytest": {
+      "passed": 330,
+      "warnings": 0,
+      "seconds": 1.19,
+      "external_socket_connection_attempts": 0
+    },
+    "full_pytest": {
+      "passed": 1617,
+      "warnings": 6,
+      "seconds": 37.41,
+      "external_socket_connection_attempts": 0
+    },
+    "ruff": "PASS",
+    "diff_new_file_whitespace": "PASS",
+    "strict_finite_JSON_independent_digest_repeat": "PASS",
+    "credential_signed_URL_scan": "PASS",
+    "GitHub_CI_success_claimed": false
+  },
+  "preservation": {
+    "non_authorized_tracked_hashes": "BYTE_IDENTICAL",
+    "prior_M49_M56_evidence_and_accepted_science": "BYTE_IDENTICAL",
+    "Decisions_050_054_entire_file": "BYTE_IDENTICAL",
+    "frozen_Decision_body_sha256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea",
+      "054": "62d8bf08c6f13774ec91ae4b1c7c93109a7ebbd3a45bb3ea79b9d4e672123df8"
+    },
+    "source_files_changed": [
+      "src/aquasentinel/ingestion/sentinel1_metadata.py"
+    ],
+    "test_files_changed": [
+      "tests/ingestion/test_sentinel1_contract.py"
+    ],
+    "resolver_policy_shared_STAC_optical_config_dependencies": "BYTE_IDENTICAL",
+    "protected_external_hashes": 44,
+    "protected_modes": 57,
+    "stashes": "ALL_THREE_UNCHANGED",
+    "recovery_artifacts": "RETAINED",
+    "new_scientific_products": 0,
+    "M55_evidence_hashes": {
+      "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.json": "6f77235480af8b5b905325013789c9388bcc0936dfa28f1c9bc4e5eabb265463",
+      "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md": "99448194a148989d37227858481926af7719d5a04ac4df84b5e8b44b3eca54b4"
+    },
+    "M56_evidence_hashes": {
+      "docs/evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json": "0de8d1ac1c894e14e2d1867720ee5045d0c35644e7a456673b9496f791c38f5e",
+      "docs/evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md": "5c0caf06d476853cfbedc3846eaa08090fdf11828d3d35d08133eaa25cc113cb"
+    }
+  }
+}

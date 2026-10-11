@@ -1,6 +1,29 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-201 M56 — manifest platform representation diagnostic — COMPLETE
+## Current AS-201 M57 — offline manifest platform scope / casing correction — PASS
+
+**M57 / E57 / EV-061: OFFLINE MANIFEST PLATFORM FAMILYNAME INTEROPERABILITY
+CORRECTION PASS.** Prepared on `fix/as-201-manifest-platform-familyname` from M56
+`839b593a6f79722235494ab40c6df345ea17c7de`; main remains
+`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`. M55/M56 evidence preserved.
+Only manifest platform familyName now requires exactly one nonempty direct child
+and case-only Sentinel-1 identity equality. Nested instrument families are excluded;
+platform number A, shared XML/time helpers, earlier/later guards remain unchanged.
+
+**69 new offline cases; 330 focused / 1617 full tests PASS**, six existing Rasterio
+warnings; Ruff/diff/JSON/digest/security/preservation PASS. Exact six-source M56
+representation crosses the complete synthetic metadata validator, not live readiness.
+Provider requests/signing/pixels/scientific SAR compute **zero**; M55/M56 not rerun.
+Prior evidence, Decisions 050–054, resolver/policy/shared STAC/optical/config/
+dependencies, 44 protected hashes/57 modes/three stashes preserved.
+**M55 HISTORICAL LIVE FAIL; M56 DIAGNOSTIC COMPLETE; LIVE_READINESS UNPROVED;
+AS-202 NOT STARTED; Decision 055 ABSENT.** No PR or merge.
+Next: owner review → separately authorized publication/merge → separately
+authorized controlled live engineering acceptance. No retry or SAR science in M57.
+Evidence: [EV-061 MD](evidence/AS_201_MANIFEST_PLATFORM_FIX.md) /
+[JSON](evidence/AS_201_MANIFEST_PLATFORM_FIX.json).
+
+## Historical AS-201 M56 — diagnostic before M57 offline correction
 
 **M56 / E56 / EV-060: MANIFEST_PLATFORM_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
 Prepared on `diagnostic/as-201-manifest-platform-familyname` from published M55
