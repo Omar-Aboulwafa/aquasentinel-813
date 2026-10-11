@@ -1,6 +1,32 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M58 — controlled live acceptance after M57 — FAIL
+## Current AS-201 M59 — SAFE XML timestamp representation diagnostic — COMPLETE
+
+**M59 / E59 / EV-063: SAFE_XML_TIME_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
+Prepared on `diagnostic/as-201-safe-xml-time-representation` from published M58
+`376754bed59eedbe9cbce47978ae5a52ae481410`; official main `225efc896bf74d87f62741e05a4251ac86d07395`.
+Exactly 18 existing product/calibration/noise XML GETs, each once; **18/18 body
+hashes/lengths match M58**. All 360 consumed timestamps are timezone-naive ISO
+with six fractional digits, no explicit offset/whitespace: 36 ADS + 162 calibration
+vectors + 162 noise-range vectors. Generic parser rejects all 360. All ADS
+wall-clock fields match frozen acquisition fields; UTC meaning is not inferred.
+**UTC_SEMANTICS_REQUIRES_OWNER/SPEC REVIEW.** Same rejection independently
+reproduced at noise and ADS boundaries; no complete validator/later gate PASS claim.
+
+**18 signs / 1 token / 19 HTTP200 requests / 19,339,930 response-body bytes**.
+CDSE/PC STAC/manifest/TIFF/VH/ZIP/image-block/pixels/scientific SAR compute **zero**.
+M58 not rerun; no monkeypatch, production fix, raw XML or credentials persisted.
+**330 focused / 1617 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/JSON/digest/security/preservation PASS. Source/tests/config/dependencies,
+Decisions 050–054, M58/earlier evidence, 49 protected hashes/62 modes/three stashes /
+recovery retained unchanged. **M58 HISTORICAL LIVE FAIL; M57 OFFLINE CORRECTION
+PASS; LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.**
+Next: owner/spec review; separately authorize any correction/offline regressions,
+publication/merge or live acceptance. No PR/merge or parser change in M59.
+Evidence: [EV-063 MD](evidence/AS_201_SAFE_XML_TIME_DIAGNOSTIC.md) /
+[JSON](evidence/AS_201_SAFE_XML_TIME_DIAGNOSTIC.json).
+
+## Historical AS-201 M58 — live FAIL before M59 time representation diagnostic
 
 **M58 / E58 / EV-062: AS201_LIVE_ACCEPTANCE_AFTER_M57 = FAIL.**
 One unchanged public search/access-validation run from PR #36 merge
@@ -2344,6 +2370,21 @@ capture pending, not a real anomaly map or validation result.
   readiness.” No backscatter/oil/AS-202 claim; no new visual or screenshot claimed.
 - Next: owner review only. M55 FAIL/M56 diagnostic/M57 offline PASS retained.
 
+### M59 — Establish timestamp facts before changing their meaning — 11 October 2026 (Asia/Dubai)
+
+- Goal: diagnose only consumed SAFE product/calibration/noise timestamps from
+  M58's exact stable references; no production fix or full live acceptance.
+- 18 single XML GETs, all hashes equal M58. All 360 values share naive ISO /
+  six-digit precision / no offset or whitespace; all strict-parser calls reject.
+  ADS wall-clock correspondence does not establish UTC semantics.
+- 18 signs / 1 token; 19 requests / 19,339,930 bytes; catalogs/TIFF/manifest/
+  pixels/science zero. M58 not rerun. 330 focused / 1617 full tests PASS,
+  six existing Rasterio warnings; quality/security/digest/preservation PASS.
+- Presentation: “Diagnose the representation before assigning timezone meaning.”
+  No new screenshot/figure claimed. UTC_SEMANTICS_REQUIRES_OWNER/SPEC REVIEW.
+- Next: owner/spec review; M58 FAIL preserved, live readiness UNPROVED.
+  Evidence: EV-063 MD/JSON. AS-202 NOT STARTED; Decision 055 ABSENT.
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2525,6 +2566,14 @@ production edit or additional diagnostic request. Complete manifest PASS in each
 source; strict calibration.azimuthTime failure preserved before later XML guards.
 Final failure-state identity/provenance valid with 12 immediate sources; ready=false.
 Zero pixels/science. Offline engineering tests cannot override live failure.
+
+### E59 — In-memory timestamp audit with exact body-hash continuity
+
+Exactly 18 existing XMLs fetched once; every body hash/length equals M58.
+Only consumed ADS and calibration/noise-range timestamp fields inspected.
+360 unchanged generic parser calls reproduce strict timezone rejection; minimal
+raw/stripped ADS facts and vector first/last/counts/digests retained, not raw XML.
+Passive accounting, no monkeypatch/full validator; no inferred UTC or code change.
 
 ## 5. Scientific evidence index
 

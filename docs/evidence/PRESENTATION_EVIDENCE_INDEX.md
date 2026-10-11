@@ -1,6 +1,32 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-201 M58 — controlled live acceptance after M57 — FAIL
+## Current AS-201 M59 — SAFE XML timestamp representation diagnostic — COMPLETE
+
+**M59 / E59 / EV-063: SAFE_XML_TIME_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
+Prepared on `diagnostic/as-201-safe-xml-time-representation` from published M58
+`376754bed59eedbe9cbce47978ae5a52ae481410`; official main `225efc896bf74d87f62741e05a4251ac86d07395`.
+Exactly 18 existing product/calibration/noise XML GETs, each once; **18/18 body
+hashes/lengths match M58**. All 360 consumed timestamps are timezone-naive ISO
+with six fractional digits, no explicit offset/whitespace: 36 ADS + 162 calibration
+vectors + 162 noise-range vectors. Generic parser rejects all 360. All ADS
+wall-clock fields match frozen acquisition fields; UTC meaning is not inferred.
+**UTC_SEMANTICS_REQUIRES_OWNER/SPEC REVIEW.** Same rejection independently
+reproduced at noise and ADS boundaries; no complete validator/later gate PASS claim.
+
+**18 signs / 1 token / 19 HTTP200 requests / 19,339,930 response-body bytes**.
+CDSE/PC STAC/manifest/TIFF/VH/ZIP/image-block/pixels/scientific SAR compute **zero**.
+M58 not rerun; no monkeypatch, production fix, raw XML or credentials persisted.
+**330 focused / 1617 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/JSON/digest/security/preservation PASS. Source/tests/config/dependencies,
+Decisions 050–054, M58/earlier evidence, 49 protected hashes/62 modes/three stashes /
+recovery retained unchanged. **M58 HISTORICAL LIVE FAIL; M57 OFFLINE CORRECTION
+PASS; LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.**
+Next: owner/spec review; separately authorize any correction/offline regressions,
+publication/merge or live acceptance. No PR/merge or parser change in M59.
+Evidence: [EV-063 MD](evidence/AS_201_SAFE_XML_TIME_DIAGNOSTIC.md) /
+[JSON](evidence/AS_201_SAFE_XML_TIME_DIAGNOSTIC.json).
+
+## Historical AS-201 M58 — live FAIL before M59 time representation diagnostic
 
 **M58 / E58 / EV-062: AS201_LIVE_ACCEPTANCE_AFTER_M57 = FAIL.**
 One unchanged public search/access-validation run from PR #36 merge
@@ -1967,3 +1993,17 @@ requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.
   digest/security/preservation PASS. No GitHub CI claim.
 - M55 FAIL / M56 diagnostic / M57 offline PASS remain historical; live readiness
   UNPROVED. AS-202 NOT STARTED; Decision 055 ABSENT. No PR/merge.
+
+### EV-063 — M59 SAFE XML timestamp representation diagnostic — COMPLETE
+
+- Sources: [MD](AS_201_SAFE_XML_TIME_DIAGNOSTIC.md) / [JSON](AS_201_SAFE_XML_TIME_DIAGNOSTIC.json).
+- M59/E59: all 18 XML bodies hash-identical to M58; all 360 consumed timestamps
+  naive ISO / six fractional digits / no whitespace/offset; generic parser rejects.
+- 36 ADS wall-clock comparisons PASS; semantic UTC remains unestablished.
+  UTC_SEMANTICS_REQUIRES_OWNER/SPEC REVIEW. Vector counts/first/last/digests recorded.
+- 18 signs / 1 token; 19 HTTP200 requests / 19,339,930 bytes; no catalog/manifest/
+  TIFF/pixel/science access; no raw XML or signed reference persisted.
+- 330 focused / 1617 full tests PASS, six existing Rasterio warnings; quality,
+  digest/security/preservation PASS. No GitHub CI claim.
+- M58 remains HISTORICAL LIVE FAIL; M57 OFFLINE CORRECTION PASS; live readiness
+  UNPROVED. No production fix/full rerun/PR/merge. AS-202 NOT STARTED; Decision 055 ABSENT.
