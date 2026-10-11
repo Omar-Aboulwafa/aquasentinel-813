@@ -1,6 +1,37 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M60 — SAFE XML UTC time interoperability correction — OFFLINE PASS
+## Current AS-201 M61 — controlled live acceptance after M60 — PASS
+
+**M61 / E61 / EV-065: AS201_LIVE_ACCEPTANCE_AFTER_M60 = PASS.**
+Prepared on `validation/as-201-live-acceptance-after-safe-utc-fix` from PR #37 merge
+`23887f0d4782ea8711b06e5566e66f4a3839a7fa` (parents `225efc896bf74d87f62741e05a4251ac86d07395`
+and `505336537683f4a23b2fe4b3c206b768328f829f`). One unchanged public search/access
+run; no restart, manual retry, patch, extra diagnostic or validator rerun.
+
+All six exact sources, assets, VV TIFF headers, complete manifests/calibration/
+noise-range/noise-azimuth/geolocation/native-spacing/ADS/dimensions/thermal/
+required structures **PASS**. All slices AVAILABLE; three groups and final set ready.
+360 SAFE timestamps pass live; generic strict parser unchanged. All 18 noise-azimuth
+vectors have matching line/LUT lengths and all four bounds; passive summary only,
+from original fetched/parsed XML, no extra request or optionality rule.
+
+**195 HTTP requests / 20,261,623 bytes / 30 signs / 1 token acquisition** measured.
+VH/ZIP/image-block/pixel/scientific SAR work **zero**. Production provenance validates;
+12 CDSE/PC source IDs and common support unchanged. Accepted product:
+`sentinel1_retrieval:de51027c6daa0f2812c0f2e43a041619ca1f290d16773e68c2da9f673bdbcc6e`.
+**493 focused / 1780 full tests PASS**, six existing Rasterio warnings;
+zero external socket attempts; Ruff/diff/JSON/digest/security/preservation PASS.
+
+**LIVE_READINESS = PROVED_AT_AS201_METADATA_ACCESS_BOUNDARY** for the six frozen
+sources. **SAR_SCIENTIFIC_READINESS UNPROVED; OIL_DETECTION / AS-202 NOT STARTED;
+Decision 055 ABSENT.** M58 HISTORICAL LIVE FAIL / M59 diagnostic / M60 offline PASS
+remain unchanged. Source/tests/config/deps/Decisions 050–054/accepted evidence,
+protected hashes/modes/stashes/recovery preserved. No PR or merge in M61.
+Next: owner review; publication/merge and later science require separate authorization.
+Evidence: [EV-065 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M60.md) /
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M60.json).
+
+## Historical AS-201 M60 — offline correction before PR #37 merge / M61
 
 **M60 / E60 / EV-064: OFFLINE SAFE XML UTC-TIME INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-safe-xml-utc-time-normalization` from exact published M59
@@ -2428,6 +2459,22 @@ capture pending, not a real anomaly map or validation result.
   narrow boundary offline.” Next is owner review; no live-readiness/oil claim.
   Evidence EV-064 MD/JSON. AS-202 NOT STARTED; Decision 055 ABSENT.
 
+### M61 — Prove the complete metadata handoff without reading pixels — 11 October 2026 (Asia/Dubai)
+
+- One controlled unchanged live run after M60: all six frozen sources finish
+  AVAILABLE, all three groups and final retrieval ready, provenance validates.
+- Complete manifest/LUT/noise/geolocation/spacing/ADS/dimension/thermal guards PASS.
+  360 SAFE times pass. All 18 noise-azimuth vectors have matching lengths and all
+  four bounds; passive observation reuses original XML with no extra request.
+- 195 requests / 20,261,623 bytes / 30 signs / 1 token; VH/ZIP/image-block/pixel/
+  SAR science zero. 493 focused / 1780 full PASS; six existing Rasterio warnings;
+  quality/digest/security/preservation PASS. No new visual claimed.
+- Presentation: “Same source bytes. Specified UTC semantics. Complete metadata
+  readiness.” This proves AS-201 access/metadata, not calibrated backscatter or oil.
+- M58 historical FAIL / M59 diagnostic / M60 offline PASS remain intact.
+  LIVE_READINESS PROVED_AT_AS201_METADATA_ACCESS_BOUNDARY; SAR science UNPROVED.
+  Owner review next; AS-202 NOT STARTED; Decision 055 ABSENT. EV-065 MD/JSON.
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2626,6 +2673,16 @@ Passive accounting, no monkeypatch/full validator; no inferred UTC or code chang
   exact ADS mismatch/metadata tamper regressions retain fail-closed behavior.
 - 163 new cases; eight reviewed expectation changes; 493 focused / 1780 full PASS,
   six existing warnings. No provider traffic or scientific application. EV-064.
+
+### E61 — Complete unchanged production validators with passive noise structure
+
+- Source-line tracing records successful guards, without replacement functions,
+  added requests or validator reruns. Six slices, 35 required stages each PASS.
+- Noise-azimuth summaries retain counts/booleans only; no raw XML or credentials.
+  Original TIFF reader validates zero metadata/image-block overlap.
+- Twelve source IDs/common support remain identical; accepted-access metadata
+  changes fingerprints appropriately. 493 focused / 1780 full PASS; six warnings.
+- Six documentation/evidence paths only. No SAR scientific processing. EV-065.
 
 ## 5. Scientific evidence index
 
