@@ -1,6 +1,34 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-201 M59 — SAFE XML timestamp representation diagnostic — COMPLETE
+## Current AS-201 M60 — SAFE XML UTC time interoperability correction — OFFLINE PASS
+
+**M60 / E60 / EV-064: OFFLINE SAFE XML UTC-TIME INTEROPERABILITY CORRECTION PASS.**
+Prepared on `fix/as-201-safe-xml-utc-time-normalization` from exact published M59
+`dd35cbbce43bfe482bc573408893365e089e950a`; official main `225efc896bf74d87f62741e05a4251ac86d07395`.
+The M60 authorization supplies the official Sentinel-1 Product Specification
+S1-RS-MDA-52-7441 (2025, Issue/Revision 3/16/2, 01/10/2025): timeType is UTC
+with microsecond resolution. Codex made no independent external source request.
+M59's 360 naive timestamps remain immutable empirical evidence; no re-fetch.
+
+One SAFE-local helper handles only product/calibration/noise ADS start/stop and
+calibration/noise-range vector azimuthTime. Raw nonempty/unpadded text,
+<=6 fractional digits, exact frozen ADS equality and all later guards stay enforced.
+Generic time parser, M54 manifest and M57 platform/native witness remain unchanged.
+Six sources × naive/Z/+00/equivalent +04 complete metadata PASS offline;
+80 malformed, 18 interval mismatch and 41 later-guard cases rejected.
+**493 focused / 1780 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/finite JSON/digest/security/preservation PASS. Provider/sign/token/TIFF/XML/
+image-block/pixel/scientific traffic **zero**; test external socket attempts zero.
+
+**M58 HISTORICAL LIVE FAIL; M59 DIAGNOSTIC COMPLETE; LIVE_READINESS UNPROVED;
+SAR_SCIENTIFIC_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.**
+M49–M59 evidence, Decisions 050–054, unrelated source/tests/config/dependencies,
+protected hashes/modes/stashes/recovery remain unchanged. Next: owner review;
+PR/merge/live retry require separate authorization. No PR or merge in M60.
+Evidence: [EV-064 MD](AS_201_SAFE_XML_UTC_TIME_FIX.md) /
+[JSON](AS_201_SAFE_XML_UTC_TIME_FIX.json).
+
+## Historical AS-201 M59 — diagnostic before M60 specification-backed correction
 
 **M59 / E59 / EV-063: SAFE_XML_TIME_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
 Prepared on `diagnostic/as-201-safe-xml-time-representation` from published M58
@@ -2007,3 +2035,16 @@ requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.
   digest/security/preservation PASS. No GitHub CI claim.
 - M58 remains HISTORICAL LIVE FAIL; M57 OFFLINE CORRECTION PASS; live readiness
   UNPROVED. No production fix/full rerun/PR/merge. AS-202 NOT STARTED; Decision 055 ABSENT.
+
+### EV-064 — M60 SAFE XML UTC time interoperability correction — OFFLINE PASS
+
+- Sources: [MD](AS_201_SAFE_XML_UTC_TIME_FIX.md) / [JSON](AS_201_SAFE_XML_UTC_TIME_FIX.json).
+- M60/E60: official specification timeType UTC semantics supplied in authorization;
+  immutable M59 360 naive timestamps provide separate serialization evidence.
+- One local helper/four authorized calls; exact ADS identity, M54/M57/generic
+  parsing and all later guards preserved. Six-source complete synthetic matrix PASS.
+- 80 malformed / 18 exact mismatch / 41 later-guard cases reject; 493 focused /
+  1780 full PASS; six existing Rasterio warnings; all offline quality gates PASS.
+- Provider/sign/token/TIFF/XML/pixel/science zero; no M58/M59 rerun, PR or merge.
+- M58 HISTORICAL LIVE FAIL; M59 DIAGNOSTIC COMPLETE; LIVE_READINESS and
+  SAR_SCIENTIFIC_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.

@@ -662,7 +662,7 @@ def test_generic_time_parser_remains_strict_for_naive_inputs(field):
 
 @pytest.mark.parametrize("role", ["product", "calibration", "noise"])
 @pytest.mark.parametrize("field", ["startTime", "stopTime"])
-def test_ads_time_parser_remains_strict_after_manifest_utc_normalization(role, field):
+def test_safe_ads_naive_time_is_utc_at_reviewed_boundary(role, field):
     source = s1.FROZEN_SOURCES[0]
     bundle = _manifest_time_bundle(
         source, source.acquisition_start.replace(tzinfo=None).isoformat(),
@@ -675,12 +675,15 @@ def test_ads_time_parser_remains_strict_after_manifest_utc_normalization(role, f
     bundle[role] = bundle[role].replace(
         original, f"<{field}>{value.replace(tzinfo=None).isoformat()}</{field}>".encode()
     )
-    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
-        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    # M60 authorizes UTC interpretation here; generic/catalog parsing stays strict.
+    original_bundle = dict(zip(("manifest", "product", "calibration", "noise"), _xml_bundle(source), strict=True))
+    assert s1.validate_metadata_xml(**bundle, expected=source, header=header(source)) == (
+        s1.validate_metadata_xml(**original_bundle, expected=source, header=header(source))
+    )
 
 
 @pytest.mark.parametrize("role", ["calibration", "noise"])
-def test_lut_time_parser_remains_strict_after_manifest_utc_normalization(role):
+def test_safe_vector_naive_time_is_utc_at_reviewed_boundary(role):
     source = s1.FROZEN_SOURCES[0]
     bundle = _manifest_time_bundle(
         source, source.acquisition_start.replace(tzinfo=None).isoformat(),
@@ -691,8 +694,11 @@ def test_lut_time_parser_remains_strict_after_manifest_utc_normalization(role):
     bundle[role] = bundle[role].replace(
         original, f"<azimuthTime>{source.acquisition_start.replace(tzinfo=None).isoformat()}</azimuthTime>".encode()
     )
-    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
-        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    # M60 authorizes UTC interpretation here; generic/catalog parsing stays strict.
+    original_bundle = dict(zip(("manifest", "product", "calibration", "noise"), _xml_bundle(source), strict=True))
+    assert s1.validate_metadata_xml(**bundle, expected=source, header=header(source)) == (
+        s1.validate_metadata_xml(**original_bundle, expected=source, header=header(source))
+    )
 
 
 @pytest.mark.parametrize("role,old,new", [
@@ -1104,3 +1110,181 @@ def test_registry_reload_accepts_same_semantics_with_later_creation_time(tmp_pat
     restored.derived_products[result.product_id] = altered
     with pytest.raises(s1.Sentinel1RetrievalError):
         later.register(restored)
+
+
+SAFE_TIME_FIELDS = [
+    (role, f"adsHeader/{name}")
+    for role in ("product", "calibration", "noise")
+    for name in ("startTime", "stopTime")
+] + [
+    ("calibration", "calibrationVectorList/calibrationVector/azimuthTime"),
+    ("noise", "noiseRangeVectorList/noiseRangeVector/azimuthTime"),
+]
+
+
+def _safe_time_bundle(source, serialization="naive"):
+    """Synthetic M59-like time shape, not reconstructed provider XML.
+
+    Each LUT has 27 vectors as observed in M59. Values outside the ADS interval
+    deliberately prove that M60 introduces no vector interval/cadence rule.
+    """
+    bundle = dict(zip(("manifest", "product", "calibration", "noise"), _xml_bundle(source), strict=True))
+    for role in ("product", "calibration", "noise"):
+        root = ET.fromstring(bundle[role])
+        if role != "product":
+            name = "calibrationVector" if role == "calibration" else "noiseRangeVector"
+            container = root.find(name + "List")
+            template = container[0]
+            container.clear()
+            container.set("count", "27")
+            for index in range(27):
+                vector = copy.deepcopy(template)
+                vector.find("azimuthTime").text = (
+                    source.acquisition_start + timedelta(seconds=index)
+                ).isoformat(timespec="microseconds")
+                container.append(vector)
+        for element in root.iter():
+            if element.tag not in {"startTime", "stopTime", "azimuthTime"}:
+                continue
+            value = datetime.fromisoformat(element.text)
+            if serialization == "naive":
+                text = value.replace(tzinfo=None).isoformat(timespec="microseconds")
+            elif serialization == "Z":
+                text = value.isoformat(timespec="microseconds").replace("+00:00", "Z")
+            elif serialization == "+00:00":
+                text = value.isoformat(timespec="microseconds")
+            else:
+                text = value.astimezone(timezone(timedelta(hours=4))).isoformat(timespec="microseconds")
+            element.text = text
+        bundle[role] = ET.tostring(root)
+    return bundle
+
+
+@pytest.mark.parametrize("source", s1.FROZEN_SOURCES, ids=lambda s: s.native_source_product_id)
+@pytest.mark.parametrize("serialization", ["naive", "Z", "+00:00", "+04:00"])
+def test_complete_safe_time_representation_all_six_sources(source, serialization):
+    bundle = _safe_time_bundle(source, serialization)
+    original = dict(zip(("manifest", "product", "calibration", "noise"), _xml_bundle(source), strict=True))
+    result = s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    assert result == s1.validate_metadata_xml(**original, expected=source, header=header(source))
+    assert result.calibration_has_beta0 and result.calibration_has_sigma0
+    assert result.calibration_has_gamma and result.calibration_has_dn
+    assert result.noise_has_range and result.noise_has_azimuth
+    assert (result.product_width, result.product_height) == (source.width, source.height)
+    assert result.thermal_noise_correction_performed is False
+    for role, path in SAFE_TIME_FIELDS:
+        root = ET.fromstring(bundle[role])
+        for element in root.findall(path):
+            parsed = metadata._parse_safe_metadata_time(element, element.tag, "test.timeType")
+            assert parsed.tzinfo == UTC
+            value = datetime.fromisoformat(element.text)
+            expected = value.replace(tzinfo=UTC) if value.tzinfo is None else value.astimezone(UTC)
+            assert parsed == expected
+
+
+@pytest.mark.parametrize("role,path", SAFE_TIME_FIELDS)
+@pytest.mark.parametrize("invalid", [
+    "empty", "spaces", "leading", "trailing", "malformed", "date", "time",
+    "precision_naive", "precision_Z", "precision_offset",
+])
+def test_safe_time_invalid_representation_is_rejected(role, path, invalid):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _safe_time_bundle(source)
+    root = ET.fromstring(bundle[role])
+    element = root.find(path)
+    value = element.text
+    element.text = {
+        "empty": "", "spaces": "  ", "leading": " " + value, "trailing": value + " ",
+        "malformed": "invalid-sensitive-value", "date": "2026-02-30T14:42:05.150515",
+        "time": "2026-04-24T25:42:05.150515", "precision_naive": value + "1",
+        "precision_Z": value + "1Z", "precision_offset": value + "1+00:00",
+    }[invalid]
+    supplied = element.text
+    bundle[role] = ET.tostring(root)
+    with pytest.raises(s1.Sentinel1MetadataError) as exc:
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    if supplied.strip():
+        assert supplied not in str(exc.value)
+
+
+@pytest.mark.parametrize("role", ["product", "calibration", "noise"])
+@pytest.mark.parametrize("mismatch", [
+    "start_us", "stop_us", "start_second", "stop_second", "swapped", "wrong_offset",
+])
+def test_safe_ads_interval_still_matches_exact_frozen_source(role, mismatch):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _safe_time_bundle(source)
+    root = ET.fromstring(bundle[role])
+    start, stop = root.find("adsHeader/startTime"), root.find("adsHeader/stopTime")
+    if mismatch == "swapped":
+        start.text, stop.text = stop.text, start.text
+    elif mismatch == "wrong_offset":
+        start.text += "+04:00"  # Same wall clock, different instant: must fail.
+    else:
+        element = start if mismatch.startswith("start") else stop
+        delta = timedelta(microseconds=1) if mismatch.endswith("us") else timedelta(seconds=1)
+        element.text = (datetime.fromisoformat(element.text) + delta).isoformat(timespec="microseconds")
+    bundle[role] = ET.tostring(root)
+    with pytest.raises(s1.Sentinel1MetadataError, match="interval mismatches frozen source"):
+        metadata._validate_ads_header(root, source, role)
+    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+
+
+SAFE_LATER_GUARD_TAMPERS = [
+    ("calibration", "calibrationVectorList/calibrationVector/pixel", "40 0"),
+    ("calibration", "calibrationVectorList/calibrationVector/sigmaNought", "1"),
+    ("calibration", "calibrationVectorList/calibrationVector/sigmaNought", "0 1"),
+    ("calibration", "calibrationVectorList/calibrationVector/sigmaNought", "-1 1"),
+    ("calibration", "calibrationVectorList/calibrationVector/sigmaNought", "NaN 1"),
+    ("noise", "noiseRangeVectorList/noiseRangeVector/pixel", "40 0"),
+    ("noise", "noiseRangeVectorList/noiseRangeVector/noiseRangeLut", "0"),
+    ("noise", "noiseAzimuthVectorList/noiseAzimuthVector/line", "1 0"),
+    ("noise", "noiseAzimuthVectorList/noiseAzimuthVector/noiseAzimuthLut", "0"),
+    ("noise", "noiseAzimuthVectorList/noiseAzimuthVector/firstAzimuthLine", "2"),
+    ("noise", "noiseAzimuthVectorList/noiseAzimuthVector/firstRangeSample", "41"),
+    ("product", "geolocationGridPointList/geolocationGridPoint/latitude", "91"),
+    ("product", "geolocationGridPointList/geolocationGridPoint/longitude", "181"),
+    ("product", "geolocationGridPointList/geolocationGridPoint/incidenceAngle", "35 36"),
+    ("product", "geolocationGridPointList/geolocationGridPoint/height", "NaN"),
+    ("product", "imageAnnotation/imageInformation/rangePixelSpacing", "11"),
+    ("product", "imageAnnotation/imageInformation/azimuthPixelSpacing", "11"),
+    ("product", "imageAnnotation/imageInformation/numberOfSamples", "1"),
+    ("product", "imageAnnotation/imageInformation/numberOfLines", "1"),
+    ("product", "imageAnnotation/imageInformation/thermalNoiseCorrectionPerformed", "unknown"),
+] + [
+    (role, "adsHeader/" + field, value)
+    for role in ("product", "calibration", "noise")
+    for field, value in (
+        ("missionId", "S1B"), ("productType", "SLC"), ("polarisation", "VH"),
+        ("mode", "EW"), ("absoluteOrbitNumber", "1"),
+    )
+] + [
+    ("calibration", "calibrationVectorList/calibrationVector/" + field, None)
+    for field in ("betaNought", "sigmaNought", "gamma", "dn")
+] + [
+    ("noise", "noiseRangeVectorList", None),
+    ("noise", "noiseAzimuthVectorList", None),
+]
+
+
+@pytest.mark.parametrize("role,path,value", SAFE_LATER_GUARD_TAMPERS)
+def test_safe_naive_time_does_not_bypass_later_metadata_guards(role, path, value):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _safe_time_bundle(source)
+    # Complete validator passes before tampering, proving time handling is crossed.
+    s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    root = ET.fromstring(bundle[role])
+    elements = root.findall(path)
+    assert elements
+    for element in elements:
+        if value is None:
+            parent_path = path.rsplit("/", 1)[0] if "/" in path else "."
+            for parent in root.findall(parent_path):
+                if element in list(parent):
+                    parent.remove(element)
+        else:
+            element.text = value
+    bundle[role] = ET.tostring(root)
+    with pytest.raises(s1.Sentinel1MetadataError):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
