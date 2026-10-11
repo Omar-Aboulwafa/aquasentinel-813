@@ -210,4 +210,4 @@ Field and laboratory verification remain necessary.
 - **EO attribution:** product/source identities and providers are retained in repository provenance; raw provider imagery is not redistributed.
 - **Project code licence:** no standalone open-source `LICENSE` file is declared, so this README does not invent a broad reuse grant.
 
-For the current submission contract and remaining stop-ship gates, see `docs/HACKATHON_SUBMISSION.md`.
+For engineering status and scientific evidence, see `docs/PROJECT_STATE.md`, `docs/DECISIONS.md`, and `docs/evidence/`.
