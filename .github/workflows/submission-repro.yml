@@ -3,6 +3,7 @@ name: Submission reproducibility
 on:
   push:
     branches:
+      - main
       - submission/p0-packaging
   pull_request:
 
