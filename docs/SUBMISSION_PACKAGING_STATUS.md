@@ -12,9 +12,10 @@ Base includes the authoritative `docs/HACKATHON_SUBMISSION.md` branch state.
 
 | Deliverable | Status | Evidence |
 |---|---|---|
-| Reviewer-facing end-to-end notebook | PRESENT / EXECUTED IN AVAILABLE RUNTIME | `notebooks/aquasentinel_hab_water_quality.ipynb`; visible outputs committed; deterministic replay of accepted headline |
+| Reviewer-facing end-to-end notebook | PRESENT / EXECUTED | `notebooks/aquasentinel_hab_water_quality.ipynb`; visible outputs committed; deterministic replay of accepted headline |
 | Python 3.11 syntax compatibility | PASS | Every notebook code cell parsed against Python 3.11 grammar before publication |
-| Clean Python 3.11 machine execution | OPEN BLOCKER | Local Python 3.11 download blocked by environment DNS; connector-created GitHub push did not start a workflow run; do not call PASS until independently executed |
+| Clean Python 3.11 machine execution | PASS | GitHub Actions `Submission reproducibility` run #9 / run ID `38127919859`, head `eaefeb970019c258763313be8c5d2c1e9758f4e6`, completed successfully on Python 3.11 |
+| Repository quality gates | PASS | The successful submission workflow runs repository tests and Ruff before notebook execution; accepted result verification and deterministic-output verification also passed |
 | Root pinned requirements.txt | PRESENT | `requirements.txt` with exact direct pins |
 | Reproducible sample input | PRESENT | `data/submission/hab_headline_input.json`; compact accepted evidence + exact public EO product identities; no raw imagery |
 | Reviewer-facing example outputs | PRESENT | `results/submission/` JSON, CSV and SVG actual-result artifacts |
@@ -49,6 +50,21 @@ The reviewer notebook independently replays the frozen accepted evidence arithme
 
 This is a deterministic reviewer replay from committed accepted evidence, not a new scientific experiment and not a change to Decisions 050–053.
 
+## Clean-environment reproducibility evidence
+
+GitHub Actions workflow `Submission reproducibility` run #9 (`38127919859`) completed with conclusion `success` for packaging head `eaefeb970019c258763313be8c5d2c1e9758f4e6`.
+
+The successful workflow verifies, in order:
+
+1. clean Python 3.11 environment setup,
+2. installation of reviewer requirements,
+3. repository tests and Ruff quality gates,
+4. execution of the reviewer notebook,
+5. verification of the frozen accepted headline result,
+6. deterministic regeneration of reviewer-facing outputs.
+
+This closes the previously open clean-Python-3.11 release blocker. It does not resolve external administrative/form blockers.
+
 ## Presentation validation
 
 The slide deck was authored from the actual committed reviewer outputs and converted to PDF. Verification performed:
@@ -71,10 +87,8 @@ Packaging does not claim confirmed HAB, species, toxins, measured chlorophyll co
 
 ## Next release gates
 
-1. Complete repository credential/licence/restricted-data audit at the exact packaging head.
-2. Obtain a genuine clean Python 3.11 notebook execution PASS and deterministic-output PASS.
-3. Resolve evaluator repository access.
-4. Verify creator timezone and formal team eligibility.
-5. Obtain organizer confirmation of final theme wording; update only administrative presentation/README wording if required.
-6. Upload the verified PDF; enter title, 1,504-character summary and GitHub URL in the live form.
-7. Verify all confirmations, submit before the governing cutoff and retain the submission receipt.
+1. Resolve evaluator repository access.
+2. Verify creator timezone and formal team eligibility.
+3. Obtain organizer confirmation of final theme wording; update only administrative presentation/README wording if required.
+4. Upload the verified PDF; enter title, 1,504-character summary and GitHub URL in the live form.
+5. Verify all confirmations, submit before the governing cutoff and retain the submission receipt.
