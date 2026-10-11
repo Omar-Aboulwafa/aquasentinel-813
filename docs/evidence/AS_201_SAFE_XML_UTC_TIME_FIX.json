@@ -1,0 +1,350 @@
+{
+  "schema_version": "as201-m60-v1",
+  "semantic": {
+    "schema_version": "as201-m60-v1",
+    "milestone": "M60",
+    "engineering_entry": "E60",
+    "evidence_id": "EV-064",
+    "status": "OFFLINE SAFE XML UTC-TIME INTEROPERABILITY CORRECTION PASS",
+    "main_SHA": "225efc896bf74d87f62741e05a4251ac86d07395",
+    "parent_M59_SHA": "dd35cbbce43bfe482bc573408893365e089e950a",
+    "M58_SHA": "376754bed59eedbe9cbce47978ae5a52ae481410",
+    "branch": "fix/as-201-safe-xml-utc-time-normalization",
+    "specification": {
+      "publisher": "Copernicus / SentiWiki",
+      "title": "Sentinel-1 Product Specification",
+      "document_reference": "S1-RS-MDA-52-7441",
+      "specification_year": 2025,
+      "internal_issue_revision": "3/16/2",
+      "document_date_as_supplied": "01/10/2025",
+      "official_document_library_URL": "https://sentiwiki.copernicus.eu/web/s1-documents",
+      "verification_provenance": "Official specification facts supplied in M60 authorization; Codex did not independently retrieve or inspect the source during M60.",
+      "paraphrases": [
+        "timeType uses UTC and supports up to microsecond resolution.",
+        "ADS startTime/stopTime are output-image Zero Doppler times in UTC.",
+        "calibrationVector/azimuthTime is timeType.",
+        "noiseRangeVector/azimuthTime is timeType."
+      ],
+      "classification": "Application interoperability correction at specified SAFE boundary; not a provider defect"
+    },
+    "observed_serialization": {
+      "source": "docs/evidence/AS_201_SAFE_XML_TIME_DIAGNOSTIC.json",
+      "semantic_sha256": "0550fd44fc8a6f6e4a8f1746240587dd108a2faca83b7d41229fd366f16d5fa6",
+      "M59_naive_counts": {
+        "product_ADS": 12,
+        "calibration_ADS": 12,
+        "noise_ADS": 12,
+        "calibration_vectors": 162,
+        "noise_range_vectors": 162,
+        "total": 360
+      },
+      "six_fraction_digits": true,
+      "offset_present": false,
+      "surrounding_whitespace": false,
+      "missing_empty_malformed": 0,
+      "18_XML_hashes_lengths_matched_M58": true,
+      "M60_XML_retrievals": 0
+    },
+    "implementation": {
+      "file": "src/aquasentinel/ingestion/sentinel1_metadata.py",
+      "helper": "_parse_safe_metadata_time(root, name, field)",
+      "raw_text_validation": "Require str, nonempty, unpadded before unchanged _unique_text can strip it; retain existing consistent-value cardinality.",
+      "ISO_parser": "datetime.fromisoformat",
+      "fraction_precision": "Reject >6 digits before parsing; no silent truncation.",
+      "aware_behavior": "Normalize existing Z/+00:00/equivalent explicit offset to UTC.",
+      "naive_behavior": "replace(tzinfo=UTC) only for reviewed SAFE timeType fields, justified by specification.",
+      "ADS_fields": [
+        "product.startTime",
+        "product.stopTime",
+        "calibration.startTime",
+        "calibration.stopTime",
+        "noise.startTime",
+        "noise.stopTime"
+      ],
+      "vector_fields": [
+        "calibrationVector/azimuthTime",
+        "noiseRangeVector/azimuthTime"
+      ],
+      "call_sites": [
+        "_parse_safe_metadata_time(root, \"startTime\", f\"{role}.startTime\")",
+        "_parse_safe_metadata_time(root, \"stopTime\", f\"{role}.stopTime\")",
+        "_parse_safe_metadata_time(vector, \"azimuthTime\", \"calibration.azimuthTime\")",
+        "_parse_safe_metadata_time(vector, \"azimuthTime\", \"noise.azimuthTime\")"
+      ],
+      "interval_identity": "Exact frozen start/stop equality; microseconds significant; no tolerance.",
+      "vector_timing_policy": "Existing parse-only contract; no acquisition-interval, equality, cadence or cross-vector timing rule added.",
+      "production_SHA256": "22e459bcee78a747b9ab4b4fec2f2d9feb020067c8c3c959be66164a0f19af71",
+      "preservation": {
+        "production_only_helper_import_and_four_call_sites": "PASS",
+        "unchanged_function_SHA256": {
+          "_safe_range_bytes": "9f52940e36a26b36af309089375e4b2341319606805315369b1d411b2da313e3",
+          "_entries": "072ff8ae5db8c32d19299ac0cc479b7599155974945f0874f3b7568b4ef17bb9",
+          "_scalar": "a5219da0ff0b35e468c52cdf8da3750d61b2a64dae231aa7cc9de4587ad8338b",
+          "_parse_tiff_ifd": "4cba7d51dc9f5346a2d51eb09ca9af08afb0326a9b3bee7f00211f6bf2c407ff",
+          "read_tiff_header": "20e4fff74508065ceed381a8fae3f6135b2f8323d656495521a47d25c2b0d636",
+          "_local": "d3dc53f70a202d260b8c4119889b53566bcbe8db1a5cf437607ec163954116b1",
+          "_texts": "2a160bd122b65d6618df882f1c60bc59359c00267529abf926d4ef2aacf0d3e0",
+          "_unique_text": "b82a20bc4be9b9eb9882bcdee23a1b167739fdbc25e82fb1557d950152df4243",
+          "_parse_xml": "0b08dca0944d03d9b1f0dfaff718f95aba947d2c01cdeae69aad46cf31451dae",
+          "_parse_manifest_time": "9211a579e62bba3bbc5665ba7e2db3224dede37cf9e1bd473f61355b747ee2a5",
+          "_validate_manifest": "f92154aa73b94ffe75f90a6b61cf88c3fb65f45d24ecce6b38f466d66b1cd3c9",
+          "_numeric_values": "c830e10239565992024df3c3b6121da555cfcd75725ea459eef5ac034461922c",
+          "_vectors": "9fdecfee94aa0fb48e0040914d4673f61b31fcd6efa243f24181e38c75ae4ae5",
+          "_validate_metadata_xml": "87f3a0ba440e474bb6e9cffd128833d28e62bf355f04b05028aaa214ff7f12bc",
+          "validate_metadata_xml": "59caaa68af5d8917df1b3d7b3894dfd4ab43df37554b2b07e7e41841e9e81e46",
+          "validate_slice_access": "532b26aeff1952e58b1e47e91e7d7e99b2c438d3136f08737842eacc456d79a1",
+          "validate_retrieval_access": "d6cdb3077dcd1d1ebb746bb2601d43e536f84ac3636e24a57dee276f719b8da9"
+        },
+        "ADS_and_LUT_guards_after_reversing_only_authorized_calls": "BYTE_IDENTICAL",
+        "generic_policy_file_SHA256": "486b15c49dbb414df6513a1a4c9b9234fe3ee277af00a3dec0b34d089135563e",
+        "generic_parser_naive_rejection": "PASS",
+        "M54_manifest_parser_validator": "BYTE_IDENTICAL / existing positive and rejection tests PASS",
+        "M57_platform_direct_scope_case_only_nested_isolation_native_witness": "BYTE_IDENTICAL / existing regressions PASS"
+      }
+    },
+    "offline_validation": {
+      "six_source_matrix": [
+        {
+          "policy": "REFERENCE/1",
+          "CDSE_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "PC_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "frozen_start": "2026-04-24T14:42:05.150515+00:00",
+          "frozen_stop": "2026-04-24T14:42:30.148548+00:00",
+          "synthetic_ADS_fields": 6,
+          "synthetic_calibration_vectors": 27,
+          "synthetic_noise_range_vectors": 27,
+          "representations": {
+            "naive": "PASS",
+            "Z": "PASS",
+            "+00:00": "PASS",
+            "equivalent_+04:00": "PASS"
+          },
+          "complete_metadata_validator": "PASS; all existing later guards crossed",
+          "fixture_boundary": "Synthetic representation fixture; not reconstructed provider XML or live validation"
+        },
+        {
+          "policy": "REFERENCE/2",
+          "CDSE_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "PC_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "frozen_start": "2026-04-24T14:42:30.150042+00:00",
+          "frozen_stop": "2026-04-24T14:42:55.148075+00:00",
+          "synthetic_ADS_fields": 6,
+          "synthetic_calibration_vectors": 27,
+          "synthetic_noise_range_vectors": 27,
+          "representations": {
+            "naive": "PASS",
+            "Z": "PASS",
+            "+00:00": "PASS",
+            "equivalent_+04:00": "PASS"
+          },
+          "complete_metadata_validator": "PASS; all existing later guards crossed",
+          "fixture_boundary": "Synthetic representation fixture; not reconstructed provider XML or live validation"
+        },
+        {
+          "policy": "DOCUMENTARY_EVENT/1",
+          "CDSE_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "PC_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "frozen_start": "2026-05-06T14:42:04.538690+00:00",
+          "frozen_stop": "2026-05-06T14:42:29.536703+00:00",
+          "synthetic_ADS_fields": 6,
+          "synthetic_calibration_vectors": 27,
+          "synthetic_noise_range_vectors": 27,
+          "representations": {
+            "naive": "PASS",
+            "Z": "PASS",
+            "+00:00": "PASS",
+            "equivalent_+04:00": "PASS"
+          },
+          "complete_metadata_validator": "PASS; all existing later guards crossed",
+          "fixture_boundary": "Synthetic representation fixture; not reconstructed provider XML or live validation"
+        },
+        {
+          "policy": "DOCUMENTARY_EVENT/2",
+          "CDSE_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "PC_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "frozen_start": "2026-05-06T14:42:29.538209+00:00",
+          "frozen_stop": "2026-05-06T14:42:54.536224+00:00",
+          "synthetic_ADS_fields": 6,
+          "synthetic_calibration_vectors": 27,
+          "synthetic_noise_range_vectors": 27,
+          "representations": {
+            "naive": "PASS",
+            "Z": "PASS",
+            "+00:00": "PASS",
+            "equivalent_+04:00": "PASS"
+          },
+          "complete_metadata_validator": "PASS; all existing later guards crossed",
+          "fixture_boundary": "Synthetic representation fixture; not reconstructed provider XML or live validation"
+        },
+        {
+          "policy": "LATE_FOLLOW_UP/1",
+          "CDSE_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "PC_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "frozen_start": "2026-05-18T14:42:04.240283+00:00",
+          "frozen_stop": "2026-05-18T14:42:29.238414+00:00",
+          "synthetic_ADS_fields": 6,
+          "synthetic_calibration_vectors": 27,
+          "synthetic_noise_range_vectors": 27,
+          "representations": {
+            "naive": "PASS",
+            "Z": "PASS",
+            "+00:00": "PASS",
+            "equivalent_+04:00": "PASS"
+          },
+          "complete_metadata_validator": "PASS; all existing later guards crossed",
+          "fixture_boundary": "Synthetic representation fixture; not reconstructed provider XML or live validation"
+        },
+        {
+          "policy": "LATE_FOLLOW_UP/2",
+          "CDSE_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "PC_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "frozen_start": "2026-05-18T14:42:29.239908+00:00",
+          "frozen_stop": "2026-05-18T14:42:54.239534+00:00",
+          "synthetic_ADS_fields": 6,
+          "synthetic_calibration_vectors": 27,
+          "synthetic_noise_range_vectors": 27,
+          "representations": {
+            "naive": "PASS",
+            "Z": "PASS",
+            "+00:00": "PASS",
+            "equivalent_+04:00": "PASS"
+          },
+          "complete_metadata_validator": "PASS; all existing later guards crossed",
+          "fixture_boundary": "Synthetic representation fixture; not reconstructed provider XML or live validation"
+        }
+      ],
+      "new_test_cases": 163,
+      "changed_existing_cases": 8,
+      "complete_representation_cases": 24,
+      "malformed_cases": 80,
+      "exact_ADS_mismatch_cases": 18,
+      "later_guard_tamper_cases": 41,
+      "malformed_matrix": {
+        "fields": 8,
+        "cases_per_field": [
+          "empty",
+          "whitespace-only",
+          "leading whitespace",
+          "trailing whitespace",
+          "malformed ISO",
+          "impossible date",
+          "impossible time",
+          ">6 digits naive",
+          ">6 digits Z",
+          ">6 digits explicit offset"
+        ],
+        "all_rejected": true,
+        "exception_input_leak": false
+      },
+      "ADS_mismatch_matrix": {
+        "roles": [
+          "product",
+          "calibration",
+          "noise"
+        ],
+        "per_role": [
+          "start +1 microsecond",
+          "stop +1 microsecond",
+          "start +1 second",
+          "stop +1 second",
+          "swapped interval",
+          "wrong aware offset"
+        ],
+        "all_rejected": true,
+        "direct_and_sanitized_public_boundary": "PASS"
+      },
+      "later_guards": [
+        "calibration coordinate ordering",
+        "calibration LUT length",
+        "zero/negative/nonfinite calibration values",
+        "noise range coordinate ordering/length",
+        "noise azimuth ordering/length/block bounds",
+        "latitude/longitude bounds",
+        "incidence scalar/geolocation nonfinite",
+        "range/azimuth native spacing",
+        "ADS mission/product/polarization/mode/orbit in all three roles",
+        "sample/line dimensions",
+        "beta/sigma/gamma/DN presence",
+        "range/azimuth noise structure",
+        "thermal boolean"
+      ],
+      "all_later_guard_tampers_rejected": true,
+      "M54_existing_manifest_tests": "PASS; naive/Z/+00/equivalent offset/exact interval/malformed/padding/precision preserved",
+      "M57_existing_family_tests": "PASS; direct child cardinality/case-only/nested isolation/native witness preserved",
+      "generic_naive_parser_existing_tests": "PASS; must be timezone-aware remains enforced"
+    },
+    "network_scientific_boundaries": {
+      "provider_catalog_requests": 0,
+      "signing_operations": 0,
+      "token_acquisitions": 0,
+      "TIFF_XML_network_requests": 0,
+      "ZIP_requests": 0,
+      "image_block_reads": 0,
+      "SAR_pixel_reads": 0,
+      "SAR_pixel_bytes": 0,
+      "calibration_application": 0,
+      "thermal_noise_removal_application": 0,
+      "sigma0_gamma0_computation": 0,
+      "dB_conversion": 0,
+      "reprojection": 0,
+      "mosaicking": 0,
+      "filtering": 0,
+      "oil_detection": 0,
+      "persistence_risk_scoring": 0,
+      "AS202_execution": 0,
+      "external_socket_attempts_in_tests": 0
+    },
+    "preserved_state": {
+      "M58": "HISTORICAL LIVE FAIL",
+      "M59": "DIAGNOSTIC COMPLETE",
+      "LIVE_READINESS": "UNPROVED",
+      "SAR_SCIENTIFIC_READINESS": "UNPROVED",
+      "AS-202": "NOT STARTED",
+      "Decision_055": "ABSENT",
+      "PR": "NONE CREATED",
+      "MERGE": "NONE PERFORMED"
+    },
+    "limitations": [
+      "Offline complete synthetic metadata validation is not real provider acceptance.",
+      "M58 later real metadata gates remain unproved.",
+      "No real XML re-fetch or complete live metadata validation occurred in M60.",
+      "No SAR pixels or scientific transformation were run."
+    ]
+  },
+  "semantic_sha256": "307c0515312fbd48e3893c9fc568ac12edd7858258412f0cabf4fc8af19b6e84",
+  "canonicalization": "SHA-256 over UTF-8 json.dumps(semantic, sort_keys=True, separators=(comma,colon), ensure_ascii=False, allow_nan=False). Stable arrays; quality gates and publication metadata outside semantic.",
+  "engineering_quality_gates": {
+    "focused_tests_passed": 493,
+    "full_tests_passed": 1780,
+    "warnings": 6,
+    "warning_type": "existing Rasterio PendingDeprecationWarning",
+    "external_socket_attempts": 0,
+    "Ruff": "PASS",
+    "diff_new_file_whitespace": "PASS",
+    "strict_finite_JSON_digest_repeat": "PASS",
+    "credential_scan": "PASS",
+    "preservation": "PASS",
+    "GitHub_CI": "NOT CLAIMED"
+  },
+  "preservation_inventory": {
+    "protected_external_hashes": 54,
+    "protected_modes": 67,
+    "stashes": [
+      "d128ae2a00e61e28db274f682666e21361a69efb On feature/as-201-sentinel1-retrieval: temporary: preserve reviewed AS-201 M48 completion before related remote advance",
+      "d979a433a5ab8ae600282048f184eb5fd06a8f17 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 049 integration",
+      "f93950aab6fdfb40bb100158915ef12692aa1665 On feature/as-104-temporal-baseline: safety: AS-104 before Decision 048 integration"
+    ],
+    "tracked_hashes_snapshot": "external /tmp/as201-m60/before.json",
+    "all_unauthorized_tracked_files": "BYTE_IDENTICAL",
+    "data_inventory": "UNCHANGED",
+    "M49_M59_evidence": "BYTE_IDENTICAL",
+    "Decisions_050_054": "BYTE_IDENTICAL",
+    "recovery_material": "RETAINED"
+  }
+}

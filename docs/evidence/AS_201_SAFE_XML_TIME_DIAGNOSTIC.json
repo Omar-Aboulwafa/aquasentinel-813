@@ -1,0 +1,2258 @@
+{
+  "schema_version": "as201-m59-safe-xml-time-diagnostic-v1",
+  "semantic": {
+    "schema_version": "as201-m59-safe-xml-time-diagnostic-v1",
+    "milestone": "M59",
+    "engineering_entry": "E59",
+    "evidence_id": "EV-063",
+    "status": "SAFE_XML_TIME_REPRESENTATION_DIAGNOSTIC_COMPLETE",
+    "official_main_sha": "225efc896bf74d87f62741e05a4251ac86d07395",
+    "parent_M58_sha": "376754bed59eedbe9cbce47978ae5a52ae481410",
+    "main_merge_parents": [
+      "cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721",
+      "016f35d41195b17bff2da47de336380451862f9e"
+    ],
+    "branch": "diagnostic/as-201-safe-xml-time-representation",
+    "chronology": "main -> M58 historical live FAIL -> M59 diagnostic",
+    "inputs": {
+      "accepted_evidence": "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M57.json",
+      "M58_semantic_sha256": "8dccb213233b984e59eebc41a02db5bd442150b84c4c249c8e8fd8a3b9ae527e",
+      "M58_retrieval_product_id": "sentinel1_retrieval:b2d9afb757d3551dcee8c6ae79624cbb33a03b1b8207cc025ade79ce22076a08",
+      "source_count": 6,
+      "asset_count": 18,
+      "verification": "Exact frozen policies/PC product IDs/purpose/native source path suffix verified against M58 before requests. Existing allowlist/HTTPS/no-query/no-userinfo validation enforced; no substitutions."
+    },
+    "execution": {
+      "diagnostic_runs": 1,
+      "live_acceptance_runs": 0,
+      "monkeypatches": false,
+      "production_edits": false,
+      "raw_XML_persisted": false,
+      "forbidden_calls": {},
+      "parser_reproduction_calls": 360,
+      "parser_reproduction": "Only exact _parse_time calls over in-memory values consumed via existing _unique_text; no full validator.",
+      "accounting": "Passive sys.settrace of original urllib HTTP operations/reads and original sign_asset calls; no replacement or extra traffic.",
+      "observer_errors": [],
+      "trace_restored": true,
+      "logging_restored": true,
+      "transient_token_state_discarded": true
+    },
+    "documents": [
+      {
+        "policy": {
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+          "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+          "absolute_orbit": 64223,
+          "width": 25835,
+          "height": 16732
+        },
+        "purpose": "product_vv",
+        "role": "PRODUCT",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192/annotation/iw-vv.xml",
+        "body_sha256": "31199d2a0736efdd9259d2d38ac427ac76eb289ce650cfe852f3cf692a258dfd",
+        "body_length": 1779484,
+        "M58_body_sha256": "31199d2a0736efdd9259d2d38ac427ac76eb289ce650cfe852f3cf692a258dfd",
+        "M58_body_length": 1779484,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-04-24T14:42:05.150515",
+              "stripped_text": "2026-04-24T14:42:05.150515",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-04-24T14:42:05.150515",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:05.150515+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:05.150515",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-04-24T14:42:30.148548",
+              "stripped_text": "2026-04-24T14:42:30.148548",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-04-24T14:42:30.148548",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:30.148548+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:30.148548",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        }
+      },
+      {
+        "policy": {
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+          "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+          "absolute_orbit": 64223,
+          "width": 25835,
+          "height": 16732
+        },
+        "purpose": "calibration_vv",
+        "role": "CALIBRATION",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192/annotation/calibration/calibration-iw-vv.xml",
+        "body_sha256": "9a2e2ead5b6555ae37acd952278561db409d42d55aad68966830345b1e2ec617",
+        "body_length": 1014835,
+        "M58_body_sha256": "9a2e2ead5b6555ae37acd952278561db409d42d55aad68966830345b1e2ec617",
+        "M58_body_length": 1014835,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-04-24T14:42:05.150515",
+              "stripped_text": "2026-04-24T14:42:05.150515",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-04-24T14:42:05.150515",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:05.150515+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:05.150515",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-04-24T14:42:30.148548",
+              "stripped_text": "2026-04-24T14:42:30.148548",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-04-24T14:42:30.148548",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:30.148548+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:30.148548",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "calibrationVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-04-24T14:42:05.150515",
+          "last_exact_timestamp": "2026-04-24T14:42:31.150515",
+          "ordered_timestamp_text_list_sha256": "cc5c0a56c847953a7ac45d30afb21a1b0aaddcd6e68650df4291282055539192",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item calibration.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "REFERENCE",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192",
+          "acquisition_start": "2026-04-24T14:42:05.150515+00:00",
+          "acquisition_end": "2026-04-24T14:42:30.148548+00:00",
+          "absolute_orbit": 64223,
+          "width": 25835,
+          "height": 16732
+        },
+        "purpose": "noise_vv",
+        "role": "NOISE",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E_4192/annotation/calibration/noise-iw-vv.xml",
+        "body_sha256": "73b2536f1816f023d13b2d46ef2255c6a73048d6a3b802616b792a603863dc54",
+        "body_length": 426802,
+        "M58_body_sha256": "73b2536f1816f023d13b2d46ef2255c6a73048d6a3b802616b792a603863dc54",
+        "M58_body_length": 426802,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-04-24T14:42:05.150515",
+              "stripped_text": "2026-04-24T14:42:05.150515",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-04-24T14:42:05.150515",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:05.150515+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:05.150515",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-04-24T14:42:30.148548",
+              "stripped_text": "2026-04-24T14:42:30.148548",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-04-24T14:42:30.148548",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:30.148548+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:30.148548",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "noiseRangeVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-04-24T14:42:05.150515",
+          "last_exact_timestamp": "2026-04-24T14:42:30.148548",
+          "ordered_timestamp_text_list_sha256": "895ec105c56aee0d0e47055f3596e242461a95aa031c6b261dc30be25d3ca995",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item noise.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+          "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+          "absolute_orbit": 64223,
+          "width": 25842,
+          "height": 16732
+        },
+        "purpose": "product_vv",
+        "role": "PRODUCT",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A/annotation/iw-vv.xml",
+        "body_sha256": "5caf572f83d7cbb94eb8b9c22cb9991377c68c5c7b8fab1f60ac0c78dcdf40a0",
+        "body_length": 1782047,
+        "M58_body_sha256": "5caf572f83d7cbb94eb8b9c22cb9991377c68c5c7b8fab1f60ac0c78dcdf40a0",
+        "M58_body_length": 1782047,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-04-24T14:42:30.150042",
+              "stripped_text": "2026-04-24T14:42:30.150042",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-04-24T14:42:30.150042",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:30.150042+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:30.150042",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-04-24T14:42:55.148075",
+              "stripped_text": "2026-04-24T14:42:55.148075",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-04-24T14:42:55.148075",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:55.148075+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:55.148075",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        }
+      },
+      {
+        "policy": {
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+          "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+          "absolute_orbit": 64223,
+          "width": 25842,
+          "height": 16732
+        },
+        "purpose": "calibration_vv",
+        "role": "CALIBRATION",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A/annotation/calibration/calibration-iw-vv.xml",
+        "body_sha256": "bfa32ba2d1c6f45fb147575390a4541cbd2a5eae6b312be040c47c8ce4f4de11",
+        "body_length": 1016401,
+        "M58_body_sha256": "bfa32ba2d1c6f45fb147575390a4541cbd2a5eae6b312be040c47c8ce4f4de11",
+        "M58_body_length": 1016401,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-04-24T14:42:30.150042",
+              "stripped_text": "2026-04-24T14:42:30.150042",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-04-24T14:42:30.150042",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:30.150042+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:30.150042",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-04-24T14:42:55.148075",
+              "stripped_text": "2026-04-24T14:42:55.148075",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-04-24T14:42:55.148075",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:55.148075+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:55.148075",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "calibrationVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-04-24T14:42:30.150042",
+          "last_exact_timestamp": "2026-04-24T14:42:56.150042",
+          "ordered_timestamp_text_list_sha256": "008fa60b734f585f467c25ff9d56ed6281758c352ef03c06afcb328855225940",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item calibration.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "REFERENCE",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A",
+          "acquisition_start": "2026-04-24T14:42:30.150042+00:00",
+          "acquisition_end": "2026-04-24T14:42:55.148075+00:00",
+          "absolute_orbit": 64223,
+          "width": 25842,
+          "height": 16732
+        },
+        "purpose": "noise_vv",
+        "role": "NOISE",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/4/24/IW/DV/S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E_BA3A/annotation/calibration/noise-iw-vv.xml",
+        "body_sha256": "0359e7b8cc2d43aa2470e12529a82e780fc52f49eeab7dafa1d816dee612d0ab",
+        "body_length": 426786,
+        "M58_body_sha256": "0359e7b8cc2d43aa2470e12529a82e780fc52f49eeab7dafa1d816dee612d0ab",
+        "M58_body_length": 426786,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-04-24T14:42:30.150042",
+              "stripped_text": "2026-04-24T14:42:30.150042",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-04-24T14:42:30.150042",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:30.150042+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:30.150042",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-04-24T14:42:55.148075",
+              "stripped_text": "2026-04-24T14:42:55.148075",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-04-24T14:42:55.148075",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-04-24T14:42:55.148075+00:00",
+              "frozen_wall_clock_iso": "2026-04-24T14:42:55.148075",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "noiseRangeVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-04-24T14:42:30.150042",
+          "last_exact_timestamp": "2026-04-24T14:42:55.148075",
+          "ordered_timestamp_text_list_sha256": "683b5eb4a54616bdd40b0df0471356201974556ef304782b655ecbb7d322beff",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item noise.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+          "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+          "absolute_orbit": 64398,
+          "width": 25835,
+          "height": 16732
+        },
+        "purpose": "product_vv",
+        "role": "PRODUCT",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44/annotation/iw-vv.xml",
+        "body_sha256": "15110087f37157691011e8a6b47ba55cc012c1e8fea4adb476ce09521a5704cf",
+        "body_length": 1779710,
+        "M58_body_sha256": "15110087f37157691011e8a6b47ba55cc012c1e8fea4adb476ce09521a5704cf",
+        "M58_body_length": 1779710,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-06T14:42:04.538690",
+              "stripped_text": "2026-05-06T14:42:04.538690",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-06T14:42:04.538690",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:04.538690+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:04.538690",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-06T14:42:29.536703",
+              "stripped_text": "2026-05-06T14:42:29.536703",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-06T14:42:29.536703",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:29.536703+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:29.536703",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        }
+      },
+      {
+        "policy": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+          "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+          "absolute_orbit": 64398,
+          "width": 25835,
+          "height": 16732
+        },
+        "purpose": "calibration_vv",
+        "role": "CALIBRATION",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44/annotation/calibration/calibration-iw-vv.xml",
+        "body_sha256": "d4d5592aa3d3a06f850cd9a5729220bbda67883f423d27e048b918d412cef3b0",
+        "body_length": 1014835,
+        "M58_body_sha256": "d4d5592aa3d3a06f850cd9a5729220bbda67883f423d27e048b918d412cef3b0",
+        "M58_body_length": 1014835,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-06T14:42:04.538690",
+              "stripped_text": "2026-05-06T14:42:04.538690",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-06T14:42:04.538690",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:04.538690+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:04.538690",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-06T14:42:29.536703",
+              "stripped_text": "2026-05-06T14:42:29.536703",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-06T14:42:29.536703",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:29.536703+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:29.536703",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "calibrationVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-06T14:42:04.538690",
+          "last_exact_timestamp": "2026-05-06T14:42:30.538690",
+          "ordered_timestamp_text_list_sha256": "7165ee18a90df907a8c01f10ffd2658e8f26a06f9098a2f080f7349ec3a9dee0",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item calibration.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44",
+          "acquisition_start": "2026-05-06T14:42:04.538690+00:00",
+          "acquisition_end": "2026-05-06T14:42:29.536703+00:00",
+          "absolute_orbit": 64398,
+          "width": 25835,
+          "height": 16732
+        },
+        "purpose": "noise_vv",
+        "role": "NOISE",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09_BF44/annotation/calibration/noise-iw-vv.xml",
+        "body_sha256": "b39d1f544c790fa41c91fbfedc53d9bf337f2ceb7b0ba029f1831e4e749bbb99",
+        "body_length": 426767,
+        "M58_body_sha256": "b39d1f544c790fa41c91fbfedc53d9bf337f2ceb7b0ba029f1831e4e749bbb99",
+        "M58_body_length": 426767,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-06T14:42:04.538690",
+              "stripped_text": "2026-05-06T14:42:04.538690",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-06T14:42:04.538690",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:04.538690+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:04.538690",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-06T14:42:29.536703",
+              "stripped_text": "2026-05-06T14:42:29.536703",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-06T14:42:29.536703",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:29.536703+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:29.536703",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "noiseRangeVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-06T14:42:04.538690",
+          "last_exact_timestamp": "2026-05-06T14:42:29.536703",
+          "ordered_timestamp_text_list_sha256": "e97bd185ef7103c015f0784f07c58c0c04603353e0fca267139a49d784c10fca",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item noise.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+          "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+          "absolute_orbit": 64398,
+          "width": 25842,
+          "height": 16732
+        },
+        "purpose": "product_vv",
+        "role": "PRODUCT",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B/annotation/iw-vv.xml",
+        "body_sha256": "52e997603e8aa7c6fbfbd425422efbf7f2bbf4f52668593301d76cc34b6eb398",
+        "body_length": 1782185,
+        "M58_body_sha256": "52e997603e8aa7c6fbfbd425422efbf7f2bbf4f52668593301d76cc34b6eb398",
+        "M58_body_length": 1782185,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-06T14:42:29.538209",
+              "stripped_text": "2026-05-06T14:42:29.538209",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-06T14:42:29.538209",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:29.538209+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:29.538209",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-06T14:42:54.536224",
+              "stripped_text": "2026-05-06T14:42:54.536224",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-06T14:42:54.536224",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:54.536224+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:54.536224",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        }
+      },
+      {
+        "policy": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+          "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+          "absolute_orbit": 64398,
+          "width": 25842,
+          "height": 16732
+        },
+        "purpose": "calibration_vv",
+        "role": "CALIBRATION",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B/annotation/calibration/calibration-iw-vv.xml",
+        "body_sha256": "df98609a5c185bec761091986bb12d2efffcbca38a8199fb01e4d269569c7ad0",
+        "body_length": 1016401,
+        "M58_body_sha256": "df98609a5c185bec761091986bb12d2efffcbca38a8199fb01e4d269569c7ad0",
+        "M58_body_length": 1016401,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-06T14:42:29.538209",
+              "stripped_text": "2026-05-06T14:42:29.538209",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-06T14:42:29.538209",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:29.538209+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:29.538209",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-06T14:42:54.536224",
+              "stripped_text": "2026-05-06T14:42:54.536224",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-06T14:42:54.536224",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:54.536224+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:54.536224",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "calibrationVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-06T14:42:29.538209",
+          "last_exact_timestamp": "2026-05-06T14:42:55.538209",
+          "ordered_timestamp_text_list_sha256": "0c257f3172cc537daa84b6a8e6b7251d4bbfca5ddb79c72fb2f1e6ac30af47ec",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item calibration.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "DOCUMENTARY_EVENT",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B",
+          "acquisition_start": "2026-05-06T14:42:29.538209+00:00",
+          "acquisition_end": "2026-05-06T14:42:54.536224+00:00",
+          "absolute_orbit": 64398,
+          "width": 25842,
+          "height": 16732
+        },
+        "purpose": "noise_vv",
+        "role": "NOISE",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/6/IW/DV/S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09_A43B/annotation/calibration/noise-iw-vv.xml",
+        "body_sha256": "04c062f89e6671eb665927a41c7343ec4d960997b2a70f3c9d1c3bba5ef6cb15",
+        "body_length": 426785,
+        "M58_body_sha256": "04c062f89e6671eb665927a41c7343ec4d960997b2a70f3c9d1c3bba5ef6cb15",
+        "M58_body_length": 426785,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-06T14:42:29.538209",
+              "stripped_text": "2026-05-06T14:42:29.538209",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-06T14:42:29.538209",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:29.538209+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:29.538209",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-06T14:42:54.536224",
+              "stripped_text": "2026-05-06T14:42:54.536224",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-06T14:42:54.536224",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-06T14:42:54.536224+00:00",
+              "frozen_wall_clock_iso": "2026-05-06T14:42:54.536224",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "noiseRangeVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-06T14:42:29.538209",
+          "last_exact_timestamp": "2026-05-06T14:42:54.536223",
+          "ordered_timestamp_text_list_sha256": "2e52192128099d53f0c91274062ecde4187e0cf2aefaec0c5000773ee4bfdaef",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item noise.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+          "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+          "absolute_orbit": 64573,
+          "width": 25836,
+          "height": 16732
+        },
+        "purpose": "product_vv",
+        "role": "PRODUCT",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC/annotation/iw-vv.xml",
+        "body_sha256": "dee4661c68db8a0fa2c04805aa5e181b7c3bb21cf5c0fc8f7926cb99da8fb87e",
+        "body_length": 1779565,
+        "M58_body_sha256": "dee4661c68db8a0fa2c04805aa5e181b7c3bb21cf5c0fc8f7926cb99da8fb87e",
+        "M58_body_length": 1779565,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-18T14:42:04.240283",
+              "stripped_text": "2026-05-18T14:42:04.240283",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-18T14:42:04.240283",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:04.240283+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:04.240283",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-18T14:42:29.238414",
+              "stripped_text": "2026-05-18T14:42:29.238414",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-18T14:42:29.238414",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:29.238414+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:29.238414",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        }
+      },
+      {
+        "policy": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+          "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+          "absolute_orbit": 64573,
+          "width": 25836,
+          "height": 16732
+        },
+        "purpose": "calibration_vv",
+        "role": "CALIBRATION",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC/annotation/calibration/calibration-iw-vv.xml",
+        "body_sha256": "8e631265fac166e8aaebafcc8f856b9942a70020dfefe3076aaa41cf7aeb358a",
+        "body_length": 1014835,
+        "M58_body_sha256": "8e631265fac166e8aaebafcc8f856b9942a70020dfefe3076aaa41cf7aeb358a",
+        "M58_body_length": 1014835,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-18T14:42:04.240283",
+              "stripped_text": "2026-05-18T14:42:04.240283",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-18T14:42:04.240283",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:04.240283+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:04.240283",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-18T14:42:29.238414",
+              "stripped_text": "2026-05-18T14:42:29.238414",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-18T14:42:29.238414",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:29.238414+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:29.238414",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "calibrationVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-18T14:42:04.240283",
+          "last_exact_timestamp": "2026-05-18T14:42:30.240283",
+          "ordered_timestamp_text_list_sha256": "0f21e8654858fd31a6f54f3259e372698460c040894a63bfbd52d27990d472f4",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item calibration.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 1,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC",
+          "acquisition_start": "2026-05-18T14:42:04.240283+00:00",
+          "acquisition_end": "2026-05-18T14:42:29.238414+00:00",
+          "absolute_orbit": 64573,
+          "width": 25836,
+          "height": 16732
+        },
+        "purpose": "noise_vv",
+        "role": "NOISE",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235_34DC/annotation/calibration/noise-iw-vv.xml",
+        "body_sha256": "fe9369139fffc4c43d7ca2fac8ed192964e1d6897569324d7a178169b7ea0c32",
+        "body_length": 426858,
+        "M58_body_sha256": "fe9369139fffc4c43d7ca2fac8ed192964e1d6897569324d7a178169b7ea0c32",
+        "M58_body_length": 426858,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-18T14:42:04.240283",
+              "stripped_text": "2026-05-18T14:42:04.240283",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-18T14:42:04.240283",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:04.240283+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:04.240283",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-18T14:42:29.238414",
+              "stripped_text": "2026-05-18T14:42:29.238414",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-18T14:42:29.238414",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:29.238414+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:29.238414",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "noiseRangeVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-18T14:42:04.240283",
+          "last_exact_timestamp": "2026-05-18T14:42:29.238414",
+          "ordered_timestamp_text_list_sha256": "cce64dc423e99b015d6d06e0f51bb4172ef3788d2bd37adef9fb994f22dc73b3",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item noise.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+          "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+          "absolute_orbit": 64573,
+          "width": 25843,
+          "height": 16733
+        },
+        "purpose": "product_vv",
+        "role": "PRODUCT",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298/annotation/iw-vv.xml",
+        "body_sha256": "aa476b15eca337fc18ea3f9461e9bb210f431c3e9584aa4adda6bc46568276da",
+        "body_length": 1782030,
+        "M58_body_sha256": "aa476b15eca337fc18ea3f9461e9bb210f431c3e9584aa4adda6bc46568276da",
+        "M58_body_length": 1782030,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-18T14:42:29.239908",
+              "stripped_text": "2026-05-18T14:42:29.239908",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-18T14:42:29.239908",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:29.239908+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:29.239908",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-18T14:42:54.239534",
+              "stripped_text": "2026-05-18T14:42:54.239534",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-18T14:42:54.239534",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item product.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:54.239534+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:54.239534",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        }
+      },
+      {
+        "policy": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+          "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+          "absolute_orbit": 64573,
+          "width": 25843,
+          "height": 16733
+        },
+        "purpose": "calibration_vv",
+        "role": "CALIBRATION",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298/annotation/calibration/calibration-iw-vv.xml",
+        "body_sha256": "3918007e1ae8545be21b8442b0365ce7c0133c17f668de78e1135174baa9153f",
+        "body_length": 1016401,
+        "M58_body_sha256": "3918007e1ae8545be21b8442b0365ce7c0133c17f668de78e1135174baa9153f",
+        "M58_body_length": 1016401,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-18T14:42:29.239908",
+              "stripped_text": "2026-05-18T14:42:29.239908",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-18T14:42:29.239908",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:29.239908+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:29.239908",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-18T14:42:54.239534",
+              "stripped_text": "2026-05-18T14:42:54.239534",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-18T14:42:54.239534",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item calibration.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:54.239534+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:54.239534",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "calibrationVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-18T14:42:29.239908",
+          "last_exact_timestamp": "2026-05-18T14:42:55.239908",
+          "ordered_timestamp_text_list_sha256": "f426037b416d11786ccbb1a36772775ddca40864bec49abbe79037e65d6fb0f6",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item calibration.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      },
+      {
+        "policy": {
+          "role": "LATE_FOLLOW_UP",
+          "slice_order": 2,
+          "cdse_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298_COG",
+          "pc_item_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "native_source_product_id": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298",
+          "acquisition_start": "2026-05-18T14:42:29.239908+00:00",
+          "acquisition_end": "2026-05-18T14:42:54.239534+00:00",
+          "absolute_orbit": 64573,
+          "width": 25843,
+          "height": 16733
+        },
+        "purpose": "noise_vv",
+        "role": "NOISE",
+        "stable_unsigned_href": "https://sentinel1euwest.blob.core.windows.net/s1-grd/GRD/2026/5/18/IW/DV/S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235_E298/annotation/calibration/noise-iw-vv.xml",
+        "body_sha256": "f3108579df914e50498d5619ba64d652910540f4e4dda3eb2dcb77b30dfff3b5",
+        "body_length": 426803,
+        "M58_body_sha256": "f3108579df914e50498d5619ba64d652910540f4e4dda3eb2dcb77b30dfff3b5",
+        "M58_body_length": 426803,
+        "M58_hash_equal": true,
+        "M58_length_equal": true,
+        "ads_timestamps": {
+          "adsHeader_count": 1,
+          "fields": {
+            "startTime": {
+              "raw_text": "2026-05-18T14:42:29.239908",
+              "stripped_text": "2026-05-18T14:42:29.239908",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/startTime",
+              "consumed_text": "2026-05-18T14:42:29.239908",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.startTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:29.239908+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:29.239908",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            },
+            "stopTime": {
+              "raw_text": "2026-05-18T14:42:54.239534",
+              "stripped_text": "2026-05-18T14:42:54.239534",
+              "surrounding_whitespace": false,
+              "empty_or_missing": false,
+              "datetime_fromisoformat_accepts": true,
+              "stripped_fromisoformat_accepts": true,
+              "timezone_classification": "NAIVE",
+              "explicit_offset_text": null,
+              "fractional_precision_digits": 6,
+              "field_path": "adsHeader/stopTime",
+              "consumed_text": "2026-05-18T14:42:54.239534",
+              "current_parse_time": {
+                "behavior": "RAISE",
+                "exception_class": "Sentinel1RetrievalError",
+                "sanitized_text": "Sentinel-1 item noise.stopTime must be timezone-aware."
+              },
+              "frozen_acquisition_text": "2026-05-18T14:42:54.239534+00:00",
+              "frozen_wall_clock_iso": "2026-05-18T14:42:54.239534",
+              "exact_text_matches_frozen_wall_clock_iso": true,
+              "wall_clock_fields_match": true,
+              "UTC_semantic_interpretation": "NOT_INFERRED_BY_M59"
+            }
+          }
+        },
+        "vector_timestamps": {
+          "field_path": "noiseRangeVector/azimuthTime",
+          "vector_count": 27,
+          "azimuthTime_count": 27,
+          "missing_count": 0,
+          "empty_count": 0,
+          "missing_or_empty_count": 0,
+          "malformed_ISO_count": 0,
+          "timezone_aware_count": 0,
+          "timezone_naive_count": 27,
+          "distinct_offset_representations": [
+            "NONE"
+          ],
+          "distinct_fractional_precision_digits": [
+            6
+          ],
+          "surrounding_whitespace_count": 0,
+          "first_exact_timestamp": "2026-05-18T14:42:29.239908",
+          "last_exact_timestamp": "2026-05-18T14:42:54.239534",
+          "ordered_timestamp_text_list_sha256": "65fc262d6619774d3ba70186aff50d8feec0c821907188746b85cb67d8e00eca",
+          "ordered_list_digest_contract": "SHA-256 of UTF-8 compact JSON array of exact raw texts in XML vector order; missing elements represented by null.",
+          "homogeneous_representation": true,
+          "representation_signatures": [
+            {
+              "timezone": "NAIVE",
+              "offset": "NONE",
+              "fraction_digits": 6,
+              "whitespace": false
+            }
+          ],
+          "current_parse_time_behavior_counts": {
+            "RAISE": 27
+          },
+          "current_parse_time_distinct_results": [
+            {
+              "behavior": "RAISE",
+              "exception_class": "Sentinel1RetrievalError",
+              "sanitized_text": "Sentinel-1 item noise.azimuthTime must be timezone-aware."
+            }
+          ]
+        }
+      }
+    ],
+    "representation_summary": {
+      "format": "YYYY-MM-DDTHH:MM:SS.ffffff",
+      "explicit_timezone": "NONE",
+      "timezone_classification": "NAIVE",
+      "fractional_precision_digits": [
+        6
+      ],
+      "surrounding_whitespace_count": 0,
+      "datetime_fromisoformat": "ACCEPTS_AS_NAIVE",
+      "ADS_fields": 36,
+      "calibration_vector_timestamps": 162,
+      "noise_range_vector_timestamps": 162,
+      "total_consumed_timestamps": 360,
+      "missing_empty_malformed_count": 0,
+      "homogeneous_across_all_inspected_field_families": true,
+      "all_ADS_wall_clock_fields_match_frozen_acquisition": true,
+      "all_ADS_text_matches_frozen_wall_clock_ISO": true,
+      "UTC_semantics": "UTC_SEMANTICS_REQUIRES_OWNER/SPEC REVIEW",
+      "UTC_inferred": false,
+      "provider_defect_claimed": false,
+      "formal_schema_compliance_claimed": false
+    },
+    "current_parser_behavior": {
+      "product.startTime": {
+        "calls": 6,
+        "PASS": 0,
+        "RAISE": 6
+      },
+      "product.stopTime": {
+        "calls": 6,
+        "PASS": 0,
+        "RAISE": 6
+      },
+      "calibration.startTime": {
+        "calls": 6,
+        "PASS": 0,
+        "RAISE": 6
+      },
+      "calibration.stopTime": {
+        "calls": 6,
+        "PASS": 0,
+        "RAISE": 6
+      },
+      "noise.startTime": {
+        "calls": 6,
+        "PASS": 0,
+        "RAISE": 6
+      },
+      "noise.stopTime": {
+        "calls": 6,
+        "PASS": 0,
+        "RAISE": 6
+      },
+      "calibration.azimuthTime": {
+        "calls": 162,
+        "PASS": 0,
+        "RAISE": 162
+      },
+      "noise.azimuthTime": {
+        "calls": 162,
+        "PASS": 0,
+        "RAISE": 162
+      },
+      "exception_class": "Sentinel1RetrievalError",
+      "sanitized_message_template": "Sentinel-1 item <field> must be timezone-aware."
+    },
+    "diagnostic_questions": [
+      {
+        "question": 1,
+        "answer": "M58 failed on the unzoned text 2026-04-24T14:42:05.150515 at the first reference calibrationVector/azimuthTime. Format YYYY-MM-DDTHH:MM:SS.ffffff without Z/offset; fromisoformat accepts it as naive; generic _parse_time raises Sentinel1RetrievalError."
+      },
+      {
+        "question": 2,
+        "answer": "All 162 calibration-vector timestamps across six sources have the same serialization class: naive, six fractional digits, no surrounding whitespace or explicit offset. The values themselves differ; they are not identical timestamp strings."
+      },
+      {
+        "question": 3,
+        "answer": "All 162 noise-range azimuthTime values have the same serialization class and identical strict-parser rejection. Each of the six ordered lists is summarized and hashed separately."
+      },
+      {
+        "question": 4,
+        "answer": "All twelve product ADS start/stop values are naive."
+      },
+      {
+        "question": 5,
+        "answer": "All twelve calibration ADS start/stop values are naive."
+      },
+      {
+        "question": 6,
+        "answer": "All twelve noise ADS start/stop values are naive."
+      },
+      {
+        "question": 7,
+        "answer": "All 360 inspected consumed values parse as ISO datetimes, carry exactly six fractional digits, have no surrounding whitespace and no offset. No missing/empty/malformed vector timestamp found."
+      },
+      {
+        "question": 8,
+        "answer": "All 18 retrieved product/calibration/noise bodies match their M58 SHA-256 and lengths: 3 documents for each of 6 sources."
+      },
+      {
+        "question": 9,
+        "answer": "Calibration-only handling leaves the same proven rejection at noise.azimuthTime and all six ADS role/start-stop boundaries. Noise range is the next timestamp family in production order if intervening calibration guards pass. M59 does not prove those intervening guards or run the complete validator."
+      },
+      {
+        "question": 10,
+        "answer": "Observed serialization is uniform across the inspected SAFE XML timestamp families, supporting review of a single narrowly scoped metadata-time boundary rather than unrelated format exceptions. UTC meaning is not established by formatting; owner/spec review is required before any UTC interpretation rule. ADS exact frozen interval guards and vector semantics must remain distinct; generic parser must not be globally relaxed."
+      }
+    ],
+    "network_accounting": {
+      "by_role": {
+        "TOKEN": {
+          "requests": 1,
+          "response_body_bytes": 400,
+          "HTTP_status_counts": {
+            "200": 1
+          }
+        },
+        "PRODUCT": {
+          "requests": 6,
+          "response_body_bytes": 10685021,
+          "HTTP_status_counts": {
+            "200": 6
+          }
+        },
+        "CALIBRATION": {
+          "requests": 6,
+          "response_body_bytes": 6093708,
+          "HTTP_status_counts": {
+            "200": 6
+          }
+        },
+        "NOISE": {
+          "requests": 6,
+          "response_body_bytes": 2560801,
+          "HTTP_status_counts": {
+            "200": 6
+          }
+        }
+      },
+      "total_HTTP_requests": 19,
+      "total_response_body_bytes": 19339930,
+      "XML_asset_GETs": 18,
+      "XML_asset_response_body_bytes": 19339530,
+      "signing_operations": 18,
+      "token_HTTP_acquisitions": 1,
+      "events": [
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "role": "PRODUCT",
+          "category": "TOKEN",
+          "hostname": "planetarycomputer.microsoft.com",
+          "status": 200,
+          "bytes": 400
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "role": "PRODUCT",
+          "category": "PRODUCT",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1779484
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "role": "CALIBRATION",
+          "category": "CALIBRATION",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1014835
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260424T144205_20260424T144230_064223_08158E",
+          "role": "NOISE",
+          "category": "NOISE",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 426802
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "role": "PRODUCT",
+          "category": "PRODUCT",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1782047
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "role": "CALIBRATION",
+          "category": "CALIBRATION",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1016401
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260424T144230_20260424T144255_064223_08158E",
+          "role": "NOISE",
+          "category": "NOISE",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 426786
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "role": "PRODUCT",
+          "category": "PRODUCT",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1779710
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "role": "CALIBRATION",
+          "category": "CALIBRATION",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1014835
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260506T144204_20260506T144229_064398_081C09",
+          "role": "NOISE",
+          "category": "NOISE",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 426767
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "role": "PRODUCT",
+          "category": "PRODUCT",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1782185
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "role": "CALIBRATION",
+          "category": "CALIBRATION",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1016401
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260506T144229_20260506T144254_064398_081C09",
+          "role": "NOISE",
+          "category": "NOISE",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 426785
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "role": "PRODUCT",
+          "category": "PRODUCT",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1779565
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "role": "CALIBRATION",
+          "category": "CALIBRATION",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1014835
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260518T144204_20260518T144229_064573_082235",
+          "role": "NOISE",
+          "category": "NOISE",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 426858
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "role": "PRODUCT",
+          "category": "PRODUCT",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1782030
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "role": "CALIBRATION",
+          "category": "CALIBRATION",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 1016401
+        },
+        {
+          "source": "S1A_IW_GRDH_1SDV_20260518T144229_20260518T144254_064573_082235",
+          "role": "NOISE",
+          "category": "NOISE",
+          "hostname": "sentinel1euwest.blob.core.windows.net",
+          "status": 200,
+          "bytes": 426803
+        }
+      ],
+      "zero_counts": {
+        "CDSE_requests": 0,
+        "PC_STAC_requests": 0,
+        "manifest_GETs": 0,
+        "TIFF_requests": 0,
+        "VH_requests": 0,
+        "ZIP_downloads": 0,
+        "ZIP_bytes": 0,
+        "image_block_requests": 0,
+        "image_block_bytes": 0,
+        "SAR_pixel_reads": 0,
+        "SAR_pixel_bytes": 0,
+        "scientific_SAR_compute_calls": 0,
+        "full_live_acceptance_runs": 0,
+        "search_sentinel1_calls": 0,
+        "validate_retrieval_access_calls": 0,
+        "complete_metadata_validator_calls": 0,
+        "manual_retries": 0,
+        "additional_diagnostic_requests": 0,
+        "AS_202_execution": 0
+      },
+      "body_hash_equalities": 18,
+      "body_length_equalities": 18,
+      "bytes_scope": "Application response bodies, excluding TLS/HTTP overhead; no raw XML/token body persisted."
+    },
+    "state": {
+      "M58": "HISTORICAL LIVE FAIL",
+      "M57": "OFFLINE CORRECTION PASS",
+      "LIVE_READINESS": "UNPROVED",
+      "SAR_SCIENTIFIC_READINESS": "UNPROVED",
+      "AS_202": "NOT STARTED",
+      "Decision_055": "ABSENT",
+      "PR": "NONE CREATED",
+      "merge": "NONE PERFORMED"
+    },
+    "limitations": [
+      "Timestamp serialization facts only; UTC semantics require owner/spec review.",
+      "Wall-clock equality with frozen UTC acquisition fields is not evidence of timezone semantics.",
+      "No complete acceptance/validator was rerun; later production guard PASS remains unproved.",
+      "Uniform format does not justify changing vector range semantics, truncating precision or weakening ADS exact interval equality.",
+      "No provider defect or formal schema compliance/noncompliance asserted.",
+      "No SAR pixels/calibration/backscatter/oil science; no new retrieval readiness."
+    ]
+  },
+  "semantic_sha256": "0550fd44fc8a6f6e4a8f1746240587dd108a2faca83b7d41229fd366f16d5fa6",
+  "canonicalization": "SHA-256 of UTF-8 json.dumps(semantic, sort_keys=True, separators=(comma, colon), ensure_ascii=False, allow_nan=False); list order retained; execution time, quality/preservation summaries and new commit SHA excluded.",
+  "execution_time": {
+    "started_at": "2026-10-11T14:00:10.366177+00:00",
+    "completed_at": "2026-10-11T14:00:22.888376+00:00"
+  },
+  "engineering_quality_gates": {
+    "focused_pytest": {
+      "passed": 330,
+      "warnings": 0,
+      "seconds": 1.08,
+      "external_socket_connection_attempts": 0
+    },
+    "full_pytest": {
+      "passed": 1617,
+      "warnings": 6,
+      "seconds": 36.07,
+      "external_socket_connection_attempts": 0
+    },
+    "ruff": "PASS",
+    "diff_new_file_whitespace": "PASS",
+    "strict_finite_JSON_independent_digest_repeat": "PASS",
+    "credential_signed_URL_scan": "PASS",
+    "GitHub_CI_success_claimed": false
+  },
+  "preservation": {
+    "source_tests_config_dependencies": "BYTE_IDENTICAL",
+    "all_non_authorized_tracked_files": "BYTE_IDENTICAL",
+    "Decisions_050_054_entire_file": "BYTE_IDENTICAL",
+    "frozen_Decision_body_sha256": {
+      "050": "d3623a363868a57609f50488679ad01ac9df0554b638c489731eab994ae04773",
+      "051": "4c279549a1c9bd132febcc6fe4cdbd53346cbf8c8cb98a08c3253eb453c02eea",
+      "052": "a871997701eb5c0069c848f55e45d7d15f2a2e606c712d68a60a1ee54b47cdf5",
+      "053": "801116a342bc52b9fb43f12f38417f735519e1b35a63822f6963b49ed6f577ea",
+      "054": "62d8bf08c6f13774ec91ae4b1c7c93109a7ebbd3a45bb3ea79b9d4e672123df8"
+    },
+    "M58_accepted_evidence": "BYTE_IDENTICAL",
+    "prior_M49_M57_and_accepted_upstream_evidence": "BYTE_IDENTICAL",
+    "protected_external_hashes": 49,
+    "protected_modes": 62,
+    "stashes": "ALL_THREE_UNCHANGED",
+    "data_inventory": "UNCHANGED",
+    "recovery_artifacts": "RETAINED",
+    "new_scientific_products": 0,
+    "M58_MD_JSON_sha256": {
+      "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M57.json": "e673b159d8ea4f9d31802fa3cea5df4e90d6354011cdff81f8983e62c2c02c3a",
+      "docs/evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M57.md": "a0e625b7ac08089bc245d944a065050fc0ecb1e29cf282846ad4dc043fd0c120"
+    }
+  }
+}

@@ -30,7 +30,6 @@ from aquasentinel.ingestion.sentinel1_policy import (
     Sentinel1RetrievalError,
     Sentinel1RetrievalSet,
     Sentinel1SliceSource,
-    _parse_time,
     _with_fingerprint,
     assemble_retrieval,
 )
@@ -273,6 +272,23 @@ def _parse_xml(xml: bytes, role: str) -> ET.Element:
     return root
 
 
+def _parse_safe_metadata_time(root: ET.Element, name: str, field: str) -> datetime:
+    """Parse reviewed SAFE timeType fields, whose specification defines UTC."""
+    raw_values = [e.text for e in root.iter() if _local(e.tag).casefold() == name.casefold()]
+    if any(not isinstance(v, str) or not v or v != v.strip() for v in raw_values):
+        raise Sentinel1MetadataError(f"SAFE {field} must be nonempty unpadded timestamp text.")
+    value = _unique_text(root, name)
+    if re.search(r"[.,]\d{7}", value):
+        raise Sentinel1MetadataError(f"SAFE {field} exceeds microsecond precision.")
+    try:
+        parsed = datetime.fromisoformat(value)
+    except ValueError:
+        raise Sentinel1MetadataError(f"SAFE {field} timestamp is invalid.") from None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC)
+
+
 def _validate_ads_header(root: ET.Element, expected: FrozenSentinel1Source, role: str) -> None:
     headers = [e for e in root.iter() if _local(e.tag) == "adsHeader"]
     if len(headers) != 1:
@@ -282,8 +298,8 @@ def _validate_ads_header(root: ET.Element, expected: FrozenSentinel1Source, role
     product = _unique_text(root, "productType")
     polarisation = _unique_text(root, "polarisation")
     mode = _unique_text(root, "mode")
-    start = _parse_time(_unique_text(root, "startTime"), f"{role}.startTime")
-    stop = _parse_time(_unique_text(root, "stopTime"), f"{role}.stopTime")
+    start = _parse_safe_metadata_time(root, "startTime", f"{role}.startTime")
+    stop = _parse_safe_metadata_time(root, "stopTime", f"{role}.stopTime")
     if mission != "S1A" or product not in {"GRD", "GRDH"}:
         raise Sentinel1MetadataError(f"{role} XML mission/product identity is invalid.")
     if str(polarisation).upper() != "VV" or mode != "IW":
@@ -384,7 +400,7 @@ def _validate_luts(calibration, noise, product):
         if any(a >= b for a, b in pairwise(pixels)):
             raise Sentinel1MetadataError("Calibration coordinates must be ordered.")
         _numeric_values(vector, "line", integers=True)
-        _parse_time(_unique_text(vector, "azimuthTime"), "calibration.azimuthTime")
+        _parse_safe_metadata_time(vector, "azimuthTime", "calibration.azimuthTime")
         for field in ("betaNought", "sigmaNought", "gamma", "dn"):
             values = _numeric_values(vector, field, minimum=0)
             if len(values) != len(pixels) or any(v == 0 for v in values):
@@ -395,7 +411,7 @@ def _validate_luts(calibration, noise, product):
         if len(pixels) != len(values) or any(a >= b for a, b in pairwise(pixels)):
             raise Sentinel1MetadataError("Range noise LUT coordinates/length mismatch.")
         _numeric_values(vector, "line", integers=True)
-        _parse_time(_unique_text(vector, "azimuthTime"), "noise.azimuthTime")
+        _parse_safe_metadata_time(vector, "azimuthTime", "noise.azimuthTime")
     for vector in _vectors(noise, "noiseAzimuthVector"):
         lines = _numeric_values(vector, "line", integers=True)
         values = _numeric_values(vector, "noiseAzimuthLut", minimum=0)

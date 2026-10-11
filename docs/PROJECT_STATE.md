@@ -1,6 +1,88 @@
 # AquaSentinel 813 — Project State
 
-## Current AS-201 M57 — offline manifest platform scope / casing correction — PASS
+## Current AS-201 M60 — SAFE XML UTC time interoperability correction — OFFLINE PASS
+
+**M60 / E60 / EV-064: OFFLINE SAFE XML UTC-TIME INTEROPERABILITY CORRECTION PASS.**
+Prepared on `fix/as-201-safe-xml-utc-time-normalization` from exact published M59
+`dd35cbbce43bfe482bc573408893365e089e950a`; official main `225efc896bf74d87f62741e05a4251ac86d07395`.
+The M60 authorization supplies the official Sentinel-1 Product Specification
+S1-RS-MDA-52-7441 (2025, Issue/Revision 3/16/2, 01/10/2025): timeType is UTC
+with microsecond resolution. Codex made no independent external source request.
+M59's 360 naive timestamps remain immutable empirical evidence; no re-fetch.
+
+One SAFE-local helper handles only product/calibration/noise ADS start/stop and
+calibration/noise-range vector azimuthTime. Raw nonempty/unpadded text,
+<=6 fractional digits, exact frozen ADS equality and all later guards stay enforced.
+Generic time parser, M54 manifest and M57 platform/native witness remain unchanged.
+Six sources × naive/Z/+00/equivalent +04 complete metadata PASS offline;
+80 malformed, 18 interval mismatch and 41 later-guard cases rejected.
+**493 focused / 1780 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/finite JSON/digest/security/preservation PASS. Provider/sign/token/TIFF/XML/
+image-block/pixel/scientific traffic **zero**; test external socket attempts zero.
+
+**M58 HISTORICAL LIVE FAIL; M59 DIAGNOSTIC COMPLETE; LIVE_READINESS UNPROVED;
+SAR_SCIENTIFIC_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.**
+M49–M59 evidence, Decisions 050–054, unrelated source/tests/config/dependencies,
+protected hashes/modes/stashes/recovery remain unchanged. Next: owner review;
+PR/merge/live retry require separate authorization. No PR or merge in M60.
+Evidence: [EV-064 MD](evidence/AS_201_SAFE_XML_UTC_TIME_FIX.md) /
+[JSON](evidence/AS_201_SAFE_XML_UTC_TIME_FIX.json).
+
+## Historical AS-201 M59 — diagnostic before M60 specification-backed correction
+
+**M59 / E59 / EV-063: SAFE_XML_TIME_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
+Prepared on `diagnostic/as-201-safe-xml-time-representation` from published M58
+`376754bed59eedbe9cbce47978ae5a52ae481410`; official main `225efc896bf74d87f62741e05a4251ac86d07395`.
+Exactly 18 existing product/calibration/noise XML GETs, each once; **18/18 body
+hashes/lengths match M58**. All 360 consumed timestamps are timezone-naive ISO
+with six fractional digits, no explicit offset/whitespace: 36 ADS + 162 calibration
+vectors + 162 noise-range vectors. Generic parser rejects all 360. All ADS
+wall-clock fields match frozen acquisition fields; UTC meaning is not inferred.
+**UTC_SEMANTICS_REQUIRES_OWNER/SPEC REVIEW.** Same rejection independently
+reproduced at noise and ADS boundaries; no complete validator/later gate PASS claim.
+
+**18 signs / 1 token / 19 HTTP200 requests / 19,339,930 response-body bytes**.
+CDSE/PC STAC/manifest/TIFF/VH/ZIP/image-block/pixels/scientific SAR compute **zero**.
+M58 not rerun; no monkeypatch, production fix, raw XML or credentials persisted.
+**330 focused / 1617 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/JSON/digest/security/preservation PASS. Source/tests/config/dependencies,
+Decisions 050–054, M58/earlier evidence, 49 protected hashes/62 modes/three stashes /
+recovery retained unchanged. **M58 HISTORICAL LIVE FAIL; M57 OFFLINE CORRECTION
+PASS; LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.**
+Next: owner/spec review; separately authorize any correction/offline regressions,
+publication/merge or live acceptance. No PR/merge or parser change in M59.
+Evidence: [EV-063 MD](evidence/AS_201_SAFE_XML_TIME_DIAGNOSTIC.md) /
+[JSON](evidence/AS_201_SAFE_XML_TIME_DIAGNOSTIC.json).
+
+## Historical AS-201 M58 — live FAIL before M59 time representation diagnostic
+
+**M58 / E58 / EV-062: AS201_LIVE_ACCEPTANCE_AFTER_M57 = FAIL.**
+One unchanged public search/access-validation run from PR #36 merge
+`225efc896bf74d87f62741e05a4251ac86d07395`; prepared on `validation/as-201-live-acceptance-after-platform-family-fix`.
+Both catalogs complete; all six CDSE/PC identities, stable asset sets, VV headers
+and **complete manifests including platform familyName + native VV witness PASS**.
+All 24 required XMLs fetched. All six then fail generic strict calibration-vector
+`calibration.azimuthTime`: `Sentinel-1 item calibration.azimuthTime must be timezone-aware.`
+Final UNAVAILABLE / METADATA_INVALID; assembly reaches K, ready=false.
+Later ADS identity/interval, dimensions, noise LUT, geolocation/incidence, native
+spacing and thermal guards NOT_REACHED. No repair, restart or second diagnostic.
+
+**195 requests / 20,261,623 response-body bytes; 162 HTTP206 VV structural ranges /
+98,592 bytes; 30 signing operations / 1 transient token HTTP acquisition.**
+ZIP/image-block/SAR pixel reads/bytes/scientific compute **zero**; no VH TIFF.
+Passive tracing only, no live monkeypatches or production edits.
+**330 focused / 1617 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/strict JSON/digest/security/preservation PASS. All source/tests/config/
+dependencies, Decisions 050–054, historical evidence, 44 protected hashes/57 modes /
+three safety stashes/recovery artifacts preserved. No signed href/secret persisted.
+**M55 HISTORICAL LIVE FAIL; M56 DIAGNOSTIC COMPLETE; M57 OFFLINE CORRECTION PASS;
+LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.**
+Next: owner review; any PR/merge, localization/fix or live attempt requires separate
+authorization. No PR, merge, correction or second live attempt in M58.
+Evidence: [EV-062 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M57.md) /
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M57.json).
+
+## Historical AS-201 M57 — offline correction before PR #36 merge / M58
 
 **M57 / E57 / EV-061: OFFLINE MANIFEST PLATFORM FAMILYNAME INTEROPERABILITY
 CORRECTION PASS.** Prepared on `fix/as-201-manifest-platform-familyname` from M56
