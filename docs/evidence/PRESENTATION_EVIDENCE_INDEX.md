@@ -1,6 +1,37 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-201 M60 — SAFE XML UTC time interoperability correction — OFFLINE PASS
+## Current AS-201 M61 — controlled live acceptance after M60 — PASS
+
+**M61 / E61 / EV-065: AS201_LIVE_ACCEPTANCE_AFTER_M60 = PASS.**
+Prepared on `validation/as-201-live-acceptance-after-safe-utc-fix` from PR #37 merge
+`23887f0d4782ea8711b06e5566e66f4a3839a7fa` (parents `225efc896bf74d87f62741e05a4251ac86d07395`
+and `505336537683f4a23b2fe4b3c206b768328f829f`). One unchanged public search/access
+run; no restart, manual retry, patch, extra diagnostic or validator rerun.
+
+All six exact sources, assets, VV TIFF headers, complete manifests/calibration/
+noise-range/noise-azimuth/geolocation/native-spacing/ADS/dimensions/thermal/
+required structures **PASS**. All slices AVAILABLE; three groups and final set ready.
+360 SAFE timestamps pass live; generic strict parser unchanged. All 18 noise-azimuth
+vectors have matching line/LUT lengths and all four bounds; passive summary only,
+from original fetched/parsed XML, no extra request or optionality rule.
+
+**195 HTTP requests / 20,261,623 bytes / 30 signs / 1 token acquisition** measured.
+VH/ZIP/image-block/pixel/scientific SAR work **zero**. Production provenance validates;
+12 CDSE/PC source IDs and common support unchanged. Accepted product:
+`sentinel1_retrieval:de51027c6daa0f2812c0f2e43a041619ca1f290d16773e68c2da9f673bdbcc6e`.
+**493 focused / 1780 full tests PASS**, six existing Rasterio warnings;
+zero external socket attempts; Ruff/diff/JSON/digest/security/preservation PASS.
+
+**LIVE_READINESS = PROVED_AT_AS201_METADATA_ACCESS_BOUNDARY** for the six frozen
+sources. **SAR_SCIENTIFIC_READINESS UNPROVED; OIL_DETECTION / AS-202 NOT STARTED;
+Decision 055 ABSENT.** M58 HISTORICAL LIVE FAIL / M59 diagnostic / M60 offline PASS
+remain unchanged. Source/tests/config/deps/Decisions 050–054/accepted evidence,
+protected hashes/modes/stashes/recovery preserved. No PR or merge in M61.
+Next: owner review; publication/merge and later science require separate authorization.
+Evidence: [EV-065 MD](AS_201_LIVE_ACCEPTANCE_AFTER_M60.md) /
+[JSON](AS_201_LIVE_ACCEPTANCE_AFTER_M60.json).
+
+## Historical AS-201 M60 — offline correction before PR #37 merge / M61
 
 **M60 / E60 / EV-064: OFFLINE SAFE XML UTC-TIME INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-safe-xml-utc-time-normalization` from exact published M59
@@ -2048,3 +2079,17 @@ requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.
 - Provider/sign/token/TIFF/XML/pixel/science zero; no M58/M59 rerun, PR or merge.
 - M58 HISTORICAL LIVE FAIL; M59 DIAGNOSTIC COMPLETE; LIVE_READINESS and
   SAR_SCIENTIFIC_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT.
+
+### EV-065 — M61 controlled live acceptance after M60 — PASS
+
+- Sources: [MD](AS_201_LIVE_ACCEPTANCE_AFTER_M60.md) / [JSON](AS_201_LIVE_ACCEPTANCE_AFTER_M60.json).
+- One unchanged production search/access run; six exact slices AVAILABLE; all
+  complete metadata checks PASS; three groups/final retrieval ready; provenance valid.
+- 360 SAFE timestamps pass; all 18 noise-azimuth vectors have matching line/LUT
+  lengths and all four bounds. Passive observation only; no additional GET or rule.
+- 195 requests / 20,261,623 bytes / 30 signs / 1 token; VH/ZIP/image-block/pixels/
+  science zero. 493 focused / 1780 full PASS; six existing Rasterio warnings;
+  zero external test sockets; quality/digest/security/preservation PASS; no CI claim.
+- M58 HISTORICAL LIVE FAIL / M59 diagnostic / M60 offline PASS preserved.
+  LIVE_READINESS PROVED_AT_AS201_METADATA_ACCESS_BOUNDARY; SAR science UNPROVED.
+  AS-202 NOT STARTED; Decision 055 ABSENT. No PR/merge/second run/fix.
