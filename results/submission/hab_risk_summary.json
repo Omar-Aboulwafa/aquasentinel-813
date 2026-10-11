@@ -1,0 +1,31 @@
+{
+  "assessment_status": "provisional_observational_screening",
+  "band": "Watch",
+  "candidate_area_m2": 2800.0,
+  "candidate_pixels": 7,
+  "component_coverage": 0.7,
+  "evidence_completeness": 0.7,
+  "historical_case_classification": "PARTIALLY_CONSISTENT",
+  "lead_time": "NOT_ESTIMABLE",
+  "persistence_A_B_C": [
+    7,
+    7,
+    0
+  ],
+  "policy_evaluable_pixels": 802,
+  "post_status": "UNAVAILABLE",
+  "product_id": "hab_risk:113143700cb35ac9230d9c54b68b1b53e2573838a4913d4bc942e81c99903fdb",
+  "recommendation": "Review on the next valid acquisition",
+  "region_count": 1,
+  "schema": "aquasentinel-submission-hab-output-v1",
+  "scientific_guardrails": [
+    "HAB-like spectral anomaly, not confirmed HAB.",
+    "Risk score is provisional observational screening, not biological probability or calibrated confidence.",
+    "BOA surface reflectance is not aquatic remote-sensing reflectance.",
+    "Field/laboratory verification remains necessary.",
+    "No water-safety certification or autonomous plant-shutdown decision is produced.",
+    "Environmental context and intake exposure are unavailable in the accepted P0 score."
+  ],
+  "score": 29.52380952380953,
+  "source_input": "data/submission/hab_headline_input.json"
+}
