@@ -1,6 +1,34 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M54 — offline manifest UTC-time correction — PASS
+## Current AS-201 M55 — controlled live acceptance after M54 — FAIL
+
+**M55 / E55 / EV-059: AS201_LIVE_ACCEPTANCE_AFTER_M54 = FAIL.**
+One unchanged public search/access-validation run from PR #35 merge `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`;
+prepared on `validation/as-201-live-acceptance-after-manifest-utc-fix`. Decision 054 and M50/M52/M54 corrections merged/frozen;
+M49/M51/M53 historical FAIL evidence preserved.
+Both catalogs complete; all six CDSE/PC identities and stable asset sets resolve.
+All six VV headers PASS; all 24 XMLs fetched. Manifest exact UTC acquisition matching
+now passes, but all six fail `_unique_text(platform, "familyName")`:
+`XML requires one consistent familyName value.` Final **UNAVAILABLE / METADATA_INVALID**;
+assembly reaches K, **ready=false**. Native measurement witness/product/LUT/geolocation/
+thermal checks NOT_REACHED. No production fix, restart, manual retry or extra diagnostic request.
+
+**195 requests / 20,261,623 response-body bytes**;
+162 HTTP206 VV structural ranges / 98,592 bytes;
+30 sign operations / 1 transient token HTTP request.
+ZIP/image-block/pixel reads/bytes **0/0**; scientific SAR compute **0**. No VH access.
+12-source lineage and complete footprint metadata do not establish access readiness.
+
+**250 focused / 1548 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/strict JSON/digest/security/preservation **PASS**.
+Source/tests/config/dependencies/Decisions 050–054 and M49–M54 evidence preserved;
+44 protected external hashes / 57 modes / three stashes retained. No secret/signed href persisted.
+**LIVE_READINESS UNPROVED. AS-202 NOT STARTED. Decision 055 ABSENT.**
+Next: owner review; any publication/merge, localization/correction or live retry
+requires separate authorization. No PR or merge in M55.
+Evidence: [EV-059 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.json).
+
+## Historical AS-201 M54 — offline correction before PR #35 merge / M55
 
 **M54 / E54 / EV-058: OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-manifest-utc-time-normalization` from preserved M53 evidence commit
@@ -2175,6 +2203,23 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Naive manifest time → scoped UTC interpretation → exact microsecond equality → unchanged later guards; proposed only, no new visual exists.
 - **Candidate slide title:** “Fix the boundary, preserve the contract.”
 
+### M55 — A passed time boundary exposes the next identity gate — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M55 / E55 / EV-059; controlled post-M54 live engineering gate.
+- **Problem / question:** Does manifest-only UTC normalization allow the complete frozen six-source access contract to pass?
+- **Why it mattered:** Offline correction must be distinguished from actual provider metadata readiness.
+- **Options considered:** One unchanged public run; patch/restart; substitute another slice; preserve exact unavailable states.
+- **Decision / rationale:** Owner-authorized single run; retain all six sources and the actual failing boundary without repair.
+- **Implementation / experiment:** Complete catalogs/identities, original VV structural ranges and four XMLs/slice; passive same-run trace only.
+- **Evidence:** [EV-059 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md) / [JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.json).
+- **Quantitative result:** 195 requests / 20,261,623 bytes; 6/6 VV headers and exact manifest intervals pass; 6/6 familyName checks fail; 250 focused / 1548 full tests PASS; zero pixels/science.
+- **Limitation:** Entire manifest remains FAIL; later native-measurement/XML/LUT/geolocation/thermal gates NOT_REACHED; live readiness UNPROVED.
+- **Lesson learned:** Preserve each gate's evidence; passing one representation boundary may expose a separate identity requirement.
+- **Impact on next step:** Owner review; no fix/retry or AS-202 inside M55. Further action requires separate authorization.
+- **Presentation takeaway:** Honest unavailable handoffs preserve progress without claiming scientific readiness.
+- **Recommended visual:** Catalog/identity/header PASS → exact manifest time PASS → familyName FAIL → later checks NOT_REACHED; proposed only, no new visual exists.
+- **Candidate slide title:** “Progress is not yet readiness.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2325,6 +2370,13 @@ deterministic metadata support. No provider retry, production fix, pixels or SAR
 49 fail-closed/guard controls; 250 focused / 1548 full tests PASS. Generic parser,
 resolver and later XML guards unchanged; zero provider requests and SAR science.
 M53 stays historical FAIL; no live-readiness claim.
+
+### E55 — Single live run passes manifest time, fails platform family text
+
+[EV-059](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md): all six exact sources,
+VV headers and manifest acquisition intervals pass; platform familyName cardinality
+fails. Later validators are NOT_REACHED; all final slots unavailable, ready=false.
+One search/validation, no patch/restart/extra requests/pixels or SAR science.
 
 ## 5. Scientific evidence index
 

@@ -1,6 +1,34 @@
 # AquaSentinel 813 — Presentation Evidence Index
 
-## Current AS-201 M54 — offline manifest UTC-time correction — PASS
+## Current AS-201 M55 — controlled live acceptance after M54 — FAIL
+
+**M55 / E55 / EV-059: AS201_LIVE_ACCEPTANCE_AFTER_M54 = FAIL.**
+One unchanged public search/access-validation run from PR #35 merge `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`;
+prepared on `validation/as-201-live-acceptance-after-manifest-utc-fix`. Decision 054 and M50/M52/M54 corrections merged/frozen;
+M49/M51/M53 historical FAIL evidence preserved.
+Both catalogs complete; all six CDSE/PC identities and stable asset sets resolve.
+All six VV headers PASS; all 24 XMLs fetched. Manifest exact UTC acquisition matching
+now passes, but all six fail `_unique_text(platform, "familyName")`:
+`XML requires one consistent familyName value.` Final **UNAVAILABLE / METADATA_INVALID**;
+assembly reaches K, **ready=false**. Native measurement witness/product/LUT/geolocation/
+thermal checks NOT_REACHED. No production fix, restart, manual retry or extra diagnostic request.
+
+**195 requests / 20,261,623 response-body bytes**;
+162 HTTP206 VV structural ranges / 98,592 bytes;
+30 sign operations / 1 transient token HTTP request.
+ZIP/image-block/pixel reads/bytes **0/0**; scientific SAR compute **0**. No VH access.
+12-source lineage and complete footprint metadata do not establish access readiness.
+
+**250 focused / 1548 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/strict JSON/digest/security/preservation **PASS**.
+Source/tests/config/dependencies/Decisions 050–054 and M49–M54 evidence preserved;
+44 protected external hashes / 57 modes / three stashes retained. No secret/signed href persisted.
+**LIVE_READINESS UNPROVED. AS-202 NOT STARTED. Decision 055 ABSENT.**
+Next: owner review; any publication/merge, localization/correction or live retry
+requires separate authorization. No PR or merge in M55.
+Evidence: [EV-059 MD](AS_201_LIVE_ACCEPTANCE_AFTER_M54.md) and
+[JSON](AS_201_LIVE_ACCEPTANCE_AFTER_M54.json).
+
+## Historical AS-201 M54 — offline correction before PR #35 merge / M55
 
 **M54 / E54 / EV-058: OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-manifest-utc-time-normalization` from preserved M53 evidence commit
@@ -1819,3 +1847,15 @@ requires owner review, separate PR/merge authorization. AS-201 NOT STARTED.
 - Only manifest acquisition times may assume UTC; exact microseconds and every later XML guard retained. Generic parser unchanged.
 - M49–M53 evidence preserved; M53 remains historical LIVE FAIL. No provider requests/pixels/scientific compute or live retry.
 - LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT. Proposed visual only; no screenshot created.
+
+### EV-059 — AS-201 M55 controlled live acceptance after M54
+
+- **M55 / E55**; AS201_LIVE_ACCEPTANCE_AFTER_M54 = FAIL; all six UNAVAILABLE / METADATA_INVALID, ready=false.
+- [MD](AS_201_LIVE_ACCEPTANCE_AFTER_M54.md) / [JSON](AS_201_LIVE_ACCEPTANCE_AFTER_M54.json).
+- Semantic SHA-256: `875eb97e3b48c6ff99d2ea819466a852ca424880ef56b469e773be1992765e5e`.
+- Both catalogs/exact identities/assets/VV headers and exact manifest UTC intervals pass; manifest familyName text-cardinality fails.
+- Native witness/product/calibration/noise/geolocation/thermal validations NOT_REACHED; no PASS invented for fetched XML.
+- 195 requests / 20,261,623 bytes; 30 signing operations / 1 transient token acquisition; no signed material persisted.
+- 250 focused / 1548 full tests PASS, six historical Rasterio warnings; offline tests do not override live FAIL.
+- M49–M54 evidence and Decisions 050–054 unchanged; no production fix/restart/retry, pixels or science.
+- LIVE_READINESS UNPROVED; AS-202 NOT STARTED; Decision 055 ABSENT. Proposed visual only, no screenshot created.
