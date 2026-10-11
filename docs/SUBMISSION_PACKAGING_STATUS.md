@@ -21,9 +21,12 @@ Base includes the authoritative `docs/HACKATHON_SUBMISSION.md` branch state.
 | Reviewer-facing example outputs | PRESENT | `results/submission/` JSON, CSV and SVG actual-result artifacts |
 | Full ten-section README | PRESENT | Root `README.md` follows the official guide order and includes install/run/data/licence/results/limitations |
 | Final project title | PREPARED | `docs/SUBMISSION_TEXT.md` |
-| Summary <=2,000 characters | PREPARED / 1,504 characters | `docs/SUBMISSION_TEXT.md` |
+| Summary <=2,000 characters | PREPARED / 1,695 characters | `docs/SUBMISSION_TEXT.md`; judge-oriented wording preserves frozen results/limits |
 | English notebook/readme/slides | PRESENT | All packaging artifacts are English |
-| Presentation PDF | PREPARED / VISUALLY PREFLIGHTED | 9 pages; 164,162-byte optimized PDF; SHA-256 `5525d6570cc42a6bd59cb38ea71affbcecb09df7043f28a27428e7b540056deb`; attachment to form still external |
+| Winning Red-Team audit | PRESENT | `docs/WINNING_RED_TEAM_AUDIT.md` |
+| Pitch + judge Q&A defense | PRESENT | `docs/PITCH_AND_JUDGE_QA.md` |
+| Final stop-ship checklist | PRESENT | `docs/FINAL_SUBMISSION_CHECKLIST.md` |
+| Presentation V2 PDF | PREPARED / VISUALLY PREFLIGHTED | `AquaSentinel_813_Submission_V2.pdf`; 9 pages; 241,773 bytes; SHA-256 `9e723c4d09d2ada321cf953d21f02ef82fcd4d803f4fa76ae92ee6649d729987`; form attachment still external |
 | Presentation form attachment | EXTERNAL ACTION REQUIRED | Must be uploaded to the live submission form before final submission |
 | Evaluator GitHub access | EXTERNAL ACTION REQUIRED | Repository remains private; public/evaluator access not verified |
 | Final official theme label | EXTERNAL ACTION REQUIRED | Still pending organizer confirmation; packaging does not guess |
@@ -63,22 +66,28 @@ The successful workflow verifies, in order:
 5. verification of the frozen accepted headline result,
 6. deterministic regeneration of reviewer-facing outputs.
 
-This closes the previously open clean-Python-3.11 release blocker. It does not resolve external administrative/form blockers.
+This closes the previously open clean-Python-3.11 release blocker. Later documentation/presentation commits must still leave the final submission head green before release.
 
-## Presentation validation
+## Presentation V2 validation
 
-The slide deck was authored from the actual committed reviewer outputs and converted to PDF. Verification performed:
+The judging-oriented V2 deck was authored from the accepted result and its frozen scientific boundaries, converted to PDF and rendered for visual review.
+
+Verification performed:
 
 - 9 pages
 - PDF opens successfully
 - not encrypted
-- embedded fonts
 - rendered visual review performed
 - no clipping/broken glyphs observed
-- optimized size ~160 KB, below the 50 MB form limit
-- actual-result slides precede incubation/roadmap content
-- Sentinel-1 is labelled secondary/incomplete
-- hyperspectral is optional, not a dependency
+- 241,773 bytes, far below the 50 MB form limit
+- strategic water-security problem is visible before implementation detail
+- actual accepted result remains the hero proof
+- score/completeness and missing evidence stay explicit
+- historical-case limitations remain visible
+- independent reproducibility PASS is shown as a trust feature
+- business/revenue/value language is explicitly framed as hypothesis / incubation validation, not fabricated traction
+- Sentinel-1 remains secondary/incomplete
+- hyperspectral remains optional, not a dependency
 - official theme label is shown only as pending organizer confirmation
 
 ## Boundaries retained
@@ -87,8 +96,9 @@ Packaging does not claim confirmed HAB, species, toxins, measured chlorophyll co
 
 ## Next release gates
 
-1. Resolve evaluator repository access.
-2. Verify creator timezone and formal team eligibility.
-3. Obtain organizer confirmation of final theme wording; update only administrative presentation/README wording if required.
-4. Upload the verified PDF; enter title, 1,504-character summary and GitHub URL in the live form.
-5. Verify all confirmations, submit before the governing cutoff and retain the submission receipt.
+1. Confirm the latest packaging head still passes the reproducibility workflow after presentation/strategy documentation edits.
+2. Resolve evaluator repository access.
+3. Verify creator timezone and formal team eligibility.
+4. Obtain organizer confirmation of final theme wording; update only administrative presentation/README wording if required.
+5. Upload `AquaSentinel_813_Submission_V2.pdf`; enter the approved title, 1,695-character summary and GitHub URL in the live form.
+6. Verify every form confirmation independently, submit before the governing cutoff with safety margin, and retain the submission receipt.
