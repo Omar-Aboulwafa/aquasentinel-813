@@ -1,0 +1,60 @@
+name: Submission reproducibility
+
+on:
+  push:
+    branches:
+      - submission/p0-packaging
+  pull_request:
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install reviewer requirements
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install -e ".[dev]"
+
+      - name: Run repository quality gates
+        run: |
+          python -m pytest -q
+          python -m ruff check .
+
+      - name: Execute reviewer notebook
+        run: |
+          python -m jupyter nbconvert \
+            --to notebook \
+            --execute notebooks/aquasentinel_hab_water_quality.ipynb \
+            --output /tmp/aquasentinel_hab_water_quality.executed.ipynb \
+            --ExecutePreprocessor.timeout=600
+
+      - name: Verify accepted headline result
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          result = json.loads(Path("results/submission/hab_risk_summary.json").read_text())
+          assert result["band"] == "Watch"
+          assert math.isclose(result["score"], 29.52380952380953, rel_tol=0, abs_tol=1e-12)
+          assert math.isclose(result["evidence_completeness"], 0.7, rel_tol=0, abs_tol=1e-15)
+          assert result["persistence_A_B_C"] == [7, 7, 0]
+          assert result["historical_case_classification"] == "PARTIALLY_CONSISTENT"
+          assert result["post_status"] == "UNAVAILABLE"
+          assert result["lead_time"] == "NOT_ESTIMABLE"
+          print("Submission headline verification: PASS")
+          PY
+
+      - name: Verify reviewer outputs are deterministic
+        run: git diff --exit-code -- results/submission
