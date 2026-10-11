@@ -2,48 +2,36 @@
 
 Final judging-oriented presentation artifact prepared for the PoC submission form:
 
-- File: `AquaSentinel_813_Submission_V2.pdf`
+- File: `AquaSentinel_813_Submission_V3.pdf`
 - Format: PDF
 - Pages: 9
-- Size: 241,773 bytes (~236 KB), well below the 50 MB form limit
-- SHA-256: `9e723c4d09d2ada321cf953d21f02ef82fcd4d803f4fa76ae92ee6649d729987`
-- Visual preflight: PASS after PDF render review; openable, not encrypted, no clipping or broken glyphs observed
-- Form attachment: **PENDING EXTERNAL OWNER ACTION / final submission step**
+- Size: ~238 KB, well below the 50 MB form limit
+- SHA-256: `020b82a650aae52b2c5839625e3af4659aad11aa9b7ead6614bc24109a85e06c`
+- Theme: **Marine & Water Security**
+- Visual preflight: PASS after PDF render review; openable, not encrypted, with no observed clipping or broken glyphs
 
-The binary PDF is a submission-form artifact rather than a required repository file. V2 supersedes the earlier engineering-oriented deck as the preferred judging artifact while preserving every frozen scientific result and limitation.
+The binary PDF is a submission-form artifact rather than a required repository file. V3 is the preferred judging artifact and preserves the frozen Sentinel-2 scientific result while accurately presenting the proven Sentinel-1 AS-201 engineering foundation.
 
-## V2 judging flow
+## V3 judging flow
 
 1. **Title / memory line:** “Watch the sea before risk reaches the intake.”
-2. **Strategic problem:** UAE desalination context + documented HAB operational risk, followed by the operator question.
+2. **Strategic problem:** desalination water-security context and the operator monitoring question.
 3. **Product chain:** observation → evidence → temporal comparison → candidate geometry → recurrence → risk/completeness → human action.
-4. **Actual proof:** accepted 28 April result, 7/802 candidate pixels, 2,800 m², 0.8728% of policy support.
+4. **Actual proof:** accepted 28 April result, 7/802 candidate pixels, 2,800 m², 0.8728% candidate share of policy-evaluable support.
 5. **Explainable Watch:** 29.52 / Watch, evidence completeness 0.70, missing context/exposure visible, next action preserved.
-6. **Trust layer:** constrained historical case + independent clean Python 3.11 reproducibility PASS.
-7. **Differentiation:** architectural comparison with simple index mapping and model-only classification approaches.
-8. **Business/incubation path:** buyer, delivery, revenue and value hypotheses clearly labelled as hypotheses; no fabricated traction/ROI.
-9. **Incubation ask:** real EO proof + reproducibility/explainability + operator-decision path.
-
-## External context boundaries
-
-V2 uses authoritative UAE public context to explain strategic relevance:
-
-- UAE Government water/desalination information.
-- Environment Agency — Abu Dhabi Marine Water Quality Annual Report 2022.
-- EWEC public water/desalination capacity information.
-
-These sources provide **context only**. They are not presented as AquaSentinel validation evidence, and the deck does not claim that the accepted Al Raha AOI is a confirmed desalination intake, that AquaSentinel prevented a shutdown, produced savings, or measured operational warning lead time.
+6. **Trust layer:** constrained historical case + reproducibility evidence.
+7. **Differentiation:** explainable evidence-to-decision architecture rather than an unsupported single-index or black-box claim.
+8. **Business/incubation path:** buyer, delivery, revenue and value hypotheses clearly labelled as hypotheses; no fabricated traction or ROI.
+9. **Incubation vision:** proven Sentinel-2 capability today, proven live Sentinel-1 retrieval/metadata foundation, and a clearly bounded next-validation path toward multi-hazard marine-intake intelligence.
 
 ## Scientific boundaries retained
 
 - Sentinel-2 HAB-like / water-quality observational screening remains the submission headline.
-- `29.52 / Watch` remains a provisional monitoring-priority result, not probability/confidence.
+- `29.52 / Watch` remains a provisional monitoring-priority result, not probability or confidence.
 - Evidence completeness remains `0.70`.
 - Environmental context and intake exposure remain unavailable/not implemented.
 - Historical case remains `PARTIALLY_CONSISTENT`.
 - POST remains `UNAVAILABLE`; exact lead time remains `NOT_ESTIMABLE`.
-- Sentinel-1 remains secondary/incomplete.
-- Hyperspectral remains optional rather than a submission dependency.
-- Official theme label remains shown only as **pending organizer confirmation**.
-
-If the organizer confirms the final theme before submission, update administrative theme wording only; do not alter scientific result slides or frozen accepted claims merely for presentation consistency.
+- Sentinel-1 AS-201 live retrieval/metadata access is proven; AS-202 calibrated SAR/backscatter/surface-slick science is not started.
+- Hyperspectral remains an optional incubation enhancement rather than a submission dependency.
+- The approved submission theme is **Marine & Water Security**.
