@@ -1,105 +1,56 @@
 # Submission Packaging P0 — Current Artifact Status
 
-This file records **packaging artifact state only**. It does not override or duplicate organizer rules. `docs/HACKATHON_SUBMISSION.md` remains the sole authority for hackathon requirements, theme conflicts, deadlines, access constraints and validation rules.
+`docs/HACKATHON_SUBMISSION.md` remains the authority for submission rules and administrative state.
 
-## Packaging branch
+## Current state
 
-`submission/p0-packaging`
+| Deliverable / gate | Status |
+|---|---|
+| Official theme | **PASS — Marine & Water Security** |
+| Repository visibility/access | **PASS — public** |
+| Sentinel-2 submission headline | **PRESENT / FROZEN** |
+| Sentinel-1 AS-201 live retrieval + metadata/access | **PASS / PROVEN LIVE** |
+| Sentinel-1 AS-202 SAR science / oil detection | **NOT STARTED / NOT CLAIMED** |
+| Reviewer notebook | **PRESENT / EXECUTED** |
+| Root pinned requirements | **PRESENT** |
+| Compact reviewer input | **PRESENT** |
+| Committed reviewer outputs | **PRESENT** |
+| Reviewer README | **PRESENT** |
+| Project title/summary | **PREPARED** |
+| English submission package | **PRESENT** |
+| Presentation V3 | **IN FINALIZATION** |
+| Creator timezone | **EXTERNAL ACTION REQUIRED** |
+| Formal team eligibility | **EXTERNAL ACTION REQUIRED** |
+| Live form completion / receipt | **EXTERNAL ACTION REQUIRED** |
 
-Base includes the authoritative `docs/HACKATHON_SUBMISSION.md` branch state.
+## Frozen Sentinel-2 headline
 
-## Artifact status
+- 7 candidate pixels / 802 policy-evaluable pixels
+- 2,800 m² accepted candidate area
+- recurrence A/B/C = 7 / 7 / 0
+- score = 29.52380952380953 / Watch
+- evidence completeness = 0.70
+- recommendation = `Review on the next valid acquisition`
+- historical case = `PARTIALLY_CONSISTENT`
+- POST = `UNAVAILABLE`
+- exact lead time = `NOT_ESTIMABLE`
 
-| Deliverable | Status | Evidence |
-|---|---|---|
-| Reviewer-facing end-to-end notebook | PRESENT / EXECUTED | `notebooks/aquasentinel_hab_water_quality.ipynb`; visible outputs committed; deterministic replay of accepted headline |
-| Python 3.11 syntax compatibility | PASS | Every notebook code cell parsed against Python 3.11 grammar before publication |
-| Clean Python 3.11 machine execution | PASS | GitHub Actions `Submission reproducibility` run #23 / run ID `38129217697`, packaging head `3b158ca1d505d1789e8ab1078946a916f54b95f0`, completed successfully on Python 3.11 |
-| Repository quality gates | PASS | The successful submission workflow runs repository tests and Ruff before notebook execution; accepted result verification and deterministic-output verification also passed |
-| Latest-main integration precheck | CLEAN / CURRENT-BASE CI REQUIRED | `main` advanced to `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721` via PR #35 after run #23. PR #34 currently reports `mergeable=true`, `rebaseable=true`, `mergeable_state=clean`; PR #35 changed Sentinel-1/state/evidence files and does not overlap the 21 packaging paths. This documentation commit intentionally triggers a fresh PR workflow against the latest base before release. |
-| Root pinned requirements.txt | PRESENT | `requirements.txt` with exact direct pins |
-| Reproducible sample input | PRESENT | `data/submission/hab_headline_input.json`; compact accepted evidence + exact public EO product identities; no raw imagery |
-| Reviewer-facing example outputs | PRESENT | `results/submission/` JSON, CSV and SVG actual-result artifacts |
-| Full ten-section README | PRESENT | Root `README.md` follows the official guide order and includes install/run/data/licence/results/limitations |
-| Final project title | PREPARED | `docs/SUBMISSION_TEXT.md` |
-| Summary <=2,000 characters | PREPARED / 1,695 characters | `docs/SUBMISSION_TEXT.md`; judge-oriented wording preserves frozen results/limits |
-| English notebook/readme/slides | PRESENT | All packaging artifacts are English |
-| Winning Red-Team audit | PRESENT | `docs/WINNING_RED_TEAM_AUDIT.md` |
-| Pitch + judge Q&A defense | PRESENT | `docs/PITCH_AND_JUDGE_QA.md` |
-| Final stop-ship checklist | PRESENT | `docs/FINAL_SUBMISSION_CHECKLIST.md` |
-| Presentation V2 PDF | PREPARED / VISUALLY PREFLIGHTED | `AquaSentinel_813_Submission_V2.pdf`; 9 pages; 241,773 bytes; SHA-256 `9e723c4d09d2ada321cf953d21f02ef82fcd4d803f4fa76ae92ee6649d729987`; form attachment still external |
-| Presentation form attachment | EXTERNAL ACTION REQUIRED | Must be uploaded to the live submission form before final submission |
-| Evaluator GitHub access | EXTERNAL ACTION REQUIRED | Repository remains private; public/evaluator access not verified |
-| Final official theme label | EXTERNAL ACTION REQUIRED | Still pending organizer confirmation; packaging does not guess |
-| Creator timezone / cutoff interpretation | NOT YET VERIFIED | Must be verified from organizer platform/account before final submission |
-| Formal final team eligibility | NOT YET VERIFIED | Approved-team snapshot exists; final eligibility still requires platform confirmation |
-| Form title/summary/GitHub URL | PREPARED TEXT / EXTERNAL ENTRY REQUIRED | Values are ready in repository but live form entry is not verified |
-| Form confirmation checkboxes | NOT YET VERIFIED | Do not check until every prerequisite independently passes |
-| Final submission/receipt | NOT YET VERIFIED | External final action |
+## Sentinel-1 submission boundary
 
-## Reproduced accepted headline
+Merged PR #38 / M61 proved live AS-201 retrieval and metadata/access readiness for the six exact frozen Sentinel-1 products.
 
-The reviewer notebook independently replays the frozen accepted evidence arithmetic and regenerates the committed reviewer artifacts without live provider dependency:
+Submission language must remain:
 
-- candidate pixels / policy-evaluable pixels: `7 / 802`
-- accepted candidate area: `2,800 m²`
-- exact-pixel observational recurrence A/B/C: `7 / 7 / 0`
-- risk score: `29.52380952380953`
-- band: `Watch`
-- evidence completeness: `0.70`
-- recommendation: `Review on the next valid acquisition`
-- historical case: `PARTIALLY_CONSISTENT`
-- POST: `UNAVAILABLE`
-- exact lead time: `NOT_ESTIMABLE`
+> **Live Sentinel-1 retrieval/metadata access foundation proven; calibrated SAR/backscatter/surface-slick science not started.**
 
-This is a deterministic reviewer replay from committed accepted evidence, not a new scientific experiment and not a change to Decisions 050–053.
+No claim of operational oil detection, petroleum identification, calibrated backscatter validity, water safety, or shutdown advice is authorized.
 
-## Clean-environment reproducibility evidence
+## Remaining release gates
 
-GitHub Actions workflow `Submission reproducibility` run #23 (`38129217697`) completed with conclusion `success` for packaging head `3b158ca1d505d1789e8ab1078946a916f54b95f0`.
-
-The successful workflow verifies, in order:
-
-1. clean Python 3.11 environment setup,
-2. installation of reviewer requirements,
-3. repository tests and Ruff quality gates,
-4. execution of the reviewer notebook,
-5. verification of the frozen accepted headline result,
-6. deterministic regeneration of reviewer-facing outputs.
-
-After that successful run, `main` advanced through PR #35. GitHub reports PR #34 as cleanly mergeable and the changed-path sets do not overlap, but release evidence must still include a fresh successful PR workflow generated against the current base. The latest documentation-only commit exists to force that validation without changing frozen science or reviewer outputs.
-
-## Presentation V2 validation
-
-The judging-oriented V2 deck was authored from the accepted result and its frozen scientific boundaries, converted to PDF and rendered for visual review.
-
-Verification performed:
-
-- 9 pages
-- PDF opens successfully
-- not encrypted
-- rendered visual review performed
-- no clipping/broken glyphs observed
-- 241,773 bytes, far below the 50 MB form limit
-- strategic water-security problem is visible before implementation detail
-- actual accepted result remains the hero proof
-- score/completeness and missing evidence stay explicit
-- historical-case limitations remain visible
-- independent reproducibility PASS is shown as a trust feature
-- business/revenue/value language is explicitly framed as hypothesis / incubation validation, not fabricated traction
-- Sentinel-1 remains secondary/incomplete
-- hyperspectral remains optional, not a dependency
-- official theme label is shown only as pending organizer confirmation
-
-## Boundaries retained
-
-Packaging does not claim confirmed HAB, species, toxins, measured chlorophyll concentration, biological probability/calibrated confidence, safe/unsafe water, automatic shutdown, exact warning lead time, completed Sentinel-1 oil science, or implemented environmental/intake-exposure evidence where unavailable.
-
-## Next release gates
-
-1. Obtain a fresh successful reproducibility workflow for the current PR head against latest `main` (`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`).
-2. Resolve evaluator repository access.
-3. Verify creator timezone and formal team eligibility.
-4. Obtain organizer confirmation of final theme wording; update only administrative presentation/README wording if required.
-5. Upload `AquaSentinel_813_Submission_V2.pdf`; enter the approved title, 1,695-character summary and GitHub URL in the live form.
-6. Verify every form confirmation independently, submit before the governing cutoff with safety margin, and retain the submission receipt.
+1. Finish and visually preflight Presentation V3.
+2. Verify latest packaging branch CI against current `main`.
+3. Merge/finalize submission package only after review.
+4. Perform final public-repository secret/restricted-data/reviewer-experience audit on exact final `main`.
+5. Verify creator timezone and formal eligibility.
+6. Enter title, summary and public GitHub URL; upload V3 PDF.
+7. Verify confirmations, submit before cutoff, retain receipt.
