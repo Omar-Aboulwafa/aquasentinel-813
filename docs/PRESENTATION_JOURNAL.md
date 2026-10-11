@@ -1,6 +1,57 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M52 — offline CDSE product-type correction
+## Current AS-201 M54 — offline manifest UTC-time correction — PASS
+
+**M54 / E54 / EV-058: OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.**
+Prepared on `fix/as-201-manifest-utc-time-normalization` from preserved M53 evidence commit
+`42855ac22844ede60e37c5136944de879a0a9080`; official main `9403faf7f7bd8c0a71e5d262338974647831ad93`.
+Only manifest acquisition start/stop may interpret naive time as UTC, followed by
+the unchanged exact frozen-interval comparison. Generic parser and non-manifest XML
+time boundaries remain strict; all later XML guards remain unchanged.
+
+**73 new offline cases; 250 focused / 1548 full tests PASS**, six existing Rasterio
+PendingDeprecationWarnings; Ruff/diff/strict JSON/digest/security/preservation
+**PASS**. Decisions 050–054, M49–M53 evidence,
+resolver/shared STAC/optical/config/dependencies and protected external hashes/modes/
+three safety stashes preserved. Provider requests **0**; SAR pixel reads/bytes **0/0**;
+scientific SAR compute **0**. No live retry, PR or merge.
+
+**M53 remains HISTORICAL LIVE FAIL. LIVE_READINESS UNPROVED. AS-202 NOT STARTED.
+Decision 055 ABSENT.** Offline success does not establish later live XML/LUT readiness.
+Next: owner review; separately authorize publication/merge and any controlled live
+acceptance retry. No AS-202 work.
+Evidence: [EV-058 MD](evidence/AS_201_MANIFEST_UTC_TIME_FIX.md) and
+[JSON](evidence/AS_201_MANIFEST_UTC_TIME_FIX.json).
+
+## Historical AS-201 M53 — controlled live FAIL before M54 offline correction
+
+**M53 / E53 / EV-057: AS201_LIVE_ACCEPTANCE_AFTER_M52 = FAIL.**
+One public search/access-validation run from PR #33 merge `9403faf7f7bd8c0a71e5d262338974647831ad93`;
+prepared on `validation/as-201-live-acceptance-after-product-type-fix`. M50/M52 corrections and Decision 054 are merged/frozen;
+M49/M51 historical FAIL evidence remains intact.
+Both catalogs complete (3 CDSE + 1 PC pages); all six CDSE/PC identities and stable
+assets resolve. All six VV TIFF structural validations PASS (162 HTTP206 metadata
+ranges / 98,592 bytes). All required XMLs fetched, but all six fail manifest/startTime
+timezone validation: `Sentinel-1 item manifest.startTime must be timezone-aware.`
+Final slots **UNAVAILABLE / METADATA_INVALID**; assembly reaches K, **ready=false**.
+Later XML identity/LUT checks NOT REACHED; no repair, restart or manual slice retry.
+
+**195 requests / 20,261,621 response-body bytes**; 30 sign operations, 1 transient token
+request; 24 XML GETs. ZIP/image-block/pixel reads/bytes **0/0**; scientific SAR compute **0**.
+No VH header access. Six discovery/six PC sources and derived retrieval provenance exist;
+complete footprint inventory is metadata support, not accepted pixel evaluability.
+Retrieval `sentinel1_retrieval:b2d9afb757d3551dcee8c6ae79624cbb33a03b1b8207cc025ade79ce22076a08` identifies failed metadata state, not readiness.
+
+**177 focused / 1475 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff/diff/strict JSON/digest/security/preservation PASS.
+Source/tests/config/dependencies/Decisions050–054 and all historical evidence preserved;
+44 external hashes / 57 modes / 3 stashes unchanged. No secret/signed href persisted.
+**Live readiness UNPROVED. AS-202 NOT STARTED. Decision 055 ABSENT.**
+Next: owner review of M53 outcome; separately authorize publication, investigation
+or correction. No additional provider request, production patch, PR or merge in M53.
+Evidence: [EV-057 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.json).
+
+## Historical AS-201 M52 — offline correction before PR #33 merge / M53
 
 **M52 / E52 / EV-056: OFFLINE PRODUCT-TYPE INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-cdse-product-type-normalization` from M51 FAIL evidence commit
@@ -2090,6 +2141,40 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** M51 literal mismatch → exact alias + conflict guards → offline pass → live gate still pending; proposed, no screenshot created.
 - **Candidate slide title:** “Provider compatibility without weakened evidence.”
 
+### M53 — Access success still requires metadata identity — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M53 / E53 / EV-057; one controlled post-M52 public live gate.
+- **Problem / question:** Does the merged exact product-type correction permit complete six-source access validation?
+- **Why it mattered:** Catalog and offline identity acceptance are necessary but insufficient for a trustworthy raw-source handoff.
+- **Options considered:** Preserve one exact run; patch/restart; substitute a source or relax metadata.
+- **Decision / rationale:** Original public workflow once, all six slots retained, no fix or manual retry.
+- **Implementation / experiment:** Complete catalog pagination, six exact source matches, VV structural ranges and existing four XMLs per slice.
+- **Evidence:** [EV-057 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.md) and [JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.json).
+- **Quantitative result:** 195 requests / 20,261,621 body bytes; 6/6 VV headers PASS; 6/6 manifest-time rejections; 30 sign operations / 1 transient token; zero pixels/science.
+- **Limitation:** Provider manifest/startTime lacks an explicit timezone required by the existing parser; later XML identity/LUT checks not reached; ready=false.
+- **Lesson learned:** A readable file and valid TIFF structure do not establish validated metadata identity.
+- **Impact on next step:** Owner review; any subsequent investigation/correction/live retry requires separate authorization.
+- **Presentation takeaway:** Show engineering progress while retaining the actual failed gate rather than claiming oil-pipeline readiness.
+- **Recommended visual:** Catalog/identity PASS → VV headers PASS → manifest time FAIL → explicit unavailable handoff; proposed only, no screenshot created.
+- **Candidate slide title:** “Readable is not yet validated.”
+
+### M54 — Normalize serialization without weakening identity — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M54 / E54 / EV-058; offline manifest UTC-time interoperability correction.
+- **Problem / question:** All six M53 sources expose naive acquisition times that the generic parser rejects before later XML validation.
+- **Why it mattered:** The exact UTC acquisition identity must survive provider serialization differences without relaxing source matching.
+- **Options considered:** Manifest-only UTC interpretation; loosen generic parsing; tolerate interval mismatch; retry live immediately.
+- **Decision / rationale:** Owner-authorized manifest-only boundary; exact interval equality and generic strictness retained.
+- **Implementation / experiment:** Two manifest call sites use a dedicated parser; existing six-source synthetic fixtures and fail-closed controls exercise the complete XML validator.
+- **Evidence:** [EV-058 MD](evidence/AS_201_MANIFEST_UTC_TIME_FIX.md) / [JSON](evidence/AS_201_MANIFEST_UTC_TIME_FIX.json).
+- **Quantitative result:** 73 new cases; 250 focused / 1548 full tests PASS; six historical Rasterio warnings; provider requests/pixels/scientific compute zero.
+- **Limitation:** Offline serialization acceptance does not prove later live XML identity/LUT success; M53 remains FAIL and live readiness is UNPROVED.
+- **Lesson learned:** Normalize provider serialization at its smallest boundary while keeping exact identity checks intact.
+- **Impact on next step:** Owner review; any publication/merge or live retry requires separate authorization. AS-202 remains NOT STARTED.
+- **Presentation takeaway:** Keep the failed live gate visible and show the narrow, independently tested correction.
+- **Recommended visual:** Naive manifest time → scoped UTC interpretation → exact microsecond equality → unchanged later guards; proposed only, no new visual exists.
+- **Candidate slide title:** “Fix the boundary, preserve the contract.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2226,6 +2311,20 @@ No signing/header/XML/pixel/science request and no production correction.
 preserves GRD/GRDH and strict field/identity guards. All six synthetic CDSE sources
 normalize; 41 new regression cases; shared STAC/optical and frozen policy unchanged.
 M49/M51 FAIL records retained; no live retry, pixels or SAR science. Live readiness unproved.
+
+### E53 — Single public run crosses identity/header gates, fails manifest time
+
+[EV-057](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.md): exact six-source resolution
+and all VV headers pass; 24 XMLs fetched, all six manifest/startTime timezone checks
+fail. Final retrieval remains unavailable/ready=false with normalized lineage and
+deterministic metadata support. No provider retry, production fix, pixels or SAR science.
+
+### E54 — Manifest-only UTC interpretation, exact matching retained
+
+[EV-058](evidence/AS_201_MANIFEST_UTC_TIME_FIX.md): 24 six-source serialization cases,
+49 fail-closed/guard controls; 250 focused / 1548 full tests PASS. Generic parser,
+resolver and later XML guards unchanged; zero provider requests and SAR science.
+M53 stays historical FAIL; no live-readiness claim.
 
 ## 5. Scientific evidence index
 

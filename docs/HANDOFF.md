@@ -1,6 +1,57 @@
 # AquaSentinel 813 — Handoff Guide
 
-## Current AS-201 M52 — offline CDSE product-type correction
+## Current AS-201 M54 — offline manifest UTC-time correction — PASS
+
+**M54 / E54 / EV-058: OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.**
+Prepared on `fix/as-201-manifest-utc-time-normalization` from preserved M53 evidence commit
+`42855ac22844ede60e37c5136944de879a0a9080`; official main `9403faf7f7bd8c0a71e5d262338974647831ad93`.
+Only manifest acquisition start/stop may interpret naive time as UTC, followed by
+the unchanged exact frozen-interval comparison. Generic parser and non-manifest XML
+time boundaries remain strict; all later XML guards remain unchanged.
+
+**73 new offline cases; 250 focused / 1548 full tests PASS**, six existing Rasterio
+PendingDeprecationWarnings; Ruff/diff/strict JSON/digest/security/preservation
+**PASS**. Decisions 050–054, M49–M53 evidence,
+resolver/shared STAC/optical/config/dependencies and protected external hashes/modes/
+three safety stashes preserved. Provider requests **0**; SAR pixel reads/bytes **0/0**;
+scientific SAR compute **0**. No live retry, PR or merge.
+
+**M53 remains HISTORICAL LIVE FAIL. LIVE_READINESS UNPROVED. AS-202 NOT STARTED.
+Decision 055 ABSENT.** Offline success does not establish later live XML/LUT readiness.
+Next: owner review; separately authorize publication/merge and any controlled live
+acceptance retry. No AS-202 work.
+Evidence: [EV-058 MD](evidence/AS_201_MANIFEST_UTC_TIME_FIX.md) and
+[JSON](evidence/AS_201_MANIFEST_UTC_TIME_FIX.json).
+
+## Historical AS-201 M53 — controlled live FAIL before M54 offline correction
+
+**M53 / E53 / EV-057: AS201_LIVE_ACCEPTANCE_AFTER_M52 = FAIL.**
+One public search/access-validation run from PR #33 merge `9403faf7f7bd8c0a71e5d262338974647831ad93`;
+prepared on `validation/as-201-live-acceptance-after-product-type-fix`. M50/M52 corrections and Decision 054 are merged/frozen;
+M49/M51 historical FAIL evidence remains intact.
+Both catalogs complete (3 CDSE + 1 PC pages); all six CDSE/PC identities and stable
+assets resolve. All six VV TIFF structural validations PASS (162 HTTP206 metadata
+ranges / 98,592 bytes). All required XMLs fetched, but all six fail manifest/startTime
+timezone validation: `Sentinel-1 item manifest.startTime must be timezone-aware.`
+Final slots **UNAVAILABLE / METADATA_INVALID**; assembly reaches K, **ready=false**.
+Later XML identity/LUT checks NOT REACHED; no repair, restart or manual slice retry.
+
+**195 requests / 20,261,621 response-body bytes**; 30 sign operations, 1 transient token
+request; 24 XML GETs. ZIP/image-block/pixel reads/bytes **0/0**; scientific SAR compute **0**.
+No VH header access. Six discovery/six PC sources and derived retrieval provenance exist;
+complete footprint inventory is metadata support, not accepted pixel evaluability.
+Retrieval `sentinel1_retrieval:b2d9afb757d3551dcee8c6ae79624cbb33a03b1b8207cc025ade79ce22076a08` identifies failed metadata state, not readiness.
+
+**177 focused / 1475 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff/diff/strict JSON/digest/security/preservation PASS.
+Source/tests/config/dependencies/Decisions050–054 and all historical evidence preserved;
+44 external hashes / 57 modes / 3 stashes unchanged. No secret/signed href persisted.
+**Live readiness UNPROVED. AS-202 NOT STARTED. Decision 055 ABSENT.**
+Next: owner review of M53 outcome; separately authorize publication, investigation
+or correction. No additional provider request, production patch, PR or merge in M53.
+Evidence: [EV-057 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M52.json).
+
+## Historical AS-201 M52 — offline correction before PR #33 merge / M53
 
 **M52 / E52 / EV-056: OFFLINE PRODUCT-TYPE INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-cdse-product-type-normalization` from M51 FAIL evidence commit

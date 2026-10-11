@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import re
 import struct
 from collections.abc import Callable
 from dataclasses import replace
+from datetime import UTC, datetime
 from hashlib import sha256
 from itertools import pairwise
 from math import isfinite
@@ -297,9 +299,26 @@ def _validate_ads_header(root: ET.Element, expected: FrozenSentinel1Source, role
             raise Sentinel1MetadataError(f"{role} XML absolute orbit is invalid.") from None
 
 
+def _parse_manifest_time(root: ET.Element, name: str) -> datetime:
+    """Interpret unzoned manifest acquisition times as UTC at this boundary only."""
+    raw_values = [e.text for e in root.iter() if _local(e.tag).casefold() == name.casefold()]
+    if any(not isinstance(v, str) or v != v.strip() for v in raw_values):
+        raise Sentinel1MetadataError(f"Manifest {name} must be unpadded timestamp text.")
+    value = _unique_text(root, name)
+    if re.search(r"[.,]\d{7}", value):
+        raise Sentinel1MetadataError(f"Manifest {name} exceeds microsecond precision.")
+    try:
+        parsed = datetime.fromisoformat(value)
+    except ValueError:
+        raise Sentinel1MetadataError(f"Manifest {name} timestamp is invalid.") from None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=UTC)
+    return parsed.astimezone(UTC)
+
+
 def _validate_manifest(root, expected):
-    start = _parse_time(_unique_text(root, "startTime"), "manifest.startTime")
-    stop = _parse_time(_unique_text(root, "stopTime"), "manifest.stopTime")
+    start = _parse_manifest_time(root, "startTime")
+    stop = _parse_manifest_time(root, "stopTime")
     if (start, stop) != (expected.acquisition_start, expected.acquisition_end):
         raise Sentinel1MetadataError("Manifest interval mismatch.")
     if _unique_text(root, "mode") != "IW" or _unique_text(root, "pass").casefold() != "ascending":
