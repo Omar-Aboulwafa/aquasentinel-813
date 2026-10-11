@@ -1,6 +1,83 @@
 # AquaSentinel 813 — Presentation Evidence Journal
 
-## Current AS-201 M54 — offline manifest UTC-time correction — PASS
+## Current AS-201 M57 — offline manifest platform scope / casing correction — PASS
+
+**M57 / E57 / EV-061: OFFLINE MANIFEST PLATFORM FAMILYNAME INTEROPERABILITY
+CORRECTION PASS.** Prepared on `fix/as-201-manifest-platform-familyname` from M56
+`839b593a6f79722235494ab40c6df345ea17c7de`; main remains
+`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`. M55/M56 evidence preserved.
+Only manifest platform familyName now requires exactly one nonempty direct child
+and case-only Sentinel-1 identity equality. Nested instrument families are excluded;
+platform number A, shared XML/time helpers, earlier/later guards remain unchanged.
+
+**69 new offline cases; 330 focused / 1617 full tests PASS**, six existing Rasterio
+warnings; Ruff/diff/JSON/digest/security/preservation PASS. Exact six-source M56
+representation crosses the complete synthetic metadata validator, not live readiness.
+Provider requests/signing/pixels/scientific SAR compute **zero**; M55/M56 not rerun.
+Prior evidence, Decisions 050–054, resolver/policy/shared STAC/optical/config/
+dependencies, 44 protected hashes/57 modes/three stashes preserved.
+**M55 HISTORICAL LIVE FAIL; M56 DIAGNOSTIC COMPLETE; LIVE_READINESS UNPROVED;
+AS-202 NOT STARTED; Decision 055 ABSENT.** No PR or merge.
+Next: owner review → separately authorized publication/merge → separately
+authorized controlled live engineering acceptance. No retry or SAR science in M57.
+Evidence: [EV-061 MD](evidence/AS_201_MANIFEST_PLATFORM_FIX.md) /
+[JSON](evidence/AS_201_MANIFEST_PLATFORM_FIX.json).
+
+## Historical AS-201 M56 — diagnostic before M57 offline correction
+
+**M56 / E56 / EV-060: MANIFEST_PLATFORM_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
+Prepared on `diagnostic/as-201-manifest-platform-familyname` from published M55
+`ff00aafed870b0f427532159c4eb4ac3d08691d9`; official main remains
+`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`.
+All six manifests: one platform, number `A`, direct family `SENTINEL-1`, nested
+instrument family `Synthetic Aperture Radar` (`abbreviation="SAR"`). Recursive
+`familyName` lookup sees two distinct values and raises the exact M55 exception.
+Direct-child scoping alone would still fail the later case-sensitive `Sentinel-1`
+literal; both representation facts are diagnosed, with no production fix.
+
+Exactly **6 signing operations / 1 token HTTP acquisition / 6 manifest HTTP200 GETs
+/ 151,650 manifest bytes**; each body SHA matches M55. No retry, catalog, TIFF,
+other XML, ZIP/image-block/pixel access or SAR science. M55 was not rerun.
+**261 focused / 1548 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/JSON/digest/security/preservation PASS. Source/tests/config/dependencies,
+Decisions 050–054, M49–M55/upstream evidence, 44 protected hashes/57 modes/three
+stashes unchanged. No raw XML/credential/signed href persisted.
+**M55 HISTORICAL LIVE FAIL; LIVE_READINESS UNPROVED; AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR or merge. Next: owner review → separately authorized
+minimal manifest-boundary correction/offline regressions → separately authorized
+live engineering gate. No correction implemented in M56.
+Evidence: [EV-060 MD](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md) /
+[JSON](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json).
+
+## Historical AS-201 M55 — live FAIL before M56 diagnostic
+
+**M55 / E55 / EV-059: AS201_LIVE_ACCEPTANCE_AFTER_M54 = FAIL.**
+One unchanged public search/access-validation run from PR #35 merge `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`;
+prepared on `validation/as-201-live-acceptance-after-manifest-utc-fix`. Decision 054 and M50/M52/M54 corrections merged/frozen;
+M49/M51/M53 historical FAIL evidence preserved.
+Both catalogs complete; all six CDSE/PC identities and stable asset sets resolve.
+All six VV headers PASS; all 24 XMLs fetched. Manifest exact UTC acquisition matching
+now passes, but all six fail `_unique_text(platform, "familyName")`:
+`XML requires one consistent familyName value.` Final **UNAVAILABLE / METADATA_INVALID**;
+assembly reaches K, **ready=false**. Native measurement witness/product/LUT/geolocation/
+thermal checks NOT_REACHED. No production fix, restart, manual retry or extra diagnostic request.
+
+**195 requests / 20,261,623 response-body bytes**;
+162 HTTP206 VV structural ranges / 98,592 bytes;
+30 sign operations / 1 transient token HTTP request.
+ZIP/image-block/pixel reads/bytes **0/0**; scientific SAR compute **0**. No VH access.
+12-source lineage and complete footprint metadata do not establish access readiness.
+
+**250 focused / 1548 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/strict JSON/digest/security/preservation **PASS**.
+Source/tests/config/dependencies/Decisions 050–054 and M49–M54 evidence preserved;
+44 protected external hashes / 57 modes / three stashes retained. No secret/signed href persisted.
+**LIVE_READINESS UNPROVED. AS-202 NOT STARTED. Decision 055 ABSENT.**
+Next: owner review; any publication/merge, localization/correction or live retry
+requires separate authorization. No PR or merge in M55.
+Evidence: [EV-059 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.json).
+
+## Historical AS-201 M54 — offline correction before PR #35 merge / M55
 
 **M54 / E54 / EV-058: OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-manifest-utc-time-normalization` from preserved M53 evidence commit
@@ -2175,6 +2252,57 @@ capture pending, not a real anomaly map or validation result.
 - **Recommended visual:** Naive manifest time → scoped UTC interpretation → exact microsecond equality → unchanged later guards; proposed only, no new visual exists.
 - **Candidate slide title:** “Fix the boundary, preserve the contract.”
 
+### M55 — A passed time boundary exposes the next identity gate — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M55 / E55 / EV-059; controlled post-M54 live engineering gate.
+- **Problem / question:** Does manifest-only UTC normalization allow the complete frozen six-source access contract to pass?
+- **Why it mattered:** Offline correction must be distinguished from actual provider metadata readiness.
+- **Options considered:** One unchanged public run; patch/restart; substitute another slice; preserve exact unavailable states.
+- **Decision / rationale:** Owner-authorized single run; retain all six sources and the actual failing boundary without repair.
+- **Implementation / experiment:** Complete catalogs/identities, original VV structural ranges and four XMLs/slice; passive same-run trace only.
+- **Evidence:** [EV-059 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md) / [JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.json).
+- **Quantitative result:** 195 requests / 20,261,623 bytes; 6/6 VV headers and exact manifest intervals pass; 6/6 familyName checks fail; 250 focused / 1548 full tests PASS; zero pixels/science.
+- **Limitation:** Entire manifest remains FAIL; later native-measurement/XML/LUT/geolocation/thermal gates NOT_REACHED; live readiness UNPROVED.
+- **Lesson learned:** Preserve each gate's evidence; passing one representation boundary may expose a separate identity requirement.
+- **Impact on next step:** Owner review; no fix/retry or AS-202 inside M55. Further action requires separate authorization.
+- **Presentation takeaway:** Honest unavailable handoffs preserve progress without claiming scientific readiness.
+- **Recommended visual:** Catalog/identity/header PASS → exact manifest time PASS → familyName FAIL → later checks NOT_REACHED; proposed only, no new visual exists.
+- **Candidate slide title:** “Progress is not yet readiness.”
+
+### M56 — Platform identity is not instrument identity — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M56 / E56 / EV-060; manifest-only representation diagnostic.
+- **Problem / question:** Why does recursive platform familyName lookup reject all six manifests?
+- **Why it mattered:** The live failure needs exact field-level evidence before any correction.
+- **Options considered:** Repeat full acceptance; inspect six preserved manifest references only; patch the parser before observing the structure.
+- **Decision / rationale:** Owner-authorized manifest-only diagnostic; preserve M55 FAIL and avoid all other assets.
+- **Implementation / experiment:** Existing transient signer, bounded XML fetch/parser; unmodified recursive helper reproduction and direct-child hypotheses.
+- **Evidence:** [EV-060 MD](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md) / [JSON](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json).
+- **Quantitative result:** 6/6 identical platform structures; two distinct family texts each; 6 GETs / 151,650 manifest bytes, six body hashes matching M55; zero pixels/science.
+- **Limitation:** Direct family is uppercase SENTINEL-1; scoping alone does not satisfy the later exact literal. Later validators/readiness remain unproved.
+- **Lesson learned:** XML local names can recur at different identity levels; preserve structural scope and distinguish representation from semantics.
+- **Impact on next step:** Owner review; separate correction/test/retry authorization required. No source edit, M55 rerun or AS-202.
+- **Presentation takeaway:** Diagnose the exact mismatch before changing a frozen contract.
+- **Recommended visual:** platform → familyName SENTINEL-1 vs instrument → familyName Synthetic Aperture Radar; proposed only, no screenshot/figure created.
+- **Candidate slide title:** “Platform identity is not instrument identity.”
+
+### M57 — Separate platform identity from instrument identity — 11 October 2026 (Asia/Dubai)
+
+- **Task / ID:** AS-201 M57 / E57 / EV-061; minimal offline scope/casing correction.
+- **Problem / question:** M56 proved recursive familyName lookup mixes platform and nested instrument identities, followed by a separate case-literal mismatch.
+- **Why it mattered:** Metadata interoperability must not weaken exact frozen source matching or later scientific-metadata guards.
+- **Options considered:** Manifest-only direct-child/case boundary; change shared recursive helpers; introduce mission aliases; immediately retry live.
+- **Decision / rationale:** Owner-authorized direct-child cardinality plus case-only identity; all other boundaries preserved.
+- **Implementation / experiment:** One manifest block changed; exact six-source synthetic fixtures, nested-family isolation and fail-closed regressions through complete metadata validation.
+- **Evidence:** [EV-061 MD](evidence/AS_201_MANIFEST_PLATFORM_FIX.md) / [JSON](evidence/AS_201_MANIFEST_PLATFORM_FIX.json).
+- **Quantitative result:** 69 added cases; 330 focused / 1617 full tests PASS, six existing Rasterio warnings; provider requests/pixels/SAR science zero.
+- **Limitation:** Complete offline metadata success does not establish later live XML readiness; M55 remains FAIL and M56 historical diagnostic remains intact.
+- **Lesson learned:** Fix the smallest proven representation boundary and retain fail-closed cardinality and mission identity.
+- **Impact on next step:** Owner review; publication/merge/live retry each require separate authorization. AS-202 remains NOT STARTED.
+- **Presentation takeaway:** A measured, narrow correction preserves the original scientific contract.
+- **Recommended visual:** Direct platform family identity separated from nested instrument family; proposed only, no new visual exists.
+- **Candidate slide title:** “Correct the representation, preserve the guards.”
+
 ## 3. Decision timeline
 
 The decision log is authoritative. Decisions 039–045 are explicitly dated 6 October 2026. Except Decision 038's explicit 2 October selection date, earlier per-decision dates are not recorded. Decisions 001–037 were documented with continuity setup on 2 October; do not imply that numerical order supplies precise event times.
@@ -2325,6 +2453,29 @@ deterministic metadata support. No provider retry, production fix, pixels or SAR
 49 fail-closed/guard controls; 250 focused / 1548 full tests PASS. Generic parser,
 resolver and later XML guards unchanged; zero provider requests and SAR science.
 M53 stays historical FAIL; no live-readiness claim.
+
+### E55 — Single live run passes manifest time, fails platform family text
+
+[EV-059](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md): all six exact sources,
+VV headers and manifest acquisition intervals pass; platform familyName cardinality
+fails. Later validators are NOT_REACHED; all final slots unavailable, ready=false.
+One search/validation, no patch/restart/extra requests/pixels or SAR science.
+
+### E56 — Six unchanged manifests expose a recursive XML scope collision
+
+[EV-060](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md): direct platform family
+SENTINEL-1 and nested instrument family Synthetic Aperture Radar are conflated by
+recursive lookup. Two distinct values reproduce the exact exception in every source;
+uppercase direct text also differs from the later literal. No production fix or
+acceptance retry, catalog/TIFF/other XML/pixels/scientific compute. M55 remains FAIL.
+
+### E57 — Manifest-only direct identity and case normalization, offline validated
+
+[EV-061](evidence/AS_201_MANIFEST_PLATFORM_FIX.md): exactly one nonempty direct familyName,
+case-only Sentinel-1 equality; nested instrument cannot contaminate or rescue identity.
+69 added offline cases; earlier/time/shared/later guards preserved. No provider requests,
+production behavior beyond this manifest block, live retry, pixels or SAR science.
+M55 remains historical FAIL; M56 diagnostic preserved; readiness UNPROVED.
 
 ## 5. Scientific evidence index
 

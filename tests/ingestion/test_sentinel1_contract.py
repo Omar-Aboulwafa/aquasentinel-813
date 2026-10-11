@@ -6,6 +6,7 @@ import struct
 from dataclasses import replace
 from datetime import UTC, datetime, timedelta, timezone
 from hashlib import sha256
+from xml.etree import ElementTree as ET
 
 import pytest
 from pystac_client import Client
@@ -507,6 +508,81 @@ def _manifest_time_bundle(source, start, stop):
     return dict(zip(("manifest", "product", "calibration", "noise"), bundle))
 
 
+def _manifest_platform_bundle(
+    source, families=("SENTINEL-1",), instrument_family="Synthetic Aperture Radar"
+):
+    """Synthetic M56 platform structure with M54's naive exact UTC interval."""
+    bundle = _manifest_time_bundle(
+        source, source.acquisition_start.replace(tzinfo=None).isoformat(),
+        source.acquisition_end.replace(tzinfo=None).isoformat(),
+    )
+    root = metadata._parse_xml(bundle["manifest"], "manifest")
+    platform = next(e for e in root.iter() if metadata._local(e.tag) == "platform")
+    for child in list(platform):
+        if metadata._local(child.tag) == "familyName":
+            platform.remove(child)
+    platform.insert(0, ET.Element("nssdcIdentifier"))
+    for index, value in enumerate(families, start=1):
+        child = ET.Element("familyName")
+        child.text = value
+        platform.insert(index, child)
+    if instrument_family is not None:
+        instrument = ET.SubElement(platform, "instrument")
+        ET.SubElement(instrument, "familyName", {"abbreviation": "SAR"}).text = instrument_family
+    bundle["manifest"] = ET.tostring(root)
+    return bundle
+
+
+@pytest.mark.parametrize("source", s1.FROZEN_SOURCES, ids=lambda source: source.pc_item_id)
+@pytest.mark.parametrize("family", ["SENTINEL-1", "Sentinel-1", "sentinel-1", " \nSENTINEL-1\t "])
+def test_manifest_direct_platform_family_case_preserves_complete_six_source_metadata(source, family):
+    bundle = _manifest_platform_bundle(source, families=(family,))
+    original = dict(zip(("manifest", "product", "calibration", "noise"), _xml_bundle(source)))
+    summary = s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    assert summary == s1.validate_metadata_xml(**original, expected=source, header=header(source))
+    assert summary.thermal_noise_correction_performed is False
+
+
+@pytest.mark.parametrize("instrument_family", [
+    None, "", "Synthetic Aperture Radar", "OTHER", "SENTINEL-2", "Sentinel-1",
+])
+def test_nested_instrument_family_does_not_contaminate_platform_identity(instrument_family):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _manifest_platform_bundle(source, instrument_family=instrument_family)
+    summary = s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+    assert summary.thermal_noise_correction_performed is False
+
+
+@pytest.mark.parametrize("families", [
+    (), (None,), ("",), (" \n\t ",),
+    ("SENTINEL-1", "SENTINEL-1"), ("SENTINEL-1", "SENTINEL-2"),
+    ("SENTINEL-1", ""), ("SENTINEL-1", None),
+    ("SENTINEL-2",), ("Synthetic Aperture Radar",), ("SENTINEL",),
+    ("Sentinel_1",), ("Sentinel-1A",), ("prefix-Sentinel-1",),
+    ("Sentinel-1-suffix",), ("Sentinel-10",), ("Sentinel -1",),
+    ("Sentinel- 1",), ("Sentinel 1",), ("SENTINEL\n-1",),
+])
+def test_nested_valid_family_cannot_rescue_invalid_direct_platform_family(families):
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _manifest_platform_bundle(
+        source, families=families, instrument_family="Sentinel-1"
+    )
+    with pytest.raises(s1.Sentinel1MetadataError, match="Required XML metadata contract"):
+        s1.validate_metadata_xml(**bundle, expected=source, header=header(source))
+
+
+def test_manifest_family_fix_does_not_change_recursive_shared_helpers():
+    source = s1.FROZEN_SOURCES[0]
+    bundle = _manifest_platform_bundle(source)
+    root = metadata._parse_xml(bundle["manifest"], "manifest")
+    platform = next(e for e in root.iter() if metadata._local(e.tag) == "platform")
+    assert metadata._texts(platform, "familyName") == ["SENTINEL-1", "Synthetic Aperture Radar"]
+    with pytest.raises(s1.Sentinel1MetadataError, match="one consistent familyName"):
+        metadata._unique_text(platform, "familyName")
+    assert metadata._unique_text(platform, "number") == "A"
+    metadata._validate_manifest(root, source)
+
+
 @pytest.mark.parametrize("source", s1.FROZEN_SOURCES, ids=lambda source: source.pc_item_id)
 @pytest.mark.parametrize("serialization", ["naive", "Z", "+00:00", "+04:00"])
 def test_manifest_time_serializations_preserve_exact_six_source_metadata(source, serialization):
@@ -639,12 +715,15 @@ def test_lut_time_parser_remains_strict_after_manifest_utc_normalization(role):
     ("noise", b'<noiseRangeVectorList count="1">', b'<noiseRangeVectorList count="0">'),
     ("product", b"<thermalNoiseCorrectionPerformed>false", b"<thermalNoiseCorrectionPerformed>unknown"),
 ])
-def test_manifest_utc_boundary_does_not_bypass_later_guards(role, old, new):
+@pytest.mark.parametrize("nested_instrument", [False, True], ids=["original", "M56-nested"])
+def test_manifest_utc_boundary_does_not_bypass_later_guards(role, old, new, nested_instrument):
     source = s1.FROZEN_SOURCES[0]
     bundle = _manifest_time_bundle(
         source, source.acquisition_start.replace(tzinfo=None).isoformat(),
         source.acquisition_end.replace(tzinfo=None).isoformat(),
     )
+    if nested_instrument:
+        bundle = _manifest_platform_bundle(source, families=("Sentinel-1",))
     assert old in bundle[role]
     bundle[role] = bundle[role].replace(old, new)
     with pytest.raises(s1.Sentinel1RetrievalError):

@@ -1,6 +1,83 @@
 # AquaSentinel 813 — Project State
 
-## Current AS-201 M54 — offline manifest UTC-time correction — PASS
+## Current AS-201 M57 — offline manifest platform scope / casing correction — PASS
+
+**M57 / E57 / EV-061: OFFLINE MANIFEST PLATFORM FAMILYNAME INTEROPERABILITY
+CORRECTION PASS.** Prepared on `fix/as-201-manifest-platform-familyname` from M56
+`839b593a6f79722235494ab40c6df345ea17c7de`; main remains
+`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`. M55/M56 evidence preserved.
+Only manifest platform familyName now requires exactly one nonempty direct child
+and case-only Sentinel-1 identity equality. Nested instrument families are excluded;
+platform number A, shared XML/time helpers, earlier/later guards remain unchanged.
+
+**69 new offline cases; 330 focused / 1617 full tests PASS**, six existing Rasterio
+warnings; Ruff/diff/JSON/digest/security/preservation PASS. Exact six-source M56
+representation crosses the complete synthetic metadata validator, not live readiness.
+Provider requests/signing/pixels/scientific SAR compute **zero**; M55/M56 not rerun.
+Prior evidence, Decisions 050–054, resolver/policy/shared STAC/optical/config/
+dependencies, 44 protected hashes/57 modes/three stashes preserved.
+**M55 HISTORICAL LIVE FAIL; M56 DIAGNOSTIC COMPLETE; LIVE_READINESS UNPROVED;
+AS-202 NOT STARTED; Decision 055 ABSENT.** No PR or merge.
+Next: owner review → separately authorized publication/merge → separately
+authorized controlled live engineering acceptance. No retry or SAR science in M57.
+Evidence: [EV-061 MD](evidence/AS_201_MANIFEST_PLATFORM_FIX.md) /
+[JSON](evidence/AS_201_MANIFEST_PLATFORM_FIX.json).
+
+## Historical AS-201 M56 — diagnostic before M57 offline correction
+
+**M56 / E56 / EV-060: MANIFEST_PLATFORM_REPRESENTATION_DIAGNOSTIC_COMPLETE.**
+Prepared on `diagnostic/as-201-manifest-platform-familyname` from published M55
+`ff00aafed870b0f427532159c4eb4ac3d08691d9`; official main remains
+`cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`.
+All six manifests: one platform, number `A`, direct family `SENTINEL-1`, nested
+instrument family `Synthetic Aperture Radar` (`abbreviation="SAR"`). Recursive
+`familyName` lookup sees two distinct values and raises the exact M55 exception.
+Direct-child scoping alone would still fail the later case-sensitive `Sentinel-1`
+literal; both representation facts are diagnosed, with no production fix.
+
+Exactly **6 signing operations / 1 token HTTP acquisition / 6 manifest HTTP200 GETs
+/ 151,650 manifest bytes**; each body SHA matches M55. No retry, catalog, TIFF,
+other XML, ZIP/image-block/pixel access or SAR science. M55 was not rerun.
+**261 focused / 1548 full tests PASS**, six existing Rasterio warnings;
+Ruff/diff/JSON/digest/security/preservation PASS. Source/tests/config/dependencies,
+Decisions 050–054, M49–M55/upstream evidence, 44 protected hashes/57 modes/three
+stashes unchanged. No raw XML/credential/signed href persisted.
+**M55 HISTORICAL LIVE FAIL; LIVE_READINESS UNPROVED; AS-202 NOT STARTED;
+Decision 055 ABSENT.** No PR or merge. Next: owner review → separately authorized
+minimal manifest-boundary correction/offline regressions → separately authorized
+live engineering gate. No correction implemented in M56.
+Evidence: [EV-060 MD](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.md) /
+[JSON](evidence/AS_201_MANIFEST_PLATFORM_DIAGNOSTIC.json).
+
+## Historical AS-201 M55 — live FAIL before M56 diagnostic
+
+**M55 / E55 / EV-059: AS201_LIVE_ACCEPTANCE_AFTER_M54 = FAIL.**
+One unchanged public search/access-validation run from PR #35 merge `cea91ab8b7fa8dbf4618a32c0a51ea1b2356f721`;
+prepared on `validation/as-201-live-acceptance-after-manifest-utc-fix`. Decision 054 and M50/M52/M54 corrections merged/frozen;
+M49/M51/M53 historical FAIL evidence preserved.
+Both catalogs complete; all six CDSE/PC identities and stable asset sets resolve.
+All six VV headers PASS; all 24 XMLs fetched. Manifest exact UTC acquisition matching
+now passes, but all six fail `_unique_text(platform, "familyName")`:
+`XML requires one consistent familyName value.` Final **UNAVAILABLE / METADATA_INVALID**;
+assembly reaches K, **ready=false**. Native measurement witness/product/LUT/geolocation/
+thermal checks NOT_REACHED. No production fix, restart, manual retry or extra diagnostic request.
+
+**195 requests / 20,261,623 response-body bytes**;
+162 HTTP206 VV structural ranges / 98,592 bytes;
+30 sign operations / 1 transient token HTTP request.
+ZIP/image-block/pixel reads/bytes **0/0**; scientific SAR compute **0**. No VH access.
+12-source lineage and complete footprint metadata do not establish access readiness.
+
+**250 focused / 1548 full tests PASS**, 6 existing Rasterio PendingDeprecationWarnings; Ruff PASS; diff/strict JSON/digest/security/preservation **PASS**.
+Source/tests/config/dependencies/Decisions 050–054 and M49–M54 evidence preserved;
+44 protected external hashes / 57 modes / three stashes retained. No secret/signed href persisted.
+**LIVE_READINESS UNPROVED. AS-202 NOT STARTED. Decision 055 ABSENT.**
+Next: owner review; any publication/merge, localization/correction or live retry
+requires separate authorization. No PR or merge in M55.
+Evidence: [EV-059 MD](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.md) and
+[JSON](evidence/AS_201_LIVE_ACCEPTANCE_AFTER_M54.json).
+
+## Historical AS-201 M54 — offline correction before PR #35 merge / M55
 
 **M54 / E54 / EV-058: OFFLINE MANIFEST UTC-TIME INTEROPERABILITY CORRECTION PASS.**
 Prepared on `fix/as-201-manifest-utc-time-normalization` from preserved M53 evidence commit
